@@ -1,0 +1,2 @@
+<!-- scene: scene-two -->
+Second standalone file.

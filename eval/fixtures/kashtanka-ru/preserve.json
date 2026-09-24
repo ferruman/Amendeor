@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "spans": [
+    {
+      "chapter": "01-kashtanka",
+      "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "start": 1271,
+      "end": 1300,
+      "text": "Чтоб… ты… из… дох…ла, холера!",
+      "note": "Interrupted speech expresses anger and breathlessness"
+    },
+    {
+      "chapter": "01-kashtanka",
+      "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "start": 1938,
+      "end": 1955,
+      "text": "Супротив человека",
+      "note": "Character dialect"
+    },
+    {
+      "chapter": "05-kashtanka",
+      "scene": "db498a81-397a-4e10-8480-377dff472260",
+      "start": 3589,
+      "end": 3604,
+      "text": "Талант! Талант!",
+      "note": "Deliberate emphatic repetition"
+    }
+  ]
+}

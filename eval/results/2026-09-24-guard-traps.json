@@ -1,0 +1,105 @@
+{
+  "schema": "amendeor.guard-traps/0.1",
+  "generated_at": "2026-09-24T18:00:58.122Z",
+  "kind": "deterministic-trap-stage-only",
+  "results": {
+    "jekyll-en": {
+      "language": "en",
+      "total": 160,
+      "rejected": 160,
+      "recall": 1,
+      "per_type": {
+        "negation": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "number": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "name": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "location": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "certainty": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "ownership": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "intention": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "chronology": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        }
+      },
+      "missed": []
+    },
+    "kashtanka-ru": {
+      "language": "ru",
+      "total": 160,
+      "rejected": 160,
+      "recall": 1,
+      "per_type": {
+        "negation": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "number": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "name": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "location": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "certainty": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "ownership": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "intention": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        },
+        "chronology": {
+          "total": 20,
+          "rejected": 20,
+          "recall": 1
+        }
+      },
+      "missed": []
+    }
+  }
+}

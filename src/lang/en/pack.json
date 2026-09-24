@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "language": "en",
+  "stopwords": ["a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "from", "he", "her", "his", "i", "in", "is", "it", "of", "on", "or", "she", "that", "the", "their", "there", "they", "this", "to", "was", "were", "with", "you"],
+  "negation": ["no", "not", "never", "none", "neither", "nor", "without", "don't", "didn't", "cannot", "can't"],
+  "modal": ["may", "might", "must", "probably", "perhaps", "certainly", "surely", "could", "would"],
+  "quote_pairs": [["“", "”"], ["‘", "’"], ["\"", "\""]],
+  "abbreviations": ["Mr.", "Mrs.", "Dr.", "Prof.", "St.", "e.g.", "i.e."],
+  "filter_verbs": ["saw", "noticed", "felt", "heard", "realized", "seemed"],
+  "adverb_suffixes": ["ly"],
+  "dash": { "speech": "—", "between_words": "—" },
+  "spelling_variants": [["colour", "color"], ["favour", "favor"], ["centre", "center"], ["organise", "organize"]],
+  "register": { "formal": ["however", "therefore"], "informal": ["ain't", "gonna", "yeah"] },
+  "chars_per_token": 4
+}

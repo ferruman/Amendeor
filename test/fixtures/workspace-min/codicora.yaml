@@ -1,0 +1,10 @@
+spec: codicora/v1
+type: project
+project:
+  id: fixture
+  title: Fixture
+  source_language: en
+manuscript:
+  path: manuscript
+edited:
+  path: edited

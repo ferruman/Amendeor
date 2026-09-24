@@ -1,0 +1,113 @@
+{
+  "seed": "amendeor-v1",
+  "mutations": [
+    {
+      "id": "jekyll-en:punctuation:0:02-jekyll:9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+      "type": "punctuation",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+      "span": {
+        "start": 2179,
+        "end": 2179
+      },
+      "original": ",",
+      "mutated": ""
+    },
+    {
+      "id": "jekyll-en:doubled-word:1:02-jekyll:9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+      "type": "doubled-word",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+      "span": {
+        "start": 3187,
+        "end": 3206
+      },
+      "original": "startling",
+      "mutated": "startling startling"
+    },
+    {
+      "id": "jekyll-en:typo:0:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+      "type": "typo",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+      "span": {
+        "start": 2153,
+        "end": 2159
+      },
+      "original": "lawyer",
+      "mutated": "laywer"
+    },
+    {
+      "id": "jekyll-en:terminology:1:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+      "type": "terminology",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+      "span": {
+        "start": 2508,
+        "end": 2512
+      },
+      "original": "Hyde",
+      "mutated": "Hide"
+    },
+    {
+      "id": "jekyll-en:sentence-frame:2:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+      "type": "sentence-frame",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+      "span": {
+        "start": 2606,
+        "end": 2624
+      },
+      "original": "he asked",
+      "mutated": "he asked. he asked"
+    },
+    {
+      "id": "jekyll-en:dialogue-format:3:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+      "type": "dialogue-format",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+      "span": {
+        "start": 3725,
+        "end": 3726
+      },
+      "original": "”",
+      "mutated": "\""
+    },
+    {
+      "id": "jekyll-en:agreement:0:04-jekyll:c2b12541-7cb8-45fd-88b9-717019363afa",
+      "type": "agreement",
+      "chapter": "04-jekyll",
+      "scene": "c2b12541-7cb8-45fd-88b9-717019363afa",
+      "span": {
+        "start": 3230,
+        "end": 3234
+      },
+      "original": "was",
+      "mutated": "were"
+    },
+    {
+      "id": "jekyll-en:qualifier:0:04-jekyll:3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "type": "qualifier",
+      "chapter": "04-jekyll",
+      "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "span": {
+        "start": 1769,
+        "end": 1784
+      },
+      "original": "seemed",
+      "mutated": "somewhat seemed"
+    },
+    {
+      "id": "jekyll-en:redundancy:0:04-jekyll:07d0a395-a366-4d4a-8d4a-3099d45465b2",
+      "type": "redundancy",
+      "chapter": "04-jekyll",
+      "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+      "span": {
+        "start": 866,
+        "end": 881
+      },
+      "original": "was",
+      "mutated": "was again again"
+    }
+  ]
+}

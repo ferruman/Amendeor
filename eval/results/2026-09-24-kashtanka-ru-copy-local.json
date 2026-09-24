@@ -1,0 +1,739 @@
+{
+  "schema": "amendeor.eval/0.1",
+  "work": "kashtanka-ru",
+  "language": "ru",
+  "mode": "copy",
+  "label": "local",
+  "runs": 3,
+  "generated_at": "2026-09-24T19:13:35.802Z",
+  "mutation_seed": "amendeor-v1",
+  "mutations": 9,
+  "formulaic": false,
+  "guard_metric_scope": "deterministic-trap-stage-only",
+  "versions": [
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.1",
+      "mode": "copy",
+      "prompt_version": "1.1.0",
+      "model_id": "no-change"
+    },
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.1",
+      "mode": "copy",
+      "prompt_version": "1.1.0",
+      "model_id": "no-change"
+    },
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.1",
+      "mode": "copy",
+      "prompt_version": "1.1.0",
+      "model_id": "no-change"
+    }
+  ],
+  "usage": [
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1306,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 971
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1246,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 620
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 366,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1106,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 533
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1263,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 631
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1209,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 597
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1278,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 641
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 982,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 456
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1219,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 604
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1332,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 674
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 673,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 262
+        }
+      ],
+      "tokens_in": 11980,
+      "tokens_out": 33,
+      "cost": null,
+      "currency": null,
+      "ms": 0
+    },
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1306,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 971
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1246,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 620
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 366,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1106,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 533
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1263,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 631
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1209,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 597
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1278,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 641
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 982,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 456
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1219,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 604
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1332,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 674
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 673,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 262
+        }
+      ],
+      "tokens_in": 11980,
+      "tokens_out": 33,
+      "cost": null,
+      "currency": null,
+      "ms": 0
+    },
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1306,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 971
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1246,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 620
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 366,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1106,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 533
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1263,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 631
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1209,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 597
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1278,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 641
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 982,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 456
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1219,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 604
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 1332,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 674
+        },
+        {
+          "stage": "edit",
+          "provider": "scripted",
+          "model": "no-change",
+          "tokens_in": 673,
+          "tokens_out": 3,
+          "cost": null,
+          "currency": null,
+          "ms": 0,
+          "budget": 262
+        }
+      ],
+      "tokens_in": 11980,
+      "tokens_out": 33,
+      "cost": null,
+      "currency": null,
+      "ms": 0
+    }
+  ],
+  "summary": {
+    "recall": {
+      "dialogue-format": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "terminology": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "agreement": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "typo": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "punctuation": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "doubled-word": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "redundancy": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "qualifier": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "sentence-frame": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      }
+    },
+    "unnecessary_edit_rate": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "control_proposals": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "guard_recall": {
+      "mean": 1,
+      "min": 1,
+      "max": 1
+    },
+    "semantic_regression": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "cost": "n/a",
+    "model_ms": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "scores": [
+    {
+      "recall": {
+        "dialogue-format": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "typo": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 0,
+        "scanned_words": 5986,
+        "rate": 0,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "kashtanka-ru:dialogue-format:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "proposal_id": "amendeor:81d256920ae64d55"
+        },
+        {
+          "mutation_id": "kashtanka-ru:doubled-word:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "proposal_id": "amendeor:3e4123c218138e70"
+        },
+        {
+          "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "proposal_id": "amendeor:0f04cf1c56bfdc44"
+        },
+        {
+          "mutation_id": "kashtanka-ru:sentence-frame:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+          "proposal_id": "amendeor:466e1a0aabf72cbe"
+        }
+      ]
+    },
+    {
+      "recall": {
+        "dialogue-format": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "typo": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 0,
+        "scanned_words": 5986,
+        "rate": 0,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "kashtanka-ru:dialogue-format:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "proposal_id": "amendeor:81d256920ae64d55"
+        },
+        {
+          "mutation_id": "kashtanka-ru:doubled-word:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "proposal_id": "amendeor:3e4123c218138e70"
+        },
+        {
+          "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "proposal_id": "amendeor:0f04cf1c56bfdc44"
+        },
+        {
+          "mutation_id": "kashtanka-ru:sentence-frame:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+          "proposal_id": "amendeor:466e1a0aabf72cbe"
+        }
+      ]
+    },
+    {
+      "recall": {
+        "dialogue-format": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "typo": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 0,
+        "scanned_words": 5986,
+        "rate": 0,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "kashtanka-ru:dialogue-format:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "proposal_id": "amendeor:81d256920ae64d55"
+        },
+        {
+          "mutation_id": "kashtanka-ru:doubled-word:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "proposal_id": "amendeor:3e4123c218138e70"
+        },
+        {
+          "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "proposal_id": "amendeor:0f04cf1c56bfdc44"
+        },
+        {
+          "mutation_id": "kashtanka-ru:sentence-frame:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+          "proposal_id": "amendeor:466e1a0aabf72cbe"
+        }
+      ]
+    }
+  ]
+}

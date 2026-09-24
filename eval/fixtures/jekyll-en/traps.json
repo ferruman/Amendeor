@@ -1,0 +1,1285 @@
+{
+  "version": 1,
+  "traps": [
+    {
+      "id": "jekyll-en:negation:fixture:0",
+      "type": "negation",
+      "before": "He was austere with himself; drank gin when he was alone, to mortify a taste for vintages; and though he enjoyed the theatre, had not crossed the doors of one for twenty years. He recognized her.",
+      "after": "He was austere with himself; drank gin when he was alone, to mortify a taste for vintages; and though he enjoyed the theatre, had not crossed the doors of one for twenty years. He did not recognize her.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:0",
+      "type": "negation",
+      "before": "He recognized her.",
+      "after": "He did not recognize her.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:negation:fixture:1",
+      "type": "negation",
+      "before": "And to such as these, so long as they came about his chambers, he never marked a shade of change in his demeanour. She knew the answer.",
+      "after": "And to such as these, so long as they came about his chambers, he never marked a shade of change in his demeanour. She did not know the answer.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:1",
+      "type": "negation",
+      "before": "She knew the answer.",
+      "after": "She did not know the answer.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:negation:fixture:2",
+      "type": "negation",
+      "before": "Utterson; for he was undemonstrative at the best, and even his friendship seemed to be founded in a similar catholicity of good-nature. He was there.",
+      "after": "Utterson; for he was undemonstrative at the best, and even his friendship seemed to be founded in a similar catholicity of good-nature. He was not there.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:2",
+      "type": "negation",
+      "before": "He was there.",
+      "after": "He was not there.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:negation:fixture:3",
+      "type": "negation",
+      "before": "It is the mark of a modest man to accept his friendly circle ready-made from the hands of opportunity; and that was the lawyer’s way. They had seen it.",
+      "after": "It is the mark of a modest man to accept his friendly circle ready-made from the hands of opportunity; and that was the lawyer’s way. They had not seen it.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:3",
+      "type": "negation",
+      "before": "They had seen it.",
+      "after": "They had not seen it.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:negation:fixture:4",
+      "type": "negation",
+      "before": "His friends were those of his own blood or those whom he had known the longest; his affections, like ivy, were the growth of time, they implied no aptness in the object. The door opened.",
+      "after": "His friends were those of his own blood or those whom he had known the longest; his affections, like ivy, were the growth of time, they implied no aptness in the object. The door did not open.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:4",
+      "type": "negation",
+      "before": "The door opened.",
+      "after": "The door did not open.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:negation:fixture:5",
+      "type": "negation",
+      "before": "Hence, no doubt the bond that united him to Mr. She agreed.",
+      "after": "Hence, no doubt the bond that united him to Mr. She did not agree.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:5",
+      "type": "negation",
+      "before": "She agreed.",
+      "after": "She did not agree.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:negation:fixture:6",
+      "type": "negation",
+      "before": "Richard Enfield, his distant kinsman, the well-known man about town. He remembered.",
+      "after": "Richard Enfield, his distant kinsman, the well-known man about town. He did not remember.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:6",
+      "type": "negation",
+      "before": "He remembered.",
+      "after": "He did not remember.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:negation:fixture:7",
+      "type": "negation",
+      "before": "It was a nut to crack for many, what these two could see in each other, or what subject they could find in common. They returned.",
+      "after": "It was a nut to crack for many, what these two could see in each other, or what subject they could find in common. They did not return.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:7",
+      "type": "negation",
+      "before": "They returned.",
+      "after": "They did not return.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:negation:fixture:8",
+      "type": "negation",
+      "before": "It was reported by those who encountered them in their Sunday walks, that they said nothing, looked singularly dull and would hail with obvious relief the appearance of a friend. The witness spoke.",
+      "after": "It was reported by those who encountered them in their Sunday walks, that they said nothing, looked singularly dull and would hail with obvious relief the appearance of a friend. The witness did not speak.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:8",
+      "type": "negation",
+      "before": "The witness spoke.",
+      "after": "The witness did not speak.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:negation:fixture:9",
+      "type": "negation",
+      "before": "It chanced on one of these rambles that their way led them down a by-street in a busy quarter of London. He believed her.",
+      "after": "It chanced on one of these rambles that their way led them down a by-street in a busy quarter of London. He did not believe her.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:negation:hand:9",
+      "type": "negation",
+      "before": "He believed her.",
+      "after": "He did not believe her.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:0",
+      "type": "number",
+      "before": "The street was small and what is called quiet, but it drove a thriving trade on the weekdays. There were two letters.",
+      "after": "The street was small and what is called quiet, but it drove a thriving trade on the weekdays. There were three letters.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148"
+    },
+    {
+      "id": "jekyll-en:number:hand:0",
+      "type": "number",
+      "before": "There were two letters.",
+      "after": "There were three letters.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:1",
+      "type": "number",
+      "before": "The door, which was equipped with neither bell nor knocker, was blistered and distained. She waited seven days.",
+      "after": "The door, which was equipped with neither bell nor knocker, was blistered and distained. She waited eight days.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "8b2c7fbb-d69f-4aad-8c6e-18533cdba163"
+    },
+    {
+      "id": "jekyll-en:number:hand:1",
+      "type": "number",
+      "before": "She waited seven days.",
+      "after": "She waited eight days.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:2",
+      "type": "number",
+      "before": "Enfield and the lawyer were on the other side of the by-street; but when they came abreast of the entry, the former lifted up his cane and pointed. The clock read 10:14.",
+      "after": "Enfield and the lawyer were on the other side of the by-street; but when they came abreast of the entry, the former lifted up his cane and pointed. The clock read 10:15.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "8b2c7fbb-d69f-4aad-8c6e-18533cdba163"
+    },
+    {
+      "id": "jekyll-en:number:hand:2",
+      "type": "number",
+      "before": "The clock read 10:14.",
+      "after": "The clock read 10:15.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:3",
+      "type": "number",
+      "before": "It sounds nothing to hear, but it was hellish to see. He paid five pounds.",
+      "after": "It sounds nothing to hear, but it was hellish to see. He paid six pounds.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:number:hand:3",
+      "type": "number",
+      "before": "He paid five pounds.",
+      "after": "He paid six pounds.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:4",
+      "type": "number",
+      "before": "It wasn’t like a man; it was like some damned Juggernaut. There were four witnesses.",
+      "after": "It wasn’t like a man; it was like some damned Juggernaut. There were five witnesses.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:number:hand:4",
+      "type": "number",
+      "before": "There were four witnesses.",
+      "after": "There were five witnesses.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:5",
+      "type": "number",
+      "before": "I gave a few halloa, took to my heels, collared my gentleman, and brought him back to where there was already quite a group about the screaming child. She was twenty years old.",
+      "after": "I gave a few halloa, took to my heels, collared my gentleman, and brought him back to where there was already quite a group about the screaming child. She was thirty years old.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:number:hand:5",
+      "type": "number",
+      "before": "She was twenty years old.",
+      "after": "She was thirty years old.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:6",
+      "type": "number",
+      "before": "He was perfectly cool and made no resistance, but gave me one look, so ugly that it brought out the sweat on me like running. The train left at 08:30.",
+      "after": "He was perfectly cool and made no resistance, but gave me one look, so ugly that it brought out the sweat on me like running. The train left at 09:30.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:number:hand:6",
+      "type": "number",
+      "before": "The train left at 08:30.",
+      "after": "The train left at 09:30.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:7",
+      "type": "number",
+      "before": "The people who had turned out were the girl’s own family; and pretty soon, the doctor, for whom she had been sent, put in his appearance. They met in 1885.",
+      "after": "The people who had turned out were the girl’s own family; and pretty soon, the doctor, for whom she had been sent, put in his appearance. They met in 1886.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:number:hand:7",
+      "type": "number",
+      "before": "They met in 1885.",
+      "after": "They met in 1886.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:8",
+      "type": "number",
+      "before": "Well, the child was not much the worse, more frightened, according to the Sawbones; and there you might have supposed would be an end to it. He counted three steps.",
+      "after": "Well, the child was not much the worse, more frightened, according to the Sawbones; and there you might have supposed would be an end to it. He counted four steps.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:number:hand:8",
+      "type": "number",
+      "before": "He counted three steps.",
+      "after": "He counted four steps.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:number:fixture:9",
+      "type": "number",
+      "before": "I had taken a loathing to my gentleman at first sight. It lasted one hour.",
+      "after": "I had taken a loathing to my gentleman at first sight. It lasted two hours.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:number:hand:9",
+      "type": "number",
+      "before": "It lasted one hour.",
+      "after": "It lasted two hours.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:0",
+      "type": "name",
+      "before": "So had the child’s family, which was only natural. Hyde signed the note.",
+      "after": "So had the child’s family, which was only natural. Jekyll signed the note.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:0",
+      "type": "name",
+      "before": "Hyde signed the note.",
+      "after": "Jekyll signed the note.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:1",
+      "type": "name",
+      "before": "He was the usual cut and dry apothecary, of no particular age and colour, with a strong Edinburgh accent and about as emotional as a bagpipe. Utterson was waiting.",
+      "after": "He was the usual cut and dry apothecary, of no particular age and colour, with a strong Edinburgh accent and about as emotional as a bagpipe. Enfield was waiting.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:1",
+      "type": "name",
+      "before": "Utterson was waiting.",
+      "after": "Enfield was waiting.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:2",
+      "type": "name",
+      "before": "Well, sir, he was like the rest of us; every time he looked at my prisoner, I saw that Sawbones turn sick and white with the desire to kill him. Mary found the key.",
+      "after": "Well, sir, he was like the rest of us; every time he looked at my prisoner, I saw that Sawbones turn sick and white with the desire to kill him. Martha found the key.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:2",
+      "type": "name",
+      "before": "Mary found the key.",
+      "after": "Martha found the key.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:3",
+      "type": "name",
+      "before": "I knew what was in his mind, just as he knew what was in mine; and killing being out of the question, we did the next best. John heard the noise.",
+      "after": "I knew what was in his mind, just as he knew what was in mine; and killing being out of the question, we did the next best. James heard the noise.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:3",
+      "type": "name",
+      "before": "John heard the noise.",
+      "after": "James heard the noise.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:4",
+      "type": "name",
+      "before": "We told the man we could and would make such a scandal out of this as should make his name stink from one end of London to the other. Alice entered first.",
+      "after": "We told the man we could and would make such a scandal out of this as should make his name stink from one end of London to the other. Agnes entered first.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:4",
+      "type": "name",
+      "before": "Alice entered first.",
+      "after": "Agnes entered first.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:5",
+      "type": "name",
+      "before": "If he had any friends or any credit, we undertook that he should lose them. Robert wrote to her.",
+      "after": "If he had any friends or any credit, we undertook that he should lose them. Richard wrote to her.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:5",
+      "type": "name",
+      "before": "Robert wrote to her.",
+      "after": "Richard wrote to her.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:6",
+      "type": "name",
+      "before": "And all the time, as we were pitching it in red hot, we were keeping the women off him as best we could for they were as wild as harpies. Clara kept the letter.",
+      "after": "And all the time, as we were pitching it in red hot, we were keeping the women off him as best we could for they were as wild as harpies. Celia kept the letter.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:6",
+      "type": "name",
+      "before": "Clara kept the letter.",
+      "after": "Celia kept the letter.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:7",
+      "type": "name",
+      "before": "‘If you choose to make capital out of this accident,’ said he, ‘I am naturally helpless. Thomas answered.",
+      "after": "‘If you choose to make capital out of this accident,’ said he, ‘I am naturally helpless. Timothy answered.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:7",
+      "type": "name",
+      "before": "Thomas answered.",
+      "after": "Timothy answered.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:8",
+      "type": "name",
+      "before": "No gentleman but wishes to avoid a scene,’ says he. Emma saw the door.",
+      "after": "No gentleman but wishes to avoid a scene,’ says he. Emily saw the door.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:8",
+      "type": "name",
+      "before": "Emma saw the door.",
+      "after": "Emily saw the door.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:name:fixture:9",
+      "type": "name",
+      "before": "The figure was stiff; but the signature was good for more than that if it was only genuine. Henry held the lamp.",
+      "after": "The figure was stiff; but the signature was good for more than that if it was only genuine. Harry held the lamp.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:name:hand:9",
+      "type": "name",
+      "before": "Henry held the lamp.",
+      "after": "Harry held the lamp.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:0",
+      "type": "location",
+      "before": "I gave in the cheque myself, and said I had every reason to believe it was a forgery. He waited in London.",
+      "after": "I gave in the cheque myself, and said I had every reason to believe it was a forgery. He waited in Oxford.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f"
+    },
+    {
+      "id": "jekyll-en:location:hand:0",
+      "type": "location",
+      "before": "He waited in London.",
+      "after": "He waited in Oxford.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:1",
+      "type": "location",
+      "before": "Blackmail, I suppose; an honest man paying through the nose for some of the capers of his youth. She left the letter upstairs.",
+      "after": "Blackmail, I suppose; an honest man paying through the nose for some of the capers of his youth. She left the letter downstairs.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:location:hand:1",
+      "type": "location",
+      "before": "She left the letter upstairs.",
+      "after": "She left the letter downstairs.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:2",
+      "type": "location",
+      "before": "Black Mail House is what I call the place with the door, in consequence. They met at the station.",
+      "after": "Black Mail House is what I call the place with the door, in consequence. They met at the church.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:location:hand:2",
+      "type": "location",
+      "before": "They met at the station.",
+      "after": "They met at the church.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:3",
+      "type": "location",
+      "before": "You start a question, and it’s like starting a stone. The key was in the drawer.",
+      "after": "You start a question, and it’s like starting a stone. The key was in the cupboard.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:location:hand:3",
+      "type": "location",
+      "before": "The key was in the drawer.",
+      "after": "The key was in the cupboard.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:4",
+      "type": "location",
+      "before": "There is no other door, and nobody goes in or out of that one but, once in a great while, the gentleman of my adventure. He entered through the front door.",
+      "after": "There is no other door, and nobody goes in or out of that one but, once in a great while, the gentleman of my adventure. He entered through the back door.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:location:hand:4",
+      "type": "location",
+      "before": "He entered through the front door.",
+      "after": "He entered through the back door.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:5",
+      "type": "location",
+      "before": "There are three windows looking on the court on the first floor; none below; the windows are always shut but they’re clean. She stood by the window.",
+      "after": "There are three windows looking on the court on the first floor; none below; the windows are always shut but they’re clean. She stood by the fireplace.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:location:hand:5",
+      "type": "location",
+      "before": "She stood by the window.",
+      "after": "She stood by the fireplace.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:6",
+      "type": "location",
+      "before": "And then there is a chimney which is generally smoking; so somebody must live there. They went north.",
+      "after": "And then there is a chimney which is generally smoking; so somebody must live there. They went south.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:location:hand:6",
+      "type": "location",
+      "before": "They went north.",
+      "after": "They went south.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:7",
+      "type": "location",
+      "before": "There is something wrong with his appearance; something displeasing, something down-right detestable. The carriage stopped outside.",
+      "after": "There is something wrong with his appearance; something displeasing, something down-right detestable. The carriage stopped inside.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:location:hand:7",
+      "type": "location",
+      "before": "The carriage stopped outside.",
+      "after": "The carriage stopped inside.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:8",
+      "type": "location",
+      "before": "I never saw a man I so disliked, and yet I scarce know why. The book lay on the table.",
+      "after": "I never saw a man I so disliked, and yet I scarce know why. The book lay under the table.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:location:hand:8",
+      "type": "location",
+      "before": "The book lay on the table.",
+      "after": "The book lay under the table.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:location:fixture:9",
+      "type": "location",
+      "before": "He must be deformed somewhere; he gives a strong feeling of deformity, although I couldn’t specify the point. He returned to Paris.",
+      "after": "He must be deformed somewhere; he gives a strong feeling of deformity, although I couldn’t specify the point. He returned to London.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:location:hand:9",
+      "type": "location",
+      "before": "He returned to Paris.",
+      "after": "He returned to London.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:0",
+      "type": "certainty",
+      "before": "He’s an extraordinary looking man, and yet I really can name nothing out of the way. He might have seen her.",
+      "after": "He’s an extraordinary looking man, and yet I really can name nothing out of the way. He had seen her.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:0",
+      "type": "certainty",
+      "before": "He might have seen her.",
+      "after": "He had seen her.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:1",
+      "type": "certainty",
+      "before": "No, sir; I can make no hand of it; I can’t describe him. Perhaps she knew.",
+      "after": "No, sir; I can make no hand of it; I can’t describe him. She knew.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:1",
+      "type": "certainty",
+      "before": "Perhaps she knew.",
+      "after": "She knew.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:2",
+      "type": "certainty",
+      "before": "Utterson again walked some way in silence and obviously under a weight of consideration. He seemed angry.",
+      "after": "Utterson again walked some way in silence and obviously under a weight of consideration. He was angry.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:2",
+      "type": "certainty",
+      "before": "He seemed angry.",
+      "after": "He was angry.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:3",
+      "type": "certainty",
+      "before": "The fact is, if I do not ask you the name of the other party, it is because I know it already. It was possible.",
+      "after": "The fact is, if I do not ask you the name of the other party, it is because I know it already. It was certain.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:3",
+      "type": "certainty",
+      "before": "It was possible.",
+      "after": "It was certain.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:4",
+      "type": "certainty",
+      "before": "The fellow had a key; and what’s more, he has it still. She could be right.",
+      "after": "The fellow had a key; and what’s more, he has it still. She was right.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "8e6e83d0-d00f-4322-8746-f8bb78acbc44"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:4",
+      "type": "certainty",
+      "before": "She could be right.",
+      "after": "She was right.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:5",
+      "type": "certainty",
+      "before": "Utterson sighed deeply but said never a word; and the young man presently resumed. He probably left.",
+      "after": "Utterson sighed deeply but said never a word; and the young man presently resumed. He definitely left.",
+      "origin": "fixture",
+      "chapter": "01-jekyll",
+      "scene": "8e6e83d0-d00f-4322-8746-f8bb78acbc44"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:5",
+      "type": "certainty",
+      "before": "He probably left.",
+      "after": "He definitely left.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:6",
+      "type": "certainty",
+      "before": "Utterson came home to his bachelor house in sombre spirits and sat down to dinner without relish. The noise may have come from upstairs.",
+      "after": "Utterson came home to his bachelor house in sombre spirits and sat down to dinner without relish. The noise came from upstairs.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:6",
+      "type": "certainty",
+      "before": "The noise may have come from upstairs.",
+      "after": "The noise came from upstairs.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:7",
+      "type": "certainty",
+      "before": "On this night however, as soon as the cloth was taken away, he took up a candle and went into his business room. They apparently agreed.",
+      "after": "On this night however, as soon as the cloth was taken away, he took up a candle and went into his business room. They agreed.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:7",
+      "type": "certainty",
+      "before": "They apparently agreed.",
+      "after": "They agreed.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:8",
+      "type": "certainty",
+      "before": "There he opened his safe, took from the most private part of it a document endorsed on the envelope as Dr. He suspected the truth.",
+      "after": "There he opened his safe, took from the most private part of it a document endorsed on the envelope as Dr. He knew the truth.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:8",
+      "type": "certainty",
+      "before": "He suspected the truth.",
+      "after": "He knew the truth.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:certainty:fixture:9",
+      "type": "certainty",
+      "before": "Jekyll’s Will and sat down with a clouded brow to study its contents. She was unsure.",
+      "after": "Jekyll’s Will and sat down with a clouded brow to study its contents. She was certain.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:certainty:hand:9",
+      "type": "certainty",
+      "before": "She was unsure.",
+      "after": "She was certain.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:0",
+      "type": "ownership",
+      "before": "This document had long been the lawyer’s eyesore. It was her letter.",
+      "after": "This document had long been the lawyer’s eyesore. It was his letter.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:0",
+      "type": "ownership",
+      "before": "It was her letter.",
+      "after": "It was his letter.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:1",
+      "type": "ownership",
+      "before": "It offended him both as a lawyer and as a lover of the sane and customary sides of life, to whom the fanciful was the immodest. The key belonged to Hyde.",
+      "after": "It offended him both as a lawyer and as a lover of the sane and customary sides of life, to whom the fanciful was the immodest. The key belonged to Jekyll.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:1",
+      "type": "ownership",
+      "before": "The key belonged to Hyde.",
+      "after": "The key belonged to Jekyll.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:2",
+      "type": "ownership",
+      "before": "Hyde that had swelled his indignation; now, by a sudden turn, it was his knowledge. She carried her bag.",
+      "after": "Hyde that had swelled his indignation; now, by a sudden turn, it was his knowledge. She carried his bag.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:2",
+      "type": "ownership",
+      "before": "She carried her bag.",
+      "after": "She carried his bag.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:3",
+      "type": "ownership",
+      "before": "It was already bad enough when the name was but a name of which he could learn no more. He opened his house.",
+      "after": "It was already bad enough when the name was but a name of which he could learn no more. He opened her house.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:3",
+      "type": "ownership",
+      "before": "He opened his house.",
+      "after": "He opened her house.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:4",
+      "type": "ownership",
+      "before": "Lanyon, had his house and received his crowding patients. They sold their shop.",
+      "after": "Lanyon, had his house and received his crowding patients. They sold his shop.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:4",
+      "type": "ownership",
+      "before": "They sold their shop.",
+      "after": "They sold his shop.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:5",
+      "type": "ownership",
+      "before": "The solemn butler knew and welcomed him; he was subjected to no stage of delay, but ushered direct from the door to the dining-room where Dr. This was Mary’s coat.",
+      "after": "The solemn butler knew and welcomed him; he was subjected to no stage of delay, but ushered direct from the door to the dining-room where Dr. This was Martha’s coat.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:5",
+      "type": "ownership",
+      "before": "This was Mary’s coat.",
+      "after": "This was Martha’s coat.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:6",
+      "type": "ownership",
+      "before": "This was a hearty, healthy, dapper, red-faced gentleman, with a shock of hair prematurely white, and a boisterous and decided manner. He returned her book.",
+      "after": "This was a hearty, healthy, dapper, red-faced gentleman, with a shock of hair prematurely white, and a boisterous and decided manner. He returned his book.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:6",
+      "type": "ownership",
+      "before": "He returned her book.",
+      "after": "He returned his book.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:7",
+      "type": "ownership",
+      "before": "Utterson, he sprang up from his chair and welcomed him with both hands. The money was theirs.",
+      "after": "Utterson, he sprang up from his chair and welcomed him with both hands. The money was his.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:7",
+      "type": "ownership",
+      "before": "The money was theirs.",
+      "after": "The money was his.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:8",
+      "type": "ownership",
+      "before": "The geniality, as was the way of the man, was somewhat theatrical to the eye; but it reposed on genuine feeling. She kept her papers.",
+      "after": "The geniality, as was the way of the man, was somewhat theatrical to the eye; but it reposed on genuine feeling. She kept their papers.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:8",
+      "type": "ownership",
+      "before": "She kept her papers.",
+      "after": "She kept their papers.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:ownership:fixture:9",
+      "type": "ownership",
+      "before": "After a little rambling talk, the lawyer led up to the subject which so disagreeably preoccupied his mind. It was John’s room.",
+      "after": "After a little rambling talk, the lawyer led up to the subject which so disagreeably preoccupied his mind. It was James’s room.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480"
+    },
+    {
+      "id": "jekyll-en:ownership:hand:9",
+      "type": "ownership",
+      "before": "It was John’s room.",
+      "after": "It was James’s room.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:0",
+      "type": "intention",
+      "before": "He began to go wrong, wrong in mind; and though of course I continue to take an interest in him for old sake’s sake, as they say, I see and I have seen devilish little of the man. He wanted to leave.",
+      "after": "He began to go wrong, wrong in mind; and though of course I continue to take an interest in him for old sake’s sake, as they say, I see and I have seen devilish little of the man. He planned to stay.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09"
+    },
+    {
+      "id": "jekyll-en:intention:hand:0",
+      "type": "intention",
+      "before": "He wanted to leave.",
+      "after": "He planned to stay.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:1",
+      "type": "intention",
+      "before": "It was a night of little ease to his toiling mind, toiling in mere darkness and besieged by questions. She intended to help.",
+      "after": "It was a night of little ease to his toiling mind, toiling in mere darkness and besieged by questions. She intended to harm.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09"
+    },
+    {
+      "id": "jekyll-en:intention:hand:1",
+      "type": "intention",
+      "before": "She intended to help.",
+      "after": "She intended to harm.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:2",
+      "type": "intention",
+      "before": "Six o’clock struck on the bells of the church that was so conveniently near to Mr. They hoped to return.",
+      "after": "Six o’clock struck on the bells of the church that was so conveniently near to Mr. They hoped to escape.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09"
+    },
+    {
+      "id": "jekyll-en:intention:hand:2",
+      "type": "intention",
+      "before": "They hoped to return.",
+      "after": "They hoped to escape.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:3",
+      "type": "intention",
+      "before": "Utterson’s dwelling, and still he was digging at the problem. He tried to hide it.",
+      "after": "Utterson’s dwelling, and still he was digging at the problem. He tried to reveal it.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09"
+    },
+    {
+      "id": "jekyll-en:intention:hand:3",
+      "type": "intention",
+      "before": "He tried to hide it.",
+      "after": "He tried to reveal it.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:4",
+      "type": "intention",
+      "before": "Enfield’s tale went by before his mind in a scroll of lighted pictures. She meant to refuse.",
+      "after": "Enfield’s tale went by before his mind in a scroll of lighted pictures. She meant to accept.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09"
+    },
+    {
+      "id": "jekyll-en:intention:hand:4",
+      "type": "intention",
+      "before": "She meant to refuse.",
+      "after": "She meant to accept.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:5",
+      "type": "intention",
+      "before": "there would stand by his side a figure to whom power was given, and even at that dead hour, he must rise and do its bidding. He planned to confess.",
+      "after": "there would stand by his side a figure to whom power was given, and even at that dead hour, he must rise and do its bidding. He planned to deny it.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09"
+    },
+    {
+      "id": "jekyll-en:intention:hand:5",
+      "type": "intention",
+      "before": "He planned to confess.",
+      "after": "He planned to deny it.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:6",
+      "type": "intention",
+      "before": "If he could but once set eyes on him, he thought the mystery would lighten and perhaps roll altogether away, as was the habit of mysterious things when well examined. They came to warn him.",
+      "after": "If he could but once set eyes on him, he thought the mystery would lighten and perhaps roll altogether away, as was the habit of mysterious things when well examined. They came to accuse him.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09"
+    },
+    {
+      "id": "jekyll-en:intention:hand:6",
+      "type": "intention",
+      "before": "They came to warn him.",
+      "after": "They came to accuse him.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:7",
+      "type": "intention",
+      "before": "He might see a reason for his friend’s strange preference or bondage (call it which you please) and even for the startling clauses of the will. She wanted to forgive him.",
+      "after": "He might see a reason for his friend’s strange preference or bondage (call it which you please) and even for the startling clauses of the will. She wanted to punish him.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09"
+    },
+    {
+      "id": "jekyll-en:intention:hand:7",
+      "type": "intention",
+      "before": "She wanted to forgive him.",
+      "after": "She wanted to punish him.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:8",
+      "type": "intention",
+      "before": "Utterson began to haunt the door in the by-street of shops. He resolved to wait.",
+      "after": "Utterson began to haunt the door in the by-street of shops. He resolved to go.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:intention:hand:8",
+      "type": "intention",
+      "before": "He resolved to wait.",
+      "after": "He resolved to go.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:intention:fixture:9",
+      "type": "intention",
+      "before": "It was a fine dry night; frost in the air; the streets as clean as a ballroom floor; the lamps, unshaken by any wind, drawing a regular pattern of light and shadow. They intended to save her.",
+      "after": "It was a fine dry night; frost in the air; the streets as clean as a ballroom floor; the lamps, unshaken by any wind, drawing a regular pattern of light and shadow. They intended to abandon her.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:intention:hand:9",
+      "type": "intention",
+      "before": "They intended to save her.",
+      "after": "They intended to abandon her.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:0",
+      "type": "chronology",
+      "before": "By ten o’clock, when the shops were closed, the by-street was very solitary and, in spite of the low growl of London from all round, very silent. He left before she arrived.",
+      "after": "By ten o’clock, when the shops were closed, the by-street was very solitary and, in spite of the low growl of London from all round, very silent. He left after she arrived.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:0",
+      "type": "chronology",
+      "before": "He left before she arrived.",
+      "after": "He left after she arrived.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:1",
+      "type": "chronology",
+      "before": "Utterson had been some minutes at his post, when he was aware of an odd light footstep drawing near. She spoke first.",
+      "after": "Utterson had been some minutes at his post, when he was aware of an odd light footstep drawing near. She spoke last.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:1",
+      "type": "chronology",
+      "before": "She spoke first.",
+      "after": "She spoke last.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:2",
+      "type": "chronology",
+      "before": "The steps drew swiftly nearer, and swelled out suddenly louder as they turned the end of the street. They met yesterday.",
+      "after": "The steps drew swiftly nearer, and swelled out suddenly louder as they turned the end of the street. They met tomorrow.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:2",
+      "type": "chronology",
+      "before": "They met yesterday.",
+      "after": "They met tomorrow.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:3",
+      "type": "chronology",
+      "before": "The lawyer, looking forth from the entry, could soon see what manner of man he had to deal with. He returned in the morning.",
+      "after": "The lawyer, looking forth from the entry, could soon see what manner of man he had to deal with. He returned in the evening.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:3",
+      "type": "chronology",
+      "before": "He returned in the morning.",
+      "after": "He returned in the evening.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:4",
+      "type": "chronology",
+      "before": "He was small and very plainly dressed and the look of him, even at that distance, went somehow strongly against the watcher’s inclination. The letter arrived earlier.",
+      "after": "He was small and very plainly dressed and the look of him, even at that distance, went somehow strongly against the watcher’s inclination. The letter arrived later.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:4",
+      "type": "chronology",
+      "before": "The letter arrived earlier.",
+      "after": "The letter arrived later.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:5",
+      "type": "chronology",
+      "before": "But he made straight for the door, crossing the roadway to save time; and as he came, he drew a key from his pocket like one approaching home. She called before dinner.",
+      "after": "But he made straight for the door, crossing the roadway to save time; and as he came, he drew a key from his pocket like one approaching home. She called after dinner.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:5",
+      "type": "chronology",
+      "before": "She called before dinner.",
+      "after": "She called after dinner.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:6",
+      "type": "chronology",
+      "before": "Utterson stepped out and touched him on the shoulder as he passed. He had already gone.",
+      "after": "Utterson stepped out and touched him on the shoulder as he passed. He had not yet gone.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:6",
+      "type": "chronology",
+      "before": "He had already gone.",
+      "after": "He had not yet gone.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:7",
+      "type": "chronology",
+      "before": "Hyde shrank back with a hissing intake of the breath. They met on Monday.",
+      "after": "Hyde shrank back with a hissing intake of the breath. They met on Tuesday.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:7",
+      "type": "chronology",
+      "before": "They met on Monday.",
+      "after": "They met on Tuesday.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:8",
+      "type": "chronology",
+      "before": "Hyde appeared to hesitate, and then, as if upon some sudden reflection, fronted about with an air of defiance; and the pair stared at each other pretty fixedly for a few seconds. He came at dawn.",
+      "after": "Hyde appeared to hesitate, and then, as if upon some sudden reflection, fronted about with an air of defiance; and the pair stared at each other pretty fixedly for a few seconds. He came at dusk.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:8",
+      "type": "chronology",
+      "before": "He came at dawn.",
+      "after": "He came at dusk.",
+      "origin": "hand"
+    },
+    {
+      "id": "jekyll-en:chronology:fixture:9",
+      "type": "chronology",
+      "before": "The other snarled aloud into a savage laugh; and the next moment, with extraordinary quickness, he had unlocked the door and disappeared into the house. The door opened before midnight.",
+      "after": "The other snarled aloud into a savage laugh; and the next moment, with extraordinary quickness, he had unlocked the door and disappeared into the house. The door opened after midnight.",
+      "origin": "fixture",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d"
+    },
+    {
+      "id": "jekyll-en:chronology:hand:9",
+      "type": "chronology",
+      "before": "The door opened before midnight.",
+      "after": "The door opened after midnight.",
+      "origin": "hand"
+    }
+  ]
+}

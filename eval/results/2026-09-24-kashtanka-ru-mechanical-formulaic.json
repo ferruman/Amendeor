@@ -1,0 +1,197 @@
+{
+  "schema": "amendeor.eval/0.1",
+  "work": "kashtanka-ru",
+  "language": "ru",
+  "mode": "mechanical",
+  "runs": 1,
+  "generated_at": "2026-09-24T18:09:39.718Z",
+  "mutation_seed": "amendeor-v2",
+  "mutations": 10,
+  "formulaic": true,
+  "guard_metric_scope": "deterministic-trap-stage-only",
+  "versions": [
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.1",
+      "mode": "mechanical"
+    }
+  ],
+  "usage": [
+    {
+      "entries": [],
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost": 0,
+      "currency": null,
+      "ms": 0
+    }
+  ],
+  "summary": {
+    "recall": {
+      "terminology": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "typo": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "sentence-frame": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "agreement": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "redundancy": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "formulaic.filler-frame": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "dialogue-format": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "doubled-word": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "qualifier": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "punctuation": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "unnecessary_edit_rate": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "control_proposals": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "guard_recall": {
+      "mean": 1,
+      "min": 1,
+      "max": 1
+    },
+    "semantic_regression": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "cost": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "model_ms": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "scores": [
+    {
+      "recall": {
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "typo": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "agreement": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "formulaic.filler-frame": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "dialogue-format": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        }
+      },
+      "unnecessary": {
+        "count": 0,
+        "scanned_words": 5989,
+        "rate": 0,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "matched": [
+        {
+          "mutation_id": "kashtanka-ru:sentence-frame:0:05-kashtanka:db498a81-397a-4e10-8480-377dff472260",
+          "proposal_id": "amendeor:cfc75a088d9b14e9"
+        },
+        {
+          "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "proposal_id": "amendeor:0f04cf1c56bfdc44"
+        },
+        {
+          "mutation_id": "kashtanka-ru:dialogue-format:2:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "proposal_id": "amendeor:e2c5798e5903f719"
+        },
+        {
+          "mutation_id": "kashtanka-ru:doubled-word:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+          "proposal_id": "amendeor:0dfa0401db6960d0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4243 @@
+{
+  "schema": "amendeor.eval/0.1",
+  "work": "jekyll-en",
+  "language": "en",
+  "mode": "copy",
+  "label": "",
+  "runs": 3,
+  "generated_at": "2026-09-24T19:49:57.724Z",
+  "mutation_seed": "amendeor-v1",
+  "mutations": 9,
+  "formulaic": false,
+  "guard_metric_scope": "deterministic-trap-stage-only",
+  "versions": [
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.0",
+      "mode": "copy",
+      "prompt_version": "1.2.0",
+      "model_id": "openai/gpt-5.1"
+    },
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.0",
+      "mode": "copy",
+      "prompt_version": "1.2.0",
+      "model_id": "openai/gpt-5.1"
+    },
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.0",
+      "mode": "copy",
+      "prompt_version": "1.2.0",
+      "model_id": "openai/gpt-5.1"
+    }
+  ],
+  "usage": [
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 949,
+          "tokens_out": 80,
+          "cost": 0.00198625,
+          "currency": "USD",
+          "ms": 2520,
+          "budget": 498
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 512,
+          "tokens_out": 69,
+          "cost": 0.00133,
+          "currency": "USD",
+          "ms": 2012,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1259,
+          "tokens_out": 61,
+          "cost": 0.00218375,
+          "currency": "USD",
+          "ms": 1650,
+          "budget": 585
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1114,
+          "tokens_out": 141,
+          "cost": 0.0028025,
+          "currency": "USD",
+          "ms": 3751,
+          "budget": 507
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 374,
+          "tokens_out": 81,
+          "cost": 0.0012775,
+          "currency": "USD",
+          "ms": 1713,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1062,
+          "tokens_out": 93,
+          "cost": 0.0022575,
+          "currency": "USD",
+          "ms": 2758,
+          "budget": 473
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1035,
+          "tokens_out": 98,
+          "cost": 0.00227375,
+          "currency": "USD",
+          "ms": 2284,
+          "budget": 491
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1162,
+          "tokens_out": 173,
+          "cost": 0.0031825,
+          "currency": "USD",
+          "ms": 2183,
+          "budget": 529
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1145,
+          "tokens_out": 91,
+          "cost": 0.00234125,
+          "currency": "USD",
+          "ms": 2531,
+          "budget": 539
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 638,
+          "tokens_out": 54,
+          "cost": 0.0013375,
+          "currency": "USD",
+          "ms": 1651,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1067,
+          "tokens_out": 89,
+          "cost": 0.00222375,
+          "currency": "USD",
+          "ms": 1867,
+          "budget": 475
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 462,
+          "tokens_out": 15,
+          "cost": 0.0007275,
+          "currency": "USD",
+          "ms": 1142,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1053,
+          "tokens_out": 66,
+          "cost": 0.00197625,
+          "currency": "USD",
+          "ms": 1931,
+          "budget": 514
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1104,
+          "tokens_out": 111,
+          "cost": 0.00249,
+          "currency": "USD",
+          "ms": 2138,
+          "budget": 497
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 658,
+          "tokens_out": 69,
+          "cost": 0.0015125,
+          "currency": "USD",
+          "ms": 1768,
+          "budget": 264
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 564,
+          "tokens_out": 116,
+          "cost": 0.002288,
+          "currency": "USD",
+          "ms": 3332,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 378,
+          "tokens_out": 121,
+          "cost": 0.001966,
+          "currency": "USD",
+          "ms": 3011,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1510,
+          "tokens_out": 58,
+          "cost": 0.0036,
+          "currency": "USD",
+          "ms": 2529,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1510,
+          "tokens_out": 58,
+          "cost": 0.0036,
+          "currency": "USD",
+          "ms": 2630,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1510,
+          "tokens_out": 63,
+          "cost": 0.00365,
+          "currency": "USD",
+          "ms": 2733,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 329,
+          "tokens_out": 46,
+          "cost": 0.001118,
+          "currency": "USD",
+          "ms": 2090,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 329,
+          "tokens_out": 53,
+          "cost": 0.001188,
+          "currency": "USD",
+          "ms": 2476,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 329,
+          "tokens_out": 43,
+          "cost": 0.001088,
+          "currency": "USD",
+          "ms": 2276,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 273,
+          "tokens_out": 38,
+          "cost": 0.000926,
+          "currency": "USD",
+          "ms": 2104,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 273,
+          "tokens_out": 38,
+          "cost": 0.000926,
+          "currency": "USD",
+          "ms": 2383,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 273,
+          "tokens_out": 38,
+          "cost": 0.000926,
+          "currency": "USD",
+          "ms": 1964,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 873,
+          "tokens_out": 56,
+          "cost": 0.002306,
+          "currency": "USD",
+          "ms": 2588,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 873,
+          "tokens_out": 50,
+          "cost": 0.002246,
+          "currency": "USD",
+          "ms": 2728,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 873,
+          "tokens_out": 52,
+          "cost": 0.002266,
+          "currency": "USD",
+          "ms": 2553,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 209,
+          "tokens_out": 51,
+          "cost": 0.000928,
+          "currency": "USD",
+          "ms": 2223,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 209,
+          "tokens_out": 50,
+          "cost": 0.000918,
+          "currency": "USD",
+          "ms": 2327,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 209,
+          "tokens_out": 51,
+          "cost": 0.000928,
+          "currency": "USD",
+          "ms": 2173,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 213,
+          "tokens_out": 135,
+          "cost": 0.001776,
+          "currency": "USD",
+          "ms": 3290,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 191,
+          "tokens_out": 49,
+          "cost": 0.000872,
+          "currency": "USD",
+          "ms": 2032,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 191,
+          "tokens_out": 56,
+          "cost": 0.000942,
+          "currency": "USD",
+          "ms": 2196,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 191,
+          "tokens_out": 44,
+          "cost": 0.000822,
+          "currency": "USD",
+          "ms": 2055,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 376,
+          "tokens_out": 42,
+          "cost": 0.001172,
+          "currency": "USD",
+          "ms": 2346,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 376,
+          "tokens_out": 71,
+          "cost": 0.001462,
+          "currency": "USD",
+          "ms": 2529,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 376,
+          "tokens_out": 54,
+          "cost": 0.001292,
+          "currency": "USD",
+          "ms": 2232,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 199,
+          "tokens_out": 56,
+          "cost": 0.000958,
+          "currency": "USD",
+          "ms": 2392,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 199,
+          "tokens_out": 42,
+          "cost": 0.000818,
+          "currency": "USD",
+          "ms": 3770,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 199,
+          "tokens_out": 42,
+          "cost": 0.000818,
+          "currency": "USD",
+          "ms": 2106,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 704,
+          "tokens_out": 47,
+          "cost": 0.001878,
+          "currency": "USD",
+          "ms": 2330,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 704,
+          "tokens_out": 96,
+          "cost": 0.002368,
+          "currency": "USD",
+          "ms": 2486,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 296,
+          "tokens_out": 57,
+          "cost": 0.001162,
+          "currency": "USD",
+          "ms": 2108,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 296,
+          "tokens_out": 56,
+          "cost": 0.001152,
+          "currency": "USD",
+          "ms": 2004,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 296,
+          "tokens_out": 57,
+          "cost": 0.001162,
+          "currency": "USD",
+          "ms": 2088,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 523,
+          "tokens_out": 59,
+          "cost": 0.001636,
+          "currency": "USD",
+          "ms": 2651,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 523,
+          "tokens_out": 34,
+          "cost": 0.001386,
+          "currency": "USD",
+          "ms": 2260,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 523,
+          "tokens_out": 42,
+          "cost": 0.001466,
+          "currency": "USD",
+          "ms": 2157,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 526,
+          "tokens_out": 41,
+          "cost": 0.001462,
+          "currency": "USD",
+          "ms": 2490,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 526,
+          "tokens_out": 50,
+          "cost": 0.001552,
+          "currency": "USD",
+          "ms": 2411,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 526,
+          "tokens_out": 66,
+          "cost": 0.001712,
+          "currency": "USD",
+          "ms": 2227,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 518,
+          "tokens_out": 41,
+          "cost": 0.001446,
+          "currency": "USD",
+          "ms": 2363,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 518,
+          "tokens_out": 41,
+          "cost": 0.001446,
+          "currency": "USD",
+          "ms": 2265,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 518,
+          "tokens_out": 41,
+          "cost": 0.001446,
+          "currency": "USD",
+          "ms": 2327,
+          "budget": 256
+        }
+      ],
+      "tokens_in": 33626,
+      "tokens_out": 3592,
+      "cost": 0.09297650000000002,
+      "currency": "USD",
+      "ms": 131134
+    },
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 949,
+          "tokens_out": 123,
+          "cost": 0.00241625,
+          "currency": "USD",
+          "ms": 2637,
+          "budget": 498
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 512,
+          "tokens_out": 82,
+          "cost": 0.00146,
+          "currency": "USD",
+          "ms": 2658,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1259,
+          "tokens_out": 57,
+          "cost": 0.00214375,
+          "currency": "USD",
+          "ms": 1468,
+          "budget": 585
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1114,
+          "tokens_out": 90,
+          "cost": 0.0022925,
+          "currency": "USD",
+          "ms": 1738,
+          "budget": 507
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 374,
+          "tokens_out": 76,
+          "cost": 0.0012275,
+          "currency": "USD",
+          "ms": 1607,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1062,
+          "tokens_out": 56,
+          "cost": 0.0018875,
+          "currency": "USD",
+          "ms": 1830,
+          "budget": 473
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1035,
+          "tokens_out": 57,
+          "cost": 0.00186375,
+          "currency": "USD",
+          "ms": 1603,
+          "budget": 491
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1162,
+          "tokens_out": 109,
+          "cost": 0.0025425,
+          "currency": "USD",
+          "ms": 2753,
+          "budget": 529
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1145,
+          "tokens_out": 68,
+          "cost": 0.00211125,
+          "currency": "USD",
+          "ms": 1667,
+          "budget": 539
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 638,
+          "tokens_out": 100,
+          "cost": 0.0017975,
+          "currency": "USD",
+          "ms": 1975,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1067,
+          "tokens_out": 114,
+          "cost": 0.00247375,
+          "currency": "USD",
+          "ms": 1644,
+          "budget": 475
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 462,
+          "tokens_out": 15,
+          "cost": 0.0007275,
+          "currency": "USD",
+          "ms": 1367,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1053,
+          "tokens_out": 64,
+          "cost": 0.00195625,
+          "currency": "USD",
+          "ms": 2199,
+          "budget": 514
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1104,
+          "tokens_out": 88,
+          "cost": 0.00226,
+          "currency": "USD",
+          "ms": 1670,
+          "budget": 497
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 658,
+          "tokens_out": 65,
+          "cost": 0.0014725,
+          "currency": "USD",
+          "ms": 1451,
+          "budget": 264
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 564,
+          "tokens_out": 89,
+          "cost": 0.002018,
+          "currency": "USD",
+          "ms": 3156,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 414,
+          "tokens_out": 100,
+          "cost": 0.001828,
+          "currency": "USD",
+          "ms": 2887,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 378,
+          "tokens_out": 90,
+          "cost": 0.001656,
+          "currency": "USD",
+          "ms": 2900,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1510,
+          "tokens_out": 58,
+          "cost": 0.0036,
+          "currency": "USD",
+          "ms": 2585,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1510,
+          "tokens_out": 54,
+          "cost": 0.00356,
+          "currency": "USD",
+          "ms": 2681,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1510,
+          "tokens_out": 57,
+          "cost": 0.00359,
+          "currency": "USD",
+          "ms": 2647,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 242,
+          "tokens_out": 45,
+          "cost": 0.000934,
+          "currency": "USD",
+          "ms": 2322,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 242,
+          "tokens_out": 46,
+          "cost": 0.000944,
+          "currency": "USD",
+          "ms": 2068,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 242,
+          "tokens_out": 45,
+          "cost": 0.000934,
+          "currency": "USD",
+          "ms": 2058,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 871,
+          "tokens_out": 53,
+          "cost": 0.002272,
+          "currency": "USD",
+          "ms": 2263,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 871,
+          "tokens_out": 54,
+          "cost": 0.002282,
+          "currency": "USD",
+          "ms": 2483,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 871,
+          "tokens_out": 54,
+          "cost": 0.002282,
+          "currency": "USD",
+          "ms": 2224,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 209,
+          "tokens_out": 53,
+          "cost": 0.000948,
+          "currency": "USD",
+          "ms": 2225,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 209,
+          "tokens_out": 50,
+          "cost": 0.000918,
+          "currency": "USD",
+          "ms": 2593,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 209,
+          "tokens_out": 52,
+          "cost": 0.000938,
+          "currency": "USD",
+          "ms": 2161,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 213,
+          "tokens_out": 101,
+          "cost": 0.001436,
+          "currency": "USD",
+          "ms": 2862,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 400,
+          "tokens_out": 56,
+          "cost": 0.00136,
+          "currency": "USD",
+          "ms": 2372,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 400,
+          "tokens_out": 56,
+          "cost": 0.00136,
+          "currency": "USD",
+          "ms": 2391,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 400,
+          "tokens_out": 56,
+          "cost": 0.00136,
+          "currency": "USD",
+          "ms": 2172,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 711,
+          "tokens_out": 60,
+          "cost": 0.002022,
+          "currency": "USD",
+          "ms": 2442,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 711,
+          "tokens_out": 56,
+          "cost": 0.001982,
+          "currency": "USD",
+          "ms": 2449,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 711,
+          "tokens_out": 61,
+          "cost": 0.002032,
+          "currency": "USD",
+          "ms": 2475,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 298,
+          "tokens_out": 48,
+          "cost": 0.001076,
+          "currency": "USD",
+          "ms": 2237,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 298,
+          "tokens_out": 48,
+          "cost": 0.001076,
+          "currency": "USD",
+          "ms": 2136,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 298,
+          "tokens_out": 56,
+          "cost": 0.001156,
+          "currency": "USD",
+          "ms": 2197,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 523,
+          "tokens_out": 61,
+          "cost": 0.001656,
+          "currency": "USD",
+          "ms": 2340,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 523,
+          "tokens_out": 44,
+          "cost": 0.001486,
+          "currency": "USD",
+          "ms": 2227,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 523,
+          "tokens_out": 39,
+          "cost": 0.001436,
+          "currency": "USD",
+          "ms": 2196,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 518,
+          "tokens_out": 48,
+          "cost": 0.001516,
+          "currency": "USD",
+          "ms": 2433,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 518,
+          "tokens_out": 49,
+          "cost": 0.001526,
+          "currency": "USD",
+          "ms": 2564,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 518,
+          "tokens_out": 41,
+          "cost": 0.001446,
+          "currency": "USD",
+          "ms": 2451,
+          "budget": 256
+        }
+      ],
+      "tokens_in": 31009,
+      "tokens_out": 2944,
+      "cost": 0.08126250000000002,
+      "currency": "USD",
+      "ms": 103464
+    },
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 949,
+          "tokens_out": 232,
+          "cost": 0.00350625,
+          "currency": "USD",
+          "ms": 3530,
+          "budget": 498
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 512,
+          "tokens_out": 56,
+          "cost": 0.0012,
+          "currency": "USD",
+          "ms": 2324,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1259,
+          "tokens_out": 97,
+          "cost": 0.00254375,
+          "currency": "USD",
+          "ms": 2422,
+          "budget": 585
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1114,
+          "tokens_out": 152,
+          "cost": 0.0029125,
+          "currency": "USD",
+          "ms": 2492,
+          "budget": 507
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 374,
+          "tokens_out": 15,
+          "cost": 0.0006175,
+          "currency": "USD",
+          "ms": 1150,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1062,
+          "tokens_out": 102,
+          "cost": 0.0023475,
+          "currency": "USD",
+          "ms": 1672,
+          "budget": 473
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1035,
+          "tokens_out": 57,
+          "cost": 0.00186375,
+          "currency": "USD",
+          "ms": 1424,
+          "budget": 491
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1162,
+          "tokens_out": 114,
+          "cost": 0.0025925,
+          "currency": "USD",
+          "ms": 1882,
+          "budget": 529
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1145,
+          "tokens_out": 138,
+          "cost": 0.00281125,
+          "currency": "USD",
+          "ms": 1985,
+          "budget": 539
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 638,
+          "tokens_out": 74,
+          "cost": 0.0015375,
+          "currency": "USD",
+          "ms": 1524,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1067,
+          "tokens_out": 101,
+          "cost": 0.00234375,
+          "currency": "USD",
+          "ms": 2469,
+          "budget": 475
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 462,
+          "tokens_out": 15,
+          "cost": 0.0007275,
+          "currency": "USD",
+          "ms": 1687,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1053,
+          "tokens_out": 81,
+          "cost": 0.00212625,
+          "currency": "USD",
+          "ms": 1540,
+          "budget": 514
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1104,
+          "tokens_out": 147,
+          "cost": 0.00285,
+          "currency": "USD",
+          "ms": 3603,
+          "budget": 497
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 658,
+          "tokens_out": 66,
+          "cost": 0.0014825,
+          "currency": "USD",
+          "ms": 1371,
+          "budget": 264
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 452,
+          "tokens_out": 53,
+          "cost": 0.001434,
+          "currency": "USD",
+          "ms": 2174,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 452,
+          "tokens_out": 57,
+          "cost": 0.001474,
+          "currency": "USD",
+          "ms": 2287,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 452,
+          "tokens_out": 53,
+          "cost": 0.001434,
+          "currency": "USD",
+          "ms": 2500,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 500,
+          "tokens_out": 91,
+          "cost": 0.00191,
+          "currency": "USD",
+          "ms": 2641,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 371,
+          "tokens_out": 103,
+          "cost": 0.001772,
+          "currency": "USD",
+          "ms": 2944,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1510,
+          "tokens_out": 64,
+          "cost": 0.00366,
+          "currency": "USD",
+          "ms": 2924,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1510,
+          "tokens_out": 60,
+          "cost": 0.00362,
+          "currency": "USD",
+          "ms": 2849,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1510,
+          "tokens_out": 54,
+          "cost": 0.00356,
+          "currency": "USD",
+          "ms": 3092,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1509,
+          "tokens_out": 53,
+          "cost": 0.003548,
+          "currency": "USD",
+          "ms": 2532,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1509,
+          "tokens_out": 58,
+          "cost": 0.003598,
+          "currency": "USD",
+          "ms": 2647,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1509,
+          "tokens_out": 58,
+          "cost": 0.003598,
+          "currency": "USD",
+          "ms": 2482,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 329,
+          "tokens_out": 48,
+          "cost": 0.001138,
+          "currency": "USD",
+          "ms": 2309,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 329,
+          "tokens_out": 48,
+          "cost": 0.001138,
+          "currency": "USD",
+          "ms": 2342,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 329,
+          "tokens_out": 43,
+          "cost": 0.001088,
+          "currency": "USD",
+          "ms": 2256,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 871,
+          "tokens_out": 54,
+          "cost": 0.002282,
+          "currency": "USD",
+          "ms": 2257,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 871,
+          "tokens_out": 51,
+          "cost": 0.002252,
+          "currency": "USD",
+          "ms": 2276,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 871,
+          "tokens_out": 54,
+          "cost": 0.002282,
+          "currency": "USD",
+          "ms": 2362,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 209,
+          "tokens_out": 53,
+          "cost": 0.000948,
+          "currency": "USD",
+          "ms": 2573,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 209,
+          "tokens_out": 52,
+          "cost": 0.000938,
+          "currency": "USD",
+          "ms": 2450,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 209,
+          "tokens_out": 51,
+          "cost": 0.000928,
+          "currency": "USD",
+          "ms": 2330,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 213,
+          "tokens_out": 77,
+          "cost": 0.001196,
+          "currency": "USD",
+          "ms": 2554,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 333,
+          "tokens_out": 38,
+          "cost": 0.001046,
+          "currency": "USD",
+          "ms": 2287,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 333,
+          "tokens_out": 39,
+          "cost": 0.001056,
+          "currency": "USD",
+          "ms": 2068,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 333,
+          "tokens_out": 38,
+          "cost": 0.001046,
+          "currency": "USD",
+          "ms": 2254,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 252,
+          "tokens_out": 49,
+          "cost": 0.000994,
+          "currency": "USD",
+          "ms": 2088,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 252,
+          "tokens_out": 47,
+          "cost": 0.000974,
+          "currency": "USD",
+          "ms": 2207,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 252,
+          "tokens_out": 49,
+          "cost": 0.000994,
+          "currency": "USD",
+          "ms": 2073,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 739,
+          "tokens_out": 53,
+          "cost": 0.002008,
+          "currency": "USD",
+          "ms": 2606,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 739,
+          "tokens_out": 44,
+          "cost": 0.001918,
+          "currency": "USD",
+          "ms": 2386,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 739,
+          "tokens_out": 43,
+          "cost": 0.001908,
+          "currency": "USD",
+          "ms": 2439,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 284,
+          "tokens_out": 50,
+          "cost": 0.001068,
+          "currency": "USD",
+          "ms": 2521,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 284,
+          "tokens_out": 51,
+          "cost": 0.001078,
+          "currency": "USD",
+          "ms": 2193,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 284,
+          "tokens_out": 50,
+          "cost": 0.001068,
+          "currency": "USD",
+          "ms": 2187,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 328,
+          "tokens_out": 53,
+          "cost": 0.001186,
+          "currency": "USD",
+          "ms": 2157,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 328,
+          "tokens_out": 53,
+          "cost": 0.001186,
+          "currency": "USD",
+          "ms": 2136,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 328,
+          "tokens_out": 46,
+          "cost": 0.001116,
+          "currency": "USD",
+          "ms": 2223,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 523,
+          "tokens_out": 47,
+          "cost": 0.001516,
+          "currency": "USD",
+          "ms": 2410,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 523,
+          "tokens_out": 54,
+          "cost": 0.001586,
+          "currency": "USD",
+          "ms": 2359,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 523,
+          "tokens_out": 55,
+          "cost": 0.001596,
+          "currency": "USD",
+          "ms": 2278,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 326,
+          "tokens_out": 46,
+          "cost": 0.001112,
+          "currency": "USD",
+          "ms": 2145,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 326,
+          "tokens_out": 46,
+          "cost": 0.001112,
+          "currency": "USD",
+          "ms": 2022,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 326,
+          "tokens_out": 45,
+          "cost": 0.001102,
+          "currency": "USD",
+          "ms": 2166,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 292,
+          "tokens_out": 60,
+          "cost": 0.001184,
+          "currency": "USD",
+          "ms": 2492,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 292,
+          "tokens_out": 53,
+          "cost": 0.001114,
+          "currency": "USD",
+          "ms": 2270,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 292,
+          "tokens_out": 51,
+          "cost": 0.001094,
+          "currency": "USD",
+          "ms": 2406,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 518,
+          "tokens_out": 41,
+          "cost": 0.001446,
+          "currency": "USD",
+          "ms": 2639,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 518,
+          "tokens_out": 41,
+          "cost": 0.001446,
+          "currency": "USD",
+          "ms": 2372,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 518,
+          "tokens_out": 62,
+          "cost": 0.001656,
+          "currency": "USD",
+          "ms": 2619,
+          "budget": 256
+        }
+      ],
+      "tokens_in": 40103,
+      "tokens_out": 3986,
+      "cost": 0.10987050000000007,
+      "currency": "USD",
+      "ms": 145859
+    }
+  ],
+  "summary": {
+    "recall": {
+      "punctuation": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "doubled-word": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "typo": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "terminology": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "sentence-frame": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "dialogue-format": {
+        "mean": 0.3333333333333333,
+        "min": 0,
+        "max": 1
+      },
+      "agreement": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "qualifier": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "redundancy": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      }
+    },
+    "unnecessary_edit_rate": {
+      "mean": 0.0009982530571499874,
+      "min": 0.0008734714250062391,
+      "max": 0.0012478163214374844
+    },
+    "control_proposals": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "guard_recall": {
+      "mean": 1,
+      "min": 1,
+      "max": 1
+    },
+    "semantic_regression": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "cost": {
+      "mean": 0.09470316666666671,
+      "min": 0.08126250000000002,
+      "max": 0.10987050000000007
+    },
+    "model_ms": {
+      "mean": 126819,
+      "min": 103464,
+      "max": 145859
+    }
+  },
+  "scores": [
+    {
+      "recall": {
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "typo": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "dialogue-format": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "agreement": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 7,
+        "scanned_words": 8014,
+        "rate": 0.0008734714250062391,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+          "proposal_id": "amendeor:af3c1aea6194ca14"
+        },
+        {
+          "mutation_id": "jekyll-en:typo:0:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+          "proposal_id": "amendeor:dea5748f1982f7a1"
+        },
+        {
+          "mutation_id": "jekyll-en:sentence-frame:2:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+          "proposal_id": "amendeor:98f30e35a8af5354"
+        },
+        {
+          "mutation_id": "jekyll-en:dialogue-format:3:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+          "proposal_id": "amendeor:f4e1e2534067b427"
+        },
+        {
+          "mutation_id": "jekyll-en:agreement:0:04-jekyll:c2b12541-7cb8-45fd-88b9-717019363afa",
+          "proposal_id": "amendeor:932950b431682ac1"
+        },
+        {
+          "mutation_id": "jekyll-en:redundancy:0:04-jekyll:07d0a395-a366-4d4a-8d4a-3099d45465b2",
+          "proposal_id": "amendeor:19fdfa710d154cd1"
+        }
+      ]
+    },
+    {
+      "recall": {
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "typo": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "dialogue-format": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 7,
+        "scanned_words": 8014,
+        "rate": 0.0008734714250062391,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+          "proposal_id": "amendeor:af3c1aea6194ca14"
+        },
+        {
+          "mutation_id": "jekyll-en:typo:0:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+          "proposal_id": "amendeor:dea5748f1982f7a1"
+        },
+        {
+          "mutation_id": "jekyll-en:sentence-frame:2:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+          "proposal_id": "amendeor:98f30e35a8af5354"
+        },
+        {
+          "mutation_id": "jekyll-en:agreement:0:04-jekyll:c2b12541-7cb8-45fd-88b9-717019363afa",
+          "proposal_id": "amendeor:a123e466e9891f9e"
+        },
+        {
+          "mutation_id": "jekyll-en:redundancy:0:04-jekyll:07d0a395-a366-4d4a-8d4a-3099d45465b2",
+          "proposal_id": "amendeor:19fdfa710d154cd1"
+        }
+      ]
+    },
+    {
+      "recall": {
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "typo": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "dialogue-format": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 10,
+        "scanned_words": 8014,
+        "rate": 0.0012478163214374844,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+          "proposal_id": "amendeor:af3c1aea6194ca14"
+        },
+        {
+          "mutation_id": "jekyll-en:typo:0:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+          "proposal_id": "amendeor:dea5748f1982f7a1"
+        },
+        {
+          "mutation_id": "jekyll-en:sentence-frame:2:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+          "proposal_id": "amendeor:98f30e35a8af5354"
+        },
+        {
+          "mutation_id": "jekyll-en:agreement:0:04-jekyll:c2b12541-7cb8-45fd-88b9-717019363afa",
+          "proposal_id": "amendeor:2a428b5dbc911e51"
+        },
+        {
+          "mutation_id": "jekyll-en:redundancy:0:04-jekyll:07d0a395-a366-4d4a-8d4a-3099d45465b2",
+          "proposal_id": "amendeor:19fdfa710d154cd1"
+        }
+      ]
+    }
+  ],
+  "run_details": [
+    {
+      "run_id": "2026-09-24T19-37-22Z-c068",
+      "stages": [
+        {
+          "name": "rules",
+          "status": "ok",
+          "hits": 3,
+          "proposals": 3,
+          "units": {
+            "cached": 0,
+            "computed": 15,
+            "failed": 0
+          },
+          "failures": [],
+          "diagnostics": []
+        },
+        {
+          "name": "model",
+          "status": "ok",
+          "windows": 15,
+          "sent": 15,
+          "cached": 0,
+          "no_change": 1,
+          "candidates": 23,
+          "discarded": [],
+          "failures": [],
+          "prompt_version": "1.2.0",
+          "model_id": "openai/gpt-5.1",
+          "formulaic_hits": [],
+          "formulaic_catalog_version": "0.2.0"
+        },
+        {
+          "name": "guard",
+          "status": "partial",
+          "candidates": 23,
+          "semantic_rejected": 13,
+          "voice_rejected": 0,
+          "offered": 10,
+          "same_family_warning": false,
+          "rejections": [
+            {
+              "proposal_id": "amendeor:06f138ae2cd27cff",
+              "guard": "semantic-verifier",
+              "reason": "'Beaconed' implies an active, signal-like shining outward (like a beacon guiding others), while 'beamed' suggests a simpler radiant glow; though similar, 'beaconed' carries a distinct connotation of guiding/signaling that is lost, subtly altering the imagery and implication of the original."
+            },
+            {
+              "proposal_id": "amendeor:b8288ace0f16c6ff",
+              "guard": "semantic-verifier",
+              "reason": "'Distained' (an archaic form meaning stained/discolored, with connotations of disgrace or dishonor) is replaced by 'stained,' a more common word with plainer meaning. While closely related, 'distained' carries additional connotations of shame/disgrace beyond mere discoloration, so subtle meaning is lost."
+            },
+            {
+              "proposal_id": "amendeor:5facb0fcc12a7f0f",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:6b4a278ce83a3149",
+              "guard": "semantic-trap",
+              "reason": "dialogue-content-change"
+            },
+            {
+              "proposal_id": "amendeor:0cc8ac1c27116442",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:5e21f18be3fc62e2",
+              "guard": "semantic-trap",
+              "reason": "dialogue-content-change"
+            },
+            {
+              "proposal_id": "amendeor:8d77c5ac74cc4e28",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:6adfbf911557bc0c",
+              "guard": "semantic-verifier",
+              "reason": "The AFTER version removes a duplicated 'he asked.', which was likely an unintentional repetition/error rather than meaningful content. While this changes the text, it removes redundant duplication rather than altering meaning, action, or implication—so the core semantic content is preserved, but strictly by the rule of exact information preservation, the duplicate phrase itself is information that was removed."
+            },
+            {
+              "proposal_id": "amendeor:3227b81bce07e824",
+              "guard": "semantic-verifier",
+              "reason": "Changing 'wakening' to 'wakening!' alters punctuation/tone from a reflective phrase to an exclamatory one, adding emphasis and emotional intensity not present in the original, which shifts the implied tone of the narrator's thought."
+            },
+            {
+              "proposal_id": "amendeor:3574612f547bfeec",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:c280635bb724537b",
+              "guard": "semantic-trap",
+              "reason": "dialogue-content-change"
+            },
+            {
+              "proposal_id": "amendeor:3f9865d5748a5499",
+              "guard": "semantic-trap",
+              "reason": "unsupported-comma-insertion"
+            },
+            {
+              "proposal_id": "amendeor:430ebec0b0b78ee1",
+              "guard": "semantic-trap",
+              "reason": "unsupported-comma-insertion"
+            }
+          ]
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:af3c1aea6194ca14",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+              "key": "sha256:6a792ec351718d4c1065a7576a5da4412a352d3f63c0af404f7ff6a488665b44"
+            },
+            "evidence": "sha256:01f7e126ae323713a4ad40ad29eb350cacec2fe307167abb68e72b95d6438bec"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+            "content_hash": "sha256:90a2fe20b622bfb3369014e5d9db39c045684b9367c9b26abce0bba2be1c439d"
+          },
+          "target": {
+            "text": "startling startling",
+            "hash": "sha256:6a792ec351718d4c1065a7576a5da4412a352d3f63c0af404f7ff6a488665b44",
+            "before": "ence or bondage (call it which you please) and even for the ",
+            "after": " clauses of the will. At least it would be a face worth seei",
+            "occurrence": 0
+          },
+          "replacement": "startling",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:98f30e35a8af5354",
+          "fingerprint": {
+            "primary": {
+              "category": "capitalization",
+              "chapter": "02-jekyll",
+              "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+              "key": "sha256:3314aea67275801834ff0d742722215c6a8b18955e8414c02fdab931aaa5f228"
+            },
+            "evidence": "sha256:de1abe18a4b7dfb70fdcb68e9e951283e8cb2b1f212ca0c48cb6fee251e6cb2c"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+            "content_hash": "sha256:ec1b7f1b0f30b7381f50fb9c7a4f634eab1e7ea37edaabaad10fe8f06562d26e"
+          },
+          "target": {
+            "text": ". he",
+            "hash": "sha256:3314aea67275801834ff0d742722215c6a8b18955e8414c02fdab931aaa5f228",
+            "before": "ut still without looking up, “How did you know me?” he asked",
+            "after": " asked.\n\n“On your side,” said Mr. Utterson “will you do me a",
+            "occurrence": 0
+          },
+          "replacement": ". He",
+          "category": "capitalization",
+          "impact": "mechanical",
+          "source": "rule:capitalization.sentence-start",
+          "confidence": 1,
+          "reason": "Capitalize the sentence opening.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:19fdfa710d154cd1",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "04-jekyll",
+              "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+              "key": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14"
+            },
+            "evidence": "sha256:b4c9e14061c2fd453b36700e3b0da008db2189c711ac629f0f583089164e267d"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+            "content_hash": "sha256:0dfb872a6dd30c122c92b8dafc6a5bdf6268f5151d0f153445d703943fba21fe"
+          },
+          "target": {
+            "text": "again again",
+            "hash": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14",
+            "before": "ted the action of the fire; the other half of the stick was ",
+            "after": " found behind the door; and as this clinched his suspicions,",
+            "occurrence": 0
+          },
+          "replacement": "again",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:bfc2322f0279e627",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "01-jekyll",
+              "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+              "key": "sha256:0b5a0d103d88f80bc6ed5a3b1713a99e7ffc58683e4899dd4191e0f68e9b10ef"
+            },
+            "evidence": "sha256:bc8456dada8364acd3e4b68aad879163f2950f512a3ea9a90659f30f5a163f39"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+            "content_hash": "sha256:6dd0e83f2654fe46494c54d08989dd6697f188b7bb54c517813b38da02269666"
+          },
+          "target": {
+            "text": "cut and dry apothecary",
+            "hash": "sha256:0b5a0d103d88f80bc6ed5a3b1713a99e7ffc58683e4899dd4191e0f68e9b10ef",
+            "before": " But the doctor’s case was what struck me. He was the usual ",
+            "after": ", of no particular age and colour, with a strong Edinburgh a",
+            "occurrence": 0
+          },
+          "replacement": "cut-and-dry apothecary",
+          "category": "typography",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Hyphenate compound adjective before a noun per standard usage while preserving original wording.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ea224817977fabad",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+              "key": "sha256:314fab3860c57db61fd26bb426a5062fccef2b58c53d3f2b4e73706d939f27a7"
+            },
+            "evidence": "sha256:98f867cd83f92f500bff2e92c4b53dcce5f46d07496b7b42a05446c026e902a7"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+            "content_hash": "sha256:90a2fe20b622bfb3369014e5d9db39c045684b9367c9b26abce0bba2be1c439d"
+          },
+          "target": {
+            "text": "the startling startling clauses of the will",
+            "hash": "sha256:314fab3860c57db61fd26bb426a5062fccef2b58c53d3f2b4e73706d939f27a7",
+            "before": "eference or bondage (call it which you please) and even for ",
+            "after": ". At least it would be a face worth seeing: the face of a ma",
+            "occurrence": 0
+          },
+          "replacement": "the startling clauses of the will",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Removes an apparent inadvertent word duplication.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:dea5748f1982f7a1",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-jekyll",
+              "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+              "key": "sha256:45266194cb8d4798fef1b9a9166c6a582c05c3323fadc955d2cfdd1ca348ccc7"
+            },
+            "evidence": "sha256:83a70052504733134861af25c442ffd741935da314c948f2e015a93b2d0af6ed"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+            "content_hash": "sha256:ec1b7f1b0f30b7381f50fb9c7a4f634eab1e7ea37edaabaad10fe8f06562d26e"
+          },
+          "target": {
+            "text": "laywer",
+            "hash": "sha256:45266194cb8d4798fef1b9a9166c6a582c05c3323fadc955d2cfdd1ca348ccc7",
+            "before": "his fear was only momentary; and though he did not look the ",
+            "after": " in the face, he answered coolly enough: “That is my name. W",
+            "occurrence": 0
+          },
+          "replacement": "lawyer",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Correct misspelling of 'lawyer' to standard form.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:f4e1e2534067b427",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "02-jekyll",
+              "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+              "key": "sha256:f8ab4224e8d3437e38aa87b0d0854334e7d1cddc48f3a63bd7600d0f98a4aea2"
+            },
+            "evidence": "sha256:d5220f257abea5707a8cc499db5038d8b4476b91ecb7c61dc6df60e40069d58a"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+            "content_hash": "sha256:ec1b7f1b0f30b7381f50fb9c7a4f634eab1e7ea37edaabaad10fe8f06562d26e"
+          },
+          "target": {
+            "text": "I did not think you would have lied.\"",
+            "hash": "sha256:f8ab4224e8d3437e38aa87b0d0854334e7d1cddc48f3a63bd7600d0f98a4aea2",
+            "before": "He never told you,” cried Mr. Hyde, with a flush of anger. “",
+            "after": "\n\n“Come,” said Mr. Utterson, “that is not fitting language.”",
+            "occurrence": 0
+          },
+          "replacement": "I did not think you would have lied.’",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Change inner double quote to single to match British quotation style used elsewhere in the text.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:bcc46151f2eabcba",
+          "fingerprint": {
+            "primary": {
+              "category": "consistency",
+              "chapter": "02-jekyll",
+              "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+              "key": "sha256:2769fc20451b51737baa457ef96532b84370d3664150af08b3f310f30448921f"
+            },
+            "evidence": "sha256:91666cda3a365e8d21e395c6ce7f7159405e72909b8d6e687c48567133c4537a"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "content_hash": "sha256:2d40683b0ddea3e920b7f6d066ceb1d750e93836d6eb08b7f1af412347d63ed5"
+          },
+          "target": {
+            "text": "tonight",
+            "hash": "sha256:2769fc20451b51737baa457ef96532b84370d3664150af08b3f310f30448921f",
+            "before": " wont to speak of it as the pleasantest room in London. But ",
+            "after": " there was a shudder in his blood; the face of Hyde sat heav",
+            "occurrence": 0
+          },
+          "replacement": "to-night",
+          "category": "consistency",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Maintain period hyphenation consistent with the rest of the text and Stevenson’s original spelling.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ecf4e80af34ad469",
+          "fingerprint": {
+            "primary": {
+              "category": "consistency",
+              "chapter": "02-jekyll",
+              "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+              "key": "sha256:51d1334dbf8ea2f560c8e10dd6418a04472b3bf35b471c8eb87ea08df8eda799"
+            },
+            "evidence": "sha256:afe05e639b809a2760d8c7e92b95be22cdd5974b29ddc222209ba9136e62499c"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "content_hash": "sha256:2d40683b0ddea3e920b7f6d066ceb1d750e93836d6eb08b7f1af412347d63ed5"
+          },
+          "target": {
+            "text": "dissecting room door",
+            "hash": "sha256:51d1334dbf8ea2f560c8e10dd6418a04472b3bf35b471c8eb87ea08df8eda799",
+            "before": " Dr. Jekyll was gone out.\n\n“I saw Mr. Hyde go in by the old ",
+            "after": ", Poole,” he said. “Is that right, when Dr. Jekyll is from h",
+            "occurrence": 0
+          },
+          "replacement": "dissecting-room door",
+          "category": "consistency",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Use hyphen as in the original compound noun form from the source text.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:932950b431682ac1",
+          "fingerprint": {
+            "primary": {
+              "category": "grammar",
+              "chapter": "04-jekyll",
+              "scene": "c2b12541-7cb8-45fd-88b9-717019363afa",
+              "key": "sha256:06b14751eb6a814cb1689d048eee614781d6c59ac8d6ff5a6456c33e450ad22b"
+            },
+            "evidence": "sha256:c9a5484308f1e123652ddce0ca8884ec6fb1c15f450702e9dfd635eae2f42ae9"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "c2b12541-7cb8-45fd-88b9-717019363afa",
+            "content_hash": "sha256:832257a2617c28d0325f68712c821ae7c06dfd216080756471e1abad87434e63"
+          },
+          "target": {
+            "text": "before he were out of bed",
+            "hash": "sha256:06b14751eb6a814cb1689d048eee614781d6c59ac8d6ff5a6456c33e450ad22b",
+            "before": "Utterson.\n\nThis was brought to the lawyer the next morning, ",
+            "after": "; and he had no sooner seen it and been told the circumstanc",
+            "occurrence": 0
+          },
+          "replacement": "before he was out of bed",
+          "category": "grammar",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Subjunctive \"were\" is unidiomatic here; simple past \"was\" matches narrative tense and standard usage.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:a41b84869c2f0ace",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "04-jekyll",
+              "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+              "key": "sha256:e7bc37c63185e4ecdd21eda750c2ca2e0bc73edba65a7eb38463cca9bc31ba98"
+            },
+            "evidence": "sha256:3c83eaa9a15a8ac853c80b55ae95bccaa1c706f1754732395958095ff21e30d6"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+            "content_hash": "sha256:970a5a82bd59f2a23e44cf27fe72e084ac77bdcc08b1cab16a4c68b57ab93241"
+          },
+          "target": {
+            "text": "marvelous",
+            "hash": "sha256:e7bc37c63185e4ecdd21eda750c2ca2e0bc73edba65a7eb38463cca9bc31ba98",
+            "before": "he cab crawled from street to street, Mr. Utterson beheld a ",
+            "after": " number of degrees and hues of twilight; for here it would b",
+            "occurrence": 0
+          },
+          "replacement": "marvellous",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Use consistent British spelling to match surrounding forms such as recognise.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:da8aae47de5dc93a",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "04-jekyll",
+              "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+              "key": "sha256:e6f8b6a0fd34316e577d427dc0edc48bd6508c76f0c37832d352403dcd142616"
+            },
+            "evidence": "sha256:b13073e73491d433196f4cc08bf708b76812802dcd84fdb20e4260c1c433c3fe"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+            "content_hash": "sha256:970a5a82bd59f2a23e44cf27fe72e084ac77bdcc08b1cab16a4c68b57ab93241"
+          },
+          "target": {
+            "text": "back-end of evening",
+            "hash": "sha256:e6f8b6a0fd34316e577d427dc0edc48bd6508c76f0c37832d352403dcd142616",
+            "before": "es and hues of twilight; for here it would be dark like the ",
+            "after": "; and there would be a glow of a rich, lurid brown, like the",
+            "occurrence": 0
+          },
+          "replacement": "back end of evening",
+          "category": "typography",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Remove unnecessary hyphen in a non-compound noun phrase.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:fd99fe117bcdda2a",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "04-jekyll",
+              "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+              "key": "sha256:7391ea16e482fd6048c013eb28638e345fb6ed67e2c0135b0d7381e59e1bc9ba"
+            },
+            "evidence": "sha256:9d04c1c8a554168900e43b9c42b611ec93c4df4d00e6752208aacd13e4b43b5d"
+          },
+          "run_id": "2026-09-24T19-37-22Z-c068",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+            "content_hash": "sha256:0dfb872a6dd30c122c92b8dafc6a5bdf6268f5151d0f153445d703943fba21fe"
+          },
+          "target": {
+            "text": "the other half of the stick was again again found behind the door",
+            "hash": "sha256:7391ea16e482fd6048c013eb28638e345fb6ed67e2c0135b0d7381e59e1bc9ba",
+            "before": "een cheque book, which had resisted the action of the fire; ",
+            "after": "; and as this clinched his suspicions, the officer declared ",
+            "occurrence": 0
+          },
+          "replacement": "the other half of the stick was again found behind the door",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Removes an evident duplicated word that does not serve an expressive purpose.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "2026-09-24T19-40-37Z-7535",
+      "stages": [
+        {
+          "name": "rules",
+          "status": "ok",
+          "hits": 3,
+          "proposals": 3,
+          "units": {
+            "cached": 0,
+            "computed": 15,
+            "failed": 0
+          },
+          "failures": [],
+          "diagnostics": []
+        },
+        {
+          "name": "model",
+          "status": "ok",
+          "windows": 15,
+          "sent": 15,
+          "cached": 0,
+          "no_change": 1,
+          "candidates": 20,
+          "discarded": [],
+          "failures": [],
+          "prompt_version": "1.2.0",
+          "model_id": "openai/gpt-5.1",
+          "formulaic_hits": [],
+          "formulaic_catalog_version": "0.2.0"
+        },
+        {
+          "name": "guard",
+          "status": "partial",
+          "candidates": 20,
+          "semantic_rejected": 11,
+          "voice_rejected": 0,
+          "offered": 9,
+          "same_family_warning": false,
+          "rejections": [
+            {
+              "proposal_id": "amendeor:06f138ae2cd27cff",
+              "guard": "semantic-verifier",
+              "reason": "'Beaconed' implies an active, signal-like guiding light shining out from his eye, while 'beamed' merely suggests a shining or glowing—altering the nuance of intensity and directional signaling implied by the original word choice."
+            },
+            {
+              "proposal_id": "amendeor:90cdc0fcd1cb2a82",
+              "guard": "semantic-verifier",
+              "reason": "'Passage' refers to foot traffic/movement through the street in general, while 'passengers' specifically means people passing by (pedestrians). This narrows the meaning from a broader concept of traffic/activity to specifically people, altering the precise semantic content of the original."
+            },
+            {
+              "proposal_id": "amendeor:b8288ace0f16c6ff",
+              "guard": "semantic-verifier",
+              "reason": "'Distained' (an archaic form meaning discolored/stained with dishonor) is replaced with 'stained,' losing the subtle connotation of tarnish or disgrace, though the literal meaning of discoloration is preserved."
+            },
+            {
+              "proposal_id": "amendeor:5facb0fcc12a7f0f",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:d108687d467bfef8",
+              "guard": "semantic-trap",
+              "reason": "dialogue-content-change"
+            },
+            {
+              "proposal_id": "amendeor:d7e19bce376124a0",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:ee9bb557fd283ba8",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:6adfbf911557bc0c",
+              "guard": "semantic-verifier",
+              "reason": "The AFTER removes a duplicated 'he asked.' The duplication was likely an unintentional typo, but removing text changes the exact content; however since the removed phrase was a verbatim repeated duplicate adding no new information, meaning/action/implication is preserved."
+            },
+            {
+              "proposal_id": "amendeor:3bf5f0a5d3f107ce",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:470dfbbf94ce2492",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:ca58db61b05039bd",
+              "guard": "semantic-trap",
+              "reason": "dialogue-content-change"
+            }
+          ]
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:af3c1aea6194ca14",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+              "key": "sha256:6a792ec351718d4c1065a7576a5da4412a352d3f63c0af404f7ff6a488665b44"
+            },
+            "evidence": "sha256:01f7e126ae323713a4ad40ad29eb350cacec2fe307167abb68e72b95d6438bec"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+            "content_hash": "sha256:90a2fe20b622bfb3369014e5d9db39c045684b9367c9b26abce0bba2be1c439d"
+          },
+          "target": {
+            "text": "startling startling",
+            "hash": "sha256:6a792ec351718d4c1065a7576a5da4412a352d3f63c0af404f7ff6a488665b44",
+            "before": "ence or bondage (call it which you please) and even for the ",
+            "after": " clauses of the will. At least it would be a face worth seei",
+            "occurrence": 0
+          },
+          "replacement": "startling",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:98f30e35a8af5354",
+          "fingerprint": {
+            "primary": {
+              "category": "capitalization",
+              "chapter": "02-jekyll",
+              "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+              "key": "sha256:3314aea67275801834ff0d742722215c6a8b18955e8414c02fdab931aaa5f228"
+            },
+            "evidence": "sha256:de1abe18a4b7dfb70fdcb68e9e951283e8cb2b1f212ca0c48cb6fee251e6cb2c"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+            "content_hash": "sha256:ec1b7f1b0f30b7381f50fb9c7a4f634eab1e7ea37edaabaad10fe8f06562d26e"
+          },
+          "target": {
+            "text": ". he",
+            "hash": "sha256:3314aea67275801834ff0d742722215c6a8b18955e8414c02fdab931aaa5f228",
+            "before": "ut still without looking up, “How did you know me?” he asked",
+            "after": " asked.\n\n“On your side,” said Mr. Utterson “will you do me a",
+            "occurrence": 0
+          },
+          "replacement": ". He",
+          "category": "capitalization",
+          "impact": "mechanical",
+          "source": "rule:capitalization.sentence-start",
+          "confidence": 1,
+          "reason": "Capitalize the sentence opening.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:19fdfa710d154cd1",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "04-jekyll",
+              "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+              "key": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14"
+            },
+            "evidence": "sha256:b4c9e14061c2fd453b36700e3b0da008db2189c711ac629f0f583089164e267d"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+            "content_hash": "sha256:0dfb872a6dd30c122c92b8dafc6a5bdf6268f5151d0f153445d703943fba21fe"
+          },
+          "target": {
+            "text": "again again",
+            "hash": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14",
+            "before": "ted the action of the fire; the other half of the stick was ",
+            "after": " found behind the door; and as this clinched his suspicions,",
+            "occurrence": 0
+          },
+          "replacement": "again",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:bfc2322f0279e627",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "01-jekyll",
+              "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+              "key": "sha256:0b5a0d103d88f80bc6ed5a3b1713a99e7ffc58683e4899dd4191e0f68e9b10ef"
+            },
+            "evidence": "sha256:bc8456dada8364acd3e4b68aad879163f2950f512a3ea9a90659f30f5a163f39"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+            "content_hash": "sha256:6dd0e83f2654fe46494c54d08989dd6697f188b7bb54c517813b38da02269666"
+          },
+          "target": {
+            "text": "cut and dry apothecary",
+            "hash": "sha256:0b5a0d103d88f80bc6ed5a3b1713a99e7ffc58683e4899dd4191e0f68e9b10ef",
+            "before": " But the doctor’s case was what struck me. He was the usual ",
+            "after": ", of no particular age and colour, with a strong Edinburgh a",
+            "occurrence": 0
+          },
+          "replacement": "cut-and-dry apothecary",
+          "category": "typography",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Compound adjective before a noun conventionally takes hyphens.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:15139a665cb7209c",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "01-jekyll",
+              "scene": "8e6e83d0-d00f-4322-8746-f8bb78acbc44",
+              "key": "sha256:cfd5a04a0ff63d31f07e2e45f50dac2d09f93e16ff833a8393de393fb5b2a254"
+            },
+            "evidence": "sha256:1aaf7db3e99cfab09925570cd83561108ba65411f5cd33e5bb062e313a12b4db"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "8e6e83d0-d00f-4322-8746-f8bb78acbc44",
+            "content_hash": "sha256:cef97b075a566656e9457fd1d6b2a65a062d7de777c967f4fa8410279065ad94"
+          },
+          "target": {
+            "text": "said never a word; and the young man presently resumed.",
+            "hash": "sha256:cfd5a04a0ff63d31f07e2e45f50dac2d09f93e16ff833a8393de393fb5b2a254",
+            "before": "him use it not a week ago.”\n\nMr. Utterson sighed deeply but ",
+            "after": " “Here is another lesson to say nothing,” said he. “I am ash",
+            "occurrence": 0
+          },
+          "replacement": "said never a word, and the young man presently resumed.",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Replace semicolon with a comma before a coordinating conjunction joining two clauses that share the same subject for smoother sentence flow.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:13377660b0b3f55f",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+              "key": "sha256:503c8e8f72aad2fc7503bf00d238843f404dea40c29a16498c903c229820d2f8"
+            },
+            "evidence": "sha256:97130f48716564a9cea8fdc218253f3e565d60c97ec1779cdb059b7e89b39f47"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+            "content_hash": "sha256:90a2fe20b622bfb3369014e5d9db39c045684b9367c9b26abce0bba2be1c439d"
+          },
+          "target": {
+            "text": "startling startling clauses of the will",
+            "hash": "sha256:503c8e8f72aad2fc7503bf00d238843f404dea40c29a16498c903c229820d2f8",
+            "before": "ence or bondage (call it which you please) and even for the ",
+            "after": ". At least it would be a face worth seeing: the face of a ma",
+            "occurrence": 0
+          },
+          "replacement": "startling clauses of the will",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Removes an apparent inadvertent duplicated word while preserving meaning and rhythm.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:dea5748f1982f7a1",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-jekyll",
+              "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+              "key": "sha256:45266194cb8d4798fef1b9a9166c6a582c05c3323fadc955d2cfdd1ca348ccc7"
+            },
+            "evidence": "sha256:83a70052504733134861af25c442ffd741935da314c948f2e015a93b2d0af6ed"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+            "content_hash": "sha256:ec1b7f1b0f30b7381f50fb9c7a4f634eab1e7ea37edaabaad10fe8f06562d26e"
+          },
+          "target": {
+            "text": "laywer",
+            "hash": "sha256:45266194cb8d4798fef1b9a9166c6a582c05c3323fadc955d2cfdd1ca348ccc7",
+            "before": "his fear was only momentary; and though he did not look the ",
+            "after": " in the face, he answered coolly enough: “That is my name. W",
+            "occurrence": 0
+          },
+          "replacement": "lawyer",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Correct misspelling of 'lawyer'.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:d2d5561454daf914",
+          "fingerprint": {
+            "primary": {
+              "category": "consistency",
+              "chapter": "02-jekyll",
+              "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+              "key": "sha256:af6d5900cc32b37478182ca49d7b7c33c862ecb59d21736162d978c7bf410469"
+            },
+            "evidence": "sha256:2ad4b4a18c12ce4c4a13f65a535fdc254728b41d05cfa6810d3663891ffb93cf"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "content_hash": "sha256:2d40683b0ddea3e920b7f6d066ceb1d750e93836d6eb08b7f1af412347d63ed5"
+          },
+          "target": {
+            "text": "But tonight there was a shudder in his blood;",
+            "hash": "sha256:af6d5900cc32b37478182ca49d7b7c33c862ecb59d21736162d978c7bf410469",
+            "before": " was wont to speak of it as the pleasantest room in London. ",
+            "after": " the face of Hyde sat heavy on his memory; he felt (what was",
+            "occurrence": 0
+          },
+          "replacement": "But to-night there was a shudder in his blood;",
+          "category": "consistency",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Maintain historically consistent hyphenation of “to-night” in this text.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:6e5ece7605e9a77a",
+          "fingerprint": {
+            "primary": {
+              "category": "word-choice",
+              "chapter": "02-jekyll",
+              "scene": "eaf3739a-1ae6-440c-8b19-3d0b0271990c",
+              "key": "sha256:2b6737d4edcadb265d9228f8761df11d433289ddbd1dc61f2624ce2a37d41a78"
+            },
+            "evidence": "sha256:7ddc63a09abaf5bbb6b74aaec7e061dc4ff40902a6bdca23a8c355c0bc8c4cf4"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "eaf3739a-1ae6-440c-8b19-3d0b0271990c",
+            "content_hash": "sha256:09f628e41c905eea0c935b42fc9ade7750b52f898c070d4d4d7f75d7e531390c"
+          },
+          "target": {
+            "text": "as clear as transparency",
+            "hash": "sha256:2b6737d4edcadb265d9228f8761df11d433289ddbd1dc61f2624ce2a37d41a78",
+            "before": "l only let me.” For once more he saw before his mind’s eye, ",
+            "after": ", the strange clauses of the will.\n",
+            "occurrence": 0
+          },
+          "replacement": "as clear as transparence",
+          "category": "word-choice",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "“Transparence” is the correct noun; “transparency” here is a modernised misprint in some editions.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:a123e466e9891f9e",
+          "fingerprint": {
+            "primary": {
+              "category": "grammar",
+              "chapter": "04-jekyll",
+              "scene": "c2b12541-7cb8-45fd-88b9-717019363afa",
+              "key": "sha256:98f4744ef01334441ddab86d3601b5cc93248baaa56b8313367009bab1873bec"
+            },
+            "evidence": "sha256:768d9c7e832f46f82ad8461bcfef5598f54b3c18fc47bbdf0454e0f707748b0b"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "c2b12541-7cb8-45fd-88b9-717019363afa",
+            "content_hash": "sha256:832257a2617c28d0325f68712c821ae7c06dfd216080756471e1abad87434e63"
+          },
+          "target": {
+            "text": "before he were out of bed;",
+            "hash": "sha256:98f4744ef01334441ddab86d3601b5cc93248baaa56b8313367009bab1873bec",
+            "before": "Utterson.\n\nThis was brought to the lawyer the next morning, ",
+            "after": " and he had no sooner seen it and been told the circumstance",
+            "occurrence": 0
+          },
+          "replacement": "before he was out of bed;",
+          "category": "grammar",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Subjunctive is not required here; past indicative \"was\" matches standard grammar for narrative past.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:a41b84869c2f0ace",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "04-jekyll",
+              "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+              "key": "sha256:e7bc37c63185e4ecdd21eda750c2ca2e0bc73edba65a7eb38463cca9bc31ba98"
+            },
+            "evidence": "sha256:3c83eaa9a15a8ac853c80b55ae95bccaa1c706f1754732395958095ff21e30d6"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+            "content_hash": "sha256:970a5a82bd59f2a23e44cf27fe72e084ac77bdcc08b1cab16a4c68b57ab93241"
+          },
+          "target": {
+            "text": "marvelous",
+            "hash": "sha256:e7bc37c63185e4ecdd21eda750c2ca2e0bc73edba65a7eb38463cca9bc31ba98",
+            "before": "he cab crawled from street to street, Mr. Utterson beheld a ",
+            "after": " number of degrees and hues of twilight; for here it would b",
+            "occurrence": 0
+          },
+          "replacement": "marvellous",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Standard British spelling aligns with surrounding forms such as recognise and favourite.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:fd99fe117bcdda2a",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "04-jekyll",
+              "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+              "key": "sha256:7391ea16e482fd6048c013eb28638e345fb6ed67e2c0135b0d7381e59e1bc9ba"
+            },
+            "evidence": "sha256:9d04c1c8a554168900e43b9c42b611ec93c4df4d00e6752208aacd13e4b43b5d"
+          },
+          "run_id": "2026-09-24T19-40-37Z-7535",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+            "content_hash": "sha256:0dfb872a6dd30c122c92b8dafc6a5bdf6268f5151d0f153445d703943fba21fe"
+          },
+          "target": {
+            "text": "the other half of the stick was again again found behind the door",
+            "hash": "sha256:7391ea16e482fd6048c013eb28638e345fb6ed67e2c0135b0d7381e59e1bc9ba",
+            "before": "een cheque book, which had resisted the action of the fire; ",
+            "after": "; and as this clinched his suspicions, the officer declared ",
+            "occurrence": 0
+          },
+          "replacement": "the other half of the stick was again found behind the door",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Removes clear duplicated word while preserving meaning and rhythm",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "2026-09-24T19-43-16Z-8480",
+      "stages": [
+        {
+          "name": "rules",
+          "status": "ok",
+          "hits": 3,
+          "proposals": 3,
+          "units": {
+            "cached": 0,
+            "computed": 15,
+            "failed": 0
+          },
+          "failures": [],
+          "diagnostics": []
+        },
+        {
+          "name": "model",
+          "status": "ok",
+          "windows": 15,
+          "sent": 15,
+          "cached": 0,
+          "no_change": 2,
+          "candidates": 24,
+          "discarded": [],
+          "failures": [],
+          "prompt_version": "1.2.0",
+          "model_id": "openai/gpt-5.1",
+          "formulaic_hits": [],
+          "formulaic_catalog_version": "0.2.0"
+        },
+        {
+          "name": "guard",
+          "status": "partial",
+          "candidates": 24,
+          "semantic_rejected": 12,
+          "voice_rejected": 0,
+          "offered": 12,
+          "same_family_warning": false,
+          "rejections": [
+            {
+              "proposal_id": "amendeor:786ac026485dba5e",
+              "guard": "semantic-trap",
+              "reason": "coordinate-comma-insertion"
+            },
+            {
+              "proposal_id": "amendeor:287c293314ecba18",
+              "guard": "semantic-verifier",
+              "reason": "Removing the comma after 'note' changes the sentence's grammatical structure, making 'note instantly caught' read as a compound noun phrase rather than clearly separating the subject list from the verb, creating ambiguity not present in the original."
+            },
+            {
+              "proposal_id": "amendeor:c7700323ed2fa6eb",
+              "guard": "semantic-verifier",
+              "reason": "\"Distained\" is a real archaic word meaning stained/discolored, fitting the description of the neglected door. \"Disstained\" is not a standard word and alters/obscures this meaning, introducing an unclear or nonsensical term rather than preserving the original sense."
+            },
+            {
+              "proposal_id": "amendeor:d108687d467bfef8",
+              "guard": "semantic-trap",
+              "reason": "dialogue-content-change"
+            },
+            {
+              "proposal_id": "amendeor:5facb0fcc12a7f0f",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:d7e19bce376124a0",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:14339b300948cece",
+              "guard": "semantic-trap",
+              "reason": "number-date-time-change"
+            },
+            {
+              "proposal_id": "amendeor:8d77c5ac74cc4e28",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            },
+            {
+              "proposal_id": "amendeor:6adfbf911557bc0c",
+              "guard": "semantic-verifier",
+              "reason": "The AFTER text removes a duplicated 'he asked.' The duplication appears to be a typo error, so removing it likely does not change meaning, action, or content—only removes redundant repetition."
+            },
+            {
+              "proposal_id": "amendeor:3f9865d5748a5499",
+              "guard": "semantic-trap",
+              "reason": "unsupported-comma-insertion"
+            },
+            {
+              "proposal_id": "amendeor:4abe6621839a56c1",
+              "guard": "semantic-trap",
+              "reason": "unsupported-comma-insertion"
+            },
+            {
+              "proposal_id": "amendeor:3bbec8a81450622f",
+              "guard": "semantic-trap",
+              "reason": "unsupported-comma-insertion"
+            }
+          ]
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:af3c1aea6194ca14",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+              "key": "sha256:6a792ec351718d4c1065a7576a5da4412a352d3f63c0af404f7ff6a488665b44"
+            },
+            "evidence": "sha256:01f7e126ae323713a4ad40ad29eb350cacec2fe307167abb68e72b95d6438bec"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+            "content_hash": "sha256:90a2fe20b622bfb3369014e5d9db39c045684b9367c9b26abce0bba2be1c439d"
+          },
+          "target": {
+            "text": "startling startling",
+            "hash": "sha256:6a792ec351718d4c1065a7576a5da4412a352d3f63c0af404f7ff6a488665b44",
+            "before": "ence or bondage (call it which you please) and even for the ",
+            "after": " clauses of the will. At least it would be a face worth seei",
+            "occurrence": 0
+          },
+          "replacement": "startling",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:98f30e35a8af5354",
+          "fingerprint": {
+            "primary": {
+              "category": "capitalization",
+              "chapter": "02-jekyll",
+              "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+              "key": "sha256:3314aea67275801834ff0d742722215c6a8b18955e8414c02fdab931aaa5f228"
+            },
+            "evidence": "sha256:de1abe18a4b7dfb70fdcb68e9e951283e8cb2b1f212ca0c48cb6fee251e6cb2c"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+            "content_hash": "sha256:ec1b7f1b0f30b7381f50fb9c7a4f634eab1e7ea37edaabaad10fe8f06562d26e"
+          },
+          "target": {
+            "text": ". he",
+            "hash": "sha256:3314aea67275801834ff0d742722215c6a8b18955e8414c02fdab931aaa5f228",
+            "before": "ut still without looking up, “How did you know me?” he asked",
+            "after": " asked.\n\n“On your side,” said Mr. Utterson “will you do me a",
+            "occurrence": 0
+          },
+          "replacement": ". He",
+          "category": "capitalization",
+          "impact": "mechanical",
+          "source": "rule:capitalization.sentence-start",
+          "confidence": 1,
+          "reason": "Capitalize the sentence opening.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:19fdfa710d154cd1",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "04-jekyll",
+              "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+              "key": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14"
+            },
+            "evidence": "sha256:b4c9e14061c2fd453b36700e3b0da008db2189c711ac629f0f583089164e267d"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+            "content_hash": "sha256:0dfb872a6dd30c122c92b8dafc6a5bdf6268f5151d0f153445d703943fba21fe"
+          },
+          "target": {
+            "text": "again again",
+            "hash": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14",
+            "before": "ted the action of the fire; the other half of the stick was ",
+            "after": " found behind the door; and as this clinched his suspicions,",
+            "occurrence": 0
+          },
+          "replacement": "again",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:28d3519aef6fe975",
+          "fingerprint": {
+            "primary": {
+              "category": "terminology",
+              "chapter": "01-jekyll",
+              "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148",
+              "key": "sha256:64c46b879027fbae034df17e813ec41d329398e976c5e9710bcd5775d59ea410"
+            },
+            "evidence": "sha256:8695cb9925b493474f2e39047339aad3bfc318411de0e8e2ba391526b63f102f"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148",
+            "content_hash": "sha256:8ef8b165c80556c011a789de4e4e7c942d9ec30e507f7ac83fd470aa918d358f"
+          },
+          "target": {
+            "text": "The street was small and what is called quiet, but it drove a thriving trade on the weekdays.",
+            "hash": "sha256:64c46b879027fbae034df17e813ec41d329398e976c5e9710bcd5775d59ea410",
+            "before": " way led them down a by-street in a busy quarter of London. ",
+            "after": " The inhabitants were all doing well, it seemed, and all emu",
+            "occurrence": 0
+          },
+          "replacement": "The street was small and what is called quiet, but it drove a thriving trade on the week-days.",
+          "category": "terminology",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Restore original hyphenation consistent with period usage in the source text.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:adbfd57b80d459cb",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "01-jekyll",
+              "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+              "key": "sha256:0b5a0d103d88f80bc6ed5a3b1713a99e7ffc58683e4899dd4191e0f68e9b10ef"
+            },
+            "evidence": "sha256:bc8456dada8364acd3e4b68aad879163f2950f512a3ea9a90659f30f5a163f39"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+            "content_hash": "sha256:6dd0e83f2654fe46494c54d08989dd6697f188b7bb54c517813b38da02269666"
+          },
+          "target": {
+            "text": "cut and dry apothecary",
+            "hash": "sha256:0b5a0d103d88f80bc6ed5a3b1713a99e7ffc58683e4899dd4191e0f68e9b10ef",
+            "before": " But the doctor’s case was what struck me. He was the usual ",
+            "after": ", of no particular age and colour, with a strong Edinburgh a",
+            "occurrence": 0
+          },
+          "replacement": "cut-and-dry apothecary",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Hyphenate compound adjective before a noun per standard usage.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:32a2d86c0b8b52c0",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "01-jekyll",
+              "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+              "key": "sha256:9ed16497fad4f99abf522b3e94e1568139e9d2134e158dca97adc47b1fd861f4"
+            },
+            "evidence": "sha256:87008df7e9d9d810a237744a8053920d04a5d794a197694317bd93545ab1089e"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+            "content_hash": "sha256:6dd0e83f2654fe46494c54d08989dd6697f188b7bb54c517813b38da02269666"
+          },
+          "target": {
+            "text": "red hot, we were keeping",
+            "hash": "sha256:9ed16497fad4f99abf522b3e94e1568139e9d2134e158dca97adc47b1fd861f4",
+            "before": "ould lose them. And all the time, as we were pitching it in ",
+            "after": " the women off him as best we could for they were as wild as",
+            "occurrence": 0
+          },
+          "replacement": "red-hot, we were keeping",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Hyphenate compound adjective used attributively before the noun.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:13377660b0b3f55f",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+              "key": "sha256:503c8e8f72aad2fc7503bf00d238843f404dea40c29a16498c903c229820d2f8"
+            },
+            "evidence": "sha256:97130f48716564a9cea8fdc218253f3e565d60c97ec1779cdb059b7e89b39f47"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+            "content_hash": "sha256:90a2fe20b622bfb3369014e5d9db39c045684b9367c9b26abce0bba2be1c439d"
+          },
+          "target": {
+            "text": "startling startling clauses of the will",
+            "hash": "sha256:503c8e8f72aad2fc7503bf00d238843f404dea40c29a16498c903c229820d2f8",
+            "before": "ence or bondage (call it which you please) and even for the ",
+            "after": ". At least it would be a face worth seeing: the face of a ma",
+            "occurrence": 0
+          },
+          "replacement": "startling clauses of the will",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Removes an apparent inadvertent duplicated word while preserving meaning and rhythm.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:dea5748f1982f7a1",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-jekyll",
+              "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+              "key": "sha256:45266194cb8d4798fef1b9a9166c6a582c05c3323fadc955d2cfdd1ca348ccc7"
+            },
+            "evidence": "sha256:83a70052504733134861af25c442ffd741935da314c948f2e015a93b2d0af6ed"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+            "content_hash": "sha256:ec1b7f1b0f30b7381f50fb9c7a4f634eab1e7ea37edaabaad10fe8f06562d26e"
+          },
+          "target": {
+            "text": "laywer",
+            "hash": "sha256:45266194cb8d4798fef1b9a9166c6a582c05c3323fadc955d2cfdd1ca348ccc7",
+            "before": "his fear was only momentary; and though he did not look the ",
+            "after": " in the face, he answered coolly enough: “That is my name. W",
+            "occurrence": 0
+          },
+          "replacement": "lawyer",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Corrects typographical error in common noun.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:f6f420946e0f4da3",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "02-jekyll",
+              "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+              "key": "sha256:cc649f50d7bfad114cc5aad3743564f80695b53514da3b35a8bceb64d872fc86"
+            },
+            "evidence": "sha256:207271604acfd23964a5b46631f8cf32ef1225ab06e1e3ac7965f6896d2682c9"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "content_hash": "sha256:2d40683b0ddea3e920b7f6d066ceb1d750e93836d6eb08b7f1af412347d63ed5"
+          },
+          "target": {
+            "text": "from the by-street, there was a square",
+            "hash": "sha256:cc649f50d7bfad114cc5aad3743564f80695b53514da3b35a8bceb64d872fc86",
+            "before": " face, it is on that of your new friend.”\n\nRound the corner ",
+            "after": " of ancient, handsome houses, now for the most part decayed ",
+            "occurrence": 0
+          },
+          "replacement": "from the by-street there was a square",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Remove unnecessary comma between preposition and its object to avoid a comma splice-like pause.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:1fc446888fd093f2",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "02-jekyll",
+              "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+              "key": "sha256:95b680acbe6788d8752e93f37b5126868941fbba815961a82a679ab0bdb60f62"
+            },
+            "evidence": "sha256:fd9373ae02b5348f2681bc09eb74ad9db767f532a44243994815261adec03c58"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "content_hash": "sha256:2d40683b0ddea3e920b7f6d066ceb1d750e93836d6eb08b7f1af412347d63ed5"
+          },
+          "target": {
+            "text": "we see very little of him on this side of the house; he mostly comes and goes by the laboratory.",
+            "hash": "sha256:95b680acbe6788d8752e93f37b5126868941fbba815961a82a679ab0bdb60f62",
+            "before": "o, sir. He never _dines_ here,” replied the butler. “Indeed ",
+            "after": "”\n\n“Well, good-night, Poole.”\n\n“Good-night, Mr. Utterson.”\n\n",
+            "occurrence": 0
+          },
+          "replacement": "we see very little of him on this side of the house: he mostly comes and goes by the laboratory.",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Use a colon to introduce an explanation closely related to the preceding clause.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:2a428b5dbc911e51",
+          "fingerprint": {
+            "primary": {
+              "category": "grammar",
+              "chapter": "04-jekyll",
+              "scene": "c2b12541-7cb8-45fd-88b9-717019363afa",
+              "key": "sha256:8d1edcad3776ced04a1829edaf01e2da351b104fc92e9e53bf6572e14a0fa8c4"
+            },
+            "evidence": "sha256:a637eaaeb32f70182239ac799ea40ad3ede11d59ca45ffc20824b4b7aa9124fd"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "c2b12541-7cb8-45fd-88b9-717019363afa",
+            "content_hash": "sha256:832257a2617c28d0325f68712c821ae7c06dfd216080756471e1abad87434e63"
+          },
+          "target": {
+            "text": "This was brought to the lawyer the next morning, before he were out of bed;",
+            "hash": "sha256:8d1edcad3776ced04a1829edaf01e2da351b104fc92e9e53bf6572e14a0fa8c4",
+            "before": "post, and which bore the name and address of Mr. Utterson.\n\n",
+            "after": " and he had no sooner seen it and been told the circumstance",
+            "occurrence": 0
+          },
+          "replacement": "This was brought to the lawyer the next morning, before he was out of bed;",
+          "category": "grammar",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Subjunctive is not needed here; use indicative \"was\" for correct agreement.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:a41b84869c2f0ace",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "04-jekyll",
+              "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+              "key": "sha256:e7bc37c63185e4ecdd21eda750c2ca2e0bc73edba65a7eb38463cca9bc31ba98"
+            },
+            "evidence": "sha256:3c83eaa9a15a8ac853c80b55ae95bccaa1c706f1754732395958095ff21e30d6"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+            "content_hash": "sha256:970a5a82bd59f2a23e44cf27fe72e084ac77bdcc08b1cab16a4c68b57ab93241"
+          },
+          "target": {
+            "text": "marvelous",
+            "hash": "sha256:e7bc37c63185e4ecdd21eda750c2ca2e0bc73edba65a7eb38463cca9bc31ba98",
+            "before": "he cab crawled from street to street, Mr. Utterson beheld a ",
+            "after": " number of degrees and hues of twilight; for here it would b",
+            "occurrence": 0
+          },
+          "replacement": "marvellous",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Use standard British spelling to match surrounding UK usage (recognise, colour, etc.).",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ccdeb8ac6f21afc4",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "04-jekyll",
+              "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+              "key": "sha256:f6257886010412a4ca96e7b7ec29d31b8c7c7fd1dd7fc242938a069e17988f80"
+            },
+            "evidence": "sha256:5780ea66a6b16e21a82b7afcfe710527b7a563ee86fcb6b6e21c6898574c1a33"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+            "content_hash": "sha256:970a5a82bd59f2a23e44cf27fe72e084ac77bdcc08b1cab16a4c68b57ab93241"
+          },
+          "target": {
+            "text": "eating house",
+            "hash": "sha256:f6257886010412a4ca96e7b7ec29d31b8c7c7fd1dd7fc242938a069e17988f80",
+            "before": "e and showed him a dingy street, a gin palace, a low French ",
+            "after": ", a shop for the retail of penny numbers and twopenny salads",
+            "occurrence": 0
+          },
+          "replacement": "eating-house",
+          "category": "typography",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Hyphenate this established compound noun in keeping with period British usage and similar formations (e.g. gin-palace).",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:2233a391cb502be1",
+          "fingerprint": {
+            "primary": {
+              "category": "word-choice",
+              "chapter": "04-jekyll",
+              "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+              "key": "sha256:16fadd146ceb302e95ee30864afb380545d420e34f8e7d8a5d6812cb59a7ccc4"
+            },
+            "evidence": "sha256:fbc9e368e8acded3ddc493e6bc4736ae02eb81dc6955daaffd88be18ffa53523"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+            "content_hash": "sha256:970a5a82bd59f2a23e44cf27fe72e084ac77bdcc08b1cab16a4c68b57ab93241"
+          },
+          "target": {
+            "text": "till yesterday",
+            "hash": "sha256:16fadd146ceb302e95ee30864afb380545d420e34f8e7d8a5d6812cb59a7ccc4",
+            "before": "r instance, it was nearly two months since she had seen him ",
+            "after": ".\n\n“Very well, then, we wish to see his rooms,” said the law",
+            "occurrence": 0
+          },
+          "replacement": "until yesterday",
+          "category": "word-choice",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Use the slightly more formal ‘until’ in narrative exposition to match the overall register; ‘till’ is more colloquial and less consistent with surrounding narration.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:fd99fe117bcdda2a",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "04-jekyll",
+              "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+              "key": "sha256:7391ea16e482fd6048c013eb28638e345fb6ed67e2c0135b0d7381e59e1bc9ba"
+            },
+            "evidence": "sha256:9d04c1c8a554168900e43b9c42b611ec93c4df4d00e6752208aacd13e4b43b5d"
+          },
+          "run_id": "2026-09-24T19-43-16Z-8480",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "04-jekyll",
+            "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+            "content_hash": "sha256:0dfb872a6dd30c122c92b8dafc6a5bdf6268f5151d0f153445d703943fba21fe"
+          },
+          "target": {
+            "text": "the other half of the stick was again again found behind the door",
+            "hash": "sha256:7391ea16e482fd6048c013eb28638e345fb6ed67e2c0135b0d7381e59e1bc9ba",
+            "before": "een cheque book, which had resisted the action of the fire; ",
+            "after": "; and as this clinched his suspicions, the officer declared ",
+            "occurrence": 0
+          },
+          "replacement": "the other half of the stick was again found behind the door",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Removes obvious duplicated word while preserving meaning and rhythm.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        }
+      ]
+    }
+  ],
+  "source_generated_at": "2026-09-24T19:46:54.167Z",
+  "guard_recheck": {
+    "source": "2026-09-24-jekyll-en-copy-control-fail.json",
+    "method": "monotone deterministic trap replay on recorded real-provider proposals",
+    "removed": [
+      {
+        "run_id": "2026-09-24T19-37-22Z-c068",
+        "proposal_id": "amendeor:3f9865d5748a5499",
+        "reason": "unsupported-comma-insertion"
+      },
+      {
+        "run_id": "2026-09-24T19-37-22Z-c068",
+        "proposal_id": "amendeor:430ebec0b0b78ee1",
+        "reason": "unsupported-comma-insertion"
+      },
+      {
+        "run_id": "2026-09-24T19-43-16Z-8480",
+        "proposal_id": "amendeor:3f9865d5748a5499",
+        "reason": "unsupported-comma-insertion"
+      },
+      {
+        "run_id": "2026-09-24T19-43-16Z-8480",
+        "proposal_id": "amendeor:4abe6621839a56c1",
+        "reason": "unsupported-comma-insertion"
+      },
+      {
+        "run_id": "2026-09-24T19-43-16Z-8480",
+        "proposal_id": "amendeor:3bbec8a81450622f",
+        "reason": "unsupported-comma-insertion"
+      }
+    ]
+  }
+}

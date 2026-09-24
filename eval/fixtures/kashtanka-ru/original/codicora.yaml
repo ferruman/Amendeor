@@ -1,0 +1,10 @@
+spec: codicora/v1
+type: project
+project:
+  id: kashtanka-ru
+  title: "kashtanka-ru"
+  source_language: ru
+manuscript:
+  path: manuscript
+edited:
+  path: edited

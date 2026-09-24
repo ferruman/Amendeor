@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "spans": [
+    {
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148",
+      "start": 93,
+      "end": 134,
+      "text": "cold, scanty and embarrassed in discourse",
+      "note": "Deliberate paired adjectives and restrained register"
+    },
+    {
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148",
+      "start": 885,
+      "end": 911,
+      "text": "I incline to Cain’s heresy",
+      "note": "Character dialogue register"
+    },
+    {
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148",
+      "start": 940,
+      "end": 987,
+      "text": "I let my brother go to the devil in his own way",
+      "note": "Character dialogue and allusion"
+    }
+  ]
+}

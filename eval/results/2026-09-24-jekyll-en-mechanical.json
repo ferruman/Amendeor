@@ -1,0 +1,182 @@
+{
+  "schema": "amendeor.eval/0.1",
+  "work": "jekyll-en",
+  "language": "en",
+  "mode": "mechanical",
+  "runs": 1,
+  "generated_at": "2026-09-24T18:02:59.173Z",
+  "mutation_seed": "amendeor-v1",
+  "mutations": 9,
+  "guard_metric_scope": "deterministic-trap-stage-only",
+  "versions": [
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.0",
+      "mode": "mechanical"
+    }
+  ],
+  "usage": [
+    {
+      "entries": [],
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost": 0,
+      "currency": null,
+      "ms": 0
+    }
+  ],
+  "summary": {
+    "recall": {
+      "punctuation": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "doubled-word": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "typo": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "terminology": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "sentence-frame": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "dialogue-format": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "agreement": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "qualifier": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "redundancy": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      }
+    },
+    "unnecessary_edit_rate": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "control_proposals": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "guard_recall": {
+      "mean": 1,
+      "min": 1,
+      "max": 1
+    },
+    "semantic_regression": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "cost": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "model_ms": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "scores": [
+    {
+      "recall": {
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "typo": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "dialogue-format": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 0,
+        "scanned_words": 8014,
+        "rate": 0,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "matched": [
+        {
+          "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+          "proposal_id": "amendeor:af3c1aea6194ca14"
+        },
+        {
+          "mutation_id": "jekyll-en:sentence-frame:2:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+          "proposal_id": "amendeor:98f30e35a8af5354"
+        },
+        {
+          "mutation_id": "jekyll-en:redundancy:0:04-jekyll:07d0a395-a366-4d4a-8d4a-3099d45465b2",
+          "proposal_id": "amendeor:19fdfa710d154cd1"
+        }
+      ]
+    }
+  ]
+}

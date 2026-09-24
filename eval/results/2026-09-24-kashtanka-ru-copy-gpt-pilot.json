@@ -1,0 +1,1536 @@
+{
+  "schema": "amendeor.eval/0.1",
+  "work": "kashtanka-ru",
+  "language": "ru",
+  "mode": "copy",
+  "label": "gpt-pilot",
+  "runs": 1,
+  "generated_at": "2026-09-24T19:26:09.900Z",
+  "mutation_seed": "amendeor-v1",
+  "mutations": 9,
+  "formulaic": false,
+  "guard_metric_scope": "deterministic-trap-stage-only",
+  "versions": [
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.1",
+      "mode": "copy",
+      "prompt_version": "1.1.0",
+      "model_id": "openai/gpt-5.1"
+    }
+  ],
+  "usage": [
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1552,
+          "tokens_out": 176,
+          "cost": 0.0037,
+          "currency": "USD",
+          "ms": 2224,
+          "budget": 971
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1518,
+          "tokens_out": 199,
+          "cost": 0.0038875,
+          "currency": "USD",
+          "ms": 2078,
+          "budget": 737
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 362,
+          "tokens_out": 199,
+          "cost": 0.0024425,
+          "currency": "USD",
+          "ms": 2081,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1356,
+          "tokens_out": 163,
+          "cost": 0.003325,
+          "currency": "USD",
+          "ms": 2592,
+          "budget": 527
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1552,
+          "tokens_out": 47,
+          "cost": 0.00241,
+          "currency": "USD",
+          "ms": 1360,
+          "budget": 774
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1416,
+          "tokens_out": 116,
+          "cost": 0.00293,
+          "currency": "USD",
+          "ms": 2152,
+          "budget": 734
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1576,
+          "tokens_out": 124,
+          "cost": 0.00321,
+          "currency": "USD",
+          "ms": 1952,
+          "budget": 750
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1173,
+          "tokens_out": 181,
+          "cost": 0.00327625,
+          "currency": "USD",
+          "ms": 2349,
+          "budget": 562
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1469,
+          "tokens_out": 137,
+          "cost": 0.00320625,
+          "currency": "USD",
+          "ms": 2071,
+          "budget": 721
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1688,
+          "tokens_out": 135,
+          "cost": 0.00346,
+          "currency": "USD",
+          "ms": 2570,
+          "budget": 727
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 1636,
+          "tokens_out": 65,
+          "cost": 0.002695,
+          "currency": "USD",
+          "ms": 1380,
+          "budget": 804
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 783,
+          "tokens_out": 201,
+          "cost": 0.00298875,
+          "currency": "USD",
+          "ms": 2454,
+          "budget": 322
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 566,
+          "tokens_out": 59,
+          "cost": 0.001722,
+          "currency": "USD",
+          "ms": 2196,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 566,
+          "tokens_out": 48,
+          "cost": 0.001612,
+          "currency": "USD",
+          "ms": 2307,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 566,
+          "tokens_out": 63,
+          "cost": 0.001762,
+          "currency": "USD",
+          "ms": 2597,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 240,
+          "tokens_out": 66,
+          "cost": 0.00114,
+          "currency": "USD",
+          "ms": 3909,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 575,
+          "tokens_out": 46,
+          "cost": 0.00161,
+          "currency": "USD",
+          "ms": 2163,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 575,
+          "tokens_out": 44,
+          "cost": 0.00159,
+          "currency": "USD",
+          "ms": 2525,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 575,
+          "tokens_out": 48,
+          "cost": 0.00163,
+          "currency": "USD",
+          "ms": 2607,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 386,
+          "tokens_out": 46,
+          "cost": 0.001232,
+          "currency": "USD",
+          "ms": 2366,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 386,
+          "tokens_out": 46,
+          "cost": 0.001232,
+          "currency": "USD",
+          "ms": 2119,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 386,
+          "tokens_out": 48,
+          "cost": 0.001252,
+          "currency": "USD",
+          "ms": 2154,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 384,
+          "tokens_out": 46,
+          "cost": 0.001228,
+          "currency": "USD",
+          "ms": 2224,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 384,
+          "tokens_out": 45,
+          "cost": 0.001218,
+          "currency": "USD",
+          "ms": 2155,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 384,
+          "tokens_out": 45,
+          "cost": 0.001218,
+          "currency": "USD",
+          "ms": 2397,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 670,
+          "tokens_out": 53,
+          "cost": 0.00187,
+          "currency": "USD",
+          "ms": 2691,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 670,
+          "tokens_out": 54,
+          "cost": 0.00188,
+          "currency": "USD",
+          "ms": 4396,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 670,
+          "tokens_out": 45,
+          "cost": 0.00179,
+          "currency": "USD",
+          "ms": 2204,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 521,
+          "tokens_out": 46,
+          "cost": 0.001502,
+          "currency": "USD",
+          "ms": 2131,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 521,
+          "tokens_out": 46,
+          "cost": 0.001502,
+          "currency": "USD",
+          "ms": 2761,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 521,
+          "tokens_out": 46,
+          "cost": 0.001502,
+          "currency": "USD",
+          "ms": 2600,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 443,
+          "tokens_out": 59,
+          "cost": 0.001476,
+          "currency": "USD",
+          "ms": 2548,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 443,
+          "tokens_out": 62,
+          "cost": 0.001506,
+          "currency": "USD",
+          "ms": 2560,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 443,
+          "tokens_out": 55,
+          "cost": 0.001436,
+          "currency": "USD",
+          "ms": 2454,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 444,
+          "tokens_out": 111,
+          "cost": 0.001998,
+          "currency": "USD",
+          "ms": 3015,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 763,
+          "tokens_out": 44,
+          "cost": 0.001966,
+          "currency": "USD",
+          "ms": 2177,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 763,
+          "tokens_out": 38,
+          "cost": 0.001906,
+          "currency": "USD",
+          "ms": 2482,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 763,
+          "tokens_out": 44,
+          "cost": 0.001966,
+          "currency": "USD",
+          "ms": 2404,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 166,
+          "tokens_out": 48,
+          "cost": 0.000812,
+          "currency": "USD",
+          "ms": 2443,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 166,
+          "tokens_out": 55,
+          "cost": 0.000882,
+          "currency": "USD",
+          "ms": 2421,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 166,
+          "tokens_out": 52,
+          "cost": 0.000852,
+          "currency": "USD",
+          "ms": 2150,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 288,
+          "tokens_out": 63,
+          "cost": 0.001206,
+          "currency": "USD",
+          "ms": 2430,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 288,
+          "tokens_out": 62,
+          "cost": 0.001196,
+          "currency": "USD",
+          "ms": 2510,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 288,
+          "tokens_out": 61,
+          "cost": 0.001186,
+          "currency": "USD",
+          "ms": 2335,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 851,
+          "tokens_out": 69,
+          "cost": 0.002392,
+          "currency": "USD",
+          "ms": 2707,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 851,
+          "tokens_out": 44,
+          "cost": 0.002142,
+          "currency": "USD",
+          "ms": 2306,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 851,
+          "tokens_out": 68,
+          "cost": 0.002382,
+          "currency": "USD",
+          "ms": 2587,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 478,
+          "tokens_out": 102,
+          "cost": 0.001976,
+          "currency": "USD",
+          "ms": 3187,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 478,
+          "tokens_out": 97,
+          "cost": 0.001926,
+          "currency": "USD",
+          "ms": 2733,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 478,
+          "tokens_out": 93,
+          "cost": 0.001886,
+          "currency": "USD",
+          "ms": 3045,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 178,
+          "tokens_out": 124,
+          "cost": 0.001596,
+          "currency": "USD",
+          "ms": 3397,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 287,
+          "tokens_out": 98,
+          "cost": 0.001554,
+          "currency": "USD",
+          "ms": 2811,
+          "budget": 256
+        }
+      ],
+      "tokens_in": 35503,
+      "tokens_out": 4132,
+      "cost": 0.10026525000000001,
+      "currency": "USD",
+      "ms": 128467
+    }
+  ],
+  "summary": {
+    "recall": {
+      "dialogue-format": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "terminology": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "agreement": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "typo": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "punctuation": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "doubled-word": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "redundancy": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "qualifier": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "sentence-frame": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      }
+    },
+    "unnecessary_edit_rate": {
+      "mean": 0.001503508185766789,
+      "min": 0.001503508185766789,
+      "max": 0.001503508185766789
+    },
+    "control_proposals": {
+      "mean": 2,
+      "min": 2,
+      "max": 2
+    },
+    "guard_recall": {
+      "mean": 1,
+      "min": 1,
+      "max": 1
+    },
+    "semantic_regression": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "cost": {
+      "mean": 0.10026525000000001,
+      "min": 0.10026525000000001,
+      "max": 0.10026525000000001
+    },
+    "model_ms": {
+      "mean": 128467,
+      "min": 128467,
+      "max": 128467
+    }
+  },
+  "scores": [
+    {
+      "recall": {
+        "dialogue-format": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "typo": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "punctuation": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 9,
+        "scanned_words": 5986,
+        "rate": 0.001503508185766789,
+        "control_proposals": 2,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "kashtanka-ru:dialogue-format:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "proposal_id": "amendeor:81d256920ae64d55"
+        },
+        {
+          "mutation_id": "kashtanka-ru:agreement:2:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "proposal_id": "amendeor:7d5253fa6b671e91"
+        },
+        {
+          "mutation_id": "kashtanka-ru:typo:0:05-kashtanka:db498a81-397a-4e10-8480-377dff472260",
+          "proposal_id": "amendeor:d41bc1b162dc8852"
+        },
+        {
+          "mutation_id": "kashtanka-ru:punctuation:0:06-kashtanka:1832c307-48a8-4e81-8f23-7a1b0e3ca86b",
+          "proposal_id": "amendeor:ad6ecc2496a6650f"
+        },
+        {
+          "mutation_id": "kashtanka-ru:doubled-word:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "proposal_id": "amendeor:3e4123c218138e70"
+        },
+        {
+          "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "proposal_id": "amendeor:0f04cf1c56bfdc44"
+        },
+        {
+          "mutation_id": "kashtanka-ru:sentence-frame:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+          "proposal_id": "amendeor:466e1a0aabf72cbe"
+        }
+      ]
+    }
+  ],
+  "run_details": [
+    {
+      "run_id": "2026-09-24T19-23-07Z-aed4",
+      "stages": [
+        {
+          "name": "rules",
+          "status": "ok",
+          "hits": 4,
+          "proposals": 4,
+          "units": {
+            "cached": 0,
+            "computed": 11,
+            "failed": 0
+          },
+          "failures": [],
+          "diagnostics": []
+        },
+        {
+          "name": "model",
+          "status": "ok",
+          "windows": 11,
+          "sent": 12,
+          "cached": 0,
+          "no_change": 0,
+          "candidates": 19,
+          "discarded": [
+            {
+              "node_id": "02-kashtanka/8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+              "reason": "no-op"
+            }
+          ],
+          "failures": [],
+          "prompt_version": "1.1.0",
+          "model_id": "openai/gpt-5.1",
+          "formulaic_hits": [],
+          "formulaic_catalog_version": "0.2.0"
+        },
+        {
+          "name": "guard",
+          "status": "partial",
+          "candidates": 19,
+          "semantic_rejected": 7,
+          "voice_rejected": 0,
+          "offered": 12,
+          "same_family_warning": false,
+          "rejections": [
+            {
+              "proposal_id": "amendeor:72d94a342cc78482",
+              "guard": "semantic-verifier",
+              "reason": "Changing the question mark to a period turns the utterance from an uncertain, questioning remark into a flat assertion, altering the speaker's certainty/tone."
+            },
+            {
+              "proposal_id": "amendeor:a366ca5d607c433a",
+              "guard": "semantic-trap",
+              "reason": "dialogue-content-change"
+            },
+            {
+              "proposal_id": "amendeor:8ccf9a863447d8b9",
+              "guard": "semantic-verifier",
+              "reason": "'П' likely refers to a specific prop (e.g., a stepladder or letter-shaped stand mentioned elsewhere in the story), while 'пулей' ('like a bullet') introduces a different word with unrelated meaning, changing the object being listed and thus the factual content of the sentence."
+            },
+            {
+              "proposal_id": "amendeor:eadbfbc5fdb363aa",
+              "guard": "semantic-trap",
+              "reason": "dialogue-content-change"
+            },
+            {
+              "proposal_id": "amendeor:eaa05c0494c2bf1e",
+              "guard": "semantic-verifier",
+              "reason": "Гал­ерея и галёрка обозначают разные вещи: 'галерея' — общее архитектурное понятие (крытый проход, ярус здания), а 'галёрка' — разговорное название верхнего яруса театра. Замена меняет конкретное место действия и стилистический регистр текста, что искажает смысл."
+            },
+            {
+              "proposal_id": "amendeor:5fe1044adf43949d",
+              "guard": "semantic-verifier",
+              "reason": "The ellipsis (…) implies trailing continuation or unfinished thought, suggesting the action continues or trails off. Replacing it with a period gives a sense of definite closure/completion, subtly altering the implied tone and open-endedness of the sentence."
+            },
+            {
+              "proposal_id": "amendeor:4d996e4db5136a73",
+              "guard": "semantic-trap",
+              "reason": "proper-name-change"
+            }
+          ]
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:81d256920ae64d55",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "01-kashtanka",
+              "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "key": "sha256:54c732979502922fdfbc520f32233f3662bdb52ea89d9421d1fdfb16f6a6b93c"
+            },
+            "evidence": "sha256:723011783bd6d12f03dfb4ef2bffa028aae360fb41cc98d26720b1d932dcbf73"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "content_hash": "sha256:6640bc2095d32e80663ea25554fe395ae770189269250ba2ec97ef0df75f7bad"
+          },
+          "target": {
+            "text": "- К",
+            "hash": "sha256:54c732979502922fdfbc520f32233f3662bdb52ea89d9421d1fdfb16f6a6b93c",
+            "before": "о деревянную штуку, завёрнутую в красный платок, и крикнул:\n",
+            "after": "аштанка, пойдём!\n\nУслыхав своё имя, помесь таксы с дворняжко",
+            "occurrence": 0
+          },
+          "replacement": "— К",
+          "category": "typography",
+          "impact": "mechanical",
+          "source": "rule:typography.dashes-ellipsis",
+          "confidence": 1,
+          "reason": "Use the language dialogue dash.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:3e4123c218138e70",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "06-kashtanka",
+              "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+              "key": "sha256:3ab734b48d5b3990196b6543f021b19e3e987239f1d9f21f2c157b2210dbb432"
+            },
+            "evidence": "sha256:fc289345b5a8d39df1b535e597f7f618894bf0ae9949d268e78145d07873905d"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "content_hash": "sha256:9a8e5a02714e61b987bc00237317ddbfae08325a10af046d7235e940f9a51093"
+          },
+          "target": {
+            "text": "Иваныч Иваныч",
+            "hash": "sha256:3ab734b48d5b3990196b6543f021b19e3e987239f1d9f21f2c157b2210dbb432",
+            "before": "него из рукомойника воды и опять пошёл к гусю.\n\n— Пей, Иван ",
+            "after": "! — сказал он нежно, ставя перед ним блюдечко. — Пей, голубч",
+            "occurrence": 0
+          },
+          "replacement": "Иваныч",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:0f04cf1c56bfdc44",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:37b020ef79edac7fba239e63cbe5cfa73c29bf2fac7cf7a519c95ebdb3b2338a"
+            },
+            "evidence": "sha256:2e618caa3bd22b9bd5d7b6d9120a2ec3c1b77ab32ec3a60cee76aacb7cbd59c9"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:53ac9b45a6a7e4aab8de8adfe88a1db8c2f0aa3f3c84ad4514af0f376942653d"
+          },
+          "target": {
+            "text": "снова снова",
+            "hash": "sha256:37b020ef79edac7fba239e63cbe5cfa73c29bf2fac7cf7a519c95ebdb3b2338a",
+            "before": "сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, но не сказал ",
+            "after": " и вышел. Тётка, отлично изучившая во время уроков его лицо ",
+            "occurrence": 0
+          },
+          "replacement": "снова",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:466e1a0aabf72cbe",
+          "fingerprint": {
+            "primary": {
+              "category": "capitalization",
+              "chapter": "07-kashtanka",
+              "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+              "key": "sha256:08f79e827ef4e34d0b2eb432382334e187a8f5945eed498f31d8d3feff6f7389"
+            },
+            "evidence": "sha256:14438035c17110c9cde22522095400c81ca0e85820eccf391e33aabd3b3c530a"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+            "content_hash": "sha256:51ac2b17294715f3f34ccff67888dab705f3d560ef13f89ca5072245c5cd600f"
+          },
+          "target": {
+            "text": ". она",
+            "hash": "sha256:08f79e827ef4e34d0b2eb432382334e187a8f5945eed498f31d8d3feff6f7389",
+            "before": "вали минуты, когда Тётку мучили сомнения, и тогда она готова",
+            "after": " готова была бежать от пёстрой фигуры и лаять. Новое место, ",
+            "occurrence": 0
+          },
+          "replacement": ". Она",
+          "category": "capitalization",
+          "impact": "mechanical",
+          "source": "rule:capitalization.sentence-start",
+          "confidence": 1,
+          "reason": "Capitalize the sentence opening.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:7d5253fa6b671e91",
+          "fingerprint": {
+            "primary": {
+              "category": "grammar",
+              "chapter": "01-kashtanka",
+              "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "key": "sha256:3f720e6da40a35e33194e9dd059eabb25e384ba80744f0215904de0ecac7a48e"
+            },
+            "evidence": "sha256:3b71e8d9d4aeda5d258d607a282b39c57599af9e2e4d01bf721aafff3b187160"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "content_hash": "sha256:6640bc2095d32e80663ea25554fe395ae770189269250ba2ec97ef0df75f7bad"
+          },
+          "target": {
+            "text": "Всё человечество Каштанка делила на две очень неравные части: на хозяев и на заказчиков; между теми и другими был существенная разница: первые имели право бить её, а вторых она сама имела право хватать за икры.",
+            "hash": "sha256:3f720e6da40a35e33194e9dd059eabb25e384ba80744f0215904de0ecac7a48e",
+            "before": "зостановочно взад и вперёд проходили незнакомые заказчики. (",
+            "after": ") Заказчики куда-то спешили и не обращали на неё никакого вн",
+            "occurrence": 0
+          },
+          "replacement": "Всё человечество Каштанка делила на две очень неравные части: на хозяев и на заказчиков; между теми и другими была существенная разница: первые имели право бить её, а вторых она сама имела право хватать за икры.",
+          "category": "grammar",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Сказуемое согласуется с подлежащим «разница»: «была существенная разница», а не «был».",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:748e1713c458fc06",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "02-kashtanka",
+              "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+              "key": "sha256:163cd5ec6285d26de6d19f2bdc359e5abb8a5994708b097f3ef05ff9b3119051"
+            },
+            "evidence": "sha256:6d76a7950c4c6d88f7c8df93f03727e356f39602e1a7e13acf20e8e2ac28ae96"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-kashtanka",
+            "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+            "content_hash": "sha256:8bd6afe1c6d33c8322cbe2851f6c3eba4aa946c9e28918645a4fd723ac759a96"
+          },
+          "target": {
+            "text": "Затем он потушил лампу и вышел.",
+            "hash": "sha256:163cd5ec6285d26de6d19f2bdc359e5abb8a5994708b097f3ef05ff9b3119051",
+            "before": ", кладя матрасик в углу около дивана. — Ложись здесь. Спи!\n\n",
+            "after": " Каштанка разлеглась на матрасике и закрыла глаза; с улицы п",
+            "occurrence": 0
+          },
+          "replacement": "Затем он потушил лампу, и вышел.",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "нужна запятая между однородными сказуемыми",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:73e77c673b689cb3",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "02-kashtanka",
+              "scene": "7a7825de-c33e-47bd-8a0f-aa22ba36d117",
+              "key": "sha256:1a02c78447bbb5768567a530af180b26e819b1ecfffb1b79b4509a8e2ac9aade"
+            },
+            "evidence": "sha256:ed63c27079139d5581a6acb4db1e15e5594680d4632cf9101738c5641d966120"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-kashtanka",
+            "scene": "7a7825de-c33e-47bd-8a0f-aa22ba36d117",
+            "content_hash": "sha256:8659f0cb4af4e27fb6d39512906b2c81b5073405e9ccfedaaee23a6194ca706e"
+          },
+          "target": {
+            "text": "Но скоро утомление и теплота взяли верх над грустью… Она стала засыпать.",
+            "hash": "sha256:1a02c78447bbb5768567a530af180b26e819b1ecfffb1b79b4509a8e2ac9aade",
+            "before": "",
+            "after": " В её воображении забегали собаки; пробежал, между прочим, и",
+            "occurrence": 0
+          },
+          "replacement": "Но скоро утомление и теплота взяли верх над грустью. Она стала засыпать.",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Убираем многоточие в середине, чтобы не нарушать норму и не перегружать текст дополнительной экспрессией.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:28c3874c66d5ee07",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "02-kashtanka",
+              "scene": "7a7825de-c33e-47bd-8a0f-aa22ba36d117",
+              "key": "sha256:b0b71ae7615a296c6b3bca8658cbe0726001c93f157ed81b09c795aa38b2f24e"
+            },
+            "evidence": "sha256:5b3ea8eaa8a4b17a1e3a5026f791be76627a72fdfa2b01080527c9f97c3a4791"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-kashtanka",
+            "scene": "7a7825de-c33e-47bd-8a0f-aa22ba36d117",
+            "content_hash": "sha256:8659f0cb4af4e27fb6d39512906b2c81b5073405e9ccfedaaee23a6194ca706e"
+          },
+          "target": {
+            "text": "Каштанка и он добродушно понюхали друг другу носы и побежали на улицу…",
+            "hash": "sha256:b0b71ae7615a296c6b3bca8658cbe0726001c93f157ed81b09c795aa38b2f24e",
+            "before": " мохнатой шерстью, весело залаял и очутился около Каштанки. ",
+            "after": "\n",
+            "occurrence": 0
+          },
+          "replacement": "Каштанка и он добродушно понюхали друг другу носы и побежали на улицу.",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Многоточие в финале абзаца необязательно; точка оформляет законченность эпизода без потери авторской интонации.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:54a3142d2c506407",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "03-kashtanka",
+              "scene": "148fee7f-a0eb-486c-874b-9a8363798309",
+              "key": "sha256:b50391c60810e976000c1f0775dda48ac432c3fb8c69a08f644885112742dc80"
+            },
+            "evidence": "sha256:81c2de17fa4af980931f9b625ad8d283730888c3fdcc997085748775abda69b7"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "03-kashtanka",
+            "scene": "148fee7f-a0eb-486c-874b-9a8363798309",
+            "content_hash": "sha256:7b74213471d7fbbcfe48af74efca6239d80872f8295ccf6c34eb87128c87e2ab"
+          },
+          "target": {
+            "text": "громко залаяла и бросилась к коту… Кот ещё сильнее",
+            "hash": "sha256:b50391c60810e976000c1f0775dda48ac432c3fb8c69a08f644885112742dc80",
+            "before": "спугалась не на шутку, но, не желая выдавать своего страха, ",
+            "after": " выгнул спину, зашипел и ударил Каштанку лапой по голове. Ка",
+            "occurrence": 0
+          },
+          "replacement": "громко залаяла и бросилась к коту. Кот ещё сильнее",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "замена троеточия на точку для единообразия оформления и отсутствия эффекта обрыва фразы",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ab6a28ff8195f0f3",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "03-kashtanka",
+              "scene": "148fee7f-a0eb-486c-874b-9a8363798309",
+              "key": "sha256:6babefd359569b7e94de57e25243dac163dca5ed6dfca8d5acbeb50ab05dd8e3"
+            },
+            "evidence": "sha256:436d44768eb53617220d61664d47d5bc6f700158323a47f889d6229879cba524"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "03-kashtanka",
+            "scene": "148fee7f-a0eb-486c-874b-9a8363798309",
+            "content_hash": "sha256:7b74213471d7fbbcfe48af74efca6239d80872f8295ccf6c34eb87128c87e2ab"
+          },
+          "target": {
+            "text": "делал вид, что восхищается своею речью… Послушав его",
+            "hash": "sha256:6babefd359569b7e94de57e25243dac163dca5ed6dfca8d5acbeb50ab05dd8e3",
+            "before": "ждой длинной тирады он всякий раз удивлённо пятился назад и ",
+            "after": " и ответив ему «рррр…», Каштанка принялась обнюхивать углы. ",
+            "occurrence": 0
+          },
+          "replacement": "делал вид, что восхищается своею речью. Послушав его",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "троеточие не мотивировано контекстом, точка делает переход более чётким",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:d41bc1b162dc8852",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "05-kashtanka",
+              "scene": "db498a81-397a-4e10-8480-377dff472260",
+              "key": "sha256:d0be38a477aab6cb3dada969d8715c63c37ed24c7f9dd35087be85666b99f4de"
+            },
+            "evidence": "sha256:12ddd8e8b4fd46e0c6dd624bf4d463e176ef67e5307fb12c23d02b00f13eb0d0"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "05-kashtanka",
+            "scene": "db498a81-397a-4e10-8480-377dff472260",
+            "content_hash": "sha256:eeed0fa3e6937cbf72500b4b5e9a67843d1c7f50a60642292420cb74dd6ffc94"
+          },
+          "target": {
+            "text": "хоидть",
+            "hash": "sha256:d0be38a477aab6cb3dada969d8715c63c37ed24c7f9dd35087be85666b99f4de",
+            "before": " учить её разным наукам. В первый урок она училась стоять и ",
+            "after": " на задних лапах, что ей ужасно нравилось. Во второй урок он",
+            "occurrence": 0
+          },
+          "replacement": "ходить",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "опечатка в глаголе, мешающая чтению",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ad6ecc2496a6650f",
+          "fingerprint": {
+            "primary": {
+              "category": "punctuation",
+              "chapter": "06-kashtanka",
+              "scene": "1832c307-48a8-4e81-8f23-7a1b0e3ca86b",
+              "key": "sha256:3a94b87cf49ffdf50192828151203de28914582a05ded9f3f54b73a691262ef0"
+            },
+            "evidence": "sha256:8c831782037f0d6ddfe82048a495e41222a085784a15b83b6a977921bd403d74"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "1832c307-48a8-4e81-8f23-7a1b0e3ca86b",
+            "content_hash": "sha256:775f32b01132edd76f725c3430e5a9ea9b37523196862d9c478ec34bf600a995"
+          },
+          "target": {
+            "text": "Тётка закрыла глаза, чтобы поскорее уснуть так как она знала по опыту, что чем скорее уснёшь, тем скорее наступит утро.",
+            "hash": "sha256:3a94b87cf49ffdf50192828151203de28914582a05ded9f3f54b73a691262ef0",
+            "before": "Но раньше утра нельзя выходить из комнатки — такое правило. ",
+            "after": " Но вдруг недалеко от неё раздался странный крик, который за",
+            "occurrence": 0
+          },
+          "replacement": "Тётка закрыла глаза, чтобы поскорее уснуть, так как она знала по опыту, что чем скорее уснёшь, тем скорее наступит утро.",
+          "category": "punctuation",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "нужна запятая перед союзом «так как» в сложноподчинённом предложении",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:5c14f5c8c3612ade",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "06-kashtanka",
+              "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+              "key": "sha256:5a3f9002e1f88f8a6feeae350faae2266c339d45ed6d65b458197fba6bd6ce11"
+            },
+            "evidence": "sha256:d234e62d4050f1ea90014d054c748c140f1efa7de5b4dd0babc1ff71ed82f607"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "content_hash": "sha256:9a8e5a02714e61b987bc00237317ddbfae08325a10af046d7235e940f9a51093"
+          },
+          "target": {
+            "text": "— Ску-ску-ску…",
+            "hash": "sha256:5a3f9002e1f88f8a6feeae350faae2266c339d45ed6d65b458197fba6bd6ce11",
+            "before": "од диван, села там и начала скулить тихо, тонким голоском:\n\n",
+            "after": "\n",
+            "occurrence": 0
+          },
+          "replacement": "— Ску-ску-ску...",
+          "category": "typography",
+          "impact": "mechanical",
+          "source": "model",
+          "confidence": 1,
+          "reason": "По настройкам нужно использовать только троеточие из трёх точек, без типографской многоточечной ligaturы.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:9b0e556b022f243c",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:8ca45b7a36ad441d2d5d654e448590c172f4fca5c7e3e4357a05a3789247e6c7"
+            },
+            "evidence": "sha256:cafc4d24e0bc3329c794240873e774e10a3f11dd658c471da0006aba2619ade2"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:53ac9b45a6a7e4aab8de8adfe88a1db8c2f0aa3f3c84ad4514af0f376942653d"
+          },
+          "target": {
+            "text": "Что-то он хотел ещё сказать, но не сказал снова снова и вышел.",
+            "hash": "sha256:8ca45b7a36ad441d2d5d654e448590c172f4fca5c7e3e4357a05a3789247e6c7",
+            "before": "мнатку с грязными обоями и, потирая руки, сказал:\n\n— Ну-с…\n\n",
+            "after": " Тётка, отлично изучившая во время уроков его лицо и интонац",
+            "occurrence": 0
+          },
+          "replacement": "Что-то он хотел ещё сказать, но не сказал снова и вышел.",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Исправление очевидного случайного повторения слова без изменения смысла.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:28d0ee3f5b337ca2",
+          "fingerprint": {
+            "primary": {
+              "category": "word-choice",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:2cd71dfc8379bbf96ea8180ab873a1b9a001324740a8f92bf561876bd9c5d53e"
+            },
+            "evidence": "sha256:b5e4ff6e5be6a1e0ee8f1d8f87793e0115916ef0a1bf190da4125bb66aad070c"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:53ac9b45a6a7e4aab8de8adfe88a1db8c2f0aa3f3c84ad4514af0f376942653d"
+          },
+          "target": {
+            "text": "ещё брови, усы и румяны.",
+            "hash": "sha256:2cd71dfc8379bbf96ea8180ab873a1b9a001324740a8f92bf561876bd9c5d53e",
+            "before": "то намазал лицо чем-то белым и сверх белой краски нарисовал ",
+            "after": " Затеи его этим не кончились. Опачкавши лицо и шею, он стал ",
+            "occurrence": 0
+          },
+          "replacement": "ещё брови, усы и румяна.",
+          "category": "word-choice",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Форма «румяна» нормативна для обозначения косметики во множественном числе.",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:71b330e27fcc9a76",
+          "fingerprint": {
+            "primary": {
+              "category": "sentence-structure",
+              "chapter": "07-kashtanka",
+              "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+              "key": "sha256:5c1fad8956f5e89c2f2eb676d4e2159b6cbacdb168e86e17f6ee5963b358356a"
+            },
+            "evidence": "sha256:65ff66f27933f1c8bd70bd60046a81111f43b2c1b540c487aa78afc6dadbce2a"
+          },
+          "run_id": "2026-09-24T19-23-07Z-aed4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+            "content_hash": "sha256:51ac2b17294715f3f34ccff67888dab705f3d560ef13f89ca5072245c5cd600f"
+          },
+          "target": {
+            "text": "и тогда она готова. она готова была бежать",
+            "hash": "sha256:5c1fad8956f5e89c2f2eb676d4e2159b6cbacdb168e86e17f6ee5963b358356a",
+            "before": ", хозяйский, но бывали минуты, когда Тётку мучили сомнения, ",
+            "after": " от пёстрой фигуры и лаять. Новое место, веерообразный огонё",
+            "occurrence": 0
+          },
+          "replacement": "и тогда она готова была бежать",
+          "category": "sentence-structure",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "лишняя точка разбивает синтаксически цельную конструкцию",
+          "verification": {
+            "passes": 3,
+            "agreed": 3,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        }
+      ]
+    }
+  ]
+}

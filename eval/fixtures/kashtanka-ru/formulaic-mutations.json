@@ -1,0 +1,126 @@
+{
+  "seed": "amendeor-v2",
+  "mutations": [
+    {
+      "id": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "01-kashtanka",
+      "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "span": {
+        "start": 1494,
+        "end": 1525
+      },
+      "original": "Одним словом",
+      "mutated": "В современном мире Одним словом"
+    },
+    {
+      "id": "kashtanka-ru:terminology:1:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "type": "terminology",
+      "chapter": "01-kashtanka",
+      "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "span": {
+        "start": 2087,
+        "end": 2097
+      },
+      "original": "Каштанка",
+      "mutated": "Каштаночка"
+    },
+    {
+      "id": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+      "type": "typo",
+      "chapter": "02-kashtanka",
+      "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+      "span": {
+        "start": 1386,
+        "end": 1393
+      },
+      "original": "глядела",
+      "mutated": "глдяела"
+    },
+    {
+      "id": "kashtanka-ru:sentence-frame:0:05-kashtanka:db498a81-397a-4e10-8480-377dff472260",
+      "type": "sentence-frame",
+      "chapter": "05-kashtanka",
+      "scene": "db498a81-397a-4e10-8480-377dff472260",
+      "span": {
+        "start": 618,
+        "end": 642
+      },
+      "original": "он подходил",
+      "mutated": "он подходил. он подходил"
+    },
+    {
+      "id": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+      "type": "agreement",
+      "chapter": "06-kashtanka",
+      "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+      "span": {
+        "start": 758,
+        "end": 763
+      },
+      "original": "пошла",
+      "mutated": "пошёл"
+    },
+    {
+      "id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "type": "redundancy",
+      "chapter": "07-kashtanka",
+      "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "span": {
+        "start": 136,
+        "end": 154
+      },
+      "original": "сказал",
+      "mutated": "сказал снова снова"
+    },
+    {
+      "id": "kashtanka-ru:dialogue-format:1:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "type": "dialogue-format",
+      "chapter": "07-kashtanka",
+      "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "span": {
+        "start": 939,
+        "end": 940
+      },
+      "original": "\n—",
+      "mutated": "-"
+    },
+    {
+      "id": "kashtanka-ru:doubled-word:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+      "type": "doubled-word",
+      "chapter": "07-kashtanka",
+      "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+      "span": {
+        "start": 3386,
+        "end": 3401
+      },
+      "original": "смотрят",
+      "mutated": "смотрят смотрят"
+    },
+    {
+      "id": "kashtanka-ru:qualifier:0:07-kashtanka:c42bb4bb-39cd-4a5a-825b-640dc569b660",
+      "type": "qualifier",
+      "chapter": "07-kashtanka",
+      "scene": "c42bb4bb-39cd-4a5a-825b-640dc569b660",
+      "span": {
+        "start": 1409,
+        "end": 1437
+      },
+      "original": "казалось",
+      "mutated": "в некоторой степени казалось"
+    },
+    {
+      "id": "kashtanka-ru:punctuation:1:07-kashtanka:c42bb4bb-39cd-4a5a-825b-640dc569b660",
+      "type": "punctuation",
+      "chapter": "07-kashtanka",
+      "scene": "c42bb4bb-39cd-4a5a-825b-640dc569b660",
+      "span": {
+        "start": 1437,
+        "end": 1437
+      },
+      "original": ",",
+      "mutated": ""
+    }
+  ]
+}

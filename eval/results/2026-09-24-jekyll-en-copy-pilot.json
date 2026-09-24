@@ -1,0 +1,511 @@
+{
+  "schema": "amendeor.eval/0.1",
+  "work": "jekyll-en",
+  "language": "en",
+  "mode": "copy",
+  "label": "pilot",
+  "runs": 1,
+  "generated_at": "2026-09-24T19:16:56.803Z",
+  "mutation_seed": "amendeor-v1",
+  "mutations": 9,
+  "formulaic": false,
+  "guard_metric_scope": "deterministic-trap-stage-only",
+  "versions": [
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.0",
+      "mode": "copy",
+      "prompt_version": "1.1.0",
+      "model_id": "anthropic/claude-sonnet-5"
+    }
+  ],
+  "usage": [
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1426,
+          "tokens_out": 115,
+          "cost": 0.004002,
+          "currency": "USD",
+          "ms": 3292,
+          "budget": 498
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1499,
+          "tokens_out": 10,
+          "cost": 0.003098,
+          "currency": "USD",
+          "ms": 2507,
+          "budget": 676
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 776,
+          "tokens_out": 10,
+          "cost": 0.001652,
+          "currency": "USD",
+          "ms": 2301,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1760,
+          "tokens_out": 90,
+          "cost": 0.00442,
+          "currency": "USD",
+          "ms": 2762,
+          "budget": 958
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1826,
+          "tokens_out": 96,
+          "cost": 0.004612,
+          "currency": "USD",
+          "ms": 2972,
+          "budget": 891
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1610,
+          "tokens_out": 10,
+          "cost": 0.00332,
+          "currency": "USD",
+          "ms": 2151,
+          "budget": 741
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 586,
+          "tokens_out": 15,
+          "cost": 0.001322,
+          "currency": "USD",
+          "ms": 2146,
+          "budget": 256
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 652,
+          "tokens_out": 10,
+          "cost": 0.001404,
+          "currency": "USD",
+          "ms": 2369,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1596,
+          "tokens_out": 10,
+          "cost": 0.003292,
+          "currency": "USD",
+          "ms": 2166,
+          "budget": 844
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1524,
+          "tokens_out": 71,
+          "cost": 0.003758,
+          "currency": "USD",
+          "ms": 2517,
+          "budget": 766
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1747,
+          "tokens_out": 272,
+          "cost": 0.006214,
+          "currency": "USD",
+          "ms": 3872,
+          "budget": 809
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1813,
+          "tokens_out": 392,
+          "cost": 0.007546,
+          "currency": "USD",
+          "ms": 4581,
+          "budget": 861
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1726,
+          "tokens_out": 10,
+          "cost": 0.003552,
+          "currency": "USD",
+          "ms": 1999,
+          "budget": 847
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 965,
+          "tokens_out": 10,
+          "cost": 0.00203,
+          "currency": "USD",
+          "ms": 2028,
+          "budget": 376
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1576,
+          "tokens_out": 10,
+          "cost": 0.003252,
+          "currency": "USD",
+          "ms": 1927,
+          "budget": 766
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 695,
+          "tokens_out": 10,
+          "cost": 0.00149,
+          "currency": "USD",
+          "ms": 2019,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1538,
+          "tokens_out": 77,
+          "cost": 0.003846,
+          "currency": "USD",
+          "ms": 2268,
+          "budget": 846
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1604,
+          "tokens_out": 75,
+          "cost": 0.003958,
+          "currency": "USD",
+          "ms": 2651,
+          "budget": 752
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1636,
+          "tokens_out": 10,
+          "cost": 0.003372,
+          "currency": "USD",
+          "ms": 1988,
+          "budget": 763
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 994,
+          "tokens_out": 80,
+          "cost": 0.002788,
+          "currency": "USD",
+          "ms": 2564,
+          "budget": 405
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 589,
+          "tokens_out": 55,
+          "cost": 0.00128625,
+          "currency": "USD",
+          "ms": 2723,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 589,
+          "tokens_out": 40,
+          "cost": 0.00113625,
+          "currency": "USD",
+          "ms": 1260,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 589,
+          "tokens_out": 51,
+          "cost": 0.00124625,
+          "currency": "USD",
+          "ms": 1304,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 199,
+          "tokens_out": 36,
+          "cost": 0.00060875,
+          "currency": "USD",
+          "ms": 1359,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 199,
+          "tokens_out": 50,
+          "cost": 0.00074875,
+          "currency": "USD",
+          "ms": 1515,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 199,
+          "tokens_out": 54,
+          "cost": 0.00078875,
+          "currency": "USD",
+          "ms": 3896,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 346,
+          "tokens_out": 49,
+          "cost": 0.0009225,
+          "currency": "USD",
+          "ms": 1762,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 346,
+          "tokens_out": 49,
+          "cost": 0.0009225,
+          "currency": "USD",
+          "ms": 1447,
+          "budget": 256
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 346,
+          "tokens_out": 43,
+          "cost": 0.0008625,
+          "currency": "USD",
+          "ms": 1218,
+          "budget": 256
+        }
+      ],
+      "tokens_in": 30951,
+      "tokens_out": 1810,
+      "cost": 0.07745050000000003,
+      "currency": "USD",
+      "ms": 67564
+    }
+  ],
+  "summary": {
+    "recall": {
+      "punctuation": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "doubled-word": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "typo": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "terminology": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "sentence-frame": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "dialogue-format": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "agreement": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "qualifier": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "redundancy": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      }
+    },
+    "unnecessary_edit_rate": {
+      "mean": 0.0002495632642874969,
+      "min": 0.0002495632642874969,
+      "max": 0.0002495632642874969
+    },
+    "control_proposals": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "guard_recall": {
+      "mean": 1,
+      "min": 1,
+      "max": 1
+    },
+    "semantic_regression": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "cost": {
+      "mean": 0.07745050000000003,
+      "min": 0.07745050000000003,
+      "max": 0.07745050000000003
+    },
+    "model_ms": {
+      "mean": 67564,
+      "min": 67564,
+      "max": 67564
+    }
+  },
+  "scores": [
+    {
+      "recall": {
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "typo": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "dialogue-format": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 2,
+        "scanned_words": 8014,
+        "rate": 0.0002495632642874969,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:9ff04e10-2994-4d47-8bd4-fa83cbcc8d09",
+          "proposal_id": "amendeor:af3c1aea6194ca14"
+        },
+        {
+          "mutation_id": "jekyll-en:sentence-frame:2:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+          "proposal_id": "amendeor:98f30e35a8af5354"
+        },
+        {
+          "mutation_id": "jekyll-en:agreement:0:04-jekyll:c2b12541-7cb8-45fd-88b9-717019363afa",
+          "proposal_id": "amendeor:932950b431682ac1"
+        },
+        {
+          "mutation_id": "jekyll-en:redundancy:0:04-jekyll:07d0a395-a366-4d4a-8d4a-3099d45465b2",
+          "proposal_id": "amendeor:19fdfa710d154cd1"
+        }
+      ]
+    }
+  ]
+}

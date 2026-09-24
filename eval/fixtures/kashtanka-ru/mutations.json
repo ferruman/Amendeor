@@ -1,0 +1,113 @@
+{
+  "seed": "amendeor-v1",
+  "mutations": [
+    {
+      "id": "kashtanka-ru:dialogue-format:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "type": "dialogue-format",
+      "chapter": "01-kashtanka",
+      "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "span": {
+        "start": 567,
+        "end": 568
+      },
+      "original": "\n—",
+      "mutated": "-"
+    },
+    {
+      "id": "kashtanka-ru:terminology:1:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "type": "terminology",
+      "chapter": "01-kashtanka",
+      "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "span": {
+        "start": 1891,
+        "end": 1901
+      },
+      "original": "Каштанка",
+      "mutated": "Каштаночка"
+    },
+    {
+      "id": "kashtanka-ru:agreement:2:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "type": "agreement",
+      "chapter": "01-kashtanka",
+      "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+      "span": {
+        "start": 3526,
+        "end": 3529
+      },
+      "original": "была",
+      "mutated": "был"
+    },
+    {
+      "id": "kashtanka-ru:typo:0:05-kashtanka:db498a81-397a-4e10-8480-377dff472260",
+      "type": "typo",
+      "chapter": "05-kashtanka",
+      "scene": "db498a81-397a-4e10-8480-377dff472260",
+      "span": {
+        "start": 2923,
+        "end": 2929
+      },
+      "original": "ходить",
+      "mutated": "хоидть"
+    },
+    {
+      "id": "kashtanka-ru:punctuation:0:06-kashtanka:1832c307-48a8-4e81-8f23-7a1b0e3ca86b",
+      "type": "punctuation",
+      "chapter": "06-kashtanka",
+      "scene": "1832c307-48a8-4e81-8f23-7a1b0e3ca86b",
+      "span": {
+        "start": 803,
+        "end": 803
+      },
+      "original": ",",
+      "mutated": ""
+    },
+    {
+      "id": "kashtanka-ru:doubled-word:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+      "type": "doubled-word",
+      "chapter": "06-kashtanka",
+      "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+      "span": {
+        "start": 1308,
+        "end": 1321
+      },
+      "original": "Иваныч",
+      "mutated": "Иваныч Иваныч"
+    },
+    {
+      "id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "type": "redundancy",
+      "chapter": "07-kashtanka",
+      "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "span": {
+        "start": 136,
+        "end": 154
+      },
+      "original": "сказал",
+      "mutated": "сказал снова снова"
+    },
+    {
+      "id": "kashtanka-ru:qualifier:1:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "type": "qualifier",
+      "chapter": "07-kashtanka",
+      "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "span": {
+        "start": 1791,
+        "end": 1819
+      },
+      "original": "возможно",
+      "mutated": "в некоторой степени возможно"
+    },
+    {
+      "id": "kashtanka-ru:sentence-frame:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+      "type": "sentence-frame",
+      "chapter": "07-kashtanka",
+      "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+      "span": {
+        "start": 182,
+        "end": 204
+      },
+      "original": "она готова",
+      "mutated": "она готова. она готова"
+    }
+  ]
+}

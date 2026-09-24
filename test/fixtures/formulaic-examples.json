@@ -1,0 +1,16 @@
+[
+  { "lang": "en", "verdict": "flag", "id": "formulaic.throat-clearing", "text": "Here's the thing: the gate was open." },
+  { "lang": "en", "verdict": "keep", "text": "“Here's the thing,” she whispered, “the gate was open.”" },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.faux-insight", "text": "What nobody tells you is that the gate was open." },
+  { "lang": "en", "verdict": "keep", "text": "“What nobody tells you,” he said, “is that I opened the gate.”" },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.importance-puffery", "text": "The opening marks a pivotal moment in the journey." },
+  { "lang": "en", "verdict": "keep", "text": "The hinge broke at dawn, and the gate stayed open." },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.filler-frame", "text": "At the end of the day, the gate was still open." },
+  { "lang": "en", "verdict": "keep", "text": "“At the end of the day,” he said, “I'll close it myself.”" },
+  { "lang": "ru", "verdict": "flag", "id": "formulaic.faux-insight", "text": "Мало кто говорит о том, что ворота оставались открытыми." },
+  { "lang": "ru", "verdict": "keep", "text": "«Мало кто говорит о том, что случилось», — сказал он." },
+  { "lang": "ru", "verdict": "flag", "id": "formulaic.importance-puffery", "text": "Этот день знаменует собой поворотный момент для города." },
+  { "lang": "ru", "verdict": "keep", "text": "В этот день ворота города впервые закрыли на ночь." },
+  { "lang": "ru", "verdict": "flag", "id": "formulaic.filler-frame", "text": "В современном мире ворота по-прежнему закрывают на ночь." },
+  { "lang": "ru", "verdict": "keep", "text": "«В современном мире?» — удивилась она. «А раньше как?»" }
+]

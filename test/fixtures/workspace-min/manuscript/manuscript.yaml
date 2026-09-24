@@ -1,0 +1,7 @@
+schema_version: 1
+language: en
+chapters:
+  - slug: first
+    title: First
+  - slug: second
+    title: Second

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+coverage/
+*.log
+.env*
+!.env.example
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+eval/fixtures/*/mutated/.codicora/
+eval/fixtures/*/mutated/edited/
+eval/fixtures/*/mutated-formulaic/.codicora/
+eval/fixtures/*/mutated-formulaic/edited/

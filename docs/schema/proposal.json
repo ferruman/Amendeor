@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "amendeor.proposal/0.1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^amendeor:[0-9a-f]{16}$"
+    },
+    "fingerprint": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "enum": [
+                "spelling",
+                "grammar",
+                "punctuation",
+                "typography",
+                "capitalization",
+                "word-choice",
+                "clarity",
+                "sentence-structure",
+                "redundancy",
+                "repetition",
+                "dialogue-mechanics",
+                "terminology",
+                "consistency",
+                "prose-pattern"
+              ]
+            },
+            "chapter": {
+              "type": "string"
+            },
+            "scene": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "category",
+            "chapter",
+            "scene",
+            "key"
+          ],
+          "additionalProperties": false
+        },
+        "evidence": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "primary",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tool": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "const": "amendeor"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "chapter": {
+          "type": "string"
+        },
+        "scene": {
+          "type": "string"
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "chapter",
+        "scene",
+        "content_hash"
+      ],
+      "additionalProperties": false
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "before": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "after": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "occurrence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "text",
+        "hash",
+        "before",
+        "after",
+        "occurrence"
+      ],
+      "additionalProperties": false
+    },
+    "replacement": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "spelling",
+        "grammar",
+        "punctuation",
+        "typography",
+        "capitalization",
+        "word-choice",
+        "clarity",
+        "sentence-structure",
+        "redundancy",
+        "repetition",
+        "dialogue-mechanics",
+        "terminology",
+        "consistency",
+        "prose-pattern"
+      ]
+    },
+    "impact": {
+      "type": "string",
+      "enum": [
+        "mechanical",
+        "prose"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^(model|rule:[a-z0-9][a-z0-9._-]*)$"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "reason": {
+      "type": "string"
+    },
+    "source_findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "passes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "agreed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "semantic_risk": {
+          "type": "string"
+        },
+        "voice": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "passes",
+        "agreed",
+        "semantic_risk",
+        "voice"
+      ],
+      "additionalProperties": false
+    },
+    "unverified": {
+      "type": "boolean",
+      "const": true
+    }
+  },
+  "required": [
+    "schema",
+    "id",
+    "fingerprint",
+    "run_id",
+    "tool",
+    "location",
+    "target",
+    "replacement",
+    "category",
+    "impact",
+    "source",
+    "confidence",
+    "reason",
+    "verification"
+  ],
+  "additionalProperties": false,
+  "$id": "amendeor.proposal/0.1"
+}

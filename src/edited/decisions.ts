@@ -1,0 +1,65 @@
+import { appendFile, readFile, mkdir } from 'node:fs/promises';
+import path from 'node:path';
+import { proposalSchema, type Proposal } from '../proposal/schema.ts';
+
+export interface Acceptance { proposal: Proposal; accepted_by: string; at: string }
+export interface Rejection { proposal_id: string; target_hash: string; rejected_by: string; at: string }
+export class DecisionError extends Error {
+  readonly code: 'unverified-proposal' | 'duplicate-proposal-id' | 'conflicting-acceptance' | 'proposal-not-found';
+  constructor(code: 'unverified-proposal' | 'duplicate-proposal-id' | 'conflicting-acceptance' | 'proposal-not-found', message: string) { super(`${code}: ${message}`); this.code = code; }
+}
+
+export async function readAccepted(editedDir: string): Promise<Acceptance[]> {
+  const file = path.join(editedDir, 'accepted.jsonl');
+  let contents: string;
+  try { contents = await readFile(file, 'utf8'); } catch (error) { if ((error as NodeJS.ErrnoException).code === 'ENOENT') return []; throw error; }
+  const result: Acceptance[] = [];
+  for (const [index, line] of contents.split(/\r?\n/).entries()) {
+    if (!line.trim()) continue;
+    let item: Acceptance;
+    try { const parsed = JSON.parse(line) as Acceptance; item = { ...parsed, proposal: proposalSchema.parse(parsed.proposal) }; }
+    catch (error) { throw new Error(`invalid acceptance line ${index + 1}: ${(error as Error).message}`); }
+    const prior = result.find((record) => record.proposal.id === item.proposal.id);
+    if (prior && (prior.proposal.fingerprint.evidence !== item.proposal.fingerprint.evidence || prior.proposal.replacement !== item.proposal.replacement)) throw new DecisionError('conflicting-acceptance', item.proposal.id);
+    if (!prior) result.push(item);
+  }
+  return result;
+}
+
+export async function acceptProposals(editedDir: string, proposals: Proposal[], options: { acceptedBy?: string; allowUnverified?: boolean } = {}): Promise<Acceptance[]> {
+  const accepted = await readAccepted(editedDir);
+  const seen = new Set<string>();
+  for (const proposal of proposals) {
+    proposalSchema.parse(proposal);
+    if (seen.has(proposal.id)) throw new DecisionError('duplicate-proposal-id', proposal.id);
+    seen.add(proposal.id);
+    if (proposal.unverified && !options.allowUnverified) throw new DecisionError('unverified-proposal', proposal.id);
+    const prior = accepted.find((record) => record.proposal.id === proposal.id);
+    if (prior && (prior.proposal.fingerprint.evidence !== proposal.fingerprint.evidence || prior.proposal.replacement !== proposal.replacement)) throw new DecisionError('conflicting-acceptance', proposal.id);
+  }
+  const fresh = proposals.filter((proposal) => !accepted.some((record) => record.proposal.id === proposal.id));
+  if (fresh.length) {
+    await mkdir(editedDir, { recursive: true });
+    await appendFile(path.join(editedDir, 'accepted.jsonl'), fresh.map((proposal) => JSON.stringify({ proposal, accepted_by: options.acceptedBy ?? 'author', at: new Date().toISOString() })).join('\n') + '\n');
+  }
+  return [...accepted, ...fresh.map((proposal) => ({ proposal, accepted_by: options.acceptedBy ?? 'author', at: new Date().toISOString() }))];
+}
+
+export async function rejectProposals(stateDir: string, proposals: Proposal[], rejectedBy = 'author'): Promise<void> {
+  await mkdir(stateDir, { recursive: true });
+  await appendFile(path.join(stateDir, 'rejected-by-author.jsonl'), proposals.map((proposal) => JSON.stringify({ proposal_id: proposal.id, target_hash: proposal.target.hash, rejected_by: rejectedBy, at: new Date().toISOString() })).join('\n') + '\n');
+}
+
+export async function readRejected(stateDir: string): Promise<Rejection[]> {
+  const file = path.join(stateDir, 'rejected-by-author.jsonl');
+  let contents: string;
+  try { contents = await readFile(file, 'utf8'); } catch (error) { if ((error as NodeJS.ErrnoException).code === 'ENOENT') return []; throw error; }
+  return contents.split(/\r?\n/).flatMap((line, index) => {
+    if (!line.trim()) return [];
+    try {
+      const item = JSON.parse(line) as Rejection;
+      if (typeof item.proposal_id !== 'string' || typeof item.target_hash !== 'string' || typeof item.rejected_by !== 'string' || typeof item.at !== 'string') throw new Error('missing rejection fields');
+      return [item];
+    } catch (error) { throw new Error(`invalid rejection line ${index + 1}: ${(error as Error).message}`); }
+  });
+}

@@ -1,0 +1,126 @@
+{
+  "seed": "amendeor-v2",
+  "mutations": [
+    {
+      "id": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+      "type": "agreement",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+      "span": {
+        "start": 675,
+        "end": 679
+      },
+      "original": "was",
+      "mutated": "were"
+    },
+    {
+      "id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "span": {
+        "start": 662,
+        "end": 700
+      },
+      "original": "Utterson asking",
+      "mutated": "At the end of the day, Utterson asking"
+    },
+    {
+      "id": "jekyll-en:dialogue-format:1:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "type": "dialogue-format",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "span": {
+        "start": 3192,
+        "end": 3193
+      },
+      "original": "“",
+      "mutated": "\""
+    },
+    {
+      "id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "type": "redundancy",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "span": {
+        "start": 161,
+        "end": 176
+      },
+      "original": "was",
+      "mutated": "was again again"
+    },
+    {
+      "id": "jekyll-en:punctuation:1:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "type": "punctuation",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "span": {
+        "start": 401,
+        "end": 401
+      },
+      "original": ",",
+      "mutated": ""
+    },
+    {
+      "id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "type": "typo",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "span": {
+        "start": 1256,
+        "end": 1266
+      },
+      "original": "obligation",
+      "mutated": "obilgation"
+    },
+    {
+      "id": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "type": "terminology",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "span": {
+        "start": 2666,
+        "end": 2670
+      },
+      "original": "Hyde",
+      "mutated": "Hide"
+    },
+    {
+      "id": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "type": "doubled-word",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "span": {
+        "start": 3657,
+        "end": 3668
+      },
+      "original": "Poole",
+      "mutated": "Poole Poole"
+    },
+    {
+      "id": "jekyll-en:sentence-frame:0:02-jekyll:eaf3739a-1ae6-440c-8b19-3d0b0271990c",
+      "type": "sentence-frame",
+      "chapter": "02-jekyll",
+      "scene": "eaf3739a-1ae6-440c-8b19-3d0b0271990c",
+      "span": {
+        "start": 1003,
+        "end": 1019
+      },
+      "original": "he were",
+      "mutated": "he were. he were"
+    },
+    {
+      "id": "jekyll-en:qualifier:0:04-jekyll:3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "type": "qualifier",
+      "chapter": "04-jekyll",
+      "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "span": {
+        "start": 259,
+        "end": 275
+      },
+      "original": "perhaps",
+      "mutated": "somewhat perhaps"
+    }
+  ]
+}

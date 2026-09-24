@@ -1,0 +1,2276 @@
+{
+  "schema": "amendeor.eval/0.1",
+  "work": "kashtanka-ru",
+  "language": "ru",
+  "mode": "copy",
+  "label": "",
+  "runs": 3,
+  "generated_at": "2026-09-24T19:20:52.467Z",
+  "mutation_seed": "amendeor-v1",
+  "mutations": 9,
+  "formulaic": false,
+  "guard_metric_scope": "deterministic-trap-stage-only",
+  "versions": [
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.1",
+      "mode": "copy",
+      "prompt_version": "1.1.0",
+      "model_id": "anthropic/claude-sonnet-5"
+    },
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.1",
+      "mode": "copy",
+      "prompt_version": "1.1.0",
+      "model_id": "anthropic/claude-sonnet-5"
+    },
+    {
+      "rule_set_version": "sha256:f9e90f5fe989827950e1c60750abf9d8dbc4fdb86a96f5521fef8c8eaa970c7d",
+      "pack_version": "1.0.1",
+      "mode": "copy",
+      "prompt_version": "1.1.0",
+      "model_id": "anthropic/claude-sonnet-5"
+    }
+  ],
+  "usage": [
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 2227,
+          "tokens_out": 133,
+          "cost": 0.005784,
+          "currency": "USD",
+          "ms": 3532,
+          "budget": 971
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 2293,
+          "tokens_out": 207,
+          "cost": 0.006656,
+          "currency": "USD",
+          "ms": 4669,
+          "budget": 1122
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 2197,
+          "tokens_out": 10,
+          "cost": 0.004494,
+          "currency": "USD",
+          "ms": 2034,
+          "budget": 1061
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 598,
+          "tokens_out": 15,
+          "cost": 0.001346,
+          "currency": "USD",
+          "ms": 2047,
+          "budget": 276
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 664,
+          "tokens_out": 10,
+          "cost": 0.001428,
+          "currency": "USD",
+          "ms": 1859,
+          "budget": 256
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 1964,
+          "tokens_out": 15,
+          "cost": 0.004078,
+          "currency": "USD",
+          "ms": 1934,
+          "budget": 883
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 2030,
+          "tokens_out": 10,
+          "cost": 0.00416,
+          "currency": "USD",
+          "ms": 1928,
+          "budget": 946
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 2265,
+          "tokens_out": 15,
+          "cost": 0.00468,
+          "currency": "USD",
+          "ms": 2030,
+          "budget": 1123
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 2331,
+          "tokens_out": 10,
+          "cost": 0.004762,
+          "currency": "USD",
+          "ms": 1868,
+          "budget": 1132
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 2063,
+          "tokens_out": 51,
+          "cost": 0.004636,
+          "currency": "USD",
+          "ms": 2319,
+          "budget": 1073
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 237,
+          "budget": 1019,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277627-bWEAVLXWrAmIShhu2vsc\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 184,
+          "budget": 1019,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277627-qsmfCnghslAooo2VhqsU\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit-parse-retry",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 135,
+          "budget": 1019,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277628-HKu14WVYujJLusirTHQ0\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 175,
+          "budget": 1093,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277628-TDOJOycx163fmnXMbAut\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 524,
+          "budget": 1093,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277628-YvvxBij0cxuDIhQCs2Iz\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 181,
+          "budget": 1093,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277629-7Yn7FIXcKME4Gr494OEV\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 181,
+          "budget": 777,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277629-ivdzDXqHTnrVbAKXXMz5\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 394,
+          "budget": 777,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277629-AQ6VNKtWIQbb3YAWXb9j\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 310,
+          "budget": 777,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277630-tN7C5ziQKbMUubACdkeH\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 76,
+          "budget": 1030,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277630-nlDtbEYUWfNUwvVfYsTZ\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 61,
+          "budget": 1030,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277630-8shLB94frSMmCoOdoNc6\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 855,
+          "budget": 1030,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277631-wn40VUHrQF47uiM1gx3u\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 308,
+          "budget": 1151,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277632-vfgOVyQ9vHsgB3ZBNnbv\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 61,
+          "budget": 1151,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277632-LCcRfKvHS6x1Z1H7uOqu\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 70,
+          "budget": 1151,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277632-akpDaLzW9HQrdevC5yeZ\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 172,
+          "budget": 448,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277632-mA4NDQgXJ6OvkcXkA27s\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 101,
+          "budget": 448,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277633-SEwdAvFDFcIX5ksuNwwY\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 69,
+          "budget": 448,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277633-7UbpeLl5Xcfor7TncGUv\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "verify",
+          "provider": "verifier",
+          "model": "openai/gpt-5.1",
+          "tokens_in": 226,
+          "tokens_out": 64,
+          "cost": 0.0009225,
+          "currency": "USD",
+          "ms": 1611,
+          "budget": 256
+        }
+      ],
+      "tokens_in": 18858,
+      "tokens_out": 540,
+      "cost": 0.0429465,
+      "currency": "USD",
+      "ms": 29925
+    },
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 297,
+          "budget": 971,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277635-LlUBwMM3O7i5iVxiaVnw\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 221,
+          "budget": 971,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277636-w5HrNtQm5sDnjdMI2Iw0\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 59,
+          "budget": 971,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277636-0RX32EHgBiDGHZ4fIlon\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 179,
+          "budget": 915,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277636-yLcFkn9TMoEp2NGyZ7OA\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 196,
+          "budget": 915,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277636-9839cuj7q2IOrcyS6kob\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 72,
+          "budget": 915,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277637-diJL5NfpC7jlboZ7C0CI\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 230,
+          "budget": 256,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277637-AtqZHzD84I6zNXwtFN8N\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 353,
+          "budget": 256,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277637-VdKjkCDHkeGVNOCR8bOh\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 198,
+          "budget": 256,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277638-5TBKudrTS7H2Ap2lK6ic\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 262,
+          "budget": 786,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277638-oweCEO9IyTpv9nmjSaqT\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 127,
+          "budget": 786,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277638-yzeJAASAY582XaV8XCIA\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 190,
+          "budget": 786,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277639-LyL5VQ3p29ShIOm8Lsje\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 73,
+          "budget": 931,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277639-y7Bv5BRM2y5y3TKZFn8N\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 68,
+          "budget": 931,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277639-V05zKjjNoDuO8gFKOTcw\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 86,
+          "budget": 931,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277639-j6Bo4mpk9RGsyIMpfegv\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 58,
+          "budget": 881,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277639-Ux0b9ZsvmEETtmDDRH5c\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 61,
+          "budget": 881,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277639-kQi6CdYTJq5uWAAP67oy\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 57,
+          "budget": 881,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277640-DKI3LsjJR7Rv5sdbakZd\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 58,
+          "budget": 945,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277640-ZEMxQ9yxBfFwAmxdxkaL\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 72,
+          "budget": 945,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277640-RgrRZ27v2BN8TSv4bosQ\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 178,
+          "budget": 945,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277640-QCEFvGtJWooTjQ05KbYh\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 59,
+          "budget": 672,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277640-6k0s5VtBEqwhEB4iPYZg\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 91,
+          "budget": 672,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277641-W9fGecL1mCImLOhlsVgf\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 70,
+          "budget": 672,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277641-QL5IpYqkFGgNwCB8uOeR\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 62,
+          "budget": 890,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277641-mzDKgcEWx1WXBlDk1yCI\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 234,
+          "budget": 890,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277641-MKkmyKhZKnSar7ELHk3D\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 194,
+          "budget": 890,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277642-LJ6W8OjJVzNtVugS09x0\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 96,
+          "budget": 995,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277642-ajojSrcoFlGUuuUesK6e\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 61,
+          "budget": 995,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277642-klndXgjZGPNx76FSS2u8\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 60,
+          "budget": 995,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277642-dW2er6SF2fAi5kO7WFhe\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 70,
+          "budget": 387,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277642-q7hKV62OWgragOeBPndc\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 72,
+          "budget": 387,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277642-KDCDe62nf6SqeMkGlGBN\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 72,
+          "budget": 387,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277643-vPyosAjp8ML3bJow8tGf\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        }
+      ],
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost": 0,
+      "currency": "USD",
+      "ms": 4236
+    },
+    {
+      "entries": [
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 387,
+          "budget": 971,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277643-5MX3XuBBMtpbB8U4q90V\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 188,
+          "budget": 971,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277644-bKmvJJFM4H84pbZah2HG\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 677,
+          "budget": 971,
+          "error": "http: HTTP 403: {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"anthropic/claude-sonnet-5-20260630 requires moderation on Anthropic. Your input was flagged for \\\"self-harm/intent\\\". No credits were charged.\",\"error_type\":\"permission_denied\"},\"request_id\":\"gen-1790277644-z9nxsySSOyQveyghLv3d\",\"metadata\":{\"reasons\":[\"self-harm/intent\"],\"flagged_input\":\"You are a conservative literary copy editor.\\nWrite...озможно! Нужно застрелиться!»\\n\\nREAD-ONLY AFTER:\\n\\n\\n\",\"provider_name\":null,\"model_slug\":\"ant"
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 176,
+          "budget": 915,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277645-o7Ns15ssuba9UtZqrDes\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 185,
+          "budget": 915,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277645-4BzzuFbKSDHJrBSCHN4A\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 62,
+          "budget": 915,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277645-1s7QmNuF0Ds1G9EVpfhG\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 541,
+          "budget": 256,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277646-HQQWfCV73WUIkOCA1D7R\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 83,
+          "budget": 256,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277646-90xAH0K3gAxnzzIAREMV\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 179,
+          "budget": 256,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277646-l2L9qJYSurHKRovljRz5\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 180,
+          "budget": 786,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277647-PWDpF4eKItjCRUkE4PCW\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 224,
+          "budget": 786,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277647-0auNRKmJcuqNJsaWJ2rB\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 705,
+          "budget": 786,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277647-PTxy6Bnr333XtbWKaoOY\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 81,
+          "budget": 931,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277648-XLZhojZNHooSFpIdhKar\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 94,
+          "budget": 931,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277648-a8ONbO7M8uZzqTr0xrrv\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 67,
+          "budget": 931,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277649-VBCKSm2gBlTxfmxmKG83\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 59,
+          "budget": 881,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277649-2hekldIp2EmUgPHgB3aO\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 194,
+          "budget": 881,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277649-d0de5PSaTuMoFsTgd5sx\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 62,
+          "budget": 881,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277649-mcxnfjgkv7VugyoGeruv\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 57,
+          "budget": 945,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277649-An1evEsIWXIUdvruaflE\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 260,
+          "budget": 945,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277650-2Hm1mM2I9q52952CTaX5\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 63,
+          "budget": 945,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277650-WY5eh98kMmBpgzhRKNCf\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 58,
+          "budget": 672,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277650-8VPm3qH5GWZ4T8BZf7ia\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 76,
+          "budget": 672,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277650-Vrg2HW7alXm9S94QPkaC\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 68,
+          "budget": 672,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277650-dIARqapkX6SeRv70NwpN\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 184,
+          "budget": 890,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277650-TzQaWWP5nDnN0FL9G8Pu\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 60,
+          "budget": 890,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277651-4A639CWxt0aUmlq70pg4\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 57,
+          "budget": 890,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277651-Qv8EoWg1vUqQBKEOJILO\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 59,
+          "budget": 995,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277651-ehqz9FPJMuc3dfAp7HCU\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 60,
+          "budget": 995,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277651-31nmHh7exVUniqILtJgU\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 75,
+          "budget": 995,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277651-V4WzbNabxa0toZ0nZRGs\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 66,
+          "budget": 387,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277652-UB9dvBdMURphWlfbYswp\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 54,
+          "budget": 387,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277652-GaUyp54atY4b1sGmfg7b\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        },
+        {
+          "stage": "edit",
+          "provider": "editor",
+          "model": "anthropic/claude-sonnet-5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 59,
+          "budget": 387,
+          "error": "http: HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277652-PHertpQLTybDI54ALsGQ\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+        }
+      ],
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost": 0,
+      "currency": "USD",
+      "ms": 5400
+    }
+  ],
+  "summary": {
+    "recall": {
+      "dialogue-format": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "terminology": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "agreement": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "typo": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "punctuation": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "doubled-word": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "redundancy": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      },
+      "qualifier": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "sentence-frame": {
+        "mean": 1,
+        "min": 1,
+        "max": 1
+      }
+    },
+    "unnecessary_edit_rate": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "control_proposals": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "guard_recall": {
+      "mean": 1,
+      "min": 1,
+      "max": 1
+    },
+    "semantic_regression": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    },
+    "cost": {
+      "mean": 0.0143155,
+      "min": 0,
+      "max": 0.0429465
+    },
+    "model_ms": {
+      "mean": 13187,
+      "min": 4236,
+      "max": 29925
+    }
+  },
+  "scores": [
+    {
+      "recall": {
+        "dialogue-format": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "typo": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 0,
+        "scanned_words": 5986,
+        "rate": 0,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "kashtanka-ru:dialogue-format:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "proposal_id": "amendeor:81d256920ae64d55"
+        },
+        {
+          "mutation_id": "kashtanka-ru:doubled-word:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "proposal_id": "amendeor:3e4123c218138e70"
+        },
+        {
+          "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "proposal_id": "amendeor:0f04cf1c56bfdc44"
+        },
+        {
+          "mutation_id": "kashtanka-ru:sentence-frame:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+          "proposal_id": "amendeor:466e1a0aabf72cbe"
+        }
+      ]
+    },
+    {
+      "recall": {
+        "dialogue-format": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "typo": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 0,
+        "scanned_words": 5986,
+        "rate": 0,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "kashtanka-ru:dialogue-format:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "proposal_id": "amendeor:81d256920ae64d55"
+        },
+        {
+          "mutation_id": "kashtanka-ru:doubled-word:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "proposal_id": "amendeor:3e4123c218138e70"
+        },
+        {
+          "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "proposal_id": "amendeor:0f04cf1c56bfdc44"
+        },
+        {
+          "mutation_id": "kashtanka-ru:sentence-frame:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+          "proposal_id": "amendeor:466e1a0aabf72cbe"
+        }
+      ]
+    },
+    {
+      "recall": {
+        "dialogue-format": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "terminology": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "agreement": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "typo": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "punctuation": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "doubled-word": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "redundancy": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        },
+        "qualifier": {
+          "recalled": 0,
+          "total": 1,
+          "rate": 0
+        },
+        "sentence-frame": {
+          "recalled": 1,
+          "total": 1,
+          "rate": 1
+        }
+      },
+      "unnecessary": {
+        "count": 0,
+        "scanned_words": 5986,
+        "rate": 0,
+        "control_proposals": 0,
+        "preserve_proposals": 0
+      },
+      "guard_recall": 1,
+      "semantic_regression": 0,
+      "precision": "n/a",
+      "precision_by_pattern": {},
+      "matched": [
+        {
+          "mutation_id": "kashtanka-ru:dialogue-format:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "proposal_id": "amendeor:81d256920ae64d55"
+        },
+        {
+          "mutation_id": "kashtanka-ru:doubled-word:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "proposal_id": "amendeor:3e4123c218138e70"
+        },
+        {
+          "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "proposal_id": "amendeor:0f04cf1c56bfdc44"
+        },
+        {
+          "mutation_id": "kashtanka-ru:sentence-frame:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+          "proposal_id": "amendeor:466e1a0aabf72cbe"
+        }
+      ]
+    }
+  ],
+  "run_details": [
+    {
+      "run_id": "2026-09-24T19-20-03Z-1a07",
+      "stages": [
+        {
+          "name": "rules",
+          "status": "ok",
+          "hits": 4,
+          "proposals": 4,
+          "units": {
+            "cached": 0,
+            "computed": 11,
+            "failed": 0
+          },
+          "failures": [],
+          "diagnostics": []
+        },
+        {
+          "name": "model",
+          "status": "partial",
+          "windows": 11,
+          "sent": 10,
+          "cached": 0,
+          "no_change": 4,
+          "candidates": 1,
+          "discarded": [
+            {
+              "node_id": "01-kashtanka/369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "reason": "target-not-verbatim-in-window"
+            }
+          ],
+          "failures": [
+            {
+              "node_id": "05-kashtanka/db498a81-397a-4e10-8480-377dff472260/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277628-HKu14WVYujJLusirTHQ0\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "06-kashtanka/1832c307-48a8-4e81-8f23-7a1b0e3ca86b/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277629-7Yn7FIXcKME4Gr494OEV\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "06-kashtanka/7114c90d-6b2a-48f2-8c3b-163c74963764/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277630-tN7C5ziQKbMUubACdkeH\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "07-kashtanka/3ed8d542-fe7b-46e9-839f-bab0350c7c37/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277631-wn40VUHrQF47uiM1gx3u\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "07-kashtanka/271b3b6a-7c2a-46da-868b-43e41e77320c/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277632-akpDaLzW9HQrdevC5yeZ\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "07-kashtanka/c42bb4bb-39cd-4a5a-825b-640dc569b660/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277633-7UbpeLl5Xcfor7TncGUv\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            }
+          ],
+          "prompt_version": "1.1.0",
+          "model_id": "anthropic/claude-sonnet-5",
+          "formulaic_hits": [],
+          "formulaic_catalog_version": "0.2.0"
+        },
+        {
+          "name": "guard",
+          "status": "partial",
+          "candidates": 1,
+          "semantic_rejected": 1,
+          "voice_rejected": 0,
+          "offered": 0,
+          "same_family_warning": false,
+          "rejections": [
+            {
+              "proposal_id": "amendeor:be1d773de592707c",
+              "guard": "semantic-verifier",
+              "reason": "Changing em dashes to a comma alters the appositive structure and rhythm; in Russian prose this can subtly change emphasis and perceived parenthetical status of the phrase, so meaning/implication is not strictly identical."
+            }
+          ]
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:81d256920ae64d55",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "01-kashtanka",
+              "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "key": "sha256:54c732979502922fdfbc520f32233f3662bdb52ea89d9421d1fdfb16f6a6b93c"
+            },
+            "evidence": "sha256:723011783bd6d12f03dfb4ef2bffa028aae360fb41cc98d26720b1d932dcbf73"
+          },
+          "run_id": "2026-09-24T19-20-03Z-1a07",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "content_hash": "sha256:6640bc2095d32e80663ea25554fe395ae770189269250ba2ec97ef0df75f7bad"
+          },
+          "target": {
+            "text": "- К",
+            "hash": "sha256:54c732979502922fdfbc520f32233f3662bdb52ea89d9421d1fdfb16f6a6b93c",
+            "before": "о деревянную штуку, завёрнутую в красный платок, и крикнул:\n",
+            "after": "аштанка, пойдём!\n\nУслыхав своё имя, помесь таксы с дворняжко",
+            "occurrence": 0
+          },
+          "replacement": "— К",
+          "category": "typography",
+          "impact": "mechanical",
+          "source": "rule:typography.dashes-ellipsis",
+          "confidence": 1,
+          "reason": "Use the language dialogue dash.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:3e4123c218138e70",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "06-kashtanka",
+              "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+              "key": "sha256:3ab734b48d5b3990196b6543f021b19e3e987239f1d9f21f2c157b2210dbb432"
+            },
+            "evidence": "sha256:fc289345b5a8d39df1b535e597f7f618894bf0ae9949d268e78145d07873905d"
+          },
+          "run_id": "2026-09-24T19-20-03Z-1a07",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "content_hash": "sha256:9a8e5a02714e61b987bc00237317ddbfae08325a10af046d7235e940f9a51093"
+          },
+          "target": {
+            "text": "Иваныч Иваныч",
+            "hash": "sha256:3ab734b48d5b3990196b6543f021b19e3e987239f1d9f21f2c157b2210dbb432",
+            "before": "него из рукомойника воды и опять пошёл к гусю.\n\n— Пей, Иван ",
+            "after": "! — сказал он нежно, ставя перед ним блюдечко. — Пей, голубч",
+            "occurrence": 0
+          },
+          "replacement": "Иваныч",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:0f04cf1c56bfdc44",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:37b020ef79edac7fba239e63cbe5cfa73c29bf2fac7cf7a519c95ebdb3b2338a"
+            },
+            "evidence": "sha256:2e618caa3bd22b9bd5d7b6d9120a2ec3c1b77ab32ec3a60cee76aacb7cbd59c9"
+          },
+          "run_id": "2026-09-24T19-20-03Z-1a07",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:53ac9b45a6a7e4aab8de8adfe88a1db8c2f0aa3f3c84ad4514af0f376942653d"
+          },
+          "target": {
+            "text": "снова снова",
+            "hash": "sha256:37b020ef79edac7fba239e63cbe5cfa73c29bf2fac7cf7a519c95ebdb3b2338a",
+            "before": "сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, но не сказал ",
+            "after": " и вышел. Тётка, отлично изучившая во время уроков его лицо ",
+            "occurrence": 0
+          },
+          "replacement": "снова",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:466e1a0aabf72cbe",
+          "fingerprint": {
+            "primary": {
+              "category": "capitalization",
+              "chapter": "07-kashtanka",
+              "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+              "key": "sha256:08f79e827ef4e34d0b2eb432382334e187a8f5945eed498f31d8d3feff6f7389"
+            },
+            "evidence": "sha256:14438035c17110c9cde22522095400c81ca0e85820eccf391e33aabd3b3c530a"
+          },
+          "run_id": "2026-09-24T19-20-03Z-1a07",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+            "content_hash": "sha256:51ac2b17294715f3f34ccff67888dab705f3d560ef13f89ca5072245c5cd600f"
+          },
+          "target": {
+            "text": ". она",
+            "hash": "sha256:08f79e827ef4e34d0b2eb432382334e187a8f5945eed498f31d8d3feff6f7389",
+            "before": "вали минуты, когда Тётку мучили сомнения, и тогда она готова",
+            "after": " готова была бежать от пёстрой фигуры и лаять. Новое место, ",
+            "occurrence": 0
+          },
+          "replacement": ". Она",
+          "category": "capitalization",
+          "impact": "mechanical",
+          "source": "rule:capitalization.sentence-start",
+          "confidence": 1,
+          "reason": "Capitalize the sentence opening.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "2026-09-24T19-20-35Z-aaf4",
+      "stages": [
+        {
+          "name": "rules",
+          "status": "ok",
+          "hits": 4,
+          "proposals": 4,
+          "units": {
+            "cached": 0,
+            "computed": 11,
+            "failed": 0
+          },
+          "failures": [],
+          "diagnostics": []
+        },
+        {
+          "name": "model",
+          "status": "partial",
+          "windows": 11,
+          "sent": 0,
+          "cached": 0,
+          "no_change": 0,
+          "candidates": 0,
+          "discarded": [],
+          "failures": [
+            {
+              "node_id": "01-kashtanka/369de60f-5e2d-4172-8e91-7a3df8c62150/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277636-0RX32EHgBiDGHZ4fIlon\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "02-kashtanka/8664ef28-76b4-4529-8d9c-aa0a96c2c3cc/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277637-diJL5NfpC7jlboZ7C0CI\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "02-kashtanka/7a7825de-c33e-47bd-8a0f-aa22ba36d117/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277638-5TBKudrTS7H2Ap2lK6ic\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "03-kashtanka/148fee7f-a0eb-486c-874b-9a8363798309/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277639-LyL5VQ3p29ShIOm8Lsje\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "04-kashtanka/e4959b64-fc69-4775-8e9b-05d410f20704/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277639-j6Bo4mpk9RGsyIMpfegv\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "05-kashtanka/db498a81-397a-4e10-8480-377dff472260/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277640-DKI3LsjJR7Rv5sdbakZd\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "06-kashtanka/1832c307-48a8-4e81-8f23-7a1b0e3ca86b/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277640-QCEFvGtJWooTjQ05KbYh\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "06-kashtanka/7114c90d-6b2a-48f2-8c3b-163c74963764/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277641-QL5IpYqkFGgNwCB8uOeR\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "07-kashtanka/3ed8d542-fe7b-46e9-839f-bab0350c7c37/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277642-LJ6W8OjJVzNtVugS09x0\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "07-kashtanka/271b3b6a-7c2a-46da-868b-43e41e77320c/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277642-dW2er6SF2fAi5kO7WFhe\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "07-kashtanka/c42bb4bb-39cd-4a5a-825b-640dc569b660/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277643-vPyosAjp8ML3bJow8tGf\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            }
+          ],
+          "prompt_version": "1.1.0",
+          "model_id": "anthropic/claude-sonnet-5",
+          "formulaic_hits": [],
+          "formulaic_catalog_version": "0.2.0"
+        },
+        {
+          "name": "guard",
+          "status": "ok",
+          "candidates": 0,
+          "semantic_rejected": 0,
+          "voice_rejected": 0,
+          "offered": 0,
+          "same_family_warning": false,
+          "rejections": []
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:81d256920ae64d55",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "01-kashtanka",
+              "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "key": "sha256:54c732979502922fdfbc520f32233f3662bdb52ea89d9421d1fdfb16f6a6b93c"
+            },
+            "evidence": "sha256:723011783bd6d12f03dfb4ef2bffa028aae360fb41cc98d26720b1d932dcbf73"
+          },
+          "run_id": "2026-09-24T19-20-35Z-aaf4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "content_hash": "sha256:6640bc2095d32e80663ea25554fe395ae770189269250ba2ec97ef0df75f7bad"
+          },
+          "target": {
+            "text": "- К",
+            "hash": "sha256:54c732979502922fdfbc520f32233f3662bdb52ea89d9421d1fdfb16f6a6b93c",
+            "before": "о деревянную штуку, завёрнутую в красный платок, и крикнул:\n",
+            "after": "аштанка, пойдём!\n\nУслыхав своё имя, помесь таксы с дворняжко",
+            "occurrence": 0
+          },
+          "replacement": "— К",
+          "category": "typography",
+          "impact": "mechanical",
+          "source": "rule:typography.dashes-ellipsis",
+          "confidence": 1,
+          "reason": "Use the language dialogue dash.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:3e4123c218138e70",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "06-kashtanka",
+              "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+              "key": "sha256:3ab734b48d5b3990196b6543f021b19e3e987239f1d9f21f2c157b2210dbb432"
+            },
+            "evidence": "sha256:fc289345b5a8d39df1b535e597f7f618894bf0ae9949d268e78145d07873905d"
+          },
+          "run_id": "2026-09-24T19-20-35Z-aaf4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "content_hash": "sha256:9a8e5a02714e61b987bc00237317ddbfae08325a10af046d7235e940f9a51093"
+          },
+          "target": {
+            "text": "Иваныч Иваныч",
+            "hash": "sha256:3ab734b48d5b3990196b6543f021b19e3e987239f1d9f21f2c157b2210dbb432",
+            "before": "него из рукомойника воды и опять пошёл к гусю.\n\n— Пей, Иван ",
+            "after": "! — сказал он нежно, ставя перед ним блюдечко. — Пей, голубч",
+            "occurrence": 0
+          },
+          "replacement": "Иваныч",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:0f04cf1c56bfdc44",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:37b020ef79edac7fba239e63cbe5cfa73c29bf2fac7cf7a519c95ebdb3b2338a"
+            },
+            "evidence": "sha256:2e618caa3bd22b9bd5d7b6d9120a2ec3c1b77ab32ec3a60cee76aacb7cbd59c9"
+          },
+          "run_id": "2026-09-24T19-20-35Z-aaf4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:53ac9b45a6a7e4aab8de8adfe88a1db8c2f0aa3f3c84ad4514af0f376942653d"
+          },
+          "target": {
+            "text": "снова снова",
+            "hash": "sha256:37b020ef79edac7fba239e63cbe5cfa73c29bf2fac7cf7a519c95ebdb3b2338a",
+            "before": "сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, но не сказал ",
+            "after": " и вышел. Тётка, отлично изучившая во время уроков его лицо ",
+            "occurrence": 0
+          },
+          "replacement": "снова",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:466e1a0aabf72cbe",
+          "fingerprint": {
+            "primary": {
+              "category": "capitalization",
+              "chapter": "07-kashtanka",
+              "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+              "key": "sha256:08f79e827ef4e34d0b2eb432382334e187a8f5945eed498f31d8d3feff6f7389"
+            },
+            "evidence": "sha256:14438035c17110c9cde22522095400c81ca0e85820eccf391e33aabd3b3c530a"
+          },
+          "run_id": "2026-09-24T19-20-35Z-aaf4",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+            "content_hash": "sha256:51ac2b17294715f3f34ccff67888dab705f3d560ef13f89ca5072245c5cd600f"
+          },
+          "target": {
+            "text": ". она",
+            "hash": "sha256:08f79e827ef4e34d0b2eb432382334e187a8f5945eed498f31d8d3feff6f7389",
+            "before": "вали минуты, когда Тётку мучили сомнения, и тогда она готова",
+            "after": " готова была бежать от пёстрой фигуры и лаять. Новое место, ",
+            "occurrence": 0
+          },
+          "replacement": ". Она",
+          "category": "capitalization",
+          "impact": "mechanical",
+          "source": "rule:capitalization.sentence-start",
+          "confidence": 1,
+          "reason": "Capitalize the sentence opening.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "2026-09-24T19-20-43Z-3789",
+      "stages": [
+        {
+          "name": "rules",
+          "status": "ok",
+          "hits": 4,
+          "proposals": 4,
+          "units": {
+            "cached": 0,
+            "computed": 11,
+            "failed": 0
+          },
+          "failures": [],
+          "diagnostics": []
+        },
+        {
+          "name": "model",
+          "status": "partial",
+          "windows": 11,
+          "sent": 0,
+          "cached": 0,
+          "no_change": 0,
+          "candidates": 0,
+          "discarded": [],
+          "failures": [
+            {
+              "node_id": "01-kashtanka/369de60f-5e2d-4172-8e91-7a3df8c62150/0",
+              "reason": "HTTP 403: {\"type\":\"error\",\"error\":{\"type\":\"permission_error\",\"message\":\"anthropic/claude-sonnet-5-20260630 requires moderation on Anthropic. Your input was flagged for \\\"self-harm/intent\\\". No credits were charged.\",\"error_type\":\"permission_denied\"},\"request_id\":\"gen-1790277644-z9nxsySSOyQveyghLv3d\",\"metadata\":{\"reasons\":[\"self-harm/intent\"],\"flagged_input\":\"You are a conservative literary copy editor.\\nWrite...озможно! Нужно застрелиться!»\\n\\nREAD-ONLY AFTER:\\n\\n\\n\",\"provider_name\":null,\"model_slug\":\"ant"
+            },
+            {
+              "node_id": "02-kashtanka/8664ef28-76b4-4529-8d9c-aa0a96c2c3cc/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277645-1s7QmNuF0Ds1G9EVpfhG\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "02-kashtanka/7a7825de-c33e-47bd-8a0f-aa22ba36d117/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277646-l2L9qJYSurHKRovljRz5\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "03-kashtanka/148fee7f-a0eb-486c-874b-9a8363798309/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277647-PTxy6Bnr333XtbWKaoOY\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "04-kashtanka/e4959b64-fc69-4775-8e9b-05d410f20704/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277649-VBCKSm2gBlTxfmxmKG83\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "05-kashtanka/db498a81-397a-4e10-8480-377dff472260/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277649-mcxnfjgkv7VugyoGeruv\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "06-kashtanka/1832c307-48a8-4e81-8f23-7a1b0e3ca86b/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277650-WY5eh98kMmBpgzhRKNCf\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "06-kashtanka/7114c90d-6b2a-48f2-8c3b-163c74963764/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277650-dIARqapkX6SeRv70NwpN\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "07-kashtanka/3ed8d542-fe7b-46e9-839f-bab0350c7c37/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277651-Qv8EoWg1vUqQBKEOJILO\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "07-kashtanka/271b3b6a-7c2a-46da-868b-43e41e77320c/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277651-V4WzbNabxa0toZ0nZRGs\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            },
+            {
+              "node_id": "07-kashtanka/c42bb4bb-39cd-4a5a-825b-640dc569b660/0",
+              "reason": "HTTP 429: {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Rate limit exceeded: new-account-rpm/anthropic/claude-sonnet-5-20260630. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.\",\"error_type\":\"rate_limit_exceeded\"},\"request_id\":\"gen-1790277652-PHertpQLTybDI54ALsGQ\",\"metadata\":{\"headers\":{\"X-RateLimit-Limit\":\"20\",\"X-RateLimit-Remaining\":\"0\",\"X-RateLimit-Reset\":\"1790277660000\"},\"limit_source\":\"openrouter_new_account\",\"remedy_hint\":\""
+            }
+          ],
+          "prompt_version": "1.1.0",
+          "model_id": "anthropic/claude-sonnet-5",
+          "formulaic_hits": [],
+          "formulaic_catalog_version": "0.2.0"
+        },
+        {
+          "name": "guard",
+          "status": "ok",
+          "candidates": 0,
+          "semantic_rejected": 0,
+          "voice_rejected": 0,
+          "offered": 0,
+          "same_family_warning": false,
+          "rejections": []
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:81d256920ae64d55",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "01-kashtanka",
+              "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "key": "sha256:54c732979502922fdfbc520f32233f3662bdb52ea89d9421d1fdfb16f6a6b93c"
+            },
+            "evidence": "sha256:723011783bd6d12f03dfb4ef2bffa028aae360fb41cc98d26720b1d932dcbf73"
+          },
+          "run_id": "2026-09-24T19-20-43Z-3789",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "content_hash": "sha256:6640bc2095d32e80663ea25554fe395ae770189269250ba2ec97ef0df75f7bad"
+          },
+          "target": {
+            "text": "- К",
+            "hash": "sha256:54c732979502922fdfbc520f32233f3662bdb52ea89d9421d1fdfb16f6a6b93c",
+            "before": "о деревянную штуку, завёрнутую в красный платок, и крикнул:\n",
+            "after": "аштанка, пойдём!\n\nУслыхав своё имя, помесь таксы с дворняжко",
+            "occurrence": 0
+          },
+          "replacement": "— К",
+          "category": "typography",
+          "impact": "mechanical",
+          "source": "rule:typography.dashes-ellipsis",
+          "confidence": 1,
+          "reason": "Use the language dialogue dash.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:3e4123c218138e70",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "06-kashtanka",
+              "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+              "key": "sha256:3ab734b48d5b3990196b6543f021b19e3e987239f1d9f21f2c157b2210dbb432"
+            },
+            "evidence": "sha256:fc289345b5a8d39df1b535e597f7f618894bf0ae9949d268e78145d07873905d"
+          },
+          "run_id": "2026-09-24T19-20-43Z-3789",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "content_hash": "sha256:9a8e5a02714e61b987bc00237317ddbfae08325a10af046d7235e940f9a51093"
+          },
+          "target": {
+            "text": "Иваныч Иваныч",
+            "hash": "sha256:3ab734b48d5b3990196b6543f021b19e3e987239f1d9f21f2c157b2210dbb432",
+            "before": "него из рукомойника воды и опять пошёл к гусю.\n\n— Пей, Иван ",
+            "after": "! — сказал он нежно, ставя перед ним блюдечко. — Пей, голубч",
+            "occurrence": 0
+          },
+          "replacement": "Иваныч",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:0f04cf1c56bfdc44",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:37b020ef79edac7fba239e63cbe5cfa73c29bf2fac7cf7a519c95ebdb3b2338a"
+            },
+            "evidence": "sha256:2e618caa3bd22b9bd5d7b6d9120a2ec3c1b77ab32ec3a60cee76aacb7cbd59c9"
+          },
+          "run_id": "2026-09-24T19-20-43Z-3789",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:53ac9b45a6a7e4aab8de8adfe88a1db8c2f0aa3f3c84ad4514af0f376942653d"
+          },
+          "target": {
+            "text": "снова снова",
+            "hash": "sha256:37b020ef79edac7fba239e63cbe5cfa73c29bf2fac7cf7a519c95ebdb3b2338a",
+            "before": "сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, но не сказал ",
+            "after": " и вышел. Тётка, отлично изучившая во время уроков его лицо ",
+            "occurrence": 0
+          },
+          "replacement": "снова",
+          "category": "repetition",
+          "impact": "mechanical",
+          "source": "rule:repetition.doubled-word",
+          "confidence": 1,
+          "reason": "The same word appears twice in succession.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:466e1a0aabf72cbe",
+          "fingerprint": {
+            "primary": {
+              "category": "capitalization",
+              "chapter": "07-kashtanka",
+              "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+              "key": "sha256:08f79e827ef4e34d0b2eb432382334e187a8f5945eed498f31d8d3feff6f7389"
+            },
+            "evidence": "sha256:14438035c17110c9cde22522095400c81ca0e85820eccf391e33aabd3b3c530a"
+          },
+          "run_id": "2026-09-24T19-20-43Z-3789",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+            "content_hash": "sha256:51ac2b17294715f3f34ccff67888dab705f3d560ef13f89ca5072245c5cd600f"
+          },
+          "target": {
+            "text": ". она",
+            "hash": "sha256:08f79e827ef4e34d0b2eb432382334e187a8f5945eed498f31d8d3feff6f7389",
+            "before": "вали минуты, когда Тётку мучили сомнения, и тогда она готова",
+            "after": " готова была бежать от пёстрой фигуры и лаять. Новое место, ",
+            "occurrence": 0
+          },
+          "replacement": ". Она",
+          "category": "capitalization",
+          "impact": "mechanical",
+          "source": "rule:capitalization.sentence-start",
+          "confidence": 1,
+          "reason": "Capitalize the sentence opening.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "none",
+            "voice": "ok"
+          }
+        }
+      ]
+    }
+  ]
+}
