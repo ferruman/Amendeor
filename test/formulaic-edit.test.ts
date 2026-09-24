@@ -39,7 +39,10 @@ test('a model-labelled clarity edit that removes a formulaic signal retains patt
 test('NO_CHANGE on formulaic prose is counted', async () => {
   const result = await scenario('At the end of the day, the door remained shut.\n', { edits: [] });
   assert.equal(result.proposals.length, 0);
-  assert.equal((result.run.stages as Array<{ name: string; no_change?: number }>).find((stage) => stage.name === 'model')?.no_change, 1);
+  const stage = (result.run.stages as Array<{ name: string; no_change?: number; no_change_by_chapter?: Record<string, number>; windows_by_chapter?: Record<string, number> }>).find((item) => item.name === 'model');
+  assert.equal(stage?.no_change, 1);
+  assert.equal(stage?.no_change_by_chapter?.book, 1);
+  assert.equal(stage?.windows_by_chapter?.book, 1);
 });
 
 test('invented specificity and changed certainty do not reach the author', async () => {

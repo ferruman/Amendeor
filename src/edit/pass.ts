@@ -31,7 +31,10 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
   const proposals: Proposal[] = []; const failures: Array<{ node_id: string; reason: string }> = [];
   const discarded: Array<{ node_id: string; reason: string }> = [];
   let noChange = 0, cached = 0, sent = 0;
+  const noChangeByChapter: Record<string, number> = {};
+  const windowsByChapter: Record<string, number> = {};
   for (const window of windows) {
+    windowsByChapter[window.chapter] = (windowsByChapter[window.chapter] ?? 0) + 1;
     const key = { window, mode, config: { preserve: loaded.config.preserve, normalize: loaded.config.normalize, avoid: loaded.config.avoid }, profile, provider: loaded.config.providers[profile.provider], promptVersion: copyEditPromptVersion, formulaicCatalogVersion, ruleSetVersion, packVersion: pack.pack.version };
     let edits = await cache.read<ParsedEdit[]>('model', key);
     if (edits) cached++;
@@ -58,7 +61,7 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
         continue;
       }
     }
-    if (!edits?.length) { noChange++; continue; }
+    if (!edits?.length) { noChange++; noChangeByChapter[window.chapter] = (noChangeByChapter[window.chapter] ?? 0) + 1; continue; }
     const scene = source.book.chapters.find((chapter) => chapter.slug === window.chapter)!.scenes.find((item) => item.id === window.scene)!;
     for (const edit of edits) {
       if (mode === 'mechanical' && !['grammar', 'spelling'].includes(edit.category)) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: 'category-outside-mechanical-model-pass' }); continue; }
@@ -77,5 +80,5 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
       } catch (error) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: (error as Error).message }); }
     }
   }
-  return { proposals, stage: { name: 'model', status: failures.length ? 'partial' : 'ok', windows: windows.length, sent, cached, no_change: noChange, candidates: proposals.length, discarded, failures, prompt_version: copyEditPromptVersion, model_id: profile.model, formulaic_hits: formulaic, formulaic_catalog_version: formulaicCatalogVersion }, ledger: gateway.ledger };
+  return { proposals, stage: { name: 'model', status: failures.length ? 'partial' : 'ok', windows: windows.length, windows_by_chapter: windowsByChapter, sent, cached, no_change: noChange, no_change_by_chapter: noChangeByChapter, candidates: proposals.length, discarded, failures, prompt_version: copyEditPromptVersion, model_id: profile.model, formulaic_hits: formulaic, formulaic_catalog_version: formulaicCatalogVersion }, ledger: gateway.ledger };
 }

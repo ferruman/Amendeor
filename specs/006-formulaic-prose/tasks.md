@@ -10,6 +10,6 @@
 - [X] T005 Test a real candidate, `NO_CHANGE`, hallucinated specificity, changed negation/certainty, dialogue and intentionally repeated phrase with the local transport and guard fixtures.
 - [X] T006 Extend M3 mutations with formulaic insertions and keep examples for `en` and `ru`; score recall, unnecessary-edit rate and human-labelled proposal precision per pattern.
 - [X] T007 Run at least three model evaluations per language; enforce M5's worst-run unnecessary-edit and semantic-regression gates, and record cost and latency.
-- [ ] T008 Review every offered proposal in one chapter of each real book; convert false positives into keep fixtures and retune or remove the responsible pattern.
+- [X] T008 Review every offered proposal in one chapter of each real book; convert false positives into keep fixtures and retune or remove the responsible pattern. Both chapters have zero formulaic hits and therefore zero offered pattern proposals; see `eval/REAL_BOOK_REVIEW.md`.
 
 **Checkpoint**: formulaic passages can yield guarded, reviewable proposals; clean controls and intentional style remain untouched.
