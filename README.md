@@ -55,13 +55,14 @@ preserve:
 Set `price.input_per_m`, `price.output_per_m`, and `price.currency` for a meaningful cost ledger; calls without configured prices are marked unpriced. The transports also support `local` for scripted tests and an OpenAI-compatible endpoint such as OpenRouter. Without `profiles.verify`, model candidates are withheld from ordinary proposals.
 
 ```sh
+node --env-file=.env src/cli.ts edit path/to/book --mode proofread
 node --env-file=.env src/cli.ts edit path/to/book --mode copy
 node --env-file=.env src/cli.ts report path/to/book
 node --env-file=.env src/cli.ts accept path/to/book amendeor:PROPOSAL_ID
 node --env-file=.env src/cli.ts build path/to/book
 ```
 
-`--mode full` also scans scene windows. `--resume RUN_ID` reuses successful window answers from the cache and replaces that run's report. `diff` compares proposal status across runs. `accept --impact mechanical` accepts only mechanical proposals; model suggestions pass semantic and voice guards before ordinary acceptance.
+`--mode proofread` reads every chapter title and scene window for objective spelling, grammar, and punctuation errors. Model suggestions require an independent check that the original is actually wrong, then the semantic and voice guards. Comma-only suggestions require explicit acceptance. `--mode copy` and `--mode full` also scan all scene windows for broader copy edits. `--resume RUN_ID` reuses successful window answers from the cache and replaces that run's report. `diff` compares proposal status across runs. `accept --impact mechanical` accepts only mechanical proposals; model suggestions pass semantic and voice guards before ordinary acceptance.
 
 Amendeor never edits `manuscript/`, silently accepts prose changes, or treats formulaic wording as proof of authorship. Model suggestions that fail meaning or voice checks are withheld and recorded as guard rejections. Formulaic `inspect` findings include a pattern id and the exact quote for review; see [the pattern catalog](docs/prose-patterns.md).
 

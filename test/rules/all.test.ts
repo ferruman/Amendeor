@@ -21,7 +21,9 @@ const positives: Record<string, { en: string; ru: string; config?: object }> = {
   'capitalization.sentence-start': { en: 'Stop. next time.', ru: 'Стой. потом иди.' },
   'markdown.stray-marker': { en: 'This ## heading appears.', ru: 'Этот ## заголовок лишний.' },
   'consistency.spelling-variant': { en: 'colour color color', ru: 'всё все', config: { normalize: { yo: 'e' } } },
-  'terminology.name-variant': { en: 'He saw Mara. They called Mara. He saw Maro.', ru: 'Он видел Ковригину. Она позвала Ковригину. Он видел Ковригену.' }
+  'terminology.name-variant': { en: 'He saw Mara. They called Mara. He saw Maro.', ru: 'Он видел Ковригину. Она позвала Ковригину. Он видел Ковригену.' },
+  'grammar.ru-sutki-numeral': { en: '', ru: 'Прошли три утраченных суток.' },
+  'grammar.ru-pronoun-byl': { en: '', ru: 'Она был дома.' }
 };
 
 test('every declared rule fires on its positive sample in both advertised languages', async () => {
@@ -44,4 +46,23 @@ test('both clean controls produce zero rule proposals', async () => {
     const ctx = ruleContext(book, config, pack, scene, properNouns(book, pack), bookWordCounts(book));
     for (const rule of rules.filter((item) => item.langs.includes(lang))) assert.deepEqual(rule.detect(scene, ctx), [], `${rule.id} flagged the ${lang} control`);
   }
+});
+
+test('Russian сутки rule leaves correct forms and unrelated nouns alone', async () => {
+  const text = 'Прошло трое суток. Не было трёх суток. Пропали три дня. «Три суток», — повторил он.';
+  const book = bookWith(text, 'ru');
+  const pack = (await loadPack('ru')).pack;
+  const config = configSchema.parse({});
+  const scene = book.chapters[0]!.scenes[0]!;
+  const rule = rules.find((item) => item.id === 'grammar.ru-sutki-numeral')!;
+  assert.deepEqual(rule.detect(scene, ruleContext(book, config, pack, scene)), []);
+});
+
+test('Russian pronoun agreement rule skips correct forms and quoted speech', async () => {
+  const text = 'Она была дома. Он был рядом. «Она был дома», — передразнил он.';
+  const book = bookWith(text, 'ru');
+  const pack = (await loadPack('ru')).pack;
+  const scene = book.chapters[0]!.scenes[0]!;
+  const rule = rules.find((item) => item.id === 'grammar.ru-pronoun-byl')!;
+  assert.deepEqual(rule.detect(scene, ruleContext(book, configSchema.parse({}), pack, scene)), []);
 });

@@ -1,7 +1,7 @@
 import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { parse } from 'yaml';
-import type { Book, Chapter } from '../book.ts';
+import { parse, parseDocument } from 'yaml';
+import { TITLE_SCENE_ID, type Book, type Chapter } from '../book.ts';
 import { locate } from '../proposal/locate.ts';
 import type { Proposal } from '../proposal/schema.ts';
 import type { Acceptance } from './decisions.ts';
@@ -31,10 +31,19 @@ export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
   const results: BuildResult[] = [];
   const found = new Set<string>();
   const chapterOutput = new Map<string, string>();
+  const titleOutput = new Map<string, string>();
   for (const chapter of input.book.chapters) {
     const edits: Array<{ proposal: Proposal; start: number; end: number; replacement: string; status: 'applied' | 'moved' }> = [];
+    const titleEdits: typeof edits = [];
     for (const proposal of accepted.filter((item) => item.location.chapter === chapter.slug)) {
       found.add(proposal.id);
+      if (proposal.location.scene === TITLE_SCENE_ID) {
+        const located = locate(chapter.title, { ...proposal.target, replacement: proposal.replacement });
+        if ('stale' in located) { results.push({ id: proposal.id, chapter: chapter.slug, scene: TITLE_SCENE_ID, status: 'stale' }); continue; }
+        if ('ambiguous' in located) { results.push({ id: proposal.id, chapter: chapter.slug, scene: TITLE_SCENE_ID, status: 'conflict', detail: 'ambiguous target' }); continue; }
+        titleEdits.push({ proposal, start: located.start, end: located.end, replacement: proposal.replacement, status: located.moved ? 'moved' : 'applied' });
+        continue;
+      }
       const scene = chapter.scenes.find((item) => item.id === proposal.location.scene);
       if (!scene) { results.push({ id: proposal.id, chapter: chapter.slug, scene: proposal.location.scene, status: 'stale', detail: 'scene missing' }); continue; }
       const located = locate(scene.text, { ...proposal.target, replacement: proposal.replacement });
@@ -56,6 +65,19 @@ export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
     let output = chapter.text;
     for (const edit of [...applicable].reverse()) output = output.slice(0, edit.start) + edit.replacement + output.slice(edit.end);
     chapterOutput.set(chapter.slug, output);
+    titleEdits.sort((a, b) => a.start - b.start || a.end - b.end);
+    let lastTitleEnd = -1;
+    const applicableTitles: typeof titleEdits = [];
+    for (const edit of titleEdits) {
+      if (edit.start < lastTitleEnd) results.push({ id: edit.proposal.id, chapter: chapter.slug, scene: TITLE_SCENE_ID, status: 'conflict', detail: 'overlaps an earlier accepted edit' });
+      else {
+        applicableTitles.push(edit); lastTitleEnd = edit.end;
+        results.push({ id: edit.proposal.id, chapter: chapter.slug, scene: TITLE_SCENE_ID, status: edit.status });
+      }
+    }
+    let title = chapter.title;
+    for (const edit of [...applicableTitles].reverse()) title = title.slice(0, edit.start) + edit.replacement + title.slice(edit.end);
+    if (title !== chapter.title) titleOutput.set(chapter.slug, title);
   }
   for (const proposal of accepted) if (!found.has(proposal.id)) results.push({ id: proposal.id, chapter: proposal.location.chapter, scene: proposal.location.scene, status: 'stale', detail: 'chapter missing' });
   const chaptersDir = path.join(outputRoot, 'chapters');
@@ -63,7 +85,18 @@ export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
   for (const chapter of input.book.chapters) {
     await writeIfChanged(destinations.get(chapter.slug)!, chapterOutput.get(chapter.slug)!);
   }
-  const manifestText = input.manifestText ?? standaloneManifest(input.book);
+  let manifestText = input.manifestText ?? standaloneManifest(input.book);
+  if (titleOutput.size) {
+    const document = parseDocument(manifestText);
+    if (document.errors.length) throw new Error(`invalid manuscript manifest: ${document.errors[0]!.message}`);
+    const chapters = document.get('chapters');
+    if (!Array.isArray((chapters as { items?: unknown[] })?.items)) throw new Error('manifest chapters are missing');
+    for (const [index, chapter] of input.book.chapters.entries()) {
+      const title = titleOutput.get(chapter.slug);
+      if (title !== undefined) document.setIn(['chapters', index, 'title'], title);
+    }
+    manifestText = String(document);
+  }
   await writeIfChanged(path.join(outputRoot, 'manuscript.yaml'), manifestText);
   const decisionRecords = input.accepted.map((item) => 'proposal' in item ? item : { proposal: item, accepted_by: 'author', at: new Date().toISOString() });
   await createIfMissing(path.join(outputRoot, 'accepted.jsonl'), decisionRecords);

@@ -35,7 +35,7 @@ function parseArgs(argv: string[]): Args {
     else result.values.push(item);
   }
   if (command === 'accept' && result.impact && result.impact !== 'mechanical') throw new Error('--impact supports only mechanical');
-  if (command === 'edit' && !['mechanical', 'copy', 'full'].includes(result.mode)) throw new Error(`unknown edit mode: ${result.mode}`);
+  if (command === 'edit' && !['mechanical', 'proofread', 'copy', 'full'].includes(result.mode)) throw new Error(`unknown edit mode: ${result.mode}`);
   return result;
 }
 
@@ -55,11 +55,11 @@ async function main(): Promise<void> {
       const summary = inspectSummary(source.book, pack, computeMetrics(source.book, pack.pack), source.warnings);
       print({ command: 'inspect', ...summary }, args.json); return;
     }
-    if (args.mode !== 'mechanical' && !loadedConfig.config.profiles.edit) throw new Error('copy/full mode requires profiles.edit');
+    if (args.mode !== 'mechanical' && !loadedConfig.config.profiles.edit) throw new Error('proofread/copy/full mode requires profiles.edit');
     if (args.resume) {
       const previous = (await readRun(source.stateDir, args.resume)).run as { metadata?: { mode?: string }; inputs?: { files?: Array<{ path: string; content_hash: string }> } };
       if (previous.metadata?.mode !== args.mode) throw new Error('resume mode differs from the existing run');
-      const current = source.book.chapters.map((chapter) => ({ path: chapter.file, content_hash: sha256(normalizeText(chapter.text)) }));
+      const current = source.book.chapters.map((chapter) => ({ path: chapter.file, content_hash: sha256(normalizeText(chapter.text)), title_hash: sha256(normalizeText(chapter.title)) }));
       if (JSON.stringify(previous.inputs?.files) !== JSON.stringify(current)) throw new Error('resume input differs from the existing run');
     }
     const release = await acquireLock(source.stateDir);

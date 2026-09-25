@@ -32,16 +32,21 @@ function names(text: string): string[] {
 }
 function numberTokens(text: string): string[] { return words(text).map((token) => token.lower).filter((token) => /^\d/u.test(token) || ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'twenty', 'thirty', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'двадцать', 'тридцать'].includes(token)); }
 function dialogueWords(text: string): string { return words(text).map((word) => word.lower).join(' '); }
-export function semanticTrap(before: string, after: string, pack: LanguagePack, options: { category?: Proposal['category']; inDialogue?: boolean; modelGenerated?: boolean } = {}): string | null {
+export function commaOnlyChange(before: string, after: string): boolean {
+  return (before.match(/,/gu) ?? []).length !== (after.match(/,/gu) ?? []).length && before.replace(/,/gu, '') === after.replace(/,/gu, '');
+}
+
+export function semanticTrap(before: string, after: string, pack: LanguagePack, options: { category?: Proposal['category']; inDialogue?: boolean; modelGenerated?: boolean; allowCommaCorrection?: boolean } = {}): string | null {
   const lang = pack.language.split('-')[0]!;
   const ellipses = (text: string) => (text.match(/…|(?<!\.)\.{3}(?!\.)/gu) ?? []).length;
+  const verifiedCommaCandidate = options.allowCommaCorrection && options.category === 'punctuation' && commaOnlyChange(before, after);
   if (ellipses(before) !== ellipses(after)) return 'ellipsis-change';
   if (after !== before && after.trimEnd() === before) return 'trailing-space-only';
   if (after !== before && after.replace(/,\s+(?=и(?!\p{L})|and\b)/giu, ' ') === before) return 'coordinate-comma-insertion';
-  if (options.modelGenerated && (after.match(/,/gu) ?? []).length !== (before.match(/,/gu) ?? []).length && after.replace(/,/gu, '') === before.replace(/,/gu, '')) return 'unsupported-comma-change';
+  if (options.modelGenerated && commaOnlyChange(before, after) && !verifiedCommaCandidate) return 'unsupported-comma-change';
   if (options.modelGenerated && lang === 'ru' && before !== after && before.replace(/ё/giu, 'е') === after.replace(/ё/giu, 'е')) return 'yo-normalization';
   if (lang === 'ru' && /(?:^|\s)[а-яё]{3,}(?:в|вши|ши)(?:сь)?(?=\s|,|$)/iu.test(after) && !/(?:^|\s)[а-яё]{3,}(?:в|вши|ши)(?:сь)?(?=\s|,|$)/iu.test(before) && /(?:^|\s)и(?=\s)/iu.test(before)) return 'sequence-to-gerund-change';
-  if (options.modelGenerated && before.replace(/[^\p{L}\p{N}]/gu, '') === after.replace(/[^\p{L}\p{N}]/gu, '')
+  if (options.modelGenerated && !verifiedCommaCandidate && before.replace(/[^\p{L}\p{N}]/gu, '') === after.replace(/[^\p{L}\p{N}]/gu, '')
     && (before.match(/[.,;:!?…—–'’"“”‘-]/gu) ?? []).join('') !== (after.match(/[.,;:!?…—–'’"“”‘-]/gu) ?? []).join('')) return 'punctuation-style-only';
   if (changed(numberTokens(before), numberTokens(after))) return 'number-date-time-change';
   if ((before.match(/\b\p{L}+n['’]t\b/giu) ?? []).length !== (after.match(/\b\p{L}+n['’]t\b/giu) ?? []).length) return 'negation-change';

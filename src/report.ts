@@ -5,6 +5,7 @@ import { scanFormulaicProse, type FormulaicHit } from './patterns/formulaic.ts';
 import type { OpenedSource } from './source/index.ts';
 import { readAccepted } from './edited/decisions.ts';
 import { locate } from './proposal/locate.ts';
+import { TITLE_SCENE_ID } from './book.ts';
 
 export interface InspectSummary { chapters: number; scenes: number; words: number; language: string; pack: { status: string; version: string; warning?: string }; hotspots: MetricsReport['hotspots']; formulaic: FormulaicHit[]; warnings: string[] }
 
@@ -26,7 +27,7 @@ export function renderReport(run: Record<string, any>): string {
     `# Amendeor — ${summary.chapters ?? 0} chapters, ${summary.scenes ?? 0} scenes, ${summary.words ?? 0} words, ${summary.language ?? '?'}`,
     '', `Rules: ${rules?.hits ?? 0} hits → ${rules?.proposals ?? 0} proposals (${rules?.units?.cached ?? 0} cached, ${rules?.units?.computed ?? 0} computed)`,
     `Model: ${model && model.status !== 'skipped' ? `${model.windows ?? 0} windows · ${model.no_change ?? 0} NO_CHANGE · ${model.candidates ?? 0} candidates` : 'rules only'}`,
-    `Semantic guard: ${run.guard?.semantic_rejected ?? 0} rejected · Voice guard: ${run.guard?.voice_rejected ?? 0} rejected`,
+    `Semantic guard: ${run.guard?.semantic_rejected ?? 0} rejected · Objective guard: ${run.guard?.objective_rejected ?? 0} rejected · Punctuation guard: ${run.guard?.punctuation_rejected ?? 0} rejected · Voice guard: ${run.guard?.voice_rejected ?? 0} rejected`,
     `Proposals: mechanical ${run.counts?.by_impact?.mechanical ?? 0} · prose ${run.counts?.by_impact?.prose ?? 0} (accepted ${run.decisions?.accepted ?? 0}, stale ${run.decisions?.stale ?? 0})`,
     `Findings: ${run.findings?.read ?? 0} read · ${run.findings?.applicable ?? 0} applicable`,
     `Usage: ${run.ledger?.tokens_in ?? 0}/${run.ledger?.tokens_out ?? 0} tokens · ${run.ledger?.cost === null ? 'unpriced' : run.ledger?.cost ?? 0} ${run.ledger?.currency ?? ''}`,
@@ -51,8 +52,8 @@ export async function currentDecisionStatus(source: OpenedSource): Promise<{ acc
   let stale = 0;
   for (const { proposal } of accepted) {
     const chapter = source.book.chapters.find((item) => item.slug === proposal.location.chapter);
-    const scene = chapter?.scenes.find((item) => item.id === proposal.location.scene);
-    if (!scene || 'stale' in locate(scene.text, proposal.target)) stale++;
+    const text = proposal.location.scene === TITLE_SCENE_ID ? chapter?.title : chapter?.scenes.find((item) => item.id === proposal.location.scene)?.text;
+    if (text === undefined || 'stale' in locate(text, proposal.target)) stale++;
   }
   return { accepted: accepted.length, stale };
 }

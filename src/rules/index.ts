@@ -15,11 +15,14 @@ import { capitalization } from './capitalization.ts';
 import { markdown } from './markdown.ts';
 import { spellingVariant } from './spelling-variant.ts';
 import { nameVariant } from './name-variant.ts';
+import { ruSutki } from './ru-sutki.ts';
+import { ruPronounByl } from './ru-pronoun-byl.ts';
 
 export interface ProposalDraft { target: string; replacement: string; start: number; reason: string; category?: Proposal['category']; impact?: Proposal['impact'] }
 export interface RuleContext { book: Book; config: Config; pack: LanguagePack; names: Map<string, number>; wordCounts: Map<string, number>; dialogue: Span[] }
 export interface Rule { id: string; version: string; langs: string[]; category: Proposal['category']; impact: Proposal['impact']; detect(scene: Scene, ctx: RuleContext): ProposalDraft[] }
-export const rules: Rule[] = [doubledWord, whitespace, balance, quotes, dashesEllipsis, capitalization, markdown, spellingVariant, nameVariant];
+export const titleRules: Rule[] = [ruSutki, ruPronounByl];
+export const rules: Rule[] = [doubledWord, whitespace, balance, quotes, dashesEllipsis, capitalization, markdown, spellingVariant, nameVariant, ruSutki, ruPronounByl];
 export const ruleSetVersion = sha256(canonicalJson(rules.map(({ id, version }) => ({ id, version }))));
 
 export function enabledRules(config: Config, language: string): Rule[] {

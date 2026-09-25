@@ -12,6 +12,8 @@ import { classifyEdit } from './classify.ts';
 import { ruleSetVersion } from '../rules/index.ts';
 import { computeMetrics } from '../metrics/index.ts';
 import { scanFormulaicProse, formulaicCatalogVersion } from '../patterns/formulaic.ts';
+import { TITLE_SCENE_ID } from '../book.ts';
+import { sha256, normalizeText } from '../hash.ts';
 
 export interface ModelPassResult { proposals: Proposal[]; stage: Record<string, unknown>; ledger: Gateway['ledger'] }
 export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack: LoadedPack, mode: string, runId: string, ruleProposals: Proposal[], noCache = false): Promise<ModelPassResult> {
@@ -39,7 +41,7 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
     let edits = await cache.read<ParsedEdit[]>('model', key);
     if (edits) cached++;
     else {
-      const prompt = copyEditPrompt(pack.pack, window.text, window.before, window.after, mode, loaded.config, undefined, window.signals);
+      const prompt = copyEditPrompt(pack.pack, window.text, window.before, window.after, mode, loaded.config, undefined, window.signals, window.scene === TITLE_SCENE_ID);
       try {
         const answer = await gateway.complete('edit', 'edit', prompt.system, prompt.prompt, Math.max(500, window.text.length / 2));
         sent++;
@@ -48,7 +50,7 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
           for (const item of parsed.discarded) discarded.push({ node_id: window.chapter + '/' + window.scene, reason: item.reason });
           if (parsed.discarded.length && !parsed.edits.length) throw new Error('all edits discarded: ' + parsed.discarded.map((item) => item.reason).join(', '));
         } catch (parseError) {
-          const retry = copyEditPrompt(pack.pack, window.text, window.before, window.after, mode, loaded.config, (parseError as Error).message, window.signals);
+          const retry = copyEditPrompt(pack.pack, window.text, window.before, window.after, mode, loaded.config, (parseError as Error).message, window.signals, window.scene === TITLE_SCENE_ID);
           const answer2 = await gateway.complete('edit-parse-retry', 'edit', retry.system, retry.prompt, Math.max(500, window.text.length / 2));
           sent++;
           const parsed = parseEdits(answer2.text, window.text); edits = parsed.edits;
@@ -62,9 +64,13 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
       }
     }
     if (!edits?.length) { noChange++; noChangeByChapter[window.chapter] = (noChangeByChapter[window.chapter] ?? 0) + 1; continue; }
-    const scene = source.book.chapters.find((chapter) => chapter.slug === window.chapter)!.scenes.find((item) => item.id === window.scene)!;
+    const chapter = source.book.chapters.find((item) => item.slug === window.chapter)!;
+    const scene = window.scene === TITLE_SCENE_ID
+      ? { text: chapter.title, contentHash: sha256(normalizeText(chapter.title)) }
+      : chapter.scenes.find((item) => item.id === window.scene)!;
     for (const edit of edits) {
       if (mode === 'mechanical' && !['grammar', 'spelling'].includes(edit.category)) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: 'category-outside-mechanical-model-pass' }); continue; }
+      if (mode === 'proofread' && !['grammar', 'spelling', 'punctuation'].includes(edit.category)) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: 'category-outside-proofread-model-pass' }); continue; }
       if (!window.text.includes(edit.target)) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: 'cached-target-not-verbatim' }); continue; }
       const start = window.start + window.text.indexOf(edit.target);
       const matchingSignals = window.signals.filter((signal) => start < signal.end && start + edit.target.length > signal.start);
@@ -75,7 +81,7 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
       try {
         proposals.push(makeProposal({ chapter: window.chapter, scene: window.scene, category, target: edit.target, replacement: edit.replacement,
           before: scene.text.slice(Math.max(0, start - 60), start), after: scene.text.slice(start + edit.target.length, start + edit.target.length + 60),
-          occurrence, run_id: runId, source: 'model', reason: edit.reason, impact: category === 'prose-pattern' ? 'prose' : classifyEdit(edit.target, edit.replacement, pack.pack),
+          occurrence, run_id: runId, source: 'model', reason: edit.reason, impact: category === 'prose-pattern' || (mode === 'proofread' && category === 'punctuation') ? 'prose' : classifyEdit(edit.target, edit.replacement, pack.pack),
           content_hash: scene.contentHash, unverified: true, source_findings: category === 'prose-pattern' ? matchingSignals.map((signal) => signal.id) : undefined }));
       } catch (error) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: (error as Error).message }); }
     }

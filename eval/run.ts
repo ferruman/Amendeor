@@ -32,6 +32,10 @@ export async function runEvaluation(work: string, mode: string, runs: number, in
     await exec(process.execPath, [path.join(root, 'src/cli.ts'), 'edit', mutatedDir, '--mode', mode, '--json', '--no-cache'], { cwd: root, maxBuffer: 20_000_000 });
     const source = await openSource(mutatedDir);
     const run = await readRun(source.stateDir, 'latest');
+    const modelStage = ((run.run as { stages?: Array<{ name: string; windows?: number; failures?: unknown[] }> }).stages ?? []).find((stage) => stage.name === 'model');
+    if (mode !== 'mechanical' && modelStage?.windows && modelStage.failures?.length === modelStage.windows) {
+      throw new Error(`evaluation invalid: every model window failed (${modelStage.windows}/${modelStage.windows}); inspect run ${path.basename(run.runDir)}`);
+    }
     const labelsFile = path.join(root, 'eval/labels', `${work}.jsonl`);
     let labels: Map<string, boolean> | undefined;
     try { labels = new Map((await readFile(labelsFile, 'utf8')).trim().split('\n').filter(Boolean).map((line) => { const row = JSON.parse(line) as { proposal_id: string; useful: boolean }; return [row.proposal_id, row.useful]; })); }

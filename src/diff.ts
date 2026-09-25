@@ -2,6 +2,7 @@ import type { OpenedSource } from './source/index.ts';
 import { readRun } from './run/store.ts';
 import { readAccepted } from './edited/decisions.ts';
 import { locate } from './proposal/locate.ts';
+import { TITLE_SCENE_ID } from './book.ts';
 
 export type ProposalChange = 'new' | 'unchanged' | 'updated' | 'resolved' | 'stale';
 export interface DiffEntry { id: string; state: ProposalChange }
@@ -21,8 +22,8 @@ export async function diffRuns(source: OpenedSource): Promise<{ previous_run_id:
   for (const id of prior.keys()) if (!current.has(id)) changes.push({ id, state: 'resolved' });
   for (const { proposal } of await readAccepted(source.editedDir)) {
     const chapter = source.book.chapters.find((item) => item.slug === proposal.location.chapter);
-    const scene = chapter?.scenes.find((item) => item.id === proposal.location.scene);
-    if (!scene || 'stale' in locate(scene.text, proposal.target)) changes.push({ id: proposal.id, state: 'stale' });
+    const text = proposal.location.scene === TITLE_SCENE_ID ? chapter?.title : chapter?.scenes.find((item) => item.id === proposal.location.scene)?.text;
+    if (text === undefined || 'stale' in locate(text, proposal.target)) changes.push({ id: proposal.id, state: 'stale' });
   }
   return { previous_run_id: previousId, latest_run_id: latestManifest.run_id ?? '', changes };
 }

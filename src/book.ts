@@ -11,6 +11,7 @@ export interface Scene {
 }
 export interface Chapter { slug: string; title: string; file: string; relativeFile?: string; scenes: Scene[]; text: string }
 export interface Book { lang: string; chapters: Chapter[] }
+export const TITLE_SCENE_ID = '@title';
 
 export function splitScenes(text: string): Scene[] {
   const marker = /^<!--[ \t]*scene:[ \t]*([^\s]+)[ \t]*-->[ \t]*(?:\r?\n|$)/gm;

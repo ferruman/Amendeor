@@ -379,7 +379,7 @@ When an issue cannot be fixed without changing an event, character behaviour, mo
 
 ```bash
 amendeor inspect  <target>                   # structure, language, counts, metrics; no model
-amendeor edit     <target> [--mode mechanical|copy|full]
+amendeor edit     <target> [--mode mechanical|proofread|copy|full]
 amendeor accept   <target> <id…> | --impact mechanical
 amendeor reject   <target> <id…>
 amendeor build    <target>                   # rebuild edited/ from source + accepted.jsonl; no model
@@ -389,7 +389,7 @@ amendeor diff     <target>                   # proposals vs previous run: new / 
 
 Options: `--findings <path>`, `--lang`, `--out`, `--resume <run-id>`, `--no-cache`, `--json`.
 
-`--mode mechanical` is the final proofreading pass (rules plus model grammar/spelling only); there is no separate `proofread` command. `mechanical` with no key configured runs the rules alone — a supported mode, not a failure; the report says which parts ran.
+`--mode mechanical` is the quick rules pass with optional model grammar/spelling on candidate windows. `--mode proofread` uses the model on every title and scene window for grammar, spelling, and punctuation. Its comma-only suggestions require a separate punctuation verifier and explicit acceptance. `mechanical` with no key configured runs the rules alone — a supported mode, not a failure; the report says which parts ran.
 
 ---
 

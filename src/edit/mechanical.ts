@@ -17,6 +17,8 @@ import { buildEdited } from '../edited/build.ts';
 import { balanceWarnings } from '../rules/balance.ts';
 import { modelPass } from './pass.ts';
 import { guardProposals } from '../guard/index.ts';
+import { TITLE_SCENE_ID, type Scene } from '../book.ts';
+import { titleRules } from '../rules/index.ts';
 
 export interface EditResult { run_id: string; proposals: Proposal[]; run: Record<string, unknown>; report: string }
 
@@ -43,7 +45,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   const activeRules = enabledRules(loaded.config, source.book.lang);
   const names = properNouns(source.book, language.pack);
   const wordCounts = bookWordCounts(source.book);
-  const bookHash = sha256(canonicalJson(source.book.chapters.map((chapter) => [chapter.slug, chapter.scenes.map((scene) => scene.contentHash)])));
+  const bookHash = sha256(canonicalJson(source.book.chapters.map((chapter) => [chapter.slug, chapter.title, chapter.scenes.map((scene) => scene.contentHash)])));
   const metrics = computeMetrics(source.book, language.pack);
   const summary = inspectSummary(source.book, language, metrics, source.warnings);
   const rejected = await readRejected(source.stateDir);
@@ -51,17 +53,21 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   const failures: Array<{ node_id: string; reason: string }> = [];
   const diagnostics: Array<{ node_id: string; message: string }> = [];
   let hits = 0; let cached = 0; let computed = 0; let failed = 0;
-  for (const chapter of source.book.chapters) for (const scene of chapter.scenes) {
+  for (const chapter of source.book.chapters) for (const scene of [
+    { id: TITLE_SCENE_ID, text: chapter.title, implicit: true, contentHash: sha256(normalizeText(chapter.title)), start: 0, end: chapter.title.length } satisfies Scene,
+    ...chapter.scenes
+  ]) {
+    const rulesForScene = scene.id === TITLE_SCENE_ID ? activeRules.filter((rule) => titleRules.includes(rule)) : activeRules;
     const failuresBeforeScene = failed;
     for (const message of balanceWarnings(scene.text)) diagnostics.push({ node_id: `${chapter.slug}/${scene.id}`, message });
-    const inputs = { text: scene.text, bookHash, config: { preserve: loaded.config.preserve, normalize: loaded.config.normalize, rules: loaded.config.rules }, pack: language.pack, ruleSetVersion };
+    const inputs = { text: scene.text, surface: scene.id === TITLE_SCENE_ID ? 'title' : 'scene', bookHash, config: { preserve: loaded.config.preserve, normalize: loaded.config.normalize, rules: loaded.config.rules }, pack: language.pack, ruleSetVersion };
     let drafts = await cache.read<Array<ProposalDraft & { ruleId: string; category: Proposal['category']; impact: Proposal['impact'] }>>('rules', inputs);
     const fromCache = drafts !== undefined;
     if (fromCache) cached++;
     else {
       drafts = [];
       const context = ruleContext(source.book, loaded.config, language.pack, scene, names, wordCounts);
-      for (const rule of activeRules) {
+      for (const rule of rulesForScene) {
         try {
           for (const draft of rule.detect(scene, context)) drafts.push({ ...draft, ruleId: rule.id, category: draft.category ?? rule.category, impact: draft.impact ?? rule.impact });
         } catch (error) { failed++; failures.push({ node_id: `${chapter.slug}/${scene.id}/${rule.id}`, reason: (error as Error).message }); }
@@ -87,12 +93,12 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   }
   const mode = options.mode ?? 'mechanical';
   const model = await modelPass(source, loaded, language, mode, runId, [...proposals.values()], options.noCache);
-  const guard = await guardProposals(source, loaded, language, model.proposals, options.noCache);
+  const guard = await guardProposals(source, loaded, language, model.proposals, options.noCache, mode);
   for (const proposal of guard.proposals) if (!proposals.has(proposal.id)) proposals.set(proposal.id, proposal);
   const list = [...proposals.values()];
   const ledgerEntries = [...model.ledger, ...guard.ledger];
   const previousId = await previousRunId(source.stateDir);
-  const inputs = source.book.chapters.map((chapter) => ({ path: chapter.file, content_hash: sha256(normalizeText(chapter.text)) }));
+  const inputs = source.book.chapters.map((chapter) => ({ path: chapter.file, content_hash: sha256(normalizeText(chapter.text)), title_hash: sha256(normalizeText(chapter.title)) }));
   const run: Record<string, unknown> = {
     schema: 'codicora.run/0.1', run_id: runId, tool: { name: 'amendeor', version: '0.1.0' }, started_at: started, finished_at: new Date().toISOString(),
     inputs: { files: inputs }, config: redactConfig(loaded.config), config_layers: loaded.winningLayer,

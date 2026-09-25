@@ -38,6 +38,33 @@ test('no-key mechanical edit is deterministic and the second run is fully cached
   assert.ok(changes.changes.every((item) => item.state === 'unchanged'));
 });
 
+test('Russian title grammar proposal can be accepted into the edited manifest', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-title-'));
+  await mkdir(path.join(root, 'manuscript/chapters'), { recursive: true });
+  await writeFile(path.join(root, 'codicora.yaml'), 'spec: codicora/v1\ntype: project\nmanuscript: { path: manuscript }\n');
+  const manifest = 'schema_version: 1\nlanguage: ru\nchapters:\n  - slug: one\n    title: Три утраченных суток\n';
+  await writeFile(path.join(root, 'manuscript/manuscript.yaml'), manifest);
+  await writeFile(path.join(root, 'manuscript/chapters/one.md'), '<!-- scene: one -->\nПрошло трое суток.\n');
+  const env = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config') };
+  const edit = await execFileAsync(process.execPath, [cli, 'edit', root, '--mode', 'mechanical', '--json'], { env });
+  const runId = (JSON.parse(edit.stdout) as { run_id: string }).run_id;
+  const proposals = (await readFile(path.join(root, '.codicora/amendeor/runs', runId, 'proposals.jsonl'), 'utf8')).trim().split('\n').map((line) => JSON.parse(line) as { id: string; location: { scene: string }; target: { text: string }; replacement: string });
+  const titleProposal = proposals.find((item) => item.location.scene === '@title');
+  assert.ok(titleProposal);
+  assert.equal(titleProposal.target.text, 'Три утраченных суток');
+  assert.equal(titleProposal.replacement, 'Трое утраченных суток');
+  const acceptance = await execFileAsync(process.execPath, [cli, 'accept', root, titleProposal.id, '--json'], { env });
+  assert.ok((JSON.parse(acceptance.stdout) as { results: Array<{ scene: string; status: string }> }).results.some((item) => item.scene === '@title' && item.status === 'applied'));
+  assert.equal(await readFile(path.join(root, 'manuscript/manuscript.yaml'), 'utf8'), manifest);
+  assert.match(await readFile(path.join(root, 'edited/manuscript.yaml'), 'utf8'), /title: Трое утраченных суток/);
+  const report = await execFileAsync(process.execPath, [cli, 'report', root, '--json'], { env });
+  assert.deepEqual((JSON.parse(report.stdout) as { run: { decisions: { accepted: number; stale: number } } }).run.decisions, { accepted: 1, stale: 0 });
+  const diff = await execFileAsync(process.execPath, [cli, 'diff', root, '--json'], { env });
+  assert.ok(!(JSON.parse(diff.stdout) as { changes: Array<{ id: string; state: string }> }).changes.some((item) => item.id === titleProposal.id && item.state === 'stale'));
+  await writeFile(path.join(root, 'manuscript/manuscript.yaml'), manifest.replace('Три утраченных суток', 'Три долгих суток'));
+  await assert.rejects(execFileAsync(process.execPath, [cli, 'edit', root, '--mode', 'mechanical', '--resume', runId, '--json'], { env }), /resume input differs/);
+});
+
 test('missing pack warning appears in console, run manifest, and report', async () => {
   const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-pack-'));
   const file = path.join(root, 'one.md'); await writeFile(file, 'Small small words.\n');
