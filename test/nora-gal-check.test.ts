@@ -77,11 +77,14 @@ test('contextual check rejects unsupported and verifier-rejected claims', async 
       editor: JSON.stringify({ findings: [{ principle: 'gal.translation-sense', quote: 'несуществующая цитата', reason: 'Модель предположила проблему перевода без исходного текста.' }] }),
       verifier: JSON.stringify({ accepted: [0] })
     } }));
-    const unsupported = await checkNoraGalContextual(source.book, pack, loaded, source.stateDir, true);
+    const unsupported = await checkNoraGalContextual(source.book, pack, loaded, source.stateDir);
     assert.deepEqual(unsupported.findings, []);
-    assert.equal(unsupported.status, 'partial');
-    assert.equal(unsupported.ledger.length, 2);
-    assert.match(unsupported.failures[0]!.reason, /unsupported principle/);
+    assert.equal(unsupported.status, 'ok');
+    assert.equal(unsupported.ledger.length, 1);
+    assert.match(unsupported.discarded[0]!.reason, /unsupported principle/);
+    const cached = await checkNoraGalContextual(source.book, pack, loaded, source.stateDir);
+    assert.equal(cached.cached, 1);
+    assert.deepEqual(cached.discarded, unsupported.discarded);
     await writeFile(script, JSON.stringify({ responses: {
       editor: JSON.stringify({ findings: [{ principle: 'gal.feeling-noun', quote: 'испытала чувство радости', reason: 'Отвлечённая рамка ослабляет непосредственное чувство героини в этой сцене.' }] }),
       verifier: JSON.stringify({ accepted: [] })

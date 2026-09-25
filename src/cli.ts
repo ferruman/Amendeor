@@ -67,7 +67,7 @@ async function main(): Promise<void> {
       const contextual = args.rulesOnly ? undefined : await checkNoraGalContextual(source.book, pack.pack, loadedConfig, source.stateDir, args.noCache);
       const findings = [...patterns, ...(contextual?.findings ?? [])];
       print({ command: 'check', guide: 'nora-gal', version: noraGalGuideVersion, count: findings.length, findings,
-        contextual: contextual ? { status: contextual.status, windows: contextual.windows, checked: contextual.checked, cached: contextual.cached, failures: contextual.failures, ledger: contextual.ledger } : { status: 'skipped', reason: '--rules-only' } }, args.json);
+        contextual: contextual ? { status: contextual.status, windows: contextual.windows, checked: contextual.checked, cached: contextual.cached, failures: contextual.failures, discarded: contextual.discarded, ledger: contextual.ledger } : { status: 'skipped', reason: '--rules-only' } }, args.json);
       if (contextual?.status === 'partial') process.exitCode = 2;
       return;
     }
@@ -124,7 +124,7 @@ async function main(): Promise<void> {
 
 function print(value: unknown, asJson: boolean): void {
   if (asJson) { process.stdout.write(`${JSON.stringify(value, null, 2)}\n`); return; }
-  const result = value as { command: string; accepted?: string[]; rejected?: string[]; results?: Array<{ id: string; status: string; detail?: string }>; warnings?: string[]; chapters?: number; scenes?: number; words?: number; language?: string; hotspots?: unknown[]; formulaic?: Array<{ id: string; chapter: string; scene: string; quote: string }>; findings?: Array<{ id: string; kind?: string; principle?: string; chapter: string; scene: string; quote: string; reason: string }>; contextual?: { status: string; windows?: number; cached?: number; failures?: Array<{ chapter: string; scene: string; reason: string }> }; count?: number; run_id?: string; proposals?: number; message?: string; changes?: Array<{ id: string; state: string }> };
+  const result = value as { command: string; accepted?: string[]; rejected?: string[]; results?: Array<{ id: string; status: string; detail?: string }>; warnings?: string[]; chapters?: number; scenes?: number; words?: number; language?: string; hotspots?: unknown[]; formulaic?: Array<{ id: string; chapter: string; scene: string; quote: string }>; findings?: Array<{ id: string; kind?: string; principle?: string; chapter: string; scene: string; quote: string; reason: string }>; contextual?: { status: string; windows?: number; cached?: number; failures?: Array<{ chapter: string; scene: string; reason: string }>; discarded?: Array<{ chapter: string; scene: string; reason: string }> }; count?: number; run_id?: string; proposals?: number; message?: string; changes?: Array<{ id: string; state: string }> };
   if (result.command === 'inspect') {
     process.stdout.write(`inspect: ${result.chapters} chapters, ${result.scenes} scenes, ${result.words} words, ${result.language}; ${result.hotspots?.length ?? 0} hotspots; ${result.formulaic?.length ?? 0} formulaic passages\n`);
     for (const hit of result.formulaic ?? []) process.stdout.write(`  ${hit.chapter}/${hit.scene} ${hit.id}: ${hit.quote}\n`);
@@ -135,6 +135,7 @@ function print(value: unknown, asJson: boolean): void {
     process.stdout.write(`check: ${result.count} nora-gal finding(s); contextual ${result.contextual?.status ?? 'unknown'}${result.contextual?.windows === undefined ? '' : ` (${result.contextual.windows} windows, ${result.contextual.cached ?? 0} cached)`}\n`);
     for (const hit of result.findings ?? []) process.stdout.write(`  ${hit.chapter}/${hit.scene} ${hit.kind === 'contextual' ? hit.principle : hit.id}: ${hit.quote} — ${hit.reason}\n`);
     for (const failure of result.contextual?.failures ?? []) process.stdout.write(`  failed ${failure.chapter}/${failure.scene}: ${failure.reason}\n`);
+    if (result.contextual?.discarded?.length) process.stdout.write(`  discarded ${result.contextual.discarded.length} candidate(s)\n`);
     return;
   }
   if (result.command === 'diff') { for (const change of result.changes ?? []) process.stdout.write(`${change.state} ${change.id}\n`); return; }

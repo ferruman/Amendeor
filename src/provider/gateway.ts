@@ -25,9 +25,10 @@ export class Gateway {
     let last: unknown;
     for (let attempt = 0; attempt < 3; attempt++) {
       if (providerConfig.transport !== 'local' && providerConfig.endpoint && new URL(providerConfig.endpoint).hostname === 'openrouter.ai') {
-        const waitMs = this.nextOpenRouterRequestAt - Date.now();
+        const slot = Math.max(Date.now(), this.nextOpenRouterRequestAt);
+        this.nextOpenRouterRequestAt = slot + 3500;
+        const waitMs = slot - Date.now();
         if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
-        this.nextOpenRouterRequestAt = Date.now() + 3500;
       }
       const started = performance.now();
       try {
