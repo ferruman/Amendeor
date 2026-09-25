@@ -13,6 +13,8 @@ test('separate guide check marks narrow office-language signals with exact spans
   for (const item of findings) {
     assert.equal(text.slice(item.start, item.end), item.quote);
     assert.equal(item.guide, 'nora-gal');
+    assert.match(item.principle, /^gal\./);
+    assert.ok(item.source_pages);
     assert.ok(item.reason);
   }
 });

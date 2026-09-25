@@ -11,6 +11,7 @@ Thumbs.db
 *.swp
 .vscode/
 .idea/
+/.reference/
 eval/fixtures/*/mutated/.codicora/
 eval/fixtures/*/mutated/edited/
 eval/fixtures/*/mutated-formulaic/.codicora/

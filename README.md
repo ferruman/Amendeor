@@ -67,7 +67,7 @@ node --env-file=.env src/cli.ts build path/to/book
 
 Amendeor never edits `manuscript/`, silently accepts prose changes, or treats formulaic wording as proof of authorship. Model suggestions that fail meaning or voice checks are withheld and recorded as guard rejections. Formulaic `inspect` findings include a pattern id and the exact quote for review; see [the pattern catalog](docs/prose-patterns.md).
 
-The separate `check --guide nora-gal` command flags a small set of Russian office-language phrases for human review. It makes no proposals or edits; see [the guide and its limits](docs/nora-gal-check.md).
+The separate `check --guide nora-gal` command flags a small set of Russian office-language phrases for human review. It makes no proposals or edits; see [the implemented check](docs/nora-gal-check.md) and [the source-grounded principle catalog](docs/nora-gal-principles.md).
 
 ## Evaluation
 
