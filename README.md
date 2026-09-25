@@ -14,6 +14,7 @@ npm run typecheck
 
 ```sh
 node src/cli.ts inspect path/to/book --json
+node src/cli.ts check path/to/book --guide nora-gal
 node src/cli.ts edit path/to/book --mode mechanical
 node src/cli.ts report path/to/book
 ```
@@ -65,6 +66,8 @@ node --env-file=.env src/cli.ts build path/to/book
 `--mode proofread` reads every chapter title and scene window for objective spelling, grammar, and punctuation errors. Model suggestions require an independent check that the original is actually wrong, then the semantic and voice guards. Comma-only suggestions require explicit acceptance. `--mode copy` and `--mode full` also scan all scene windows for broader copy edits. `--resume RUN_ID` reuses successful window answers from the cache and replaces that run's report. `diff` compares proposal status across runs. `accept --impact mechanical` accepts only mechanical proposals; model suggestions pass semantic and voice guards before ordinary acceptance.
 
 Amendeor never edits `manuscript/`, silently accepts prose changes, or treats formulaic wording as proof of authorship. Model suggestions that fail meaning or voice checks are withheld and recorded as guard rejections. Formulaic `inspect` findings include a pattern id and the exact quote for review; see [the pattern catalog](docs/prose-patterns.md).
+
+The separate `check --guide nora-gal` command flags a small set of Russian office-language phrases for human review. It makes no proposals or edits; see [the guide and its limits](docs/nora-gal-check.md).
 
 ## Evaluation
 

@@ -12,18 +12,19 @@ import { inspectSummary, renderReport, currentDecisionStatus } from './report.ts
 import { editMechanical } from './edit/mechanical.ts';
 import { diffRuns } from './diff.ts';
 import { sha256, normalizeText } from './hash.ts';
+import { checkNoraGal, noraGalGuideVersion } from './checks/nora-gal.ts';
 
-type Args = { command: string; target: string; values: string[]; lang?: string; out?: string; json: boolean; impact?: string; unverified: boolean; mode: string; run?: string; noCache: boolean; resume?: string };
+type Args = { command: string; target: string; values: string[]; lang?: string; out?: string; json: boolean; impact?: string; unverified: boolean; mode: string; run?: string; noCache: boolean; resume?: string; guide?: string };
 function parseArgs(argv: string[]): Args {
   const command = argv[0] ?? ''; const target = argv[1] ?? '';
-  if (!['inspect', 'edit', 'report', 'diff', 'accept', 'reject', 'build'].includes(command) || !target) throw new Error('usage: amendeor <inspect|edit|report|diff|accept|reject|build> <target> [options]');
+  if (!['inspect', 'check', 'edit', 'report', 'diff', 'accept', 'reject', 'build'].includes(command) || !target) throw new Error('usage: amendeor <inspect|check|edit|report|diff|accept|reject|build> <target> [options]');
   const result: Args = { command, target, values: [], json: false, unverified: false, mode: 'mechanical', noCache: false };
   for (let index = 2; index < argv.length; index++) {
     const item = argv[index]!;
     if (item === '--json') result.json = true;
     else if (item === '--unverified') result.unverified = true;
     else if (item === '--no-cache') result.noCache = true;
-    else if (['--lang', '--out', '--impact', '--mode', '--run', '--resume'].includes(item)) {
+    else if (['--lang', '--out', '--impact', '--mode', '--run', '--resume', '--guide'].includes(item)) {
       const value = argv[++index]; if (!value) throw new Error(`${item} requires a value`);
       if (item === '--lang') result.lang = value;
       if (item === '--out') result.out = value;
@@ -31,11 +32,14 @@ function parseArgs(argv: string[]): Args {
       if (item === '--mode') result.mode = value;
       if (item === '--run') result.run = value;
       if (item === '--resume') result.resume = value;
+      if (item === '--guide') result.guide = value;
     } else if (item.startsWith('-')) throw new Error(`unknown option: ${item}`);
     else result.values.push(item);
   }
   if (command === 'accept' && result.impact && result.impact !== 'mechanical') throw new Error('--impact supports only mechanical');
   if (command === 'edit' && !['mechanical', 'proofread', 'copy', 'full'].includes(result.mode)) throw new Error(`unknown edit mode: ${result.mode}`);
+  if (result.guide && command !== 'check') throw new Error('--guide is only valid with check');
+  if (command === 'check' && result.guide !== 'nora-gal') throw new Error('check requires --guide nora-gal');
   return result;
 }
 
@@ -48,12 +52,17 @@ async function main(): Promise<void> {
   }
   const loadedConfig = source.workspaceDir ? await loadConfig({ workspaceDir: source.workspaceDir, cli: args.lang ? { language: args.lang } : undefined }) : preliminaryConfig;
   loadedConfig.config.language = source.book.lang;
-  if (args.command === 'inspect' || args.command === 'edit') {
+  if (args.command === 'inspect' || args.command === 'check' || args.command === 'edit') {
     const pack = await loadPack(source.book.lang, source.book.chapters.map((chapter) => chapter.text).join('\n'));
     if (pack.warning) process.stderr.write(`warning: ${pack.warning}\n`);
     if (args.command === 'inspect') {
       const summary = inspectSummary(source.book, pack, computeMetrics(source.book, pack.pack), source.warnings);
       print({ command: 'inspect', ...summary }, args.json); return;
+    }
+    if (args.command === 'check') {
+      const findings = checkNoraGal(source.book, pack.pack);
+      print({ command: 'check', guide: 'nora-gal', version: noraGalGuideVersion, count: findings.length, findings }, args.json);
+      return;
     }
     if (args.mode !== 'mechanical' && !loadedConfig.config.profiles.edit) throw new Error('proofread/copy/full mode requires profiles.edit');
     if (args.resume) {
@@ -108,13 +117,18 @@ async function main(): Promise<void> {
 
 function print(value: unknown, asJson: boolean): void {
   if (asJson) { process.stdout.write(`${JSON.stringify(value, null, 2)}\n`); return; }
-  const result = value as { command: string; accepted?: string[]; rejected?: string[]; results?: Array<{ id: string; status: string; detail?: string }>; warnings?: string[]; chapters?: number; scenes?: number; words?: number; language?: string; hotspots?: unknown[]; formulaic?: Array<{ id: string; chapter: string; scene: string; quote: string }>; run_id?: string; proposals?: number; message?: string; changes?: Array<{ id: string; state: string }> };
+  const result = value as { command: string; accepted?: string[]; rejected?: string[]; results?: Array<{ id: string; status: string; detail?: string }>; warnings?: string[]; chapters?: number; scenes?: number; words?: number; language?: string; hotspots?: unknown[]; formulaic?: Array<{ id: string; chapter: string; scene: string; quote: string }>; findings?: Array<{ id: string; chapter: string; scene: string; quote: string; reason: string }>; count?: number; run_id?: string; proposals?: number; message?: string; changes?: Array<{ id: string; state: string }> };
   if (result.command === 'inspect') {
     process.stdout.write(`inspect: ${result.chapters} chapters, ${result.scenes} scenes, ${result.words} words, ${result.language}; ${result.hotspots?.length ?? 0} hotspots; ${result.formulaic?.length ?? 0} formulaic passages\n`);
     for (const hit of result.formulaic ?? []) process.stdout.write(`  ${hit.chapter}/${hit.scene} ${hit.id}: ${hit.quote}\n`);
     return;
   }
   if (result.command === 'edit') { process.stdout.write(`edit: ${result.proposals} proposals, run ${result.run_id} (${result.message})\n`); return; }
+  if (result.command === 'check') {
+    process.stdout.write(`check: ${result.count} nora-gal finding(s)\n`);
+    for (const hit of result.findings ?? []) process.stdout.write(`  ${hit.chapter}/${hit.scene} ${hit.id}: ${hit.quote} — ${hit.reason}\n`);
+    return;
+  }
   if (result.command === 'diff') { for (const change of result.changes ?? []) process.stdout.write(`${change.state} ${change.id}\n`); return; }
   process.stdout.write(`${result.command}: ${[...(result.accepted ?? []), ...(result.rejected ?? [])].join(', ') || `${result.results?.length ?? 0} edit(s)`}\n`);
   for (const item of result.results ?? []) process.stdout.write(`  ${item.status} ${item.id}${item.detail ? ` — ${item.detail}` : ''}\n`);

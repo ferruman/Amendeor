@@ -126,3 +126,21 @@ test('inspect reports formulaic evidence without changing the input', async () =
   assert.deepEqual(summary.formulaic.map((hit) => [hit.id, hit.quote]), [['formulaic.throat-clearing', "Here's the thing"]]);
   assert.equal(await readFile(file, 'utf8'), original);
 });
+
+test('Nora Gal check is a separate read-only diagnostic command', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-gal-'));
+  const file = path.join(root, 'one.md');
+  const original = 'Он осуществляет проверку.\n';
+  await writeFile(file, original);
+  const env = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config') };
+  const output = await execFileAsync(process.execPath, [cli, 'check', file, '--lang', 'ru', '--guide', 'nora-gal', '--json'], { env });
+  const result = JSON.parse(output.stdout) as { command: string; guide: string; version: string; count: number; findings: Array<{ id: string; quote: string }> };
+  assert.equal(result.command, 'check');
+  assert.equal(result.guide, 'nora-gal');
+  assert.ok(result.version);
+  assert.deepEqual(result.findings.map((item) => [item.id, item.quote]), [['office.action-noun', 'осуществляет проверку']]);
+  assert.equal(result.count, 1);
+  assert.equal(await readFile(file, 'utf8'), original);
+  await assert.rejects(stat(path.join(root, '.codicora/amendeor/runs')));
+  await assert.rejects(execFileAsync(process.execPath, [cli, 'check', file, '--lang', 'ru', '--guide', 'unknown'], { env }), /check requires --guide nora-gal/);
+});
