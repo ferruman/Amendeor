@@ -133,7 +133,7 @@ test('Nora Gal check is a separate read-only diagnostic command', async () => {
   const original = 'Он осуществляет проверку.\n';
   await writeFile(file, original);
   const env = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config') };
-  const output = await execFileAsync(process.execPath, [cli, 'check', file, '--lang', 'ru', '--guide', 'nora-gal', '--json'], { env });
+  const output = await execFileAsync(process.execPath, [cli, 'check', file, '--lang', 'ru', '--guide', 'nora-gal', '--rules-only', '--json'], { env });
   const result = JSON.parse(output.stdout) as { command: string; guide: string; version: string; count: number; findings: Array<{ id: string; quote: string }> };
   assert.equal(result.command, 'check');
   assert.equal(result.guide, 'nora-gal');
@@ -143,4 +143,27 @@ test('Nora Gal check is a separate read-only diagnostic command', async () => {
   assert.equal(await readFile(file, 'utf8'), original);
   await assert.rejects(stat(path.join(root, '.codicora/amendeor/runs')));
   await assert.rejects(execFileAsync(process.execPath, [cli, 'check', file, '--lang', 'ru', '--guide', 'unknown'], { env }), /check requires --guide nora-gal/);
+});
+
+test('Nora Gal CLI contextual check uses two local profiles and reports verified evidence', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-gal-cli-context-'));
+  const file = path.join(root, 'one.md');
+  const script = path.join(root, 'script.json');
+  const config = path.join(root, 'amendeor.yaml');
+  const original = 'Она испытала чувство радости, когда увидела брата.\n';
+  await writeFile(file, original);
+  await writeFile(script, JSON.stringify({ responses: {
+    editor: JSON.stringify({ findings: [{ principle: 'gal.feeling-noun', quote: 'испытала чувство радости', reason: 'Отвлечённая рамка ослабляет непосредственное чувство героини в этой сцене.' }] }),
+    verifier: JSON.stringify({ accepted: [0] })
+  } }));
+  await writeFile(config, `providers:\n  local: { transport: local, endpoint: ${script} }\nprofiles:\n  edit: { provider: local, model: editor }\n  verify: { provider: local, model: verifier, passes: 1 }\n`);
+  const env = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config'), AMENDEOR_CONFIG: config };
+  const output = await execFileAsync(process.execPath, [cli, 'check', file, '--lang', 'ru', '--guide', 'nora-gal', '--json'], { env });
+  const result = JSON.parse(output.stdout) as { count: number; findings: Array<{ kind: string; principle: string; quote: string }>; contextual: { status: string; checked: number; failures: unknown[] } };
+  assert.equal(result.contextual.status, 'ok');
+  assert.equal(result.contextual.checked, 1);
+  assert.deepEqual(result.contextual.failures, []);
+  assert.equal(result.count, 1);
+  assert.deepEqual(result.findings.map((item) => [item.kind, item.principle, item.quote]), [['contextual', 'gal.feeling-noun', 'испытала чувство радости']]);
+  assert.equal(await readFile(file, 'utf8'), original);
 });
