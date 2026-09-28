@@ -3,7 +3,7 @@ import path from 'node:path';
 import { openSource } from './source/index.ts';
 import { readRun } from './run/store.ts';
 import { acquireLock } from './run/lock.ts';
-import { acceptProposals, readAccepted, rejectProposals } from './edited/decisions.ts';
+import { acceptProposals, conflictsWithAccepted, readAccepted, rejectProposals } from './edited/decisions.ts';
 import { buildEdited } from './edited/build.ts';
 import { loadConfig } from './config.ts';
 import { loadPack } from './lang/pack.ts';
@@ -109,9 +109,13 @@ async function main(): Promise<void> {
         : run.proposals.filter((proposal) => args.values.includes(proposal.id));
       if (!selected.length) throw new Error('no matching proposals in the latest run');
       if (args.command === 'accept') {
-        const accepted = await acceptProposals(source.editedDir, selected, { allowUnverified: args.unverified });
+        // Пакетное --impact пропускает конфликты с журналом; явно названный id по-прежнему даёт ошибку.
+        const prior = await readAccepted(source.editedDir);
+        const skipped = selected.filter((proposal) => !args.values.includes(proposal.id) && conflictsWithAccepted(prior, proposal));
+        const chosen = selected.filter((proposal) => !skipped.includes(proposal));
+        const accepted = await acceptProposals(source.editedDir, chosen, { allowUnverified: args.unverified });
         const results = await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
-        summary = { command: 'accept', accepted: selected.map((proposal) => proposal.id), results };
+        summary = { command: 'accept', accepted: chosen.map((proposal) => proposal.id), results, warnings: skipped.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`) };
         if (results.some((item) => item.status === 'stale' || item.status === 'conflict')) process.exitCode = 2;
       } else {
         await rejectProposals(source.stateDir, selected);

@@ -12,7 +12,10 @@ export async function readStandalone(target: string, lang?: string): Promise<Boo
   for (const file of files) {
     if (!/\.(md|txt)$/i.test(file)) throw new Error(`unsupported standalone file: ${file}`);
     const text = await readFile(file, 'utf8');
-    chapters.push({ slug: path.basename(file, path.extname(file)), title: path.basename(file, path.extname(file)), file, text, scenes: splitScenes(text) });
+    const slug = path.basename(file, path.extname(file));
+    // 01.md и 01.txt дали бы одну главу в edited/ и общий id предложений.
+    if (chapters.some((chapter) => chapter.slug === slug)) throw new Error(`duplicate standalone chapter slug: ${slug}`);
+    chapters.push({ slug, title: slug, file, text, scenes: splitScenes(text) });
   }
   return { lang, chapters };
 }

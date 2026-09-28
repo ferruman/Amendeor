@@ -27,6 +27,7 @@ export interface LoadedConfig { config: Config; winningLayer: Record<string, Con
 
 const defaults: Config = configSchema.parse({});
 const reservedEnv = new Set(['AMENDEOR_CONFIG']);
+const configKeys = new Set(Object.keys(configSchema.shape));
 
 function isRecord(value: unknown): value is Record<string, unknown> { return !!value && typeof value === 'object' && !Array.isArray(value); }
 
@@ -45,6 +46,8 @@ function fromEnvironment(env: NodeJS.ProcessEnv): Record<string, unknown> {
   for (const [key, value] of Object.entries(env)) {
     if (!key.startsWith('AMENDEOR_') || reservedEnv.has(key) || value === undefined) continue;
     const parts = key.slice('AMENDEOR_'.length).toLowerCase().split('__');
+    // Только известные ключи: иначе секреты вроде AMENDEOR_OPENROUTER_API_KEY попадут в run.json.
+    if (!configKeys.has(parts[0]!)) continue;
     let cursor = values;
     for (const part of parts.slice(0, -1)) { cursor[part] ??= {}; if (!isRecord(cursor[part])) throw new Error(`invalid environment config path: ${key}`); cursor = cursor[part] as Record<string, unknown>; }
     let parsed: unknown = value;

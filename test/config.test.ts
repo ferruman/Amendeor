@@ -11,7 +11,8 @@ test('configuration merges defaults, user, workspace, environment, and CLI in or
   await mkdir(path.join(xdg, 'codicora'), { recursive: true }); await mkdir(workspace);
   await writeFile(path.join(xdg, 'codicora/amendeor.yaml'), 'language: en\nnormalize: { yo: keep }\n');
   await writeFile(path.join(workspace, 'amendeor.yaml'), 'language: ru\nnormalize: { yo: e }\n');
-  const loaded = await loadConfig({ workspaceDir: workspace, env: { XDG_CONFIG_HOME: xdg, HOME: root, AMENDEOR_NORMALIZE__YO: 'yo', AMENDEOR_LANGUAGE: 'en' }, cli: { language: 'ru' } });
+  const loaded = await loadConfig({ workspaceDir: workspace, env: { XDG_CONFIG_HOME: xdg, HOME: root, AMENDEOR_NORMALIZE__YO: 'yo', AMENDEOR_LANGUAGE: 'en', AMENDEOR_OPENROUTER_API_KEY: 'sk-secret' }, cli: { language: 'ru' } });
+  assert.ok(!JSON.stringify(loaded.config).includes('sk-secret'));
   assert.equal(loaded.config.language, 'ru');
   assert.equal(loaded.config.normalize.yo, 'yo');
   assert.equal(loaded.winningLayer.language, 'cli');

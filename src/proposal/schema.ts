@@ -5,7 +5,7 @@ const hash = z.string().regex(/^sha256:[0-9a-f]{64}$/);
 export const proposalSchema = z.object({
   schema: z.literal('amendeor.proposal/0.1'),
   id: z.string().regex(/^amendeor:[0-9a-f]{16}$/),
-  fingerprint: z.object({ primary: z.object({ category: z.enum(categories), chapter: z.string(), scene: z.string(), key: hash }), evidence: hash }),
+  fingerprint: z.object({ primary: z.object({ category: z.enum(categories), chapter: z.string(), scene: z.string(), key: hash, occurrence: z.number().int().positive().optional() }), evidence: hash }),
   run_id: z.string().min(1),
   tool: z.object({ name: z.literal('amendeor'), version: z.string() }),
   location: z.object({ chapter: z.string(), scene: z.string(), content_hash: hash }),

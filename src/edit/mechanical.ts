@@ -12,7 +12,7 @@ import { enabledRules, ruleContext, ruleSetVersion, bookWordCounts, type Proposa
 import { makeProposal } from '../proposal/identity.ts';
 import type { Proposal } from '../proposal/schema.ts';
 import { newRunId, writeRun, readRun } from '../run/store.ts';
-import { acceptProposals, readRejected } from '../edited/decisions.ts';
+import { acceptProposals, conflictsWithAccepted, readAccepted, readRejected } from '../edited/decisions.ts';
 import { buildEdited } from '../edited/build.ts';
 import { balanceWarnings } from '../rules/balance.ts';
 import { modelPass } from './pass.ts';
@@ -49,6 +49,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   const metrics = computeMetrics(source.book, language.pack);
   const summary = inspectSummary(source.book, language, metrics, source.warnings);
   const rejected = await readRejected(source.stateDir);
+  const isRejected = (proposal: Proposal) => rejected.some((record) => record.proposal_id === proposal.id && record.target_hash === proposal.target.hash);
   const proposals = new Map<string, Proposal>();
   const failures: Array<{ node_id: string; reason: string }> = [];
   const diagnostics: Array<{ node_id: string; message: string }> = [];
@@ -85,7 +86,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
           source: `rule:${draft.ruleId}`, confidence: 1, reason: draft.reason, content_hash: scene.contentHash,
           verification: { passes: 0, agreed: 0, semantic_risk: 'none', voice: 'ok' }
         });
-        if (rejected.some((record) => record.proposal_id === proposal.id && record.target_hash === proposal.target.hash)) continue;
+        if (isRejected(proposal)) continue;
         if (!proposals.has(proposal.id)) proposals.set(proposal.id, proposal);
       } catch (error) { failed++; failures.push({ node_id: `${chapter.slug}/${scene.id}/${draft.ruleId}`, reason: (error as Error).message }); }
     }
@@ -93,11 +94,17 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   }
   const mode = options.mode ?? 'mechanical';
   const model = await modelPass(source, loaded, language, mode, runId, [...proposals.values()], options.noCache);
-  const guard = await guardProposals(source, loaded, language, model.proposals, options.noCache, mode);
+  const guard = await guardProposals(source, loaded, language, model.proposals.filter((proposal) => !isRejected(proposal)), options.noCache, mode);
   for (const proposal of guard.proposals) if (!proposals.has(proposal.id)) proposals.set(proposal.id, proposal);
   const list = [...proposals.values()];
   const ledgerEntries = [...model.ledger, ...guard.ledger];
-  const previousId = await previousRunId(source.stateDir);
+  // При --resume прогон заменяется, поэтому базой остаётся его прежний предшественник, а не он сам.
+  const previousId = options.runId
+    ? ((await readRun(source.stateDir, options.runId)).run as { baseline?: { previous_run_id?: string | null } }).baseline?.previous_run_id ?? null
+    : await previousRunId(source.stateDir);
+  const autoAccept = loaded.config.auto_accept.includes('mechanical');
+  const priorAccepted = autoAccept ? await readAccepted(source.editedDir) : [];
+  const conflicting = list.filter((proposal) => proposal.impact === 'mechanical' && conflictsWithAccepted(priorAccepted, proposal));
   const inputs = source.book.chapters.map((chapter) => ({ path: chapter.file, content_hash: sha256(normalizeText(chapter.text)), title_hash: sha256(normalizeText(chapter.title)) }));
   const run: Record<string, unknown> = {
     schema: 'codicora.run/0.1', run_id: runId, tool: { name: 'amendeor', version: '0.1.0' }, started_at: started, finished_at: new Date().toISOString(),
@@ -106,12 +113,12 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
     guard: guard.stage,
     ledger: { entries: ledgerEntries, tokens_in: ledgerEntries.reduce((sum, entry) => sum + entry.tokens_in, 0), tokens_out: ledgerEntries.reduce((sum, entry) => sum + entry.tokens_out, 0), cost: ledgerEntries.some((entry) => entry.tokens_in + entry.tokens_out > 0 && entry.cost === null) ? null : ledgerEntries.reduce((sum, entry) => sum + (entry.cost ?? 0), 0), currency: ledgerEntries.find((entry) => entry.currency)?.currency ?? null, ms: ledgerEntries.reduce((sum, entry) => sum + entry.ms, 0) }, baseline: { previous_run_id: previousId, states: {} },
     counts: { by_impact: { mechanical: list.filter((item) => item.impact === 'mechanical').length, prose: list.filter((item) => item.impact === 'prose').length } },
-    summary: { ...summary, hotspots: summary.hotspots.length }, warnings: summary.warnings, metadata: { rule_set_version: ruleSetVersion, pack_version: language.pack.version, mode, prompt_version: (model.stage as { prompt_version?: string }).prompt_version, model_id: (model.stage as { model_id?: string }).model_id }
+    summary: { ...summary, hotspots: summary.hotspots.length }, warnings: [...summary.warnings, ...conflicting.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`)], metadata: { rule_set_version: ruleSetVersion, pack_version: language.pack.version, mode, prompt_version: (model.stage as { prompt_version?: string }).prompt_version, model_id: (model.stage as { model_id?: string }).model_id }
   };
   const report = renderReport(run);
   await writeRun(source.stateDir, runId, { 'run.json': `${JSON.stringify(run, null, 2)}\n`, 'proposals.jsonl': list.map((proposal) => JSON.stringify(proposal)).join('\n') + (list.length ? '\n' : ''), 'rejected.jsonl': guard.rejected.map((item) => JSON.stringify(item)).join('\n') + (guard.rejected.length ? '\n' : ''), 'report.md': report }, Boolean(options.runId));
-  if (loaded.config.auto_accept.includes('mechanical')) {
-    const accepted = await acceptProposals(source.editedDir, list.filter((proposal) => proposal.impact === 'mechanical'));
+  if (autoAccept) {
+    const accepted = await acceptProposals(source.editedDir, list.filter((proposal) => proposal.impact === 'mechanical' && !conflicting.includes(proposal)));
     await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
   }
   return { run_id: runId, proposals: list, run, report };

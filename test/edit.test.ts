@@ -8,7 +8,8 @@ import { loadConfig } from '../src/config.ts';
 import { loadPack } from '../src/lang/pack.ts';
 import { editMechanical } from '../src/edit/mechanical.ts';
 import { parseEdits } from '../src/edit/parse.ts';
-import { acceptProposals } from '../src/edited/decisions.ts';
+import { classifyEdit } from '../src/edit/classify.ts';
+import { acceptProposals, rejectProposals } from '../src/edited/decisions.ts';
 import { buildEdited } from '../src/edited/build.ts';
 
 test('parser discards missing targets and paragraph rewrites', () => {
@@ -19,6 +20,47 @@ test('parser discards missing targets and paragraph rewrites', () => {
   const parsed = parseEdits(output, 'The door was open.');
   assert.equal(parsed.edits.length, 0);
   assert.deepEqual(parsed.discarded.map((item) => item.reason), ['target-not-verbatim-in-window', 'multi-paragraph-replacement']);
+});
+
+test('model case and punctuation edits are prose; whitespace and pack variants stay mechanical', async () => {
+  const pack = (await loadPack('en')).pack;
+  assert.equal(classifyEdit('the  door', 'the door', pack), 'mechanical');
+  assert.equal(classifyEdit('Bank', 'bank', pack), 'prose');
+  assert.equal(classifyEdit('door, open', 'door open', pack), 'prose');
+  const [a, b] = pack.spelling_variants[0]!;
+  assert.equal(classifyEdit(a, b, pack), 'mechanical');
+});
+
+test('each repeat of the same error in a scene gets its own proposal and both apply', async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), 'amendeor-repeat-'));
+  try {
+    const manuscript = path.join(dir, 'book.md');
+    await writeFile(manuscript, 'He saw the the dog.\n\nLater she saw the the cat.\n');
+    const source = await openSource(manuscript, { lang: 'en', out: path.join(dir, 'out') });
+    const loaded = await loadConfig({ env: { HOME: dir } });
+    const result = await editMechanical(source, loaded, await loadPack('en'), { mode: 'mechanical' });
+    const doubled = result.proposals.filter((item) => item.source === 'rule:repetition.doubled-word');
+    assert.equal(doubled.length, 2);
+    const accepted = await acceptProposals(source.editedDir, doubled);
+    const built = await buildEdited({ book: source.book, editedDir: source.editedDir, accepted });
+    assert.ok(built.every((item) => item.status === 'applied'), JSON.stringify(built));
+    assert.equal(await readFile(path.join(source.editedDir, 'chapters/book.md'), 'utf8'), 'He saw the dog.\n\nLater she saw the cat.\n');
+  } finally { await rm(dir, { recursive: true, force: true }); }
+});
+
+test('auto-accept skips a mechanical proposal that conflicts with the acceptance history', async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), 'amendeor-conflict-'));
+  try {
+    const manuscript = path.join(dir, 'book.md');
+    await writeFile(manuscript, 'He saw the the dog.\n');
+    const source = await openSource(manuscript, { lang: 'en', out: path.join(dir, 'out') });
+    const loaded = await loadConfig({ env: { HOME: dir }, cli: { auto_accept: ['mechanical'] } });
+    const first = await editMechanical(source, await loadConfig({ env: { HOME: dir } }), await loadPack('en'), { mode: 'mechanical' });
+    const proposal = first.proposals.find((item) => item.source === 'rule:repetition.doubled-word')!;
+    await acceptProposals(source.editedDir, [{ ...proposal, replacement: 'the', fingerprint: { ...proposal.fingerprint, evidence: `sha256:${'0'.repeat(64)}` } }]);
+    const second = await editMechanical(source, loaded, await loadPack('en'), { mode: 'mechanical' });
+    assert.ok((second.run.warnings as string[]).includes(`conflicting-acceptance skipped: ${proposal.id}`));
+  } finally { await rm(dir, { recursive: true, force: true }); }
 });
 
 test('local copy pass counts NO_CHANGE and caches successful windows', async () => {
@@ -41,6 +83,8 @@ test('local copy pass counts NO_CHANGE and caches successful windows', async () 
     const resumed = await editMechanical(source, loaded, pack, { mode: 'copy', runId: first.run_id });
     assert.equal(resumed.run_id, first.run_id);
     assert.equal((resumed.run.stages as Array<{ name: string; cached?: number }>).find((item) => item.name === 'model')?.cached, 1);
+    const resumedLatest = await editMechanical(source, loaded, pack, { mode: 'copy', runId: second.run_id });
+    assert.equal((resumedLatest.run.baseline as { previous_run_id: string }).previous_run_id, first.run_id);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
 
@@ -75,6 +119,9 @@ test('three agreeing local verifier passes offer a guarded proposal', async () =
     assert.equal(result.proposals.length, 1);
     assert.equal(result.proposals[0]!.unverified, undefined);
     assert.deepEqual(result.proposals[0]!.verification, { passes: 3, agreed: 3, semantic_risk: 'none', voice: 'ok' });
+    await rejectProposals(source.stateDir, result.proposals);
+    const again = await editMechanical(source, loaded, await loadPack('en'), { mode: 'copy' });
+    assert.equal(again.proposals.length, 0);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
 

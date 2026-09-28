@@ -9,6 +9,12 @@ export class DecisionError extends Error {
   constructor(code: 'unverified-proposal' | 'duplicate-proposal-id' | 'conflicting-acceptance' | 'proposal-not-found', message: string) { super(`${code}: ${message}`); this.code = code; }
 }
 
+// Тот же id уже принят с другой заменой: журнал только дописывается, поэтому такое принятие невозможно.
+export function conflictsWithAccepted(accepted: Acceptance[], proposal: Proposal): boolean {
+  const prior = accepted.find((record) => record.proposal.id === proposal.id);
+  return Boolean(prior && (prior.proposal.fingerprint.evidence !== proposal.fingerprint.evidence || prior.proposal.replacement !== proposal.replacement));
+}
+
 export async function readAccepted(editedDir: string): Promise<Acceptance[]> {
   const file = path.join(editedDir, 'accepted.jsonl');
   let contents: string;
@@ -19,9 +25,8 @@ export async function readAccepted(editedDir: string): Promise<Acceptance[]> {
     let item: Acceptance;
     try { const parsed = JSON.parse(line) as Acceptance; item = { ...parsed, proposal: proposalSchema.parse(parsed.proposal) }; }
     catch (error) { throw new Error(`invalid acceptance line ${index + 1}: ${(error as Error).message}`); }
-    const prior = result.find((record) => record.proposal.id === item.proposal.id);
-    if (prior && (prior.proposal.fingerprint.evidence !== item.proposal.fingerprint.evidence || prior.proposal.replacement !== item.proposal.replacement)) throw new DecisionError('conflicting-acceptance', item.proposal.id);
-    if (!prior) result.push(item);
+    if (conflictsWithAccepted(result, item.proposal)) throw new DecisionError('conflicting-acceptance', item.proposal.id);
+    if (!result.some((record) => record.proposal.id === item.proposal.id)) result.push(item);
   }
   return result;
 }
@@ -34,8 +39,7 @@ export async function acceptProposals(editedDir: string, proposals: Proposal[], 
     if (seen.has(proposal.id)) throw new DecisionError('duplicate-proposal-id', proposal.id);
     seen.add(proposal.id);
     if (proposal.unverified && !options.allowUnverified) throw new DecisionError('unverified-proposal', proposal.id);
-    const prior = accepted.find((record) => record.proposal.id === proposal.id);
-    if (prior && (prior.proposal.fingerprint.evidence !== proposal.fingerprint.evidence || prior.proposal.replacement !== proposal.replacement)) throw new DecisionError('conflicting-acceptance', proposal.id);
+    if (conflictsWithAccepted(accepted, proposal)) throw new DecisionError('conflicting-acceptance', proposal.id);
   }
   const fresh = proposals.filter((proposal) => !accepted.some((record) => record.proposal.id === proposal.id));
   if (fresh.length) {

@@ -19,7 +19,8 @@ export function makeProposal(input: MakeProposalInput): Proposal {
     }
   }
   const targetHash = sha256(normalizeQuote(input.target));
-  const primary = { category: input.category, chapter: input.chapter, scene: input.scene, key: targetHash };
+  // Номер вхождения входит в ключ только с 1: повтор той же ошибки в сцене получает свой id, а id первого вхождения не меняются.
+  const primary = { category: input.category, chapter: input.chapter, scene: input.scene, key: targetHash, ...(occurrence > 0 ? { occurrence } : {}) };
   const proposal = {
     schema: 'amendeor.proposal/0.1' as const,
     id: `amendeor:${sha256(canonicalJson(primary)).slice(7, 23)}`,
