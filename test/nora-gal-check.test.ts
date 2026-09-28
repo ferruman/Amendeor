@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { splitScenes, type Book } from '../src/book.ts';
 import { loadPack } from '../src/lang/pack.ts';
 import { checkNoraGal } from '../src/checks/nora-gal.ts';
-import { checkNoraGalContextual, loadNoraGalPrinciples } from '../src/checks/nora-gal-context.ts';
+import { checkNoraGalContextual, loadNoraGalPrinciples } from '../src/checks/guide-context.ts';
 import { loadConfig } from '../src/config.ts';
 import { openSource } from '../src/source/index.ts';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';

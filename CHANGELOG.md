@@ -10,4 +10,5 @@
 - Measured three real-provider copy-edit and formulaic runs per language, with deterministic guard replay records and worst-run release metrics in `eval/RESULTS.md`.
 - Added project-specific OpenRouter editor and verifier profiles, request pacing, retry timing, and private `.env` setup.
 - Fixed: `AMENDEOR_*` secrets no longer enter the recorded config; author rejections now hold for model proposals; `--resume` keeps its original baseline; repeated identical errors in one scene get distinct proposal ids (first-occurrence ids are unchanged); batch acceptance skips conflicting history with a warning; model case and punctuation edits are `prose`; duplicate standalone slugs and invalid `codicora.yaml` report clear errors.
+- Added `check --guide infostyle`: a prose-safe selection of «Пиши, сокращай» principles with narrator-only signals and a contextual pass; guides now share one runner.
 - The private `seymsk` model review and v0.1 tag remain pending.

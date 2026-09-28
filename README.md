@@ -69,6 +69,8 @@ Amendeor never edits `manuscript/`, silently accepts prose changes, or treats fo
 
 The separate `check --guide nora-gal` command combines narrow Russian office-language signals with a contextual review of the source-grounded principles. It requires configured edit and verify profiles, makes no proposals or edits, and caches successful review windows. Use `--rules-only` for the no-key pattern check; see [the implemented check](docs/nora-gal-check.md) and [the principle catalog](docs/nora-gal-principles.md).
 
+`check --guide infostyle` works the same way with a narrow, prose-safe selection from Ilyakhov and Sarycheva's «Пиши, сокращай»: office phrases, hidden actions, time parasites, inflated words and euphemisms in the narrator's own voice. The book is written for business text, so evaluations, intensifiers, vagueness and fragments are deliberately left out, and findings inside dialogue are dropped; see [the catalog](docs/infostyle-principles.md).
+
 ## Evaluation
 
 The public-domain English and Russian fixtures and reproducible mutation seeds live under `eval/fixtures/`. Reproduce the mechanical baseline and the deterministic semantic traps with:
