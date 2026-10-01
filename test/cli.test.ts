@@ -32,6 +32,7 @@ test('no-key mechanical edit is deterministic and the second run is fully cached
   assert.equal(secondResult.stages[0]!.units.computed, 0);
   assert.ok(secondResult.stages[0]!.units.cached > 0);
   const report = await execFileAsync(process.execPath, [cli, 'report', root], { env });
+  assert.match(report.stdout, new RegExp(`^# Amendeor report — ${secondResult.run_id}\n\n\\d+ chapters · \\d+ scenes · \\d+ words · `));
   assert.match(report.stdout, /rules only/);
   const diff = await execFileAsync(process.execPath, [cli, 'diff', root, '--json'], { env });
   const changes = JSON.parse(diff.stdout) as { changes: Array<{ state: string }> };

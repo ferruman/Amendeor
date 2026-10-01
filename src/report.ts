@@ -24,7 +24,8 @@ export function renderReport(run: Record<string, any>): string {
   const model = stages.find((stage: { name: string }) => stage.name === 'model');
   const degraded = stages.flatMap((stage: { failures?: Array<{ node_id: string; reason: string }> }) => stage.failures ?? []);
   const lines = [
-    `# Amendeor — ${summary.chapters ?? 0} chapters, ${summary.scenes ?? 0} scenes, ${summary.words ?? 0} words, ${summary.language ?? '?'}`,
+    `# Amendeor report — ${run.run_id ?? '?'}`,
+    '', `${summary.chapters ?? 0} chapters · ${summary.scenes ?? 0} scenes · ${summary.words ?? 0} words · ${summary.language ?? '?'}`,
     '', `Rules: ${rules?.hits ?? 0} hits → ${rules?.proposals ?? 0} proposals (${rules?.units?.cached ?? 0} cached, ${rules?.units?.computed ?? 0} computed)`,
     `Model: ${model && model.status !== 'skipped' ? `${model.windows ?? 0} windows · ${model.no_change ?? 0} NO_CHANGE · ${model.candidates ?? 0} candidates` : 'rules only'}`,
     `Semantic guard: ${run.guard?.semantic_rejected ?? 0} rejected · Objective guard: ${run.guard?.objective_rejected ?? 0} rejected · Punctuation guard: ${run.guard?.punctuation_rejected ?? 0} rejected · Voice guard: ${run.guard?.voice_rejected ?? 0} rejected`,

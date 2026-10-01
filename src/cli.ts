@@ -153,10 +153,10 @@ function print(value: unknown, asJson: boolean): void {
   if (result.command === 'diff') { for (const change of result.changes ?? []) process.stdout.write(`${change.state} ${change.id}\n`); return; }
   process.stdout.write(`${result.command}: ${[...(result.accepted ?? []), ...(result.rejected ?? [])].join(', ') || `${result.results?.length ?? 0} edit(s)`}\n`);
   for (const item of result.results ?? []) process.stdout.write(`  ${item.status} ${item.id}${item.detail ? ` — ${item.detail}` : ''}\n`);
-  for (const warning of result.warnings ?? []) process.stdout.write(`  warning: ${warning}\n`);
+  for (const warning of result.warnings ?? []) process.stderr.write(`amendeor: warning: ${warning}\n`);
 }
 
 main().catch((error: unknown) => {
-  process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
+  process.stderr.write(`amendeor: ${error instanceof Error ? error.message : String(error)}\n`);
   process.exitCode = 1;
 });
