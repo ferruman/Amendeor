@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, mkdir, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, readFile, mkdir, rm, symlink, writeFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import os from 'node:os';
@@ -161,6 +161,39 @@ test('building from edited input cannot apply an accepted edit twice', async () 
   const edited = await readManuscript(editedDir);
   await assert.rejects(buildEdited({ book: edited.book, editedDir, accepted, manifestText: edited.manifestText }), /source chapter is inside edited directory/);
   const before = await readFile(path.join(editedDir, 'chapters/one.md'), 'utf8');
+  const journalBefore = await readFile(path.join(editedDir, 'accepted.jsonl'), 'utf8');
+  const inspect = await execFileAsync(process.execPath, ['src/cli.ts', 'inspect', editedDir, '--json'], { cwd: path.resolve('') });
+  assert.equal(JSON.parse(inspect.stdout).chapters, 1);
+  const check = await execFileAsync(process.execPath, ['src/cli.ts', 'check', editedDir, '--guide', 'infostyle', '--rules-only', '--json'], { cwd: path.resolve('') });
+  assert.equal(JSON.parse(check.stdout).command, 'check');
   await assert.rejects(execFileAsync(process.execPath, ['src/cli.ts', 'build', editedDir], { cwd: path.resolve('') }), /edited\/ is a read-only input/);
   assert.equal(await readFile(path.join(editedDir, 'chapters/one.md'), 'utf8'), before);
+  assert.equal(await readFile(path.join(editedDir, 'accepted.jsonl'), 'utf8'), journalBefore);
+});
+
+test('symlinked output cannot change source files or append acceptance into the manuscript', async () => {
+  const root = await temp();
+  try {
+    const manuscript = path.join(root, 'manuscript');
+    const editedDir = path.join(root, 'edited');
+    await mkdir(path.join(manuscript, 'chapters'), { recursive: true });
+    await writeFile(path.join(root, 'codicora.yaml'), 'schema_version: 1\nmanuscript:\n  path: ./manuscript\nedited:\n  path: ./edited\n');
+    await writeFile(path.join(manuscript, 'manuscript.yaml'), 'schema_version: 1\nlanguage: en\nchapters:\n  - slug: one\n    title: One\n');
+    const file = path.join(manuscript, 'chapters/one.md');
+    await writeFile(file, 'A teh word.\n');
+    const source = await readManuscript(manuscript);
+    const proposal = makeProposal({ category: 'spelling', chapter: 'one', scene: 's0', target: 'teh', replacement: 'the' });
+    await symlink(manuscript, editedDir, 'dir');
+    await assert.rejects(buildEdited({ book: source.book, editedDir, accepted: [proposal], manifestText: source.manifestText }), /source chapter is inside edited directory/);
+    await assert.rejects(execFileAsync(process.execPath, ['src/cli.ts', 'accept', root, proposal.id], { cwd: path.resolve('') }), /source chapter is inside edited directory/);
+    assert.equal(await readFile(file, 'utf8'), 'A teh word.\n');
+    assert.equal(await readFile(path.join(manuscript, 'manuscript.yaml'), 'utf8'), source.manifestText);
+    await assert.rejects(readFile(path.join(manuscript, 'accepted.jsonl')), { code: 'ENOENT' });
+
+    await rm(editedDir);
+    await mkdir(editedDir);
+    await symlink(path.join(manuscript, 'chapters'), path.join(editedDir, 'chapters'), 'dir');
+    await assert.rejects(buildEdited({ book: source.book, editedDir, accepted: [proposal], manifestText: source.manifestText }), /path escapes edited directory/);
+    assert.equal(await readFile(file, 'utf8'), 'A teh word.\n');
+  } finally { await rm(root, { recursive: true, force: true }); }
 });

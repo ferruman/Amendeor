@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, realpath, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { parse, parseDocument } from 'yaml';
 import { TITLE_SCENE_ID, type Book, type Chapter } from '../book.ts';
@@ -10,8 +10,34 @@ export type BuildStatus = 'applied' | 'moved' | 'stale' | 'conflict';
 export interface BuildResult { id: string; chapter: string; scene: string; status: BuildStatus; detail?: string }
 export interface BuildInput { book: Book; editedDir: string; accepted: Acceptance[] | Proposal[]; manifestText?: string }
 
+// Разрешаем ссылки и у ещё не созданного пути, начиная с существующего родителя.
+async function physicalPath(file: string): Promise<string> {
+  const absolute = path.resolve(file);
+  try { return await realpath(absolute); }
+  catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT' || path.dirname(absolute) === absolute) throw error;
+    return path.join(await physicalPath(path.dirname(absolute)), path.basename(absolute));
+  }
+}
+
+export async function validateEditedPaths(book: Book, editedDir: string, manuscriptDir?: string): Promise<string> {
+  const outputRoot = await physicalPath(editedDir);
+  const sources = [...book.chapters.map((chapter) => chapter.file), ...(manuscriptDir ? [manuscriptDir] : [])];
+  for (const file of sources) {
+    const sourceFile = await physicalPath(file);
+    if (sourceFile === outputRoot || sourceFile.startsWith(`${outputRoot}${path.sep}`)) {
+      throw new Error(`source chapter is inside edited directory: ${sourceFile}`);
+    }
+  }
+  for (const relative of ['chapters', 'manuscript.yaml', 'accepted.jsonl', ...book.chapters.map(chapterRelativePath)]) {
+    const destination = await physicalPath(path.resolve(outputRoot, relative));
+    if (!destination.startsWith(`${outputRoot}${path.sep}`)) throw new Error(`chapter path escapes edited directory: ${relative}`);
+  }
+  return outputRoot;
+}
+
 export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
-  const outputRoot = path.resolve(input.editedDir);
+  const outputRoot = await validateEditedPaths(input.book, input.editedDir);
   const destinations = new Map<string, string>();
   for (const chapter of input.book.chapters) {
     const sourceFile = path.resolve(chapter.file);
@@ -103,7 +129,8 @@ export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
   const expectedFiles = new Set(destinations.values());
   for (const previous of listedChapterPaths(previousManifest)) {
     const oldFile = path.resolve(outputRoot, previous);
-    if (oldFile.startsWith(`${outputRoot}${path.sep}`) && !expectedFiles.has(oldFile)) await rm(oldFile, { force: true });
+    const physicalParent = await physicalPath(path.dirname(oldFile));
+    if (oldFile.startsWith(`${outputRoot}${path.sep}`) && (physicalParent === outputRoot || physicalParent.startsWith(`${outputRoot}${path.sep}`)) && !expectedFiles.has(oldFile)) await rm(oldFile, { force: true });
   }
   const expected = new Set(input.book.chapters.map((chapter) => chapterRelativePath(chapter)));
   for (const name of await readdir(chaptersDir)) if (name.endsWith('.md') && !expected.has(`chapters/${name}`)) await rm(path.join(chaptersDir, name), { force: true });

@@ -1,4 +1,5 @@
-import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
 import path from 'node:path';
 import { canonicalJson, sha256 } from './hash.ts';
 
@@ -24,8 +25,10 @@ export class Cache {
     if (this.disabled) return;
     const file = this.file(stage, cacheKey(inputs));
     await mkdir(path.dirname(file), { recursive: true });
-    const temporary = `${file}.${process.pid}.tmp`;
-    await writeFile(temporary, `${JSON.stringify(value)}\n`);
-    await rename(temporary, file);
+    const temporary = `${file}.${randomUUID()}.tmp`;
+    try {
+      await writeFile(temporary, `${JSON.stringify(value)}\n`, { flag: 'wx' });
+      await rename(temporary, file);
+    } finally { await rm(temporary, { force: true }); }
   }
 }

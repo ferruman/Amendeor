@@ -54,3 +54,25 @@ test('infostyle contextual check drops findings inside dialogue before verificat
     assert.ok(result.discarded.some((item) => item.reason === 'finding quote is inside dialogue'));
   } finally { await rm(root, { recursive: true, force: true }); }
 });
+
+test('identical scenes checked concurrently keep both findings and can be read from cache', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-infostyle-'));
+  try {
+    const text = '<!-- scene: first -->\nДверь была открыта неизвестным лицом.\n<!-- scene: second -->\nДверь была открыта неизвестным лицом.\n';
+    const book = asBook(text);
+    const script = path.join(root, 'script.json');
+    await writeFile(script, JSON.stringify({ responses: {
+      editor: JSON.stringify({ findings: [{ principle: 'info.passive-agent', quote: 'была открыта неизвестным лицом', reason: 'Страдательный оборот прячет, кто открыл дверь, хотя сцене это важно.' }] }),
+      verifier: JSON.stringify({ accepted: [0] })
+    } }));
+    const loaded = await loadConfig({ env: { HOME: root }, cli: { providers: { local: { transport: 'local', endpoint: script } }, profiles: { edit: { provider: 'local', model: 'editor' }, verify: { provider: 'local', model: 'verifier', passes: 1 } } } });
+    const pack = (await loadPack('ru')).pack;
+    const result = await checkGuideContextual(infostyle, book, pack, loaded, root);
+    assert.equal(result.status, 'ok');
+    assert.deepEqual(result.failures, []);
+    assert.deepEqual(result.findings.map((item) => item.scene), ['first', 'second']);
+    const cached = await checkGuideContextual(infostyle, book, pack, loaded, root);
+    assert.equal(cached.cached, 2);
+    assert.deepEqual(cached.findings, result.findings);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});

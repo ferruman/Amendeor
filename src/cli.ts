@@ -4,7 +4,7 @@ import { openSource } from './source/index.ts';
 import { readRun } from './run/store.ts';
 import { acquireLock } from './run/lock.ts';
 import { acceptProposals, conflictsWithAccepted, readAccepted, rejectProposals } from './edited/decisions.ts';
-import { buildEdited } from './edited/build.ts';
+import { buildEdited, validateEditedPaths } from './edited/build.ts';
 import { loadConfig } from './config.ts';
 import { loadPack } from './lang/pack.ts';
 import { computeMetrics } from './metrics/index.ts';
@@ -54,8 +54,11 @@ async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
   const preliminaryConfig = await loadConfig({ cli: args.lang ? { language: args.lang } : undefined });
   const source = await openSource(args.target, { lang: args.lang ?? preliminaryConfig.config.language, out: args.out });
-  if (source.manuscriptDir && path.resolve(source.manuscriptDir) === path.resolve(source.editedDir)) {
-    throw new Error('edited/ is a read-only input; run accept, reject, or build against the workspace or manuscript/');
+  if (['edit', 'accept', 'reject', 'build'].includes(args.command)) {
+    if (source.manuscriptDir && path.resolve(source.manuscriptDir) === path.resolve(source.editedDir)) {
+      throw new Error('edited/ is a read-only input; run accept, reject, or build against the workspace or manuscript/');
+    }
+    await validateEditedPaths(source.book, source.editedDir, source.manuscriptDir);
   }
   const loadedConfig = source.workspaceDir ? await loadConfig({ workspaceDir: source.workspaceDir, cli: args.lang ? { language: args.lang } : undefined }) : preliminaryConfig;
   loadedConfig.config.language = source.book.lang;
