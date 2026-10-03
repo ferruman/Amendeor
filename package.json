@@ -11,6 +11,7 @@
   },
   "scripts": {
     "test": "node --test",
+    "ui": "node --env-file-if-exists=.env src/cli.ts serve",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

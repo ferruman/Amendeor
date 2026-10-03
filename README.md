@@ -10,6 +10,15 @@ npm test
 npm run typecheck
 ```
 
+## Review in the browser
+
+```sh
+npm run ui                     # http://127.0.0.1:4178
+npm run ui -- ../books/seymsk  # also show a Codicora workspace
+```
+
+Add a text (paste it or pick `.md`/`.txt` files, one chapter each), run a check, then accept or reject each proposal on the page; **Download edited** returns the edited copy. Pasted texts live in `~/Amendeor` (`--library DIR` to change); the original is never rewritten. Model modes appear when `.env` and `amendeor.yaml` configure them (see below).
+
 ## No-key quick start
 
 ```sh

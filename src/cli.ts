@@ -22,7 +22,7 @@ const guides: Record<string, Guide> = { 'nora-gal': noraGal, infostyle };
 type Args = { command: string; target: string; values: string[]; lang?: string; out?: string; json: boolean; impact?: string; unverified: boolean; mode: string; run?: string; noCache: boolean; resume?: string; guide?: string; rulesOnly: boolean };
 function parseArgs(argv: string[]): Args {
   const command = argv[0] ?? ''; const target = argv[1] ?? '';
-  if (!['inspect', 'check', 'edit', 'report', 'diff', 'accept', 'reject', 'build'].includes(command) || !target) throw new Error('usage: amendeor <inspect|check|edit|report|diff|accept|reject|build> <target> [options]');
+  if (!['inspect', 'check', 'edit', 'report', 'diff', 'accept', 'reject', 'build'].includes(command) || !target) throw new Error('usage: amendeor <inspect|check|edit|report|diff|accept|reject|build> <target> [options] | amendeor serve [workspace...] [--port N] [--library DIR]');
   const result: Args = { command, target, values: [], json: false, unverified: false, mode: 'mechanical', noCache: false, rulesOnly: false };
   for (let index = 2; index < argv.length; index++) {
     const item = argv[index]!;
@@ -51,6 +51,7 @@ function parseArgs(argv: string[]): Args {
 }
 
 async function main(): Promise<void> {
+  if (process.argv[2] === 'serve') { await (await import('./serve.ts')).serve(process.argv.slice(3)); return; }
   const args = parseArgs(process.argv.slice(2));
   const preliminaryConfig = await loadConfig({ cli: args.lang ? { language: args.lang } : undefined });
   const source = await openSource(args.target, { lang: args.lang ?? preliminaryConfig.config.language, out: args.out });

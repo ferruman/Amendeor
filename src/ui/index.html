@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="field">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amendeor</title>
+  <script>try { const theme = localStorage.getItem('amendeor-theme'); if (theme) document.documentElement.dataset.theme = theme; } catch {}</script>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="command-rail" aria-label="Texts">
+      <div class="brand">Amendeor</div>
+      <button class="button primary" id="new-text" type="button">New text</button>
+      <ul class="doc-list" id="doc-list"></ul>
+      <button class="rail-foot" id="theme" type="button"></button>
+    </nav>
+    <main class="work" id="work">
+      <section class="empty" id="empty">
+        <h1>Copy edit a text</h1>
+        <p>Add a text, run a check, then accept or reject each proposed edit. Your original is never changed; accepted edits go into a separate edited copy you can download.</p>
+        <button class="button primary" type="button" data-new>New text</button>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="new-dialog" aria-labelledby="new-title">
+    <form method="dialog" id="new-form">
+      <h2 id="new-title">New text</h2>
+      <label class="field">Name<input name="name" required autocomplete="off"></label>
+      <label class="field">Language
+        <select name="lang"><option value="ru">Russian</option><option value="en">English</option></select>
+      </label>
+      <label class="field">Files (.md, .txt — each file becomes a chapter)<input name="files" type="file" accept=".md,.txt,text/plain,text/markdown" multiple></label>
+      <label class="field">…or paste the text<textarea name="text" rows="10" class="paper-input"></textarea></label>
+      <p class="error" id="new-error" role="alert"></p>
+      <div class="actions">
+        <button class="button" value="cancel" formnovalidate>Cancel</button>
+        <button class="button primary" value="create" id="create">Add text</button>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

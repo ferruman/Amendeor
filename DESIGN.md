@@ -1,6 +1,6 @@
 # Design System: Amendeor
 
-Amendeor has no screen. Its interface is the text an author reads: `amendeor report` (the run report), the one-line results of `edit`, `accept`, `reject`, `build`, `diff`, and the findings of `check`. Machine-readable output (`--json`, `proposals.jsonl`, `run.json`, the `edited/` manifest) is a contract, not design.
+Amendeor's main interface is the text an author reads: `amendeor report` (the run report), the one-line results of `edit`, `accept`, `reject`, `build`, `diff`, and the findings of `check`. There is also one local screen, `amendeor serve` (below). Machine-readable output (`--json`, `proposals.jsonl`, `run.json`, the `edited/` manifest) is a contract, not design.
 
 **The report shape is the suite's** — canonical copy in [`../Esgardeor/DESIGN.md`](../Esgardeor/DESIGN.md): title, ` · ` summary line, severity vocabulary, finding blocks, terminal rules. This file records only what is Amendeor's own.
 
@@ -20,3 +20,7 @@ Amendeor has no screen. Its interface is the text an author reads: `amendeor rep
 ## Language
 
 Report chrome is English. Quotes and replacements are verbatim in the book's language; Russian-specific rule names (`nora-gal`, `infostyle`) stay as ids.
+
+## Review screen
+
+`amendeor serve` (`src/ui/`, no build step) follows the shared visual system of [`../Fabellatrix/DESIGN.md`](../Fabellatrix/DESIGN.md): both themes, *field* by default, tokens only. Rail with the texts (library under `~/Amendeor`, plus any workspace given on the command line); the text on paper with every proposal inline as a word-level diff (deleted spaces shown as `␣`); a side column with the current proposal (category, impact, reason, verifier verdict), Accept/Reject (`A`/`R`), Previous/Next (`K`/`J`), status filters and the guard-withheld list. Chrome is English, the book's words stay verbatim. The screen calls the same functions as the CLI — no decision exists only in the UI.
