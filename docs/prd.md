@@ -198,7 +198,7 @@ No category may represent substantive writing (`plot-*`, `scene-rewrite`, `new-c
 source (read-only) + accepted.jsonl ──amendeor build──▶ edited/
 ```
 
-- `amendeor accept <target> <id…>` or `--impact mechanical` appends to `edited/accepted.jsonl` and rebuilds. Each line carries the full proposal (target, context, replacement), so `build` needs nothing from `.codicora/` — the cache can be deleted and `edited/` still rebuilds.
+- `amendeor accept <target> <id…>` or `--impact mechanical` appends to `edited/accepted.jsonl` and rebuilds. Each line carries the full proposal (target, context, replacement), so `build` needs nothing from `.codicora/` — the cache can be deleted and `edited/` still rebuilds. Each line also names who accepted it (`accepted_by`); `accept … --delegation <id>` is how an agent accepts under a delegation the author granted (`../../DELEGATION.md`, capability `amendeor.accept`): the line then says `accepted_by: cli:<CODICORA_AGENT>`, `authority: delegated`, `authorized_by` and `delegation_id`, and Amendeor appends to `authority/amendeor.jsonl`. `--unverified` is the author's decision and is refused under a delegation.
 - `amendeor reject <target> <id…>` records a rejection in `.codicora/amendeor/rejected-by-author.jsonl` so the same proposal is not offered again while its target is unchanged. Losing that file only means proposals are offered again.
 - Build applies accepted edits per scene in document order. Two accepted edits whose targets overlap → the later one is a **conflict**, reported, not applied.
 - The first `build` of a chapter with no accepted edits copies it verbatim, so `edited/` is always complete.

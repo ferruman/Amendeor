@@ -15,3 +15,7 @@ test('normalizeText applies the findings text normalization', () => {
   assert.equal(normalizeText('\uFEFFcafe\u0301  \r\nline\t\r\n\r\n\r\nend  '), 'café\nline\n\nend\n');
   assert.equal(normalizeText('already normalized\n'), 'already normalized\n');
 });
+
+test('normalizeText matches the suite vector: trailing space, tab and U+00A0 are stripped (../vectors/findings-hashing.json)', () => {
+  assert.equal(sha256(normalizeText('Он сказал — \nи ушёл. \t\nВсё.  \n')), 'sha256:9ca1d121b37407668f7e92292cc8ec6cbe5c1d5c1a0690e5114a9ec4dbf1100e');
+});

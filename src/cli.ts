@@ -5,6 +5,8 @@ import { readRun } from './run/store.ts';
 import { acquireLock } from './run/lock.ts';
 import { acceptProposals, conflictsWithAccepted, readAccepted, rejectProposals } from './edited/decisions.ts';
 import { buildEdited, validateEditedPaths } from './edited/build.ts';
+import { delegationHash, journal, requireDelegation, spentUnder } from './edited/authority.ts';
+import { meter, type Meter } from './provider/meter.ts';
 import { loadConfig } from './config.ts';
 import { loadPack } from './lang/pack.ts';
 import { computeMetrics } from './metrics/index.ts';
@@ -12,6 +14,7 @@ import { inspectSummary, renderReport, currentDecisionStatus } from './report.ts
 import { editMechanical } from './edit/mechanical.ts';
 import { diffRuns } from './diff.ts';
 import { sha256, normalizeText } from './hash.ts';
+import { writeFindingsRun } from './checks/findings.ts';
 import { checkGuide, type Guide } from './checks/guide.ts';
 import { noraGal } from './checks/nora-gal.ts';
 import { infostyle } from './checks/infostyle.ts';
@@ -19,18 +22,19 @@ import { checkGuideContextual } from './checks/guide-context.ts';
 
 const guides: Record<string, Guide> = { 'nora-gal': noraGal, infostyle };
 
-type Args = { command: string; target: string; values: string[]; lang?: string; out?: string; json: boolean; impact?: string; unverified: boolean; mode: string; run?: string; noCache: boolean; resume?: string; guide?: string; rulesOnly: boolean };
+type Args = { command: string; target: string; values: string[]; lang?: string; out?: string; json: boolean; impact?: string; unverified: boolean; mode: string; run?: string; noCache: boolean; resume?: string; guide?: string; rulesOnly: boolean; delegation?: string; findings: boolean };
 function parseArgs(argv: string[]): Args {
   const command = argv[0] ?? ''; const target = argv[1] ?? '';
   if (!['inspect', 'check', 'edit', 'report', 'diff', 'accept', 'reject', 'build'].includes(command) || !target) throw new Error('usage: amendeor <inspect|check|edit|report|diff|accept|reject|build> <target> [options] | amendeor serve [workspace...] [--port N] [--library DIR]');
-  const result: Args = { command, target, values: [], json: false, unverified: false, mode: 'mechanical', noCache: false, rulesOnly: false };
+  const result: Args = { command, target, values: [], json: false, unverified: false, mode: 'mechanical', noCache: false, rulesOnly: false, findings: false };
   for (let index = 2; index < argv.length; index++) {
     const item = argv[index]!;
     if (item === '--json') result.json = true;
     else if (item === '--unverified') result.unverified = true;
     else if (item === '--no-cache') result.noCache = true;
     else if (item === '--rules-only') result.rulesOnly = true;
-    else if (['--lang', '--out', '--impact', '--mode', '--run', '--resume', '--guide'].includes(item)) {
+    else if (item === '--findings') result.findings = true;
+    else if (['--lang', '--out', '--impact', '--mode', '--run', '--resume', '--guide', '--delegation'].includes(item)) {
       const value = argv[++index]; if (!value) throw new Error(`${item} requires a value`);
       if (item === '--lang') result.lang = value;
       if (item === '--out') result.out = value;
@@ -39,13 +43,17 @@ function parseArgs(argv: string[]): Args {
       if (item === '--run') result.run = value;
       if (item === '--resume') result.resume = value;
       if (item === '--guide') result.guide = value;
+      if (item === '--delegation') result.delegation = value;
     } else if (item.startsWith('-')) throw new Error(`unknown option: ${item}`);
     else result.values.push(item);
   }
   if (command === 'accept' && result.impact && result.impact !== 'mechanical') throw new Error('--impact supports only mechanical');
   if (command === 'edit' && !['mechanical', 'proofread', 'copy', 'full'].includes(result.mode)) throw new Error(`unknown edit mode: ${result.mode}`);
+  if (result.delegation && !['accept', 'edit', 'check'].includes(command)) throw new Error('--delegation is only valid with accept, edit and check');
+  if (result.delegation && result.unverified) throw new Error('--unverified is the author\'s decision, not a delegation\'s');
   if (result.guide && command !== 'check') throw new Error('--guide is only valid with check');
   if (result.rulesOnly && command !== 'check') throw new Error('--rules-only is only valid with check');
+  if (result.findings && command !== 'check') throw new Error('--findings is only valid with check');
   if (command === 'check' && !(result.guide && Object.hasOwn(guides, result.guide))) throw new Error(`check requires --guide ${Object.keys(guides).join('|')}`);
   return result;
 }
@@ -71,10 +79,16 @@ async function main(): Promise<void> {
       print({ command: 'inspect', ...summary }, args.json); return;
     }
     if (args.command === 'check') {
+      const startedAt = new Date().toISOString();
       const guide = guides[args.guide!]!;
       const patterns = checkGuide(guide, source.book, pack.pack);
-      const contextual = args.rulesOnly ? undefined : await checkGuideContextual(guide, source.book, pack.pack, loadedConfig, source.stateDir, args.noCache);
+      const contextual = args.rulesOnly ? undefined : await underDelegation(source, args.delegation, `check --guide ${guide.id}`, () => checkGuideContextual(guide, source.book, pack.pack, loadedConfig, source.stateDir, args.noCache));
       const findings = [...patterns, ...(contextual?.findings ?? [])];
+      if (args.findings) {
+        if (!source.findingsDir || !source.workspaceDir) throw new Error('--findings needs a Codicora workspace (codicora.yaml)');
+        const written = await writeFindingsRun(source.findingsDir, source.workspaceDir, source.book, findings, { guide: guide.id, startedAt });
+        process.stderr.write(`findings/amendeor/runs/${written.runId}: ${written.count} finding(s)\n`);
+      }
       print({ command: 'check', guide: guide.id, version: guide.version, count: findings.length, findings,
         contextual: contextual ? { status: contextual.status, windows: contextual.windows, checked: contextual.checked, cached: contextual.cached, failures: contextual.failures, discarded: contextual.discarded, ledger: contextual.ledger } : { status: 'skipped', reason: '--rules-only' } }, args.json);
       if (contextual?.status === 'partial') process.exitCode = 2;
@@ -89,7 +103,7 @@ async function main(): Promise<void> {
     }
     const release = await acquireLock(source.stateDir);
     try {
-      const result = await editMechanical(source, loadedConfig, pack, { noCache: args.noCache, runId: args.resume, mode: args.mode });
+      const result = await underDelegation(source, args.delegation, `edit --mode ${args.mode}`, () => editMechanical(source, loadedConfig, pack, { noCache: args.noCache, runId: args.resume, mode: args.mode }));
       print({ command: 'edit', mode: args.mode, run_id: result.run_id, proposals: result.proposals.length, summary: result.run.summary, stages: result.run.stages, message: loadedConfig.config.profiles.edit ? 'rules + model' : 'rules only' }, args.json);
     } finally { await release(); }
     return;
@@ -122,7 +136,12 @@ async function main(): Promise<void> {
         const prior = await readAccepted(source.editedDir);
         const skipped = selected.filter((proposal) => !args.values.includes(proposal.id) && conflictsWithAccepted(prior, proposal));
         const chosen = selected.filter((proposal) => !skipped.includes(proposal));
-        const accepted = await acceptProposals(source.editedDir, chosen, { allowUnverified: args.unverified });
+        // --delegation: принимает агент от имени автора (DELEGATION.md); человек за терминалом — без него.
+        if (args.delegation && !source.workspaceDir) throw new Error('not-delegated: a delegation lives in a Codicora workspace; this target has none');
+        const grant = args.delegation ? await requireDelegation(source.workspaceDir!, args.delegation, 'amendeor.accept') : null;
+        const actor = grant ? `cli:${process.env.CODICORA_AGENT || 'agent'}` : undefined;
+        const accepted = await acceptProposals(source.editedDir, chosen, { allowUnverified: args.unverified, ...(grant ? { acceptedBy: actor, provenance: { authority: 'delegated' as const, authorized_by: grant.delegation.granted_by, delegation_id: grant.delegation.id } } : { acceptedBy: 'human:cli' }) });
+        if (grant && chosen.length) await journal(grant.dir, { capability: 'amendeor.accept', performed_by: actor, authorized_by: grant.delegation.granted_by, delegation_id: grant.delegation.id, delegation_hash: delegationHash(grant.delegation), subject: `proposals ${chosen.map((proposal) => proposal.id).join(', ')}` });
         const results = await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
         summary = { command: 'accept', accepted: chosen.map((proposal) => proposal.id), results, warnings: skipped.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`) };
         if (results.some((item) => item.status === 'stale' || item.status === 'conflict')) process.exitCode = 2;
@@ -133,6 +152,27 @@ async function main(): Promise<void> {
       print(summary, args.json);
     }
   } finally { await release(); }
+}
+
+// --delegation на edit и check (DELEGATION.md): агент тратит от имени автора в пределах amendeor.edit и бюджета.
+// Без флага — человек за терминалом, как раньше. Каждый вызов модели проходит через счётчик (provider/meter.ts);
+// отказ останавливает траты, команда завершается с кодом 2 и называет, чего не хватает.
+async function underDelegation<T>(source: { workspaceDir?: string }, id: string | undefined, subject: string, run: () => Promise<T>): Promise<T> {
+  if (!id) return run();
+  if (!source.workspaceDir) throw new Error('not-delegated: a delegation lives in a Codicora workspace; this target has none');
+  const grant = await requireDelegation(source.workspaceDir, id, 'amendeor.edit');
+  const limits = grant.delegation.limits;
+  const m: Meter = typeof limits?.max_spend === 'number' && limits.currency
+    ? { remaining: limits.max_spend - await spentUnder(grant.dir, id, limits.currency), currency: limits.currency, spent: 0 }
+    : { remaining: 0, currency: limits?.currency ?? '', spent: 0, refused: 'the delegation sets no spending limit (limits.max_spend), so it covers no model call' };
+  const actor = `cli:${process.env.CODICORA_AGENT || 'agent'}`;
+  try {
+    return await meter.run(m, run);
+  } finally {
+    await journal(grant.dir, { capability: 'amendeor.edit', performed_by: actor, authorized_by: grant.delegation.granted_by, delegation_id: id, delegation_hash: delegationHash(grant.delegation), subject,
+      ...(m.spent ? { cost: Math.round(m.spent * 1e6) / 1e6, currency: m.currency } : {}), ...(m.refused ? { outcome: 'refused', reason: m.refused } : {}) });
+    if (m.refused) { process.stderr.write(`not-delegated: ${m.refused}\n`); process.exitCode = 2; }
+  }
 }
 
 function print(value: unknown, asJson: boolean): void {

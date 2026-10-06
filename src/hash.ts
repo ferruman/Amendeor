@@ -20,7 +20,7 @@ export function canonicalJson(value: unknown): string {
 
 export function normalizeText(text: string): string {
   const normalized = text.replace(/^\uFEFF/, '').normalize('NFC').replace(/\r\n?/g, '\n')
-    .split('\n').map((line) => line.replace(/[ \t]+$/g, '')).join('\n')
+    .split('\n').map((line) => line.replace(/[ \t\u00A0]+$/g, '')).join('\n')
     .replace(/\n{3,}/g, '\n\n').replace(/\n*$/, '\n');
   return normalized;
 }

@@ -168,3 +168,100 @@ test('Nora Gal CLI contextual check uses two local profiles and reports verified
   assert.deepEqual(result.findings.map((item) => [item.kind, item.principle, item.quote]), [['contextual', 'gal.feeling-noun', 'испытала чувство радости']]);
   assert.equal(await readFile(file, 'utf8'), original);
 });
+
+test('accept --delegation: covered → accepted as the agent with provenance and a journal line; uncovered, expired or another book → refused', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-delegation-'));
+  await mkdir(path.join(root, 'manuscript/chapters'), { recursive: true });
+  await writeFile(path.join(root, 'codicora.yaml'), 'spec: codicora/v1\ntype: project\nproject: { id: book-a }\nmanuscript: { path: manuscript }\n');
+  await writeFile(path.join(root, 'manuscript/manuscript.yaml'), 'schema_version: 1\nlanguage: en\nchapters: [{ slug: one, title: One }]\n');
+  await writeFile(path.join(root, 'manuscript/chapters/one.md'), '<!-- scene: one -->\nShe said said yes.\n');
+  const env = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config'), CODICORA_AGENT: 'codex' };
+  const edit = await execFileAsync(process.execPath, [cli, 'edit', root, '--mode', 'mechanical', '--json'], { env });
+  const runId = (JSON.parse(edit.stdout) as { run_id: string }).run_id;
+  const [proposal] = (await readFile(path.join(root, '.codicora/amendeor/runs', runId, 'proposals.jsonl'), 'utf8')).trim().split('\n').map((line) => JSON.parse(line) as { id: string });
+  const grant = async (over: Record<string, unknown>) => {
+    await mkdir(path.join(root, 'authority'), { recursive: true });
+    await writeFile(path.join(root, 'authority/delegations.json'), JSON.stringify({ schema: 'codicora.delegations/0.1', delegations: [{ id: 'run', workspace: 'book-a', granted_by: 'author', granted_at: new Date(Date.now() - 60_000).toISOString(), expires_at: new Date(Date.now() + 3_600_000).toISOString(), allow: ['amendeor.accept'], ...over }] }));
+  };
+  const accept = () => execFileAsync(process.execPath, [cli, 'accept', root, proposal!.id, '--delegation', 'run', '--json'], { env });
+
+  await assert.rejects(accept(), /not-delegated: no readable authority\/delegations.json/);
+  await grant({ allow: ['imprimeor.release'] });
+  await assert.rejects(accept(), /does not allow amendeor.accept/);
+  await grant({ expires_at: new Date(Date.now() - 1000).toISOString() });
+  await assert.rejects(accept(), /expired/);
+  await grant({ workspace: 'book-b' });
+  await assert.rejects(accept(), /belongs to workspace "book-b", not "book-a"/);
+  await assert.rejects(stat(path.join(root, 'edited/accepted.jsonl')), 'nothing accepted');
+
+  await grant({});
+  await accept();
+  const record = JSON.parse((await readFile(path.join(root, 'edited/accepted.jsonl'), 'utf8')).trim()) as Record<string, unknown>;
+  assert.deepEqual([record.accepted_by, record.authority, record.authorized_by, record.delegation_id], ['cli:codex', 'delegated', 'author', 'run']);
+  const line = JSON.parse(await readFile(path.join(root, 'authority/amendeor.jsonl'), 'utf8')) as Record<string, unknown>;
+  assert.deepEqual([line.capability, line.performed_by, line.delegation_id], ['amendeor.accept', 'cli:codex', 'run']);
+});
+
+test('check --findings writes findings/amendeor/ in Codicora Findings v0.1; without a workspace it refuses', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-findings-'));
+  await mkdir(path.join(root, 'manuscript', 'chapters'), { recursive: true });
+  await writeFile(path.join(root, 'codicora.yaml'), 'spec: codicora/v1\nproject:\n  id: t\n  source_language: ru\n');
+  await writeFile(path.join(root, 'manuscript', 'manuscript.yaml'), 'schema_version: 1\nlanguage: ru\nchapters:\n  - slug: ch-1\n    title: "Один"\n');
+  const text = '<!-- scene: s1 -->\nОн осуществляет проверку.\n';
+  await writeFile(path.join(root, 'manuscript', 'chapters', 'ch-1.md'), text);
+  const env = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config') };
+  await execFileAsync(process.execPath, [cli, 'check', root, '--guide', 'nora-gal', '--rules-only', '--findings', '--json'], { env });
+  const { run_id: runId } = JSON.parse(await readFile(path.join(root, 'findings/amendeor/latest.json'), 'utf8')) as { run_id: string };
+  assert.match(runId, /^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z-[0-9a-f]{4}$/);
+  const [line] = (await readFile(path.join(root, 'findings/amendeor/runs', runId, 'findings.jsonl'), 'utf8')).trim().split('\n');
+  const f = JSON.parse(line!) as Record<string, any>;
+  const { canonicalJson, sha256, normalizeQuote, normalizeText } = await import('../src/hash.ts');
+  assert.equal(f.schema, 'codicora.finding/0.1');
+  assert.equal(f.category, 'style.gal.action-noun');
+  assert.equal(f.id, `amendeor:${sha256(canonicalJson(f.fingerprint.primary)).slice(7, 23)}`, 'id recomputes per FINDINGS.md §3');
+  assert.equal(f.evidence[0].hash, sha256(normalizeQuote('осуществляет проверку')));
+  assert.deepEqual([f.kind, f.scope, f.status, f.location.primary.chapter, f.location.primary.scene], ['concern', 'scene', 'open', 'ch-1', 's1']);
+  const run = JSON.parse(await readFile(path.join(root, 'findings/amendeor/runs', runId, 'run.json'), 'utf8')) as Record<string, any>;
+  assert.deepEqual(run.inputs.files, [{ path: 'manuscript/chapters/ch-1.md', content_hash: sha256(normalizeText(text)) }]);
+  assert.equal(run.baseline.states[f.id], 'new');
+  assert.equal(await readFile(path.join(root, 'manuscript', 'chapters', 'ch-1.md'), 'utf8'), text, 'the manuscript is untouched');
+
+  const file = path.join(root, 'loose.md');
+  await writeFile(file, 'Он осуществляет проверку.\n');
+  await assert.rejects(execFileAsync(process.execPath, [cli, 'check', file, '--lang', 'ru', '--guide', 'nora-gal', '--rules-only', '--findings'], { env }), /needs a Codicora workspace/);
+});
+
+test('edit --delegation: model calls metered against amendeor.edit and the shared budget; journal carries cost and the delegation hash; over budget → refused before spending', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-edit-deleg-'));
+  await mkdir(path.join(root, 'manuscript/chapters'), { recursive: true });
+  await mkdir(path.join(root, 'authority'), { recursive: true });
+  await writeFile(path.join(root, 'codicora.yaml'), 'spec: codicora/v1\ntype: project\nproject: { id: book-a }\n');
+  await writeFile(path.join(root, 'manuscript/manuscript.yaml'), 'schema_version: 1\nlanguage: en\nchapters: [{ slug: one, title: One }]\n');
+  await writeFile(path.join(root, 'manuscript/chapters/one.md'), '<!-- scene: one -->\nThe door was open.\n');
+  const script = path.join(root, 'script.json');
+  await writeFile(script, JSON.stringify({ default: '{"edits":[]}' }));
+  await writeFile(path.join(root, 'amendeor.yaml'), `providers:\n  local:\n    transport: local\n    endpoint: ${JSON.stringify(script)}\n    price: { input_per_m: 1, output_per_m: 2, currency: USD }\nprofiles:\n  edit: { provider: local, model: fixture }\n`);
+  const env = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config'), CODICORA_AGENT: 'codex' };
+  const entry = (max: number, allow = ['amendeor.edit']) => ({ id: 'run', workspace: 'book-a', granted_by: 'author', granted_at: new Date(Date.now() - 60_000).toISOString(), expires_at: new Date(Date.now() + 3_600_000).toISOString(), allow, limits: { max_spend: max, currency: 'USD' } });
+  const grant = (d: Record<string, unknown>) => writeFile(path.join(root, 'authority/delegations.json'), JSON.stringify({ schema: 'codicora.delegations/0.1', delegations: [d] }));
+  const edit = () => execFileAsync(process.execPath, [cli, 'edit', root, '--mode', 'copy', '--no-cache', '--delegation', 'run', '--json'], { env });
+  const lines = async () => (await readFile(path.join(root, 'authority/amendeor.jsonl'), 'utf8')).trim().split('\n').map((l) => JSON.parse(l) as Record<string, any>);
+  const { canonicalJson, sha256 } = await import('../src/hash.ts');
+
+  await grant(entry(10, ['amendeor.accept']));
+  await assert.rejects(edit(), /does not allow amendeor.edit/);
+
+  const ok = entry(10);
+  await grant(ok);
+  await edit();
+  const [line] = await lines();
+  assert.deepEqual([line!.capability, line!.performed_by, line!.delegation_id, line!.currency], ['amendeor.edit', 'cli:codex', 'run', 'USD']);
+  assert.ok(line!.cost > 0 && line!.cost < 0.01, String(line!.cost));
+  assert.equal(line!.delegation_hash, sha256(canonicalJson(ok)));
+
+  await grant(entry(line!.cost + 1e-9));
+  await assert.rejects(edit(), (e: { code?: number; stderr?: string }) => e.code === 2 && /not-delegated: over the delegated budget/.test(e.stderr ?? ''));
+  const refused = (await lines()).at(-1)!;
+  assert.equal(refused.outcome, 'refused');
+  assert.equal(refused.cost, undefined, 'nothing spent');
+});

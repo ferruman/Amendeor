@@ -2,7 +2,8 @@ import { appendFile, readFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { proposalSchema, type Proposal } from '../proposal/schema.ts';
 
-export interface Acceptance { proposal: Proposal; accepted_by: string; at: string }
+// accepted_by — кто принял (DELEGATION.md §1); authority/authorized_by/delegation_id — когда это агент под делегированием.
+export interface Acceptance { proposal: Proposal; accepted_by: string; at: string; authority?: 'direct' | 'delegated'; authorized_by?: string; delegation_id?: string }
 export interface Rejection { proposal_id: string; target_hash: string; rejected_by: string; at: string }
 export class DecisionError extends Error {
   readonly code: 'unverified-proposal' | 'duplicate-proposal-id' | 'conflicting-acceptance' | 'proposal-not-found';
@@ -31,7 +32,7 @@ export async function readAccepted(editedDir: string): Promise<Acceptance[]> {
   return result;
 }
 
-export async function acceptProposals(editedDir: string, proposals: Proposal[], options: { acceptedBy?: string; allowUnverified?: boolean } = {}): Promise<Acceptance[]> {
+export async function acceptProposals(editedDir: string, proposals: Proposal[], options: { acceptedBy?: string; allowUnverified?: boolean; provenance?: Pick<Acceptance, 'authority' | 'authorized_by' | 'delegation_id'> } = {}): Promise<Acceptance[]> {
   const accepted = await readAccepted(editedDir);
   const seen = new Set<string>();
   for (const proposal of proposals) {
@@ -42,11 +43,13 @@ export async function acceptProposals(editedDir: string, proposals: Proposal[], 
     if (conflictsWithAccepted(accepted, proposal)) throw new DecisionError('conflicting-acceptance', proposal.id);
   }
   const fresh = proposals.filter((proposal) => !accepted.some((record) => record.proposal.id === proposal.id));
+  const at = new Date().toISOString();
+  const records: Acceptance[] = fresh.map((proposal) => ({ proposal, accepted_by: options.acceptedBy ?? 'author', ...options.provenance, at }));
   if (fresh.length) {
     await mkdir(editedDir, { recursive: true });
-    await appendFile(path.join(editedDir, 'accepted.jsonl'), fresh.map((proposal) => JSON.stringify({ proposal, accepted_by: options.acceptedBy ?? 'author', at: new Date().toISOString() })).join('\n') + '\n');
+    await appendFile(path.join(editedDir, 'accepted.jsonl'), records.map((record) => JSON.stringify(record)).join('\n') + '\n');
   }
-  return [...accepted, ...fresh.map((proposal) => ({ proposal, accepted_by: options.acceptedBy ?? 'author', at: new Date().toISOString() }))];
+  return [...accepted, ...records];
 }
 
 export async function rejectProposals(stateDir: string, proposals: Proposal[], rejectedBy = 'author'): Promise<void> {

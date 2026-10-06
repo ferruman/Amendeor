@@ -117,7 +117,7 @@ export function createServer(options: { library: string; workspaces: string[] })
     const release = await acquireLock(source.stateDir);
     try {
       if (action === 'reject') { await rejectProposals(source.stateDir, selected); return; }
-      const accepted = await acceptProposals(source.editedDir, selected, { allowUnverified: unverified });
+      const accepted = await acceptProposals(source.editedDir, selected, { allowUnverified: unverified, acceptedBy: 'human:ui' });
       await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
     } finally { await release(); }
   }
@@ -157,6 +157,8 @@ export function createServer(options: { library: string; workspaces: string[] })
     try {
       const url = new URL(request.url ?? '/', 'http://localhost');
       // Сервер слушает только 127.0.0.1; чужая вкладка браузера всё равно может слать POST — отсекаем по Origin.
+      // Страница, перепривязавшая своё имя на 127.0.0.1 (DNS rebinding), сама себе same-origin — её выдаёт только Host.
+      if (!/^(127\.0\.0\.1|localhost|\[::1\])(:\d+)?$/i.test(request.headers.host ?? 'localhost')) return send(403, { error: 'loopback only' });
       const origin = request.headers.origin;
       if (request.method !== 'GET' && origin && new URL(origin).host !== request.headers.host) return send(403, { error: 'cross-origin request refused' });
       const file = staticFiles[url.pathname];

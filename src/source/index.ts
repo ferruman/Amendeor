@@ -4,7 +4,7 @@ import { openWorkspace } from './workspace.ts';
 import { readStandalone } from './standalone.ts';
 import type { Book } from '../book.ts';
 
-export interface OpenedSource { book: Book; kind: 'workspace' | 'standalone'; editedDir: string; stateDir: string; manifestText?: string; manuscriptDir?: string; workspaceDir?: string; warnings: string[] }
+export interface OpenedSource { book: Book; kind: 'workspace' | 'standalone'; editedDir: string; stateDir: string; manifestText?: string; manuscriptDir?: string; workspaceDir?: string; findingsDir?: string; warnings: string[] }
 
 export async function openSource(target: string, opts: { lang?: string; out?: string } = {}): Promise<OpenedSource> {
   const absolute = path.resolve(target);

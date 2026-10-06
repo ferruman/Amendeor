@@ -35,3 +35,17 @@ test('ui server: add a text, run the rules, accept an edit, download the edited 
     assert.match(edited.body, /She said yes\./);
   } finally { server.close(); }
 });
+
+test('ui server: a foreign Host header (DNS rebinding) is refused', async () => {
+  const { request } = await import('node:http');
+  const server = createServer({ library: await mkdtemp(path.join(os.tmpdir(), 'amendeor-lib-')), workspaces: [] });
+  await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const { port } = server.address() as AddressInfo;
+  const status = (host: string) => new Promise<number>((ok, fail) => request({ host: '127.0.0.1', port, path: '/api/docs', headers: { host } }, (r) => { r.resume(); ok(r.statusCode ?? 0); }).on('error', fail).end());
+  try {
+    assert.equal(await status(`evil.example:${port}`), 403);
+    assert.equal(await status(`127.0.0.1:${port}`), 200);
+  } finally {
+    server.close();
+  }
+});

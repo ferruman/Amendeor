@@ -130,7 +130,8 @@ export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
     manifestText = String(document);
   }
   await writeIfChanged(path.join(outputRoot, 'manuscript.yaml'), manifestText);
-  const decisionRecords = input.accepted.map((item) => 'proposal' in item ? item : { proposal: item, accepted_by: 'author', at: new Date().toISOString() });
+  // Голое предложение без записи решения: кто его принял, неизвестно — и так и записано.
+  const decisionRecords = input.accepted.map((item) => 'proposal' in item ? item : { proposal: item, accepted_by: 'unknown', at: new Date().toISOString() });
   await createIfMissing(path.join(outputRoot, 'accepted.jsonl'), decisionRecords);
   const expectedFiles = new Set(destinations.values());
   for (const previous of listedChapterPaths(previousManifest)) {
