@@ -65,7 +65,7 @@ function renderCard() {
     <div class="diff">${wordDiff(item.target, item.replacement)}</div>
     ${item.reason ? `<p class="reason">${esc(item.reason)}</p>` : ''}
     <div class="verification">${verification}</div>
-    ${decided ? `<div class="decision">${{ accepted: 'Accepted', rejected: 'Rejected', stale: 'The text has changed here; this edit no longer applies.' }[item.status]}</div>` : `
+    ${decided ? `<div class="decision">${{ accepted: 'Accepted', rejected: 'Rejected', stale: 'The text has changed here; this edit no longer applies.', conflict: 'Not applied: this edit overlaps another accepted edit or its target is ambiguous.' }[item.status]}</div>` : `
     <div class="actions">
       <button class="button primary" type="button" data-decide="accept" ${state.busy ? 'disabled' : ''}>Accept<kbd>A</kbd></button>
       <button class="button" type="button" data-decide="reject" ${state.busy ? 'disabled' : ''}>Reject<kbd>R</kbd></button>
@@ -86,9 +86,11 @@ function renderDoc() {
     : doc.job?.error ? `<div class="status-line error" role="alert">Check failed: ${esc(doc.job.error)}</div>`
     : state.error ? `<div class="status-line error" role="alert">${esc(state.error)}</div>`
     : run?.failures?.length ? `<div class="status-line error">${run.failures.length} part(s) of the text could not be checked; run the check again to retry them.</div>` : '';
+  const unapplied = doc.proposals.filter((item) => item.status === 'stale' || item.status === 'conflict').length;
+  const diagnostics = unapplied ? `<div class="status-line error" role="alert">${unapplied} edit(s) cannot be applied. Review Outdated and Conflicts before using the edited copy.</div>` : '';
   const options = doc.modes.map((mode) => `<option value="${mode}" ${mode !== 'mechanical' && !doc.model ? 'disabled' : ''}>${mode} — ${modeHelp[mode]}</option>`).join('');
   const mechanical = doc.proposals.filter((item) => item.status === 'pending' && item.impact === 'mechanical');
-  const filters = [['pending', 'To review'], ['accepted', 'Accepted'], ['rejected', 'Rejected'], ['stale', 'Outdated'], ['all', 'All']]
+  const filters = [['pending', 'To review'], ['accepted', 'Accepted'], ['rejected', 'Rejected'], ['stale', 'Outdated'], ['conflict', 'Conflicts'], ['all', 'All']]
     .map(([key, label]) => `<button class="chip" type="button" data-filter="${key}" aria-pressed="${state.filter === key}">${label} ${key === 'all' ? doc.proposals.length : count(key)}</button>`).join('');
   const list = visible().map((item) => `<li><button type="button" data-id="${esc(item.id)}" aria-current="${item.id === state.current}">
       <span class="what">${esc(item.category)} · ${esc(item.status)}</span><span class="snippet">${wordDiff(item.target, item.replacement)}</span></button></li>`).join('');
@@ -102,7 +104,7 @@ function renderDoc() {
         <a class="button" href="/api/docs/${encodeURIComponent(doc.id)}/edited" download="${esc(doc.name)}.edited.md">Download edited</a>
       </div>
     </header>
-    ${status}
+    ${status}${diagnostics}
     <div class="columns">
       <div class="sheet-scroll"><article class="sheet" lang="${esc(doc.lang)}">${doc.chapters.map((chapter) => `${doc.chapters.length > 1 || doc.kind === 'workspace' ? `<h2>${esc(chapter.title)}</h2>` : ''}<div class="chapter-text">${renderChapter(chapter)}</div>`).join('')}</article></div>
       <aside class="side" aria-label="Edits">

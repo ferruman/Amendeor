@@ -8,7 +8,7 @@ import { openSource, type OpenedSource } from './source/index.ts';
 import { readRun } from './run/store.ts';
 import { acquireLock } from './run/lock.ts';
 import { acceptProposals, readAccepted, readRejected, rejectProposals } from './edited/decisions.ts';
-import { buildEdited } from './edited/build.ts';
+import { buildEdited, planEdited } from './edited/build.ts';
 import { loadConfig, type LoadedConfig } from './config.ts';
 import { loadPack } from './lang/pack.ts';
 import { editMechanical } from './edit/mechanical.ts';
@@ -64,11 +64,16 @@ export function createServer(options: { library: string; workspaces: string[] })
 
   async function view(doc: Doc) {
     const { source, config } = await open(doc);
-    const accepted = new Set((await readAccepted(source.editedDir)).map((item) => item.proposal.id));
+    const history = await readAccepted(source.editedDir);
+    const accepted = new Set(history.map((item) => item.proposal.id));
+    const applied = new Map(planEdited(source.book, history).results.map((item) => [item.id, item]));
     const rejected = new Set((await readRejected(source.stateDir)).map((item) => item.proposal_id));
     const latest = await readRun(source.stateDir, 'latest').catch(() => undefined);
     const run = latest?.run as Record<string, any> | undefined;
-    const proposals = (latest?.proposals ?? []).map((proposal) => {
+    // Принятые правки прежних запусков тоже могут устареть или конфликтовать.
+    const byId = new Map((latest?.proposals ?? []).map((proposal) => [proposal.id, proposal]));
+    for (const item of history) byId.set(item.proposal.id, item.proposal);
+    const proposals = [...byId.values()].map((proposal) => {
       const chapter = source.book.chapters.find((item) => item.slug === proposal.location.chapter);
       const scene = chapter?.scenes.find((item) => item.id === proposal.location.scene);
       const text = proposal.location.scene === TITLE_SCENE_ID ? chapter?.title : scene?.text;
@@ -76,10 +81,11 @@ export function createServer(options: { library: string; workspaces: string[] })
       try { if (text !== undefined) found = locate(text, { ...proposal.target, replacement: proposal.replacement }); } catch { /* Неприменимая правка показывается как устаревшая. */ }
       // Смещение в тексте главы; у правки заголовка его нет — она показывается только в списке.
       const offset = 'ok' in found && scene ? { start: scene.start + found.start, end: scene.start + found.end } : {};
-      const status = accepted.has(proposal.id) ? 'accepted' : rejected.has(proposal.id) ? 'rejected' : 'ok' in found ? 'pending' : 'stale';
+      const result = applied.get(proposal.id);
+      const status = accepted.has(proposal.id) ? (result?.status === 'applied' || result?.status === 'moved' ? 'accepted' : result?.status ?? 'stale') : rejected.has(proposal.id) ? 'rejected' : 'ok' in found ? 'pending' : 'stale';
       return { id: proposal.id, chapter: proposal.location.chapter, scene: proposal.location.scene, category: proposal.category, impact: proposal.impact, source: proposal.source,
         confidence: proposal.confidence, reason: proposal.reason, verification: proposal.verification, unverified: proposal.unverified ?? false,
-        target: proposal.target.text, replacement: proposal.replacement, status, ...offset };
+        target: proposal.target.text, replacement: proposal.replacement, status, detail: result?.detail, ...offset };
     });
     return {
       id: doc.id, name: doc.name, kind: doc.kind, lang: source.book.lang,

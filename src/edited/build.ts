@@ -36,29 +36,14 @@ export async function validateEditedPaths(book: Book, editedDir: string, manuscr
   return outputRoot;
 }
 
-export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
-  const outputRoot = await validateEditedPaths(input.book, input.editedDir);
-  const destinations = new Map<string, string>();
-  for (const chapter of input.book.chapters) {
-    const sourceFile = path.resolve(chapter.file);
-    if (sourceFile === outputRoot || sourceFile.startsWith(`${outputRoot}${path.sep}`)) {
-      throw new Error(`source chapter is inside edited directory: ${sourceFile}`);
-    }
-    const relative = chapterRelativePath(chapter);
-    const destination = path.resolve(outputRoot, relative);
-    if (!destination.startsWith(`${outputRoot}${path.sep}`)) throw new Error(`chapter path escapes edited directory: ${relative}`);
-    destinations.set(chapter.slug, destination);
-  }
-  const previousManifest = await readFile(path.join(outputRoot, 'manuscript.yaml'), 'utf8').catch((error: NodeJS.ErrnoException) => {
-    if (error.code === 'ENOENT') return undefined;
-    throw error;
-  });
-  const accepted = input.accepted.map((item) => 'proposal' in item ? item.proposal : item);
+// Один расчёт для сборки и экрана ревью: принятие не означает, что правка применима.
+export function planEdited(book: Book, acceptedInput: Acceptance[] | Proposal[]) {
+  const accepted = acceptedInput.map((item) => 'proposal' in item ? item.proposal : item);
   const results: BuildResult[] = [];
   const found = new Set<string>();
   const chapterOutput = new Map<string, string>();
   const titleOutput = new Map<string, string>();
-  for (const chapter of input.book.chapters) {
+  for (const chapter of book.chapters) {
     const edits: Array<{ proposal: Proposal; start: number; end: number; replacement: string; status: 'applied' | 'moved' }> = [];
     const titleEdits: typeof edits = [];
     for (const proposal of accepted.filter((item) => item.location.chapter === chapter.slug)) {
@@ -106,6 +91,27 @@ export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
     if (title !== chapter.title) titleOutput.set(chapter.slug, title);
   }
   for (const proposal of accepted) if (!found.has(proposal.id)) results.push({ id: proposal.id, chapter: proposal.location.chapter, scene: proposal.location.scene, status: 'stale', detail: 'chapter missing' });
+  return { results, chapterOutput, titleOutput };
+}
+
+export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
+  const outputRoot = await validateEditedPaths(input.book, input.editedDir);
+  const destinations = new Map<string, string>();
+  for (const chapter of input.book.chapters) {
+    const sourceFile = path.resolve(chapter.file);
+    if (sourceFile === outputRoot || sourceFile.startsWith(`${outputRoot}${path.sep}`)) {
+      throw new Error(`source chapter is inside edited directory: ${sourceFile}`);
+    }
+    const relative = chapterRelativePath(chapter);
+    const destination = path.resolve(outputRoot, relative);
+    if (!destination.startsWith(`${outputRoot}${path.sep}`)) throw new Error(`chapter path escapes edited directory: ${relative}`);
+    destinations.set(chapter.slug, destination);
+  }
+  const previousManifest = await readFile(path.join(outputRoot, 'manuscript.yaml'), 'utf8').catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return undefined;
+    throw error;
+  });
+  const { results, chapterOutput, titleOutput } = planEdited(input.book, input.accepted);
   const chaptersDir = path.join(outputRoot, 'chapters');
   await mkdir(chaptersDir, { recursive: true });
   for (const chapter of input.book.chapters) {

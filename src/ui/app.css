@@ -73,6 +73,7 @@ select { background: var(--canvas); border: 1px solid var(--field-border); borde
 .edit ins { text-decoration: none; color: var(--success); background: var(--success-soft); }
 .edit.pending { background: color-mix(in srgb, var(--warning-soft) 60%, transparent); }
 .edit.accepted { border-bottom: 1px dotted var(--success); }
+.edit.conflict { border-bottom: 1px dotted var(--danger-text); }
 .edit.rejected, .edit.stale { border-bottom: 1px dotted var(--faded-ink); }
 .edit.current { outline: 2px solid var(--accent); outline-offset: 2px; }
 
