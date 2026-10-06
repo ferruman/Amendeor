@@ -7,6 +7,13 @@ import { canonicalJson, sha256 } from '../hash.ts';
 
 const WEEK = 7 * 24 * 3600 * 1000;
 
+// Кто у терминала (DELEGATION.md §1, §6): в известной среде агента (CODICORA_AGENT, CLAUDECODE, песочница Codex) —
+// агент cli:<имя>, а не человек. Честная запись и защита от случайного превышения, а не проверка личности.
+export function cliActor(env: NodeJS.ProcessEnv = process.env, delegated = false): string {
+  const agent = env.CODICORA_AGENT?.trim() || (env.CLAUDECODE ? 'claude-code' : env.CODEX_SANDBOX || env.CODEX_SANDBOX_NETWORK_DISABLED ? 'codex' : '');
+  return agent ? `cli:${agent}` : delegated ? 'cli:agent' : 'human:cli';
+}
+
 export interface Delegation { id: string; workspace: string; granted_by: string; granted_at: string; expires_at: string; allow: string[]; deny?: string[]; limits?: { max_spend?: number; currency?: string }; revoked_at?: string | null }
 
 // Отпечаток записи делегирования (DELEGATION.md §4): если запись потом правят задним числом, журнал это покажет.

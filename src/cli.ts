@@ -5,7 +5,7 @@ import { readRun } from './run/store.ts';
 import { acquireLock } from './run/lock.ts';
 import { acceptProposals, conflictsWithAccepted, readAccepted, rejectProposals } from './edited/decisions.ts';
 import { buildEdited, validateEditedPaths } from './edited/build.ts';
-import { delegationHash, journal, requireDelegation, spentUnder } from './edited/authority.ts';
+import { cliActor, delegationHash, journal, requireDelegation, spentUnder } from './edited/authority.ts';
 import { meter, type Meter } from './provider/meter.ts';
 import { loadConfig } from './config.ts';
 import { loadPack } from './lang/pack.ts';
@@ -137,9 +137,11 @@ async function main(): Promise<void> {
         const skipped = selected.filter((proposal) => !args.values.includes(proposal.id) && conflictsWithAccepted(prior, proposal));
         const chosen = selected.filter((proposal) => !skipped.includes(proposal));
         // --delegation: принимает агент от имени автора (DELEGATION.md); человек за терминалом — без него.
+        // Агент в оболочке без --delegation — не автор: принять правки он не может (DELEGATION.md §1).
+        const actor = cliActor(process.env, Boolean(args.delegation));
+        if (actor !== 'human:cli' && !args.delegation) throw new Error(`not-delegated: this terminal is an agent's (${actor}); accepting copy edits is the author's decision — they run amendeor accept themselves, or grant a delegation that allows amendeor.accept and you pass --delegation <id>`);
         if (args.delegation && !source.workspaceDir) throw new Error('not-delegated: a delegation lives in a Codicora workspace; this target has none');
         const grant = args.delegation ? await requireDelegation(source.workspaceDir!, args.delegation, 'amendeor.accept') : null;
-        const actor = grant ? `cli:${process.env.CODICORA_AGENT || 'agent'}` : undefined;
         const accepted = await acceptProposals(source.editedDir, chosen, { allowUnverified: args.unverified, ...(grant ? { acceptedBy: actor, provenance: { authority: 'delegated' as const, authorized_by: grant.delegation.granted_by, delegation_id: grant.delegation.id } } : { acceptedBy: 'human:cli' }) });
         if (grant && chosen.length) await journal(grant.dir, { capability: 'amendeor.accept', performed_by: actor, authorized_by: grant.delegation.granted_by, delegation_id: grant.delegation.id, delegation_hash: delegationHash(grant.delegation), subject: `proposals ${chosen.map((proposal) => proposal.id).join(', ')}` });
         const results = await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
@@ -158,14 +160,19 @@ async function main(): Promise<void> {
 // Без флага — человек за терминалом, как раньше. Каждый вызов модели проходит через счётчик (provider/meter.ts);
 // отказ останавливает траты, команда завершается с кодом 2 и называет, чего не хватает.
 async function underDelegation<T>(source: { workspaceDir?: string }, id: string | undefined, subject: string, run: () => Promise<T>): Promise<T> {
-  if (!id) return run();
+  const actor = cliActor(process.env, Boolean(id));
+  if (!id && actor === 'human:cli') return run();
+  if (!id) {
+    // Агент без делегирования: правила работают, ни один платный вызов не уходит.
+    const m: Meter = { remaining: 0, currency: '', spent: 0, refused: `${actor} ran this without --delegation; model passes need a delegation that allows amendeor.edit, or the author running it` };
+    try { return await meter.run(m, run); } finally { if (m.blocked) { process.stderr.write(`not-delegated: ${m.refused}\n`); process.exitCode = 2; } }
+  }
   if (!source.workspaceDir) throw new Error('not-delegated: a delegation lives in a Codicora workspace; this target has none');
   const grant = await requireDelegation(source.workspaceDir, id, 'amendeor.edit');
   const limits = grant.delegation.limits;
   const m: Meter = typeof limits?.max_spend === 'number' && limits.currency
     ? { remaining: limits.max_spend - await spentUnder(grant.dir, id, limits.currency), currency: limits.currency, spent: 0 }
     : { remaining: 0, currency: limits?.currency ?? '', spent: 0, refused: 'the delegation sets no spending limit (limits.max_spend), so it covers no model call' };
-  const actor = `cli:${process.env.CODICORA_AGENT || 'agent'}`;
   try {
     return await meter.run(m, run);
   } finally {

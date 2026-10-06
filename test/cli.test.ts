@@ -265,3 +265,28 @@ test('edit --delegation: model calls metered against amendeor.edit and the share
   assert.equal(refused.outcome, 'refused');
   assert.equal(refused.cost, undefined, 'nothing spent');
 });
+
+test('agent at the CLI without --delegation: accept refused, model passes refused before spending, rules still run; a person is unchanged', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-agent-'));
+  await mkdir(path.join(root, 'manuscript/chapters'), { recursive: true });
+  await writeFile(path.join(root, 'codicora.yaml'), 'spec: codicora/v1\ntype: project\nproject: { id: book-a }\n');
+  await writeFile(path.join(root, 'manuscript/manuscript.yaml'), 'schema_version: 1\nlanguage: en\nchapters: [{ slug: one, title: One }]\n');
+  await writeFile(path.join(root, 'manuscript/chapters/one.md'), '<!-- scene: one -->\nShe said said yes.\n');
+  const script = path.join(root, 'script.json');
+  await writeFile(script, JSON.stringify({ default: '{"edits":[]}' }));
+  await writeFile(path.join(root, 'amendeor.yaml'), `providers:\n  local:\n    transport: local\n    endpoint: ${JSON.stringify(script)}\n    price: { input_per_m: 1, output_per_m: 2, currency: USD }\nprofiles:\n  edit: { provider: local, model: fixture }\n`);
+  const person = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config') };
+  const agent = { ...person, CLAUDECODE: '1' };
+
+  await assert.rejects(execFileAsync(process.execPath, [cli, 'edit', root, '--mode', 'copy', '--no-cache', '--json'], { env: agent }),
+    (e: { code?: number; stderr?: string }) => e.code === 2 && /not-delegated: cli:claude-code ran this without --delegation/.test(e.stderr ?? ''));
+  const mechanical = await execFileAsync(process.execPath, [cli, 'edit', root, '--mode', 'mechanical', '--json'], { env: person });
+  const runId = (JSON.parse(mechanical.stdout) as { run_id: string }).run_id;
+  const [proposal] = (await readFile(path.join(root, '.codicora/amendeor/runs', runId, 'proposals.jsonl'), 'utf8')).trim().split('\n').map((line) => JSON.parse(line) as { id: string });
+  await assert.rejects(execFileAsync(process.execPath, [cli, 'accept', root, proposal!.id, '--json'], { env: agent }), /this terminal is an agent's \(cli:claude-code\)/);
+  await assert.rejects(stat(path.join(root, 'edited/accepted.jsonl')), 'nothing accepted');
+
+  await execFileAsync(process.execPath, [cli, 'accept', root, proposal!.id, '--json'], { env: person });
+  const record = JSON.parse((await readFile(path.join(root, 'edited/accepted.jsonl'), 'utf8')).trim()) as Record<string, unknown>;
+  assert.equal(record.accepted_by, 'human:cli');
+});
