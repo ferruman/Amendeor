@@ -197,3 +197,31 @@ test('symlinked output cannot change source files or append acceptance into the 
     assert.equal(await readFile(file, 'utf8'), 'A teh word.\n');
   } finally { await rm(root, { recursive: true, force: true }); }
 });
+
+test('an accepted edit whose context changed is stale, never re-applied to the new text (D28)', async () => {
+  const source = await readManuscript(fixture); const out = await temp();
+  const chapter = source.book.chapters[0]!; const scene = chapter.scenes.find((item) => item.id.startsWith('1111'))!;
+  const target = 'The lanterns counted twice.';
+  const proposal = makeProposal({ category: 'redundancy', chapter: chapter.slug, scene: scene.id, target, replacement: 'The lanterns were counted twice.', before: '', after: ' The lanterns counted twice.', occurrence: 0 });
+  const accepted = await acceptProposals(out, [proposal], { acceptedBy: 'human:cli' });
+  const changed = await readManuscript(fixture);
+  changed.book.chapters[0]!.text = changed.book.chapters[0]!.text.replace(`${target} ${target}`, `${target} The lamps did not.`);
+  changed.book.chapters[0]!.scenes = (await import('../src/book.ts')).splitScenes(changed.book.chapters[0]!.text);
+  const results = await buildEdited({ book: changed.book, editedDir: out, accepted, manifestText: changed.manifestText });
+  assert.deepEqual([results[0]!.status, results[0]!.detail], ['stale', 'context changed since the proposal; run Amendeor again']);
+  assert.equal(await readFile(path.join(out, 'chapters', `${chapter.slug}.md`), 'utf8'), changed.book.chapters[0]!.text);
+});
+
+test('a content lock in codicora.yaml refuses build changes, acceptances and withdrawals; an unchanged build passes', async () => {
+  const source = await readManuscript(fixture); const ws = await temp(); const out = path.join(ws, 'edited');
+  await writeFile(path.join(ws, 'codicora.yaml'), 'spec: codicora/v1\nproject:\n  id: x\n');
+  await buildEdited({ book: source.book, editedDir: out, accepted: [], manifestText: source.manifestText });
+  await writeFile(path.join(ws, 'codicora.yaml'), 'spec: codicora/v1\nproject:\n  id: x\ncontent:\n  status: locked\n  release: r6\n');
+  await buildEdited({ book: source.book, editedDir: out, accepted: [], manifestText: source.manifestText });
+  const chapter = source.book.chapters[0]!; const scene = chapter.scenes.find((item) => item.id.startsWith('1111'))!;
+  const proposal = makeProposal({ category: 'redundancy', chapter: chapter.slug, scene: scene.id, target: 'The lanterns counted twice.', replacement: 'The lanterns were counted twice.', before: '', after: ' The lanterns counted twice.', occurrence: 0 });
+  await assert.rejects(acceptProposals(out, [proposal], { acceptedBy: 'human:cli' }), /content-locked/);
+  const accepted = [{ proposal, accepted_by: 'human:cli', at: new Date().toISOString() }];
+  await assert.rejects(buildEdited({ book: source.book, editedDir: out, accepted, manifestText: source.manifestText }), /content-locked/);
+  assert.equal(await readFile(path.join(out, 'chapters', `${chapter.slug}.md`), 'utf8'), chapter.text);
+});

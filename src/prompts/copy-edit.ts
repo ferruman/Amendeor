@@ -2,7 +2,7 @@ import type { LanguagePack } from '../lang/pack.ts';
 import type { Config } from '../config.ts';
 import type { FormulaicHit } from '../patterns/formulaic.ts';
 
-export const copyEditPromptVersion = '1.4.0';
+export const copyEditPromptVersion = '1.5.0';
 export function copyEditPrompt(pack: LanguagePack, editable: string, before: string, after: string, mode: string, config?: Config, retryError?: string, formulaic: FormulaicHit[] = [], title = false): { system: string; prompt: string } {
   const language = pack.language === 'ru' ? 'Write reasons in Russian. Preserve Russian spelling and authorial dialogue register.' : 'Write reasons in English. Preserve English spelling and authorial dialogue register.';
   const system = [
@@ -10,6 +10,7 @@ export function copyEditPrompt(pack: LanguagePack, editable: string, before: str
     language,
     'Suggest the smallest local correction and preserve facts, uncertainty, characterization and voice.',
     'Never invent details or normalize intentionally unusual prose.',
+    'Never lemmatize proper names, plurals, family names, weekdays or established phrases (Fridays, the Brandts, a Hail Mary). Terminology changes require an explicit author-supplied wrong variant; do not infer canonical terms from similar names.',
     'Most windows need no changes. Return {"edits":[]} for NO_CHANGE.',
     'Edit only an objective error you can name; if the rule or intended meaning is uncertain, return NO_CHANGE.',
     'Do not standardize ellipses, expressive punctuation, or period style.',

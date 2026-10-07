@@ -51,7 +51,7 @@ export function semanticTrap(before: string, after: string, pack: LanguagePack, 
   if (changed(numberTokens(before), numberTokens(after))) return 'number-date-time-change';
   if ((before.match(/\b\p{L}+n['’]t\b/giu) ?? []).length !== (after.match(/\b\p{L}+n['’]t\b/giu) ?? []).length) return 'negation-change';
   if (changed(selected(before, pack.negation), selected(after, pack.negation))) return 'negation-change';
-  if (changed([...new Set(names(before))], [...new Set(names(after))], true)) return 'proper-name-change';
+  if (changed([...new Set(names(before))], [...new Set(names(after))], lang !== 'en')) return 'proper-name-change';
   if (changed(selected(before, pack.modal), selected(after, pack.modal))) return 'certainty-change';
   if (changed(selected(before, lexicons[lang]?.certainty ?? []), selected(after, lexicons[lang]?.certainty ?? []))) return 'certainty-change';
   for (const type of ['location', 'ownership', 'intention', 'chronology']) {

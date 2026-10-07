@@ -49,7 +49,7 @@ function parseArgs(argv: string[]): Args {
   }
   if (command === 'accept' && result.impact && result.impact !== 'mechanical') throw new Error('--impact supports only mechanical');
   if (command === 'edit' && !['mechanical', 'proofread', 'copy', 'full'].includes(result.mode)) throw new Error(`unknown edit mode: ${result.mode}`);
-  if (result.delegation && !['accept', 'edit', 'check'].includes(command)) throw new Error('--delegation is only valid with accept, edit and check');
+  if (result.delegation && !['accept', 'reject', 'edit', 'check'].includes(command)) throw new Error('--delegation is only valid with accept, reject, edit and check');
   if (result.delegation && result.unverified) throw new Error('--unverified is the author\'s decision, not a delegation\'s');
   if (result.guide && command !== 'check') throw new Error('--guide is only valid with check');
   if (result.rulesOnly && command !== 'check') throw new Error('--rules-only is only valid with check');
@@ -129,9 +129,12 @@ async function main(): Promise<void> {
       if (results.some((item) => item.status === 'stale' || item.status === 'conflict')) process.exitCode = 2;
     } else {
       const run = await readRun(source.stateDir, 'latest');
+      const choices = new Map(run.proposals.map((p) => [p.id, p]));
+      if (args.command === 'reject') for (const r of await readAccepted(source.editedDir)) choices.set(r.proposal.id, r.proposal);
+      const candidates = [...choices.values()];
       const selected = args.command === 'accept'
         ? run.proposals.filter((proposal) => args.values.includes(proposal.id) || (args.impact === 'mechanical' && proposal.impact === 'mechanical'))
-        : run.proposals.filter((proposal) => args.values.includes(proposal.id));
+        : candidates.filter((proposal) => args.values.includes(proposal.id));
       if (!selected.length) throw new Error('no matching proposals in the latest run');
       if (args.command === 'accept') {
         // Пакетное --impact пропускает конфликты с журналом; явно названный id по-прежнему даёт ошибку.
@@ -146,7 +149,11 @@ async function main(): Promise<void> {
         summary = { command: 'accept', accepted: chosen.map((proposal) => proposal.id), results, warnings: skipped.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`) };
         if (results.some((item) => item.status === 'stale' || item.status === 'conflict')) process.exitCode = 2;
       } else {
-        await rejectProposals(source.stateDir, selected);
+        const auth = await authorizeAcceptance(source.workspaceDir, cliActor(process.env, Boolean(args.delegation)), args.delegation);
+        const g = auth.grant?.delegation;
+        await rejectProposals(source.stateDir, selected, auth.acceptedBy, source.editedDir, g ? { authority: 'delegated', authorized_by: g.granted_by, delegation_id: g.id } : {});
+        if (auth.grant) await journal(auth.grant.dir, { capability: 'amendeor.accept', performed_by: auth.acceptedBy, authorized_by: g!.granted_by, delegation_id: g!.id, delegation_hash: delegationHash(g!), subject: `reject proposals ${selected.map((p) => p.id).join(', ')}` });
+        await buildEdited({ book: source.book, editedDir: source.editedDir, accepted: await readAccepted(source.editedDir), manifestText: source.manifestText });
         summary = { command: 'reject', rejected: selected.map((proposal) => proposal.id) };
       }
       print(summary, args.json);

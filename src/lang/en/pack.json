@@ -1,11 +1,11 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "language": "en",
   "stopwords": ["a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "from", "he", "her", "his", "i", "in", "is", "it", "of", "on", "or", "she", "that", "the", "their", "there", "they", "this", "to", "was", "were", "with", "you"],
   "negation": ["no", "not", "never", "none", "neither", "nor", "without", "don't", "didn't", "cannot", "can't"],
   "modal": ["may", "might", "must", "probably", "perhaps", "certainly", "surely", "could", "would"],
   "quote_pairs": [["“", "”"], ["‘", "’"], ["\"", "\""]],
-  "abbreviations": ["Mr.", "Mrs.", "Dr.", "Prof.", "St.", "e.g.", "i.e."],
+  "abbreviations": ["Mr.", "Mrs.", "Dr.", "Prof.", "St.", "e.g.", "i.e.", "rt.", "a.m.", "p.m.", "misc.", "Mon.", "Tue.", "Tues.", "Wed.", "Thu.", "Thur.", "Thurs.", "Fri.", "Sat.", "Sun.", "coop.", "Corp.", "Cpl.", "Tpr.", "Oct.", "Sept.", "etc.", "vs.", "No.", "cig.", "corr."],
   "filter_verbs": ["saw", "noticed", "felt", "heard", "realized", "seemed"],
   "adverb_suffixes": ["ly"],
   "dash": { "speech": "—", "between_words": "—" },

@@ -36,3 +36,17 @@ export async function openWorkspace(target: string): Promise<WorkspaceSource | n
     return { ...result, manifestPath, manuscriptDir, editedDir, findingsDir: folder('findings', 'findings') };
   }
 }
+
+// Content lock (WORKSPACE.md §Content lock): `content.status: locked` in codicora.yaml freezes the manuscript and
+// edited/. Ищем манифест вверх от dir; правка под замком — отказ, снять замок может только автор.
+export async function assertUnlocked(dir: string): Promise<void> {
+  for (let candidate = path.resolve(dir); ; candidate = path.dirname(candidate)) {
+    const text = await readFile(path.join(candidate, 'codicora.yaml'), 'utf8').catch(() => null);
+    if (text !== null) {
+      const content = (parse(text) as { content?: { status?: unknown; release?: unknown } } | null)?.content;
+      if (content?.status === 'locked') throw new ReaderError('content-locked', `the manuscript is content-locked (release ${String(content.release ?? '?')}); edited/ is not changed — unlocking is the author's new editorial revision`);
+      return;
+    }
+    if (path.dirname(candidate) === candidate) return;
+  }
+}

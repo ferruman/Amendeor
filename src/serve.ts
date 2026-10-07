@@ -82,7 +82,7 @@ export function createServer(options: { library: string; workspaces: string[] })
       // Смещение в тексте главы; у правки заголовка его нет — она показывается только в списке.
       const offset = 'ok' in found && scene ? { start: scene.start + found.start, end: scene.start + found.end } : {};
       const result = applied.get(proposal.id);
-      const status = accepted.has(proposal.id) ? (result?.status === 'applied' || result?.status === 'moved' ? 'accepted' : result?.status ?? 'stale') : rejected.has(proposal.id) ? 'rejected' : 'ok' in found ? 'pending' : 'stale';
+      const status = accepted.has(proposal.id) ? (result?.status === 'applied' ? 'accepted' : result?.status ?? 'stale') : rejected.has(proposal.id) ? 'rejected' : 'ok' in found ? 'pending' : 'stale';
       return { id: proposal.id, chapter: proposal.location.chapter, scene: proposal.location.scene, category: proposal.category, impact: proposal.impact, source: proposal.source,
         confidence: proposal.confidence, reason: proposal.reason, verification: proposal.verification, unverified: proposal.unverified ?? false,
         target: proposal.target.text, replacement: proposal.replacement, status, detail: result?.detail, ...offset };
@@ -112,11 +112,17 @@ export function createServer(options: { library: string; workspaces: string[] })
   async function decide(doc: Doc, action: 'accept' | 'reject', ids: string[], unverified: boolean): Promise<void> {
     const { source } = await open(doc);
     const run = await readRun(source.stateDir, 'latest');
-    const selected = run.proposals.filter((proposal) => ids.includes(proposal.id));
+    const choices = new Map(run.proposals.map((p) => [p.id, p]));
+    if (action === 'reject') for (const r of await readAccepted(source.editedDir)) choices.set(r.proposal.id, r.proposal);
+    const selected = [...choices.values()].filter((p) => ids.includes(p.id));
     if (selected.length !== ids.length) throw new Error('proposal not in the latest run');
     const release = await acquireLock(source.stateDir);
     try {
-      if (action === 'reject') { await rejectProposals(source.stateDir, selected); return; }
+      if (action === 'reject') {
+        await rejectProposals(source.stateDir, selected, 'human:ui', source.editedDir);
+        await buildEdited({ book: source.book, editedDir: source.editedDir, accepted: await readAccepted(source.editedDir), manifestText: source.manifestText });
+        return;
+      }
       const accepted = await acceptProposals(source.editedDir, selected, { allowUnverified: unverified, acceptedBy: 'human:ui' });
       await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
     } finally { await release(); }

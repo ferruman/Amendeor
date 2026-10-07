@@ -1,6 +1,7 @@
 import { appendFile, readFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { proposalSchema, type Proposal } from '../proposal/schema.ts';
+import { assertUnlocked } from '../source/workspace.ts';
 
 // accepted_by — кто принял (DELEGATION.md §1); authority/authorized_by/delegation_id — когда это агент под делегированием.
 export interface Acceptance { proposal: Proposal; accepted_by: string; at: string; authority?: 'direct' | 'delegated'; authorized_by?: string; delegation_id?: string }
@@ -23,6 +24,14 @@ export async function readAccepted(editedDir: string): Promise<Acceptance[]> {
   const result: Acceptance[] = [];
   for (const [index, line] of contents.split(/\r?\n/).entries()) {
     if (!line.trim()) continue;
+    let entry;
+    try { entry = JSON.parse(line); } catch (error) { throw new Error(`invalid acceptance line ${index + 1}: ${(error as Error).message}`); }
+    if (entry.event === 'withdraw') {
+      if (typeof entry.proposal_id !== 'string' || typeof entry.at !== 'string' || typeof entry.rejected_by !== 'string') throw new Error(`invalid withdrawal line ${index + 1}`);
+      const prior = result.findIndex((r) => r.proposal.id === entry.proposal_id);
+      if (prior >= 0) result.splice(prior, 1);
+      continue;
+    }
     let item: Acceptance;
     try { const parsed = JSON.parse(line) as Acceptance; item = { ...parsed, proposal: proposalSchema.parse(parsed.proposal) }; }
     catch (error) { throw new Error(`invalid acceptance line ${index + 1}: ${(error as Error).message}`); }
@@ -48,13 +57,21 @@ export async function acceptProposals(editedDir: string, proposals: Proposal[], 
   const at = new Date().toISOString();
   const records: Acceptance[] = fresh.map((proposal) => ({ proposal, accepted_by: options.acceptedBy, ...options.provenance, at }));
   if (fresh.length) {
+    await assertUnlocked(editedDir);
     await mkdir(editedDir, { recursive: true });
     await appendFile(path.join(editedDir, 'accepted.jsonl'), records.map((record) => JSON.stringify(record)).join('\n') + '\n');
   }
   return [...accepted, ...records];
 }
 
-export async function rejectProposals(stateDir: string, proposals: Proposal[], rejectedBy = 'author'): Promise<void> {
+export async function rejectProposals(stateDir: string, proposals: Proposal[], rejectedBy = 'author', editedDir?: string, provenance: Pick<Acceptance, 'authority' | 'authorized_by' | 'delegation_id'> = {}): Promise<void> {
+  if (!proposals.length) return;
+  if (editedDir) {
+    const accepted = await readAccepted(editedDir);
+    const withdrawn = proposals.filter((p) => accepted.some((r) => r.proposal.id === p.id));
+    if (withdrawn.length) await assertUnlocked(editedDir);
+    if (withdrawn.length) await appendFile(path.join(editedDir, 'accepted.jsonl'), withdrawn.map((p) => JSON.stringify({ event: 'withdraw', proposal_id: p.id, rejected_by: rejectedBy, ...provenance, at: new Date().toISOString() })).join('\n') + '\n');
+  }
   await mkdir(stateDir, { recursive: true });
   await appendFile(path.join(stateDir, 'rejected-by-author.jsonl'), proposals.map((proposal) => JSON.stringify({ proposal_id: proposal.id, target_hash: proposal.target.hash, rejected_by: rejectedBy, at: new Date().toISOString() })).join('\n') + '\n');
 }

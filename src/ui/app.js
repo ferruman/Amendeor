@@ -65,7 +65,7 @@ function renderCard() {
     <div class="diff">${wordDiff(item.target, item.replacement)}</div>
     ${item.reason ? `<p class="reason">${esc(item.reason)}</p>` : ''}
     <div class="verification">${verification}</div>
-    ${decided ? `<div class="decision">${{ accepted: 'Accepted', rejected: 'Rejected', stale: 'The text has changed here; this edit no longer applies.', conflict: 'Not applied: this edit overlaps another accepted edit or its target is ambiguous.' }[item.status]}</div>` : `
+    ${decided ? `${item.status === 'accepted' || item.status === 'stale' || item.status === 'conflict' ? '<button class="button" type="button" data-decide="reject">Reject accepted edit</button>' : ''}<div class="decision">${{ accepted: 'Accepted', rejected: 'Rejected', stale: 'The text has changed here; this edit no longer applies.', conflict: 'Not applied: this edit overlaps another accepted edit or its target is ambiguous.' }[item.status]}</div>` : `
     <div class="actions">
       <button class="button primary" type="button" data-decide="accept" ${state.busy ? 'disabled' : ''}>Accept<kbd>A</kbd></button>
       <button class="button" type="button" data-decide="reject" ${state.busy ? 'disabled' : ''}>Reject<kbd>R</kbd></button>
@@ -179,7 +179,7 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'j') step(1);
   else if (event.key === 'k') step(-1);
   else if (event.key === 'a' && item?.status === 'pending') decide('accept', [item.id]);
-  else if (event.key === 'r' && item?.status === 'pending') decide('reject', [item.id]);
+  else if (event.key === 'r' && ['pending', 'accepted', 'stale', 'conflict'].includes(item?.status)) decide('reject', [item.id]);
 });
 
 $('#new-form').addEventListener('submit', async (event) => {

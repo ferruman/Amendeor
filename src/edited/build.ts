@@ -5,8 +5,9 @@ import { TITLE_SCENE_ID, type Book, type Chapter } from '../book.ts';
 import { locate } from '../proposal/locate.ts';
 import type { Proposal } from '../proposal/schema.ts';
 import type { Acceptance } from './decisions.ts';
+import { assertUnlocked } from '../source/workspace.ts';
 
-export type BuildStatus = 'applied' | 'moved' | 'stale' | 'conflict';
+export type BuildStatus = 'applied' | 'stale' | 'conflict';
 export interface BuildResult { id: string; chapter: string; scene: string; status: BuildStatus; detail?: string }
 export interface BuildInput { book: Book; editedDir: string; accepted: Acceptance[] | Proposal[]; manifestText?: string }
 
@@ -44,7 +45,10 @@ export function planEdited(book: Book, acceptedInput: Acceptance[] | Proposal[])
   const chapterOutput = new Map<string, string>();
   const titleOutput = new Map<string, string>();
   for (const chapter of book.chapters) {
-    const edits: Array<{ proposal: Proposal; start: number; end: number; replacement: string; status: 'applied' | 'moved' }> = [];
+    const edits: Array<{ proposal: Proposal; start: number; end: number; replacement: string; status: 'applied' }> = [];
+    // Принятая правка относится к тексту, который видел редактор: если контекст вокруг цели изменился, правка
+    // не переносится на новый текст (D28: «Corpora1» → «Corporall»), а становится stale — до нового прогона.
+    const contextChanged = (id: string, scene: string) => results.push({ id, chapter: chapter.slug, scene, status: 'stale', detail: 'context changed since the proposal; run Amendeor again' });
     const titleEdits: typeof edits = [];
     for (const proposal of accepted.filter((item) => item.location.chapter === chapter.slug)) {
       found.add(proposal.id);
@@ -52,7 +56,8 @@ export function planEdited(book: Book, acceptedInput: Acceptance[] | Proposal[])
         const located = locate(chapter.title, { ...proposal.target, replacement: proposal.replacement });
         if ('stale' in located) { results.push({ id: proposal.id, chapter: chapter.slug, scene: TITLE_SCENE_ID, status: 'stale' }); continue; }
         if ('ambiguous' in located) { results.push({ id: proposal.id, chapter: chapter.slug, scene: TITLE_SCENE_ID, status: 'conflict', detail: 'ambiguous target' }); continue; }
-        titleEdits.push({ proposal, start: located.start, end: located.end, replacement: proposal.replacement, status: located.moved ? 'moved' : 'applied' });
+        if (located.moved) { contextChanged(proposal.id, TITLE_SCENE_ID); continue; }
+        titleEdits.push({ proposal, start: located.start, end: located.end, replacement: proposal.replacement, status: 'applied' });
         continue;
       }
       const scene = chapter.scenes.find((item) => item.id === proposal.location.scene);
@@ -60,7 +65,8 @@ export function planEdited(book: Book, acceptedInput: Acceptance[] | Proposal[])
       const located = locate(scene.text, { ...proposal.target, replacement: proposal.replacement });
       if ('stale' in located) { results.push({ id: proposal.id, chapter: chapter.slug, scene: scene.id, status: 'stale' }); continue; }
       if ('ambiguous' in located) { results.push({ id: proposal.id, chapter: chapter.slug, scene: scene.id, status: 'conflict', detail: 'ambiguous target' }); continue; }
-      edits.push({ proposal, start: scene.start + located.start, end: scene.start + located.end, replacement: proposal.replacement, status: located.moved ? 'moved' : 'applied' });
+      if (located.moved) { contextChanged(proposal.id, scene.id); continue; }
+      edits.push({ proposal, start: scene.start + located.start, end: scene.start + located.end, replacement: proposal.replacement, status: 'applied' });
     }
     edits.sort((a, b) => a.start - b.start || a.end - b.end);
     let lastAcceptedEnd = -1;
@@ -137,10 +143,10 @@ export async function buildEdited(input: BuildInput): Promise<BuildResult[]> {
   for (const previous of listedChapterPaths(previousManifest)) {
     const oldFile = path.resolve(outputRoot, previous);
     const physicalParent = await physicalPath(path.dirname(oldFile));
-    if (oldFile.startsWith(`${outputRoot}${path.sep}`) && (physicalParent === outputRoot || physicalParent.startsWith(`${outputRoot}${path.sep}`)) && !expectedFiles.has(oldFile)) await rm(oldFile, { force: true });
+    if (oldFile.startsWith(`${outputRoot}${path.sep}`) && (physicalParent === outputRoot || physicalParent.startsWith(`${outputRoot}${path.sep}`)) && !expectedFiles.has(oldFile)) { await assertUnlocked(outputRoot); await rm(oldFile, { force: true }); }
   }
   const expected = new Set(input.book.chapters.map((chapter) => chapterRelativePath(chapter)));
-  for (const name of await readdir(chaptersDir)) if (name.endsWith('.md') && !expected.has(`chapters/${name}`)) await rm(path.join(chaptersDir, name), { force: true });
+  for (const name of await readdir(chaptersDir)) if (name.endsWith('.md') && !expected.has(`chapters/${name}`)) { await assertUnlocked(outputRoot); await rm(path.join(chaptersDir, name), { force: true }); }
   return results;
 }
 
@@ -168,6 +174,7 @@ function standaloneManifest(book: Book): string {
 async function writeIfChanged(file: string, contents: string): Promise<void> {
   await mkdir(path.dirname(file), { recursive: true });
   try { if (await readFile(file, 'utf8') === contents) return; } catch { /* new file */ }
+  await assertUnlocked(path.dirname(file));
   const temporary = `${file}.${process.pid}.tmp`;
   await writeFile(temporary, contents, 'utf8');
   await rename(temporary, file);

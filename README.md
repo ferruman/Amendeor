@@ -30,6 +30,8 @@ node src/cli.ts report path/to/book
 
 Standalone text requires `--lang en` or `--lang ru` if the language cannot be read from a workspace manifest. A standalone output path can be set with `--out path/to/edited`. The no-key mechanical pass applies deterministic rules only.
 
+`node src/cli.ts reject path/to/book <proposal-id>` also withdraws an already accepted proposal and rebuilds `edited/` without it. The original acceptance remains in the append-only journal; a `withdraw` event records who reversed it. The UI's Reject button supports accepted proposals too. Agents use `--delegation <id>` with `amendeor.accept`.
+
 ## Model editing
 
 The repository includes `amendeor.yaml` with separate editor and verifier profiles on OpenRouter. Copy `.env.example` to `.env`, put a key in `AMENDEOR_OPENROUTER_API_KEY`, and run commands from this directory with `node --env-file=.env`. The private `.env` is ignored by Git. A workspace can override settings with its own `amendeor.yaml`.

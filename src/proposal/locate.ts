@@ -36,7 +36,11 @@ export function locate(sceneText: string, target: Target & { replacement?: strin
     const last = from + normalizedTarget.length - 1;
     const start = mapped.starts[from]!;
     const end = sceneText.startsWith(target.text, start) ? start + target.text.length : mapped.ends[last]!;
-    positions.push({ nStart: from, nEnd: last + 1, start, end });
+    // Частичное совпадение внутри исправленного слова не является прежней целью.
+    const word = /[\p{L}\p{N}]/u;
+    const cutsStart = word.test(normalizedTarget[0]!) && word.test(mapped.text[from - 1] ?? '');
+    const cutsEnd = word.test(normalizedTarget.at(-1)!) && word.test(mapped.text[last + 1] ?? '');
+    if (!cutsStart && !cutsEnd) positions.push({ nStart: from, nEnd: last + 1, start, end });
     from++;
   }
   if (!positions.length) return { stale: true };

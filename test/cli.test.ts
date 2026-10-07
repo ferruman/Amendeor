@@ -37,6 +37,15 @@ test('no-key mechanical edit is deterministic and the second run is fully cached
   const diff = await execFileAsync(process.execPath, [cli, 'diff', root, '--json'], { env });
   const changes = JSON.parse(diff.stdout) as { changes: Array<{ state: string }> };
   assert.ok(changes.changes.every((item) => item.state === 'unchanged'));
+  const acceptedId = firstLines[0]!.id;
+  await execFileAsync(process.execPath, [cli, 'accept', root, acceptedId, '--json'], { env });
+  assert.match(await readFile(path.join(root, 'edited/chapters/one.md'), 'utf8'), /She said yes/);
+  await execFileAsync(process.execPath, [cli, 'reject', root, acceptedId, '--json'], { env });
+  assert.match(await readFile(path.join(root, 'edited/chapters/one.md'), 'utf8'), /She said said yes/);
+  const journal = (await readFile(path.join(root, 'edited/accepted.jsonl'), 'utf8')).trim().split('\n').map((l) => JSON.parse(l));
+  assert.equal(journal.at(-1).event, 'withdraw');
+  assert.match(await readFile(path.join(root, 'manuscript/chapters/one.md'), 'utf8'), /She said said yes/);
+
 });
 
 test('Russian title grammar proposal can be accepted into the edited manifest', async () => {

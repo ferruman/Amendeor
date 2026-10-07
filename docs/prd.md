@@ -198,6 +198,7 @@ No category may represent substantive writing (`plot-*`, `scene-rewrite`, `new-c
 source (read-only) + accepted.jsonl ──amendeor build──▶ edited/
 ```
 
+- `amendeor reject <target> <id…>` rejects a pending proposal or withdraws an active acceptance, even from an earlier run. Withdrawal appends `{ event: "withdraw", proposal_id, rejected_by, at, authority?, authorized_by?, delegation_id? }` to `edited/accepted.jsonl`, then rebuilds. Replay applies acceptances and withdrawals in order; a withdrawn id may be accepted again. Delegated withdrawal uses `amendeor.accept` and the authority journal.
 - `amendeor accept <target> <id…>` or `--impact mechanical` appends to `edited/accepted.jsonl` and rebuilds. Each line carries the full proposal (target, context, replacement), so `build` needs nothing from `.codicora/` — the cache can be deleted and `edited/` still rebuilds. Each line also names who accepted it (`accepted_by`); `accept … --delegation <id>` is how an agent accepts under a delegation the author granted (`../../DELEGATION.md`, capability `amendeor.accept`): the line then says `accepted_by: cli:<CODICORA_AGENT>`, `authority: delegated`, `authorized_by` and `delegation_id`, and Amendeor appends to `authority/amendeor.jsonl`. `--unverified` is the author's decision and is refused under a delegation.
 - `amendeor reject <target> <id…>` records a rejection in `.codicora/amendeor/rejected-by-author.jsonl` so the same proposal is not offered again while its target is unchanged. Losing that file only means proposals are offered again.
 - Build applies accepted edits per scene in document order. Two accepted edits whose targets overlap → the later one is a **conflict**, reported, not applied.
@@ -210,7 +211,7 @@ The author may go back to Fabellatrix after Amendeor has run. This is a main sce
 | accepted proposal | result |
 |---|---|
 | target + context still found | re-applied automatically |
-| target found, context changed | re-applied, reported as `moved` |
+| target found, context changed | `stale` (detail: context changed), not applied — the edit was decided on different text; run again for a fresh proposal |
 | target gone | `stale`, listed for review, not applied |
 
 New and changed scenes are edited as usual; unchanged scenes come from cache (§16).

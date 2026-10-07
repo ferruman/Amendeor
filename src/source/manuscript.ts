@@ -4,8 +4,8 @@ import { parse } from 'yaml';
 import { splitScenes, type Book, type Chapter } from '../book.ts';
 
 export class ReaderError extends Error {
-  readonly code: 'manifest-missing' | 'manifest-invalid' | 'chapter-file-missing' | 'duplicate-scene-id';
-  constructor(code: 'manifest-missing' | 'manifest-invalid' | 'chapter-file-missing' | 'duplicate-scene-id', detail: string) { super(`${code}: ${detail}`); this.code = code; this.name = 'ReaderError'; }
+  readonly code: 'manifest-missing' | 'manifest-invalid' | 'chapter-file-missing' | 'duplicate-scene-id' | 'content-locked';
+  constructor(code: 'manifest-missing' | 'manifest-invalid' | 'chapter-file-missing' | 'duplicate-scene-id' | 'content-locked', detail: string) { super(`${code}: ${detail}`); this.code = code; this.name = 'ReaderError'; }
 }
 export interface ReadManuscript { book: Book; manifestText: string; manifestPath: string; warnings: string[] }
 
