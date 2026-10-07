@@ -6,7 +6,7 @@ import { configSchema } from '../src/config.ts';
 import { loadPack } from '../src/lang/pack.ts';
 import { meter, SpendRefused, type Meter } from '../src/provider/meter.ts';
 import { reserveSpend, settleSpend, spentUnder } from '../src/edited/authority.ts';
-import { mkdtemp, mkdir, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 
@@ -69,4 +69,17 @@ test('crash liability: a failed or unsettled call keeps its whole reservation; a
   const r = await reserveSpend(m.ctx!, 0.5, 'USD');
   await settleSpend(r, 'r', 0.1, 'USD');
   assert.equal(Math.round((await spentUnder(dir, 'r', 'USD')) * 1e9), Math.round((held + 0.1) * 1e9));
+});
+
+test('a grant edited between dispatches stops this command before another reservation', async () => {
+  const m = await delegated(5);
+  const file = path.join(m.ctx!.workspaceDir, 'authority/delegations.json');
+  try {
+    await reserveSpend(m.ctx!, 1, 'USD');
+    const doc = JSON.parse(await readFile(file, 'utf8'));
+    doc.delegations[0].limits.max_spend = 100;
+    await writeFile(file, JSON.stringify(doc));
+    await assert.rejects(reserveSpend(m.ctx!, 10, 'USD'), /edited after this operation/);
+    assert.equal(await spentUnder(path.dirname(file), 'r', 'USD'), 1);
+  } finally { await rm(m.ctx!.workspaceDir, { recursive: true, force: true }); }
 });

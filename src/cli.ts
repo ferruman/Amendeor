@@ -169,7 +169,7 @@ async function underDelegation<T>(source: { workspaceDir?: string }, id: string 
   const grant = await requireDelegation(source.workspaceDir, id, 'amendeor.edit');
   const limits = grant.delegation.limits;
   const m: Meter = typeof limits?.max_spend === 'number' && limits.currency
-    ? { spent: 0, ctx: { workspaceDir: source.workspaceDir, id, capability: 'amendeor.edit', actor, subject } }
+    ? { spent: 0, ctx: { workspaceDir: source.workspaceDir, id, capability: 'amendeor.edit', actor, subject, delegation_hash: delegationHash(grant.delegation) } }
     : { spent: 0, refused: 'the delegation sets no spending limit (limits.max_spend), so it covers no model call' };
   try {
     return await meter.run(m, run);

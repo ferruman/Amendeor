@@ -84,7 +84,7 @@ async function withBudgetLock<T>(dir: string, fn: () => Promise<T>): Promise<T> 
   try { return await fn(); } finally { await rm(lock, { recursive: true, force: true }); }
 }
 
-export interface SpendContext { workspaceDir: string; id: string; capability: string; actor: string; subject: string }
+export interface SpendContext { workspaceDir: string; id: string; capability: string; actor: string; subject: string; delegation_hash?: string }
 
 // Перед платным вызовом, под замком: перечитать делегирование (отзыв, истечение или правка с начала команды
 // останавливают этот вызов), сложить потраченное и удержанное всеми инструментами, записать резервацию.
@@ -92,6 +92,9 @@ export async function reserveSpend(ctx: SpendContext, amount: number, currency: 
   const { dir } = await requireDelegation(ctx.workspaceDir, ctx.id, ctx.capability);
   return withBudgetLock(dir, async () => {
     const { delegation: d } = await requireDelegation(ctx.workspaceDir, ctx.id, ctx.capability);
+    const hash = delegationHash(d);
+    ctx.delegation_hash ??= hash;
+    if (ctx.delegation_hash !== hash) throw new Error(`delegation "${ctx.id}" was edited after this operation was authorized; stop and ask the author`);
     const limits = d.limits;
     if (typeof limits?.max_spend !== 'number') throw new Error('the delegation sets no spending limit (limits.max_spend), so it covers no model call');
     if (limits.currency !== currency) throw new Error(`the provider prices in ${currency} and the delegation limits spending in ${limits.currency}; no conversion is applied`);
