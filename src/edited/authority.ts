@@ -1,9 +1,12 @@
 // Делегированные полномочия (../../../DELEGATION.md): автор пишет authority/delegations.json; Amendeor только читает его
 // и дописывает принятия под делегированием в authority/amendeor.jsonl — свой единственный файл вне edited/ и .codicora/.
-import { appendFile, mkdir, readFile, readdir } from 'node:fs/promises';
+import { appendFile, mkdir, readFile, readdir, rm, stat } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
 import path from 'node:path';
 import { parse } from 'yaml';
 import { canonicalJson, sha256 } from '../hash.ts';
+import { acceptProposals, type Acceptance } from './decisions.ts';
+import type { Proposal } from '../proposal/schema.ts';
 
 const WEEK = 7 * 24 * 3600 * 1000;
 
@@ -43,18 +46,87 @@ export async function requireDelegation(workspaceDir: string, id: string, capabi
   return { delegation: d, dir };
 }
 
-// Сколько уже потрачено под делегированием всеми инструментами вместе, в его валюте (DELEGATION.md §4).
+// Сколько потрачено под делегированием всеми инструментами вместе, в его валюте (DELEGATION.md §4): закрытая резервация —
+// по фактической цене, открытая — целиком (вызов мог быть оплачен, а цену никто не записал), и cost строк действий,
+// написанных до резерваций.
 export async function spentUnder(dir: string, id: string, currency: string): Promise<number> {
-  let total = 0;
+  const lines: Array<Record<string, unknown>> = [];
   for (const name of (await readdir(dir).catch(() => [] as string[])).filter((n) => n.endsWith('.jsonl'))) {
     for (const line of (await readFile(path.join(dir, name), 'utf8')).split('\n')) {
-      try { const r = JSON.parse(line) as { delegation_id?: string; currency?: string; cost?: unknown }; if (r.delegation_id === id && r.currency === currency && typeof r.cost === 'number') total += r.cost; } catch { /* пустая или чужая строка */ }
+      try { const r = JSON.parse(line) as unknown; if (r && typeof r === 'object') lines.push(r as Record<string, unknown>); } catch { /* пустая или чужая строка */ }
     }
   }
+  const settled = new Map(lines.filter((r) => r.event === 'settle' && typeof r.cost === 'number').map((r) => [r.reservation_id, r.cost as number]));
+  let total = 0;
+  for (const r of lines) {
+    if (r.delegation_id !== id || r.currency !== currency) continue;
+    if (r.event === 'reserve' && typeof r.amount === 'number') total += settled.get(r.reservation_id) ?? r.amount;
+    else if (r.event === undefined && typeof r.cost === 'number') total += r.cost;
+  }
   return total;
+}
+
+// authority/.budget.lock держится только пока резервация проверяется и пишется — никогда во время вызова модели.
+// ponytail: замок старше 30 с — упавший владелец, его снимают; два ожидающих, снявших один и тот же старый замок
+// одновременно, могут пройти оба. Нужны падение и гонка разом.
+async function withBudgetLock<T>(dir: string, fn: () => Promise<T>): Promise<T> {
+  await mkdir(dir, { recursive: true });
+  const lock = path.join(dir, '.budget.lock');
+  for (const started = Date.now(); ;) {
+    try { await mkdir(lock); break; } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error;
+      const age = Date.now() - await stat(lock).then((s) => s.mtimeMs, () => Date.now());
+      if (age > 30_000) { await rm(lock, { recursive: true, force: true }); continue; }
+      if (Date.now() - started > 10_000) throw new Error('the budget lock authority/.budget.lock stayed held for 10 s; try again');
+      await new Promise((resolve) => setTimeout(resolve, 5 + Math.random() * 20));
+    }
+  }
+  try { return await fn(); } finally { await rm(lock, { recursive: true, force: true }); }
+}
+
+export interface SpendContext { workspaceDir: string; id: string; capability: string; actor: string; subject: string }
+
+// Перед платным вызовом, под замком: перечитать делегирование (отзыв, истечение или правка с начала команды
+// останавливают этот вызов), сложить потраченное и удержанное всеми инструментами, записать резервацию.
+export async function reserveSpend(ctx: SpendContext, amount: number, currency: string): Promise<{ id: string; dir: string }> {
+  const { dir } = await requireDelegation(ctx.workspaceDir, ctx.id, ctx.capability);
+  return withBudgetLock(dir, async () => {
+    const { delegation: d } = await requireDelegation(ctx.workspaceDir, ctx.id, ctx.capability);
+    const limits = d.limits;
+    if (typeof limits?.max_spend !== 'number') throw new Error('the delegation sets no spending limit (limits.max_spend), so it covers no model call');
+    if (limits.currency !== currency) throw new Error(`the provider prices in ${currency} and the delegation limits spending in ${limits.currency}; no conversion is applied`);
+    const spent = await spentUnder(dir, ctx.id, currency);
+    if (spent + amount > limits.max_spend) throw new Error(`over the delegated budget: ${spent.toFixed(4)} spent or held + ${amount.toFixed(4)} ${currency} worst case > ${limits.max_spend} — ask the author for more (a new delegation) or to run this directly`);
+    const id = `amendeor:${randomUUID()}`;
+    await journal(dir, { event: 'reserve', reservation_id: id, capability: ctx.capability, performed_by: ctx.actor, authorized_by: d.granted_by, delegation_id: ctx.id, delegation_hash: delegationHash(d), subject: ctx.subject, amount, currency });
+    return { id, dir };
+  });
+}
+
+// После вызова фактическая цена заменяет резервацию. Вызов с неизвестным исходом не закрывается — его сумма остаётся потраченной.
+export async function settleSpend(reservation: { id: string; dir: string }, delegationId: string, cost: number, currency: string): Promise<void> {
+  await journal(reservation.dir, { event: 'settle', reservation_id: reservation.id, delegation_id: delegationId, cost, currency });
 }
 
 export async function journal(dir: string, record: Record<string, unknown>): Promise<void> {
   await mkdir(dir, { recursive: true });
   await appendFile(path.join(dir, 'amendeor.jsonl'), `${JSON.stringify({ schema: 'codicora.action/0.1', at: new Date().toISOString(), tool: 'amendeor', authority: 'delegated', ...record })}\n`);
+}
+
+// Единственный путь принятия правок (DELEGATION.md §5): явный accept и auto_accept: mechanical проходят одну проверку.
+// Человек (human:cli, human:ui) принимает сам; агент — только под делегированием, покрывающим amendeor.accept.
+// Настройка auto_accept не заменяет полномочий: без них предложения остаются ожидающими.
+export interface AcceptAuthority { acceptedBy: string; grant?: { delegation: Delegation; dir: string } }
+export async function authorizeAcceptance(workspaceDir: string | undefined, actor: string, delegation?: string): Promise<AcceptAuthority> {
+  if (!delegation && actor.startsWith('human:')) return { acceptedBy: actor };
+  if (!delegation) throw new Error(`not-delegated: this terminal is an agent's (${actor}); accepting copy edits is the author's decision — they run amendeor accept themselves, or grant a delegation that allows amendeor.accept and you pass --delegation <id>`);
+  if (!workspaceDir) throw new Error('not-delegated: a delegation lives in a Codicora workspace; this target has none');
+  return { acceptedBy: actor, grant: await requireDelegation(workspaceDir, delegation, 'amendeor.accept') };
+}
+
+export async function acceptAuthorized(editedDir: string, proposals: Proposal[], auth: AcceptAuthority, allowUnverified = false): Promise<Acceptance[]> {
+  const g = auth.grant?.delegation;
+  const accepted = await acceptProposals(editedDir, proposals, { allowUnverified, acceptedBy: auth.acceptedBy, ...(g ? { provenance: { authority: 'delegated' as const, authorized_by: g.granted_by, delegation_id: g.id } } : {}) });
+  if (auth.grant && proposals.length) await journal(auth.grant.dir, { capability: 'amendeor.accept', performed_by: auth.acceptedBy, authorized_by: g!.granted_by, delegation_id: g!.id, delegation_hash: delegationHash(g!), subject: `proposals ${proposals.map((proposal) => proposal.id).join(', ')}` });
+  return accepted;
 }

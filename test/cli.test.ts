@@ -245,7 +245,7 @@ test('edit --delegation: model calls metered against amendeor.edit and the share
   const entry = (max: number, allow = ['amendeor.edit']) => ({ id: 'run', workspace: 'book-a', granted_by: 'author', granted_at: new Date(Date.now() - 60_000).toISOString(), expires_at: new Date(Date.now() + 3_600_000).toISOString(), allow, limits: { max_spend: max, currency: 'USD' } });
   const grant = (d: Record<string, unknown>) => writeFile(path.join(root, 'authority/delegations.json'), JSON.stringify({ schema: 'codicora.delegations/0.1', delegations: [d] }));
   const edit = () => execFileAsync(process.execPath, [cli, 'edit', root, '--mode', 'copy', '--no-cache', '--delegation', 'run', '--json'], { env });
-  const lines = async () => (await readFile(path.join(root, 'authority/amendeor.jsonl'), 'utf8')).trim().split('\n').map((l) => JSON.parse(l) as Record<string, any>);
+  const lines = async () => (await readFile(path.join(root, 'authority/amendeor.jsonl'), 'utf8')).trim().split('\n').map((l) => JSON.parse(l) as Record<string, any>).filter((l) => !l.event);
   const { canonicalJson, sha256 } = await import('../src/hash.ts');
 
   await grant(entry(10, ['amendeor.accept']));
@@ -256,14 +256,14 @@ test('edit --delegation: model calls metered against amendeor.edit and the share
   await edit();
   const [line] = await lines();
   assert.deepEqual([line!.capability, line!.performed_by, line!.delegation_id, line!.currency], ['amendeor.edit', 'cli:codex', 'run', 'USD']);
-  assert.ok(line!.cost > 0 && line!.cost < 0.01, String(line!.cost));
+  assert.ok(line!.spent > 0 && line!.spent < 0.01, String(line!.spent));
   assert.equal(line!.delegation_hash, sha256(canonicalJson(ok)));
 
-  await grant(entry(line!.cost + 1e-9));
+  await grant(entry(line!.spent + 1e-9));
   await assert.rejects(edit(), (e: { code?: number; stderr?: string }) => e.code === 2 && /not-delegated: over the delegated budget/.test(e.stderr ?? ''));
   const refused = (await lines()).at(-1)!;
   assert.equal(refused.outcome, 'refused');
-  assert.equal(refused.cost, undefined, 'nothing spent');
+  assert.equal(refused.spent, undefined, 'nothing spent');
 });
 
 test('agent at the CLI without --delegation: accept refused, model passes refused before spending, rules still run; a person is unchanged', async () => {

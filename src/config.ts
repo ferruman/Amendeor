@@ -78,7 +78,14 @@ export async function loadConfig(options: { workspaceDir?: string; cli?: Record<
   const merged = structuredClone(defaults) as Record<string, unknown>;
   overlay({}, defaults, 'defaults', winners);
   overlay(merged, await readYaml(userFile), 'user', winners);
-  if (options.workspaceDir) overlay(merged, await readYaml(path.join(options.workspaceDir, 'amendeor.yaml')), 'workspace', winners);
+  if (options.workspaceDir) {
+    const workspace = await readYaml(path.join(options.workspaceDir, 'amendeor.yaml'));
+    // Ключ — машины и учётной записи, а не книги: папка книги переносима и уходит в git (WORKSPACE.md).
+    for (const [name, provider] of Object.entries(isRecord(workspace.providers) ? workspace.providers : {})) {
+      if (isRecord(provider) && provider.api_key !== undefined) throw new Error(`workspace amendeor.yaml: providers.${name}.api_key is no longer supported — a credential does not belong in the book's folder. Move it to the environment (providers.${name}.api_key_env: <VARIABLE>), a key file outside the workspace (api_key_file), or the user config ${userFile}`);
+    }
+    overlay(merged, workspace, 'workspace', winners);
+  }
   overlay(merged, fromEnvironment(env), 'environment', winners);
   if (options.cli) overlay(merged, options.cli, 'cli', winners);
   const config = configSchema.parse(merged);

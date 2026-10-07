@@ -32,7 +32,9 @@ export async function readAccepted(editedDir: string): Promise<Acceptance[]> {
   return result;
 }
 
-export async function acceptProposals(editedDir: string, proposals: Proposal[], options: { acceptedBy?: string; allowUnverified?: boolean; provenance?: Pick<Acceptance, 'authority' | 'authorized_by' | 'delegation_id'> } = {}): Promise<Acceptance[]> {
+// acceptedBy обязателен: принятие всегда записывается за тем, кто его сделал, — без молчаливого «author».
+export async function acceptProposals(editedDir: string, proposals: Proposal[], options: { acceptedBy: string; allowUnverified?: boolean; provenance?: Pick<Acceptance, 'authority' | 'authorized_by' | 'delegation_id'> }): Promise<Acceptance[]> {
+  if (!options?.acceptedBy) throw new Error('acceptProposals needs the actor (acceptedBy)');
   const accepted = await readAccepted(editedDir);
   const seen = new Set<string>();
   for (const proposal of proposals) {
@@ -44,7 +46,7 @@ export async function acceptProposals(editedDir: string, proposals: Proposal[], 
   }
   const fresh = proposals.filter((proposal) => !accepted.some((record) => record.proposal.id === proposal.id));
   const at = new Date().toISOString();
-  const records: Acceptance[] = fresh.map((proposal) => ({ proposal, accepted_by: options.acceptedBy ?? 'author', ...options.provenance, at }));
+  const records: Acceptance[] = fresh.map((proposal) => ({ proposal, accepted_by: options.acceptedBy, ...options.provenance, at }));
   if (fresh.length) {
     await mkdir(editedDir, { recursive: true });
     await appendFile(path.join(editedDir, 'accepted.jsonl'), records.map((record) => JSON.stringify(record)).join('\n') + '\n');

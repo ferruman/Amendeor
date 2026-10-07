@@ -104,7 +104,7 @@ export function createServer(options: { library: string; workspaces: string[] })
       if (mode !== 'mechanical' && !config.config.profiles.edit) throw new Error('this mode needs a model: configure profiles.edit');
       const pack = await loadPack(source.book.lang, source.book.chapters.map((chapter) => chapter.text).join('\n'));
       const release = await acquireLock(source.stateDir);
-      try { await editMechanical(source, config, pack, { noCache: false, mode }); } finally { await release(); }
+      try { await editMechanical(source, config, pack, { noCache: false, mode, acceptAs: async () => ({ acceptedBy: 'human:ui' }) }); } finally { await release(); }
       jobs.delete(doc.id);
     })().catch((error: unknown) => { job.error = error instanceof Error ? error.message : String(error); });
   }

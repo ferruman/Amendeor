@@ -27,7 +27,7 @@ test('accept and build apply a target, survive unrelated source edits, and mark 
   const chapter = source.book.chapters[0]!; const scene = chapter.scenes.find((item) => item.id.startsWith('1111'))!;
   const target = 'The lanterns counted twice.';
   const proposal = makeProposal({ category: 'redundancy', chapter: chapter.slug, scene: scene.id, target, replacement: 'The lanterns were counted twice.', before: '', after: ' The lanterns counted twice.', occurrence: 0 });
-  const accepted = await acceptProposals(out, [proposal]);
+  const accepted = await acceptProposals(out, [proposal], { acceptedBy: 'human:cli' });
   let results = await buildEdited({ book: source.book, editedDir: out, accepted, manifestText: source.manifestText });
   assert.equal(results[0]!.status, 'applied');
   assert.equal(await readFile(path.join(out, 'chapters', `${chapter.slug}.md`), 'utf8'), chapter.text.replace(target, 'The lanterns were counted twice.'));
@@ -88,18 +88,18 @@ test('duplicate ids resolve by context or occurrence, and an invalid recorded oc
 test('acceptance history is idempotent and conflicting revisions have a named error', async () => {
   const out = await temp();
   const proposal = makeProposal({ category: 'spelling', chapter: 'one', scene: 's0', target: 'teh', replacement: 'the' });
-  const first = await acceptProposals(out, [proposal]);
-  const second = await acceptProposals(out, [proposal]);
+  const first = await acceptProposals(out, [proposal], { acceptedBy: 'human:cli' });
+  const second = await acceptProposals(out, [proposal], { acceptedBy: 'human:cli' });
   assert.equal(first.length, 1); assert.equal(second.length, 1);
-  await assert.rejects(acceptProposals(out, [{ ...proposal, replacement: 'a' }]), (error: unknown) => error instanceof DecisionError && error.code === 'conflicting-acceptance');
-  await assert.rejects(acceptProposals(out, [proposal, proposal]), (error: unknown) => error instanceof DecisionError && error.code === 'duplicate-proposal-id');
+  await assert.rejects(acceptProposals(out, [{ ...proposal, replacement: 'a' }], { acceptedBy: 'human:cli' }), (error: unknown) => error instanceof DecisionError && error.code === 'conflicting-acceptance');
+  await assert.rejects(acceptProposals(out, [proposal, proposal], { acceptedBy: 'human:cli' }), (error: unknown) => error instanceof DecisionError && error.code === 'duplicate-proposal-id');
 });
 
 test('deleting tool state does not change a rebuild from accepted proposals', async () => {
   const source = await readManuscript(fixture); const out = await temp();
   const chapter = source.book.chapters[0]!; const scene = chapter.scenes.find((item) => item.id.startsWith('1111'))!;
   const proposal = makeProposal({ category: 'word-choice', chapter: chapter.slug, scene: scene.id, target: 'The lanterns counted twice.', replacement: 'The lamps were counted twice.', occurrence: 0 });
-  await acceptProposals(out, [proposal]);
+  await acceptProposals(out, [proposal], { acceptedBy: 'human:cli' });
   const accepted = await readAccepted(out);
   await buildEdited({ book: source.book, editedDir: out, accepted, manifestText: source.manifestText });
   const snapshot = async () => Promise.all(['accepted.jsonl', 'manuscript.yaml', 'chapters/first.md', 'chapters/second.md'].map((file) => readFile(path.join(out, file), 'utf8')));
@@ -113,8 +113,8 @@ test('deleting tool state does not change a rebuild from accepted proposals', as
 
 test('unverified proposals require an explicit override', async () => {
   const proposal = makeProposal({ category: 'spelling', chapter: 'one', scene: 's0', target: 'teh', replacement: 'the', unverified: true });
-  await assert.rejects(acceptProposals(await temp(), [proposal]), (error: unknown) => error instanceof DecisionError && error.code === 'unverified-proposal');
-  assert.equal((await acceptProposals(await temp(), [proposal], { allowUnverified: true })).length, 1);
+  await assert.rejects(acceptProposals(await temp(), [proposal], { acceptedBy: 'human:cli' }), (error: unknown) => error instanceof DecisionError && error.code === 'unverified-proposal');
+  assert.equal((await acceptProposals(await temp(), [proposal], { allowUnverified: true, acceptedBy: 'human:cli' })).length, 1);
 });
 
 test('author rejections are appended to private state with the target hash', async () => {
@@ -156,7 +156,7 @@ test('building from edited input cannot apply an accepted edit twice', async () 
   await writeFile(path.join(manuscript, 'chapters/one.md'), 'foo foo\n');
   const source = await readManuscript(manuscript);
   const proposal = makeProposal({ category: 'word-choice', chapter: 'one', scene: 's0', target: 'foo', replacement: 'bar', occurrence: 0 });
-  const accepted = await acceptProposals(editedDir, [proposal]);
+  const accepted = await acceptProposals(editedDir, [proposal], { acceptedBy: 'human:cli' });
   await buildEdited({ book: source.book, editedDir, accepted, manifestText: source.manifestText });
   const edited = await readManuscript(editedDir);
   await assert.rejects(buildEdited({ book: edited.book, editedDir, accepted, manifestText: edited.manifestText }), /source chapter is inside edited directory/);

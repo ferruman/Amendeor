@@ -321,11 +321,11 @@ language: ru                  # standalone input; a workspace takes it from manu
 preserve: [sentence-fragments, dialect, informal-dialogue]
 normalize: { spelling: british, quotes: «», yo: keep }
 avoid: [redundant-emotional-explanation]
-auto_accept: [mechanical]     # default: nothing
+auto_accept: [mechanical]     # default: nothing; a setting, not an authority — it accepts only as someone who may accept (a person, or an agent under amendeor.accept); otherwise proposals stay pending
 rules: { typography.ellipsis: off }
 ```
 
-No model id is hard-coded. Keys live in the config file or a key file, never on the command line; placeholders like `<paste-key-here>` are refused (`LESSONS.md` §5).
+No model id is hard-coded. Keys live in the environment, the user config or a key file — never in a workspace's `amendeor.yaml` (refused with a migration message) and never on the command line; placeholders like `<paste-key-here>` are refused (`LESSONS.md` §5).
 
 ---
 

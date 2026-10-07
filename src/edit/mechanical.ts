@@ -12,7 +12,8 @@ import { enabledRules, ruleContext, ruleSetVersion, bookWordCounts, type Proposa
 import { makeProposal } from '../proposal/identity.ts';
 import type { Proposal } from '../proposal/schema.ts';
 import { newRunId, writeRun, readRun } from '../run/store.ts';
-import { acceptProposals, conflictsWithAccepted, readAccepted, readRejected } from '../edited/decisions.ts';
+import { conflictsWithAccepted, readAccepted, readRejected } from '../edited/decisions.ts';
+import { acceptAuthorized, type AcceptAuthority } from '../edited/authority.ts';
 import { buildEdited } from '../edited/build.ts';
 import { balanceWarnings } from '../rules/balance.ts';
 import { modelPass } from './pass.ts';
@@ -38,7 +39,7 @@ async function previousRunId(stateDir: string): Promise<string | null> {
   catch (error) { if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null; throw error; }
 }
 
-export async function editMechanical(source: OpenedSource, loaded: LoadedConfig, language: LoadedPack, options: { noCache?: boolean; runId?: string; mode?: string } = {}): Promise<EditResult> {
+export async function editMechanical(source: OpenedSource, loaded: LoadedConfig, language: LoadedPack, options: { noCache?: boolean; runId?: string; mode?: string; acceptAs?: () => Promise<AcceptAuthority> } = {}): Promise<EditResult> {
   const started = new Date().toISOString();
   const runId = options.runId ?? newRunId();
   const cache = new Cache(source.stateDir, options.noCache);
@@ -102,7 +103,14 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   const previousId = options.runId
     ? ((await readRun(source.stateDir, options.runId)).run as { baseline?: { previous_run_id?: string | null } }).baseline?.previous_run_id ?? null
     : await previousRunId(source.stateDir);
-  const autoAccept = loaded.config.auto_accept.includes('mechanical');
+  // auto_accept — настройка, а не полномочие: принимает тот же путь, что и явный accept, от имени того, кто запустил правку.
+  // Нет полномочий — предложения остаются ожидающими, и прогон говорит почему.
+  let acceptAuthority: AcceptAuthority | undefined; let acceptRefused: string | undefined;
+  if (loaded.config.auto_accept.includes('mechanical')) {
+    try { acceptAuthority = options.acceptAs ? await options.acceptAs() : undefined; if (!acceptAuthority) acceptRefused = 'no actor was given to accept as'; }
+    catch (error) { acceptRefused = (error as Error).message; }
+  }
+  const autoAccept = Boolean(acceptAuthority);
   const priorAccepted = autoAccept ? await readAccepted(source.editedDir) : [];
   const conflicting = list.filter((proposal) => proposal.impact === 'mechanical' && conflictsWithAccepted(priorAccepted, proposal));
   const inputs = source.book.chapters.map((chapter) => ({ path: chapter.file, content_hash: sha256(normalizeText(chapter.text)), title_hash: sha256(normalizeText(chapter.title)) }));
@@ -113,12 +121,12 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
     guard: guard.stage,
     ledger: { entries: ledgerEntries, tokens_in: ledgerEntries.reduce((sum, entry) => sum + entry.tokens_in, 0), tokens_out: ledgerEntries.reduce((sum, entry) => sum + entry.tokens_out, 0), cost: ledgerEntries.some((entry) => entry.tokens_in + entry.tokens_out > 0 && entry.cost === null) ? null : ledgerEntries.reduce((sum, entry) => sum + (entry.cost ?? 0), 0), currency: ledgerEntries.find((entry) => entry.currency)?.currency ?? null, ms: ledgerEntries.reduce((sum, entry) => sum + entry.ms, 0) }, baseline: { previous_run_id: previousId, states: {} },
     counts: { by_impact: { mechanical: list.filter((item) => item.impact === 'mechanical').length, prose: list.filter((item) => item.impact === 'prose').length } },
-    summary: { ...summary, hotspots: summary.hotspots.length }, warnings: [...summary.warnings, ...conflicting.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`)], metadata: { rule_set_version: ruleSetVersion, pack_version: language.pack.version, mode, prompt_version: (model.stage as { prompt_version?: string }).prompt_version, model_id: (model.stage as { model_id?: string }).model_id }
+    summary: { ...summary, hotspots: summary.hotspots.length }, warnings: [...summary.warnings, ...conflicting.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`), ...(acceptRefused ? [`auto-accept not performed, proposals left pending: ${acceptRefused}`] : [])], metadata: { rule_set_version: ruleSetVersion, pack_version: language.pack.version, mode, prompt_version: (model.stage as { prompt_version?: string }).prompt_version, model_id: (model.stage as { model_id?: string }).model_id }
   };
   const report = renderReport(run);
   await writeRun(source.stateDir, runId, { 'run.json': `${JSON.stringify(run, null, 2)}\n`, 'proposals.jsonl': list.map((proposal) => JSON.stringify(proposal)).join('\n') + (list.length ? '\n' : ''), 'rejected.jsonl': guard.rejected.map((item) => JSON.stringify(item)).join('\n') + (guard.rejected.length ? '\n' : ''), 'report.md': report }, Boolean(options.runId));
   if (autoAccept) {
-    const accepted = await acceptProposals(source.editedDir, list.filter((proposal) => proposal.impact === 'mechanical' && !conflicting.includes(proposal)));
+    const accepted = await acceptAuthorized(source.editedDir, list.filter((proposal) => proposal.impact === 'mechanical' && !conflicting.includes(proposal)), acceptAuthority!);
     await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
   }
   return { run_id: runId, proposals: list, run, report };

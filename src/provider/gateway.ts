@@ -4,7 +4,7 @@ import type { LanguagePack } from '../lang/pack.ts';
 import { AnthropicProvider } from './anthropic.ts';
 import { OpenAIProvider } from './openai.ts';
 import { LocalProvider } from './local.ts';
-import { meter, reserve } from './meter.ts';
+import { meter, reserve, settle, type Reservation } from './meter.ts';
 import { ProviderError, type Provider, type Completion, type CompletionRequest } from './types.ts';
 
 export interface LedgerEntry { stage: string; provider: string; model: string; tokens_in: number; tokens_out: number; cost: number | null; currency: string | null; ms: number; budget: number; error?: string }
@@ -33,7 +33,7 @@ export class Gateway {
       }
       const started = performance.now();
       const m = meter.getStore();
-      const worst = m ? reserve(m, providerConfig.price, system.length + prompt.length, request.maxTokens) : 0;
+      const reservation: Reservation | null = m ? await reserve(m, providerConfig.price, system.length + prompt.length, request.maxTokens) : null;
       try {
         const result = await provider.complete(request);
         const inputChars = system.length + prompt.length;
@@ -42,11 +42,11 @@ export class Gateway {
         this.ledger.push({ stage, provider: profile.provider, model: profile.model, tokens_in: result.usage.input_tokens, tokens_out: result.usage.output_tokens,
           cost: price ? (result.usage.input_tokens * price.input_per_m + result.usage.output_tokens * price.output_per_m) / 1_000_000 : null,
           currency: price?.currency ?? null, ms: result.ms, budget });
-        if (m) m.spent += this.ledger.at(-1)!.cost ?? worst;
+        if (m && reservation && this.ledger.at(-1)!.cost !== null) await settle(m, reservation, this.ledger.at(-1)!.cost!);
         return result;
       } catch (error) {
         last = error;
-        if (m) m.spent += worst; // неудачный ответ мог быть оплачен: считаем худший случай
+        // Неудачный ответ мог быть оплачен: резервация остаётся открытой и считается целиком.
         this.ledger.push({ stage, provider: profile.provider, model: profile.model, tokens_in: 0, tokens_out: 0, cost: null, currency: providerConfig.price?.currency ?? null, ms: Math.round(performance.now() - started), budget: request.maxTokens, error: error instanceof ProviderError ? error.kind + ': ' + error.diagnosis : String(error) });
         if (!(error instanceof ProviderError) || !error.retryable || attempt === 2) break;
         if (error.kind === 'truncated') request.maxTokens *= 2;

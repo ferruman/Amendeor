@@ -5,7 +5,7 @@ import { readRun } from './run/store.ts';
 import { acquireLock } from './run/lock.ts';
 import { acceptProposals, conflictsWithAccepted, readAccepted, rejectProposals } from './edited/decisions.ts';
 import { buildEdited, validateEditedPaths } from './edited/build.ts';
-import { cliActor, delegationHash, journal, requireDelegation, spentUnder } from './edited/authority.ts';
+import { acceptAuthorized, authorizeAcceptance, cliActor, delegationHash, journal, requireDelegation } from './edited/authority.ts';
 import { meter, type Meter } from './provider/meter.ts';
 import { loadConfig } from './config.ts';
 import { loadPack } from './lang/pack.ts';
@@ -86,7 +86,9 @@ async function main(): Promise<void> {
       const findings = [...patterns, ...(contextual?.findings ?? [])];
       if (args.findings) {
         if (!source.findingsDir || !source.workspaceDir) throw new Error('--findings needs a Codicora workspace (codicora.yaml)');
-        const written = await writeFindingsRun(source.findingsDir, source.workspaceDir, source.book, findings, { guide: guide.id, startedAt });
+        const written = await writeFindingsRun(source.findingsDir, source.workspaceDir, source.book, findings, { guide: guide.id, startedAt, stages: [
+          { name: 'patterns', status: 'ok' },
+          contextual ? { name: 'contextual', status: contextual.status, failures: contextual.failures.map((f) => ({ node_id: `${f.chapter}/${f.scene}`, reason: f.reason })) } : { name: 'contextual', status: 'skipped' }] });
         process.stderr.write(`findings/amendeor/runs/${written.runId}: ${written.count} finding(s)\n`);
       }
       print({ command: 'check', guide: guide.id, version: guide.version, count: findings.length, findings,
@@ -103,7 +105,7 @@ async function main(): Promise<void> {
     }
     const release = await acquireLock(source.stateDir);
     try {
-      const result = await underDelegation(source, args.delegation, `edit --mode ${args.mode}`, () => editMechanical(source, loadedConfig, pack, { noCache: args.noCache, runId: args.resume, mode: args.mode }));
+      const result = await underDelegation(source, args.delegation, `edit --mode ${args.mode}`, () => editMechanical(source, loadedConfig, pack, { noCache: args.noCache, runId: args.resume, mode: args.mode, acceptAs: () => authorizeAcceptance(source.workspaceDir, cliActor(process.env, Boolean(args.delegation)), args.delegation) }));
       print({ command: 'edit', mode: args.mode, run_id: result.run_id, proposals: result.proposals.length, summary: result.run.summary, stages: result.run.stages, message: loadedConfig.config.profiles.edit ? 'rules + model' : 'rules only' }, args.json);
     } finally { await release(); }
     return;
@@ -138,12 +140,8 @@ async function main(): Promise<void> {
         const chosen = selected.filter((proposal) => !skipped.includes(proposal));
         // --delegation: принимает агент от имени автора (DELEGATION.md); человек за терминалом — без него.
         // Агент в оболочке без --delegation — не автор: принять правки он не может (DELEGATION.md §1).
-        const actor = cliActor(process.env, Boolean(args.delegation));
-        if (actor !== 'human:cli' && !args.delegation) throw new Error(`not-delegated: this terminal is an agent's (${actor}); accepting copy edits is the author's decision — they run amendeor accept themselves, or grant a delegation that allows amendeor.accept and you pass --delegation <id>`);
-        if (args.delegation && !source.workspaceDir) throw new Error('not-delegated: a delegation lives in a Codicora workspace; this target has none');
-        const grant = args.delegation ? await requireDelegation(source.workspaceDir!, args.delegation, 'amendeor.accept') : null;
-        const accepted = await acceptProposals(source.editedDir, chosen, { allowUnverified: args.unverified, ...(grant ? { acceptedBy: actor, provenance: { authority: 'delegated' as const, authorized_by: grant.delegation.granted_by, delegation_id: grant.delegation.id } } : { acceptedBy: 'human:cli' }) });
-        if (grant && chosen.length) await journal(grant.dir, { capability: 'amendeor.accept', performed_by: actor, authorized_by: grant.delegation.granted_by, delegation_id: grant.delegation.id, delegation_hash: delegationHash(grant.delegation), subject: `proposals ${chosen.map((proposal) => proposal.id).join(', ')}` });
+        const auth = await authorizeAcceptance(source.workspaceDir, cliActor(process.env, Boolean(args.delegation)), args.delegation);
+        const accepted = await acceptAuthorized(source.editedDir, chosen, auth, args.unverified);
         const results = await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
         summary = { command: 'accept', accepted: chosen.map((proposal) => proposal.id), results, warnings: skipped.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`) };
         if (results.some((item) => item.status === 'stale' || item.status === 'conflict')) process.exitCode = 2;
@@ -164,20 +162,20 @@ async function underDelegation<T>(source: { workspaceDir?: string }, id: string 
   if (!id && actor === 'human:cli') return run();
   if (!id) {
     // Агент без делегирования: правила работают, ни один платный вызов не уходит.
-    const m: Meter = { remaining: 0, currency: '', spent: 0, refused: `${actor} ran this without --delegation; model passes need a delegation that allows amendeor.edit, or the author running it` };
+    const m: Meter = { spent: 0, refused: `${actor} ran this without --delegation; model passes need a delegation that allows amendeor.edit, or the author running it` };
     try { return await meter.run(m, run); } finally { if (m.blocked) { process.stderr.write(`not-delegated: ${m.refused}\n`); process.exitCode = 2; } }
   }
   if (!source.workspaceDir) throw new Error('not-delegated: a delegation lives in a Codicora workspace; this target has none');
   const grant = await requireDelegation(source.workspaceDir, id, 'amendeor.edit');
   const limits = grant.delegation.limits;
   const m: Meter = typeof limits?.max_spend === 'number' && limits.currency
-    ? { remaining: limits.max_spend - await spentUnder(grant.dir, id, limits.currency), currency: limits.currency, spent: 0 }
-    : { remaining: 0, currency: limits?.currency ?? '', spent: 0, refused: 'the delegation sets no spending limit (limits.max_spend), so it covers no model call' };
+    ? { spent: 0, ctx: { workspaceDir: source.workspaceDir, id, capability: 'amendeor.edit', actor, subject } }
+    : { spent: 0, refused: 'the delegation sets no spending limit (limits.max_spend), so it covers no model call' };
   try {
     return await meter.run(m, run);
   } finally {
     await journal(grant.dir, { capability: 'amendeor.edit', performed_by: actor, authorized_by: grant.delegation.granted_by, delegation_id: id, delegation_hash: delegationHash(grant.delegation), subject,
-      ...(m.spent ? { cost: Math.round(m.spent * 1e6) / 1e6, currency: m.currency } : {}), ...(m.refused ? { outcome: 'refused', reason: m.refused } : {}) });
+      ...(m.spent ? { spent: Math.round(m.spent * 1e6) / 1e6, currency: limits?.currency } : {}), ...(m.refused ? { outcome: 'refused', reason: m.refused } : {}) });
     if (m.refused) { process.stderr.write(`not-delegated: ${m.refused}\n`); process.exitCode = 2; }
   }
 }

@@ -50,7 +50,7 @@ export function toFindings(book: Book, items: Array<GuideFinding & Contextual>, 
 }
 
 /** Прогон целиком во временную папку → rename → latest.json атомарно (FINDINGS.md §5). */
-export async function writeFindingsRun(findingsDir: string, root: string, book: Book, items: Array<GuideFinding & Contextual>, { guide, startedAt, now = new Date() }: { guide: string; startedAt: string; now?: Date }) {
+export async function writeFindingsRun(findingsDir: string, root: string, book: Book, items: Array<GuideFinding & Contextual>, { guide, startedAt, now = new Date(), stages = [{ name: 'check', status: 'ok' }] }: { guide: string; startedAt: string; now?: Date; stages?: Array<{ name: string; status: 'ok' | 'partial' | 'failed' | 'skipped'; failures?: Array<{ node_id: string; reason: string }> }> }) {
   const runId = runIdNow(now);
   const toolDir = path.join(findingsDir, TOOL.name);
   const unique = [...new Map(toFindings(book, items, runId, root).map((f) => [f.id, f])).values()];
@@ -67,7 +67,8 @@ export async function writeFindingsRun(findingsDir: string, root: string, book: 
     schema: 'codicora.run/0.1', run_id: runId, tool: TOOL, started_at: startedAt, finished_at: new Date().toISOString(),
     // Файлы как прочитаны: путь от workspace, хэш нормализованного текста — по нему читатель проверит свежесть.
     inputs: { files: book.chapters.map((c) => ({ path: path.relative(root, c.file), content_hash: sha256(normalizeText(c.text)) })) },
-    config: { guide }, stages: [{ name: 'check', status: 'ok' }], ledger: {},
+    // Стадии как прошли: частичный контекстный проход — partial, а не ok (потребитель отличит неполную проверку).
+    config: { guide }, stages, ledger: {},
     baseline: { previous_run_id: previous.run_id, states },
     counts: { by_kind: unique.length ? { concern: unique.length } : {}, by_severity: unique.length ? { low: unique.length } : {} },
     metadata: {},

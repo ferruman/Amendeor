@@ -41,7 +41,7 @@ test('each repeat of the same error in a scene gets its own proposal and both ap
     const result = await editMechanical(source, loaded, await loadPack('en'), { mode: 'mechanical' });
     const doubled = result.proposals.filter((item) => item.source === 'rule:repetition.doubled-word');
     assert.equal(doubled.length, 2);
-    const accepted = await acceptProposals(source.editedDir, doubled);
+    const accepted = await acceptProposals(source.editedDir, doubled, { acceptedBy: 'human:cli' });
     const built = await buildEdited({ book: source.book, editedDir: source.editedDir, accepted });
     assert.ok(built.every((item) => item.status === 'applied'), JSON.stringify(built));
     assert.equal(await readFile(path.join(source.editedDir, 'chapters/book.md'), 'utf8'), 'He saw the dog.\n\nLater she saw the cat.\n');
@@ -57,8 +57,8 @@ test('auto-accept skips a mechanical proposal that conflicts with the acceptance
     const loaded = await loadConfig({ env: { HOME: dir }, cli: { auto_accept: ['mechanical'] } });
     const first = await editMechanical(source, await loadConfig({ env: { HOME: dir } }), await loadPack('en'), { mode: 'mechanical' });
     const proposal = first.proposals.find((item) => item.source === 'rule:repetition.doubled-word')!;
-    await acceptProposals(source.editedDir, [{ ...proposal, replacement: 'the', fingerprint: { ...proposal.fingerprint, evidence: `sha256:${'0'.repeat(64)}` } }]);
-    const second = await editMechanical(source, loaded, await loadPack('en'), { mode: 'mechanical' });
+    await acceptProposals(source.editedDir, [{ ...proposal, replacement: 'the', fingerprint: { ...proposal.fingerprint, evidence: `sha256:${'0'.repeat(64)}` } }], { acceptedBy: 'human:cli' });
+    const second = await editMechanical(source, loaded, await loadPack('en'), { mode: 'mechanical', acceptAs: async () => ({ acceptedBy: 'human:cli' }) });
     assert.ok((second.run.warnings as string[]).includes(`conflicting-acceptance skipped: ${proposal.id}`));
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
@@ -176,7 +176,7 @@ test('proofread offers a title correction and a comma correction only after inde
     assert.ok(comma, JSON.stringify(result.run.guard));
     assert.equal(comma.impact, 'prose');
     assert.equal(comma.replacement, 'знала, что');
-    const accepted = await acceptProposals(source.editedDir, [title]);
+    const accepted = await acceptProposals(source.editedDir, [title], { acceptedBy: 'human:cli' });
     const built = await buildEdited({ book: source.book, editedDir: source.editedDir, accepted });
     assert.ok(built.some((item) => item.id === title.id && item.status === 'applied'));
     assert.match(await readFile(path.join(source.editedDir, 'manuscript.yaml'), 'utf8'), /title: "?Потерянное письмо"?/);
