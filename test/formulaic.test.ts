@@ -29,3 +29,21 @@ test('clean English and Russian control texts have no formulaic hits', async () 
     assert.deepEqual(scanFormulaicProse(asBook(text, lang), (await loadPack(lang)).pack), []);
   }
 });
+
+test('model vocabulary is a signal only as a cluster in one scene', async () => {
+  const pack = (await loadPack('en')).pack;
+  assert.deepEqual(scanFormulaicProse(asBook('A vibrant street, a pivotal day.', 'en'), pack), []);
+  const hits = scanFormulaicProse(asBook('A vibrant street, a pivotal day, an intricate plan.', 'en'), pack);
+  assert.deepEqual(hits.map((hit) => hit.quote), ['vibrant', 'pivotal', 'intricate']);
+});
+
+test('a book gesture is a signal only when the book repeats it above the threshold', async () => {
+  const pack = (await loadPack('en')).pack;
+  const filler = 'The gate was open and the road ran on past the mill. '.repeat(30);
+  const twice = `${filler}She let it sit. ${filler}He let that sit a second.`;
+  assert.deepEqual(scanFormulaicProse(asBook(twice, 'en'), pack), []);
+  const often = `She let it sit. ${filler}He let that sit. Rao let it sit. After a beat, Hannah nodded. Sam let the silence sit. “Let it sit,” she said.`;
+  const hits = scanFormulaicProse(asBook(often, 'en'), pack);
+  assert.equal(hits.length, 5, JSON.stringify(hits.map((hit) => hit.quote)));
+  assert.ok(hits.every((hit) => hit.id === 'formulaic.pause-beat' && hit.reason.includes('5 times in this book')));
+});

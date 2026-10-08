@@ -2,7 +2,7 @@ import type { LanguagePack } from '../lang/pack.ts';
 import type { Config } from '../config.ts';
 import type { FormulaicHit } from '../patterns/formulaic.ts';
 
-export const copyEditPromptVersion = '1.5.0';
+export const copyEditPromptVersion = '1.6.0';
 export function copyEditPrompt(pack: LanguagePack, editable: string, before: string, after: string, mode: string, config?: Config, retryError?: string, formulaic: FormulaicHit[] = [], title = false): { system: string; prompt: string } {
   const language = pack.language === 'ru' ? 'Write reasons in Russian. Preserve Russian spelling and authorial dialogue register.' : 'Write reasons in English. Preserve English spelling and authorial dialogue register.';
   const system = [
@@ -29,7 +29,7 @@ export function copyEditPrompt(pack: LanguagePack, editable: string, before: str
     formulaic.length ? 'For formulaic signals, propose one minimal local prose-pattern edit or NO_CHANGE. Never invent specificity, erase uncertainty or normalize the author’s voice.' : ''
   ].filter(Boolean).join('\n');
   const prompt = ['READ-ONLY BEFORE:', before, title ? 'EDITABLE CHAPTER TITLE:' : 'EDITABLE TEXT:', editable, 'READ-ONLY AFTER:', after,
-    ...(formulaic.length ? ['FORMULAIC SIGNALS (evidence, not authorship):', formulaic.map((hit) => hit.id + ': ' + JSON.stringify(hit.quote)).join('\n')] : []),
+    ...(formulaic.length ? ['FORMULAIC SIGNALS (evidence, not authorship):', formulaic.map((hit) => hit.id + ': ' + JSON.stringify(hit.quote) + ' (' + hit.reason + ')').join('\n')] : []),
     ...(retryError ? ['PREVIOUS OUTPUT ERROR:', retryError, 'Return valid JSON with exact targets.'] : [])].join('\n\n');
   return { system, prompt };
 }

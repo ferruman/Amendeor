@@ -12,5 +12,22 @@
   { "lang": "ru", "verdict": "flag", "id": "formulaic.importance-puffery", "text": "Этот день знаменует собой поворотный момент для города." },
   { "lang": "ru", "verdict": "keep", "text": "В этот день ворота города впервые закрыли на ночь." },
   { "lang": "ru", "verdict": "flag", "id": "formulaic.filler-frame", "text": "В современном мире ворота по-прежнему закрывают на ночь." },
-  { "lang": "ru", "verdict": "keep", "text": "«В современном мире?» — удивилась она. «А раньше как?»" }
+  { "lang": "ru", "verdict": "keep", "text": "«В современном мире?» — удивилась она. «А раньше как?»" },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.importance-puffery", "text": "The old diner stood as a testament to the town's patience." },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.participle-gloss", "text": "She signed the report, underscoring how far the case had come." },
+  { "lang": "en", "verdict": "keep", "text": "She signed the report and underlined the date twice." },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.copula-dodge", "text": "The back booth served as the office for the investigation." },
+  { "lang": "en", "verdict": "keep", "text": "The back booth was the office now." },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.negative-parallel", "text": "It was not just a file, but a life." },
+  { "lang": "en", "verdict": "keep", "text": "He was not only tired but hungry, as Stevenson might have put it." },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.filler-frame", "text": "It is important to note that the gate was open." },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.chat-leak", "text": "I hope this helps. The gate was open." },
+  { "lang": "en", "verdict": "flag", "id": "formulaic.chat-leak", "text": "[Insert name] opened the gate." },
+  { "lang": "en", "verdict": "keep", "text": "“Let me know if the gate opens,” she said." },
+  { "lang": "ru", "verdict": "flag", "id": "formulaic.importance-puffery", "text": "Этот приговор оставил неизгладимый след в истории посёлка." },
+  { "lang": "ru", "verdict": "flag", "id": "formulaic.participle-gloss", "text": "Она подписала протокол, подчёркивая важность момента." },
+  { "lang": "ru", "verdict": "flag", "id": "formulaic.negative-parallel", "text": "Это была не просто папка, а целая жизнь." },
+  { "lang": "ru", "verdict": "keep", "text": "Он устал не только от дороги, но и от разговоров." },
+  { "lang": "ru", "verdict": "flag", "id": "formulaic.filler-frame", "text": "Важно отметить, что ворота были открыты." },
+  { "lang": "ru", "verdict": "flag", "id": "formulaic.chat-leak", "text": "Надеюсь, это поможет. Ворота были открыты." }
 ]

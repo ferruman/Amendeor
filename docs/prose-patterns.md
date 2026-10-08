@@ -1,6 +1,6 @@
 # Formulaic prose in Amendeor
 
-Catalog version: `0.2.0`. The initial pattern catalog adapts the editing ideas in [No AI Slop](https://github.com/petergyang/no-ai-slop/blob/main/skills/no-ai-slop/SKILL.md) (MIT [license](https://github.com/petergyang/no-ai-slop/blob/main/LICENSE)). Amendeor's implementation and Russian examples are local. A match is evidence of a phrase worth reading. It says nothing about who wrote the text.
+Catalog version: `0.3.0`. The initial pattern catalog adapts the editing ideas in [No AI Slop](https://github.com/petergyang/no-ai-slop/blob/main/skills/no-ai-slop/SKILL.md) (MIT [license](https://github.com/petergyang/no-ai-slop/blob/main/LICENSE)). Amendeor's implementation and Russian examples are local. A match is evidence of a phrase worth reading. It says nothing about who wrote the text.
 
 `amendeor inspect <target> --json` includes `formulaic` hits with a stable pattern id, language, provenance, chapter, scene, raw offsets, exact quote, and reason. Plain output lists the hits. A phrase match alone never becomes a proposal.
 
@@ -9,7 +9,21 @@ Catalog version: `0.2.0`. The initial pattern catalog adapts the editing ideas i
 | `formulaic.throat-clearing` | “Here's the thing” | deferred; common Russian openers need more context | It belongs to a character's speech or carries a real conversational turn |
 | `formulaic.faux-insight` | “What nobody tells you” | «Мало кто говорит о том, что» | A character says it, or the claim has a specific dramatic purpose |
 | `formulaic.importance-puffery` | “marks a pivotal moment” | «знаменует собой поворотный момент» | The line is quoted, ironic, or grounded in a concrete fact |
-| `formulaic.filler-frame` | “At the end of the day” | «В современном мире» | Time or setting is genuinely being contrasted |
+| `formulaic.filler-frame` | “At the end of the day”, “It is important to note” | «В современном мире», «Важно отметить, что» | Time or setting is genuinely being contrasted |
+
+Version 0.3.0 adds the suite rule set [`../../PROSE-TELLS.md`](../../PROSE-TELLS.md) (Wikipedia: Signs of AI writing, and a review of *Furnace Road*):
+
+| Pattern | English seed | Russian seed | Fires when |
+|---|---|---|---|
+| `formulaic.participle-gloss` | “…, underscoring how far” | «…, подчёркивая важность» | always |
+| `formulaic.copula-dodge` | “served as the office” | — | always |
+| `formulaic.negative-parallel` | “not just a file, but a life” | «не просто папка, а жизнь» | always; “not only … but” and «не только … но и» are ordinary syntax and excluded |
+| `formulaic.chat-leak` | “I hope this helps”, `[Insert name]` | «Надеюсь, это поможет» | always |
+| `formulaic.ai-vocabulary` | tapestry, testament, delve, intricate, pivotal… | многогранный, неотъемлемый, уникальный… | ≥ 3 different words in one scene |
+| `formulaic.pause-beat` | “let it sit”, “after a beat” | «помолчал», «повисла тишина» | the book repeats it ≥ 5 times and ≥ 3 per 10k words |
+| `formulaic.the-way-simile` | “the way a man folds a letter” | — | as above |
+
+A book-scoped hit carries the book's count in its reason, and the copy-edit prompt (1.6.0) now passes each signal's reason to the model. Read-only scan, 2026-10-08: `bradshaw-01` 28 the-way-simile + 23 pause-beat and nothing else; `jekyll-and-hyde`, `seymsk` and Stevenson's original (`../pg43.txt`) zero.
 
 The positive and negative examples are executable fixtures in [`test/fixtures/formulaic-examples.json`](../test/fixtures/formulaic-examples.json). The scanner excludes marked dialogue. Clean English and Russian controls produce zero hits. A read-only smoke scan on the current `jekyll-and-hyde` and `seymsk` manuscripts produced zero hits in each; that result tests conservatism on these books, not recall.
 
