@@ -164,7 +164,7 @@ test('building from edited input cannot apply an accepted edit twice', async () 
   const journalBefore = await readFile(path.join(editedDir, 'accepted.jsonl'), 'utf8');
   const inspect = await execFileAsync(process.execPath, ['src/cli.ts', 'inspect', editedDir, '--json'], { cwd: path.resolve('') });
   assert.equal(JSON.parse(inspect.stdout).chapters, 1);
-  const check = await execFileAsync(process.execPath, ['src/cli.ts', 'check', editedDir, '--guide', 'infostyle', '--rules-only', '--json'], { cwd: path.resolve('') });
+  const check = await execFileAsync(process.execPath, ['src/cli.ts', 'check', editedDir, '--guide', 'en-clarity', '--rules-only', '--json'], { cwd: path.resolve('') });
   assert.equal(JSON.parse(check.stdout).command, 'check');
   await assert.rejects(execFileAsync(process.execPath, ['src/cli.ts', 'build', editedDir], { cwd: path.resolve('') }), /edited\/ is a read-only input/);
   assert.equal(await readFile(path.join(editedDir, 'chapters/one.md'), 'utf8'), before);

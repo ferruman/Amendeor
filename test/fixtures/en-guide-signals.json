@@ -1,0 +1,94 @@
+{
+  "fiction.tag-emotion": {
+    "flag": [
+      ["“The roof is gone,” he said in disbelief.", "said in disbelief"],
+      ["“Get out,” he whispered with contempt.", "whispered with contempt"]
+    ],
+    "keep": [
+      "“The roof is gone,” he said.",
+      "She said it with a laugh she did not feel.",
+      "In astonishment, the crowd fell silent."
+    ]
+  },
+  "fiction.ly-tag": {
+    "flag": [
+      ["“Fix the fence,” he said bitterly.", "said bitterly"],
+      ["“The fish aren’t biting,” she said sadly.", "said sadly"]
+    ],
+    "keep": [
+      "“Go to sleep,” he said softly.",
+      "“Sit down, love,” she said gently.",
+      "“Again,” she said quietly.",
+      "“Fine,” said Emily.",
+      "“And then,” he said finally, “we left.”",
+      "He walked sadly to the car."
+    ]
+  },
+  "fiction.impossible-tag": {
+    "flag": [
+      ["“Not tonight,” she smiled.", "she smiled"],
+      ["“Another slice?” Harold chuckled.", "Harold chuckled"],
+      ["\"Not likely,\" he grinned.", "he grinned"]
+    ],
+    "keep": [
+      "“Not tonight.” She smiled.",
+      "“Not tonight,” she said, and smiled.",
+      "She smiled at the dog."
+    ]
+  },
+  "fiction.quoted-thought": {
+    "flag": [
+      ["“I’ll never forgive him,” she thought.", "she thought"]
+    ],
+    "keep": [
+      "“Is it raining?” I wondered aloud.",
+      "Had he meant to kill her? Not likely, he thought.",
+      "She thought of the river."
+    ]
+  },
+  "clarity.empty-verb-noun": {
+    "flag": [
+      ["The detective conducted an investigation of the lock.", "conducted an investigation"],
+      ["At last they came to an agreement about the boat.", "came to an agreement"],
+      ["He was in possession of three passports.", "was in possession of"]
+    ],
+    "keep": [
+      "He searched the room.",
+      "She made a decision and left.",
+      "The band played a song about an agreement."
+    ]
+  },
+  "clarity.inflated-phrase": {
+    "flag": [
+      ["Due to the fact that it was raining, they stayed in.", "Due to the fact that"],
+      ["She waited until such time as the bus came.", "until such time as"]
+    ],
+    "keep": [
+      "Because it was raining, they stayed in.",
+      "It was a fact that nobody liked."
+    ]
+  },
+  "clarity.redundant-pair": {
+    "flag": [
+      ["The radio blared loudly in the kitchen.", "blared loudly"],
+      ["Each and every window was dark.", "Each and every"],
+      ["He clenched his teeth tightly and waited.", "clenched his teeth tightly"]
+    ],
+    "keep": [
+      "The radio blared in the kitchen.",
+      "She stumbled on the stairs.",
+      "Each window was dark, and every door was shut."
+    ]
+  },
+  "prose.dead-metaphor": {
+    "flag": [
+      ["The village was nestled in the hills.", "nestled in the hills"],
+      ["They left no stone unturned.", "left no stone unturned"]
+    ],
+    "keep": [
+      "The village sat in a fold of the hills.",
+      "He turned every stone in the creek bed, looking for crayfish.",
+      "At the end of the day they went home."
+    ]
+  }
+}

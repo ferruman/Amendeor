@@ -15,12 +15,13 @@ import { editMechanical } from './edit/mechanical.ts';
 import { diffRuns } from './diff.ts';
 import { sha256, normalizeText } from './hash.ts';
 import { writeFindingsRun } from './checks/findings.ts';
-import { checkGuide, type Guide } from './checks/guide.ts';
+import { checkGuide, dedupeFindings, type Guide } from './checks/guide.ts';
 import { noraGal } from './checks/nora-gal.ts';
 import { infostyle } from './checks/infostyle.ts';
+import { englishGuides } from './checks/en-guides.ts';
 import { checkGuideContextual } from './checks/guide-context.ts';
 
-const guides: Record<string, Guide> = { 'nora-gal': noraGal, infostyle };
+const guides: Record<string, Guide> = { 'nora-gal': noraGal, infostyle, ...Object.fromEntries(englishGuides.map((guide) => [guide.id, guide])) };
 
 type Args = { command: string; target: string; values: string[]; lang?: string; out?: string; json: boolean; impact?: string; unverified: boolean; mode: string; run?: string; noCache: boolean; resume?: string; guide?: string; rulesOnly: boolean; delegation?: string; findings: boolean };
 function parseArgs(argv: string[]): Args {
@@ -81,9 +82,10 @@ async function main(): Promise<void> {
     if (args.command === 'check') {
       const startedAt = new Date().toISOString();
       const guide = guides[args.guide!]!;
+      if (pack.pack.language !== guide.language) throw new Error(`${guide.id} checks ${guide.language} manuscripts; this book is ${pack.pack.language}`);
       const patterns = checkGuide(guide, source.book, pack.pack);
       const contextual = args.rulesOnly ? undefined : await underDelegation(source, args.delegation, `check --guide ${guide.id}`, () => checkGuideContextual(guide, source.book, pack.pack, loadedConfig, source.stateDir, args.noCache));
-      const findings = [...patterns, ...(contextual?.findings ?? [])];
+      const findings = dedupeFindings([...patterns, ...(contextual?.findings ?? [])]);
       if (args.findings) {
         if (!source.findingsDir || !source.workspaceDir) throw new Error('--findings needs a Codicora workspace (codicora.yaml)');
         const written = await writeFindingsRun(source.findingsDir, source.workspaceDir, source.book, findings, { guide: guide.id, startedAt, stages: [

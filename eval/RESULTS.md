@@ -22,3 +22,24 @@ The [real-book chapter review](REAL_BOOK_REVIEW.md) found zero offered proposals
 ## Exploratory Russian proofreading pass — 2026-09-25
 
 One uncached `proofread` run on the nine seeded Kashtanka mutations found the agreement, typo, and missing-comma examples (1/1 each). The clean control chapter received zero proposals. Two proposals outside the seeded errors remained, including a possible modernization of the historical form «румяны»; they still require author review. This is one run, not a repeatability or precision estimate. The [run record](results/2026-09-25-kashtanka-ru-proofread-first-pass.md) and [raw proposals and guard decisions](results/2026-09-25-kashtanka-ru-proofread-first-pass.json) preserve the result. The recorded cost was $0.0874.
+
+## English editorial guides — 2026-10-09
+
+Fixture: [`fixtures/en-guides`](fixtures/en-guides/) — 13 scenes with 26 labeled defects and 10 scenes of legitimate choices (fragments, dialect, free indirect discourse, passive for state, anaphora, omniscience, a periodic sentence, polysyndeton, an unreliable narrator, present tense), original text written for this purpose by the author of the catalogs. Runner: `node --env-file=.env eval/en-guides.ts [--model]`. A finding is **TP** when its principle matches the label and it overlaps the labeled fragment; **near** when it overlaps a labeled defect under another principle (usually another guide's); **unlabeled** when it lands elsewhere in a defect scene; anything in a keep scene is a false positive.
+
+| Run | Guides | Findings | TP | Near | FP on keep scenes | Unlabeled | Recall | Cost |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Signals only](results/2026-10-09-en-guides-signals.md) | 3 | 10 | 10 | 0 | 0 | 0 | 38% | $0 |
+| [Model](results/2026-10-09-en-guides-model.md) | 3 (after merge) | 41 | 17 | 19 | 0 | 5 | 65% | $0.60 |
+| Model, before the merge | 4 | 52 | 19 | 23 | 1 | 9 | 73% | $0.70 |
+
+Editor `openai/gpt-5.1`, verifier `anthropic/claude-sonnet-5` × 3 passes; about 300k tokens in per full pass of the three guides over 23 short scenes. The baseline without the new guides — the formulaic catalog — fired on none of the 26 defects and none of the keep scenes. Three earlier model runs with four guides gave 69–73% recall with 0–1 findings on keep scenes.
+
+What the numbers say:
+
+- **No findings on the ten keep scenes** after the merge. The one false positive of the last four-guide run (deliberate polysyndeton read as monotonous rhythm) did not recur; polysyndeton and anaphora are now named as intended effects in the rhythm rule.
+- **The merge of the narrative-craft guide into `en-fiction-editing` and `en-prose-style`** cut findings by a fifth and cost by 15%, raised the lower bound of precision from 37% to 41%, and lost recall from 73% to 65%: the scene-level principles it brought (narrator explaining, unmotivated change, frigidity) were missed in this run.
+- **Most non-TP findings are still real defects filed under another guide's principle** (a dangling modifier as a static verb, clutter as abstract wording). Precision against labels is 41–100% depending on how "near" and "unlabeled" are counted; running all three guides on one book can duplicate findings across them.
+- **Stable misses**: clichéd beats (`fiction.beat-overuse`), threefold repetition of one feeling (`fiction.repeated-effect`), a pronoun with two antecedents (`clarity.ambiguous-reference`), a mixed metaphor, filtering, an unmotivated change of tone, a trivializing simile at a deathbed.
+
+These figures show that the mechanism works and how conservative it is on a sample written to test it. They are not a measurement of editorial value on real manuscripts.

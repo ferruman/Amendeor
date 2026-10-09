@@ -33,7 +33,7 @@ export function toFindings(book: Book, items: Array<GuideFinding & Contextual>, 
       tool: TOOL,
       category,
       kind: 'concern',
-      severity: 'low',
+      severity: item.severity ?? 'low',
       confidence: item.kind === 'contextual' ? item.confidence ?? 0.7 : 1,
       scope: 'scene',
       location: {
@@ -70,7 +70,7 @@ export async function writeFindingsRun(findingsDir: string, root: string, book: 
     // Стадии как прошли: частичный контекстный проход — partial, а не ok (потребитель отличит неполную проверку).
     config: { guide }, stages, ledger: {},
     baseline: { previous_run_id: previous.run_id, states },
-    counts: { by_kind: unique.length ? { concern: unique.length } : {}, by_severity: unique.length ? { low: unique.length } : {} },
+    counts: { by_kind: unique.length ? { concern: unique.length } : {}, by_severity: unique.reduce<Record<string, number>>((counts, f) => ({ ...counts, [f.severity]: (counts[f.severity] ?? 0) + 1 }), {}) },
     metadata: {},
   };
   const tmp = path.join(toolDir, 'runs', `.tmp-${runId}`);

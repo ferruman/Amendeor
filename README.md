@@ -86,6 +86,8 @@ With `--findings` (in a Codicora workspace), `check` also writes its results to 
 
 `check --guide infostyle` works the same way with a narrow, prose-safe selection from Ilyakhov and Sarycheva's «Пиши, сокращай»: office phrases, hidden actions, time parasites, inflated words and euphemisms in the narrator's own voice. The book is written for business text, so evaluations, intensifiers, vagueness and fragments are deliberately left out, and findings inside dialogue are dropped; see [the catalog](docs/infostyle-principles.md).
 
+For English fiction, three guides work the same way: `en-fiction-editing` (dialogue, attribution, exposition, point of view and distance, scene logic, sentimentality), `en-clarity` (the narrator's sentences only) and `en-prose-style` (diction, figures, rhythm, register, immersion). Every principle carries its legitimate exceptions, and the prompts forbid treating fragments, repetition, passive voice, dialect, free indirect discourse and other deliberate choices as defects. A guide on a book in another language stops with an error. See [the overview](docs/en-guides.md).
+
 ## Evaluation
 
 The public-domain English and Russian fixtures and reproducible mutation seeds live under `eval/fixtures/`. Reproduce the mechanical baseline and the deterministic semantic traps with:

@@ -1,0 +1,173 @@
+{
+  "note": "Ground truth for eval/en-guides.ts. Each defect names the guide, principle and a fragment the finding must overlap. Scenes whose id starts with k are legitimate stylistic choices: any finding there is a false positive. Passages are original text written for this fixture.",
+  "defects": [
+    {
+      "scene": "d01-tags",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.ly-attribution",
+      "fragment": "said angrily"
+    },
+    {
+      "scene": "d01-tags",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.explained-emotion",
+      "fragment": "said in disbelief"
+    },
+    {
+      "scene": "d01-tags",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.said-bookism",
+      "fragment": "he grimaced"
+    },
+    {
+      "scene": "d02-pov",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.pov-slip",
+      "fragment": "thought about the man she had left in Lyon"
+    },
+    {
+      "scene": "d03-exposition",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.expository-dialogue",
+      "fragment": "As you know, Ellen"
+    },
+    {
+      "scene": "d04-beats",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.beat-overuse",
+      "fragment": "looked out the window"
+    },
+    {
+      "scene": "d05-repetition",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.repeated-effect",
+      "fragment": "she felt more alone than she had ever felt in her life"
+    },
+    {
+      "scene": "d06-modifiers",
+      "guide": "en-clarity",
+      "principle": "clarity.dangling-modifier",
+      "fragment": "Exhausted from the climb and soaked through, the cabin"
+    },
+    {
+      "scene": "d06-modifiers",
+      "guide": "en-clarity",
+      "principle": "clarity.ambiguous-reference",
+      "fragment": "his compass had been wrong all day, and he would"
+    },
+    {
+      "scene": "d07-clutter",
+      "guide": "en-clarity",
+      "principle": "clarity.inflated-phrase",
+      "fragment": "Due to the fact that"
+    },
+    {
+      "scene": "d07-clutter",
+      "guide": "en-clarity",
+      "principle": "clarity.hidden-action",
+      "fragment": "conducted an investigation"
+    },
+    {
+      "scene": "d07-clutter",
+      "guide": "en-clarity",
+      "principle": "clarity.redundancy",
+      "fragment": "Each and every"
+    },
+    {
+      "scene": "d07-clutter",
+      "guide": "en-clarity",
+      "principle": "clarity.redundancy",
+      "fragment": "blared loudly"
+    },
+    {
+      "scene": "d07-clutter",
+      "guide": "en-clarity",
+      "principle": "clarity.redundancy",
+      "fragment": "true facts"
+    },
+    {
+      "scene": "d08-tense",
+      "guide": "en-clarity",
+      "principle": "clarity.tense-shift",
+      "fragment": "The lights are already on when we reach the gate"
+    },
+    {
+      "scene": "d09-diction",
+      "guide": "en-prose-style",
+      "principle": "prose.stock-diction",
+      "fragment": "nestled in the hills"
+    },
+    {
+      "scene": "d09-diction",
+      "guide": "en-prose-style",
+      "principle": "prose.stock-diction",
+      "fragment": "time stood still"
+    },
+    {
+      "scene": "d09-diction",
+      "guide": "en-prose-style",
+      "principle": "prose.adjective-pileup",
+      "fragment": "ancient, crooked, weathered, moss-covered"
+    },
+    {
+      "scene": "d09-diction",
+      "guide": "en-prose-style",
+      "principle": "prose.mixed-metaphor",
+      "fragment": "like a tidal wave that finally took root"
+    },
+    {
+      "scene": "d10-register",
+      "guide": "en-prose-style",
+      "principle": "prose.elegant-variation",
+      "fragment": "The missive was short"
+    },
+    {
+      "scene": "d10-register",
+      "guide": "en-prose-style",
+      "principle": "prose.register-slip",
+      "fragment": "ascertained that her husband had relocated to an alternative residence"
+    },
+    {
+      "scene": "d11-distance",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.psychic-distance-jump",
+      "fragment": "God, his feet hurt"
+    },
+    {
+      "scene": "d11-distance",
+      "guide": "en-prose-style",
+      "principle": "prose.filtering",
+      "fragment": "he noticed that the clock"
+    },
+    {
+      "scene": "d12-motivation",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.unmotivated-shift",
+      "fragment": "Sit down, love,” she said gently"
+    },
+    {
+      "scene": "d12-motivation",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.narrator-explains",
+      "fragment": "a mother’s love is stronger than any argument"
+    },
+    {
+      "scene": "d13-frigidity",
+      "guide": "en-fiction-editing",
+      "principle": "fiction.frigidity",
+      "fragment": "like a kettle someone had forgotten on the stove"
+    }
+  ],
+  "keep": {
+    "k01-fragments": "Sentence fragments in a tense first-person voice.",
+    "k02-dialect": "Dialect and nonstandard grammar in dialogue, without trick spellings.",
+    "k03-indirect": "Free indirect discourse with hedges and the character's idiom.",
+    "k04-passive": "Passive voice for states and for the girl's passivity.",
+    "k05-repetition": "Deliberate anaphora carrying the rhythm.",
+    "k06-omniscient": "Established omniscient narration moving between heads at a steady distance.",
+    "k07-periodic": "A long periodic sentence that delays its main clause on purpose.",
+    "k08-spare": "Spare prose with polysyndeton.",
+    "k09-unreliable": "An unreliable first-person narrator; the evasions are the point.",
+    "k10-present": "Consistent present tense."
+  }
+}

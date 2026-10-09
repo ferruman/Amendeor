@@ -7,7 +7,7 @@ export const noraGalGuideSource = 'docs/nora-gal-principles.md';
 export type NoraGalFinding = GuideFinding;
 
 export const noraGal: Guide = {
-  id: 'nora-gal', name: 'Nora Gal', version: noraGalGuideVersion, contextVersion: '0.2.0', source: noraGalGuideSource,
+  id: 'nora-gal', language: 'ru', name: 'Nora Gal', version: noraGalGuideVersion, contextVersion: '0.2.0', source: noraGalGuideSource,
   prefix: 'gal', minPrinciples: 25, byline: 'принципам Норы Галь', narrationOnly: false,
   signals: [
     {

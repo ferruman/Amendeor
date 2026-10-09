@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added English editorial guides `en-fiction-editing`, `en-clarity` and `en-prose-style`: principle catalogs in our own words (64 principles with keep-when exceptions and severity); eight narrow narration signals; English scan and verify prompts with the preservation rules; findings carry the principle's severity. Guides now declare their language and refuse a book in another one (the Russian guides used to return nothing on an English book). Overlapping findings for the same principle are deduplicated. Evaluation fixture and runner in `eval/en-guides.ts`.
 - Formulaic catalog 0.3.0 from the suite's `PROSE-TELLS.md`: participle glosses, copula dodges, narrow negative parallels, chat leaks, clustered model vocabulary, and book-level gestures (pause beats, “the way a…” similes) that fire only above a per-book rate. Signal reasons now reach the copy-edit prompt (1.6.0).
 - Added Codicora workspace and standalone manuscript readers, proposal contracts, acceptance history, edited-copy builds, and CLI reports.
 - Added English and Russian deterministic proofreading, book-relative metrics, language packs, configuration layers, cache, and rule-only editing.

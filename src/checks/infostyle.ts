@@ -2,7 +2,7 @@ import type { Guide } from './guide.ts';
 
 // Узкий отбор из «Пиши, сокращай» для речи рассказчика; почему не взято остальное — в каталоге.
 export const infostyle: Guide = {
-  id: 'infostyle', name: 'Infostyle', version: '0.1.0', contextVersion: '0.1.0', source: 'docs/infostyle-principles.md',
+  id: 'infostyle', language: 'ru', name: 'Infostyle', version: '0.1.0', contextVersion: '0.1.0', source: 'docs/infostyle-principles.md',
   prefix: 'info', minPrinciples: 10, byline: 'принципам книги «Пиши, сокращай», отобранным для прозы', narrationOnly: true,
   signals: [
     {

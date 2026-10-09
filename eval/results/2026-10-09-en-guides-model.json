@@ -1,0 +1,1028 @@
+{
+  "date": "2026-10-09",
+  "fixture": "eval/fixtures/en-guides",
+  "defects": 26,
+  "keep_scenes": 10,
+  "baseline_without_guides": {
+    "formulaic_hits": 0,
+    "defects_touched": 0,
+    "fp_on_keep": 0,
+    "hits": []
+  },
+  "guides": {
+    "en-fiction-editing": {
+      "signals": {
+        "findings": 3,
+        "tp": 3,
+        "near": 0,
+        "fp_on_keep": 0,
+        "unlabeled": 0,
+        "precision_lower": 1,
+        "precision_upper": 1,
+        "recall": 0.2727272727272727,
+        "missed": [
+          "d02-pov fiction.pov-slip",
+          "d03-exposition fiction.expository-dialogue",
+          "d04-beats fiction.beat-overuse",
+          "d05-repetition fiction.repeated-effect",
+          "d11-distance fiction.psychic-distance-jump",
+          "d12-motivation fiction.unmotivated-shift",
+          "d12-motivation fiction.narrator-explains",
+          "d13-frigidity fiction.frigidity"
+        ],
+        "hits": [
+          {
+            "guide": "en-fiction-editing",
+            "source": "signal",
+            "principle": "fiction.ly-attribution",
+            "scene": "d01-tags",
+            "quote": "said angrily",
+            "verdict": "tp"
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "signal",
+            "principle": "fiction.explained-emotion",
+            "scene": "d01-tags",
+            "quote": "said in disbelief",
+            "verdict": "tp"
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "signal",
+            "principle": "fiction.said-bookism",
+            "scene": "d01-tags",
+            "quote": "he grimaced",
+            "verdict": "tp"
+          }
+        ]
+      },
+      "contextual": {
+        "status": "ok",
+        "windows": 23,
+        "calls": 56,
+        "failures": [],
+        "discarded": 3,
+        "cost_usd": 0.2011,
+        "findings": 11,
+        "tp": 5,
+        "near": 5,
+        "fp_on_keep": 0,
+        "unlabeled": 1,
+        "precision_lower": 0.45454545454545453,
+        "precision_upper": 1,
+        "recall": 0.45454545454545453,
+        "missed": [
+          "d01-tags fiction.explained-emotion",
+          "d04-beats fiction.beat-overuse",
+          "d05-repetition fiction.repeated-effect",
+          "d12-motivation fiction.unmotivated-shift",
+          "d12-motivation fiction.narrator-explains",
+          "d13-frigidity fiction.frigidity"
+        ],
+        "hits": [
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.ly-attribution",
+            "scene": "d01-tags",
+            "quote": "“They’re selling the farm,” he said angrily.",
+            "verdict": "tp",
+            "reason": "The adverb \"angrily\" supplies the emotion that is already clear from the content of the line and the physical behavior that follows; it does not describe the manner of speaking itself, so it weakens the moment instead of adding to it."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.said-bookism",
+            "scene": "d01-tags",
+            "quote": "“I’m serious,” he grimaced.",
+            "verdict": "tp",
+            "reason": "\"Grimaced\" is used as a speech tag for a full spoken sentence, but a grimace is not a way of speaking. This draws attention to the mechanics of tagging instead of presenting the speech, and the action is not separated out as its own beat."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.pov-slip",
+            "scene": "d02-pov",
+            "quote": "Dana smiled at him and thought about the man she had left in Lyon, and how she would never be able to tell Tom any of it, and how strange it felt to be lied to by her own face. She hated herself a little for how easy it was.",
+            "verdict": "tp",
+            "reason": "The first sentence stays in Tom’s external viewpoint, then the narration reports Dana’s private thoughts and self-judgment (“thought about the man… she would never be able to tell Tom… She hated herself”) that Tom cannot access. With no prior signal of omniscient narration or a shift in viewpoint, this reads as an unmotivated move out of Tom’s point of view."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.expository-dialogue",
+            "scene": "d03-exposition",
+            "quote": "“As you know, Ellen, our father died ten years ago and left the mill to the two of us, and since then you have run the accounts while I have run the floor, which is why I am the one who has to tell you that the bank called this morning.”",
+            "verdict": "tp",
+            "reason": "Martin recites shared history (their father’s death, inheritance, division of labor) prefaced by “As you know,” which both characters already know and would not naturally restate in this exhaustive form just to lead into the news about the bank. The line exists to brief the reader rather than as plausible speech."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.repeated-effect",
+            "scene": "d05-repetition",
+            "quote": "Agnes was lonely. She was lonely in a way she had never been on the farm.",
+            "verdict": "unlabeled",
+            "reason": "Two consecutive sentences state that Agnes is lonely without adding a new shade of meaning; the later clause “in a way she had never been on the farm” could be folded into one stronger statement instead of repeating the core fact."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.explained-emotion",
+            "scene": "d05-repetition",
+            "quote": "and every evening she sat by the window and watched the trams, and she felt more alone than she had ever felt in her life.",
+            "verdict": "near",
+            "reason": "The concrete image of her sitting by the window every evening watching the trams already conveys isolation; restating it as “she felt more alone than she had ever felt in her life” explains the emotion rather than adding a distinct nuance."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.event-order",
+            "scene": "d06-modifiers",
+            "quote": "Exhausted from the climb and soaked through, the cabin was a welcome sight.",
+            "verdict": "near",
+            "reason": "The opening modifier grammatically attaches \"Exhausted\" and \"soaked through\" to \"the cabin\" instead of to Harris and Owen, so the sentence first asks the reader to picture an exhausted cabin, then to correct that reading."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.event-order",
+            "scene": "d08-tense",
+            "quote": "On the first night we walked down the hill after supper. The lights are already on when we reach the gate, and my brother takes my hand. We paid at the booth and the man stamped our wrists.",
+            "verdict": "near",
+            "reason": "The sequence shifts between past and present without a clear purpose or consistent pattern: \"we walked\" / \"are\" / \"reach\" / \"takes\" / \"paid\" / \"stamped\". This forces the reader to stop and reconstruct when events happen, without an intentional disorientation effect or established stylistic reason in this brief passage."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.exposition-dump",
+            "scene": "d10-register",
+            "quote": "The missive was short. She carried the epistle to the window and read the correspondence twice. Then she ascertained that her husband had relocated to an alternative residence",
+            "verdict": "near",
+            "reason": "The string of elevated near-synonyms for ‘letter’ and the abstract phrasing of the husband’s departure offer exposition about a simple action instead of letting the concrete moment play; this narrator has not otherwise been framed as a formal or comic voice, so the circumlocution reads as explanation rather than motivated style."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.psychic-distance-jump",
+            "scene": "d11-distance",
+            "quote": "On a Tuesday morning a tall man stepped off the Bristol coach. God, his feet hurt, these damned boots, he would burn them the minute he got a room.",
+            "verdict": "tp",
+            "reason": "The paragraph opens in a distant, reportorial mode (“a tall man stepped off the Bristol coach”) and in the very next sentence drops into the man’s unmarked interior monologue (“God, his feet hurt…”). With no typographic cue or transitional phrasing, this sharp shift from external narration to the stranger’s direct thoughts can momentarily disorient the reader about whether the narrator is omniscient or the viewpoint has just moved inside this man."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.explained-emotion",
+            "scene": "d12-motivation",
+            "quote": "Ruth’s mother had always been a woman who loved her children more than she could say, and this was her way of showing that love: in that moment the whole long history of their quarrel was forgiven, because a mother’s love is stronger than any argument.",
+            "verdict": "near",
+            "reason": "The narration explains the mother’s love and the total forgiveness, and states the moral (“a mother’s love is stronger than any argument”) instead of letting the action of setting down the cup, using an endearment, taking Ruth’s hands and offering soup carry that meaning. It restates and generalizes what the scene has already shown, in the narrator’s voice, without adding a new emotional note."
+          }
+        ]
+      },
+      "combined": {
+        "findings": 12,
+        "tp": 6,
+        "near": 5,
+        "fp_on_keep": 0,
+        "unlabeled": 1,
+        "precision_lower": 0.5,
+        "precision_upper": 1,
+        "recall": 0.5454545454545454,
+        "missed": [
+          "d04-beats fiction.beat-overuse",
+          "d05-repetition fiction.repeated-effect",
+          "d12-motivation fiction.unmotivated-shift",
+          "d12-motivation fiction.narrator-explains",
+          "d13-frigidity fiction.frigidity"
+        ],
+        "hits": [
+          {
+            "guide": "en-fiction-editing",
+            "source": "signal",
+            "principle": "fiction.ly-attribution",
+            "scene": "d01-tags",
+            "quote": "said angrily",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "signal",
+            "principle": "fiction.explained-emotion",
+            "scene": "d01-tags",
+            "quote": "said in disbelief",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "signal",
+            "principle": "fiction.said-bookism",
+            "scene": "d01-tags",
+            "quote": "he grimaced",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.pov-slip",
+            "scene": "d02-pov",
+            "quote": "Dana smiled at him and thought about the man she had left in Lyon, and how she would never be able to tell Tom any of it, and how strange it felt to be lied to by her own face. She hated herself a little for how easy it was.",
+            "verdict": "tp",
+            "reason": "The first sentence stays in Tom’s external viewpoint, then the narration reports Dana’s private thoughts and self-judgment (“thought about the man… she would never be able to tell Tom… She hated herself”) that Tom cannot access. With no prior signal of omniscient narration or a shift in viewpoint, this reads as an unmotivated move out of Tom’s point of view."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.expository-dialogue",
+            "scene": "d03-exposition",
+            "quote": "“As you know, Ellen, our father died ten years ago and left the mill to the two of us, and since then you have run the accounts while I have run the floor, which is why I am the one who has to tell you that the bank called this morning.”",
+            "verdict": "tp",
+            "reason": "Martin recites shared history (their father’s death, inheritance, division of labor) prefaced by “As you know,” which both characters already know and would not naturally restate in this exhaustive form just to lead into the news about the bank. The line exists to brief the reader rather than as plausible speech."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.repeated-effect",
+            "scene": "d05-repetition",
+            "quote": "Agnes was lonely. She was lonely in a way she had never been on the farm.",
+            "verdict": "unlabeled",
+            "reason": "Two consecutive sentences state that Agnes is lonely without adding a new shade of meaning; the later clause “in a way she had never been on the farm” could be folded into one stronger statement instead of repeating the core fact."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.explained-emotion",
+            "scene": "d05-repetition",
+            "quote": "and every evening she sat by the window and watched the trams, and she felt more alone than she had ever felt in her life.",
+            "verdict": "near",
+            "reason": "The concrete image of her sitting by the window every evening watching the trams already conveys isolation; restating it as “she felt more alone than she had ever felt in her life” explains the emotion rather than adding a distinct nuance."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.event-order",
+            "scene": "d06-modifiers",
+            "quote": "Exhausted from the climb and soaked through, the cabin was a welcome sight.",
+            "verdict": "near",
+            "reason": "The opening modifier grammatically attaches \"Exhausted\" and \"soaked through\" to \"the cabin\" instead of to Harris and Owen, so the sentence first asks the reader to picture an exhausted cabin, then to correct that reading."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.event-order",
+            "scene": "d08-tense",
+            "quote": "On the first night we walked down the hill after supper. The lights are already on when we reach the gate, and my brother takes my hand. We paid at the booth and the man stamped our wrists.",
+            "verdict": "near",
+            "reason": "The sequence shifts between past and present without a clear purpose or consistent pattern: \"we walked\" / \"are\" / \"reach\" / \"takes\" / \"paid\" / \"stamped\". This forces the reader to stop and reconstruct when events happen, without an intentional disorientation effect or established stylistic reason in this brief passage."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.exposition-dump",
+            "scene": "d10-register",
+            "quote": "The missive was short. She carried the epistle to the window and read the correspondence twice. Then she ascertained that her husband had relocated to an alternative residence",
+            "verdict": "near",
+            "reason": "The string of elevated near-synonyms for ‘letter’ and the abstract phrasing of the husband’s departure offer exposition about a simple action instead of letting the concrete moment play; this narrator has not otherwise been framed as a formal or comic voice, so the circumlocution reads as explanation rather than motivated style."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.psychic-distance-jump",
+            "scene": "d11-distance",
+            "quote": "On a Tuesday morning a tall man stepped off the Bristol coach. God, his feet hurt, these damned boots, he would burn them the minute he got a room.",
+            "verdict": "tp",
+            "reason": "The paragraph opens in a distant, reportorial mode (“a tall man stepped off the Bristol coach”) and in the very next sentence drops into the man’s unmarked interior monologue (“God, his feet hurt…”). With no typographic cue or transitional phrasing, this sharp shift from external narration to the stranger’s direct thoughts can momentarily disorient the reader about whether the narrator is omniscient or the viewpoint has just moved inside this man."
+          },
+          {
+            "guide": "en-fiction-editing",
+            "source": "contextual",
+            "principle": "fiction.explained-emotion",
+            "scene": "d12-motivation",
+            "quote": "Ruth’s mother had always been a woman who loved her children more than she could say, and this was her way of showing that love: in that moment the whole long history of their quarrel was forgiven, because a mother’s love is stronger than any argument.",
+            "verdict": "near",
+            "reason": "The narration explains the mother’s love and the total forgiveness, and states the moral (“a mother’s love is stronger than any argument”) instead of letting the action of setting down the cup, using an endearment, taking Ruth’s hands and offering soup carry that meaning. It restates and generalizes what the scene has already shown, in the narrator’s voice, without adding a new emotional note."
+          }
+        ]
+      }
+    },
+    "en-clarity": {
+      "signals": {
+        "findings": 5,
+        "tp": 5,
+        "near": 0,
+        "fp_on_keep": 0,
+        "unlabeled": 0,
+        "precision_lower": 1,
+        "precision_upper": 1,
+        "recall": 0.625,
+        "missed": [
+          "d06-modifiers clarity.dangling-modifier",
+          "d06-modifiers clarity.ambiguous-reference",
+          "d08-tense clarity.tense-shift"
+        ],
+        "hits": [
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.inflated-phrase",
+            "scene": "d07-clutter",
+            "quote": "Due to the fact that",
+            "verdict": "tp"
+          },
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.hidden-action",
+            "scene": "d07-clutter",
+            "quote": "conducted an investigation",
+            "verdict": "tp"
+          },
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.redundancy",
+            "scene": "d07-clutter",
+            "quote": "Each and every",
+            "verdict": "tp"
+          },
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.redundancy",
+            "scene": "d07-clutter",
+            "quote": "blared loudly",
+            "verdict": "tp"
+          },
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.redundancy",
+            "scene": "d07-clutter",
+            "quote": "true facts",
+            "verdict": "tp"
+          }
+        ]
+      },
+      "contextual": {
+        "status": "ok",
+        "windows": 23,
+        "calls": 50,
+        "failures": [],
+        "discarded": 2,
+        "cost_usd": 0.1414,
+        "findings": 12,
+        "tp": 7,
+        "near": 4,
+        "fp_on_keep": 0,
+        "unlabeled": 1,
+        "precision_lower": 0.5833333333333334,
+        "precision_upper": 1,
+        "recall": 0.875,
+        "missed": [
+          "d06-modifiers clarity.ambiguous-reference"
+        ],
+        "hits": [
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.dangling-modifier",
+            "scene": "d06-modifiers",
+            "quote": "Exhausted from the climb and soaked through, the cabin was a welcome sight.",
+            "verdict": "tp",
+            "reason": "The opening participial phrase \"Exhausted from the climb and soaked through\" grammatically modifies \"the cabin,\" so the sentence says the cabin is exhausted and soaked rather than the climbers. The narrator, not a character, is speaking, and this is not an intentional joke or absolute construction, so the mismatch reads as an error."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.inflated-phrase",
+            "scene": "d07-clutter",
+            "quote": "Due to the fact that the river had risen in the night",
+            "verdict": "tp",
+            "reason": "\"Due to the fact that\" is an inflated phrase standing where a single conjunction like \"because\" would express the causal link more plainly, and the narration is not marked as officialese or a character's voice."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.hidden-action",
+            "scene": "d07-clutter",
+            "quote": "the sheriff conducted an investigation of the damage",
+            "verdict": "tp",
+            "reason": "The core action (the sheriff investigating the damage) is buried in the noun \"investigation\" after the empty verb \"conducted,\" so the sentence's main verb does little work and the narration gains no needed formality from this phrasing."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.redundancy",
+            "scene": "d07-clutter",
+            "quote": "Each and every house on the lower road",
+            "verdict": "tp",
+            "reason": "\"Each\" and \"every\" duplicate the same distributive meaning, and the narration is not using legal or ritual emphasis, so the pairing adds emphasis without clarifying anything."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.redundancy",
+            "scene": "d07-clutter",
+            "quote": "the radio in the diner blared loudly",
+            "verdict": "tp",
+            "reason": "\"Blaired\" already implies loudness, so \"loudly\" repeats what the verb says without adding nuance or rhythmic emphasis the sentence needs."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.redundancy",
+            "scene": "d07-clutter",
+            "quote": "wrote down the true facts in a notebook",
+            "verdict": "tp",
+            "reason": "\"Facts\" are by definition true, so \"true\" is redundant here and not part of a legal doublet or deliberate emphasis; the phrase states the same idea twice without clarifying it."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.tense-shift",
+            "scene": "d08-tense",
+            "quote": "On the first night we walked down the hill after supper. The lights are already on when we reach the gate, and my brother takes my hand. We paid at the booth and the man stamped our wrists.",
+            "verdict": "tp",
+            "reason": "The narration shifts from past tense (\"walked\") to present (\"are,\" \"reach,\" \"takes\") and back to past (\"paid,\" \"stamped\") with no frame, flashback, or established historic-present habit, so the time of events becomes unclear and the reader cannot tell whether this is a deliberate present-tense inset or an error."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.logical-link",
+            "scene": "d09-diction",
+            "quote": "Change had come to the valley like a tidal wave that finally took root",
+            "verdict": "near",
+            "reason": "The simile links a tidal wave (sudden, fluid) with \"took root\" (slow, vegetal) in the same image without signalling a shift, so the logic of how change arrives is internally conflicted and hard to picture."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.inflated-phrase",
+            "scene": "d10-register",
+            "quote": "The missive was short. She carried the epistle to the window and read the correspondence twice.",
+            "verdict": "near",
+            "reason": "Three near-synonymous, formal nouns (“missive,” “epistle,” “correspondence”) in close succession for the same letter read as unnecessary inflation in the narrator’s voice without a clear stylistic or character-based reason."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.inflated-phrase",
+            "scene": "d10-register",
+            "quote": "relocated to an alternative residence",
+            "verdict": "near",
+            "reason": "This abstract bureaucratic phrasing (“relocated,” “alternative residence”) inflates what the passage otherwise presents plainly; it obstructs a direct grasp of the simple action that the husband has moved out, without clear justification in voice."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.agentless-passive",
+            "scene": "d11-distance",
+            "quote": "The stranger was observed by several residents to carry a leather case.",
+            "verdict": "unlabeled",
+            "reason": "The passive construction makes the sentence’s focus unclear: is the important action the residents’ watching or the man’s carrying the case? The narration, not a character’s voice, could state directly who saw him without hiding the agents in a passive frame."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.logical-link",
+            "scene": "d12-motivation",
+            "quote": "and this was her way of showing that love: in that moment the whole long history of their quarrel was forgiven, because a mother’s love is stronger than any argument.",
+            "verdict": "near",
+            "reason": "The narration jumps from a concrete offer of soup to a sweeping claim that the entire long history of their quarrel is forgiven without showing any change in Ruth’s feelings or behavior. The logical step from the gesture to the total forgiveness is asserted rather than prepared, so the reader cannot track how the scene moves from active conflict to complete resolution."
+          }
+        ]
+      },
+      "combined": {
+        "findings": 12,
+        "tp": 7,
+        "near": 4,
+        "fp_on_keep": 0,
+        "unlabeled": 1,
+        "precision_lower": 0.5833333333333334,
+        "precision_upper": 1,
+        "recall": 0.875,
+        "missed": [
+          "d06-modifiers clarity.ambiguous-reference"
+        ],
+        "hits": [
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.inflated-phrase",
+            "scene": "d07-clutter",
+            "quote": "Due to the fact that",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.hidden-action",
+            "scene": "d07-clutter",
+            "quote": "conducted an investigation",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.redundancy",
+            "scene": "d07-clutter",
+            "quote": "Each and every",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.redundancy",
+            "scene": "d07-clutter",
+            "quote": "blared loudly",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-clarity",
+            "source": "signal",
+            "principle": "clarity.redundancy",
+            "scene": "d07-clutter",
+            "quote": "true facts",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.dangling-modifier",
+            "scene": "d06-modifiers",
+            "quote": "Exhausted from the climb and soaked through, the cabin was a welcome sight.",
+            "verdict": "tp",
+            "reason": "The opening participial phrase \"Exhausted from the climb and soaked through\" grammatically modifies \"the cabin,\" so the sentence says the cabin is exhausted and soaked rather than the climbers. The narrator, not a character, is speaking, and this is not an intentional joke or absolute construction, so the mismatch reads as an error."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.tense-shift",
+            "scene": "d08-tense",
+            "quote": "On the first night we walked down the hill after supper. The lights are already on when we reach the gate, and my brother takes my hand. We paid at the booth and the man stamped our wrists.",
+            "verdict": "tp",
+            "reason": "The narration shifts from past tense (\"walked\") to present (\"are,\" \"reach,\" \"takes\") and back to past (\"paid,\" \"stamped\") with no frame, flashback, or established historic-present habit, so the time of events becomes unclear and the reader cannot tell whether this is a deliberate present-tense inset or an error."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.logical-link",
+            "scene": "d09-diction",
+            "quote": "Change had come to the valley like a tidal wave that finally took root",
+            "verdict": "near",
+            "reason": "The simile links a tidal wave (sudden, fluid) with \"took root\" (slow, vegetal) in the same image without signalling a shift, so the logic of how change arrives is internally conflicted and hard to picture."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.inflated-phrase",
+            "scene": "d10-register",
+            "quote": "The missive was short. She carried the epistle to the window and read the correspondence twice.",
+            "verdict": "near",
+            "reason": "Three near-synonymous, formal nouns (“missive,” “epistle,” “correspondence”) in close succession for the same letter read as unnecessary inflation in the narrator’s voice without a clear stylistic or character-based reason."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.inflated-phrase",
+            "scene": "d10-register",
+            "quote": "relocated to an alternative residence",
+            "verdict": "near",
+            "reason": "This abstract bureaucratic phrasing (“relocated,” “alternative residence”) inflates what the passage otherwise presents plainly; it obstructs a direct grasp of the simple action that the husband has moved out, without clear justification in voice."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.agentless-passive",
+            "scene": "d11-distance",
+            "quote": "The stranger was observed by several residents to carry a leather case.",
+            "verdict": "unlabeled",
+            "reason": "The passive construction makes the sentence’s focus unclear: is the important action the residents’ watching or the man’s carrying the case? The narration, not a character’s voice, could state directly who saw him without hiding the agents in a passive frame."
+          },
+          {
+            "guide": "en-clarity",
+            "source": "contextual",
+            "principle": "clarity.logical-link",
+            "scene": "d12-motivation",
+            "quote": "and this was her way of showing that love: in that moment the whole long history of their quarrel was forgiven, because a mother’s love is stronger than any argument.",
+            "verdict": "near",
+            "reason": "The narration jumps from a concrete offer of soup to a sweeping claim that the entire long history of their quarrel is forgiven without showing any change in Ruth’s feelings or behavior. The logical step from the gesture to the total forgiveness is asserted rather than prepared, so the reader cannot track how the scene moves from active conflict to complete resolution."
+          }
+        ]
+      }
+    },
+    "en-prose-style": {
+      "signals": {
+        "findings": 2,
+        "tp": 2,
+        "near": 0,
+        "fp_on_keep": 0,
+        "unlabeled": 0,
+        "precision_lower": 1,
+        "precision_upper": 1,
+        "recall": 0.2857142857142857,
+        "missed": [
+          "d09-diction prose.adjective-pileup",
+          "d09-diction prose.mixed-metaphor",
+          "d10-register prose.elegant-variation",
+          "d10-register prose.register-slip",
+          "d11-distance prose.filtering"
+        ],
+        "hits": [
+          {
+            "guide": "en-prose-style",
+            "source": "signal",
+            "principle": "prose.stock-diction",
+            "scene": "d09-diction",
+            "quote": "nestled in the hills",
+            "verdict": "tp"
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "signal",
+            "principle": "prose.stock-diction",
+            "scene": "d09-diction",
+            "quote": "time stood still",
+            "verdict": "tp"
+          }
+        ]
+      },
+      "contextual": {
+        "status": "ok",
+        "windows": 23,
+        "calls": 80,
+        "failures": [],
+        "discarded": 9,
+        "cost_usd": 0.2552,
+        "findings": 16,
+        "tp": 3,
+        "near": 10,
+        "fp_on_keep": 0,
+        "unlabeled": 3,
+        "precision_lower": 0.1875,
+        "precision_upper": 1,
+        "recall": 0.5714285714285714,
+        "missed": [
+          "d09-diction prose.mixed-metaphor",
+          "d10-register prose.register-slip",
+          "d11-distance prose.filtering"
+        ],
+        "hits": [
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.stock-diction",
+            "scene": "d05-repetition",
+            "quote": "she felt more alone than she had ever felt in her life",
+            "verdict": "near",
+            "reason": "The phrasing relies on a stock intensifier (“more alone than she had ever felt in her life”) instead of adding a fresh or specific turn to Agnes’s loneliness, and the sentence is in the narrator’s plain voice rather than a stylized idiom."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.dream-break",
+            "scene": "d06-modifiers",
+            "quote": "Exhausted from the climb and soaked through, the cabin was a welcome sight.",
+            "verdict": "near",
+            "reason": "The opening modifiers grammatically attach to \"the cabin,\" implying the cabin is exhausted and soaked. The dangling participles create an unintended, distracting image that breaks immersion."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.abstract-for-concrete",
+            "scene": "d07-clutter",
+            "quote": "Due to the fact that the river had risen in the night",
+            "verdict": "near",
+            "reason": "The phrase \"Due to the fact that\" is abstract, wordy scaffolding where a more concrete, direct cause could keep the focus on the river and its behavior; this is not essayistic or distancing narration by design in the surrounding context."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.weak-verb-adverb",
+            "scene": "d07-clutter",
+            "quote": "the radio in the diner blared loudly",
+            "verdict": "near",
+            "reason": "\"Blaed\" already implies loudness, so \"loudly\" adds no nuance; the adverb does not supply extra information about quality or character of the sound beyond what the verb itself carries."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.empty-adjective",
+            "scene": "d07-clutter",
+            "quote": "wrote down the true facts in a notebook",
+            "verdict": "near",
+            "reason": "\"True\" redundantly announces a judgment without adding detail beyond \"facts\"; the narration has not just given disputed or dubious information that would make this summative adjective necessary for rhythm or emphasis."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.dream-break",
+            "scene": "d08-tense",
+            "quote": "The fair came to town every August, and that year my brother and I saved our money for six weeks so we could ride the Ferris wheel as many times as we liked. On the first night we walked down the hill after supper. The lights are already on when we reach the gate, and my brother takes my hand. We paid at the booth and the man stamped our wrists.",
+            "verdict": "near",
+            "reason": "The paragraph shifts from past tense (\"came,\" \"saved,\" \"walked\") to present (\"are,\" \"reach,\" \"takes\") and back to past (\"paid,\" \"stamped\") with no sign this is a deliberate temporal effect or voice tic, so the inconsistency calls attention to itself and breaks immersion."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.stock-diction",
+            "scene": "d09-diction",
+            "quote": "The village was nestled in the hills, a sleepy hamlet where time stood still.",
+            "verdict": "tp",
+            "reason": "\"nestled in the hills\" and \"sleepy hamlet where time stood still\" are stock phrases that supply a prefab atmosphere instead of a fresh observation grounded in this specific village."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.adjective-pileup",
+            "scene": "d09-diction",
+            "quote": "Its ancient, crooked, weathered, moss-covered stone cottages huddled together beneath the vast, brooding, endless, dramatic sky.",
+            "verdict": "tp",
+            "reason": "The long string of adjectives before \"stone cottages\" and \"sky\" blurs the image; the attributes stack up without clear hierarchy, so the cottages and sky flatten into a list rather than a vivid picture."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.stock-diction",
+            "scene": "d09-diction",
+            "quote": "vast, brooding, endless, dramatic sky.",
+            "verdict": "unlabeled",
+            "reason": "This cluster relies on generic, familiar epithets for sky and mood; it signals atmosphere in broad terms instead of sharpening the reader’s sense of what makes this sky distinct in this scene."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.tin-ear-figure",
+            "scene": "d09-diction",
+            "quote": "Change had come to the valley like a tidal wave that finally took root",
+            "verdict": "near",
+            "reason": "The simile mixes incompatible images of a \"tidal wave\" and something that \"took root\" in the same clause without comic or character-based justification, so the figure contradicts itself and jars the image."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.elegant-variation",
+            "scene": "d10-register",
+            "quote": "The missive was short. She carried the epistle to the window and read the correspondence twice.",
+            "verdict": "tp",
+            "reason": "Three different elevated terms for the same letter (missive, epistle, correspondence) in close succession blur the image and suggest different objects; the surrounding narration does not establish this kind of variation as its voice."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.register-slip",
+            "scene": "d10-register",
+            "quote": "The missive was short. She carried the epistle to the window and read the correspondence twice.",
+            "verdict": "near",
+            "reason": "Highly formal, Latinate diction (“missive,” “epistle,” “correspondence”) clashes with the plain opening and closing sentences, breaking the established tone rather than serving a consistent lofty or ironic narrative voice."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.register-slip",
+            "scene": "d11-distance",
+            "quote": "The stranger was observed by several residents to carry a leather case.",
+            "verdict": "unlabeled",
+            "reason": "\"Was observed by several residents\" adopts a formal, report-like register that clashes with the plainer, narrative past of the surrounding sentences and makes the line feel like external commentary rather than continuous story."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.dream-break",
+            "scene": "d12-motivation",
+            "quote": "Ruth’s mother had always been a woman who loved her children more than she could say, and this was her way of showing that love: in that moment the whole long history of their quarrel was forgiven, because a mother’s love is stronger than any argument.",
+            "verdict": "near",
+            "reason": "The narration abruptly shifts from the concrete scene into abstract, omniscient moralizing (“because a mother’s love is stronger than any argument”), summarizing emotions and outcomes instead of dramatizing them. This generalized maxim breaks immersion and reads as the author’s commentary rather than the story’s voice."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.abstract-for-concrete",
+            "scene": "d12-motivation",
+            "quote": "this was her way of showing that love: in that moment the whole long history of their quarrel was forgiven",
+            "verdict": "unlabeled",
+            "reason": "The sentence reports a sweeping emotional resolution (“the whole long history...was forgiven”) in abstract terms instead of grounding it in specific physical or emotional detail within the scene. The abstraction blurs the moment that should feel immediate and earned."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.stock-diction",
+            "scene": "d12-motivation",
+            "quote": "because a mother’s love is stronger than any argument",
+            "verdict": "near",
+            "reason": "This line uses a familiar, proverbial formulation instead of the passage’s own observation about these specific people. The generic maxim undercuts the individuality of the scene and reads as stock sentiment rather than lived emotion."
+          }
+        ]
+      },
+      "combined": {
+        "findings": 17,
+        "tp": 4,
+        "near": 10,
+        "fp_on_keep": 0,
+        "unlabeled": 3,
+        "precision_lower": 0.23529411764705882,
+        "precision_upper": 1,
+        "recall": 0.5714285714285714,
+        "missed": [
+          "d09-diction prose.mixed-metaphor",
+          "d10-register prose.register-slip",
+          "d11-distance prose.filtering"
+        ],
+        "hits": [
+          {
+            "guide": "en-prose-style",
+            "source": "signal",
+            "principle": "prose.stock-diction",
+            "scene": "d09-diction",
+            "quote": "nestled in the hills",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "signal",
+            "principle": "prose.stock-diction",
+            "scene": "d09-diction",
+            "quote": "time stood still",
+            "verdict": "tp",
+            "reason": ""
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.stock-diction",
+            "scene": "d05-repetition",
+            "quote": "she felt more alone than she had ever felt in her life",
+            "verdict": "near",
+            "reason": "The phrasing relies on a stock intensifier (“more alone than she had ever felt in her life”) instead of adding a fresh or specific turn to Agnes’s loneliness, and the sentence is in the narrator’s plain voice rather than a stylized idiom."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.dream-break",
+            "scene": "d06-modifiers",
+            "quote": "Exhausted from the climb and soaked through, the cabin was a welcome sight.",
+            "verdict": "near",
+            "reason": "The opening modifiers grammatically attach to \"the cabin,\" implying the cabin is exhausted and soaked. The dangling participles create an unintended, distracting image that breaks immersion."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.abstract-for-concrete",
+            "scene": "d07-clutter",
+            "quote": "Due to the fact that the river had risen in the night",
+            "verdict": "near",
+            "reason": "The phrase \"Due to the fact that\" is abstract, wordy scaffolding where a more concrete, direct cause could keep the focus on the river and its behavior; this is not essayistic or distancing narration by design in the surrounding context."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.weak-verb-adverb",
+            "scene": "d07-clutter",
+            "quote": "the radio in the diner blared loudly",
+            "verdict": "near",
+            "reason": "\"Blaed\" already implies loudness, so \"loudly\" adds no nuance; the adverb does not supply extra information about quality or character of the sound beyond what the verb itself carries."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.empty-adjective",
+            "scene": "d07-clutter",
+            "quote": "wrote down the true facts in a notebook",
+            "verdict": "near",
+            "reason": "\"True\" redundantly announces a judgment without adding detail beyond \"facts\"; the narration has not just given disputed or dubious information that would make this summative adjective necessary for rhythm or emphasis."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.dream-break",
+            "scene": "d08-tense",
+            "quote": "The fair came to town every August, and that year my brother and I saved our money for six weeks so we could ride the Ferris wheel as many times as we liked. On the first night we walked down the hill after supper. The lights are already on when we reach the gate, and my brother takes my hand. We paid at the booth and the man stamped our wrists.",
+            "verdict": "near",
+            "reason": "The paragraph shifts from past tense (\"came,\" \"saved,\" \"walked\") to present (\"are,\" \"reach,\" \"takes\") and back to past (\"paid,\" \"stamped\") with no sign this is a deliberate temporal effect or voice tic, so the inconsistency calls attention to itself and breaks immersion."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.adjective-pileup",
+            "scene": "d09-diction",
+            "quote": "Its ancient, crooked, weathered, moss-covered stone cottages huddled together beneath the vast, brooding, endless, dramatic sky.",
+            "verdict": "tp",
+            "reason": "The long string of adjectives before \"stone cottages\" and \"sky\" blurs the image; the attributes stack up without clear hierarchy, so the cottages and sky flatten into a list rather than a vivid picture."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.stock-diction",
+            "scene": "d09-diction",
+            "quote": "vast, brooding, endless, dramatic sky.",
+            "verdict": "unlabeled",
+            "reason": "This cluster relies on generic, familiar epithets for sky and mood; it signals atmosphere in broad terms instead of sharpening the reader’s sense of what makes this sky distinct in this scene."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.tin-ear-figure",
+            "scene": "d09-diction",
+            "quote": "Change had come to the valley like a tidal wave that finally took root",
+            "verdict": "near",
+            "reason": "The simile mixes incompatible images of a \"tidal wave\" and something that \"took root\" in the same clause without comic or character-based justification, so the figure contradicts itself and jars the image."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.elegant-variation",
+            "scene": "d10-register",
+            "quote": "The missive was short. She carried the epistle to the window and read the correspondence twice.",
+            "verdict": "tp",
+            "reason": "Three different elevated terms for the same letter (missive, epistle, correspondence) in close succession blur the image and suggest different objects; the surrounding narration does not establish this kind of variation as its voice."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.register-slip",
+            "scene": "d10-register",
+            "quote": "The missive was short. She carried the epistle to the window and read the correspondence twice.",
+            "verdict": "near",
+            "reason": "Highly formal, Latinate diction (“missive,” “epistle,” “correspondence”) clashes with the plain opening and closing sentences, breaking the established tone rather than serving a consistent lofty or ironic narrative voice."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.register-slip",
+            "scene": "d11-distance",
+            "quote": "The stranger was observed by several residents to carry a leather case.",
+            "verdict": "unlabeled",
+            "reason": "\"Was observed by several residents\" adopts a formal, report-like register that clashes with the plainer, narrative past of the surrounding sentences and makes the line feel like external commentary rather than continuous story."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.dream-break",
+            "scene": "d12-motivation",
+            "quote": "Ruth’s mother had always been a woman who loved her children more than she could say, and this was her way of showing that love: in that moment the whole long history of their quarrel was forgiven, because a mother’s love is stronger than any argument.",
+            "verdict": "near",
+            "reason": "The narration abruptly shifts from the concrete scene into abstract, omniscient moralizing (“because a mother’s love is stronger than any argument”), summarizing emotions and outcomes instead of dramatizing them. This generalized maxim breaks immersion and reads as the author’s commentary rather than the story’s voice."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.abstract-for-concrete",
+            "scene": "d12-motivation",
+            "quote": "this was her way of showing that love: in that moment the whole long history of their quarrel was forgiven",
+            "verdict": "unlabeled",
+            "reason": "The sentence reports a sweeping emotional resolution (“the whole long history...was forgiven”) in abstract terms instead of grounding it in specific physical or emotional detail within the scene. The abstraction blurs the moment that should feel immediate and earned."
+          },
+          {
+            "guide": "en-prose-style",
+            "source": "contextual",
+            "principle": "prose.stock-diction",
+            "scene": "d12-motivation",
+            "quote": "because a mother’s love is stronger than any argument",
+            "verdict": "near",
+            "reason": "This line uses a familiar, proverbial formulation instead of the passage’s own observation about these specific people. The generic maxim undercuts the individuality of the scene and reads as stock sentiment rather than lived emotion."
+          }
+        ]
+      }
+    }
+  },
+  "all_guides": {
+    "findings": 41,
+    "tp": 17,
+    "near": 19,
+    "fp_on_keep": 0,
+    "unlabeled": 5,
+    "precision_lower": 0.4146341463414634,
+    "precision_upper": 1,
+    "recall": 0.6538461538461539,
+    "missed": [
+      "d04-beats fiction.beat-overuse",
+      "d05-repetition fiction.repeated-effect",
+      "d06-modifiers clarity.ambiguous-reference",
+      "d09-diction prose.mixed-metaphor",
+      "d10-register prose.register-slip",
+      "d11-distance prose.filtering",
+      "d12-motivation fiction.unmotivated-shift",
+      "d12-motivation fiction.narrator-explains",
+      "d13-frigidity fiction.frigidity"
+    ]
+  },
+  "cost": {
+    "usd": 0.5977,
+    "tokens_in": 303353,
+    "tokens_out": 10427,
+    "edit_model": "openai/gpt-5.1",
+    "verify_model": "anthropic/claude-sonnet-5",
+    "verify_passes": 3
+  }
+}
