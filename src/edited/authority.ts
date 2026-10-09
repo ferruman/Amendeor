@@ -52,8 +52,14 @@ export async function requireDelegation(workspaceDir: string, id: string, capabi
 export async function spentUnder(dir: string, id: string, currency: string): Promise<number> {
   const lines: Array<Record<string, unknown>> = [];
   for (const name of (await readdir(dir).catch(() => [] as string[])).filter((n) => n.endsWith('.jsonl'))) {
-    for (const line of (await readFile(path.join(dir, name), 'utf8')).split('\n')) {
-      try { const r = JSON.parse(line) as unknown; if (r && typeof r === 'object') lines.push(r as Record<string, unknown>); } catch { /* пустая или чужая строка */ }
+    for (const [n, line] of (await readFile(path.join(dir, name), 'utf8')).split('\n').entries()) {
+      if (!line.trim()) continue;
+      let r: unknown;
+      try { r = JSON.parse(line); } catch { r = null; }
+      // Оборванная или испорченная запись может быть резервацией: считать в обход неё — недосчитать удержанное,
+      // поэтому новых трат нет, пока журнал не починят (строка остаётся как улика).
+      if (!r || typeof r !== 'object') throw new Error(`authority/${name} line ${n + 1} is not a JSON record (torn or corrupt); no paid call is authorized until it is repaired`);
+      lines.push(r as Record<string, unknown>);
     }
   }
   const settled = new Map(lines.filter((r) => r.event === 'settle' && typeof r.cost === 'number').map((r) => [r.reservation_id, r.cost as number]));
