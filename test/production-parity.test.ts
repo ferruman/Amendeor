@@ -12,6 +12,10 @@ import { copyEditPromptVersion } from '../src/prompts/copy-edit.ts';
 // Сохранённый HTTP-запрос, а не только имена моделей: отклонения требуют явного пересмотра снимка.
 test('production matches recorded necessity benchmark requests and behavior contracts', async () => {
   const fixture = JSON.parse(await readFile(new URL('./fixtures/rollout/benchmark.json', import.meta.url), 'utf8'));
+  const historical = await readFile(new URL('../' + fixture.source, import.meta.url));
+  assert.equal(createHash('sha256').update(historical).digest('hex'), fixture.source_sha256, 'historical benchmark evidence changed');
+  const rows = historical.toString().trim().split('\n').map(line => JSON.parse(line));
+  for (const [role, request] of Object.entries(fixture.requests)) assert.ok(rows.some(row => row.role === role && row.status === 200 && row.job.includes(fixture.configuration) && JSON.stringify(row.request) === JSON.stringify(request)), 'fixture must be a successful recorded ' + role + ' request');
   const config = configSchema.parse(parse(await readFile(new URL('../amendeor.yaml', import.meta.url), 'utf8')));
   const pack = (await loadPack('ru')).pack;
   const original = globalThis.fetch; const requests: Array<{ url: string; body: any }> = [];
