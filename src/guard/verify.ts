@@ -3,11 +3,13 @@ import type { Config } from '../config.ts';
 import type { LanguagePack } from '../lang/pack.ts';
 import { Cache } from '../cache.ts';
 import { Gateway } from '../provider/gateway.ts';
-import { verifyPrompt, verifyPromptVersion } from '../prompts/verify.ts';
+import { necessityPrompt, necessityPromptVersion, verifyPrompt, verifyPromptVersion } from '../prompts/verify.ts';
 
 const answerSchema = z.object({ preserved: z.boolean(), reason: z.string() });
+// Оба поля обязательны: ответ без одного из них — сбой проверки, а не молчаливое согласие.
+const necessitySchema = z.object({ necessary: z.boolean(), preserved: z.boolean(), reason: z.string() });
 const objectiveAnswerSchema = z.object({ necessary: z.boolean(), reason: z.string() });
-export interface VerifyResult { passed: boolean; passes: number; agreed: number; reason: string; sameFamily: boolean }
+export interface VerifyResult { passed: boolean; passes: number; agreed: number; reason: string; sameFamily: boolean; answers?: Array<{ necessary?: boolean; preserved: boolean }> }
 export async function verifyObjectiveCorrection(before: string, after: string, context: string, category: string, config: Config, cache: Cache, gateway: Gateway): Promise<{ passed: boolean; reason: string }> {
   const profile = config.profiles.verify;
   if (!profile) return { passed: false, reason: 'verify profile missing' };
@@ -24,27 +26,32 @@ export async function verifyObjectiveCorrection(before: string, after: string, c
   }
   return { passed: answer.necessary, reason: answer.reason || (answer.necessary ? 'necessary' : 'not necessary') };
 }
-export async function verifyMeaning(before: string, after: string, context: string, impact: 'mechanical' | 'prose', config: Config, pack: LanguagePack, cache: Cache, gateway: Gateway): Promise<VerifyResult> {
+export async function verifyMeaning(before: string, after: string, context: string, impact: 'mechanical' | 'prose', config: Config, pack: LanguagePack, cache: Cache, gateway: Gateway, options: { necessity?: boolean } = {}): Promise<VerifyResult> {
   const profile = config.profiles.verify;
   if (!profile) return { passed: false, passes: 0, agreed: 0, reason: 'verify profile missing', sameFamily: false };
   const editFamily = config.profiles.edit?.family ?? config.providers[config.profiles.edit?.provider ?? '']?.family;
   const verifyFamily = profile.family ?? config.providers[profile.provider]?.family;
   const sameFamily = Boolean(editFamily && verifyFamily && editFamily === verifyFamily);
   const passes = profile.passes ?? (impact === 'prose' ? 3 : 1);
-  let agreed = 0;
+  const necessity = Boolean(options.necessity);
+  const schema = necessity ? necessitySchema : answerSchema;
+  let agreed = 0; const answers: Array<{ necessary?: boolean; preserved: boolean }> = [];
   for (let index = 0; index < passes; index++) {
-    const key = { before, after, context, profile, provider: config.providers[profile.provider], promptVersion: verifyPromptVersion, index };
-    let answer = await cache.read<z.infer<typeof answerSchema>>('verify', key);
+    const key = { before, after, context, profile, provider: config.providers[profile.provider], promptVersion: necessity ? necessityPromptVersion : verifyPromptVersion, index };
+    let answer = await cache.read<{ necessary?: boolean; preserved: boolean; reason: string }>(necessity ? 'verify-necessity' : 'verify', key);
     if (!answer) {
-      const prompt = verifyPrompt(before, after, context);
+      const prompt = (necessity ? necessityPrompt : verifyPrompt)(before, after, context);
       try {
         const output = await gateway.complete('verify', 'verify', prompt.system, prompt.prompt, 240);
-        answer = answerSchema.parse(JSON.parse(output.text));
-        await cache.write('verify', key, answer);
-      } catch (error) { return { passed: false, passes: index + 1, agreed, reason: 'verify failed: ' + (error instanceof Error ? error.message : String(error)), sameFamily }; }
+        answer = schema.parse(JSON.parse(output.text));
+        await cache.write(necessity ? 'verify-necessity' : 'verify', key, answer);
+      } catch (error) { return { passed: false, passes: index + 1, agreed, reason: 'verify failed: ' + (error instanceof Error ? error.message : String(error)), sameFamily, answers }; }
     }
-    if (!answer.preserved) return { passed: false, passes: index + 1, agreed, reason: answer.reason || 'meaning not preserved', sameFamily };
+    answers.push(necessity ? { necessary: answer.necessary, preserved: answer.preserved } : { preserved: answer.preserved });
+    // Решение выводится из полей, а не из текста причины: принять можно только необходимую и сохраняющую правку.
+    if (!answer.preserved) return { passed: false, passes: index + 1, agreed, reason: 'not preserved: ' + (answer.reason || 'meaning not preserved'), sameFamily, answers };
+    if (necessity && !answer.necessary) return { passed: false, passes: index + 1, agreed, reason: 'unnecessary: ' + (answer.reason || 'no objective error'), sameFamily, answers };
     agreed++;
   }
-  return { passed: true, passes, agreed, reason: 'preserved', sameFamily };
+  return { passed: true, passes, agreed, reason: necessity ? 'necessary and preserved' : 'preserved', sameFamily, answers };
 }

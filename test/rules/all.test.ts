@@ -17,6 +17,7 @@ const positives: Record<string, { en: string; ru: string; config?: object }> = {
   'typography.whitespace': { en: 'A word  follows.', ru: 'Это слово  рядом.' },
   'punctuation.balance': { en: 'Look (here.', ru: 'Смотри (сюда.' },
   'typography.quotes': { en: 'He said "hello".', ru: 'Он сказал "привет".', config: { normalize: { quotes: '«»' } } },
+  'typography.mixed-quotes': { en: '"Mixed,” he said.', ru: '' , config: { normalize: { quotes: '“”' } } },
   'typography.dashes-ellipsis': { en: 'Wait... then go.', ru: 'Жди... потом иди.', config: { normalize: { ellipsis: true } } },
   'capitalization.sentence-start': { en: 'Stop. next time.', ru: 'Стой. потом иди.' },
   'markdown.stray-marker': { en: 'This ## heading appears.', ru: 'Этот ## заголовок лишний.' },

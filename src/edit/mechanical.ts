@@ -34,6 +34,16 @@ function occurrenceBefore(text: string, target: string, start: number): number {
   return text.slice(0, start).split(target).length - 1;
 }
 
+// locate не принимает цель, разрезающую слово (D28), поэтому «- Т» или «d  f» были бы stale при сборке.
+// Цель правила расширяется до границ слов; замена получает те же края.
+export function wholeWords<T extends { target: string; replacement: string; start: number }>(text: string, draft: T): T {
+  const word = /[\p{L}\p{N}]/u;
+  let start = draft.start, end = draft.start + draft.target.length;
+  while (start > 0 && word.test(text[start - 1]!) && word.test(text[start]!)) start--;
+  while (end < text.length && word.test(text[end]!) && word.test(text[end - 1]!)) end++;
+  return { ...draft, start, target: text.slice(start, end), replacement: text.slice(start, draft.start) + draft.replacement + text.slice(draft.start + draft.target.length, end) };
+}
+
 async function previousRunId(stateDir: string): Promise<string | null> {
   try { return (JSON.parse(await readFile(path.join(stateDir, 'latest.json'), 'utf8')) as { run_id: string }).run_id; }
   catch (error) { if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null; throw error; }
@@ -76,7 +86,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
       }
       computed++;
     }
-    const sceneDrafts = drafts ?? [];
+    const sceneDrafts = (drafts ?? []).map((draft) => wholeWords(scene.text, draft));
     hits += sceneDrafts.length;
     for (const draft of sceneDrafts) {
       try {
@@ -95,7 +105,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   }
   const mode = options.mode ?? 'mechanical';
   const model = await modelPass(source, loaded, language, mode, runId, [...proposals.values()], options.noCache);
-  const guard = await guardProposals(source, loaded, language, model.proposals.filter((proposal) => !isRejected(proposal)), options.noCache, mode);
+  const guard = await guardProposals(source, loaded, language, model.proposals.filter((proposal) => !isRejected(proposal)), options.noCache, mode, [...proposals.values()]);
   for (const proposal of guard.proposals) if (!proposals.has(proposal.id)) proposals.set(proposal.id, proposal);
   const list = [...proposals.values()];
   const ledgerEntries = [...model.ledger, ...guard.ledger];

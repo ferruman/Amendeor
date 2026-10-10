@@ -10,6 +10,7 @@ import { doubledWord } from './doubled-word.ts';
 import { whitespace } from './whitespace.ts';
 import { balance } from './balance.ts';
 import { quotes } from './quotes.ts';
+import { mixedQuotes } from './mixed-quotes.ts';
 import { dashesEllipsis } from './dashes-ellipsis.ts';
 import { capitalization } from './capitalization.ts';
 import { markdown } from './markdown.ts';
@@ -22,7 +23,7 @@ export interface ProposalDraft { target: string; replacement: string; start: num
 export interface RuleContext { book: Book; config: Config; pack: LanguagePack; names: Map<string, number>; wordCounts: Map<string, number>; dialogue: Span[] }
 export interface Rule { id: string; version: string; langs: string[]; category: Proposal['category']; impact: Proposal['impact']; detect(scene: Scene, ctx: RuleContext): ProposalDraft[] }
 export const titleRules: Rule[] = [ruSutki, ruPronounByl];
-export const rules: Rule[] = [doubledWord, whitespace, balance, quotes, dashesEllipsis, capitalization, markdown, spellingVariant, nameVariant, ruSutki, ruPronounByl];
+export const rules: Rule[] = [doubledWord, whitespace, balance, quotes, mixedQuotes, dashesEllipsis, capitalization, markdown, spellingVariant, nameVariant, ruSutki, ruPronounByl];
 export const ruleSetVersion = sha256(canonicalJson(rules.map(({ id, version }) => ({ id, version }))));
 
 export function enabledRules(config: Config, language: string): Rule[] {

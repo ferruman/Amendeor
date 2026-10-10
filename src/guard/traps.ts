@@ -27,16 +27,45 @@ function changed(a: string[], b: string[], stem = false): boolean {
   for (const item of a) { const index = rest.findIndex((other) => stem ? sameStem(item, other) : item === other); if (index < 0) return true; rest.splice(index, 1); }
   return rest.length > 0;
 }
-function names(text: string): string[] {
-  return words(text).filter((token) => /^\p{Lu}/u.test(token.text) && token.text.length > 1 && !['The', 'He', 'She', 'They', 'It', 'There', 'This', 'That', 'At', 'In', 'On', 'What', 'Let', 'But', 'And', 'For', 'Он', 'Она', 'Они', 'Это', 'Было', 'Ключ', 'Деньги', 'Поезд', 'Дверь', 'Письмо', 'Часы', 'Книга'].includes(token.text)).map((token) => token.text);
+// Заглавное слово в начале предложения — имя, только если книга пишет его с заглавной и вне начала предложения.
+// Без контекста сцены (prefix) действует прежнее консервативное правило: любое заглавное слово — имя.
+function sentenceStart(prefix: string): boolean {
+  const text = prefix.replace(/\s+$/u, '');
+  return !text || /\n/u.test(prefix.slice(text.length)) || /[.!?…][\p{Pe}\p{Pf}"'»]*$/u.test(text) || /[\p{Ps}\p{Pi}"«]$/u.test(text) || /(?:^|\n)[ \t]*[—–-]$/u.test(text);
+}
+function names(text: string, context?: { prefix: string; bookNames: Map<string, number> }): string[] {
+  return words(text).filter((token) => /^\p{Lu}/u.test(token.text) && token.text.length > 1
+    && !(context && !context.bookNames.has(token.text) && sentenceStart(context.prefix + text.slice(0, token.start))) && !['The', 'He', 'She', 'They', 'It', 'There', 'This', 'That', 'At', 'In', 'On', 'What', 'Let', 'But', 'And', 'For', 'Он', 'Она', 'Они', 'Это', 'Было', 'Ключ', 'Деньги', 'Поезд', 'Дверь', 'Письмо', 'Часы', 'Книга'].includes(token.text)).map((token) => token.text);
 }
 function numberTokens(text: string): string[] { return words(text).map((token) => token.lower).filter((token) => /^\d/u.test(token) || ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'twenty', 'thirty', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'двадцать', 'тридцать'].includes(token)); }
 function dialogueWords(text: string): string { return words(text).map((word) => word.lower).join(' '); }
+// Расстояние с перестановкой соседних букв (OSA): «goign» → «going» — одна опечатка, а не две.
+function distance(a: string, b: string): number {
+  const d = Array.from({ length: a.length + 1 }, (_, i) => Array.from({ length: b.length + 1 }, (_, j) => i || j ? (i ? (j ? 0 : i) : j) : 0));
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) {
+    d[i]![j] = Math.min(d[i - 1]![j]! + 1, d[i]![j - 1]! + 1, d[i - 1]![j - 1]! + (a[i - 1] === b[j - 1] ? 0 : 1));
+    if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i]![j] = Math.min(d[i]![j]!, d[i - 2]![j - 2]! + 1);
+  }
+  return d[a.length]![b.length]!;
+}
+function typoOnly(before: string, after: string): boolean {
+  const a = words(before).map((word) => word.lower), b = words(after).map((word) => word.lower);
+  return a.length === b.length && a.every((word, index) => word === b[index] || distance(word, b[index]!) <= Math.min(2, Math.floor(Math.max(word.length, b[index]!.length) / 3)));
+}
+function droppedName(before: string, namesBefore: string[], namesAfter: string[], stem: boolean): boolean {
+  // В русском имя склоняется: вхождения считаются по основе, как в changed().
+  const count = (list: string[], name: string) => list.filter((item) => stem ? sameStem(item, name) : item === name).length;
+  return [...new Set(namesBefore)].some((name) => {
+    const doubled = [...before.matchAll(new RegExp(`(?<![\\p{L}])${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s+${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}])`, 'gu'))].length;
+    const lost = count(namesBefore, name) - count(namesAfter, name);
+    return lost > doubled;
+  });
+}
 export function commaOnlyChange(before: string, after: string): boolean {
   return (before.match(/,/gu) ?? []).length !== (after.match(/,/gu) ?? []).length && before.replace(/,/gu, '') === after.replace(/,/gu, '');
 }
 
-export function semanticTrap(before: string, after: string, pack: LanguagePack, options: { category?: Proposal['category']; inDialogue?: boolean; modelGenerated?: boolean; allowCommaCorrection?: boolean } = {}): string | null {
+export function semanticTrap(before: string, after: string, pack: LanguagePack, options: { category?: Proposal['category']; inDialogue?: boolean; modelGenerated?: boolean; allowCommaCorrection?: boolean; dialogueTypoAuthorized?: boolean; nameContext?: { prefix: string; bookNames: Map<string, number> } } = {}): string | null {
   const lang = pack.language.split('-')[0]!;
   const ellipses = (text: string) => (text.match(/…|(?<!\.)\.{3}(?!\.)/gu) ?? []).length;
   const verifiedCommaCandidate = options.allowCommaCorrection && options.category === 'punctuation' && commaOnlyChange(before, after);
@@ -51,13 +80,21 @@ export function semanticTrap(before: string, after: string, pack: LanguagePack, 
   if (changed(numberTokens(before), numberTokens(after))) return 'number-date-time-change';
   if ((before.match(/\b\p{L}+n['’]t\b/giu) ?? []).length !== (after.match(/\b\p{L}+n['’]t\b/giu) ?? []).length) return 'negation-change';
   if (changed(selected(before, pack.negation), selected(after, pack.negation))) return 'negation-change';
-  if (changed([...new Set(names(before))], [...new Set(names(after))], lang !== 'en')) return 'proper-name-change';
+  // Имена сравниваются с учётом числа вхождений: если имя встречается в цели дважды, пропажа одного вхождения — тоже смена
+  // имени («…; Тётка» → «…; тётка»). Исключение — удвоенное подряд имя («Иваныч Иваныч» → «Иваныч»): это опечатка-повтор.
+  const namesBefore = names(before, options.nameContext), namesAfter = names(after, options.nameContext);
+  if (changed([...new Set(namesBefore)], [...new Set(namesAfter)], lang !== 'en') || droppedName(before, namesBefore, namesAfter, lang !== 'en')) return 'proper-name-change';
   if (changed(selected(before, pack.modal), selected(after, pack.modal))) return 'certainty-change';
   if (changed(selected(before, lexicons[lang]?.certainty ?? []), selected(after, lexicons[lang]?.certainty ?? []))) return 'certainty-change';
   for (const type of ['location', 'ownership', 'intention', 'chronology']) {
     const list = lexicons[lang]?.[type] ?? [];
     if (changed(selected(before, list), selected(after, list))) return type + '-change';
   }
-  if (options.inDialogue && options.category !== 'dialogue-mechanics' && dialogueWords(before) !== dialogueWords(after)) return 'dialogue-content-change';
+  if (options.inDialogue && dialogueWords(before) !== dialogueWords(after)) {
+    if (options.category !== 'dialogue-mechanics') return 'dialogue-content-change';
+    // Категорию выбирает сама модель, поэтому она не разрешает менять слова реплики: только опечатка
+    // (те же слова по числу, каждое близко по написанию) и только при явной нормализации автора.
+    if (options.modelGenerated && !(options.dialogueTypoAuthorized && typoOnly(before, after))) return 'dialogue-mechanics-content-change';
+  }
   return null;
 }

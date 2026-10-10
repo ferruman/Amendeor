@@ -1,5 +1,5 @@
 import type { LanguagePack } from '../lang/pack.ts';
-import type { Span } from './segment.ts';
+import { changedSpan, spansTouch, type Span } from './segment.ts';
 
 export function dialogueSpans(text: string, pack: LanguagePack): Span[] {
   const spans: Span[] = [];
@@ -22,4 +22,12 @@ export function dialogueSpans(text: string, pack: LanguagePack): Span[] {
 
 export function inDialogue(spans: Span[], start: number, end: number): boolean {
   return spans.some((span) => start >= span.start && end <= span.end);
+}
+
+// Правка касается реплики, если реплику задевает её изменённая часть: цель, захватившая и авторскую речь,
+// не выводит правку слов реплики из-под защиты.
+export function editInDialogue(spans: Span[], text: string, start: number, end: number, replacement: string): boolean {
+  if (inDialogue(spans, start, end)) return true;
+  const changed = changedSpan(text, start, end, replacement);
+  return spans.some((span) => spansTouch(changed, span));
 }

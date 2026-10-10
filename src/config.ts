@@ -12,7 +12,9 @@ export const providerSchema = z.object({
 export const profileSchema = z.object({
   provider: z.string().min(1), model: z.string().min(1), temperature: z.number().min(0).max(2).optional(),
   context_budget: z.number().int().positive().optional(), passes: z.number().int().positive().optional(),
-  family: z.string().optional(), thinking: z.boolean().optional(), reasoning: z.boolean().optional()
+  family: z.string().optional(), thinking: z.boolean().optional(), reasoning: z.boolean().optional(),
+  // verify: что проверяет verifier в режиме copy. meaning — только смысл (по умолчанию); necessity — ещё и необходимость правки.
+  check: z.enum(['meaning', 'necessity']).optional()
 }).passthrough();
 export const configSchema = z.object({
   language: z.string().optional(), preserve: z.array(z.string()).default([]),

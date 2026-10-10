@@ -3,7 +3,7 @@ import type { Config } from '../config.ts';
 import type { LanguagePack } from '../lang/pack.ts';
 import type { Proposal } from '../proposal/schema.ts';
 import { locate } from '../proposal/locate.ts';
-import { dialogueSpans, inDialogue } from '../text/dialogue.ts';
+import { dialogueSpans, editInDialogue } from '../text/dialogue.ts';
 import { sentences, words } from '../text/segment.ts';
 
 function quantile(values: number[], proportion: number): number {
@@ -18,11 +18,14 @@ function register(text: string, pack: LanguagePack): number {
   const marks = new Set([...pack.register.formal, ...pack.register.informal].map((word) => word.toLocaleLowerCase(pack.language)));
   return words(text).filter((word) => marks.has(word.lower)).length;
 }
+export function normalizationConfigured(config: Config): boolean {
+  return Object.values(config.normalize).some((value) => value === true || typeof value === 'string' && value.length > 0 && value !== 'keep');
+}
 export function voiceGuard(proposal: Proposal, sceneText: string, book: Book, pack: LanguagePack, config: Config): string | null {
   const located = locate(sceneText, proposal.target);
   if (!('ok' in located)) return 'target-stale';
-  const dialogue = inDialogue(dialogueSpans(sceneText, pack), located.start, located.end);
-  const normalized = Object.values(config.normalize).some((value) => value === true || typeof value === 'string' && value.length > 0 && value !== 'keep');
+  const dialogue = editInDialogue(dialogueSpans(sceneText, pack), sceneText, located.start, located.end, proposal.replacement);
+  const normalized = normalizationConfigured(config);
   if (dialogue && !normalized && proposal.category !== 'dialogue-mechanics' && ['grammar', 'word-choice', 'clarity', 'sentence-structure', 'redundancy', 'repetition', 'prose-pattern'].includes(proposal.category)) return 'dialogue-register-preserved';
   if (config.preserve.includes('sentence-fragments') && /[.!?…]\s+\p{L}/u.test(proposal.target.text) && !/[.!?…]\s+\p{L}/u.test(proposal.replacement)) return 'sentence-fragment-preserved';
   if (dialogue && !normalized && (config.preserve.includes('dialect') || config.preserve.includes('informal-dialogue')) && words(proposal.target.text).map((word) => word.lower).join(' ') !== words(proposal.replacement).map((word) => word.lower).join(' ')) return 'dialogue-language-preserved';

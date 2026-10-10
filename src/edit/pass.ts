@@ -68,11 +68,17 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
     const scene = window.scene === TITLE_SCENE_ID
       ? { text: chapter.title, contentHash: sha256(normalizeText(chapter.title)) }
       : chapter.scenes.find((item) => item.id === window.scene)!;
-    for (const edit of edits) {
+    const positions = (target: string) => { const found: number[] = []; for (let at = window.text.indexOf(target); at >= 0; at = window.text.indexOf(target, at + target.length)) found.push(at); return found; };
+    for (const [index, edit] of edits.entries()) {
       if (mode === 'mechanical' && !['grammar', 'spelling'].includes(edit.category)) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: 'category-outside-mechanical-model-pass' }); continue; }
       if (mode === 'proofread' && !['grammar', 'spelling', 'punctuation'].includes(edit.category)) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: 'category-outside-proofread-model-pass' }); continue; }
       if (!window.text.includes(edit.target)) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: 'cached-target-not-verbatim' }); continue; }
-      const start = window.start + window.text.indexOf(edit.target);
+      // Цель, которая встречается в окне несколько раз, не указывает место правки. Её принимаем, только если модель
+      // дала столько же одинаковых правок, сколько вхождений, — тогда они идут по порядку; иначе отказ, а не правка не того места.
+      const found = positions(edit.target);
+      const same = edits.filter((other) => other.target === edit.target);
+      if (found.length > 1 && !(same.length === found.length && same.every((other) => other.replacement === edit.replacement))) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: 'ambiguous-target-in-window' }); continue; }
+      const start = window.start + found[found.length > 1 ? edits.slice(0, index).filter((other) => other.target === edit.target).length : 0]!;
       const matchingSignals = window.signals.filter((signal) => start < signal.end && start + edit.target.length > signal.start);
       if (edit.category === 'prose-pattern' && !matchingSignals.length) { discarded.push({ node_id: window.chapter + '/' + window.scene, reason: 'prose-pattern-without-trigger-overlap' }); continue; }
       const removesSignal = matchingSignals.some((signal) => edit.target.includes(signal.quote) && !edit.replacement.includes(signal.quote));

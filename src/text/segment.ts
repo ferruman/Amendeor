@@ -4,6 +4,18 @@ export interface Span { text: string; start: number; end: number }
 export interface WordToken extends Span { lower: string }
 export interface SegmentedText { paragraphs: Span[]; sentences: Span[]; words: WordToken[] }
 
+// Изменённая часть правки в координатах текста: общие начало и конец цели и замены не считаются изменением.
+export function changedSpan(text: string, start: number, end: number, replacement: string): { start: number; end: number } {
+  const target = text.slice(start, end);
+  let prefix = 0, suffix = 0;
+  while (prefix < target.length && prefix < replacement.length && target[prefix] === replacement[prefix]) prefix++;
+  while (suffix < target.length - prefix && suffix < replacement.length - prefix && target.at(-1 - suffix) === replacement.at(-1 - suffix)) suffix++;
+  return { start: start + prefix, end: end - suffix };
+}
+export function spansTouch(a: { start: number; end: number }, b: { start: number; end: number }): boolean {
+  return a.start < b.end && a.end > b.start || a.start === a.end && a.start > b.start && a.start < b.end || b.start === b.end && b.start > a.start && b.start < a.end;
+}
+
 export function words(text: string): WordToken[] {
   const pattern = /\b\d{1,2}:\d{2}(?::\d{2})?\b|\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b\d+(?:[.,]\d+)+\b|[\p{L}]+(?:['’][\p{L}]+)*|\d+/gu;
   return [...text.matchAll(pattern)].map((match) => ({ text: match[0], start: match.index!, end: match.index! + match[0].length, lower: match[0].toLocaleLowerCase() }));
