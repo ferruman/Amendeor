@@ -1,0 +1,90 @@
+{
+  "run_id": "2026-10-10T17-45-26Z-6e2e",
+  "input": "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-f182cce3.md",
+  "source_sha256": "65d3b473c511187576aac1315275b59e928158afe8d7090077bb8e2e4c271ed5",
+  "manuscript_hashes": {
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-1385a402.md": "fe0c86962753360f5d96839ec02187e69a6f81c83776047c3a9673badcce2f3f",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-14f78b17.md": "03af6aa51e9decff47abb7ff98f13449ab2bb7a84b7b181d391cba38997adb9d",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-16dacc2e.md": "9728c0df362fef156aa61d69a74c9bb86a77e0b7263db7d115a750ce7d85a39a",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-176191a0.md": "297f8cd90b1c7c009d292e4d7d5c10502c031da98617a9f100990a6988601257",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-1a9c7cb5.md": "253b5946432abcf721d3901f6ddeca13cc27460c1daa44fe880d947ea5dae325",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-4743ed58.md": "b5bc9dc5635a97e4176f3d1f5bae8ea252306491aa56b34063cb603419015abf",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-56554899.md": "741e9fabb37e36c1a42203f81a13640de753df15f073368c226c339b0e10c3de",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-5d4cc4b1.md": "0cadca359c5b610657a1deab86e593eb6cf71b990f068f388d03278c7b0a2e2b",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-60aeec01.md": "0d43d5dfd6e1ac1d4ea1bea58e1ae830d8fed0c5291b26634773c64d66c5ab93",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-993722e2.md": "e61d2f72912122f20f7f265c9029d192936cbb0239e7156ad373b313ac1fb649",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-c9e3aa58.md": "38cee985867031b149fd6989ef874b5f5fa14495197ff731fcbda8e8e857b65d",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-cecb03f9.md": "12f6d6f9fb90129fc9120ec0878b6443e1a3051abb126646032377235c8ed0a2",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-d947dd6b.md": "6fcd8badaef69d7939c84f87761191da1840a84de1b3399890051343ef5028e1",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-f182cce3.md": "65d3b473c511187576aac1315275b59e928158afe8d7090077bb8e2e4c271ed5",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/chapters/ch-fd275ad0.md": "0bdbcbcb02aee89813ab7e102cabc4a3f0a7415b9637adc6219b8c348a00e4fc",
+    "/Users/victor/Developer/git/codicora/books/bradshaw-01/manuscript/manuscript.yaml": "566bde1f742e5190670eb4317e5adfcc1aa3e585875ab4dcb3c6869ed07d2759"
+  },
+  "original_unchanged": true,
+  "scenes": 5,
+  "words": 4072,
+  "model_proposals": 0,
+  "rule_proposals": 0,
+  "pending": 0,
+  "accepted": 0,
+  "rejected": 0,
+  "build_conflicts": 0,
+  "verifier_calls": 0,
+  "api_calls": 5,
+  "actual_api_cost": 0.000849875,
+  "conservative_spend_bound": 0.0008498750000000002,
+  "budget_usd": 0.5,
+  "cost_per_1000_words": 0.0002087119351669941,
+  "execution_ms": 15979,
+  "blocked": false,
+  "stages": [
+    {
+      "name": "rules",
+      "status": "ok",
+      "hits": 0,
+      "proposals": 0,
+      "units": {
+        "cached": 0,
+        "computed": 6,
+        "failed": 0
+      },
+      "failures": [],
+      "diagnostics": []
+    },
+    {
+      "name": "model",
+      "status": "ok",
+      "windows": 5,
+      "windows_by_chapter": {
+        "ch-f182cce3": 5
+      },
+      "sent": 5,
+      "cached": 0,
+      "no_change": 5,
+      "no_change_by_chapter": {
+        "ch-f182cce3": 5
+      },
+      "candidates": 0,
+      "discarded": [],
+      "failures": [],
+      "prompt_version": "1.6.0",
+      "model_id": "openai/gpt-6-luna",
+      "formulaic_hits": [],
+      "formulaic_catalog_version": "0.3.0"
+    },
+    {
+      "name": "guard",
+      "status": "ok",
+      "candidates": 0,
+      "semantic_rejected": 0,
+      "rule_preferred": 0,
+      "objective_rejected": 0,
+      "punctuation_rejected": 0,
+      "voice_rejected": 0,
+      "offered": 0,
+      "same_family_warning": false,
+      "rejections": [],
+      "verifications": []
+    }
+  ]
+}

@@ -40,6 +40,7 @@ export interface GuardRejection { proposal_id: string; guard: 'semantic-trap' | 
 export async function guardProposals(source: OpenedSource, loaded: LoadedConfig, pack: LoadedPack, candidates: Proposal[], noCache = false, mode = 'copy', ruleProposals: Proposal[] = []): Promise<{ proposals: Proposal[]; rejected: GuardRejection[]; stage: Record<string, unknown>; ledger: Gateway['ledger'] }> {
   const cache = new Cache(source.stateDir, noCache); const gateway = new Gateway(loaded.config, pack.pack);
   const proposals: Proposal[] = []; const rejected: GuardRejection[] = []; let semanticRejected = 0, ruleRejected = 0, objectiveRejected = 0, punctuationRejected = 0, voiceRejected = 0; let sameFamily = false;
+  const verifications: Array<Record<string, unknown>> = [];
   const bookNames = properNouns(source.book, pack.pack);
   for (const proposal of candidates) {
     // Текст отклонённой правки остаётся в rejected.jsonl: без него отказ фильтра нельзя разобрать после прогона.
@@ -69,11 +70,12 @@ export async function guardProposals(source: OpenedSource, loaded: LoadedConfig,
     }
     // В proofread необходимость уже проверил verifyObjectiveCorrection; в copy её проверяет verifyMeaning, если так настроено.
     const verification = await verifyMeaning(proposal.target.text, proposal.replacement, context, proposal.impact, loaded.config, pack.pack, cache, gateway, { necessity: mode === 'copy' && loaded.config.profiles.verify?.check === 'necessity' });
+    verifications.push({ proposal_id: proposal.id, ...verification });
     sameFamily ||= verification.sameFamily;
     if (!verification.passed) { rejected.push({ proposal_id: proposal.id, guard: 'semantic-verifier', reason: verification.reason, ...edit }); semanticRejected++; continue; }
     const verified = { ...proposal, verification: { passes: verification.passes, agreed: verification.agreed, semantic_risk: 'none', voice: 'ok' } };
     delete (verified as Partial<Proposal>).unverified;
     proposals.push(proposalSchema.parse(verified));
   }
-  return { proposals, rejected, stage: { name: 'guard', status: rejected.length ? 'partial' : 'ok', candidates: candidates.length, semantic_rejected: semanticRejected, rule_preferred: ruleRejected, objective_rejected: objectiveRejected, punctuation_rejected: punctuationRejected, voice_rejected: voiceRejected, offered: proposals.length, same_family_warning: sameFamily, rejections: rejected }, ledger: gateway.ledger };
+  return { proposals, rejected, stage: { name: 'guard', status: rejected.length ? 'partial' : 'ok', candidates: candidates.length, semantic_rejected: semanticRejected, rule_preferred: ruleRejected, objective_rejected: objectiveRejected, punctuation_rejected: punctuationRejected, voice_rejected: voiceRejected, offered: proposals.length, same_family_warning: sameFamily, rejections: rejected, verifications }, ledger: gateway.ledger };
 }

@@ -57,8 +57,18 @@
     "src/prompts/copy-edit.ts": "655f30e0bc68333768d32df9b915f3899262e58291b493c5550483b8b747cda2",
     "src/prompts/verify.ts": "618f7f23d42c01162ea8ba8c232888d6200333a764a5d7a3ec8c9a27338d387d",
     "src/guard/verify.ts": "921ccb5b2eaad6afbba2736d4845d9f2b82b57760a1170e021f0d3adfa7c5dd1",
-    "src/guard/index.ts": "c4f4a7524e7197b85bd4eba6f08a7222bfccc60a697281f6cd1b47c164196ab1",
+    "src/guard/index.ts": "b2eaed1ad7737d8f7430b785475e3abf4871e1816ed0f5b4eef9759c61ef8a36",
     "src/edit/pass.ts": "8c52d3410bb3e6cadc76fdb6e361e7e53f8b795399aaaf2ed9ad70eae0362b3c",
-    "src/provider/http.ts": "6ecc84919beb11262b6b8b634d1ce41bb38e0e537f0d08a9fedb4603f0bc43f4"
-  }
+    "src/provider/http.ts": "6ecc84919beb11262b6b8b634d1ce41bb38e0e537f0d08a9fedb4603f0bc43f4",
+    "src/provider/gateway.ts": "c1e2c1adde114d87ecd796d86376a6b74ae59942c2529f0f6720ecba118a0f0e",
+    "src/guard/traps.ts": "26714525a79a5d9b4fdd4df81bc414a7da8b94e35b4ccc9af731d27d61460a38",
+    "src/guard/voice.ts": "bad022c0ecb2d21d88a78fd034ea029dc2784259efaac099c2f6d4aa2fb2c3e0",
+    "src/text/dialogue.ts": "ca6e564d95875d8036ec805c765893e67c961a7ae120fe9aac33ef3cf1df2167",
+    "src/text/segment.ts": "090bb51fb87dae2b4c223cca00f560626f12f704e8ffa0398523e8577ba1efeb",
+    "src/edit/mechanical.ts": "5ce2573b64f77d03122d6db599c31e8602db71e3a54f84cab63af82f46de7d2c",
+    "src/rules/index.ts": "f10a9c7bc0741ca2a15c57fdc816672b6b6624fd59d0534ecceb8038287def12",
+    "src/rules/capitalization.ts": "dfc5e449a568435d4d9ff9483f40d53c55c0e14ab09b3c72801f50239b1370b1",
+    "src/rules/mixed-quotes.ts": "a66d16e7d482ab4f55fe45d6ac714d1b6543f4a90812b88d271f5f9b646b915c"
+  },
+  "source_sha256": "a5050a710efe242c2ced53dd8585ca9e9feae7f88803e81f46cf20d095b11e2b"
 }

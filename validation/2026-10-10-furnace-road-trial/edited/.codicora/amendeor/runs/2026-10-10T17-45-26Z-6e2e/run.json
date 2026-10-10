@@ -1,0 +1,257 @@
+{
+  "schema": "codicora.run/0.1",
+  "run_id": "2026-10-10T17-45-26Z-6e2e",
+  "tool": {
+    "name": "amendeor",
+    "version": "0.1.0"
+  },
+  "started_at": "2026-10-10T17:45:26.442Z",
+  "finished_at": "2026-10-10T17:45:42.184Z",
+  "inputs": {
+    "files": [
+      {
+        "path": "/Users/victor/Developer/git/codicora/Amendeor/validation/2026-10-10-furnace-road-trial/ch-f182cce3.md",
+        "content_hash": "sha256:65d3b473c511187576aac1315275b59e928158afe8d7090077bb8e2e4c271ed5",
+        "title_hash": "sha256:ebfa3d23b227bb25dec2daae74cfaa524ec647df7b9de980a0e837b443009cee"
+      }
+    ]
+  },
+  "config": {
+    "preserve": [],
+    "normalize": {
+      "yo": "keep",
+      "ellipsis": false
+    },
+    "avoid": [],
+    "auto_accept": [],
+    "rules": {},
+    "providers": {
+      "editor": {
+        "transport": "openai",
+        "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+        "family": "openai",
+        "api_key_env": "AMENDEOR_OPENROUTER_API_KEY",
+        "price": {
+          "input_per_m": 0.1,
+          "output_per_m": 0.5,
+          "currency": "USD"
+        }
+      },
+      "verifier": {
+        "transport": "openai",
+        "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+        "family": "claude",
+        "api_key_env": "AMENDEOR_OPENROUTER_API_KEY",
+        "price": {
+          "input_per_m": 0.1,
+          "output_per_m": 0.5,
+          "currency": "USD"
+        }
+      }
+    },
+    "profiles": {
+      "edit": {
+        "provider": "editor",
+        "model": "openai/gpt-6-luna",
+        "context_budget": 2048
+      },
+      "verify": {
+        "provider": "verifier",
+        "model": "anthropic/claude-haiku-5.5",
+        "passes": 3,
+        "reasoning": true,
+        "reasoning_effort": "medium",
+        "check": "necessity"
+      }
+    }
+  },
+  "config_layers": {
+    "preserve": "defaults",
+    "normalize.yo": "defaults",
+    "normalize.ellipsis": "defaults",
+    "avoid": "defaults",
+    "auto_accept": "defaults",
+    "providers.editor.transport": "cli",
+    "providers.editor.endpoint": "cli",
+    "providers.editor.api_key_env": "cli",
+    "providers.editor.family": "cli",
+    "providers.editor.price.input_per_m": "cli",
+    "providers.editor.price.output_per_m": "cli",
+    "providers.editor.price.currency": "cli",
+    "providers.verifier.transport": "cli",
+    "providers.verifier.endpoint": "cli",
+    "providers.verifier.api_key_env": "cli",
+    "providers.verifier.family": "cli",
+    "providers.verifier.price.input_per_m": "cli",
+    "providers.verifier.price.output_per_m": "cli",
+    "providers.verifier.price.currency": "cli",
+    "profiles.edit.provider": "cli",
+    "profiles.edit.model": "cli",
+    "profiles.edit.context_budget": "cli",
+    "profiles.verify.provider": "cli",
+    "profiles.verify.model": "cli",
+    "profiles.verify.reasoning": "cli",
+    "profiles.verify.reasoning_effort": "cli",
+    "profiles.verify.passes": "cli",
+    "profiles.verify.check": "cli"
+  },
+  "stages": [
+    {
+      "name": "rules",
+      "status": "ok",
+      "hits": 0,
+      "proposals": 0,
+      "units": {
+        "cached": 0,
+        "computed": 6,
+        "failed": 0
+      },
+      "failures": [],
+      "diagnostics": []
+    },
+    {
+      "name": "model",
+      "status": "ok",
+      "windows": 5,
+      "windows_by_chapter": {
+        "ch-f182cce3": 5
+      },
+      "sent": 5,
+      "cached": 0,
+      "no_change": 5,
+      "no_change_by_chapter": {
+        "ch-f182cce3": 5
+      },
+      "candidates": 0,
+      "discarded": [],
+      "failures": [],
+      "prompt_version": "1.6.0",
+      "model_id": "openai/gpt-6-luna",
+      "formulaic_hits": [],
+      "formulaic_catalog_version": "0.3.0"
+    },
+    {
+      "name": "guard",
+      "status": "ok",
+      "candidates": 0,
+      "semantic_rejected": 0,
+      "rule_preferred": 0,
+      "objective_rejected": 0,
+      "punctuation_rejected": 0,
+      "voice_rejected": 0,
+      "offered": 0,
+      "same_family_warning": false,
+      "rejections": [],
+      "verifications": []
+    }
+  ],
+  "guard": {
+    "name": "guard",
+    "status": "ok",
+    "candidates": 0,
+    "semantic_rejected": 0,
+    "rule_preferred": 0,
+    "objective_rejected": 0,
+    "punctuation_rejected": 0,
+    "voice_rejected": 0,
+    "offered": 0,
+    "same_family_warning": false,
+    "rejections": [],
+    "verifications": []
+  },
+  "ledger": {
+    "entries": [
+      {
+        "stage": "edit",
+        "provider": "editor",
+        "model": "openai/gpt-6-luna",
+        "tokens_in": 1343,
+        "tokens_out": 9,
+        "cost": 0.0001723,
+        "currency": "USD",
+        "ms": 1024,
+        "budget": 716
+      },
+      {
+        "stage": "edit",
+        "provider": "editor",
+        "model": "openai/gpt-6-luna",
+        "tokens_in": 1254,
+        "tokens_out": 9,
+        "cost": 0.000161175,
+        "currency": "USD",
+        "ms": 1118,
+        "budget": 571
+      },
+      {
+        "stage": "edit",
+        "provider": "editor",
+        "model": "openai/gpt-6-luna",
+        "tokens_in": 1310,
+        "tokens_out": 9,
+        "cost": 0.000168175,
+        "currency": "USD",
+        "ms": 989,
+        "budget": 631
+      },
+      {
+        "stage": "edit",
+        "provider": "editor",
+        "model": "openai/gpt-6-luna",
+        "tokens_in": 1411,
+        "tokens_out": 9,
+        "cost": 0.0001808,
+        "currency": "USD",
+        "ms": 992,
+        "budget": 661
+      },
+      {
+        "stage": "edit",
+        "provider": "editor",
+        "model": "openai/gpt-6-luna",
+        "tokens_in": 1304,
+        "tokens_out": 9,
+        "cost": 0.000167425,
+        "currency": "USD",
+        "ms": 1649,
+        "budget": 619
+      }
+    ],
+    "tokens_in": 6622,
+    "tokens_out": 45,
+    "cost": 0.000849875,
+    "currency": "USD",
+    "ms": 5772
+  },
+  "baseline": {
+    "previous_run_id": null,
+    "states": {}
+  },
+  "counts": {
+    "by_impact": {
+      "mechanical": 0,
+      "prose": 0
+    }
+  },
+  "summary": {
+    "chapters": 1,
+    "scenes": 5,
+    "words": 4072,
+    "language": "en",
+    "pack": {
+      "status": "loaded",
+      "version": "1.0.1"
+    },
+    "hotspots": 2,
+    "formulaic": [],
+    "warnings": []
+  },
+  "warnings": [],
+  "metadata": {
+    "rule_set_version": "sha256:8cfc6c164f6a19911db4d66dfd5c385aa460c12be10f52482727c8c453d5356a",
+    "pack_version": "1.0.1",
+    "mode": "copy",
+    "prompt_version": "1.6.0",
+    "model_id": "openai/gpt-6-luna"
+  }
+}
