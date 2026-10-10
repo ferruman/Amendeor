@@ -23,7 +23,7 @@ export class Gateway {
     const apiKey = providerConfig.api_key ?? (providerConfig.api_key_env ? this.env[providerConfig.api_key_env] : undefined) ?? (providerConfig.api_key_file ? (await readFile(providerConfig.api_key_file, 'utf8')).trim() : undefined);
     // Рассуждение (thinking у Anthropic, reasoning через OpenRouter) расходует выходной бюджет до ответа: 256 токенов обрезали почти каждый ответ (B1).
     const budget = Math.max(profile.thinking || profile.reasoning ? 2048 : 256, Math.ceil(expectedChars / this.charsPerToken * 1.25));
-    const request: CompletionRequest = { system, prompt, model: profile.model, maxTokens: budget, temperature: profile.temperature ?? 0, endpoint: providerConfig.endpoint, apiKey, thinking: profile.thinking, reasoning: profile.reasoning };
+    const request: CompletionRequest = { system, prompt, model: profile.model, maxTokens: budget, temperature: profile.temperature ?? 0, endpoint: providerConfig.endpoint, apiKey, thinking: profile.thinking, reasoning: profile.reasoning, reasoningEffort: profile.reasoning ? profile.reasoning_effort : undefined };
     let last: unknown;
     for (let attempt = 0; attempt < 3; attempt++) {
       if (providerConfig.transport !== 'local' && providerConfig.endpoint && new URL(providerConfig.endpoint).hostname === 'openrouter.ai') {
@@ -41,8 +41,8 @@ export class Gateway {
         if (result.usage.input_tokens > 0) this.charsPerToken = inputChars / result.usage.input_tokens;
         const price = providerConfig.price;
         this.ledger.push({ stage, provider: profile.provider, model: profile.model, tokens_in: result.usage.input_tokens, tokens_out: result.usage.output_tokens,
-          cost: price ? (result.usage.input_tokens * price.input_per_m + result.usage.output_tokens * price.output_per_m) / 1_000_000 : null,
-          currency: price?.currency ?? null, ms: result.ms, budget });
+          cost: result.usage.cost ?? (price ? (result.usage.input_tokens * price.input_per_m + result.usage.output_tokens * price.output_per_m) / 1_000_000 : null),
+          currency: price?.currency ?? null, ms: result.ms, budget: request.maxTokens });
         if (m && reservation && this.ledger.at(-1)!.cost !== null) await settle(m, reservation, this.ledger.at(-1)!.cost!);
         return result;
       } catch (error) {

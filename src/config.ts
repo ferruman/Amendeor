@@ -14,6 +14,7 @@ export const profileSchema = z.object({
   context_budget: z.number().int().positive().optional(), passes: z.number().int().positive().optional(),
   family: z.string().optional(), thinking: z.boolean().optional(), reasoning: z.boolean().optional(),
   // verify: что проверяет verifier в режиме copy. meaning — только смысл (по умолчанию); necessity — ещё и необходимость правки.
+  reasoning_effort: z.enum(['none', 'minimal', 'low', 'medium', 'high', 'xhigh', 'max']).optional(),
   check: z.enum(['meaning', 'necessity']).optional()
 }).passthrough();
 export const configSchema = z.object({
