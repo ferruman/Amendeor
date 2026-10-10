@@ -1,0 +1,190 @@
+{
+  "source": "eval/fixtures/jekyll-en/mutations-v3.json",
+  "control_chapter": "03-jekyll",
+  "mutations": [
+    {
+      "id": "jekyll-en:agreement:0:01-jekyll:13f40afb-a726-46b4-89ac-cbbf3860c148",
+      "type": "agreement",
+      "chapter": "01-jekyll",
+      "scene": "13f40afb-a726-46b4-89ac-cbbf3860c148",
+      "span": {
+        "start": 1961,
+        "end": 1965
+      },
+      "original": "was",
+      "mutated": "were",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "jekyll-en:terminology:0:02-jekyll:31884fcf-7b85-4d60-8217-f247886cb068",
+      "type": "terminology",
+      "chapter": "02-jekyll",
+      "scene": "31884fcf-7b85-4d60-8217-f247886cb068",
+      "span": {
+        "start": 3649,
+        "end": 3653
+      },
+      "original": "Hyde",
+      "mutated": "Hide",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "blocked-by-policy"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "jekyll-en:dialogue-format:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "type": "dialogue-format",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "span": {
+        "start": 941,
+        "end": 942
+      },
+      "original": "”",
+      "mutated": "\"",
+      "mode": "copy",
+      "in_dialogue": true,
+      "policy": [
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "jekyll-en:sentence-frame:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "type": "sentence-frame",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "span": {
+        "start": 2397,
+        "end": 2413
+      },
+      "original": "he drew",
+      "mutated": "he drew. he drew",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "jekyll-en:doubled-word:0:02-jekyll:eaf3739a-1ae6-440c-8b19-3d0b0271990c",
+      "type": "doubled-word",
+      "chapter": "02-jekyll",
+      "scene": "eaf3739a-1ae6-440c-8b19-3d0b0271990c",
+      "span": {
+        "start": 1176,
+        "end": 1189
+      },
+      "original": "cannot",
+      "mutated": "cannot cannot",
+      "mode": "copy",
+      "in_dialogue": true,
+      "policy": [
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "jekyll-en:typo:0:04-jekyll:3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "type": "typo",
+      "chapter": "04-jekyll",
+      "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "span": {
+        "start": 1516,
+        "end": 1524
+      },
+      "original": "swirling",
+      "mutated": "swriling",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "jekyll-en:qualifier:1:04-jekyll:3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "type": "qualifier",
+      "chapter": "04-jekyll",
+      "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "span": {
+        "start": 1769,
+        "end": 1784
+      },
+      "original": "seemed",
+      "mutated": "somewhat seemed",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "jekyll-en:formulaic:2:04-jekyll:3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "04-jekyll",
+      "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "span": {
+        "start": 2574,
+        "end": 2605
+      },
+      "original": "This was",
+      "mutated": "At the end of the day, This was",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "jekyll-en:redundancy:3:04-jekyll:3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "type": "redundancy",
+      "chapter": "04-jekyll",
+      "scene": "3dda295c-cdf7-4f17-8dae-5d3dbb859de7",
+      "span": {
+        "start": 2884,
+        "end": 2899
+      },
+      "original": "was",
+      "mutated": "was again again",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": [
+        "was again"
+      ]
+    },
+    {
+      "id": "jekyll-en:punctuation:0:04-jekyll:07d0a395-a366-4d4a-8d4a-3099d45465b2",
+      "type": "punctuation",
+      "chapter": "04-jekyll",
+      "scene": "07d0a395-a366-4d4a-8d4a-3099d45465b2",
+      "span": {
+        "start": 293,
+        "end": 293
+      },
+      "original": ",",
+      "mutated": "",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "proofread-only"
+      ],
+      "alternatives": []
+    }
+  ]
+}

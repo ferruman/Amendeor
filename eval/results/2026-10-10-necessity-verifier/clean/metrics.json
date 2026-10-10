@@ -1,0 +1,543 @@
+{
+  "generated_at": "2026-10-10T16:54:35.430Z",
+  "spent_usd": 0.172076,
+  "requests": 226,
+  "corpus": {
+    "clean-en": {
+      "words": 2088,
+      "scenes": 4,
+      "mutations": 0,
+      "policy": []
+    },
+    "clean-ru": {
+      "words": 2954,
+      "scenes": 5,
+      "mutations": 0,
+      "policy": []
+    }
+  },
+  "stage_a": {},
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "n1-luna__haiku-medium__necessity",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 4,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "clean-en-0: The fifth night he had in Guest to dine with him; → The fifth he had in Guest to dine with him;",
+            "clean-ru-0: И видал которые лавки → И видал я лавки",
+            "clean-ru-0: очень стоющие → очень стоящие",
+            "clean-ru-2: сказали ему, что письма опускаются в почтовые ящики, а из ящиков развозятся по всей земле → сказали ему, что письма опускаются в почтовые ящики, а из ящиков письма развозятся по всей земле"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 2,
+        "target-not-verbatim-in-window": 3
+      },
+      "cost": {
+        "total_usd": 0.004402,
+        "editor_usd": 0.003142,
+        "verifier_usd": 0.00126,
+        "retries_usd": 0.000241,
+        "per_1000_words_usd": 0.000291,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0.000163,
+        "per_repeat_usd": 0.001467,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 35,
+        "editor": 31,
+        "verifier": 4,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 42858,
+        "tokens_out": 3352,
+        "cached_tokens": 21900
+      },
+      "latency": {
+        "median_request_ms": 485,
+        "mean_request_ms": 556,
+        "median_job_ms": 18414,
+        "mean_job_ms": 19605
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.00126,
+          "k2": 0.00126,
+          "k3": 0.00126
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "clean-ru-2: сказали ему, что письма опускаются в почтовые ящики, а из ящиков развозятся по всей земле → сказали ему, что письма опускаются в почтовые ящики, а из ящиков письма развозятся по всей земле"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0012603
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0012603
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "n2-luna__sonnet__necessity",
+      "tier": 2,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-sonnet-5",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 2,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "clean-en-0: The fifth night he had in Guest to dine with him; → The fifth night he had Guest to dine with him;",
+            "clean-ru-0: поморщилось, глаза подкатились, дыхание остановилось… он отвел → поморщилось, глаза подкатились, дыхание остановилось… Он отвел"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "target-not-verbatim-in-window": 3,
+        "no-op": 2
+      },
+      "cost": {
+        "total_usd": 0.008521,
+        "editor_usd": 0.001385,
+        "verifier_usd": 0.007136,
+        "retries_usd": 0.000224,
+        "per_1000_words_usd": 0.000563,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0.000316,
+        "per_repeat_usd": 0.00284,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 34,
+        "editor": 31,
+        "verifier": 3,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 42005,
+        "tokens_out": 1259,
+        "cached_tokens": 35094
+      },
+      "latency": {
+        "median_request_ms": 488,
+        "mean_request_ms": 591,
+        "median_job_ms": 17273,
+        "mean_job_ms": 17184
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.004938,
+          "k2": 0.007136,
+          "k3": 0.007136
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "clean-en-0: The fifth night he had in Guest to dine with him; → The fifth night he had Guest to dine with him;",
+            "clean-ru-0: поморщилось, глаза подкатились, дыхание остановилось… он отвел → поморщилось, глаза подкатились, дыхание остановилось… Он отвел"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.004938
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [
+            "clean-en-0: The fifth night he had in Guest to dine with him; → The fifth night he had Guest to dine with him;"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.007136
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "n3-gpt-5.1__sonnet__meaning",
+      "tier": 3,
+      "tested": true,
+      "editor": "openai/gpt-5.1",
+      "verifier": "anthropic/claude-sonnet-5",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 11,
+        "rule": 0,
+        "control_edits": 4,
+        "judged_harmful": 1,
+        "judged_invalid": 10,
+        "judged_valid": 0
+      },
+      "harmful_final": [
+        "clean-ru-2: умокнул перо → умокнул перо в чернила"
+      ],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 5,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "clean-en-2: to grow more at quiet with himself → to grow more at peace with himself",
+            "clean-ru-0: умокнул перо → макнул перо",
+            "clean-ru-1: Бризжалов «чужой» → Бризжалова «чужой»",
+            "clean-ru-1: умокнул перо → умокнул перо в чернила",
+            "clean-ru-2: невежестве → невежливости"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 1,
+        "ambiguous-target-in-window": 1,
+        "target-not-verbatim-in-window": 1
+      },
+      "cost": {
+        "total_usd": 0.140917,
+        "editor_usd": 0.071564,
+        "verifier_usd": 0.069352,
+        "retries_usd": 0.01341,
+        "per_1000_words_usd": 0.009316,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0.005219,
+        "per_repeat_usd": 0.046972,
+        "sources": [
+          "provider-usage",
+          "error-no-usage"
+        ]
+      },
+      "requests": {
+        "total": 81,
+        "editor": 34,
+        "verifier": 47,
+        "truncated": 0,
+        "http_errors": 1,
+        "retries": 8,
+        "tokens_in": 61039,
+        "tokens_out": 7437,
+        "cached_tokens": 20096
+      },
+      "latency": {
+        "median_request_ms": 1258,
+        "mean_request_ms": 1375,
+        "median_job_ms": 31877,
+        "mean_job_ms": 39004
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.02691,
+          "k2": 0.048338,
+          "k3": 0.065512
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "clean-en-2: to grow more at quiet with himself → to grow more at peace with himself",
+            "clean-ru-1: умокнул перо → умокнул перо в чернила"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.02691
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.048338000000000006
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "m1-luna__haiku-medium__meaning",
+      "tier": 4,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 2,
+        "rule": 0,
+        "control_edits": 1,
+        "judged_harmful": 0,
+        "judged_invalid": 2,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 1
+      },
+      "cost": {
+        "total_usd": 0.002434,
+        "editor_usd": 0.001413,
+        "verifier_usd": 0.001021,
+        "retries_usd": 0.00051,
+        "per_1000_words_usd": 0.000161,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0.00009,
+        "per_repeat_usd": 0.000811,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 36,
+        "editor": 30,
+        "verifier": 6,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 2,
+        "tokens_in": 41526,
+        "tokens_out": 2490,
+        "cached_tokens": 34043
+      },
+      "latency": {
+        "median_request_ms": 513,
+        "mean_request_ms": 659,
+        "median_job_ms": 16985,
+        "mean_job_ms": 19522
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.000344,
+          "k2": 0.00065,
+          "k3": 0.001021
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0003441
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0006502
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "m2-luna__sonnet__meaning",
+      "tier": 4,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-sonnet-5",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 3,
+        "rule": 0,
+        "control_edits": 3,
+        "judged_harmful": 0,
+        "judged_invalid": 3,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 1,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "clean-ru-0: статского генерала Бризжалова, служащего по ведомству путей сообщения → статского генерала Бризжалова, служившего по ведомству путей сообщения"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 1,
+      "discarded": {
+        "target-not-verbatim-in-window": 1,
+        "no-op": 1
+      },
+      "cost": {
+        "total_usd": 0.015803,
+        "editor_usd": 0.001097,
+        "verifier_usd": 0.014706,
+        "retries_usd": 0.00004,
+        "per_1000_words_usd": 0.001045,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0.000585,
+        "per_repeat_usd": 0.005268,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 40,
+        "editor": 30,
+        "verifier": 10,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 42847,
+        "tokens_out": 1470,
+        "cached_tokens": 35790
+      },
+      "latency": {
+        "median_request_ms": 538,
+        "mean_request_ms": 690,
+        "median_job_ms": 18692,
+        "mean_job_ms": 20041
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.006086,
+          "k2": 0.010406,
+          "k3": 0.014706
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.006085999999999999
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.010405999999999999
+        }
+      },
+      "pareto": false
+    }
+  ],
+  "unlabelled_final_edits": []
+}

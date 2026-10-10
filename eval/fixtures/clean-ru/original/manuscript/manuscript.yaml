@@ -1,0 +1,12 @@
+schema_version: 1
+language: ru
+chapters:
+  - slug: 01-chekhov
+    title: "Смерть чиновника"
+    eval_control: true
+  - slug: 02-chekhov
+    title: "Злоумышленник"
+    eval_control: true
+  - slug: 03-chekhov
+    title: "Ванька"
+    eval_control: true

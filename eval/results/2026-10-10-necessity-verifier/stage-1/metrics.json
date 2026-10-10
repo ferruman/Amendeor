@@ -1,0 +1,4353 @@
+{
+  "generated_at": "2026-10-10T16:14:06.097Z",
+  "spent_usd": 0.534824,
+  "variants": {
+    "haiku-medium-meaning": {
+      "model": "anthropic/claude-haiku-5.5",
+      "check": "meaning",
+      "excluded_self_pairing": 5,
+      "all": {
+        "pass1": {
+          "cases": 64,
+          "valid_accepted": 17,
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "en-dedupe-name",
+            "en-filler-mutation-v3"
+          ],
+          "harmful_accepted": [
+            "en-speech-merge",
+            "en-wrong-whom"
+          ],
+          "harmful_rejected": 17,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey",
+            "ru-period-spelling-shkap",
+            "en-regional-discoloured",
+            "ru-synonym-stal",
+            "en-synonym-entry",
+            "ru-word-order-ikry",
+            "en-adverb-placement",
+            "ru-pleonasm",
+            "ru-colloquial-udobney",
+            "ru-zatei",
+            "en-distained"
+          ],
+          "unnecessary_rejected": 5,
+          "ambiguous_accepted": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "valid_acceptance_rate": 0.85,
+          "harmful_rejection_rate": 0.895,
+          "unnecessary_rejection_rate": 0.227,
+          "schema_failures": 0,
+          "cost_usd": 0.01079,
+          "median_case_ms": 918
+        },
+        "pass3": {
+          "cases": 64,
+          "valid_accepted": 16,
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-dedupe-name",
+            "en-filler-mutation-v3"
+          ],
+          "harmful_accepted": [
+            "en-speech-merge",
+            "en-wrong-whom"
+          ],
+          "harmful_rejected": 17,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey",
+            "ru-period-spelling-shkap",
+            "en-regional-discoloured",
+            "ru-synonym-stal",
+            "en-synonym-entry",
+            "ru-word-order-ikry",
+            "en-adverb-placement",
+            "ru-pleonasm",
+            "ru-colloquial-udobney",
+            "ru-zatei",
+            "en-distained"
+          ],
+          "unnecessary_rejected": 5,
+          "ambiguous_accepted": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "valid_acceptance_rate": 0.8,
+          "harmful_rejection_rate": 0.895,
+          "unnecessary_rejection_rate": 0.227,
+          "schema_failures": 0,
+          "cost_usd": 0.022133,
+          "median_case_ms": 2639
+        }
+      },
+      "reaching_verifier": {
+        "cases": 36,
+        "pass1": {
+          "cases": 36,
+          "valid_accepted": 11,
+          "valid_rejected": [
+            "en-filler-mutation-v3"
+          ],
+          "harmful_accepted": [
+            "en-wrong-whom"
+          ],
+          "harmful_rejected": 7,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey",
+            "ru-period-spelling-shkap",
+            "en-regional-discoloured",
+            "ru-synonym-stal",
+            "en-synonym-entry",
+            "ru-word-order-ikry",
+            "en-adverb-placement",
+            "ru-pleonasm",
+            "ru-colloquial-udobney",
+            "ru-zatei",
+            "en-distained"
+          ],
+          "unnecessary_rejected": 3,
+          "ambiguous_accepted": [],
+          "valid_acceptance_rate": 0.917,
+          "harmful_rejection_rate": 0.875,
+          "unnecessary_rejection_rate": 0.188,
+          "schema_failures": 0,
+          "cost_usd": 0.005489,
+          "median_case_ms": 921
+        },
+        "pass3": {
+          "cases": 36,
+          "valid_accepted": 11,
+          "valid_rejected": [
+            "en-filler-mutation-v3"
+          ],
+          "harmful_accepted": [
+            "en-wrong-whom"
+          ],
+          "harmful_rejected": 7,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey",
+            "ru-period-spelling-shkap",
+            "en-regional-discoloured",
+            "ru-synonym-stal",
+            "en-synonym-entry",
+            "ru-word-order-ikry",
+            "en-adverb-placement",
+            "ru-pleonasm",
+            "ru-colloquial-udobney",
+            "ru-zatei",
+            "en-distained"
+          ],
+          "unnecessary_rejected": 3,
+          "ambiguous_accepted": [],
+          "valid_acceptance_rate": 0.917,
+          "harmful_rejection_rate": 0.875,
+          "unnecessary_rejection_rate": 0.188,
+          "schema_failures": 0,
+          "cost_usd": 0.013186,
+          "median_case_ms": 2736
+        }
+      },
+      "by_language": {
+        "en": {
+          "pass1": {
+            "cases": 36,
+            "valid_accepted": 11,
+            "valid_rejected": [
+              "en-dedupe-name",
+              "en-filler-mutation-v3"
+            ],
+            "harmful_accepted": [
+              "en-speech-merge",
+              "en-wrong-whom"
+            ],
+            "harmful_rejected": 9,
+            "unnecessary_accepted": [
+              "en-modernization-hyphen",
+              "en-modernization-vocative",
+              "en-optional-comma",
+              "en-regional-discoloured",
+              "en-synonym-entry",
+              "en-adverb-placement",
+              "en-distained"
+            ],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [
+              "en-name-canon",
+              "en-place-name"
+            ],
+            "valid_acceptance_rate": 0.846,
+            "harmful_rejection_rate": 0.818,
+            "unnecessary_rejection_rate": 0.222,
+            "schema_failures": 0,
+            "cost_usd": 0.005894,
+            "median_case_ms": 900
+          },
+          "pass3": {
+            "cases": 36,
+            "valid_accepted": 11,
+            "valid_rejected": [
+              "en-dedupe-name",
+              "en-filler-mutation-v3"
+            ],
+            "harmful_accepted": [
+              "en-speech-merge",
+              "en-wrong-whom"
+            ],
+            "harmful_rejected": 9,
+            "unnecessary_accepted": [
+              "en-modernization-hyphen",
+              "en-modernization-vocative",
+              "en-optional-comma",
+              "en-regional-discoloured",
+              "en-synonym-entry",
+              "en-adverb-placement",
+              "en-distained"
+            ],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [
+              "en-name-canon",
+              "en-place-name"
+            ],
+            "valid_acceptance_rate": 0.846,
+            "harmful_rejection_rate": 0.818,
+            "unnecessary_rejection_rate": 0.222,
+            "schema_failures": 0,
+            "cost_usd": 0.012123,
+            "median_case_ms": 2639
+          }
+        },
+        "ru": {
+          "pass1": {
+            "cases": 28,
+            "valid_accepted": 6,
+            "valid_rejected": [
+              "ru-dedupe-exact"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 8,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "ru-comma-removal",
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey",
+              "ru-period-spelling-shkap",
+              "ru-synonym-stal",
+              "ru-word-order-ikry",
+              "ru-pleonasm",
+              "ru-colloquial-udobney",
+              "ru-zatei"
+            ],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.857,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": 0.231,
+            "schema_failures": 0,
+            "cost_usd": 0.004895,
+            "median_case_ms": 944
+          },
+          "pass3": {
+            "cases": 28,
+            "valid_accepted": 5,
+            "valid_rejected": [
+              "ru-dedupe-exact",
+              "ru-dedupe-alternative"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 8,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "ru-comma-removal",
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey",
+              "ru-period-spelling-shkap",
+              "ru-synonym-stal",
+              "ru-word-order-ikry",
+              "ru-pleonasm",
+              "ru-colloquial-udobney",
+              "ru-zatei"
+            ],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.714,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": 0.231,
+            "schema_failures": 0,
+            "cost_usd": 0.01001,
+            "median_case_ms": 2589
+          }
+        }
+      },
+      "by_category": {
+        "adverb-attachment": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000116,
+            "median_case_ms": 983
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000116,
+            "median_case_ms": 983
+          }
+        },
+        "ambiguous": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [
+              "en-name-canon",
+              "en-place-name"
+            ],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000799,
+            "median_case_ms": 873
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [
+              "en-name-canon",
+              "en-place-name"
+            ],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001943,
+            "median_case_ms": 2964
+          }
+        },
+        "case-form": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 1,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000055,
+            "median_case_ms": 816
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 1,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000199,
+            "median_case_ms": 3064
+          }
+        },
+        "character-speech": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000183,
+            "median_case_ms": 1155
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000183,
+            "median_case_ms": 1155
+          }
+        },
+        "clean-control": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-colloquial-udobney",
+              "ru-zatei"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.333,
+            "schema_failures": 0,
+            "cost_usd": 0.000651,
+            "median_case_ms": 956
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-colloquial-udobney",
+              "ru-zatei"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.333,
+            "schema_failures": 0,
+            "cost_usd": 0.001471,
+            "median_case_ms": 2777
+          }
+        },
+        "dialect": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000542,
+            "median_case_ms": 883
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000542,
+            "median_case_ms": 883
+          }
+        },
+        "dialogue-format": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "en-speech-merge"
+            ],
+            "harmful_rejected": 2,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 0.667,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000646,
+            "median_case_ms": 947
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "en-speech-merge"
+            ],
+            "harmful_rejected": 2,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 0.667,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001008,
+            "median_case_ms": 947
+          }
+        },
+        "factual": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 4,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000519,
+            "median_case_ms": 899
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 4,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000519,
+            "median_case_ms": 899
+          }
+        },
+        "grammar": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000472,
+            "median_case_ms": 838
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001427,
+            "median_case_ms": 2614
+          }
+        },
+        "historical-spelling": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey",
+              "ru-period-spelling-shkap",
+              "en-distained"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.000727,
+            "median_case_ms": 874
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey",
+              "ru-period-spelling-shkap",
+              "en-distained"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.002174,
+            "median_case_ms": 2756
+          }
+        },
+        "incorrect-grammar": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "en-wrong-whom"
+            ],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 0.5,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000322,
+            "median_case_ms": 900
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "en-wrong-whom"
+            ],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 0.5,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000835,
+            "median_case_ms": 1193
+          }
+        },
+        "invented-attribution": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000082,
+            "median_case_ms": 956
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000082,
+            "median_case_ms": 956
+          }
+        },
+        "modernization": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "en-modernization-hyphen",
+              "en-modernization-vocative"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.000429,
+            "median_case_ms": 958
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "en-modernization-hyphen",
+              "en-modernization-vocative"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.001442,
+            "median_case_ms": 2917
+          }
+        },
+        "name-corruption": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000577,
+            "median_case_ms": 864
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000577,
+            "median_case_ms": 864
+          }
+        },
+        "prose-pattern": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 1,
+            "valid_rejected": [
+              "en-filler-mutation-v3"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.5,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000593,
+            "median_case_ms": 909
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 1,
+            "valid_rejected": [
+              "en-filler-mutation-v3"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.5,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001083,
+            "median_case_ms": 909
+          }
+        },
+        "punctuation": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000357,
+            "median_case_ms": 845
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001066,
+            "median_case_ms": 2578
+          }
+        },
+        "regional-spelling": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-regional-discoloured"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.000141,
+            "median_case_ms": 996
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-regional-discoloured"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.000401,
+            "median_case_ms": 3518
+          }
+        },
+        "repetition": {
+          "pass1": {
+            "cases": 5,
+            "valid_accepted": 3,
+            "valid_rejected": [
+              "ru-dedupe-exact",
+              "en-dedupe-name"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.6,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000836,
+            "median_case_ms": 918
+          },
+          "pass3": {
+            "cases": 5,
+            "valid_accepted": 2,
+            "valid_rejected": [
+              "ru-dedupe-exact",
+              "ru-dedupe-alternative",
+              "en-dedupe-name"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.4,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001323,
+            "median_case_ms": 1868
+          }
+        },
+        "semantic-drift": {
+          "pass1": {
+            "cases": 5,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 5,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000917,
+            "median_case_ms": 900
+          },
+          "pass3": {
+            "cases": 5,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 5,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000917,
+            "median_case_ms": 900
+          }
+        },
+        "spelling": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000282,
+            "median_case_ms": 851
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000843,
+            "median_case_ms": 2936
+          }
+        },
+        "stylistic-rewrite": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-optional-comma",
+              "ru-comma-removal",
+              "ru-pleonasm"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.25,
+            "schema_failures": 0,
+            "cost_usd": 0.000734,
+            "median_case_ms": 921
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-optional-comma",
+              "ru-comma-removal",
+              "ru-pleonasm"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.25,
+            "schema_failures": 0,
+            "cost_usd": 0.001706,
+            "median_case_ms": 2868
+          }
+        },
+        "synonym": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-synonym-stal",
+              "en-synonym-entry"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.000448,
+            "median_case_ms": 924
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-synonym-stal",
+              "en-synonym-entry"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.001211,
+            "median_case_ms": 2657
+          }
+        },
+        "word-order": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-word-order-ikry",
+              "en-adverb-placement"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.000359,
+            "median_case_ms": 908
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-word-order-ikry",
+              "en-adverb-placement"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.001065,
+            "median_case_ms": 2648
+          }
+        }
+      },
+      "requests": 150,
+      "truncated": 0,
+      "provider_failures": 0,
+      "tokens_in": 56717,
+      "tokens_out": 37617,
+      "reasoning_tokens": 25858,
+      "cached_tokens": 0,
+      "cost_usd": 0.02448,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    },
+    "haiku-medium-necessity": {
+      "model": "anthropic/claude-haiku-5.5",
+      "check": "necessity",
+      "excluded_self_pairing": 5,
+      "all": {
+        "pass1": {
+          "cases": 64,
+          "valid_accepted": 18,
+          "valid_rejected": [
+            "en-comma-restored",
+            "ru-dedupe-exact"
+          ],
+          "harmful_accepted": [
+            "ru-repetition-insertion"
+          ],
+          "harmful_rejected": 18,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "ru-period-form-taksa"
+          ],
+          "unnecessary_rejected": 20,
+          "ambiguous_accepted": [
+            "en-name-canon"
+          ],
+          "valid_acceptance_rate": 0.9,
+          "harmful_rejection_rate": 0.947,
+          "unnecessary_rejection_rate": 0.909,
+          "schema_failures": 1,
+          "cost_usd": 0.0162,
+          "median_case_ms": 942
+        },
+        "pass3": {
+          "cases": 64,
+          "valid_accepted": 18,
+          "valid_rejected": [
+            "en-comma-restored",
+            "ru-dedupe-exact"
+          ],
+          "harmful_accepted": [],
+          "harmful_rejected": 19,
+          "unnecessary_accepted": [
+            "ru-period-form-taksa"
+          ],
+          "unnecessary_rejected": 21,
+          "ambiguous_accepted": [
+            "en-name-canon"
+          ],
+          "valid_acceptance_rate": 0.9,
+          "harmful_rejection_rate": 1,
+          "unnecessary_rejection_rate": 0.955,
+          "schema_failures": 1,
+          "cost_usd": 0.025242,
+          "median_case_ms": 1044
+        }
+      },
+      "reaching_verifier": {
+        "cases": 36,
+        "pass1": {
+          "cases": 36,
+          "valid_accepted": 12,
+          "valid_rejected": [],
+          "harmful_accepted": [],
+          "harmful_rejected": 8,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "ru-period-form-taksa"
+          ],
+          "unnecessary_rejected": 14,
+          "ambiguous_accepted": [],
+          "valid_acceptance_rate": 1,
+          "harmful_rejection_rate": 1,
+          "unnecessary_rejection_rate": 0.875,
+          "schema_failures": 1,
+          "cost_usd": 0.008404,
+          "median_case_ms": 968
+        },
+        "pass3": {
+          "cases": 36,
+          "valid_accepted": 12,
+          "valid_rejected": [],
+          "harmful_accepted": [],
+          "harmful_rejected": 8,
+          "unnecessary_accepted": [
+            "ru-period-form-taksa"
+          ],
+          "unnecessary_rejected": 15,
+          "ambiguous_accepted": [],
+          "valid_acceptance_rate": 1,
+          "harmful_rejection_rate": 1,
+          "unnecessary_rejection_rate": 0.938,
+          "schema_failures": 1,
+          "cost_usd": 0.014037,
+          "median_case_ms": 1116
+        }
+      },
+      "by_language": {
+        "en": {
+          "pass1": {
+            "cases": 36,
+            "valid_accepted": 12,
+            "valid_rejected": [
+              "en-comma-restored"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 11,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 9,
+            "ambiguous_accepted": [
+              "en-name-canon"
+            ],
+            "valid_acceptance_rate": 0.923,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 1,
+            "cost_usd": 0.008602,
+            "median_case_ms": 961
+          },
+          "pass3": {
+            "cases": 36,
+            "valid_accepted": 12,
+            "valid_rejected": [
+              "en-comma-restored"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 11,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 9,
+            "ambiguous_accepted": [
+              "en-name-canon"
+            ],
+            "valid_acceptance_rate": 0.923,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 1,
+            "cost_usd": 0.013694,
+            "median_case_ms": 1058
+          }
+        },
+        "ru": {
+          "pass1": {
+            "cases": 28,
+            "valid_accepted": 6,
+            "valid_rejected": [
+              "ru-dedupe-exact"
+            ],
+            "harmful_accepted": [
+              "ru-repetition-insertion"
+            ],
+            "harmful_rejected": 7,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "ru-period-form-taksa"
+            ],
+            "unnecessary_rejected": 11,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.857,
+            "harmful_rejection_rate": 0.875,
+            "unnecessary_rejection_rate": 0.846,
+            "schema_failures": 0,
+            "cost_usd": 0.007597,
+            "median_case_ms": 931
+          },
+          "pass3": {
+            "cases": 28,
+            "valid_accepted": 6,
+            "valid_rejected": [
+              "ru-dedupe-exact"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 8,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa"
+            ],
+            "unnecessary_rejected": 12,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.857,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": 0.923,
+            "schema_failures": 0,
+            "cost_usd": 0.011549,
+            "median_case_ms": 1003
+          }
+        }
+      },
+      "by_category": {
+        "adverb-attachment": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000217,
+            "median_case_ms": 833
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000217,
+            "median_case_ms": 833
+          }
+        },
+        "ambiguous": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [
+              "en-name-canon"
+            ],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001055,
+            "median_case_ms": 1074
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [
+              "en-name-canon"
+            ],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001457,
+            "median_case_ms": 1296
+          }
+        },
+        "case-form": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 1,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000208,
+            "median_case_ms": 1180
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 1,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000548,
+            "median_case_ms": 3350
+          }
+        },
+        "character-speech": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000164,
+            "median_case_ms": 1525
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000164,
+            "median_case_ms": 1525
+          }
+        },
+        "clean-control": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000789,
+            "median_case_ms": 931
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000789,
+            "median_case_ms": 931
+          }
+        },
+        "dialect": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000374,
+            "median_case_ms": 898
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000374,
+            "median_case_ms": 898
+          }
+        },
+        "dialogue-format": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001121,
+            "median_case_ms": 893
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001121,
+            "median_case_ms": 893
+          }
+        },
+        "factual": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 4,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000822,
+            "median_case_ms": 922
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 4,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000822,
+            "median_case_ms": 922
+          }
+        },
+        "grammar": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000939,
+            "median_case_ms": 994
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.002731,
+            "median_case_ms": 3229
+          }
+        },
+        "historical-spelling": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa"
+            ],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.75,
+            "schema_failures": 0,
+            "cost_usd": 0.001422,
+            "median_case_ms": 1003
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa"
+            ],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.75,
+            "schema_failures": 0,
+            "cost_usd": 0.001891,
+            "median_case_ms": 1003
+          }
+        },
+        "incorrect-grammar": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 2,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000506,
+            "median_case_ms": 826
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 2,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000506,
+            "median_case_ms": 826
+          }
+        },
+        "invented-attribution": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.00011,
+            "median_case_ms": 1422
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.00011,
+            "median_case_ms": 1422
+          }
+        },
+        "modernization": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-modernization"
+            ],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.667,
+            "schema_failures": 0,
+            "cost_usd": 0.001006,
+            "median_case_ms": 961
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.001627,
+            "median_case_ms": 1023
+          }
+        },
+        "name-corruption": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000842,
+            "median_case_ms": 989
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000842,
+            "median_case_ms": 989
+          }
+        },
+        "prose-pattern": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 2,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000502,
+            "median_case_ms": 851
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 2,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001577,
+            "median_case_ms": 2906
+          }
+        },
+        "punctuation": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 3,
+            "valid_rejected": [
+              "en-comma-restored"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.75,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000831,
+            "median_case_ms": 897
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 3,
+            "valid_rejected": [
+              "en-comma-restored"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.75,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001945,
+            "median_case_ms": 2700
+          }
+        },
+        "regional-spelling": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000169,
+            "median_case_ms": 984
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000169,
+            "median_case_ms": 984
+          }
+        },
+        "repetition": {
+          "pass1": {
+            "cases": 5,
+            "valid_accepted": 4,
+            "valid_rejected": [
+              "ru-dedupe-exact"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.8,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001171,
+            "median_case_ms": 928
+          },
+          "pass3": {
+            "cases": 5,
+            "valid_accepted": 4,
+            "valid_rejected": [
+              "ru-dedupe-exact"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.8,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.002734,
+            "median_case_ms": 2859
+          }
+        },
+        "semantic-drift": {
+          "pass1": {
+            "cases": 5,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "ru-repetition-insertion"
+            ],
+            "harmful_rejected": 4,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 0.8,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001465,
+            "median_case_ms": 923
+          },
+          "pass3": {
+            "cases": 5,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 5,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.002097,
+            "median_case_ms": 1116
+          }
+        },
+        "spelling": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000515,
+            "median_case_ms": 894
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001548,
+            "median_case_ms": 2835
+          }
+        },
+        "stylistic-rewrite": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 4,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.001054,
+            "median_case_ms": 914
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 4,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.001054,
+            "median_case_ms": 914
+          }
+        },
+        "synonym": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 1,
+            "cost_usd": 0.000446,
+            "median_case_ms": 901
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 1,
+            "cost_usd": 0.000446,
+            "median_case_ms": 901
+          }
+        },
+        "word-order": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000471,
+            "median_case_ms": 1044
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.000471,
+            "median_case_ms": 1044
+          }
+        }
+      },
+      "requests": 114,
+      "truncated": 0,
+      "provider_failures": 0,
+      "tokens_in": 78108,
+      "tokens_out": 39719,
+      "reasoning_tokens": 26277,
+      "cached_tokens": 0,
+      "cost_usd": 0.02767,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    },
+    "sonnet-meaning": {
+      "model": "anthropic/claude-sonnet-5",
+      "check": "meaning",
+      "excluded_self_pairing": 0,
+      "all": {
+        "pass1": {
+          "cases": 69,
+          "valid_accepted": 19,
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "harmful_accepted": [
+            "ru-name-to-common-noun"
+          ],
+          "harmful_rejected": 19,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey",
+            "ru-period-spelling-shkap",
+            "en-regional-discoloured",
+            "en-regional-marvelous",
+            "ru-synonym-stal",
+            "en-adverb-placement",
+            "ru-pleonasm",
+            "ru-colloquial-udobney",
+            "ru-zatei",
+            "ru-aspect-obryvalas"
+          ],
+          "unnecessary_rejected": 7,
+          "ambiguous_accepted": [
+            "en-dialogue-grammar",
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "valid_acceptance_rate": 0.826,
+          "harmful_rejection_rate": 0.95,
+          "unnecessary_rejection_rate": 0.304,
+          "schema_failures": 0,
+          "cost_usd": 0.102106,
+          "median_case_ms": 1172
+        },
+        "pass3": {
+          "cases": 69,
+          "valid_accepted": 18,
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal",
+            "en-filler-mutation-v3"
+          ],
+          "harmful_accepted": [
+            "ru-name-to-common-noun"
+          ],
+          "harmful_rejected": 19,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey",
+            "ru-period-spelling-shkap",
+            "en-regional-discoloured",
+            "en-regional-marvelous",
+            "ru-synonym-stal",
+            "en-adverb-placement",
+            "ru-pleonasm",
+            "ru-colloquial-udobney",
+            "ru-zatei",
+            "ru-aspect-obryvalas"
+          ],
+          "unnecessary_rejected": 7,
+          "ambiguous_accepted": [
+            "en-dialogue-grammar",
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "valid_acceptance_rate": 0.783,
+          "harmful_rejection_rate": 0.95,
+          "unnecessary_rejection_rate": 0.304,
+          "schema_failures": 0,
+          "cost_usd": 0.210556,
+          "median_case_ms": 3232
+        }
+      },
+      "reaching_verifier": {
+        "cases": 39,
+        "pass1": {
+          "cases": 39,
+          "valid_accepted": 11,
+          "valid_rejected": [
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "harmful_accepted": [],
+          "harmful_rejected": 9,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey",
+            "ru-period-spelling-shkap",
+            "en-regional-discoloured",
+            "en-regional-marvelous",
+            "ru-synonym-stal",
+            "en-adverb-placement",
+            "ru-pleonasm",
+            "ru-colloquial-udobney",
+            "ru-zatei",
+            "ru-aspect-obryvalas"
+          ],
+          "unnecessary_rejected": 5,
+          "ambiguous_accepted": [],
+          "valid_acceptance_rate": 0.846,
+          "harmful_rejection_rate": 1,
+          "unnecessary_rejection_rate": 0.294,
+          "schema_failures": 0,
+          "cost_usd": 0.05668,
+          "median_case_ms": 1187
+        },
+        "pass3": {
+          "cases": 39,
+          "valid_accepted": 10,
+          "valid_rejected": [
+            "ru-filler-removal",
+            "en-filler-removal",
+            "en-filler-mutation-v3"
+          ],
+          "harmful_accepted": [],
+          "harmful_rejected": 9,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey",
+            "ru-period-spelling-shkap",
+            "en-regional-discoloured",
+            "en-regional-marvelous",
+            "ru-synonym-stal",
+            "en-adverb-placement",
+            "ru-pleonasm",
+            "ru-colloquial-udobney",
+            "ru-zatei",
+            "ru-aspect-obryvalas"
+          ],
+          "unnecessary_rejected": 5,
+          "ambiguous_accepted": [],
+          "valid_acceptance_rate": 0.769,
+          "harmful_rejection_rate": 1,
+          "unnecessary_rejection_rate": 0.294,
+          "schema_failures": 0,
+          "cost_usd": 0.119994,
+          "median_case_ms": 3232
+        }
+      },
+      "by_language": {
+        "en": {
+          "pass1": {
+            "cases": 38,
+            "valid_accepted": 13,
+            "valid_rejected": [
+              "en-filler-removal"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 11,
+            "unnecessary_accepted": [
+              "en-modernization-hyphen",
+              "en-modernization-vocative",
+              "en-optional-comma",
+              "en-regional-discoloured",
+              "en-regional-marvelous",
+              "en-adverb-placement"
+            ],
+            "unnecessary_rejected": 4,
+            "ambiguous_accepted": [
+              "en-dialogue-grammar",
+              "en-name-canon",
+              "en-place-name"
+            ],
+            "valid_acceptance_rate": 0.929,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": 0.4,
+            "schema_failures": 0,
+            "cost_usd": 0.05408,
+            "median_case_ms": 1165
+          },
+          "pass3": {
+            "cases": 38,
+            "valid_accepted": 12,
+            "valid_rejected": [
+              "en-filler-removal",
+              "en-filler-mutation-v3"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 11,
+            "unnecessary_accepted": [
+              "en-modernization-hyphen",
+              "en-modernization-vocative",
+              "en-optional-comma",
+              "en-regional-discoloured",
+              "en-regional-marvelous",
+              "en-adverb-placement"
+            ],
+            "unnecessary_rejected": 4,
+            "ambiguous_accepted": [
+              "en-dialogue-grammar",
+              "en-name-canon",
+              "en-place-name"
+            ],
+            "valid_acceptance_rate": 0.857,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": 0.4,
+            "schema_failures": 0,
+            "cost_usd": 0.111896,
+            "median_case_ms": 3262
+          }
+        },
+        "ru": {
+          "pass1": {
+            "cases": 31,
+            "valid_accepted": 6,
+            "valid_rejected": [
+              "ru-dedupe-exact",
+              "ru-dedupe-alternative",
+              "ru-filler-removal"
+            ],
+            "harmful_accepted": [
+              "ru-name-to-common-noun"
+            ],
+            "harmful_rejected": 8,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "ru-comma-removal",
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey",
+              "ru-period-spelling-shkap",
+              "ru-synonym-stal",
+              "ru-pleonasm",
+              "ru-colloquial-udobney",
+              "ru-zatei",
+              "ru-aspect-obryvalas"
+            ],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.667,
+            "harmful_rejection_rate": 0.889,
+            "unnecessary_rejection_rate": 0.231,
+            "schema_failures": 0,
+            "cost_usd": 0.048026,
+            "median_case_ms": 1172
+          },
+          "pass3": {
+            "cases": 31,
+            "valid_accepted": 6,
+            "valid_rejected": [
+              "ru-dedupe-exact",
+              "ru-dedupe-alternative",
+              "ru-filler-removal"
+            ],
+            "harmful_accepted": [
+              "ru-name-to-common-noun"
+            ],
+            "harmful_rejected": 8,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "ru-comma-removal",
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey",
+              "ru-period-spelling-shkap",
+              "ru-synonym-stal",
+              "ru-pleonasm",
+              "ru-colloquial-udobney",
+              "ru-zatei",
+              "ru-aspect-obryvalas"
+            ],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.667,
+            "harmful_rejection_rate": 0.889,
+            "unnecessary_rejection_rate": 0.231,
+            "schema_failures": 0,
+            "cost_usd": 0.09866,
+            "median_case_ms": 3197
+          }
+        }
+      },
+      "by_category": {
+        "adverb-attachment": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001274,
+            "median_case_ms": 1937
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001274,
+            "median_case_ms": 1937
+          }
+        },
+        "ambiguous": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [
+              "en-dialogue-grammar",
+              "en-name-canon",
+              "en-place-name"
+            ],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.006244,
+            "median_case_ms": 1395
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [
+              "en-dialogue-grammar",
+              "en-name-canon",
+              "en-place-name"
+            ],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.018492,
+            "median_case_ms": 4552
+          }
+        },
+        "case-form": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 1,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.000834,
+            "median_case_ms": 1019
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 1,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.002502,
+            "median_case_ms": 3186
+          }
+        },
+        "character-speech": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.001108,
+            "median_case_ms": 1049
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.001108,
+            "median_case_ms": 1049
+          }
+        },
+        "clean-control": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-colloquial-udobney",
+              "ru-zatei",
+              "ru-aspect-obryvalas"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.005612,
+            "median_case_ms": 1148
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-colloquial-udobney",
+              "ru-zatei",
+              "ru-aspect-obryvalas"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.016426,
+            "median_case_ms": 3313
+          }
+        },
+        "dialect": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.00333,
+            "median_case_ms": 1032
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.00333,
+            "median_case_ms": 1032
+          }
+        },
+        "dialogue-format": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.003872,
+            "median_case_ms": 1107
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.003872,
+            "median_case_ms": 1107
+          }
+        },
+        "factual": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 4,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.006714,
+            "median_case_ms": 1094
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 4,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.006714,
+            "median_case_ms": 1094
+          }
+        },
+        "grammar": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.00447,
+            "median_case_ms": 1041
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.01328,
+            "median_case_ms": 3234
+          }
+        },
+        "historical-spelling": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey",
+              "ru-period-spelling-shkap"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.25,
+            "schema_failures": 0,
+            "cost_usd": 0.005452,
+            "median_case_ms": 1092
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey",
+              "ru-period-spelling-shkap"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.25,
+            "schema_failures": 0,
+            "cost_usd": 0.013024,
+            "median_case_ms": 3386
+          }
+        },
+        "incorrect-grammar": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.004264,
+            "median_case_ms": 1196
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.004264,
+            "median_case_ms": 1196
+          }
+        },
+        "invented-attribution": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001016,
+            "median_case_ms": 1020
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001016,
+            "median_case_ms": 1020
+          }
+        },
+        "modernization": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "en-modernization-hyphen",
+              "en-modernization-vocative"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.004884,
+            "median_case_ms": 1193
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "en-modernization-hyphen",
+              "en-modernization-vocative"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.015142,
+            "median_case_ms": 3607
+          }
+        },
+        "name-corruption": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "ru-name-to-common-noun"
+            ],
+            "harmful_rejected": 2,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 0.667,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.003332,
+            "median_case_ms": 1231
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "ru-name-to-common-noun"
+            ],
+            "harmful_rejected": 2,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 0.667,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.006018,
+            "median_case_ms": 1257
+          }
+        },
+        "prose-pattern": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 1,
+            "valid_rejected": [
+              "ru-filler-removal",
+              "en-filler-removal"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.333,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.005536,
+            "median_case_ms": 1116
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [
+              "ru-filler-removal",
+              "en-filler-removal",
+              "en-filler-mutation-v3"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.006788,
+            "median_case_ms": 1268
+          }
+        },
+        "punctuation": {
+          "pass1": {
+            "cases": 5,
+            "valid_accepted": 5,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.005656,
+            "median_case_ms": 1086
+          },
+          "pass3": {
+            "cases": 5,
+            "valid_accepted": 5,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.017158,
+            "median_case_ms": 3354
+          }
+        },
+        "regional-spelling": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-regional-discoloured",
+              "en-regional-marvelous"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.002814,
+            "median_case_ms": 1295
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-regional-discoloured",
+              "en-regional-marvelous"
+            ],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0,
+            "schema_failures": 0,
+            "cost_usd": 0.008562,
+            "median_case_ms": 3871
+          }
+        },
+        "repetition": {
+          "pass1": {
+            "cases": 6,
+            "valid_accepted": 4,
+            "valid_rejected": [
+              "ru-dedupe-exact",
+              "ru-dedupe-alternative"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.667,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.00827,
+            "median_case_ms": 1293
+          },
+          "pass3": {
+            "cases": 6,
+            "valid_accepted": 4,
+            "valid_rejected": [
+              "ru-dedupe-exact",
+              "ru-dedupe-alternative"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.667,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.017518,
+            "median_case_ms": 3287
+          }
+        },
+        "semantic-drift": {
+          "pass1": {
+            "cases": 5,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 5,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.007548,
+            "median_case_ms": 1109
+          },
+          "pass3": {
+            "cases": 5,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 5,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.007548,
+            "median_case_ms": 1109
+          }
+        },
+        "spelling": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.005096,
+            "median_case_ms": 1236
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.014918,
+            "median_case_ms": 3706
+          }
+        },
+        "stylistic-rewrite": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-optional-comma",
+              "ru-comma-removal",
+              "ru-pleonasm"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.25,
+            "schema_failures": 0,
+            "cost_usd": 0.006406,
+            "median_case_ms": 1165
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-optional-comma",
+              "ru-comma-removal",
+              "ru-pleonasm"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.25,
+            "schema_failures": 0,
+            "cost_usd": 0.016186,
+            "median_case_ms": 3343
+          }
+        },
+        "synonym": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-synonym-stal"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.5,
+            "schema_failures": 0,
+            "cost_usd": 0.004266,
+            "median_case_ms": 954
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-synonym-stal"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.5,
+            "schema_failures": 0,
+            "cost_usd": 0.008742,
+            "median_case_ms": 954
+          }
+        },
+        "word-order": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-adverb-placement"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.5,
+            "schema_failures": 0,
+            "cost_usd": 0.004108,
+            "median_case_ms": 1167
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "en-adverb-placement"
+            ],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.5,
+            "schema_failures": 0,
+            "cost_usd": 0.006674,
+            "median_case_ms": 1167
+          }
+        }
+      },
+      "requests": 146,
+      "truncated": 0,
+      "provider_failures": 0,
+      "tokens_in": 57388,
+      "tokens_out": 9578,
+      "reasoning_tokens": 0,
+      "cached_tokens": 0,
+      "cost_usd": 0.210556,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    },
+    "sonnet-necessity": {
+      "model": "anthropic/claude-sonnet-5",
+      "check": "necessity",
+      "excluded_self_pairing": 0,
+      "all": {
+        "pass1": {
+          "cases": 69,
+          "valid_accepted": 22,
+          "valid_rejected": [
+            "en-agreement-mutation"
+          ],
+          "harmful_accepted": [
+            "ru-adverb-reattachment",
+            "ru-repetition-insertion"
+          ],
+          "harmful_rejected": 18,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey"
+          ],
+          "unnecessary_rejected": 20,
+          "ambiguous_accepted": [
+            "en-dialogue-grammar",
+            "en-name-canon"
+          ],
+          "valid_acceptance_rate": 0.957,
+          "harmful_rejection_rate": 0.9,
+          "unnecessary_rejection_rate": 0.87,
+          "schema_failures": 0,
+          "cost_usd": 0.150258,
+          "median_case_ms": 1230
+        },
+        "pass3": {
+          "cases": 69,
+          "valid_accepted": 22,
+          "valid_rejected": [
+            "en-agreement-mutation"
+          ],
+          "harmful_accepted": [
+            "ru-adverb-reattachment",
+            "ru-repetition-insertion"
+          ],
+          "harmful_rejected": 18,
+          "unnecessary_accepted": [
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey"
+          ],
+          "unnecessary_rejected": 21,
+          "ambiguous_accepted": [
+            "en-dialogue-grammar",
+            "en-name-canon"
+          ],
+          "valid_acceptance_rate": 0.957,
+          "harmful_rejection_rate": 0.9,
+          "unnecessary_rejection_rate": 0.913,
+          "schema_failures": 0,
+          "cost_usd": 0.272118,
+          "median_case_ms": 1479
+        }
+      },
+      "reaching_verifier": {
+        "cases": 39,
+        "pass1": {
+          "cases": 39,
+          "valid_accepted": 12,
+          "valid_rejected": [
+            "en-agreement-mutation"
+          ],
+          "harmful_accepted": [],
+          "harmful_rejected": 9,
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey"
+          ],
+          "unnecessary_rejected": 14,
+          "ambiguous_accepted": [],
+          "valid_acceptance_rate": 0.923,
+          "harmful_rejection_rate": 1,
+          "unnecessary_rejection_rate": 0.824,
+          "schema_failures": 0,
+          "cost_usd": 0.083832,
+          "median_case_ms": 1200
+        },
+        "pass3": {
+          "cases": 39,
+          "valid_accepted": 12,
+          "valid_rejected": [
+            "en-agreement-mutation"
+          ],
+          "harmful_accepted": [],
+          "harmful_rejected": 9,
+          "unnecessary_accepted": [
+            "ru-period-form-taksa",
+            "ru-period-form-tysyachey"
+          ],
+          "unnecessary_rejected": 15,
+          "ambiguous_accepted": [],
+          "valid_acceptance_rate": 0.923,
+          "harmful_rejection_rate": 1,
+          "unnecessary_rejection_rate": 0.882,
+          "schema_failures": 0,
+          "cost_usd": 0.143976,
+          "median_case_ms": 1381
+        }
+      },
+      "by_language": {
+        "en": {
+          "pass1": {
+            "cases": 38,
+            "valid_accepted": 13,
+            "valid_rejected": [
+              "en-agreement-mutation"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 11,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 10,
+            "ambiguous_accepted": [
+              "en-dialogue-grammar",
+              "en-name-canon"
+            ],
+            "valid_acceptance_rate": 0.929,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.084094,
+            "median_case_ms": 1236
+          },
+          "pass3": {
+            "cases": 38,
+            "valid_accepted": 13,
+            "valid_rejected": [
+              "en-agreement-mutation"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 11,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 10,
+            "ambiguous_accepted": [
+              "en-dialogue-grammar",
+              "en-name-canon"
+            ],
+            "valid_acceptance_rate": 0.929,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.151578,
+            "median_case_ms": 1381
+          }
+        },
+        "ru": {
+          "pass1": {
+            "cases": 31,
+            "valid_accepted": 9,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "ru-adverb-reattachment",
+              "ru-repetition-insertion"
+            ],
+            "harmful_rejected": 7,
+            "unnecessary_accepted": [
+              "ru-modernization",
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey"
+            ],
+            "unnecessary_rejected": 10,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": 0.778,
+            "unnecessary_rejection_rate": 0.769,
+            "schema_failures": 0,
+            "cost_usd": 0.066164,
+            "median_case_ms": 1208
+          },
+          "pass3": {
+            "cases": 31,
+            "valid_accepted": 9,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "ru-adverb-reattachment",
+              "ru-repetition-insertion"
+            ],
+            "harmful_rejected": 7,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey"
+            ],
+            "unnecessary_rejected": 11,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": 0.778,
+            "unnecessary_rejection_rate": 0.846,
+            "schema_failures": 0,
+            "cost_usd": 0.12054,
+            "median_case_ms": 1731
+          }
+        }
+      },
+      "by_category": {
+        "adverb-attachment": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001952,
+            "median_case_ms": 1070
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001952,
+            "median_case_ms": 1070
+          }
+        },
+        "ambiguous": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [
+              "en-dialogue-grammar",
+              "en-name-canon"
+            ],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.009078,
+            "median_case_ms": 1267
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [
+              "en-dialogue-grammar",
+              "en-name-canon"
+            ],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.022584,
+            "median_case_ms": 3775
+          }
+        },
+        "case-form": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 1,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.002012,
+            "median_case_ms": 1094
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 1,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.005726,
+            "median_case_ms": 3831
+          }
+        },
+        "character-speech": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.001726,
+            "median_case_ms": 1126
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 1,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.001726,
+            "median_case_ms": 1126
+          }
+        },
+        "clean-control": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.007526,
+            "median_case_ms": 1471
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.007526,
+            "median_case_ms": 1471
+          }
+        },
+        "dialect": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.003796,
+            "median_case_ms": 1039
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.003796,
+            "median_case_ms": 1039
+          }
+        },
+        "dialogue-format": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.006006,
+            "median_case_ms": 1254
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.006006,
+            "median_case_ms": 1254
+          }
+        },
+        "factual": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 4,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.010506,
+            "median_case_ms": 1108
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 4,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.010506,
+            "median_case_ms": 1108
+          }
+        },
+        "grammar": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 3,
+            "valid_rejected": [
+              "en-agreement-mutation"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.75,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.008292,
+            "median_case_ms": 1236
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 3,
+            "valid_rejected": [
+              "en-agreement-mutation"
+            ],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 0.75,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.019678,
+            "median_case_ms": 3247
+          }
+        },
+        "historical-spelling": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey"
+            ],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.5,
+            "schema_failures": 0,
+            "cost_usd": 0.008174,
+            "median_case_ms": 1130
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-period-form-taksa",
+              "ru-period-form-tysyachey"
+            ],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.5,
+            "schema_failures": 0,
+            "cost_usd": 0.016512,
+            "median_case_ms": 1302
+          }
+        },
+        "incorrect-grammar": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.005878,
+            "median_case_ms": 1200
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.005878,
+            "median_case_ms": 1200
+          }
+        },
+        "invented-attribution": {
+          "pass1": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001684,
+            "median_case_ms": 1308
+          },
+          "pass3": {
+            "cases": 1,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 1,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.001684,
+            "median_case_ms": 1308
+          }
+        },
+        "modernization": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [
+              "ru-modernization"
+            ],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 0.667,
+            "schema_failures": 0,
+            "cost_usd": 0.007028,
+            "median_case_ms": 1179
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 3,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.010444,
+            "median_case_ms": 1203
+          }
+        },
+        "name-corruption": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.006236,
+            "median_case_ms": 1736
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 1,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.006236,
+            "median_case_ms": 1736
+          }
+        },
+        "prose-pattern": {
+          "pass1": {
+            "cases": 3,
+            "valid_accepted": 3,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.00664,
+            "median_case_ms": 1077
+          },
+          "pass3": {
+            "cases": 3,
+            "valid_accepted": 3,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.02031,
+            "median_case_ms": 3571
+          }
+        },
+        "punctuation": {
+          "pass1": {
+            "cases": 5,
+            "valid_accepted": 5,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.010166,
+            "median_case_ms": 1110
+          },
+          "pass3": {
+            "cases": 5,
+            "valid_accepted": 5,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.030738,
+            "median_case_ms": 3246
+          }
+        },
+        "regional-spelling": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.0044,
+            "median_case_ms": 1240
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.0044,
+            "median_case_ms": 1240
+          }
+        },
+        "repetition": {
+          "pass1": {
+            "cases": 6,
+            "valid_accepted": 6,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.011558,
+            "median_case_ms": 1339
+          },
+          "pass3": {
+            "cases": 6,
+            "valid_accepted": 6,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.034594,
+            "median_case_ms": 3866
+          }
+        },
+        "semantic-drift": {
+          "pass1": {
+            "cases": 5,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "ru-adverb-reattachment",
+              "ru-repetition-insertion"
+            ],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 0.6,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.010238,
+            "median_case_ms": 1145
+          },
+          "pass3": {
+            "cases": 5,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [
+              "ru-adverb-reattachment",
+              "ru-repetition-insertion"
+            ],
+            "harmful_rejected": 3,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": 0.6,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.018294,
+            "median_case_ms": 1145
+          }
+        },
+        "spelling": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.008128,
+            "median_case_ms": 1251
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 4,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 0,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": 1,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": null,
+            "schema_failures": 0,
+            "cost_usd": 0.024294,
+            "median_case_ms": 3785
+          }
+        },
+        "stylistic-rewrite": {
+          "pass1": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 4,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.009768,
+            "median_case_ms": 1149
+          },
+          "pass3": {
+            "cases": 4,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 4,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.009768,
+            "median_case_ms": 1149
+          }
+        },
+        "synonym": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.005252,
+            "median_case_ms": 1151
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.005252,
+            "median_case_ms": 1151
+          }
+        },
+        "word-order": {
+          "pass1": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.004214,
+            "median_case_ms": 1309
+          },
+          "pass3": {
+            "cases": 2,
+            "valid_accepted": 0,
+            "valid_rejected": [],
+            "harmful_accepted": [],
+            "harmful_rejected": 0,
+            "unnecessary_accepted": [],
+            "unnecessary_rejected": 2,
+            "ambiguous_accepted": [],
+            "valid_acceptance_rate": null,
+            "harmful_rejection_rate": null,
+            "unnecessary_rejection_rate": 1,
+            "schema_failures": 0,
+            "cost_usd": 0.004214,
+            "median_case_ms": 1309
+          }
+        }
+      },
+      "requests": 126,
+      "truncated": 0,
+      "provider_failures": 0,
+      "tokens_in": 89674,
+      "tokens_out": 9277,
+      "reasoning_tokens": 0,
+      "cached_tokens": 0,
+      "cost_usd": 0.272118,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "source": "eval/results/2026-10-10-model-comparison/corpus.json",
+  "control_chapter": "03-jekyll",
+  "mutations": [
+    {
+      "id": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+      "type": "agreement",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+      "span": {
+        "start": 675,
+        "end": 679
+      },
+      "original": "was",
+      "mutated": "were"
+    },
+    {
+      "id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "span": {
+        "start": 662,
+        "end": 700
+      },
+      "original": "Utterson asking",
+      "mutated": "At the end of the day, Utterson asking"
+    },
+    {
+      "id": "jekyll-en:dialogue-format:1:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "type": "dialogue-format",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "span": {
+        "start": 3192,
+        "end": 3193
+      },
+      "original": "“",
+      "mutated": "\""
+    },
+    {
+      "id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "type": "redundancy",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "span": {
+        "start": 161,
+        "end": 176
+      },
+      "original": "was",
+      "mutated": "was again again"
+    },
+    {
+      "id": "jekyll-en:punctuation:1:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "type": "punctuation",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "span": {
+        "start": 401,
+        "end": 401
+      },
+      "original": ",",
+      "mutated": ""
+    },
+    {
+      "id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "type": "typo",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "span": {
+        "start": 1256,
+        "end": 1266
+      },
+      "original": "obligation",
+      "mutated": "obilgation"
+    },
+    {
+      "id": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "type": "terminology",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "span": {
+        "start": 2666,
+        "end": 2670
+      },
+      "original": "Hyde",
+      "mutated": "Hide"
+    },
+    {
+      "id": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "type": "doubled-word",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "span": {
+        "start": 3657,
+        "end": 3668
+      },
+      "original": "Poole",
+      "mutated": "Poole Poole"
+    }
+  ]
+}

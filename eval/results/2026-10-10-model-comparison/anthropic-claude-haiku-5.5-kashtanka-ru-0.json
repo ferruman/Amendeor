@@ -1,0 +1,522 @@
+{
+  "model": "anthropic/claude-haiku-5.5",
+  "repeat": 0,
+  "work": "kashtanka-ru",
+  "mode": "copy",
+  "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+  "prompt_version": "1.6.0",
+  "elapsed_ms": 24072,
+  "stage": {
+    "name": "model",
+    "status": "partial",
+    "windows": 5,
+    "windows_by_chapter": {
+      "01-kashtanka": 1,
+      "02-kashtanka": 1,
+      "03-kashtanka": 1,
+      "06-kashtanka": 1,
+      "07-kashtanka": 1
+    },
+    "sent": 7,
+    "cached": 0,
+    "no_change": 1,
+    "no_change_by_chapter": {
+      "03-kashtanka": 1
+    },
+    "candidates": 3,
+    "discarded": [
+      {
+        "node_id": "03-kashtanka/148fee7f-a0eb-486c-874b-9a8363798309",
+        "reason": "no-op"
+      },
+      {
+        "node_id": "06-kashtanka/7114c90d-6b2a-48f2-8c3b-163c74963764",
+        "reason": "no-op"
+      }
+    ],
+    "failures": [
+      {
+        "node_id": "07-kashtanka/3ed8d542-fe7b-46e9-839f-bab0350c7c37/0",
+        "reason": "invalid edit JSON: [\n  {\n    \"code\": \"invalid_value\",\n    \"values\": [\n      \"spelling\",\n      \"grammar\",\n      \"punctuation\",\n      \"typography\",\n      \"capitalization\",\n      \"word-choice\",\n      \"clarity\",\n      \"sentence-structure\",\n      \"redundancy\",\n      \"repetition\",\n      \"dialogue-mechanics\",\n      \"terminology\",\n      \"consistency\",\n      \"prose-pattern\"\n    ],\n    \"path\": [\n      \"edits\",\n      1,\n      \"category\"\n    ],\n    \"message\": \"Invalid option: expected one of \\\"spelling\\\"|\\\"grammar\\\"|\\\"punctuation\\\"|\\\"typography\\\"|\\\"capitalization\\\"|\\\"word-choice\\\"|\\\"clarity\\\"|\\\"sentence-structure\\\"|\\\"redundancy\\\"|\\\"repetition\\\"|\\\"dialogue-mechanics\\\"|\\\"terminology\\\"|\\\"consistency\\\"|\\\"prose-pattern\\\"\"\n  }\n]"
+      }
+    ],
+    "prompt_version": "1.6.0",
+    "model_id": "anthropic/claude-haiku-5.5",
+    "formulaic_hits": [
+      {
+        "id": "formulaic.filler-frame",
+        "language": "ru",
+        "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+        "chapter": "01-kashtanka",
+        "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "start": 1494,
+        "end": 1512,
+        "quote": "В современном мире",
+        "reason": "Шаблонная рамка может не добавлять информации."
+      }
+    ],
+    "formulaic_catalog_version": "0.3.0"
+  },
+  "ledger": [
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 2532,
+      "tokens_out": 131,
+      "cost": 0.0003187,
+      "currency": "USD",
+      "ms": 1799,
+      "budget": 976
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 2375,
+      "tokens_out": 79,
+      "cost": 0.000277,
+      "currency": "USD",
+      "ms": 1574,
+      "budget": 1037
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 2141,
+      "tokens_out": 126,
+      "cost": 0.0002771,
+      "currency": "USD",
+      "ms": 1521,
+      "budget": 921
+    },
+    {
+      "stage": "edit-parse-retry",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 2185,
+      "tokens_out": 10,
+      "cost": 0.00022349999999999998,
+      "currency": "USD",
+      "ms": 1618,
+      "budget": 924
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 1953,
+      "tokens_out": 216,
+      "cost": 0.00030329999999999995,
+      "currency": "USD",
+      "ms": 2607,
+      "budget": 790
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 2307,
+      "tokens_out": 216,
+      "cost": 0.0003387,
+      "currency": "USD",
+      "ms": 2757,
+      "budget": 1057
+    },
+    {
+      "stage": "edit-parse-retry",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 2661,
+      "tokens_out": 182,
+      "cost": 0.00035709999999999995,
+      "currency": "USD",
+      "ms": 3036,
+      "budget": 1032
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:68681d7d30133ebd",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-kashtanka",
+          "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "key": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b"
+        },
+        "evidence": "sha256:55a4aaf3921537b1e3ef036eff4004a97fed21bf7479d42cd3181760595e3cdf"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-kashtanka",
+        "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "content_hash": "sha256:3b28206073cc3f6c14e2a01e3c090ebef7965e04d078d50a6d4161b84bdfc91e"
+      },
+      "target": {
+        "text": "В современном мире Одним словом,",
+        "hash": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b",
+        "before": "чику, от переплётчика в трактир, из трактира к куму и т. д. ",
+        "after": " когда Каштанка попала на незнакомый тротуар, то уже вечерел",
+        "occurrence": 0
+      },
+      "replacement": "Одним словом,",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Вставка «В современном мире» не относится к повествованию о Каштанке, добавляет лишнюю рамку и не несёт фактического содержания; оставлено только «Одним словом», что сохраняет переход и авторский голос.",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:3230eb318001d61f",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-kashtanka",
+          "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "key": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06"
+        },
+        "evidence": "sha256:74f27c59371b4b8cf735fb18e4781d2f64bbb69577c03983bce5a94c1bd8364f"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-kashtanka",
+        "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+        "content_hash": "sha256:2c7369e210740d6e6bf2d6849e4ede2712bfb19d11a65927233ad8c19c8257d8"
+      },
+      "target": {
+        "text": "глдяела",
+        "hash": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06",
+        "before": "мнате и, склонив голову набок, с умилением и с любопытством ",
+        "after": " на незнакомца, который сидел за столом и обедал. Он ел и бр",
+        "occurrence": 0
+      },
+      "replacement": "глядела",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Опечатка в слове «глядела»: буквы «дяе» переставлены, верное написание — «глядела».",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:680f644c6d455675",
+      "fingerprint": {
+        "primary": {
+          "category": "grammar",
+          "chapter": "06-kashtanka",
+          "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "key": "sha256:0f2f6a77dcbe399f3ff39f044deb40b8f6822b1e02b416faadf1849b31c208d2"
+        },
+        "evidence": "sha256:18a8d38283868d7384b417314bce2b1241a9ac702e4490e07f4126c1b0e5cec4"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "06-kashtanka",
+        "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+        "content_hash": "sha256:e84c81dc58b8109a75a426c148cecdd1f850ef558650130f28e41fbc5cb51936"
+      },
+      "target": {
+        "text": "Тётка ходила около его ноги, не понимая, отчего это у неё такая тоска",
+        "hash": "sha256:0f2f6a77dcbe399f3ff39f044deb40b8f6822b1e02b416faadf1849b31c208d2",
+        "before": "вать и несколько раз повторил:\n\n— Боже мой, что же делать?\n\n",
+        "after": " и отчего все так беспокоятся, и стараясь понять, следила за",
+        "occurrence": 0
+      },
+      "replacement": "Тётка ходила около его ног, не понимая, отчего это у неё такая тоска",
+      "category": "grammar",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Согласование: «около его ног» (во множественном числе, как и у Фёдора Тимофеича «около его ног»); «ноги» в значении ног человека — ошибочное единственное число при двух ногах.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "safe_proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:68681d7d30133ebd",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-kashtanka",
+          "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "key": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b"
+        },
+        "evidence": "sha256:55a4aaf3921537b1e3ef036eff4004a97fed21bf7479d42cd3181760595e3cdf"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-kashtanka",
+        "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "content_hash": "sha256:3b28206073cc3f6c14e2a01e3c090ebef7965e04d078d50a6d4161b84bdfc91e"
+      },
+      "target": {
+        "text": "В современном мире Одним словом,",
+        "hash": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b",
+        "before": "чику, от переплётчика в трактир, из трактира к куму и т. д. ",
+        "after": " когда Каштанка попала на незнакомый тротуар, то уже вечерел",
+        "occurrence": 0
+      },
+      "replacement": "Одним словом,",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Вставка «В современном мире» не относится к повествованию о Каштанке, добавляет лишнюю рамку и не несёт фактического содержания; оставлено только «Одним словом», что сохраняет переход и авторский голос.",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:3230eb318001d61f",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-kashtanka",
+          "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "key": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06"
+        },
+        "evidence": "sha256:74f27c59371b4b8cf735fb18e4781d2f64bbb69577c03983bce5a94c1bd8364f"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-kashtanka",
+        "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+        "content_hash": "sha256:2c7369e210740d6e6bf2d6849e4ede2712bfb19d11a65927233ad8c19c8257d8"
+      },
+      "target": {
+        "text": "глдяела",
+        "hash": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06",
+        "before": "мнате и, склонив голову набок, с умилением и с любопытством ",
+        "after": " на незнакомца, который сидел за столом и обедал. Он ел и бр",
+        "occurrence": 0
+      },
+      "replacement": "глядела",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Опечатка в слове «глядела»: буквы «дяе» переставлены, верное написание — «глядела».",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:680f644c6d455675",
+      "fingerprint": {
+        "primary": {
+          "category": "grammar",
+          "chapter": "06-kashtanka",
+          "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "key": "sha256:0f2f6a77dcbe399f3ff39f044deb40b8f6822b1e02b416faadf1849b31c208d2"
+        },
+        "evidence": "sha256:18a8d38283868d7384b417314bce2b1241a9ac702e4490e07f4126c1b0e5cec4"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "06-kashtanka",
+        "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+        "content_hash": "sha256:e84c81dc58b8109a75a426c148cecdd1f850ef558650130f28e41fbc5cb51936"
+      },
+      "target": {
+        "text": "Тётка ходила около его ноги, не понимая, отчего это у неё такая тоска",
+        "hash": "sha256:0f2f6a77dcbe399f3ff39f044deb40b8f6822b1e02b416faadf1849b31c208d2",
+        "before": "вать и несколько раз повторил:\n\n— Боже мой, что же делать?\n\n",
+        "after": " и отчего все так беспокоятся, и стараясь понять, следила за",
+        "occurrence": 0
+      },
+      "replacement": "Тётка ходила около его ног, не понимая, отчего это у неё такая тоска",
+      "category": "grammar",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Согласование: «около его ног» (во множественном числе, как и у Фёдора Тимофеича «около его ног»); «ноги» в значении ног человека — ошибочное единственное число при двух ногах.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "rejected": [],
+  "raw_score": {
+    "recall": {
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "agreement": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 1,
+      "scanned_words": 2963,
+      "rate": 0.0003374957813027337,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "proposal_id": "amendeor:68681d7d30133ebd"
+      },
+      {
+        "mutation_id": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+        "proposal_id": "amendeor:3230eb318001d61f"
+      }
+    ]
+  },
+  "safe_score": {
+    "recall": {
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "agreement": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 1,
+      "scanned_words": 2963,
+      "rate": 0.0003374957813027337,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "proposal_id": "amendeor:68681d7d30133ebd"
+      },
+      {
+        "mutation_id": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+        "proposal_id": "amendeor:3230eb318001d61f"
+      }
+    ]
+  }
+}

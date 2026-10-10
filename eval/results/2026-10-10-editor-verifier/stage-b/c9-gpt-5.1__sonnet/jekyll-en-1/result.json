@@ -1,0 +1,600 @@
+{
+  "job": "c9-gpt-5.1__sonnet/jekyll-en-1",
+  "config": {
+    "id": "c9-gpt-5.1__sonnet",
+    "editor": "gpt-5.1",
+    "verifier": "sonnet",
+    "tier": 4
+  },
+  "work": "jekyll-en",
+  "repeat": 1,
+  "elapsed_ms": 35799,
+  "scope": "real editMechanical (rules + editor + deterministic guards + verifier, copy mode, no cache); final = offered proposals; build = all offered proposals accepted",
+  "stages": [
+    {
+      "name": "rules",
+      "status": "ok",
+      "hits": 3,
+      "proposals": 3,
+      "units": {
+        "cached": 0,
+        "computed": 8,
+        "failed": 0
+      },
+      "failures": [],
+      "diagnostics": []
+    },
+    {
+      "name": "model",
+      "status": "ok",
+      "windows": 5,
+      "windows_by_chapter": {
+        "01-jekyll": 2,
+        "02-jekyll": 2,
+        "03-jekyll": 1
+      },
+      "sent": 5,
+      "cached": 0,
+      "no_change": 0,
+      "no_change_by_chapter": {},
+      "candidates": 10,
+      "discarded": [],
+      "failures": [],
+      "prompt_version": "1.6.0",
+      "model_id": "openai/gpt-5.1",
+      "formulaic_hits": [
+        {
+          "id": "formulaic.filler-frame",
+          "language": "en",
+          "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "start": 662,
+          "end": 683,
+          "quote": "At the end of the day",
+          "reason": "A stock frame may add no information."
+        }
+      ],
+      "formulaic_catalog_version": "0.3.0"
+    },
+    {
+      "name": "guard",
+      "status": "partial",
+      "candidates": 10,
+      "semantic_rejected": 6,
+      "rule_preferred": 2,
+      "objective_rejected": 0,
+      "punctuation_rejected": 0,
+      "voice_rejected": 0,
+      "offered": 2,
+      "same_family_warning": false,
+      "rejections": [
+        {
+          "proposal_id": "amendeor:be3e760ef0c045c5",
+          "guard": "semantic-trap",
+          "reason": "dialogue-content-change",
+          "target": "as hard as she were able",
+          "replacement": "as hard as she was able",
+          "category": "grammar",
+          "chapter": "01-jekyll",
+          "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:175bd80f6924b85a",
+          "guard": "semantic-trap",
+          "reason": "dialogue-content-change",
+          "target": "the doctor’s case was what struck me",
+          "replacement": "the doctor’s case was what struck me most",
+          "category": "clarity",
+          "chapter": "01-jekyll",
+          "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:b35f801cbd4a98a2",
+          "guard": "semantic-trap",
+          "reason": "proper-name-change",
+          "target": "Black Mail House is what I call the place with the door, in consequence.",
+          "replacement": "Blackmail House is what I call the place with the door, in consequence.",
+          "category": "spelling",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:5cf1ae6e4e8064e0",
+          "guard": "rule-preferred",
+          "reason": "rule:repetition.doubled-word amendeor:5cf1ae6e4e8064e0",
+          "target": "again again",
+          "replacement": "again",
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:18fd24cf80011cf2",
+          "guard": "semantic-trap",
+          "reason": "proper-name-change",
+          "target": "the face of Hide sat heavy on his memory;",
+          "replacement": "the face of Hyde sat heavy on his memory;",
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:4a3773f7c0078553",
+          "guard": "rule-preferred",
+          "reason": "rule:repetition.doubled-word amendeor:6eed483395e48001",
+          "target": "“Well, good-night, Poole Poole.”",
+          "replacement": "“Well, good-night, Poole.”",
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:8f7096899c8ad362",
+          "guard": "semantic-trap",
+          "reason": "unsupported-comma-change",
+          "target": "some five or six old cronies",
+          "replacement": "some five or six old cronies,",
+          "category": "punctuation",
+          "chapter": "03-jekyll",
+          "scene": "bdd00fbc-5c8f-4612-8e04-3268af4f0486",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:3029ac3e26fda846",
+          "guard": "semantic-trap",
+          "reason": "unsupported-comma-change",
+          "target": "The large handsome face of Dr. Jekyll",
+          "replacement": "The large, handsome face of Dr. Jekyll",
+          "category": "punctuation",
+          "chapter": "03-jekyll",
+          "scene": "bdd00fbc-5c8f-4612-8e04-3268af4f0486",
+          "occurrence": 0,
+          "source": "model"
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:f47f8b759be62808",
+      "fingerprint": {
+        "primary": {
+          "category": "typography",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:a4402cda68f7d270d9aadab07ac3a1241ac4947edfe4d1aeaaa6323a27e98e9b"
+        },
+        "evidence": "sha256:1d5e2b81a7cf9af597ffc14b26847f4de55a0ec5f05c6ac3544a1fa4a960b7b5"
+      },
+      "run_id": "2026-10-10T12-01-02Z-4bb5",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "\"You are sure he used a key?”",
+        "hash": "sha256:a4402cda68f7d270d9aadab07ac3a1241ac4947edfe4d1aeaaa6323a27e98e9b",
+        "before": "y in silence and obviously under a weight of consideration. ",
+        "after": " he inquired at last.\n\n“My dear sir...” began Enfield, surpr",
+        "occurrence": 0
+      },
+      "replacement": "“You are sure he used a key?”",
+      "category": "typography",
+      "impact": "mechanical",
+      "source": "rule:typography.mixed-quotes",
+      "confidence": 1,
+      "reason": "Make the opening and closing quotation marks of one quotation match.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:5cf1ae6e4e8064e0",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14"
+        },
+        "evidence": "sha256:b4c9e14061c2fd453b36700e3b0da008db2189c711ac629f0f583089164e267d"
+      },
+      "run_id": "2026-10-10T12-01-02Z-4bb5",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "again again",
+        "hash": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14",
+        "before": "t relish. It was his custom of a Sunday, when this meal was ",
+        "after": " over, to sit close by the fire, a volume of some dry divini",
+        "occurrence": 0
+      },
+      "replacement": "again",
+      "category": "repetition",
+      "impact": "mechanical",
+      "source": "rule:repetition.doubled-word",
+      "confidence": 1,
+      "reason": "The same word appears twice in succession.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:6eed483395e48001",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "key": "sha256:eb85b3c9912a7b60507fa821099fa7b93e608741162d82f61c1efd7b69c376ec"
+        },
+        "evidence": "sha256:919a2016542a297d6c2f8c4a58e669d1e1012725325fd30742bad99ff90b1f01"
+      },
+      "run_id": "2026-10-10T12-01-02Z-4bb5",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+      },
+      "target": {
+        "text": "Poole Poole",
+        "hash": "sha256:eb85b3c9912a7b60507fa821099fa7b93e608741162d82f61c1efd7b69c376ec",
+        "before": "stly comes and goes by the laboratory.”\n\n“Well, good-night, ",
+        "after": ".”\n\n“Good-night, Mr. Utterson.”\n\n",
+        "occurrence": 0
+      },
+      "replacement": "Poole",
+      "category": "repetition",
+      "impact": "mechanical",
+      "source": "rule:repetition.doubled-word",
+      "confidence": 1,
+      "reason": "The same word appears twice in succession.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:7a87f549c6e8dd0b",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:26779b9f1a9dc6dce43a6d2af05697dfe15d4f4cd87ffb8da85946e64a9c8790"
+        },
+        "evidence": "sha256:6d914afa20132a8d6d91acb67a60419b7dd0aa7c25cd690541be7720670fdff4"
+      },
+      "run_id": "2026-10-10T12-01-02Z-4bb5",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "From this he was recalled by Mr. At the end of the day, Utterson asking rather suddenly: “And you don’t know if the drawer of the cheque lives there?”",
+        "hash": "sha256:26779b9f1a9dc6dce43a6d2af05697dfe15d4f4cd87ffb8da85946e64a9c8790",
+        "before": "” he added, and with the words fell into a vein of musing.\n\n",
+        "after": "\n\n“A likely place, isn’t it?” returned Mr. Enfield. “But I h",
+        "occurrence": 0
+      },
+      "replacement": "From this he was recalled by Mr. Utterson asking rather suddenly: “And you don’t know if the drawer of the cheque lives there?”",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Removes intrusive filler fragment that breaks the sentence grammar and adds no meaning.",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 3,
+        "agreed": 3,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:9c02fed616a5a9bb",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+        },
+        "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+      },
+      "run_id": "2026-10-10T12-01-02Z-4bb5",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "obilgation",
+        "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+        "before": "’s shoes without further delay and free from any burthen or ",
+        "after": " beyond the payment of a few small sums to the members of th",
+        "occurrence": 0
+      },
+      "replacement": "obligation",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Corrects a clear spelling error.",
+      "verification": {
+        "passes": 3,
+        "agreed": 3,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "proposal_id": "amendeor:be3e760ef0c045c5",
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "as hard as she were able",
+      "replacement": "as hard as she was able",
+      "category": "grammar",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:175bd80f6924b85a",
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "the doctor’s case was what struck me",
+      "replacement": "the doctor’s case was what struck me most",
+      "category": "clarity",
+      "chapter": "01-jekyll",
+      "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:b35f801cbd4a98a2",
+      "guard": "semantic-trap",
+      "reason": "proper-name-change",
+      "target": "Black Mail House is what I call the place with the door, in consequence.",
+      "replacement": "Blackmail House is what I call the place with the door, in consequence.",
+      "category": "spelling",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:5cf1ae6e4e8064e0",
+      "guard": "rule-preferred",
+      "reason": "rule:repetition.doubled-word amendeor:5cf1ae6e4e8064e0",
+      "target": "again again",
+      "replacement": "again",
+      "category": "repetition",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:18fd24cf80011cf2",
+      "guard": "semantic-trap",
+      "reason": "proper-name-change",
+      "target": "the face of Hide sat heavy on his memory;",
+      "replacement": "the face of Hyde sat heavy on his memory;",
+      "category": "spelling",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:4a3773f7c0078553",
+      "guard": "rule-preferred",
+      "reason": "rule:repetition.doubled-word amendeor:6eed483395e48001",
+      "target": "“Well, good-night, Poole Poole.”",
+      "replacement": "“Well, good-night, Poole.”",
+      "category": "repetition",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:8f7096899c8ad362",
+      "guard": "semantic-trap",
+      "reason": "unsupported-comma-change",
+      "target": "some five or six old cronies",
+      "replacement": "some five or six old cronies,",
+      "category": "punctuation",
+      "chapter": "03-jekyll",
+      "scene": "bdd00fbc-5c8f-4612-8e04-3268af4f0486",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:3029ac3e26fda846",
+      "guard": "semantic-trap",
+      "reason": "unsupported-comma-change",
+      "target": "The large handsome face of Dr. Jekyll",
+      "replacement": "The large, handsome face of Dr. Jekyll",
+      "category": "punctuation",
+      "chapter": "03-jekyll",
+      "scene": "bdd00fbc-5c8f-4612-8e04-3268af4f0486",
+      "occurrence": 0,
+      "source": "model"
+    }
+  ],
+  "build": [
+    {
+      "id": "amendeor:7a87f549c6e8dd0b",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "status": "applied"
+    },
+    {
+      "id": "amendeor:f47f8b759be62808",
+      "chapter": "01-jekyll",
+      "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+      "status": "applied"
+    },
+    {
+      "id": "amendeor:5cf1ae6e4e8064e0",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "status": "applied"
+    },
+    {
+      "id": "amendeor:9c02fed616a5a9bb",
+      "chapter": "02-jekyll",
+      "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+      "status": "applied"
+    },
+    {
+      "id": "amendeor:6eed483395e48001",
+      "chapter": "02-jekyll",
+      "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+      "status": "applied"
+    }
+  ],
+  "edited": {
+    "01-jekyll": "<!-- scene: e0895f55-ded4-4e7f-8ddf-e19126f66f8f -->\n“Well, it was this way,” returned Mr. Enfield: “I was coming home from some place at the end of the world, about three o’clock of a black winter morning, and my way lay through a part of town where there was literally nothing to be seen but lamps. Street after street and all the folks asleep—street after street, all lighted up as if for a procession and all as empty as a church—till at last I got into that state of mind when a man listens and listens and begins to long for the sight of a policeman. All at once, I saw two figures: one a little man who was stumping along eastward at a good walk, and the other a girl of maybe eight or ten who was running as hard as she were able down a cross street. Well, sir, the two ran into one another naturally enough at the corner; and then came the horrible part of the thing; for the man trampled calmly over the child’s body and left her screaming on the ground. It sounds nothing to hear, but it was hellish to see. It wasn’t like a man; it was like some damned Juggernaut. I gave a few halloa, took to my heels, collared my gentleman, and brought him back to where there was already quite a group about the screaming child. He was perfectly cool and made no resistance, but gave me one look, so ugly that it brought out the sweat on me like running. The people who had turned out were the girl’s own family; and pretty soon, the doctor, for whom she had been sent, put in his appearance. Well, the child was not much the worse, more frightened, according to the Sawbones; and there you might have supposed would be an end to it. But there was one curious circumstance. I had taken a loathing to my gentleman at first sight. So had the child’s family, which was only natural. But the doctor’s case was what struck me. He was the usual cut and dry apothecary, of no particular age and colour, with a strong Edinburgh accent and about as emotional as a bagpipe. Well, sir, he was like the rest of us; every time he looked at my prisoner, I saw that Sawbones turn sick and white with the desire to kill him. I knew what was in his mind, just as he knew what was in mine; and killing being out of the question, we did the next best. We told the man we could and would make such a scandal out of this as should make his name stink from one end of London to the other. If he had any friends or any credit, we undertook that he should lose them. And all the time, as we were pitching it in red hot, we were keeping the women off him as best we could for they were as wild as harpies. I never saw a circle of such hateful faces; and there was the man in the middle, with a kind of black sneering coolness—frightened too, I could see that—but carrying it off, sir, really like Satan. ‘If you choose to make capital out of this accident,’ said he, ‘I am naturally helpless. No gentleman but wishes to avoid a scene,’ says he. ‘Name your figure.’ Well, we screwed him up to a hundred pounds for the child’s family; he would have clearly liked to stick out; but there was something about the lot of us that meant mischief, and at last he struck. The next thing was to get the money; and where do you think he carried us but to that place with the door?—whipped out a key, went in, and presently came back with the matter of ten pounds in gold and a cheque for the balance on Coutts’s, drawn payable to bearer and signed with a name that I can’t mention, though it’s one of the points of my story, but it was a name at least very well known and often printed. The figure was stiff; but the signature was good for more than that if it was only genuine. I took the liberty of pointing out to my gentleman that the whole business looked apocryphal, and that a man does not, in real life, walk into a cellar door at four in the morning and come out with another man’s cheque for close upon a hundred pounds. But he was quite easy and sneering. ‘Set your mind at rest,’ says he, ‘I will stay with you till the banks open and cash the cheque myself.’ So we all set off, the doctor, and the child’s father, and our friend and myself, and passed the rest of the night in my chambers; and next day, when we had breakfasted, went in a body to the bank. I gave in the cheque myself, and said I had every reason to believe it was a forgery. Not a bit of it. The cheque was genuine.”\n\n<!-- scene: 68b8cde7-afbb-4a50-83ab-87e1088928dc -->\n“Tut-tut!” said Mr. Utterson.\n\n“I see you feel as I do,” said Mr. Enfield. “Yes, it’s a bad story. For my man was a fellow that nobody could have to do with, a really damnable man; and the person that drew the cheque is the very pink of the proprieties, celebrated too, and (what makes it worse) one of your fellows who do what they call good. Blackmail, I suppose; an honest man paying through the nose for some of the capers of his youth. Black Mail House is what I call the place with the door, in consequence. Though even that, you know, is far from explaining all,” he added, and with the words fell into a vein of musing.\n\nFrom this he was recalled by Mr. Utterson asking rather suddenly: “And you don’t know if the drawer of the cheque lives there?”\n\n“A likely place, isn’t it?” returned Mr. Enfield. “But I happen to have noticed his address; he lives in some square or other.”\n\n“And you never asked about the—place with the door?” said Mr. Utterson.\n\n“No, sir; I had a delicacy,” was the reply. “I feel very strongly about putting questions; it partakes too much of the style of the day of judgment. You start a question, and it’s like starting a stone. You sit quietly on the top of a hill; and away the stone goes, starting others; and presently some bland old bird (the last you would have thought of) is knocked on the head in his own back garden and the family have to change their name. No sir, I make it a rule of mine: the more it looks like Queer Street, the less I ask.”\n\n“A very good rule, too,” said the lawyer.\n\n“But I have studied the place for myself,” continued Mr. Enfield. “It seems scarcely a house. There is no other door, and nobody goes in or out of that one but, once in a great while, the gentleman of my adventure. There are three windows looking on the court on the first floor; none below; the windows are always shut but they’re clean. And then there is a chimney which is generally smoking; so somebody must live there. And yet it’s not so sure; for the buildings are so packed together about the court, that it’s hard to say where one ends and another begins.”\n\nThe pair walked on again for a while in silence; and then “Enfield,” said Mr. Utterson, “that’s a good rule of yours.”\n\n“Yes, I think it is,” returned Enfield.\n\n“But for all that,” continued the lawyer, “there’s one point I want to ask. I want to ask the name of that man who walked over the child.”\n\n“Well,” said Mr. Enfield, “I can’t see what harm it would do. It was a man of the name of Hyde.”\n\n“Hm,” said Mr. Utterson. “What sort of a man is he to see?”\n\n“He is not easy to describe. There is something wrong with his appearance; something displeasing, something down-right detestable. I never saw a man I so disliked, and yet I scarce know why. He must be deformed somewhere; he gives a strong feeling of deformity, although I couldn’t specify the point. He’s an extraordinary looking man, and yet I really can name nothing out of the way. No, sir; I can make no hand of it; I can’t describe him. And it’s not want of memory; for I declare I can see him this moment.”\n\nMr. Utterson again walked some way in silence and obviously under a weight of consideration. “You are sure he used a key?” he inquired at last.\n\n“My dear sir...” began Enfield, surprised out of himself.\n\n“Yes, I know,” said Utterson; “I know it must seem strange. The fact is, if I do not ask you the name of the other party, it is because I know it already. You see, Richard, your tale has gone home. If you have been inexact in any point you had better correct it.”\n\n",
+    "02-jekyll": "<!-- scene: baa94383-d12f-4e7c-8aea-c0c461a65480 -->\nThat evening Mr. Utterson came home to his bachelor house in sombre spirits and sat down to dinner without relish. It was his custom of a Sunday, when this meal was again over, to sit close by the fire, a volume of some dry divinity on his reading desk, until the clock of the neighbouring church rang out the hour of twelve, when he would go soberly and gratefully to bed. On this night however as soon as the cloth was taken away, he took up a candle and went into his business room. There he opened his safe, took from the most private part of it a document endorsed on the envelope as Dr. Jekyll’s Will and sat down with a clouded brow to study its contents. The will was holograph, for Mr. Utterson though he took charge of it now that it was made, had refused to lend the least assistance in the making of it; it provided not only that, in case of the decease of Henry Jekyll, M.D., D.C.L., L.L.D., F.R.S., etc., all his possessions were to pass into the hands of his “friend and benefactor Edward Hyde,” but that in case of Dr. Jekyll’s “disappearance or unexplained absence for any period exceeding three calendar months,” the said Edward Hyde should step into the said Henry Jekyll’s shoes without further delay and free from any burthen or obligation beyond the payment of a few small sums to the members of the doctor’s household. This document had long been the lawyer’s eyesore. It offended him both as a lawyer and as a lover of the sane and customary sides of life, to whom the fanciful was the immodest. And hitherto it was his ignorance of Mr. Hyde that had swelled his indignation; now, by a sudden turn, it was his knowledge. It was already bad enough when the name was but a name of which he could learn no more. It was worse when it began to be clothed upon with detestable attributes; and out of the shifting, insubstantial mists that had so long baffled his eye, there leaped up the sudden, definite presentment of a fiend.\n\n“I thought it was madness,” he said, as he replaced the obnoxious paper in the safe, “and now I begin to fear it is disgrace.”\n\nWith that he blew out his candle, put on a greatcoat, and set forth in the direction of Cavendish Square, that citadel of medicine, where his friend, the great Dr. Lanyon, had his house and received his crowding patients. “If anyone knows, it will be Lanyon,” he had thought.\n\nThe solemn butler knew and welcomed him; he was subjected to no stage of delay, but ushered direct from the door to the dining-room where Dr. Lanyon sat alone over his wine. This was a hearty, healthy, dapper, red-faced gentleman, with a shock of hair prematurely white, and a boisterous and decided manner. At sight of Mr. Utterson, he sprang up from his chair and welcomed him with both hands. The geniality, as was the way of the man, was somewhat theatrical to the eye; but it reposed on genuine feeling. For these two were old friends, old mates both at school and college, both thorough respecters of themselves and of each other, and what does not always follow, men who thoroughly enjoyed each other’s company.\n\nAfter a little rambling talk, the lawyer led up to the subject which so disagreeably preoccupied his mind.\n\n“I suppose, Lanyon,” said he, “you and I must be the two oldest friends that Henry Jekyll has?”\n\n“I wish the friends were younger,” chuckled Dr. Lanyon. “But I suppose we are. And what of that? I see little of him now.”\n\n“Indeed?” said Utterson. “I thought you had a bond of common interest.”\n\n<!-- scene: b09e8ce4-447d-4c4d-8531-505f38fc6e1d -->\nThe other snarled aloud into a savage laugh; and the next moment, with extraordinary quickness, he had unlocked the door and disappeared into the house.\n\nThe lawyer stood awhile when Mr. Hyde had left him, the picture of disquietude. Then he began slowly to mount the street, pausing every step or two and putting his hand to his brow like a man in mental perplexity. The problem he was thus debating as he walked, was one of a class that is rarely solved. Mr. Hyde was pale and dwarfish, he gave an impression of deformity without any nameable malformation, he had a displeasing smile, he had borne himself to the lawyer with a sort of murderous mixture of timidity and boldness, and he spoke with a husky, whispering and somewhat broken voice; all these were points against him, but not all of these together could explain the hitherto unknown disgust, loathing and fear with which Mr. Utterson regarded him. “There must be something else,” said the perplexed gentleman. “There _is_ something more, if I could find a name for it. God bless me, the man seems hardly human! Something troglodytic, shall we say? or can it be the old story of Dr. Fell? or is it the mere radiance of a foul soul that thus transpires through, and transfigures, its clay continent? The last, I think; for, O my poor old Harry Jekyll, if ever I read Satan’s signature upon a face, it is on that of your new friend.”\n\nRound the corner from the by-street, there was a square of ancient, handsome houses, now for the most part decayed from their high estate and let in flats and chambers to all sorts and conditions of men; map-engravers, architects, shady lawyers and the agents of obscure enterprises. One house, however, second from the corner, was still occupied entire; and at the door of this, which wore a great air of wealth and comfort, though it was now plunged in darkness except for the fanlight, Mr. Utterson stopped and knocked. A well-dressed, elderly servant opened the door.\n\n“Is Dr. Jekyll at home, Poole?” asked the lawyer.\n\n“I will see, Mr. Utterson,” said Poole, admitting the visitor, as he spoke, into a large, low-roofed, comfortable hall paved with flags, warmed (after the fashion of a country house) by a bright, open fire, and furnished with costly cabinets of oak. “Will you wait here by the fire, sir? or shall I give you a light in the dining-room?”\n\n“Here, thank you,” said the lawyer, and he drew near and leaned on the tall fender. This hall, in which he was now left alone, was a pet fancy of his friend the doctor’s; and Utterson himself was wont to speak of it as the pleasantest room in London. But tonight there was a shudder in his blood; the face of Hide sat heavy on his memory; he felt (what was rare with him) a nausea and distaste of life; and in the gloom of his spirits, he seemed to read a menace in the flickering of the firelight on the polished cabinets and the uneasy starting of the shadow on the roof. He was ashamed of his relief, when Poole presently returned to announce that Dr. Jekyll was gone out.\n\n“I saw Mr. Hyde go in by the old dissecting room door, Poole,” he said. “Is that right, when Dr. Jekyll is from home?”\n\n“Quite right, Mr. Utterson, sir,” replied the servant. “Mr. Hyde has a key.”\n\n“Your master seems to repose a great deal of trust in that young man, Poole,” resumed the other musingly.\n\n“Yes, sir, he does indeed,” said Poole. “We have all orders to obey him.”\n\n“I do not think I ever met Mr. Hyde?” asked Utterson.\n\n“O, dear no, sir. He never _dines_ here,” replied the butler. “Indeed we see very little of him on this side of the house; he mostly comes and goes by the laboratory.”\n\n“Well, good-night, Poole.”\n\n“Good-night, Mr. Utterson.”\n\n",
+    "03-jekyll": "<!-- scene: bdd00fbc-5c8f-4612-8e04-3268af4f0486 -->\nA fortnight later, by excellent good fortune, the doctor gave one of his pleasant dinners to some five or six old cronies, all intelligent, reputable men and all judges of good wine; and Mr. Utterson so contrived that he remained behind after the others had departed. This was no new arrangement, but a thing that had befallen many scores of times. Where Utterson was liked, he was liked well. Hosts loved to detain the dry lawyer, when the light-hearted and loose-tongued had already their foot on the threshold; they liked to sit a while in his unobtrusive company, practising for solitude, sobering their minds in the man’s rich silence after the expense and strain of gaiety. To this rule, Dr. Jekyll was no exception; and as he now sat on the opposite side of the fire—a large, well-made, smooth-faced man of fifty, with something of a slyish cast perhaps, but every mark of capacity and kindness—you could see by his looks that he cherished for Mr. Utterson a sincere and warm affection.\n\n“I have been wanting to speak to you, Jekyll,” began the latter. “You know that will of yours?”\n\nA close observer might have gathered that the topic was distasteful; but the doctor carried it off gaily. “My poor Utterson,” said he, “you are unfortunate in such a client. I never saw a man so distressed as you were by my will; unless it were that hide-bound pedant, Lanyon, at what he called my scientific heresies. O, I know he’s a good fellow—you needn’t frown—an excellent fellow, and I always mean to see more of him; but a hide-bound pedant for all that; an ignorant, blatant pedant. I was never more disappointed in any man than Lanyon.”\n\n“You know I never approved of it,” pursued Utterson, ruthlessly disregarding the fresh topic.\n\n“My will? Yes, certainly, I know that,” said the doctor, a trifle sharply. “You have told me so.”\n\n“Well, I tell you so again,” continued the lawyer. “I have been learning something of young Hyde.”\n\nThe large handsome face of Dr. Jekyll grew pale to the very lips, and there came a blackness about his eyes. “I do not care to hear more,” said he. “This is a matter I thought we had agreed to drop.”\n\n“What I heard was abominable,” said Utterson.\n\n“It can make no change. You do not understand my position,” returned the doctor, with a certain incoherency of manner. “I am painfully situated, Utterson; my position is a very strange—a very strange one. It is one of those affairs that cannot be mended by talking.”\n\n“Jekyll,” said Utterson, “you know me: I am a man to be trusted. Make a clean breast of this in confidence; and I make no doubt I can get you out of it.”\n\n“My good Utterson,” said the doctor, “this is very good of you, this is downright good of you, and I cannot find words to thank you in. I believe you fully; I would trust you before any man alive, ay, before myself, if I could make the choice; but indeed it isn’t what you fancy; it is not as bad as that; and just to put your good heart at rest, I will tell you one thing: the moment I choose, I can be rid of Mr. Hyde. I give you my hand upon that; and I thank you again and again; and I will just add one little word, Utterson, that I’m sure you’ll take in good part: this is a private matter, and I beg of you to let it sleep.”\n\nUtterson reflected a little, looking in the fire.\n\n“I have no doubt you are perfectly right,” he said at last, getting to his feet.\n\n"
+  },
+  "calls": [
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00141275,
+      "ms": 528
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00335875,
+      "ms": 474
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00213625,
+      "ms": 722
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00145675,
+      "ms": 495
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00249875,
+      "ms": 1162
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "end_turn",
+      "cost": 0.001336,
+      "ms": 1066
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "end_turn",
+      "cost": 0.001506,
+      "ms": 1009
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "end_turn",
+      "cost": 0.001656,
+      "ms": 1581
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "end_turn",
+      "cost": 0.002088,
+      "ms": 1844
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "end_turn",
+      "cost": 0.002108,
+      "ms": 1213
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "end_turn",
+      "cost": 0.002088,
+      "ms": 1293
+    }
+  ]
+}

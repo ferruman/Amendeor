@@ -1,0 +1,1756 @@
+{
+  "variant": "sonnet-necessity",
+  "verifier": "sonnet",
+  "model": "anthropic/claude-sonnet-5",
+  "effort": "off",
+  "check": "necessity",
+  "passes": 3,
+  "rows": [
+    {
+      "id": "ru-typo",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0057859999999999995,
+      "ms": 9014
+    },
+    {
+      "id": "en-typo",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.008456,
+      "ms": 9347
+    },
+    {
+      "id": "ru-agreement",
+      "label": "ACCEPT",
+      "category": "grammar",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.00594,
+      "ms": 9373
+    },
+    {
+      "id": "en-agreement",
+      "label": "ACCEPT",
+      "category": "grammar",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.005792,
+      "ms": 9053
+    },
+    {
+      "id": "ru-dialogue-dash",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.006154,
+      "ms": 9203
+    },
+    {
+      "id": "en-mixed-quotes",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.005826,
+      "ms": 9108
+    },
+    {
+      "id": "en-comma-restored",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.008686,
+      "ms": 8870
+    },
+    {
+      "id": "ru-dedupe-exact",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.005596,
+      "ms": 9225
+    },
+    {
+      "id": "ru-dedupe-alternative",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0054800000000000005,
+      "ms": 9865
+    },
+    {
+      "id": "en-dedupe-alternative",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.008638,
+      "ms": 9126
+    },
+    {
+      "id": "en-dedupe-name",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.005162,
+      "ms": 8999
+    },
+    {
+      "id": "en-doubled-article",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.004874,
+      "ms": 9215
+    },
+    {
+      "id": "ru-filler-removal",
+      "label": "ACCEPT",
+      "category": "prose-pattern",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0066560000000000005,
+      "ms": 9244
+    },
+    {
+      "id": "en-filler-removal",
+      "label": "ACCEPT",
+      "category": "prose-pattern",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.006353999999999999,
+      "ms": 9180
+    },
+    {
+      "id": "ru-adverb-reattachment",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.005939999999999999,
+      "ms": 9102
+    },
+    {
+      "id": "ru-repetition-insertion",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.006194,
+      "ms": 9210
+    },
+    {
+      "id": "ru-number-change",
+      "label": "REJECT_HARMFUL",
+      "category": "incorrect-grammar",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: «около его ноги» (singular) is grammatically valid and already contrasts with the parallel phrase «около его ног» later in the paragraph; this is stylistic variation, not an error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.00214,
+      "ms": 2134
+    },
+    {
+      "id": "en-invented-attribution",
+      "label": "REJECT_HARMFUL",
+      "category": "dialogue-format",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "not preserved: The duplicated 'Poole Poole' is an accidental repeated-word typo that should be fixed, but the correction should simply remove the duplicate ('Poole.'), not add an invented attribution ('said the lawyer') not present in the original text.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002098,
+      "ms": 2579
+    },
+    {
+      "id": "en-dialogue-deletion",
+      "label": "REJECT_HARMFUL",
+      "category": "dialogue-format",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "not preserved: The repeated 'Poole Poole' is an accidental duplication error that should be fixed, but the edit also removes 'Well,' which changes the character's voice/phrasing beyond fixing the duplication.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001938,
+      "ms": 2344
+    },
+    {
+      "id": "en-speech-merge",
+      "label": "REJECT_HARMFUL",
+      "category": "dialogue-format",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct; the two short separate sentences create an emphatic, clipped delivery that AFTER smooths into a single casual phrase, altering the author's intended rhythm and tone.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.00197,
+      "ms": 2088
+    },
+    {
+      "id": "ru-name-to-common-noun",
+      "label": "REJECT_HARMFUL",
+      "category": "name-corruption",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: Тётка is used as a proper name (the dog's name) throughout the text, so capitalization is intentional, not an error; lowercasing changes the author's naming convention.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002016,
+      "ms": 1976
+    },
+    {
+      "id": "en-name-corruption",
+      "label": "REJECT_HARMFUL",
+      "category": "name-corruption",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "not preserved: 'Hide' is the character's name (Hyde/Hide spelling variant used consistently in this text); changing it to 'Hade' alters the name itself rather than fixing an error, and breaks consistency/preservation of the author's naming.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.00247,
+      "ms": 2764
+    },
+    {
+      "id": "en-name-swap",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not an objective error; changing the character's name alters the author's facts and meaning, not fixing any typo or grammar issue.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001866,
+      "ms": 2046
+    },
+    {
+      "id": "en-action-changed",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not objectively wrong (no spelling, grammar, or typography error); this is a content change that alters the character's action, not a copy edit of an error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001798,
+      "ms": 2010
+    },
+    {
+      "id": "en-time-changed",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: number-date-time-change",
+      "decision": "REJECT",
+      "reason": "not preserved: There is no objective error in 'three o'clock'; it's a factual detail of the story (and the surrounding paragraph later references 'four in the morning' as a separate, distinct time reference for the cellar-door event, meaning changing the first instance creates a contradiction rather than fixing one). This is a factual alteration, not a typo/grammar fix.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.00508,
+      "ms": 2884
+    },
+    {
+      "id": "en-degree-removed",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not objectively wrong; 'nearly fell' is a deliberate meaning distinct from actually falling. The edit changes the fact/action (he did not fall but AFTER says he did), contradicted by 'caught the rail and went on.'",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002116,
+      "ms": 2258
+    },
+    {
+      "id": "ru-uncertainty-removed",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not an error; 'кажется' expresses uncertainty/impression that is part of the author's meaning, and removing it changes the implication from 'seemed to be asleep' to a certain fact.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001954,
+      "ms": 2198
+    },
+    {
+      "id": "ru-aspect-changed",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: The imperfective 'читал' (was reading, an ongoing action) is not an error; changing it to perfective 'прочитал' (read through/finished reading) alters the aspect and implication of the action, changing meaning rather than fixing a mistake.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.00209,
+      "ms": 2375
+    },
+    {
+      "id": "ru-wrong-agreement",
+      "label": "REJECT_HARMFUL",
+      "category": "incorrect-grammar",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct (feminine subject 'она' requires 'пошла'); AFTER introduces a gender agreement error, making the text wrong, not fixing an error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001876,
+      "ms": 2270
+    },
+    {
+      "id": "en-wrong-whom",
+      "label": "REJECT_HARMFUL",
+      "category": "incorrect-grammar",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct ('who' is the subject of 'was there'); AFTER introduces a grammatical error by using 'whom' as a subject, which is incorrect.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001862,
+      "ms": 2066
+    },
+    {
+      "id": "ru-modernization",
+      "label": "REJECT_UNNECESSARY",
+      "category": "modernization",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: «румяны» is an older/period short-form adjective or plural noun usage consistent with Chekhov's style; it's not an objective grammatical error, just an archaic/variant form, so the edit is unnecessary though meaning is preserved.",
+      "verify_failed": false,
+      "passes_used": 2,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 2,
+      "truncated": 0,
+      "cost": 0.006582,
+      "ms": 6067
+    },
+    {
+      "id": "en-modernization-hyphen",
+      "label": "REJECT_UNNECESSARY",
+      "category": "modernization",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "decision": "REJECT",
+      "reason": "unnecessary: down-right is a period hyphenation variant of downright, not an error; this is an optional spelling modernization.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.00188,
+      "ms": 1860
+    },
+    {
+      "id": "en-modernization-vocative",
+      "label": "REJECT_UNNECESSARY",
+      "category": "modernization",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: 'O' is a valid period spelling variant of the interjection, not an error; this is an optional stylistic change.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001982,
+      "ms": 1962
+    },
+    {
+      "id": "en-stylistic-rewrite",
+      "label": "REJECT_UNNECESSARY",
+      "category": "stylistic-rewrite",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: \"a nausea and distaste of life\" is grammatically valid period phrasing, not an objective error; the edit is a synonym/fluency rephrasing, not a correction.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002284,
+      "ms": 2033
+    },
+    {
+      "id": "en-optional-comma",
+      "label": "REJECT_UNNECESSARY",
+      "category": "stylistic-rewrite",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: Comma between coordinate adjectives is optional stylistic punctuation, not an objective error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001674,
+      "ms": 1788
+    },
+    {
+      "id": "ru-comma-removal",
+      "label": "REJECT_UNNECESSARY",
+      "category": "stylistic-rewrite",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: The commas around 'вместо лампы или свечи' are optional stylistic punctuation, not an objective error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.003006,
+      "ms": 2257
+    },
+    {
+      "id": "en-dialogue-grammar",
+      "label": "AMBIGUOUS",
+      "category": "ambiguous",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.014058000000000001,
+      "ms": 9924
+    },
+    {
+      "id": "en-name-canon",
+      "label": "AMBIGUOUS",
+      "category": "ambiguous",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.006246,
+      "ms": 8947
+    },
+    {
+      "id": "en-place-name",
+      "label": "AMBIGUOUS",
+      "category": "ambiguous",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: \"Black Mail House\" is a period/stylistic spelling variant (echoing \"Blackmail\" split as two words), not an objective error; this is an optional stylistic normalization, not a required fix.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.00228,
+      "ms": 2382
+    },
+    {
+      "id": "ru-case-form",
+      "label": "ACCEPT",
+      "category": "case-form",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.005726,
+      "ms": 9768
+    },
+    {
+      "id": "ru-spelling-2",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.00531,
+      "ms": 9047
+    },
+    {
+      "id": "en-spelling-2",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.004742,
+      "ms": 8828
+    },
+    {
+      "id": "en-agreement-2",
+      "label": "ACCEPT",
+      "category": "grammar",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.005562,
+      "ms": 9118
+    },
+    {
+      "id": "en-agreement-mutation",
+      "label": "ACCEPT",
+      "category": "grammar",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: Archaic subjunctive/dialectal 'It were reported' is a period/stylistic verb form, not a grammatical error requiring correction.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002384,
+      "ms": 2373
+    },
+    {
+      "id": "en-double-comma",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.004876,
+      "ms": 9070
+    },
+    {
+      "id": "ru-space-comma",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.005196,
+      "ms": 8960
+    },
+    {
+      "id": "en-and-and",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.004844,
+      "ms": 8944
+    },
+    {
+      "id": "en-filler-mutation-v3",
+      "label": "ACCEPT",
+      "category": "prose-pattern",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0073,
+      "ms": 9273
+    },
+    {
+      "id": "ru-period-form-taksa",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.00606,
+      "ms": 9146
+    },
+    {
+      "id": "ru-period-form-tysyachey",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.006232,
+      "ms": 8972
+    },
+    {
+      "id": "ru-period-spelling-shkap",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: «шкап» is a period/dialect spelling variant of «шкаф», not an error; changing it alters the author's voice unnecessarily.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001916,
+      "ms": 1966
+    },
+    {
+      "id": "en-regional-discoloured",
+      "label": "REJECT_UNNECESSARY",
+      "category": "regional-spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: discoloured is a standard British spelling variant, not an error; this text uses British spelling throughout (e.g. 'storeys', 'mouldings').",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002174,
+      "ms": 2238
+    },
+    {
+      "id": "en-regional-marvelous",
+      "label": "REJECT_UNNECESSARY",
+      "category": "regional-spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: marvelous/marvellous is a regional spelling variant, not an objective error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002226,
+      "ms": 1926
+    },
+    {
+      "id": "ru-dialect-neshto",
+      "label": "REJECT_UNNECESSARY",
+      "category": "dialect",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: «Нешто» is a dialect/colloquial form appropriate to the peasant character's voice, not an error; replacing it with the standard «Разве» erases the character's regional speech pattern.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001944,
+      "ms": 2447
+    },
+    {
+      "id": "en-dialect-aint",
+      "label": "REJECT_UNNECESSARY",
+      "category": "dialect",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "not preserved: \"I ain't seen him\" is dialectal/colloquial speech reflecting the boy's voice, not an objective grammar error; changing it removes characterization and register.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001852,
+      "ms": 2029
+    },
+    {
+      "id": "ru-speech-er",
+      "label": "REJECT_UNNECESSARY",
+      "category": "character-speech",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: «-с» is a period/register particle (deferential speech marker), not an error; removing it changes the character's voice and deferential tone.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001726,
+      "ms": 2045
+    },
+    {
+      "id": "ru-synonym-stal",
+      "label": "REJECT_UNNECESSARY",
+      "category": "synonym",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: «стал облачаться» (began to put on) is correct, idiomatic Russian; not an error, just a synonym swap with «начал».",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.003056,
+      "ms": 2173
+    },
+    {
+      "id": "en-synonym-entry",
+      "label": "REJECT_UNNECESSARY",
+      "category": "synonym",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: 'entry' meaning entrance/opening is a standard period usage (Stevenson's own wording), not an error; the change is an unnecessary synonym swap.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002196,
+      "ms": 2193
+    },
+    {
+      "id": "ru-word-order-ikry",
+      "label": "REJECT_UNNECESSARY",
+      "category": "word-order",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatically correct; the reordering is a stylistic change, not a fix of an objective error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002188,
+      "ms": 2261
+    },
+    {
+      "id": "en-adverb-placement",
+      "label": "REJECT_UNNECESSARY",
+      "category": "word-order",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: Both word orders are grammatical; 'had been probably carrying' is an acceptable period style, not an objective error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002026,
+      "ms": 2118
+    },
+    {
+      "id": "ru-pleonasm",
+      "label": "REJECT_UNNECESSARY",
+      "category": "stylistic-rewrite",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: «попятилась назад» is a mildly redundant but acceptable collocation, not an objective grammar error; removing «назад» is a stylistic trim, not a correction of a mistake.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002804,
+      "ms": 2379
+    },
+    {
+      "id": "ru-colloquial-udobney",
+      "label": "REJECT_UNNECESSARY",
+      "category": "clean-control",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: удобнее/удобней is an optional stylistic variant, not an error",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002166,
+      "ms": 2665
+    },
+    {
+      "id": "ru-zatei",
+      "label": "REJECT_UNNECESSARY",
+      "category": "clean-control",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: «кончились этим» is standard idiomatic phrasing; adding «на» is a stylistic/optional variant, not a fix of an objective grammatical error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.003148,
+      "ms": 2566
+    },
+    {
+      "id": "ru-aspect-obryvalas",
+      "label": "REJECT_UNNECESSARY",
+      "category": "clean-control",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: обрывалась (imperfective, ongoing non-interruption) is grammatically correct and fits the context; оборвалась (perfective) changes aspect/meaning slightly, not a correction of an error but a stylistic/semantic shift.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002212,
+      "ms": 2359
+    },
+    {
+      "id": "en-distained",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: 'distained' is an archaic/period variant spelling of 'stained' (or related to 'disdained'), not an objective error; it's the author's stylistic word choice from Stevenson's original text.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.002304,
+      "ms": 2237
+    },
+    {
+      "id": "en-only-attachment",
+      "label": "REJECT_HARMFUL",
+      "category": "adverb-attachment",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: The placement of 'only' before 'told' is a common, grammatically acceptable construction (even if 'only her' is more precise); this is a stylistic rephrasing, not a correction of an objective grammatical error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001952,
+      "ms": 2152
+    },
+    {
+      "id": "en-name-typo-intro",
+      "label": "REJECT_HARMFUL",
+      "category": "name-corruption",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is correctly spelled; AFTER introduces a misspelling of the character's name, so the edit is not fixing an error but creating one.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.00175,
+      "ms": 2461
+    },
+    {
+      "id": "ru-invented-action",
+      "label": "REJECT_HARMFUL",
+      "category": "invented-attribution",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE contains no objective error; AFTER adds invented content (smiling) not present in the original text.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001684,
+      "ms": 2118
+    },
+    {
+      "id": "ru-number-years",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: number-date-time-change",
+      "decision": "REJECT",
+      "reason": "not preserved: Changing the number of years is a factual alteration, not a correction of an objective error; BEFORE is grammatically and factually fine as written by the author.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.001762,
+      "ms": 2634
+    }
+  ]
+}

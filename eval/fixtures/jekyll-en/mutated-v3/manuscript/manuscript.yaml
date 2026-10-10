@@ -1,0 +1,15 @@
+schema_version: 1
+language: en
+chapters:
+  - slug: 01-jekyll
+    title: "STORY OF THE DOOR"
+    eval_control: false
+  - slug: 02-jekyll
+    title: "SEARCH FOR MR. HYDE"
+    eval_control: false
+  - slug: 03-jekyll
+    title: "DR. JEKYLL WAS QUITE AT EASE"
+    eval_control: true
+  - slug: 04-jekyll
+    title: "THE CAREW MURDER CASE"
+    eval_control: false

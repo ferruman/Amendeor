@@ -1,0 +1,2895 @@
+{
+  "generated_at": "2026-10-10T12:03:48.830Z",
+  "spent_usd": 0.612711,
+  "requests": 1056,
+  "corpus": {
+    "kashtanka-ru": {
+      "words": 2993,
+      "scenes": 5,
+      "mutations": 6,
+      "policy": [
+        "formulaic: model-fixable",
+        "terminology: blocked-by-policy",
+        "typo: model-fixable",
+        "agreement: model-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "dialogue-format: rule-fixable"
+      ]
+    },
+    "jekyll-en": {
+      "words": 3546,
+      "scenes": 5,
+      "mutations": 8,
+      "policy": [
+        "agreement: blocked-by-policy",
+        "formulaic: model-fixable",
+        "dialogue-format: rule-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "punctuation: proofread-only",
+        "typo: model-fixable",
+        "terminology: blocked-by-policy",
+        "doubled-word: rule-fixable"
+      ]
+    }
+  },
+  "stage_a": {
+    "haiku": {
+      "model": "anthropic/claude-haiku-5.5",
+      "effort": "off",
+      "self_pairing_excluded": [
+        "ru-dialogue-dash",
+        "en-dedupe-alternative",
+        "ru-filler-removal",
+        "ru-number-change"
+      ],
+      "all_cases": {
+        "pass3": {
+          "cases": 35,
+          "harmful_accepted": [
+            "ru-repetition-insertion",
+            "ru-name-to-common-noun"
+          ],
+          "unnecessary_accepted": [
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-stylistic-rewrite",
+            "en-optional-comma"
+          ],
+          "valid_rejected": [
+            "en-typo",
+            "ru-agreement",
+            "en-mixed-quotes",
+            "en-comma-restored",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.364,
+          "correct_rejection_rate": 0.714,
+          "harmful_rejection_rate": 0.867,
+          "ambiguous_withheld": [
+            "en-dialogue-grammar",
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.005055
+        },
+        "pass2": {
+          "cases": 35,
+          "harmful_accepted": [
+            "ru-repetition-insertion",
+            "ru-name-to-common-noun"
+          ],
+          "unnecessary_accepted": [
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-stylistic-rewrite",
+            "en-optional-comma"
+          ],
+          "valid_rejected": [
+            "en-typo",
+            "ru-agreement",
+            "en-comma-restored",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.455,
+          "correct_rejection_rate": 0.714,
+          "harmful_rejection_rate": 0.867,
+          "ambiguous_withheld": [
+            "en-dialogue-grammar",
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.004225
+        },
+        "pass1": {
+          "cases": 35,
+          "harmful_accepted": [
+            "ru-repetition-insertion",
+            "ru-name-to-common-noun"
+          ],
+          "unnecessary_accepted": [
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-stylistic-rewrite",
+            "en-optional-comma"
+          ],
+          "valid_rejected": [
+            "en-typo",
+            "ru-agreement",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.545,
+          "correct_rejection_rate": 0.714,
+          "harmful_rejection_rate": 0.867,
+          "ambiguous_withheld": [
+            "en-dialogue-grammar",
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.003243
+        }
+      },
+      "reaching_verifier": {
+        "note": "only cases the deterministic guards pass in production",
+        "pass3": {
+          "cases": 18,
+          "harmful_accepted": [
+            "ru-repetition-insertion"
+          ],
+          "unnecessary_accepted": [
+            "en-stylistic-rewrite"
+          ],
+          "valid_rejected": [
+            "en-typo",
+            "ru-agreement",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.375,
+          "correct_rejection_rate": 0.8,
+          "harmful_rejection_rate": 0.875,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.002264
+        },
+        "pass1": {
+          "cases": 18,
+          "harmful_accepted": [
+            "ru-repetition-insertion"
+          ],
+          "unnecessary_accepted": [
+            "en-stylistic-rewrite"
+          ],
+          "valid_rejected": [
+            "en-typo",
+            "ru-agreement",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.375,
+          "correct_rejection_rate": 0.8,
+          "harmful_rejection_rate": 0.875,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.001564
+        }
+      },
+      "json_schema_failures": 3,
+      "truncated_responses": 0,
+      "http_errors": 0,
+      "verify_failed_cases": [
+        "en-typo",
+        "en-comma-restored",
+        "ru-comma-removal"
+      ],
+      "split_verdicts": [
+        "en-mixed-quotes",
+        "en-comma-restored"
+      ],
+      "requests": 64,
+      "tokens_in": 22282,
+      "tokens_out": 6757,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.005607,
+      "median_case_ms": 1829,
+      "median_request_ms": 977,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    },
+    "haiku-medium": {
+      "model": "anthropic/claude-haiku-5.5",
+      "effort": "medium",
+      "self_pairing_excluded": [
+        "ru-dialogue-dash",
+        "en-dedupe-alternative",
+        "ru-filler-removal",
+        "ru-number-change"
+      ],
+      "all_cases": {
+        "pass3": {
+          "cases": 35,
+          "harmful_accepted": [
+            "en-speech-merge",
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-dedupe-name"
+          ],
+          "correct_acceptance_rate": 0.727,
+          "correct_rejection_rate": 0.667,
+          "harmful_rejection_rate": 0.867,
+          "ambiguous_withheld": [
+            "en-dialogue-grammar"
+          ],
+          "ambiguous_accepted": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "cost_usd": 0.018648
+        },
+        "pass2": {
+          "cases": 35,
+          "harmful_accepted": [
+            "en-speech-merge",
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-dedupe-name"
+          ],
+          "correct_acceptance_rate": 0.727,
+          "correct_rejection_rate": 0.667,
+          "harmful_rejection_rate": 0.867,
+          "ambiguous_withheld": [
+            "en-dialogue-grammar"
+          ],
+          "ambiguous_accepted": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "cost_usd": 0.014502
+        },
+        "pass1": {
+          "cases": 35,
+          "harmful_accepted": [
+            "en-speech-merge",
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-dedupe-name"
+          ],
+          "correct_acceptance_rate": 0.727,
+          "correct_rejection_rate": 0.667,
+          "harmful_rejection_rate": 0.867,
+          "ambiguous_withheld": [
+            "en-dialogue-grammar"
+          ],
+          "ambiguous_accepted": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "cost_usd": 0.010387
+        }
+      },
+      "reaching_verifier": {
+        "note": "only cases the deterministic guards pass in production",
+        "pass3": {
+          "cases": 18,
+          "harmful_accepted": [
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative"
+          ],
+          "correct_acceptance_rate": 0.75,
+          "correct_rejection_rate": 0.8,
+          "harmful_rejection_rate": 0.875,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.008494
+        },
+        "pass1": {
+          "cases": 18,
+          "harmful_accepted": [
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative"
+          ],
+          "correct_acceptance_rate": 0.75,
+          "correct_rejection_rate": 0.8,
+          "harmful_rejection_rate": 0.875,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.004826
+        }
+      },
+      "json_schema_failures": 0,
+      "truncated_responses": 42,
+      "http_errors": 0,
+      "verify_failed_cases": [],
+      "split_verdicts": [],
+      "requests": 117,
+      "tokens_in": 47291,
+      "tokens_out": 32060,
+      "reasoning_tokens": 25279,
+      "cost_usd": 0.020759,
+      "median_case_ms": 9397,
+      "median_request_ms": 1078,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    },
+    "sonnet": {
+      "model": "anthropic/claude-sonnet-5",
+      "effort": "off",
+      "self_pairing_excluded": [],
+      "all_cases": {
+        "pass3": {
+          "cases": 39,
+          "harmful_accepted": [
+            "ru-name-to-common-noun"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.714,
+          "correct_rejection_rate": 0.727,
+          "harmful_rejection_rate": 0.938,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [
+            "en-dialogue-grammar",
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "cost_usd": 0.117956
+        },
+        "pass2": {
+          "cases": 39,
+          "harmful_accepted": [
+            "ru-name-to-common-noun"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.714,
+          "correct_rejection_rate": 0.727,
+          "harmful_rejection_rate": 0.938,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [
+            "en-dialogue-grammar",
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "cost_usd": 0.089218
+        },
+        "pass1": {
+          "cases": 39,
+          "harmful_accepted": [
+            "ru-name-to-common-noun"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.714,
+          "correct_rejection_rate": 0.727,
+          "harmful_rejection_rate": 0.938,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [
+            "en-dialogue-grammar",
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "cost_usd": 0.06045
+        }
+      },
+      "reaching_verifier": {
+        "note": "only cases the deterministic guards pass in production",
+        "pass3": {
+          "cases": 21,
+          "harmful_accepted": [],
+          "unnecessary_accepted": [
+            "ru-modernization"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.6,
+          "correct_rejection_rate": 0.909,
+          "harmful_rejection_rate": 1,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.053004
+        },
+        "pass1": {
+          "cases": 21,
+          "harmful_accepted": [],
+          "unnecessary_accepted": [
+            "ru-modernization"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.6,
+          "correct_rejection_rate": 0.909,
+          "harmful_rejection_rate": 1,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.03141
+        }
+      },
+      "json_schema_failures": 0,
+      "truncated_responses": 0,
+      "http_errors": 0,
+      "verify_failed_cases": [],
+      "split_verdicts": [],
+      "requests": 77,
+      "tokens_in": 33273,
+      "tokens_out": 5141,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.117956,
+      "median_case_ms": 3784,
+      "median_request_ms": 1334,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    },
+    "luna": {
+      "model": "openai/gpt-6-luna",
+      "effort": "off",
+      "self_pairing_excluded": [
+        "ru-typo",
+        "en-typo",
+        "ru-dedupe-exact",
+        "ru-dedupe-alternative",
+        "en-filler-removal"
+      ],
+      "all_cases": {
+        "pass3": {
+          "cases": 34,
+          "harmful_accepted": [],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dialogue-dash",
+            "en-dedupe-alternative",
+            "en-dedupe-name",
+            "ru-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.556,
+          "correct_rejection_rate": 0.818,
+          "harmful_rejection_rate": 1,
+          "ambiguous_withheld": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "ambiguous_accepted": [
+            "en-dialogue-grammar"
+          ],
+          "cost_usd": 0.002499
+        },
+        "pass2": {
+          "cases": 34,
+          "harmful_accepted": [],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dialogue-dash",
+            "en-dedupe-alternative",
+            "en-dedupe-name",
+            "ru-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.556,
+          "correct_rejection_rate": 0.818,
+          "harmful_rejection_rate": 1,
+          "ambiguous_withheld": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "ambiguous_accepted": [
+            "en-dialogue-grammar"
+          ],
+          "cost_usd": 0.002058
+        },
+        "pass1": {
+          "cases": 34,
+          "harmful_accepted": [],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dialogue-dash",
+            "en-dedupe-name",
+            "ru-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.667,
+          "correct_rejection_rate": 0.818,
+          "harmful_rejection_rate": 1,
+          "ambiguous_withheld": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "ambiguous_accepted": [
+            "en-dialogue-grammar"
+          ],
+          "cost_usd": 0.001557
+        }
+      },
+      "reaching_verifier": {
+        "note": "only cases the deterministic guards pass in production",
+        "pass3": {
+          "cases": 16,
+          "harmful_accepted": [],
+          "unnecessary_accepted": [
+            "ru-modernization"
+          ],
+          "valid_rejected": [
+            "en-dedupe-alternative",
+            "ru-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.6,
+          "correct_rejection_rate": 0.909,
+          "harmful_rejection_rate": 1,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.000987
+        },
+        "pass1": {
+          "cases": 16,
+          "harmful_accepted": [],
+          "unnecessary_accepted": [
+            "ru-modernization"
+          ],
+          "valid_rejected": [
+            "ru-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.8,
+          "correct_rejection_rate": 0.909,
+          "harmful_rejection_rate": 1,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.000598
+        }
+      },
+      "json_schema_failures": 0,
+      "truncated_responses": 0,
+      "http_errors": 0,
+      "verify_failed_cases": [],
+      "split_verdicts": [
+        "en-dedupe-alternative"
+      ],
+      "requests": 64,
+      "tokens_in": 19735,
+      "tokens_out": 2208,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.002934,
+      "median_case_ms": 1562,
+      "median_request_ms": 633,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    },
+    "deepseek-pro": {
+      "model": "deepseek/deepseek-v4-pro-0813",
+      "effort": "off",
+      "self_pairing_excluded": [
+        "ru-agreement",
+        "en-dialogue-grammar",
+        "en-name-canon"
+      ],
+      "all_cases": {
+        "pass3": {
+          "cases": 36,
+          "harmful_accepted": [
+            "ru-repetition-insertion",
+            "en-speech-merge",
+            "ru-name-to-common-noun"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-vocative",
+            "en-stylistic-rewrite",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.615,
+          "correct_rejection_rate": 0.636,
+          "harmful_rejection_rate": 0.813,
+          "ambiguous_withheld": [
+            "en-place-name"
+          ],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.024227
+        },
+        "pass2": {
+          "cases": 36,
+          "harmful_accepted": [
+            "ru-repetition-insertion",
+            "en-speech-merge",
+            "ru-name-to-common-noun"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-vocative",
+            "en-stylistic-rewrite",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.692,
+          "correct_rejection_rate": 0.636,
+          "harmful_rejection_rate": 0.813,
+          "ambiguous_withheld": [
+            "en-place-name"
+          ],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.018382
+        },
+        "pass1": {
+          "cases": 36,
+          "harmful_accepted": [
+            "ru-repetition-insertion",
+            "en-speech-merge",
+            "ru-name-to-common-noun"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-vocative",
+            "en-stylistic-rewrite",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.692,
+          "correct_rejection_rate": 0.636,
+          "harmful_rejection_rate": 0.813,
+          "ambiguous_withheld": [
+            "en-place-name"
+          ],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.012754
+        }
+      },
+      "reaching_verifier": {
+        "note": "only cases the deterministic guards pass in production",
+        "pass3": {
+          "cases": 20,
+          "harmful_accepted": [
+            "ru-repetition-insertion"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-stylistic-rewrite"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.444,
+          "correct_rejection_rate": 0.727,
+          "harmful_rejection_rate": 0.889,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.012037
+        },
+        "pass1": {
+          "cases": 20,
+          "harmful_accepted": [
+            "ru-repetition-insertion"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-stylistic-rewrite"
+          ],
+          "valid_rejected": [
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "ru-filler-removal",
+            "en-filler-removal"
+          ],
+          "correct_acceptance_rate": 0.556,
+          "correct_rejection_rate": 0.727,
+          "harmful_rejection_rate": 0.889,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.006226
+        }
+      },
+      "json_schema_failures": 0,
+      "truncated_responses": 0,
+      "http_errors": 0,
+      "verify_failed_cases": [],
+      "split_verdicts": [
+        "ru-typo",
+        "en-dedupe-alternative"
+      ],
+      "requests": 92,
+      "tokens_in": 26742,
+      "tokens_out": 3078,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.033615,
+      "median_case_ms": 3774,
+      "median_request_ms": 778,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    }
+  },
+  "escalation": {
+    "haiku→sonnet": {
+      "cases": 35,
+      "risky_accepts": {
+        "escalated_share": 0.257,
+        "escalated": [
+          "ru-typo [new-word]",
+          "en-agreement [new-word]",
+          "en-dedupe-name [capitalized-word-change,dialogue,word-order]",
+          "en-doubled-article [word-order]",
+          "ru-repetition-insertion [word-order]",
+          "ru-name-to-common-noun [capitalized-word-change]",
+          "en-modernization-hyphen [new-word]",
+          "en-modernization-vocative [capitalized-word-change,new-word]",
+          "en-stylistic-rewrite [new-word,word-order]"
+        ],
+        "harmful_accepted": [
+          "ru-name-to-common-noun"
+        ],
+        "harmful_caught_by_escalation": [
+          "ru-repetition-insertion"
+        ],
+        "valid_rejected": [
+          "en-typo",
+          "ru-agreement",
+          "en-mixed-quotes",
+          "en-comma-restored",
+          "ru-dedupe-exact",
+          "ru-dedupe-alternative",
+          "en-filler-removal"
+        ],
+        "valid_rejected_by_escalation": [],
+        "unnecessary_accepted": [
+          "en-modernization-hyphen",
+          "en-modernization-vocative",
+          "en-optional-comma"
+        ],
+        "cost_usd": 0.031111,
+        "always_sonnet_cost_usd": 0.105456,
+        "primary_only_cost_usd": 0.005055
+      },
+      "risky_accepts_and_rejects": {
+        "escalated_share": 0.886,
+        "escalated": [
+          "ru-typo [new-word]",
+          "en-typo [verification-failure,new-word]",
+          "ru-agreement [new-word]",
+          "en-agreement [new-word]",
+          "en-mixed-quotes [split-verdicts,dialogue]",
+          "en-comma-restored [verification-failure,split-verdicts]",
+          "ru-dedupe-alternative [word-order]",
+          "en-dedupe-name [capitalized-word-change,dialogue,word-order]",
+          "en-doubled-article [word-order]",
+          "en-filler-removal [capitalized-word-change]",
+          "ru-adverb-reattachment [word-order]",
+          "ru-repetition-insertion [word-order]",
+          "en-invented-attribution [capitalized-word-change,dialogue,new-word,word-order]",
+          "en-dialogue-deletion [capitalized-word-change,word-order]",
+          "en-speech-merge [capitalized-word-change,dialogue,word-order]",
+          "ru-name-to-common-noun [capitalized-word-change]",
+          "en-name-corruption [capitalized-word-change,new-word]",
+          "en-name-swap [capitalized-word-change,new-word]",
+          "en-action-changed [new-word]",
+          "en-time-changed [new-word]",
+          "ru-aspect-changed [new-word]",
+          "ru-wrong-agreement [new-word]",
+          "en-wrong-whom [new-word]",
+          "ru-modernization [new-word]",
+          "en-modernization-hyphen [new-word]",
+          "en-modernization-vocative [capitalized-word-change,new-word]",
+          "en-stylistic-rewrite [new-word,word-order]",
+          "ru-comma-removal [verification-failure]",
+          "en-dialogue-grammar [new-word]",
+          "en-name-canon [capitalized-word-change,new-word]",
+          "en-place-name [capitalized-word-change,new-word]"
+        ],
+        "harmful_accepted": [
+          "ru-name-to-common-noun"
+        ],
+        "harmful_caught_by_escalation": [
+          "ru-repetition-insertion"
+        ],
+        "valid_rejected": [
+          "ru-dedupe-exact",
+          "ru-dedupe-alternative",
+          "en-filler-removal"
+        ],
+        "valid_rejected_by_escalation": [],
+        "unnecessary_accepted": [
+          "ru-modernization",
+          "en-modernization-hyphen",
+          "en-modernization-vocative",
+          "en-optional-comma",
+          "ru-comma-removal"
+        ],
+        "cost_usd": 0.104335,
+        "always_sonnet_cost_usd": 0.105456,
+        "primary_only_cost_usd": 0.005055
+      }
+    },
+    "haiku-medium→sonnet": {
+      "cases": 35,
+      "risky_accepts": {
+        "escalated_share": 0.4,
+        "escalated": [
+          "ru-typo [new-word]",
+          "en-typo [new-word]",
+          "ru-agreement [new-word]",
+          "en-agreement [new-word]",
+          "en-mixed-quotes [dialogue]",
+          "en-doubled-article [word-order]",
+          "en-filler-removal [capitalized-word-change]",
+          "en-speech-merge [capitalized-word-change,dialogue,word-order]",
+          "en-wrong-whom [new-word]",
+          "ru-modernization [new-word]",
+          "en-modernization-hyphen [new-word]",
+          "en-modernization-vocative [capitalized-word-change,new-word]",
+          "en-name-canon [capitalized-word-change,new-word]",
+          "en-place-name [capitalized-word-change,new-word]"
+        ],
+        "harmful_accepted": [],
+        "harmful_caught_by_escalation": [
+          "en-speech-merge",
+          "en-wrong-whom"
+        ],
+        "valid_rejected": [
+          "ru-dedupe-exact",
+          "ru-dedupe-alternative",
+          "en-dedupe-name",
+          "en-filler-removal"
+        ],
+        "valid_rejected_by_escalation": [
+          "en-filler-removal"
+        ],
+        "unnecessary_accepted": [
+          "ru-modernization",
+          "en-modernization-hyphen",
+          "en-modernization-vocative",
+          "en-optional-comma",
+          "ru-comma-removal"
+        ],
+        "cost_usd": 0.067614,
+        "always_sonnet_cost_usd": 0.105456,
+        "primary_only_cost_usd": 0.018648
+      },
+      "risky_accepts_and_rejects": {
+        "escalated_share": 0.829,
+        "escalated": [
+          "ru-typo [new-word]",
+          "en-typo [new-word]",
+          "ru-agreement [new-word]",
+          "en-agreement [new-word]",
+          "en-mixed-quotes [dialogue]",
+          "ru-dedupe-alternative [word-order]",
+          "en-dedupe-name [capitalized-word-change,dialogue,word-order]",
+          "en-doubled-article [word-order]",
+          "en-filler-removal [capitalized-word-change]",
+          "ru-adverb-reattachment [word-order]",
+          "ru-repetition-insertion [word-order]",
+          "en-invented-attribution [capitalized-word-change,dialogue,new-word,word-order]",
+          "en-dialogue-deletion [capitalized-word-change,word-order]",
+          "en-speech-merge [capitalized-word-change,dialogue,word-order]",
+          "ru-name-to-common-noun [capitalized-word-change]",
+          "en-name-corruption [capitalized-word-change,new-word]",
+          "en-name-swap [capitalized-word-change,new-word]",
+          "en-action-changed [new-word]",
+          "en-time-changed [new-word]",
+          "ru-aspect-changed [new-word]",
+          "ru-wrong-agreement [new-word]",
+          "en-wrong-whom [new-word]",
+          "ru-modernization [new-word]",
+          "en-modernization-hyphen [new-word]",
+          "en-modernization-vocative [capitalized-word-change,new-word]",
+          "en-stylistic-rewrite [new-word,word-order]",
+          "en-dialogue-grammar [new-word]",
+          "en-name-canon [capitalized-word-change,new-word]",
+          "en-place-name [capitalized-word-change,new-word]"
+        ],
+        "harmful_accepted": [
+          "ru-name-to-common-noun"
+        ],
+        "harmful_caught_by_escalation": [
+          "en-speech-merge",
+          "en-wrong-whom"
+        ],
+        "valid_rejected": [
+          "ru-dedupe-exact",
+          "ru-dedupe-alternative",
+          "en-filler-removal"
+        ],
+        "valid_rejected_by_escalation": [
+          "en-filler-removal"
+        ],
+        "unnecessary_accepted": [
+          "ru-modernization",
+          "en-modernization-hyphen",
+          "en-modernization-vocative",
+          "en-optional-comma",
+          "ru-comma-removal"
+        ],
+        "cost_usd": 0.105462,
+        "always_sonnet_cost_usd": 0.105456,
+        "primary_only_cost_usd": 0.018648
+      }
+    }
+  },
+  "stage_b": [
+    {
+      "config": "c1-luna__haiku",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 42,
+      "reachable": 30,
+      "final": {
+        "exact": 8,
+        "alternative": 9,
+        "partial": 0,
+        "incorrect": 1,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 17,
+        "remaining_injected_errors": 25,
+        "remaining_reachable": 13
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 12,
+        "harmful_or_incorrect": 1,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: From this he was recalled by Mr. At the end of the day, Utterson asking rather suddenly → From this he was recalled by Mr. Utterson asking rather suddenly",
+            "jekyll-en-0: obilgation → obligation",
+            "jekyll-en-1: Mr. At the end of the day, Utterson → Mr. Utterson",
+            "jekyll-en-1: obilgation → obligation",
+            "jekyll-en-2: Mr. At the end of the day, Utterson → Mr. Utterson",
+            "jekyll-en-2: obilgation → obligation",
+            "kashtanka-ru-0: В современном мире Одним словом, → Одним словом,",
+            "kashtanka-ru-0: она пошёл за ним → она пошла за ним",
+            "kashtanka-ru-1: В современном мире Одним словом, → Одним словом,",
+            "kashtanka-ru-1: она пошёл за ним → она пошла за ним",
+            "kashtanka-ru-2: В современном мире  → ",
+            "kashtanka-ru-2: Тётке жутко было оставаться в потёмках, и она пошёл за ним. → Тётке жутко было оставаться в потёмках, и она пошла за ним."
+          ],
+          "harmful_or_incorrect": [
+            "kashtanka-ru-0: Из спальни вела куда-то ещё одна дверь, тоже затворённая. → Из спальни вела ещё куда-то одна дверь, тоже затворённая."
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 1,
+      "discarded": {
+        "target-not-verbatim-in-window": 3
+      },
+      "cost": {
+        "total_usd": 0.005592,
+        "editor_usd": 0.003122,
+        "verifier_usd": 0.00247,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0.000285,
+        "per_correct_final_edit_usd": 0.000329,
+        "per_scene_usd": 0.000186,
+        "per_repeat_usd": 0.001864,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 56,
+        "editor": 32,
+        "verifier": 24,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 53631,
+        "tokens_out": 4538,
+        "cached_tokens": 27234
+      },
+      "latency": {
+        "median_request_ms": 625,
+        "mean_request_ms": 728,
+        "median_job_ms": 23971,
+        "mean_job_ms": 28642
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.001696,
+          "k2": 0.00223,
+          "k3": 0.00247
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "kashtanka-ru-0: Из спальни вела куда-то ещё одна дверь, тоже затворённая. → Из спальни вела ещё куда-то одна дверь, тоже затворённая."
+          ],
+          "valid_more_accepted": [
+            "jekyll-en-0: obilgation → obligation"
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.0016959999999999998
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0022297
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c2-luna__haiku-medium",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 42,
+      "reachable": 30,
+      "final": {
+        "exact": 16,
+        "alternative": 9,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 25,
+        "remaining_injected_errors": 17,
+        "remaining_reachable": 5
+      },
+      "unnecessary": {
+        "model": 1,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 1,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 4,
+        "harmful_or_incorrect": 1,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: From this he was recalled by Mr. At the end of the day, Utterson asking rather suddenly: → From this he was recalled by Mr. Utterson asking rather suddenly:",
+            "kashtanka-ru-0: В современном мире Одним словом, → Одним словом,",
+            "kashtanka-ru-1: В современном мире Одним словом, → Одним словом,",
+            "kashtanka-ru-2: В современном мире Одним словом, → Одним словом,"
+          ],
+          "harmful_or_incorrect": [
+            "kashtanka-ru-1: глдяела → глядя"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "cost": {
+        "total_usd": 0.010426,
+        "editor_usd": 0.001115,
+        "verifier_usd": 0.009311,
+        "retries_usd": 0.003125,
+        "per_1000_words_usd": 0.000531,
+        "per_correct_final_edit_usd": 0.000417,
+        "per_scene_usd": 0.000348,
+        "per_repeat_usd": 0.003475,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 84,
+        "editor": 30,
+        "verifier": 54,
+        "truncated": 16,
+        "http_errors": 0,
+        "retries": 16,
+        "tokens_in": 60894,
+        "tokens_out": 16026,
+        "cached_tokens": 40851
+      },
+      "latency": {
+        "median_request_ms": 854,
+        "mean_request_ms": 811,
+        "median_job_ms": 48883,
+        "mean_job_ms": 49544
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.00563,
+          "k2": 0.007425,
+          "k3": 0.009311
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0056302
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0074245000000000005
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c3-deepseek-pro__haiku",
+      "tier": 1,
+      "tested": true,
+      "editor": "deepseek/deepseek-v4-pro-0813",
+      "verifier": "anthropic/claude-haiku-5.5",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 42,
+      "reachable": 30,
+      "final": {
+        "exact": 9,
+        "alternative": 9,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 18,
+        "remaining_injected_errors": 24,
+        "remaining_reachable": 12
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 11,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: obilgation → obligation",
+            "jekyll-en-1: At the end of the day, Utterson asking rather suddenly → Utterson asking rather suddenly",
+            "jekyll-en-1: obilgation → obligation",
+            "jekyll-en-2: At the end of the day, Utterson asking rather suddenly: → Utterson asking rather suddenly:",
+            "jekyll-en-2: obilgation → obligation",
+            "kashtanka-ru-0: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-0: и она пошёл за ним → и она пошла за ним",
+            "kashtanka-ru-1: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-1: и она пошёл за ним → и она пошла за ним",
+            "kashtanka-ru-2: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-2: Тётке жутко было оставаться в потёмках, и она пошёл за ним. → Тётке жутко было оставаться в потёмках, и она пошла за ним."
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "cost": {
+        "total_usd": 0.02821,
+        "editor_usd": 0.026292,
+        "verifier_usd": 0.001918,
+        "retries_usd": 0.000152,
+        "per_1000_words_usd": 0.001438,
+        "per_correct_final_edit_usd": 0.001567,
+        "per_scene_usd": 0.00094,
+        "per_repeat_usd": 0.009403,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 51,
+        "editor": 30,
+        "verifier": 21,
+        "truncated": 1,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 51451,
+        "tokens_out": 4444,
+        "cached_tokens": 20423
+      },
+      "latency": {
+        "median_request_ms": 909,
+        "mean_request_ms": 1018,
+        "median_job_ms": 21663,
+        "mean_job_ms": 26471
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 2
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.001506,
+          "k2": 0.001709,
+          "k3": 0.001918
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0015064000000000002
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0017088000000000003
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "c4-deepseek-pro__haiku-medium",
+      "tier": 1,
+      "tested": true,
+      "editor": "deepseek/deepseek-v4-pro-0813",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 42,
+      "reachable": 30,
+      "final": {
+        "exact": 15,
+        "alternative": 9,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 24,
+        "remaining_injected_errors": 18,
+        "remaining_reachable": 6
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 6,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: At the end of the day, Utterson asking rather suddenly: → Utterson asking rather suddenly:",
+            "jekyll-en-1: At the end of the day, Utterson asking rather suddenly: → Utterson asking rather suddenly:",
+            "jekyll-en-2: At the end of the day, Utterson asking rather suddenly: → Utterson asking rather suddenly:",
+            "kashtanka-ru-0: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-1: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-2: В современном мире Одним словом → Одним словом"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "cost": {
+        "total_usd": 0.022517,
+        "editor_usd": 0.016191,
+        "verifier_usd": 0.006326,
+        "retries_usd": 0.001782,
+        "per_1000_words_usd": 0.001148,
+        "per_correct_final_edit_usd": 0.000938,
+        "per_scene_usd": 0.000751,
+        "per_repeat_usd": 0.007506,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 72,
+        "editor": 30,
+        "verifier": 42,
+        "truncated": 9,
+        "http_errors": 0,
+        "retries": 9,
+        "tokens_in": 60052,
+        "tokens_out": 11545,
+        "cached_tokens": 38657
+      },
+      "latency": {
+        "median_request_ms": 928,
+        "mean_request_ms": 1007,
+        "median_job_ms": 36491,
+        "mean_job_ms": 42297
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.004368,
+          "k2": 0.005339,
+          "k3": 0.006326
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0043685
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0053394
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c5-luna__sonnet",
+      "tier": 2,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-sonnet-5",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 42,
+      "reachable": 30,
+      "final": {
+        "exact": 15,
+        "alternative": 9,
+        "partial": 0,
+        "incorrect": 1,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 24,
+        "remaining_injected_errors": 18,
+        "remaining_reachable": 6
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 5,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: Mr. At the end of the day, Utterson → Mr. Utterson",
+            "jekyll-en-1: Mr. At the end of the day, Utterson asking → Mr. Utterson asking",
+            "jekyll-en-2: Mr. At the end of the day, Utterson → Mr. Utterson",
+            "kashtanka-ru-0: она пошёл за ним → она пошла за ним",
+            "kashtanka-ru-1: В современном мире  → "
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 1,
+      "discarded": {
+        "target-not-verbatim-in-window": 3
+      },
+      "cost": {
+        "total_usd": 0.063827,
+        "editor_usd": 0.001105,
+        "verifier_usd": 0.062722,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0.003254,
+        "per_correct_final_edit_usd": 0.002659,
+        "per_scene_usd": 0.002128,
+        "per_repeat_usd": 0.021276,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 70,
+        "editor": 32,
+        "verifier": 38,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 58788,
+        "tokens_out": 4516,
+        "cached_tokens": 43291
+      },
+      "latency": {
+        "median_request_ms": 986,
+        "mean_request_ms": 916,
+        "median_job_ms": 32269,
+        "mean_job_ms": 37518
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.026174,
+          "k2": 0.04498,
+          "k3": 0.062722
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "kashtanka-ru-0: она пошёл за ним → она пошла за ним",
+            "kashtanka-ru-1: В современном мире  → "
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.026174000000000003
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "kashtanka-ru-0: она пошёл за ним → она пошла за ним"
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.04498
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "c6-deepseek-pro__sonnet",
+      "tier": 2,
+      "tested": true,
+      "editor": "deepseek/deepseek-v4-pro-0813",
+      "verifier": "anthropic/claude-sonnet-5",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 42,
+      "reachable": 30,
+      "final": {
+        "exact": 14,
+        "alternative": 9,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 23,
+        "remaining_injected_errors": 19,
+        "remaining_reachable": 7
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 7,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: At the end of the day, Utterson asking rather suddenly: → Utterson asking rather suddenly:",
+            "jekyll-en-1: At the end of the day, Utterson asking rather suddenly: → Utterson asking rather suddenly:",
+            "jekyll-en-2: At the end of the day, Utterson asking rather suddenly: → Utterson asking rather suddenly:",
+            "kashtanka-ru-0: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-0: и она пошёл за ним → и она пошла за ним",
+            "kashtanka-ru-1: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-2: В современном мире Одним словом → Одним словом"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "cost": {
+        "total_usd": 0.071274,
+        "editor_usd": 0.019846,
+        "verifier_usd": 0.051428,
+        "retries_usd": 0.003657,
+        "per_1000_words_usd": 0.003633,
+        "per_correct_final_edit_usd": 0.003099,
+        "per_scene_usd": 0.002376,
+        "per_repeat_usd": 0.023758,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 64,
+        "editor": 31,
+        "verifier": 33,
+        "truncated": 1,
+        "http_errors": 0,
+        "retries": 2,
+        "tokens_in": 58853,
+        "tokens_out": 5070,
+        "cached_tokens": 38657
+      },
+      "latency": {
+        "median_request_ms": 1207,
+        "mean_request_ms": 1116,
+        "median_job_ms": 32630,
+        "mean_job_ms": 34202
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.02355,
+          "k2": 0.039112,
+          "k3": 0.051428
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "kashtanka-ru-0: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-0: и она пошёл за ним → и она пошла за ним"
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.023549999999999995
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.039112
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "c7-haiku-medium__luna",
+      "tier": 3,
+      "tested": true,
+      "editor": "anthropic/claude-haiku-5.5 (medium)",
+      "verifier": "openai/gpt-6-luna",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 42,
+      "reachable": 30,
+      "final": {
+        "exact": 15,
+        "alternative": 9,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 24,
+        "remaining_injected_errors": 18,
+        "remaining_reachable": 6
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 6,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: Mr. At the end of the day, Utterson → Mr. Utterson",
+            "jekyll-en-1: Mr. At the end of the day, Utterson asking → Mr. Utterson asking",
+            "jekyll-en-2: Mr. At the end of the day, Utterson → Mr. Utterson",
+            "kashtanka-ru-0: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-1: В современном мире Одним словом, → Одним словом,",
+            "kashtanka-ru-2: В современном мире Одним словом → Одним словом"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "cost": {
+        "total_usd": 0.025548,
+        "editor_usd": 0.024055,
+        "verifier_usd": 0.001492,
+        "retries_usd": 0.012672,
+        "per_1000_words_usd": 0.001302,
+        "per_correct_final_edit_usd": 0.001064,
+        "per_scene_usd": 0.000852,
+        "per_repeat_usd": 0.008516,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 76,
+        "editor": 43,
+        "verifier": 33,
+        "truncated": 11,
+        "http_errors": 0,
+        "retries": 22,
+        "tokens_in": 95475,
+        "tokens_out": 32000,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "median_request_ms": 811,
+        "mean_request_ms": 743,
+        "median_job_ms": 54026,
+        "mean_job_ms": 55537
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.000627,
+          "k2": 0.001059,
+          "k3": 0.001492
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0006267000000000001
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0010593
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "c8-haiku-medium__deepseek-pro",
+      "tier": 3,
+      "tested": true,
+      "editor": "anthropic/claude-haiku-5.5 (medium)",
+      "verifier": "deepseek/deepseek-v4-pro-0813",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 42,
+      "reachable": 30,
+      "final": {
+        "exact": 15,
+        "alternative": 9,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 24,
+        "remaining_injected_errors": 18,
+        "remaining_reachable": 6
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 6,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: by Mr. At the end of the day, Utterson asking → by Mr. Utterson asking",
+            "jekyll-en-1: recalled by Mr. At the end of the day, Utterson asking → recalled by Mr. Utterson asking",
+            "jekyll-en-2: Mr. At the end of the day, Utterson asking → Mr. Utterson asking",
+            "kashtanka-ru-0: В современном мире Одним словом, → Одним словом,",
+            "kashtanka-ru-1: В современном мире Одним словом → Одним словом",
+            "kashtanka-ru-2: В современном мире Одним словом, → Одним словом,"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "cost": {
+        "total_usd": 0.036841,
+        "editor_usd": 0.026321,
+        "verifier_usd": 0.01052,
+        "retries_usd": 0.016217,
+        "per_1000_words_usd": 0.001878,
+        "per_correct_final_edit_usd": 0.001535,
+        "per_scene_usd": 0.001228,
+        "per_repeat_usd": 0.01228,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 78,
+        "editor": 45,
+        "verifier": 33,
+        "truncated": 12,
+        "http_errors": 0,
+        "retries": 25,
+        "tokens_in": 102820,
+        "tokens_out": 34966,
+        "cached_tokens": 3811
+      },
+      "latency": {
+        "median_request_ms": 888,
+        "mean_request_ms": 936,
+        "median_job_ms": 52597,
+        "mean_job_ms": 61287
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.004963,
+          "k2": 0.008041,
+          "k3": 0.01052
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.004962601999999999
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.008040754
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "c9-gpt-5.1__sonnet",
+      "tier": 4,
+      "tested": true,
+      "editor": "openai/gpt-5.1",
+      "verifier": "anthropic/claude-sonnet-5",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 42,
+      "reachable": 30,
+      "final": {
+        "exact": 19,
+        "alternative": 9,
+        "partial": 1,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 28,
+        "remaining_injected_errors": 14,
+        "remaining_reachable": 2
+      },
+      "unnecessary": {
+        "model": 5,
+        "rule": 0,
+        "control_edits": 2,
+        "judged_harmful": 0,
+        "judged_invalid": 5,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 1,
+        "harmful_or_incorrect": 0,
+        "unknown": 1,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-2: From this he was recalled by Mr. At the end of the day, Utterson asking rather suddenly: → From this he was recalled by Mr. Utterson asking rather suddenly:"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [
+            "kashtanka-ru-0: Он разделся так, как обыкновенно раздевался у себя дома, → Он разделся так, как обыкновенно одевался у себя дома,"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "target-not-verbatim-in-window": 3,
+        "no-op": 2
+      },
+      "cost": {
+        "total_usd": 0.167606,
+        "editor_usd": 0.071593,
+        "verifier_usd": 0.096012,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0.008544,
+        "per_correct_final_edit_usd": 0.005986,
+        "per_scene_usd": 0.005587,
+        "per_repeat_usd": 0.055869,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 91,
+        "editor": 32,
+        "verifier": 59,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 71292,
+        "tokens_out": 7728,
+        "cached_tokens": 17408
+      },
+      "latency": {
+        "median_request_ms": 1076,
+        "mean_request_ms": 991,
+        "median_job_ms": 38016,
+        "mean_job_ms": 50400
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.034432,
+          "k2": 0.064892,
+          "k3": 0.096012
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.034432
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.06489199999999999
+        }
+      },
+      "pareto": true
+    }
+  ],
+  "unlabelled_final_edits": []
+}

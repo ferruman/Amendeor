@@ -1,0 +1,347 @@
+{
+  "ru-typo": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-typo": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-agreement": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-agreement": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-dialogue-dash": {
+    "label": "ACCEPT",
+    "without": "punctuation-style-only",
+    "with_rules": "semantic-trap: punctuation-style-only"
+  },
+  "en-mixed-quotes": {
+    "label": "ACCEPT",
+    "without": "punctuation-style-only",
+    "with_rules": "semantic-trap: punctuation-style-only"
+  },
+  "en-comma-restored": {
+    "label": "ACCEPT",
+    "without": "unsupported-comma-change",
+    "with_rules": "semantic-trap: unsupported-comma-change"
+  },
+  "ru-dedupe-exact": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "rule-preferred: rule:repetition.doubled-word"
+  },
+  "ru-dedupe-alternative": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "rule-preferred: rule:repetition.doubled-word"
+  },
+  "en-dedupe-alternative": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "rule-preferred: rule:repetition.doubled-word"
+  },
+  "en-dedupe-name": {
+    "label": "ACCEPT",
+    "without": "dialogue-content-change",
+    "with_rules": "rule-preferred: rule:repetition.doubled-word"
+  },
+  "en-doubled-article": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "rule-preferred: rule:repetition.doubled-word"
+  },
+  "ru-filler-removal": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-filler-removal": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-adverb-reattachment": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "rule-preferred: rule:repetition.doubled-word"
+  },
+  "ru-repetition-insertion": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "rule-preferred: rule:repetition.doubled-word"
+  },
+  "ru-number-change": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-invented-attribution": {
+    "label": "REJECT_HARMFUL",
+    "without": "dialogue-content-change",
+    "with_rules": "rule-preferred: rule:repetition.doubled-word"
+  },
+  "en-dialogue-deletion": {
+    "label": "REJECT_HARMFUL",
+    "without": "dialogue-content-change",
+    "with_rules": "semantic-trap: dialogue-content-change"
+  },
+  "en-speech-merge": {
+    "label": "REJECT_HARMFUL",
+    "without": "dialogue-content-change",
+    "with_rules": "semantic-trap: dialogue-content-change"
+  },
+  "ru-name-to-common-noun": {
+    "label": "REJECT_HARMFUL",
+    "without": "proper-name-change",
+    "with_rules": "semantic-trap: proper-name-change"
+  },
+  "en-name-corruption": {
+    "label": "REJECT_HARMFUL",
+    "without": "proper-name-change",
+    "with_rules": "semantic-trap: proper-name-change"
+  },
+  "en-name-swap": {
+    "label": "REJECT_HARMFUL",
+    "without": "proper-name-change",
+    "with_rules": "semantic-trap: proper-name-change"
+  },
+  "en-action-changed": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-time-changed": {
+    "label": "REJECT_HARMFUL",
+    "without": "number-date-time-change",
+    "with_rules": "semantic-trap: number-date-time-change"
+  },
+  "en-degree-removed": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-uncertainty-removed": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-aspect-changed": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-wrong-agreement": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-wrong-whom": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-modernization": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-modernization-hyphen": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "punctuation-style-only",
+    "with_rules": "semantic-trap: punctuation-style-only"
+  },
+  "en-modernization-vocative": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "dialogue-content-change",
+    "with_rules": "semantic-trap: dialogue-content-change"
+  },
+  "en-stylistic-rewrite": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-optional-comma": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "unsupported-comma-change",
+    "with_rules": "semantic-trap: unsupported-comma-change"
+  },
+  "ru-comma-removal": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "unsupported-comma-change",
+    "with_rules": "semantic-trap: unsupported-comma-change"
+  },
+  "en-dialogue-grammar": {
+    "label": "AMBIGUOUS",
+    "without": "dialogue-content-change",
+    "with_rules": "semantic-trap: dialogue-content-change"
+  },
+  "en-name-canon": {
+    "label": "AMBIGUOUS",
+    "without": "proper-name-change",
+    "with_rules": "semantic-trap: proper-name-change"
+  },
+  "en-place-name": {
+    "label": "AMBIGUOUS",
+    "without": "proper-name-change",
+    "with_rules": "semantic-trap: proper-name-change"
+  },
+  "ru-case-form": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-spelling-2": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-spelling-2": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-agreement-2": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-agreement-mutation": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-double-comma": {
+    "label": "ACCEPT",
+    "without": "unsupported-comma-change",
+    "with_rules": "semantic-trap: unsupported-comma-change"
+  },
+  "ru-space-comma": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-and-and": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "rule-preferred: rule:repetition.doubled-word"
+  },
+  "en-filler-mutation-v3": {
+    "label": "ACCEPT",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-period-form-taksa": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-period-form-tysyachey": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-period-spelling-shkap": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-regional-discoloured": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-regional-marvelous": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-dialect-neshto": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "proper-name-change",
+    "with_rules": "semantic-trap: proper-name-change"
+  },
+  "en-dialect-aint": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "dialogue-content-change",
+    "with_rules": "semantic-trap: dialogue-content-change"
+  },
+  "ru-speech-er": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-synonym-stal": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-synonym-entry": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-word-order-ikry": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-adverb-placement": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-pleonasm": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-colloquial-udobney": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-zatei": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-aspect-obryvalas": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-distained": {
+    "label": "REJECT_UNNECESSARY",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-only-attachment": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "en-name-typo-intro": {
+    "label": "REJECT_HARMFUL",
+    "without": "proper-name-change",
+    "with_rules": "semantic-trap: proper-name-change"
+  },
+  "ru-invented-action": {
+    "label": "REJECT_HARMFUL",
+    "without": "passes",
+    "with_rules": "passes"
+  },
+  "ru-number-years": {
+    "label": "REJECT_HARMFUL",
+    "without": "number-date-time-change",
+    "with_rules": "semantic-trap: number-date-time-change"
+  }
+}

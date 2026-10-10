@@ -1,0 +1,1002 @@
+{
+  "generated_at": "2026-10-10T15:25:28.287Z",
+  "spent_usd": 0.176589,
+  "requests": 480,
+  "corpus": {
+    "kashtanka-ru": {
+      "words": 5989,
+      "scenes": 11,
+      "mutations": 10,
+      "policy": [
+        "agreement: model-fixable",
+        "terminology: blocked-by-policy",
+        "redundancy: model-fixable+rule-fixable",
+        "formulaic: model-fixable",
+        "sentence-frame: model-fixable",
+        "doubled-word: model-fixable+rule-fixable",
+        "qualifier: model-fixable",
+        "typo: model-fixable",
+        "punctuation: proofread-only",
+        "dialogue-format: rule-fixable"
+      ]
+    },
+    "jekyll-en": {
+      "words": 8020,
+      "scenes": 15,
+      "mutations": 10,
+      "policy": [
+        "agreement: model-fixable",
+        "terminology: blocked-by-policy",
+        "dialogue-format: rule-fixable",
+        "sentence-frame: model-fixable",
+        "doubled-word: rule-fixable",
+        "typo: model-fixable",
+        "qualifier: model-fixable",
+        "formulaic: model-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "punctuation: proofread-only"
+      ]
+    }
+  },
+  "stage_a": {
+    "haiku-medium": {
+      "model": "anthropic/claude-haiku-5.5",
+      "effort": "medium",
+      "self_pairing_excluded": [
+        "ru-dialogue-dash",
+        "en-dedupe-alternative",
+        "ru-filler-removal",
+        "ru-number-change"
+      ],
+      "all_cases": {
+        "pass3": {
+          "cases": 35,
+          "harmful_accepted": [
+            "en-speech-merge",
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "en-agreement",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative",
+            "en-dedupe-name"
+          ],
+          "correct_acceptance_rate": 0.636,
+          "correct_rejection_rate": 0.667,
+          "harmful_rejection_rate": 0.867,
+          "ambiguous_withheld": [
+            "en-dialogue-grammar"
+          ],
+          "ambiguous_accepted": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "cost_usd": 0.012142
+        },
+        "pass2": {
+          "cases": 35,
+          "harmful_accepted": [
+            "en-speech-merge",
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "en-agreement",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative"
+          ],
+          "correct_acceptance_rate": 0.727,
+          "correct_rejection_rate": 0.667,
+          "harmful_rejection_rate": 0.867,
+          "ambiguous_withheld": [
+            "en-dialogue-grammar"
+          ],
+          "ambiguous_accepted": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "cost_usd": 0.009421
+        },
+        "pass1": {
+          "cases": 35,
+          "harmful_accepted": [
+            "en-speech-merge",
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization",
+            "en-modernization-hyphen",
+            "en-modernization-vocative",
+            "en-optional-comma",
+            "ru-comma-removal"
+          ],
+          "valid_rejected": [
+            "en-agreement",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative"
+          ],
+          "correct_acceptance_rate": 0.727,
+          "correct_rejection_rate": 0.667,
+          "harmful_rejection_rate": 0.867,
+          "ambiguous_withheld": [
+            "en-dialogue-grammar"
+          ],
+          "ambiguous_accepted": [
+            "en-name-canon",
+            "en-place-name"
+          ],
+          "cost_usd": 0.006833
+        }
+      },
+      "reaching_verifier": {
+        "note": "only cases the deterministic guards pass in production",
+        "pass3": {
+          "cases": 18,
+          "harmful_accepted": [
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization"
+          ],
+          "valid_rejected": [
+            "en-agreement",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative"
+          ],
+          "correct_acceptance_rate": 0.625,
+          "correct_rejection_rate": 0.8,
+          "harmful_rejection_rate": 0.875,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.005375
+        },
+        "pass1": {
+          "cases": 18,
+          "harmful_accepted": [
+            "en-wrong-whom"
+          ],
+          "unnecessary_accepted": [
+            "ru-modernization"
+          ],
+          "valid_rejected": [
+            "en-agreement",
+            "ru-dedupe-exact",
+            "ru-dedupe-alternative"
+          ],
+          "correct_acceptance_rate": 0.625,
+          "correct_rejection_rate": 0.8,
+          "harmful_rejection_rate": 0.875,
+          "ambiguous_withheld": [],
+          "ambiguous_accepted": [],
+          "cost_usd": 0.003315
+        }
+      },
+      "json_schema_failures": 1,
+      "truncated_responses": 0,
+      "http_errors": 0,
+      "verify_failed_cases": [
+        "en-agreement"
+      ],
+      "split_verdicts": [
+        "en-dedupe-name",
+        "ru-number-change"
+      ],
+      "requests": 78,
+      "tokens_in": 30959,
+      "tokens_out": 22805,
+      "reasoning_tokens": 16494,
+      "cost_usd": 0.014498,
+      "median_case_ms": 8324,
+      "median_request_ms": 925,
+      "cost_sources": [
+        "provider-usage"
+      ]
+    }
+  },
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "c1-luna__haiku",
+      "tier": 1,
+      "tested": false
+    },
+    {
+      "config": "c2-luna__haiku-medium",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 60,
+      "reachable": 48,
+      "final": {
+        "exact": 19,
+        "alternative": 6,
+        "partial": 0,
+        "incorrect": 3,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 25,
+        "remaining_injected_errors": 35,
+        "remaining_reachable": 23
+      },
+      "unnecessary": {
+        "model": 4,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 4,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 6,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: At the end of the day, This was → This was",
+            "jekyll-en-1: At the end of the day, This was the home of Henry Jekyll’s favourite; of a man who was heir to a quarter of a million sterling. → This was the home of Henry Jekyll’s favourite; of a man who was heir to a quarter of a million sterling.",
+            "jekyll-en-2: At the end of the day, This → This",
+            "kashtanka-ru-0: В современном мире Очень может быть, что хозяин нашёл её и скушал. → Очень может быть, что хозяин нашёл её и скушал.",
+            "kashtanka-ru-1: не спрашивая, зачем он пришёл. он пришёл, завыла → не спрашивая, зачем он пришёл, завыла",
+            "kashtanka-ru-2: В современном мире Очень → Очень"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 2,
+      "discarded": {
+        "no-op": 7,
+        "target-not-verbatim-in-window": 3
+      },
+      "cost": {
+        "total_usd": 0.016486,
+        "editor_usd": 0.007482,
+        "verifier_usd": 0.009003,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0.000392,
+        "per_correct_final_edit_usd": 0.000659,
+        "per_scene_usd": 0.000211,
+        "per_repeat_usd": 0.005495,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 122,
+        "editor": 82,
+        "verifier": 40,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 115034,
+        "tokens_out": 17907,
+        "cached_tokens": 51738
+      },
+      "latency": {
+        "median_request_ms": 592,
+        "mean_request_ms": 768,
+        "median_job_ms": 73658,
+        "mean_job_ms": 73153
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "kashtanka-ru:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.004308,
+          "k2": 0.006802,
+          "k3": 0.009003
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "jekyll-en-1: At the end of the day, This was the home of Henry Jekyll’s favourite; of a man who was heir to a quarter of a million sterling. → This was the home of Henry Jekyll’s favourite; of a man who was heir to a quarter of a million sterling."
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.004308200000000001
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0068016000000000005
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c3-deepseek-pro__haiku",
+      "tier": 1,
+      "tested": false
+    },
+    {
+      "config": "c4-deepseek-pro__haiku-medium",
+      "tier": 1,
+      "tested": false
+    },
+    {
+      "config": "c5-luna__sonnet",
+      "tier": 2,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-sonnet-5",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 60,
+      "reachable": 48,
+      "final": {
+        "exact": 21,
+        "alternative": 6,
+        "partial": 0,
+        "incorrect": 3,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 27,
+        "remaining_injected_errors": 33,
+        "remaining_reachable": 21
+      },
+      "unnecessary": {
+        "model": 4,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 4,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 4,
+        "harmful_or_incorrect": 3,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-1: and he drew. he drew near → and he drew near",
+            "jekyll-en-1: At the end of the day, This was the home → This was the home",
+            "jekyll-en-2: he drew. he drew near → he drew near",
+            "kashtanka-ru-1: В современном мире Очень может быть, что хозяин нашёл её и скушал. → Очень может быть, что хозяин нашёл её и скушал."
+          ],
+          "harmful_or_incorrect": [
+            "jekyll-en-0: the entry of a court → the entrance to a court",
+            "jekyll-en-1: blistered and distained → blistered and stained",
+            "kashtanka-ru-1: что она давно уже идёт за ними и радуется, что жизнь её не обрывалась ни на минуту. → что она давно уже идёт за ними и радуется, что жизнь её не оборвалась ни на минуту."
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 4,
+        "target-not-verbatim-in-window": 5
+      },
+      "cost": {
+        "total_usd": 0.095765,
+        "editor_usd": 0.007495,
+        "verifier_usd": 0.08827,
+        "retries_usd": 0.000236,
+        "per_1000_words_usd": 0.002279,
+        "per_correct_final_edit_usd": 0.003547,
+        "per_scene_usd": 0.001228,
+        "per_repeat_usd": 0.031922,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 133,
+        "editor": 83,
+        "verifier": 50,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 2,
+        "tokens_in": 121167,
+        "tokens_out": 7822,
+        "cached_tokens": 53417
+      },
+      "latency": {
+        "median_request_ms": 549,
+        "mean_request_ms": 774,
+        "median_job_ms": 70844,
+        "mean_job_ms": 74028
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.036156,
+          "k2": 0.061948,
+          "k3": 0.08827
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "jekyll-en-1: and he drew. he drew near → and he drew near",
+            "kashtanka-ru-1: В современном мире Очень может быть, что хозяин нашёл её и скушал. → Очень может быть, что хозяин нашёл её и скушал."
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.036156
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "jekyll-en-1: and he drew. he drew near → and he drew near",
+            "kashtanka-ru-1: В современном мире Очень может быть, что хозяин нашёл её и скушал. → Очень может быть, что хозяин нашёл её и скушал."
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.061947999999999996
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c6-deepseek-pro__sonnet",
+      "tier": 2,
+      "tested": false
+    },
+    {
+      "config": "c7-haiku-medium__luna",
+      "tier": 3,
+      "tested": true,
+      "editor": "anthropic/claude-haiku-5.5 (medium)",
+      "verifier": "openai/gpt-6-luna",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 60,
+      "reachable": 48,
+      "final": {
+        "exact": 20,
+        "alternative": 6,
+        "partial": 0,
+        "incorrect": 6,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 26,
+        "remaining_injected_errors": 34,
+        "remaining_reachable": 22
+      },
+      "unnecessary": {
+        "model": 6,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 6,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 14,
+        "harmful_or_incorrect": 1,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "jekyll-en-0: he drew. he drew near → he drew near",
+            "jekyll-en-0: At the end of the day, This was → This was",
+            "jekyll-en-1: he drew. he drew near → he drew near",
+            "jekyll-en-1: At the end of the day, This was the home → This was the home",
+            "jekyll-en-2: It were reported → It was reported",
+            "jekyll-en-2: he drew. he drew near → he drew near",
+            "jekyll-en-2: At the end of the day, This was the home → This was the home",
+            "kashtanka-ru-0: Каштанка думал → Каштанка думала",
+            "kashtanka-ru-1: Каштанка думал → Каштанка думала",
+            "kashtanka-ru-1: В современном мире Очень может быть, что хозяин нашёл её и скушал. → Очень может быть, что хозяин нашёл её и скушал.",
+            "kashtanka-ru-1: зачем он пришёл. он пришёл, завыла → зачем он пришёл, завыла",
+            "kashtanka-ru-2: Каштанка думал → Каштанка думала",
+            "kashtanka-ru-2: пришёл. он пришёл, завыла тихо → пришёл, завыла тихо",
+            "kashtanka-ru-2: В современном мире Очень может быть → Очень может быть"
+          ],
+          "harmful_or_incorrect": [
+            "kashtanka-ru-0: помесь такса с дворняжкой → помесь таксы с дворняжкой"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "cost": {
+        "total_usd": 0.049839,
+        "editor_usd": 0.046874,
+        "verifier_usd": 0.002965,
+        "retries_usd": 0.000913,
+        "per_1000_words_usd": 0.001186,
+        "per_correct_final_edit_usd": 0.001917,
+        "per_scene_usd": 0.000639,
+        "per_repeat_usd": 0.016613,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 147,
+        "editor": 85,
+        "verifier": 62,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 170684,
+        "tokens_out": 65542,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "median_request_ms": 909,
+        "mean_request_ms": 799,
+        "median_job_ms": 112421,
+        "mean_job_ms": 117059
+      },
+      "by_mutation": {
+        "jekyll-en:agreement": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.mixed-quotes": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "jekyll-en:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "jekyll-en:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "jekyll-en:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:terminology": {
+          "policy": "blocked-by-policy",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 2
+        },
+        "kashtanka-ru:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "kashtanka-ru:punctuation": {
+          "policy": "proofread-only",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "kashtanka-ru:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.00142,
+          "k2": 0.002237,
+          "k3": 0.002965
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "kashtanka-ru-0: помесь такса с дворняжкой → помесь таксы с дворняжкой"
+          ],
+          "valid_more_accepted": [
+            "jekyll-en-2: It were reported → It was reported"
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.0014196999999999999
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0022368000000000006
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c8-haiku-medium__deepseek-pro",
+      "tier": 3,
+      "tested": false
+    },
+    {
+      "config": "c9-gpt-5.1__sonnet",
+      "tier": 4,
+      "tested": false
+    }
+  ],
+  "unlabelled_final_edits": []
+}

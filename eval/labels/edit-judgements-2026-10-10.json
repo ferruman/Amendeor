@@ -1,0 +1,25 @@
+{
+  "status": "proposed",
+  "provenance": "Classified during the 2026-10-10 filter audit (docs/audits/amendeor-filter-audit-2026-10-10.md) by an LLM-assisted reviewer. Not ground truth until the author confirms each entry; change status to \"confirmed\" per entry after review.",
+  "judgements": [
+    { "target": "но не сказал снова снова и вышел", "replacement": "но не сказал и снова вышел", "label": "harmful", "note": "«снова» moves from speaking to leaving", "status": "proposed" },
+    { "target": "сказал снова снова и вышел", "replacement": "сказал снова и снова и вышел", "label": "harmful", "note": "inserts «и»; doubled error becomes an intensifier", "status": "proposed" },
+    { "target": "Тётка ходила около его ноги, не понимая, отчего это у неё такая тоска", "replacement": "Тётка ходила около его ног, не понимая, отчего это у неё такая тоска", "label": "harmful", "note": "singular → plural in Chekhov's text", "status": "proposed" },
+    { "target": "“Well, good-night, Poole Poole.”", "replacement": "“Well, good-night, Poole,” said the lawyer.", "label": "harmful", "note": "invented attribution", "status": "proposed" },
+    { "target": "Тётку и Фёдора Тимофеича", "replacement": "тётку и Фёдора Тимофеича", "label": "harmful", "note": "the dog's name made a common noun", "status": "proposed" },
+    { "target": "Well, good-night, Poole Poole", "replacement": "Good-night, Poole", "label": "harmful", "note": "deletes «Well» from dialogue", "status": "proposed" },
+    { "target": "нарисовал ещё брови, усы и румяны", "replacement": "нарисовал ещё брови, усы и румяна", "label": "invalid", "note": "modernizes a period form", "status": "proposed" },
+    { "target": "down-right detestable", "replacement": "downright detestable", "label": "invalid", "note": "historical spelling", "status": "proposed" },
+    { "target": "down-right", "replacement": "downright", "label": "invalid", "note": "historical spelling", "status": "proposed" },
+    { "target": "Black Mail House", "replacement": "Blackmail House", "label": "invalid", "note": "proper name", "status": "proposed" },
+    { "target": "O, I know he’s a good fellow—you needn’t frown—an excellent fellow, and I always mean to see more of him;", "replacement": "Oh, I know he’s a good fellow—you needn’t frown—an excellent fellow, and I always mean to see more of him;", "label": "invalid", "note": "historical vocative", "status": "proposed" },
+    { "target": "a trifle sharply.", "replacement": "a trifle sharply;", "label": "invalid", "note": "authorial punctuation", "status": "proposed" },
+    { "target": "The large handsome face of Dr. Jekyll grew pale to the very lips,", "replacement": "The large, handsome face of Dr. Jekyll grew pale to the very lips,", "label": "invalid", "note": "optional comma", "status": "proposed" },
+    { "target": "и, вместо лампы или свечи, горел яркий", "replacement": "и вместо лампы или свечи горел яркий", "label": "invalid", "note": "Chekhov's punctuation", "status": "proposed" },
+    { "target": "сказал:", "replacement": "сказал.", "label": "invalid", "note": "authorial colon before speech", "status": "proposed" },
+    { "target": "as hard as she were able", "replacement": "as hard as she was able", "label": "ambiguous", "note": "grammar inside a character's speech", "status": "proposed" },
+    { "target": "as she were able", "replacement": "as she was able", "label": "ambiguous", "note": "grammar inside a character's speech", "status": "proposed" },
+    { "target": "she were able", "replacement": "she was able", "label": "ambiguous", "note": "grammar inside a character's speech", "status": "proposed" },
+    { "target": "running as hard as she were able", "replacement": "running as hard as she was able", "label": "ambiguous", "note": "grammar inside a character's speech", "status": "proposed" }
+  ]
+}

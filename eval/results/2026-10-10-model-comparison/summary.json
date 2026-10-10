@@ -1,0 +1,1638 @@
+{
+  "scope": "editor + deterministic guards; no model verifier",
+  "rows": [
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "work": "jekyll-en",
+      "repeat": 0,
+      "total": 8,
+      "detected": 4,
+      "exact": 3,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:5fa0357906ec6447"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:71da0ffac4618407"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:721124f68d0a2ad0"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:5fa0357906ec6447"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:71da0ffac4618407"
+        }
+      ]
+    },
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "work": "jekyll-en",
+      "repeat": 1,
+      "total": 8,
+      "detected": 4,
+      "exact": 4,
+      "exact_safe": 3,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:5fa0357906ec6447"
+        },
+        {
+          "mutation": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "redundancy",
+          "proposal": "amendeor:d8ae0bf42ea845bd"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:721124f68d0a2ad0"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:5fa0357906ec6447"
+        },
+        {
+          "mutation": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "redundancy",
+          "proposal": "amendeor:d8ae0bf42ea845bd"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "work": "kashtanka-ru",
+      "repeat": 0,
+      "total": 6,
+      "detected": 2,
+      "exact": 2,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 1,
+      "proposals": 3,
+      "safe": 3,
+      "failures": 1,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        }
+      ]
+    },
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "work": "kashtanka-ru",
+      "repeat": 1,
+      "total": 6,
+      "detected": 4,
+      "exact": 4,
+      "exact_safe": 4,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:130ac45ab6d13ad1"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:9b0e556b022f243c"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:130ac45ab6d13ad1"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:9b0e556b022f243c"
+        }
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4-pro-0813",
+      "work": "jekyll-en",
+      "repeat": 0,
+      "total": 8,
+      "detected": 6,
+      "exact": 5,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 6,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "type": "agreement",
+          "proposal": "amendeor:be3e760ef0c045c5"
+        },
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:99b93f9b11617c85"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "terminology",
+          "proposal": "amendeor:02ff949dc6934068"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:6eed483395e48001"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:99b93f9b11617c85"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4-pro-0813",
+      "work": "jekyll-en",
+      "repeat": 1,
+      "total": 8,
+      "detected": 6,
+      "exact": 5,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 6,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "type": "agreement",
+          "proposal": "amendeor:911a6c31fbf10439"
+        },
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:99b93f9b11617c85"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "terminology",
+          "proposal": "amendeor:02ff949dc6934068"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:6eed483395e48001"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:99b93f9b11617c85"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4-pro-0813",
+      "work": "kashtanka-ru",
+      "repeat": 0,
+      "total": 6,
+      "detected": 4,
+      "exact": 4,
+      "exact_safe": 4,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:fe992c2c8641a7ea"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:60b05f6b306b2a23"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:fe992c2c8641a7ea"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:60b05f6b306b2a23"
+        }
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4-pro-0813",
+      "work": "kashtanka-ru",
+      "repeat": 1,
+      "total": 6,
+      "detected": 4,
+      "exact": 4,
+      "exact_safe": 4,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:fe992c2c8641a7ea"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:60b05f6b306b2a23"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:fe992c2c8641a7ea"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:60b05f6b306b2a23"
+        }
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "work": "jekyll-en",
+      "repeat": 0,
+      "total": 8,
+      "detected": 5,
+      "exact": 4,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 5,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "terminology",
+          "proposal": "amendeor:cd0b7022fcc48b98"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:85e9ed41d14723b8"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "work": "jekyll-en",
+      "repeat": 1,
+      "total": 8,
+      "detected": 4,
+      "exact": 3,
+      "exact_safe": 1,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 2,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "terminology",
+          "proposal": "amendeor:cd0b7022fcc48b98"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:4a3773f7c0078553"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "work": "kashtanka-ru",
+      "repeat": 0,
+      "total": 6,
+      "detected": 4,
+      "exact": 4,
+      "exact_safe": 4,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:69228d80c6e970e0"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:69228d80c6e970e0"
+        }
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "work": "kashtanka-ru",
+      "repeat": 1,
+      "total": 6,
+      "detected": 3,
+      "exact": 3,
+      "exact_safe": 3,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 1,
+      "proposals": 4,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ]
+    },
+    {
+      "model": "meta-llama/llama-4-maverick",
+      "work": "jekyll-en",
+      "repeat": 0,
+      "total": 8,
+      "detected": 3,
+      "exact": 2,
+      "exact_safe": 0,
+      "control": 1,
+      "protected": 0,
+      "unlabelled": 1,
+      "proposals": 4,
+      "safe": 1,
+      "failures": 1,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "type": "agreement",
+          "proposal": "amendeor:119df02d89194cde"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:cd04c8b9fb10c744"
+        }
+      ],
+      "safe_matches": []
+    },
+    {
+      "model": "meta-llama/llama-4-maverick",
+      "work": "jekyll-en",
+      "repeat": 1,
+      "total": 8,
+      "detected": 2,
+      "exact": 1,
+      "exact_safe": 0,
+      "control": 1,
+      "protected": 0,
+      "unlabelled": 2,
+      "proposals": 4,
+      "safe": 1,
+      "failures": 1,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "type": "agreement",
+          "proposal": "amendeor:119df02d89194cde"
+        }
+      ],
+      "safe_matches": []
+    },
+    {
+      "model": "meta-llama/llama-4-maverick",
+      "work": "kashtanka-ru",
+      "repeat": 0,
+      "total": 6,
+      "detected": 0,
+      "exact": 0,
+      "exact_safe": 0,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 0,
+      "safe": 0,
+      "failures": 5,
+      "windows": 5,
+      "exact_matches": [],
+      "safe_matches": []
+    },
+    {
+      "model": "meta-llama/llama-4-maverick",
+      "work": "kashtanka-ru",
+      "repeat": 1,
+      "total": 6,
+      "detected": 0,
+      "exact": 0,
+      "exact_safe": 0,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 0,
+      "safe": 0,
+      "failures": 5,
+      "windows": 5,
+      "exact_matches": [],
+      "safe_matches": []
+    },
+    {
+      "model": "openai/gpt-5.1",
+      "work": "jekyll-en",
+      "repeat": 0,
+      "total": 8,
+      "detected": 7,
+      "exact": 6,
+      "exact_safe": 2,
+      "control": 1,
+      "protected": 0,
+      "unlabelled": 2,
+      "proposals": 9,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "type": "agreement",
+          "proposal": "amendeor:a3fe15bc802e9931"
+        },
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:7a87f549c6e8dd0b"
+        },
+        {
+          "mutation": "jekyll-en:dialogue-format:1:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "dialogue-format",
+          "proposal": "amendeor:84225f3cea8dd144"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:be13337b8bcd5932"
+        },
+        {
+          "mutation": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "terminology",
+          "proposal": "amendeor:18fd24cf80011cf2"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:4a3773f7c0078553"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:7a87f549c6e8dd0b"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:be13337b8bcd5932"
+        }
+      ]
+    },
+    {
+      "model": "openai/gpt-5.1",
+      "work": "jekyll-en",
+      "repeat": 1,
+      "total": 8,
+      "detected": 6,
+      "exact": 5,
+      "exact_safe": 2,
+      "control": 1,
+      "protected": 0,
+      "unlabelled": 3,
+      "proposals": 9,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "type": "agreement",
+          "proposal": "amendeor:be3e760ef0c045c5"
+        },
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "terminology",
+          "proposal": "amendeor:807b899eafa257df"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:4a3773f7c0078553"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "openai/gpt-5.1",
+      "work": "kashtanka-ru",
+      "repeat": 0,
+      "total": 6,
+      "detected": 4,
+      "exact": 3,
+      "exact_safe": 3,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 4,
+      "failures": 1,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:81780843fd0037d9"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:130ac45ab6d13ad1"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:81780843fd0037d9"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:130ac45ab6d13ad1"
+        }
+      ]
+    },
+    {
+      "model": "openai/gpt-5.1",
+      "work": "kashtanka-ru",
+      "repeat": 1,
+      "total": 6,
+      "detected": 4,
+      "exact": 3,
+      "exact_safe": 3,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 2,
+      "proposals": 6,
+      "safe": 5,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:81780843fd0037d9"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:81780843fd0037d9"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ]
+    },
+    {
+      "model": "openai/gpt-6-luna",
+      "work": "jekyll-en",
+      "repeat": 0,
+      "total": 8,
+      "detected": 5,
+      "exact": 4,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 5,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "type": "agreement",
+          "proposal": "amendeor:be3e760ef0c045c5"
+        },
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:c24727d9e4f8cb1e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:557fd278f70d8533"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:c24727d9e4f8cb1e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "openai/gpt-6-luna",
+      "work": "jekyll-en",
+      "repeat": 1,
+      "total": 8,
+      "detected": 5,
+      "exact": 4,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 5,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "type": "agreement",
+          "proposal": "amendeor:be3e760ef0c045c5"
+        },
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ff46f536206ae63d"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:6eed483395e48001"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ff46f536206ae63d"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "openai/gpt-6-luna",
+      "work": "kashtanka-ru",
+      "repeat": 0,
+      "total": 6,
+      "detected": 4,
+      "exact": 4,
+      "exact_safe": 4,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:72c786c946737848"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        },
+        {
+          "mutation": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "type": "redundancy",
+          "proposal": "amendeor:72c786c946737848"
+        }
+      ]
+    },
+    {
+      "model": "openai/gpt-6-luna",
+      "work": "kashtanka-ru",
+      "repeat": 1,
+      "total": 6,
+      "detected": 4,
+      "exact": 3,
+      "exact_safe": 3,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ]
+    },
+    {
+      "model": "qwen/qwen3.8-flash",
+      "work": "jekyll-en",
+      "repeat": 0,
+      "total": 8,
+      "detected": 4,
+      "exact": 3,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 1,
+      "proposals": 5,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "terminology",
+          "proposal": "amendeor:cd0b7022fcc48b98"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "qwen/qwen3.8-flash",
+      "work": "jekyll-en",
+      "repeat": 1,
+      "total": 8,
+      "detected": 6,
+      "exact": 5,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 6,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:punctuation:1:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "punctuation",
+          "proposal": "amendeor:0e81a57ba5de92bf"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "terminology",
+          "proposal": "amendeor:cd0b7022fcc48b98"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:879cddccd646d827"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "qwen/qwen3.8-flash",
+      "work": "kashtanka-ru",
+      "repeat": 0,
+      "total": 6,
+      "detected": 3,
+      "exact": 3,
+      "exact_safe": 3,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 2,
+      "proposals": 5,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:fe992c2c8641a7ea"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:131bf6d52de752c8"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:fe992c2c8641a7ea"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:131bf6d52de752c8"
+        }
+      ]
+    },
+    {
+      "model": "qwen/qwen3.8-flash",
+      "work": "kashtanka-ru",
+      "repeat": 1,
+      "total": 6,
+      "detected": 4,
+      "exact": 3,
+      "exact_safe": 3,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 4,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:131bf6d52de752c8"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:131bf6d52de752c8"
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "ru": [
+        {
+          "exact": 2,
+          "detected": 2,
+          "total": 6,
+          "safe": 2
+        },
+        {
+          "exact": 4,
+          "detected": 4,
+          "total": 6,
+          "safe": 4
+        }
+      ],
+      "en": [
+        {
+          "exact": 3,
+          "detected": 4,
+          "total": 8,
+          "safe": 2
+        },
+        {
+          "exact": 4,
+          "detected": 4,
+          "total": 8,
+          "safe": 3
+        }
+      ],
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 1,
+      "failed_windows": 1,
+      "windows": 20,
+      "requests": 26,
+      "cost_usd": 0.006874399999999999,
+      "median_request_ms": 2314,
+      "truncated_attempts": 0,
+      "reasoning_tokens": 0
+    },
+    {
+      "model": "deepseek/deepseek-v4-pro-0813",
+      "ru": [
+        {
+          "exact": 4,
+          "detected": 4,
+          "total": 6,
+          "safe": 4
+        },
+        {
+          "exact": 4,
+          "detected": 4,
+          "total": 6,
+          "safe": 4
+        }
+      ],
+      "en": [
+        {
+          "exact": 5,
+          "detected": 6,
+          "total": 8,
+          "safe": 2
+        },
+        {
+          "exact": 5,
+          "detected": 6,
+          "total": 8,
+          "safe": 2
+        }
+      ],
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "failed_windows": 0,
+      "windows": 20,
+      "requests": 20,
+      "cost_usd": 0.019145008999999998,
+      "median_request_ms": 4353,
+      "truncated_attempts": 0,
+      "reasoning_tokens": 0
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "ru": [
+        {
+          "exact": 4,
+          "detected": 4,
+          "total": 6,
+          "safe": 4
+        },
+        {
+          "exact": 3,
+          "detected": 3,
+          "total": 6,
+          "safe": 3
+        }
+      ],
+      "en": [
+        {
+          "exact": 4,
+          "detected": 5,
+          "total": 8,
+          "safe": 2
+        },
+        {
+          "exact": 3,
+          "detected": 4,
+          "total": 8,
+          "safe": 1
+        }
+      ],
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 1,
+      "failed_windows": 0,
+      "windows": 20,
+      "requests": 20,
+      "cost_usd": 0.0033077667999999996,
+      "median_request_ms": 1705,
+      "truncated_attempts": 0,
+      "reasoning_tokens": 0
+    },
+    {
+      "model": "meta-llama/llama-4-maverick",
+      "ru": [
+        {
+          "exact": 0,
+          "detected": 0,
+          "total": 6,
+          "safe": 0
+        },
+        {
+          "exact": 0,
+          "detected": 0,
+          "total": 6,
+          "safe": 0
+        }
+      ],
+      "en": [
+        {
+          "exact": 2,
+          "detected": 3,
+          "total": 8,
+          "safe": 0
+        },
+        {
+          "exact": 1,
+          "detected": 2,
+          "total": 8,
+          "safe": 0
+        }
+      ],
+      "control": 2,
+      "protected": 0,
+      "unlabelled": 3,
+      "failed_windows": 12,
+      "windows": 20,
+      "requests": 32,
+      "cost_usd": 0.011226527499999998,
+      "median_request_ms": 5758,
+      "truncated_attempts": 0,
+      "reasoning_tokens": 0
+    },
+    {
+      "model": "openai/gpt-5.1",
+      "ru": [
+        {
+          "exact": 3,
+          "detected": 4,
+          "total": 6,
+          "safe": 3
+        },
+        {
+          "exact": 3,
+          "detected": 4,
+          "total": 6,
+          "safe": 3
+        }
+      ],
+      "en": [
+        {
+          "exact": 6,
+          "detected": 7,
+          "total": 8,
+          "safe": 2
+        },
+        {
+          "exact": 5,
+          "detected": 6,
+          "total": 8,
+          "safe": 2
+        }
+      ],
+      "control": 2,
+      "protected": 0,
+      "unlabelled": 7,
+      "failed_windows": 1,
+      "windows": 20,
+      "requests": 23,
+      "cost_usd": 0.049867749999999995,
+      "median_request_ms": 3952,
+      "truncated_attempts": 0,
+      "reasoning_tokens": 0
+    },
+    {
+      "model": "openai/gpt-6-luna",
+      "ru": [
+        {
+          "exact": 4,
+          "detected": 4,
+          "total": 6,
+          "safe": 4
+        },
+        {
+          "exact": 3,
+          "detected": 4,
+          "total": 6,
+          "safe": 3
+        }
+      ],
+      "en": [
+        {
+          "exact": 4,
+          "detected": 5,
+          "total": 8,
+          "safe": 2
+        },
+        {
+          "exact": 4,
+          "detected": 5,
+          "total": 8,
+          "safe": 2
+        }
+      ],
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "failed_windows": 0,
+      "windows": 20,
+      "requests": 21,
+      "cost_usd": 0.002453095,
+      "median_request_ms": 1497,
+      "truncated_attempts": 0,
+      "reasoning_tokens": 0
+    },
+    {
+      "model": "qwen/qwen3.8-flash",
+      "ru": [
+        {
+          "exact": 3,
+          "detected": 3,
+          "total": 6,
+          "safe": 3
+        },
+        {
+          "exact": 3,
+          "detected": 4,
+          "total": 6,
+          "safe": 3
+        }
+      ],
+      "en": [
+        {
+          "exact": 3,
+          "detected": 4,
+          "total": 8,
+          "safe": 2
+        },
+        {
+          "exact": 5,
+          "detected": 6,
+          "total": 8,
+          "safe": 2
+        }
+      ],
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 3,
+      "failed_windows": 0,
+      "windows": 20,
+      "requests": 21,
+      "cost_usd": 0.003136932,
+      "median_request_ms": 3898,
+      "truncated_attempts": 1,
+      "reasoning_tokens": 0
+    }
+  ]
+}

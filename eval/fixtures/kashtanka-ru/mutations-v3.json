@@ -1,0 +1,192 @@
+{
+  "seed": "amendeor-v3",
+  "generator": 2,
+  "mode": "copy",
+  "mutations": [
+    {
+      "id": "kashtanka-ru:agreement:0:05-kashtanka:db498a81-397a-4e10-8480-377dff472260",
+      "type": "agreement",
+      "chapter": "05-kashtanka",
+      "scene": "db498a81-397a-4e10-8480-377dff472260",
+      "span": {
+        "start": 493,
+        "end": 498
+      },
+      "original": "думала",
+      "mutated": "думал",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "kashtanka-ru:terminology:1:05-kashtanka:db498a81-397a-4e10-8480-377dff472260",
+      "type": "terminology",
+      "chapter": "05-kashtanka",
+      "scene": "db498a81-397a-4e10-8480-377dff472260",
+      "span": {
+        "start": 1160,
+        "end": 1170
+      },
+      "original": "Каштанка",
+      "mutated": "Каштаночка",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "blocked-by-policy"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "kashtanka-ru:redundancy:2:05-kashtanka:db498a81-397a-4e10-8480-377dff472260",
+      "type": "redundancy",
+      "chapter": "05-kashtanka",
+      "scene": "db498a81-397a-4e10-8480-377dff472260",
+      "span": {
+        "start": 3294,
+        "end": 3310
+      },
+      "original": "была",
+      "mutated": "была снова снова",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": [
+        "была снова"
+      ]
+    },
+    {
+      "id": "kashtanka-ru:formulaic:0:06-kashtanka:1832c307-48a8-4e81-8f23-7a1b0e3ca86b",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "06-kashtanka",
+      "scene": "1832c307-48a8-4e81-8f23-7a1b0e3ca86b",
+      "span": {
+        "start": 653,
+        "end": 683
+      },
+      "original": "Очень может",
+      "mutated": "В современном мире Очень может",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "kashtanka-ru:sentence-frame:1:06-kashtanka:1832c307-48a8-4e81-8f23-7a1b0e3ca86b",
+      "type": "sentence-frame",
+      "chapter": "06-kashtanka",
+      "scene": "1832c307-48a8-4e81-8f23-7a1b0e3ca86b",
+      "span": {
+        "start": 3852,
+        "end": 3872
+      },
+      "original": "он пришёл",
+      "mutated": "он пришёл. он пришёл",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "kashtanka-ru:doubled-word:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+      "type": "doubled-word",
+      "chapter": "06-kashtanka",
+      "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+      "span": {
+        "start": 1522,
+        "end": 1535
+      },
+      "original": "крылья",
+      "mutated": "крылья крылья",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "kashtanka-ru:qualifier:1:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+      "type": "qualifier",
+      "chapter": "06-kashtanka",
+      "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+      "span": {
+        "start": 2099,
+        "end": 2127
+      },
+      "original": "казалось",
+      "mutated": "в некоторой степени казалось",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "kashtanka-ru:typo:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "type": "typo",
+      "chapter": "07-kashtanka",
+      "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "span": {
+        "start": 1797,
+        "end": 1807
+      },
+      "original": "беспокойно",
+      "mutated": "бепсокойно",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "kashtanka-ru:punctuation:1:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "type": "punctuation",
+      "chapter": "07-kashtanka",
+      "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+      "span": {
+        "start": 3107,
+        "end": 3107
+      },
+      "original": ",",
+      "mutated": "",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "proofread-only"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "kashtanka-ru:dialogue-format:0:07-kashtanka:271b3b6a-7c2a-46da-868b-43e41e77320c",
+      "type": "dialogue-format",
+      "chapter": "07-kashtanka",
+      "scene": "271b3b6a-7c2a-46da-868b-43e41e77320c",
+      "span": {
+        "start": 1483,
+        "end": 1484
+      },
+      "original": "—",
+      "mutated": "-",
+      "mode": "copy",
+      "in_dialogue": true,
+      "policy": [
+        "rule-fixable"
+      ],
+      "alternatives": []
+    }
+  ]
+}

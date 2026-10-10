@@ -1,0 +1,272 @@
+{
+  "model": "meta-llama/llama-4-maverick",
+  "repeat": 1,
+  "work": "kashtanka-ru",
+  "mode": "copy",
+  "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+  "prompt_version": "1.6.0",
+  "elapsed_ms": 60710,
+  "stage": {
+    "name": "model",
+    "status": "partial",
+    "windows": 5,
+    "windows_by_chapter": {
+      "01-kashtanka": 1,
+      "02-kashtanka": 1,
+      "03-kashtanka": 1,
+      "06-kashtanka": 1,
+      "07-kashtanka": 1
+    },
+    "sent": 10,
+    "cached": 0,
+    "no_change": 0,
+    "no_change_by_chapter": {},
+    "candidates": 0,
+    "discarded": [],
+    "failures": [
+      {
+        "node_id": "01-kashtanka/369de60f-5e2d-4172-8e91-7a3df8c62150/0",
+        "reason": "invalid edit JSON: Unexpected token '`', \"```json\n{\n\"... is not valid JSON"
+      },
+      {
+        "node_id": "02-kashtanka/8664ef28-76b4-4529-8d9c-aa0a96c2c3cc/0",
+        "reason": "invalid edit JSON: Unexpected token '`', \"```json\n{\"\"... is not valid JSON"
+      },
+      {
+        "node_id": "03-kashtanka/148fee7f-a0eb-486c-874b-9a8363798309/0",
+        "reason": "invalid edit JSON: Unexpected non-whitespace character after JSON at position 265 (line 1 column 266)"
+      },
+      {
+        "node_id": "06-kashtanka/7114c90d-6b2a-48f2-8c3b-163c74963764/0",
+        "reason": "invalid edit JSON: Unexpected token '`', \"```json\n{\"\"... is not valid JSON"
+      },
+      {
+        "node_id": "07-kashtanka/3ed8d542-fe7b-46e9-839f-bab0350c7c37/0",
+        "reason": "invalid edit JSON: Unexpected token '`', \"```json\n{\"\"... is not valid JSON"
+      }
+    ],
+    "prompt_version": "1.6.0",
+    "model_id": "meta-llama/llama-4-maverick",
+    "formulaic_hits": [
+      {
+        "id": "formulaic.filler-frame",
+        "language": "ru",
+        "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+        "chapter": "01-kashtanka",
+        "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "start": 1494,
+        "end": 1512,
+        "quote": "В современном мире",
+        "reason": "Шаблонная рамка может не добавлять информации."
+      }
+    ],
+    "formulaic_catalog_version": "0.3.0"
+  },
+  "ledger": [
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1734,
+      "tokens_out": 46,
+      "cost": 0.00035514,
+      "currency": "USD",
+      "ms": 5758,
+      "budget": 976
+    },
+    {
+      "stage": "edit-parse-retry",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1769,
+      "tokens_out": 198,
+      "cost": 0.0004608825,
+      "currency": "USD",
+      "ms": 7213,
+      "budget": 757
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1646,
+      "tokens_out": 34,
+      "cost": 0.00033081,
+      "currency": "USD",
+      "ms": 2922,
+      "budget": 708
+    },
+    {
+      "stage": "edit-parse-retry",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1681,
+      "tokens_out": 34,
+      "cost": 0.0003373725,
+      "currency": "USD",
+      "ms": 3076,
+      "budget": 743
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1401,
+      "tokens_out": 116,
+      "cost": 0.0003383775,
+      "currency": "USD",
+      "ms": 14575,
+      "budget": 636
+    },
+    {
+      "stage": "edit-parse-retry",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1438,
+      "tokens_out": 85,
+      "cost": 0.00032508749999999995,
+      "currency": "USD",
+      "ms": 10878,
+      "budget": 605
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1299,
+      "tokens_out": 48,
+      "cost": 0.0002748825,
+      "currency": "USD",
+      "ms": 6580,
+      "budget": 512
+    },
+    {
+      "stage": "edit-parse-retry",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1334,
+      "tokens_out": 46,
+      "cost": 0.00028014,
+      "currency": "USD",
+      "ms": 2119,
+      "budget": 533
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1575,
+      "tokens_out": 44,
+      "cost": 0.0003240225,
+      "currency": "USD",
+      "ms": 1264,
+      "budget": 700
+    },
+    {
+      "stage": "edit-parse-retry",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1610,
+      "tokens_out": 37,
+      "cost": 0.00032601749999999996,
+      "currency": "USD",
+      "ms": 1679,
+      "budget": 704
+    }
+  ],
+  "proposals": [],
+  "safe_proposals": [],
+  "rejected": [],
+  "raw_score": {
+    "recall": {
+      "formulaic.filler-frame": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "agreement": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 2963,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {},
+    "matched": []
+  },
+  "safe_score": {
+    "recall": {
+      "formulaic.filler-frame": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "agreement": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 2963,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {},
+    "matched": []
+  }
+}

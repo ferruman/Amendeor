@@ -256,7 +256,7 @@ Mandatory for every model proposal before it becomes a proposal. Two layers:
 - negation (`not`, `n't`, `never`, `no`; `не`, `ни`, `нет`, `без`) added or removed;
 - proper nouns added, removed or changed — found by capitalization away from a sentence start, compared by shared stem so an inflected name (`управление`/`управления`) is not a change (`LESSONS.md` §2);
 - modal/certainty words (`maybe`, `must`, `может`, `должно`) added or removed;
-- quoted dialogue text changed beyond punctuation when the category is not `dialogue-mechanics`.
+- quoted dialogue text changed beyond punctuation when the category is not `dialogue-mechanics`. The edit counts as dialogue when its changed part touches a quotation, even if the target also covers narration. A model-chosen `dialogue-mechanics` label does not authorize word changes: a model edit under it may change only punctuation, case and spacing, or — when the author has configured a `normalize` rule — fix a typo (same words, each within a small spelling distance). Insertions, deletions and invented attribution are rejected.
 
 **Model verifier** — narrow question: *did this edit change information, action, implication, certainty, character state or meaning?* Rules:
 
@@ -271,7 +271,7 @@ Example: `She didn't recognize him.` → `She barely recognized him.` — negati
 An edit can be factually equivalent and still wrong. The guard rejects edits that normalize away what the author does on purpose:
 
 - explicit `preserve` rules in config (fragments, dialect, informal dialogue);
-- dialogue: `"Yeah. Ain't happening."` must not become `"No. That is not going to happen."` — v0.1 rule: grammar/word-choice edits inside quoted dialogue need `dialogue-mechanics` category or an explicit `normalize` rule;
+- dialogue: `"Yeah. Ain't happening."` must not become `"No. That is not going to happen."` — v0.1 rule: grammar/word-choice edits inside quoted dialogue need `dialogue-mechanics` category or an explicit `normalize` rule; for model proposals the category alone is not enough (§9.3);
 - book-relative measures (§10): an edit that moves a sentence far from the book's own distribution of length, register or punctuation is rejected.
 
 A fuller voice profile (per-character speech evidence) is v0.2.

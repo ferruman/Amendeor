@@ -1,0 +1,89 @@
+{
+  "provenance": "Confirmation-run edits outside every injected mutation, labelled against the source text (the author's original wording is the reference).",
+  "judgements": [
+    {
+      "target": "discoloured",
+      "replacement": "discolored",
+      "label": "invalid",
+      "note": "Stevenson's British spelling; not an error"
+    },
+    {
+      "target": "(Всё человечество Каштанка делила на две очень неравные части: на хозяев и на заказчиков; между теми и другими была существенная разница: первые имели право бить её, а вторых она сама имела право хватать за икры.)",
+      "replacement": "(Всё человечество Каштанка делила на две очень неравные части: на хозяев и на заказчиков; между теми и другими была существенная разница: первые имели право бить её, а за икры она сама имела право хватать вторых.)",
+      "label": "invalid",
+      "note": "rewrites Chekhov's word order; the stated government error does not exist"
+    },
+    {
+      "target": "и румяны",
+      "replacement": "и румяна",
+      "label": "invalid",
+      "note": "period form modernized"
+    },
+    {
+      "target": "Молодая рыжая собака — помесь такса с дворняжкой — очень похожая мордой на лисицу, бегала взад и вперёд по тротуару и беспокойно оглядывалась по сторонам.",
+      "replacement": "Молодая рыжая собака — помесь таксы с дворняжкой — очень похожая мордой на лисицу, бегала взад и вперёд по тротуару и беспокойно оглядывалась по сторонам.",
+      "label": "invalid",
+      "note": "Chekhov's «такса» is the genitive of the period form «такс»; modernization"
+    },
+    {
+      "target": "a sealed and stamped envelope, which he had been probably carrying",
+      "replacement": "a sealed and stamped envelope, which he had probably been carrying",
+      "label": "invalid",
+      "note": "Stevenson's adverb placement; style, not an error"
+    },
+    {
+      "target": "Затеи его этим не кончились.",
+      "replacement": "Затеи его на этом не кончились.",
+      "label": "invalid",
+      "note": "Chekhov's construction; not an error"
+    },
+    {
+      "target": "в присутствии тысячей лиц",
+      "replacement": "в присутствии тысячи лиц",
+      "label": "invalid",
+      "note": "Chekhov's period form «тысячей»; modernization"
+    },
+    {
+      "target": "в присутствии тысячей лиц",
+      "replacement": "в присутствии тысяч лиц",
+      "label": "invalid",
+      "note": "Chekhov's period form «тысячей»; modernization"
+    },
+    {
+      "target": "Молодая рыжая собака — помесь такса с дворняжкой — очень похожая мордой на лисицу, бегала",
+      "replacement": "Молодая рыжая собака — помесь таксы с дворняжкой — очень похожая мордой на лисицу, бегала",
+      "label": "invalid",
+      "note": "period form «такс»; modernization"
+    },
+    {
+      "target": "помесь такса с дворняжкой",
+      "replacement": "помесь таксы с дворняжкой",
+      "label": "invalid",
+      "note": "period form «такс»; modernization"
+    },
+    {
+      "target": "marvelous",
+      "replacement": "marvellous",
+      "label": "invalid",
+      "note": "source spelling; spelling normalization is a configured rule, not a model edit"
+    },
+    {
+      "target": "the entry of a court",
+      "replacement": "the entrance to a court",
+      "label": "invalid",
+      "note": "Stevenson's wording; rewrite"
+    },
+    {
+      "target": "blistered and distained",
+      "replacement": "blistered and stained",
+      "label": "invalid",
+      "note": "«distained» is a period word, not a typo"
+    },
+    {
+      "target": "что она давно уже идёт за ними и радуется, что жизнь её не обрывалась ни на минуту.",
+      "replacement": "что она давно уже идёт за ними и радуется, что жизнь её не оборвалась ни на минуту.",
+      "label": "invalid",
+      "note": "aspect change in Chekhov's text"
+    }
+  ]
+}

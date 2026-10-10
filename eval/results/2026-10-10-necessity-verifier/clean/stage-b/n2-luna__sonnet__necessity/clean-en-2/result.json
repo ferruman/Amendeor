@@ -1,0 +1,125 @@
+{
+  "job": "n2-luna__sonnet__necessity/clean-en-2",
+  "config": {
+    "id": "n2-luna__sonnet__necessity",
+    "editor": "luna",
+    "verifier": "sonnet",
+    "check": "necessity",
+    "tier": 2
+  },
+  "work": "clean-en",
+  "repeat": 2,
+  "elapsed_ms": 18337,
+  "scope": "real editMechanical (rules + editor + deterministic guards + verifier, copy mode, no cache); final = offered proposals; build = all offered proposals accepted",
+  "stages": [
+    {
+      "name": "rules",
+      "status": "ok",
+      "hits": 0,
+      "proposals": 0,
+      "units": {
+        "cached": 0,
+        "computed": 6,
+        "failed": 0
+      },
+      "failures": [],
+      "diagnostics": []
+    },
+    {
+      "name": "model",
+      "status": "ok",
+      "windows": 4,
+      "windows_by_chapter": {
+        "01-jekyll": 3,
+        "02-jekyll": 1
+      },
+      "sent": 6,
+      "cached": 0,
+      "no_change": 4,
+      "no_change_by_chapter": {
+        "01-jekyll": 3,
+        "02-jekyll": 1
+      },
+      "candidates": 0,
+      "discarded": [
+        {
+          "node_id": "01-jekyll/387146cd-84eb-4081-81a2-84884a43aeef",
+          "reason": "no-op"
+        },
+        {
+          "node_id": "02-jekyll/40213cec-8bdf-4394-898d-7d9c8bbd6a2f",
+          "reason": "target-not-verbatim-in-window"
+        }
+      ],
+      "failures": [],
+      "prompt_version": "1.6.0",
+      "model_id": "openai/gpt-6-luna",
+      "formulaic_hits": [],
+      "formulaic_catalog_version": "0.3.0"
+    },
+    {
+      "name": "guard",
+      "status": "ok",
+      "candidates": 0,
+      "semantic_rejected": 0,
+      "rule_preferred": 0,
+      "objective_rejected": 0,
+      "punctuation_rejected": 0,
+      "voice_rejected": 0,
+      "offered": 0,
+      "same_family_warning": false,
+      "rejections": []
+    }
+  ],
+  "proposals": [],
+  "rejections": [],
+  "build": [],
+  "edited": {
+    "01-jekyll": "<!-- scene: 387146cd-84eb-4081-81a2-84884a43aeef -->\nTime ran on; thousands of pounds were offered in reward, for the death of Sir Danvers was resented as a public injury; but Mr. Hyde had disappeared out of the ken of the police as though he had never existed. Much of his past was unearthed, indeed, and all disreputable: tales came out of the man’s cruelty, at once so callous and violent; of his vile life, of his strange associates, of the hatred that seemed to have surrounded his career; but of his present whereabouts, not a whisper. From the time he had left the house in Soho on the morning of the murder, he was simply blotted out; and gradually, as time drew on, Mr. Utterson began to recover from the hotness of his alarm, and to grow more at quiet with himself. The death of Sir Danvers was, to his way of thinking, more than paid for by the disappearance of Mr. Hyde. Now that that evil influence had been withdrawn, a new life began for Dr. Jekyll. He came out of his seclusion, renewed relations with his friends, became once more their familiar guest and entertainer; and whilst he had always been known for charities, he was now no less distinguished for religion. He was busy, he was much in the open air, he did good; his face seemed to open and brighten, as if with an inward consciousness of service; and for more than two months, the doctor was at peace.\n\nOn the 8th of January Utterson had dined at the doctor’s with a small party; Lanyon had been there; and the face of the host had looked from one to the other as in the old days when the trio were inseparable friends. On the 12th, and again on the 14th, the door was shut against the lawyer. “The doctor was confined to the house,” Poole said, “and saw no one.” On the 15th, he tried again, and was again refused; and having now been used for the last two months to see his friend almost daily, he found this return of solitude to weigh upon his spirits. The fifth night he had in Guest to dine with him; and the sixth he betook himself to Dr. Lanyon’s.\n\nThere at least he was not denied admittance; but when he came in, he was shocked at the change which had taken place in the doctor’s appearance. He had his death-warrant written legibly upon his face. The rosy man had grown pale; his flesh had fallen away; he was visibly balder and older; and yet it was not so much these tokens of a swift physical decay that arrested the lawyer’s notice, as a look in the eye and quality of manner that seemed to testify to some deep-seated terror of the mind. It was unlikely that the doctor should fear death; and yet that was what Utterson was tempted to suspect. “Yes,” he thought; “he is a doctor, he must know his own state and that his days are counted; and the knowledge is more than he can bear.” And yet when Utterson remarked on his ill looks, it was with an air of great firmness that Lanyon declared himself a doomed man.\n\n“I have had a shock,” he said, “and I shall never recover. It is a question of weeks. Well, life has been pleasant; I liked it; yes, sir, I used to like it. I sometimes think if we knew all, we should be more glad to get away.”\n\n“Jekyll is ill, too,” observed Utterson. “Have you seen him?”\n\nBut Lanyon’s face changed, and he held up a trembling hand. “I wish to see or hear no more of Dr. Jekyll,” he said in a loud, unsteady voice. “I am quite done with that person; and I beg that you will spare me any allusion to one whom I regard as dead.”\n\n“Tut, tut!” said Mr. Utterson; and then after a considerable pause, “Can’t I do anything?” he inquired. “We are three very old friends, Lanyon; we shall not live to make others.”\n\n“Nothing can be done,” returned Lanyon; “ask himself.”\n\n<!-- scene: b9178534-821c-4662-87a3-e1842071cde0 -->\n“He will not see me,” said the lawyer.\n\n“I am not surprised at that,” was the reply. “Some day, Utterson, after I am dead, you may perhaps come to learn the right and wrong of this. I cannot tell you. And in the meantime, if you can sit and talk with me of other things, for God’s sake, stay and do so; but if you cannot keep clear of this accursed topic, then in God’s name, go, for I cannot bear it.”\n\nAs soon as he got home, Utterson sat down and wrote to Jekyll, complaining of his exclusion from the house, and asking the cause of this unhappy break with Lanyon; and the next day brought him a long answer, often very pathetically worded, and sometimes darkly mysterious in drift. The quarrel with Lanyon was incurable. “I do not blame our old friend,” Jekyll wrote, “but I share his view that we must never meet. I mean from henceforth to lead a life of extreme seclusion; you must not be surprised, nor must you doubt my friendship, if my door is often shut even to you. You must suffer me to go my own dark way. I have brought on myself a punishment and a danger that I cannot name. If I am the chief of sinners, I am the chief of sufferers also. I could not think that this earth contained a place for sufferings and terrors so unmanning; and you can do but one thing, Utterson, to lighten this destiny, and that is to respect my silence.” Utterson was amazed; the dark influence of Hyde had been withdrawn, the doctor had returned to his old tasks and amities; a week ago, the prospect had smiled with every promise of a cheerful and an honoured age; and now in a moment, friendship, and peace of mind, and the whole tenor of his life were wrecked. So great and unprepared a change pointed to madness; but in view of Lanyon’s manner and words, there must lie for it some deeper ground.\n\nA week afterwards Dr. Lanyon took to his bed, and in something less than a fortnight he was dead. The night after the funeral, at which he had been sadly affected, Utterson locked the door of his business room, and sitting there by the light of a melancholy candle, drew out and set before him an envelope addressed by the hand and sealed with the seal of his dead friend. “PRIVATE: for the hands of G. J. Utterson ALONE, and in case of his predecease _to be destroyed unread_,” so it was emphatically superscribed; and the lawyer dreaded to behold the contents. “I have buried one friend to-day,” he thought: “what if this should cost me another?” And then he condemned the fear as a disloyalty, and broke the seal. Within there was another enclosure, likewise sealed, and marked upon the cover as “not to be opened till the death or disappearance of Dr. Henry Jekyll.” Utterson could not trust his eyes. Yes, it was disappearance; here again, as in the mad will which he had long ago restored to its author, here again were the idea of a disappearance and the name of Henry Jekyll bracketed. But in the will, that idea had sprung from the sinister suggestion of the man Hyde; it was set there with a purpose all too plain and horrible. Written by the hand of Lanyon, what should it mean? A great curiosity came on the trustee, to disregard the prohibition and dive at once to the bottom of these mysteries; but professional honour and faith to his dead friend were stringent obligations; and the packet slept in the inmost corner of his private safe.\n\n<!-- scene: 632239b0-d64e-4b1a-80a2-91e2a430a622 -->\nIt is one thing to mortify curiosity, another to conquer it; and it may be doubted if, from that day forth, Utterson desired the society of his surviving friend with the same eagerness. He thought of him kindly; but his thoughts were disquieted and fearful. He went to call indeed; but he was perhaps relieved to be denied admittance; perhaps, in his heart, he preferred to speak with Poole upon the doorstep and surrounded by the air and sounds of the open city, rather than to be admitted into that house of voluntary bondage, and to sit and speak with its inscrutable recluse. Poole had, indeed, no very pleasant news to communicate. The doctor, it appeared, now more than ever confined himself to the cabinet over the laboratory, where he would sometimes even sleep; he was out of spirits, he had grown very silent, he did not read; it seemed as if he had something on his mind. Utterson became so used to the unvarying character of these reports, that he fell off little by little in the frequency of his visits.\n",
+    "02-jekyll": "<!-- scene: 40213cec-8bdf-4394-898d-7d9c8bbd6a2f -->\nIt chanced on Sunday, when Mr. Utterson was on his usual walk with Mr. Enfield, that their way lay once again through the by-street; and that when they came in front of the door, both stopped to gaze on it.\n\n“Well,” said Enfield, “that story’s at an end at least. We shall never see more of Mr. Hyde.”\n\n“I hope not,” said Utterson. “Did I ever tell you that I once saw him, and shared your feeling of repulsion?”\n\n“It was impossible to do the one without the other,” returned Enfield. “And by the way, what an ass you must have thought me, not to know that this was a back way to Dr. Jekyll’s! It was partly your own fault that I found it out, even when I did.”\n\n“So you found it out, did you?” said Utterson. “But if that be so, we may step into the court and take a look at the windows. To tell you the truth, I am uneasy about poor Jekyll; and even outside, I feel as if the presence of a friend might do him good.”\n\nThe court was very cool and a little damp, and full of premature twilight, although the sky, high up overhead, was still bright with sunset. The middle one of the three windows was half-way open; and sitting close beside it, taking the air with an infinite sadness of mien, like some disconsolate prisoner, Utterson saw Dr. Jekyll.\n\n“What! Jekyll! Jekyll!” he cried. “I trust you are better.”\n\n“I am very low, Utterson,” replied the doctor drearily, “very low. It will not last long, thank God.”\n\n“You stay too much indoors,” said the lawyer. “You should be out, whipping up the circulation like Mr. Enfield and me. (This is my cousin—Mr. Enfield—Dr. Jekyll.) Come now; get your hat and take a quick turn with us.”\n\n“You are very good,” sighed the other. “I should like to very much; but no, no, no, it is quite impossible; I dare not. But indeed, Utterson, I am very glad to see you; this is really a great pleasure; I would ask you and Mr. Enfield up, but the place is really not fit.”\n\n“Why, then,” said the lawyer, good-naturedly, “the best thing we can do is to stay down here and speak with you from where we are.”\n\n“That is just what I was about to venture to propose,” returned the doctor with a smile. But the words were hardly uttered, before the smile was struck out of his face and succeeded by an expression of such abject terror and despair, as froze the very blood of the two gentlemen below. They saw it but for a glimpse for the window was instantly thrust down; but that glimpse had been sufficient, and they turned and left the court without a word. In silence, too, they traversed the by-street; and it was not until they had come into a neighbouring thoroughfare, where even upon a Sunday there were still some stirrings of life, that Mr. Utterson at last turned and looked at his companion. They were both pale; and there was an answering horror in their eyes.\n\n“God forgive us, God forgive us,” said Mr. Utterson.\n\nBut Mr. Enfield only nodded his head very seriously, and walked on once more in silence.\n"
+  },
+  "calls": [
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00003653,
+      "ms": 908
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00001673,
+      "ms": 456
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00001553,
+      "ms": 477
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0000568,
+      "ms": 604
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00004107,
+      "ms": 489
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00001531,
+      "ms": 556
+    }
+  ]
+}

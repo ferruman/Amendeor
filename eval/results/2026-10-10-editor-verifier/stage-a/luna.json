@@ -1,0 +1,813 @@
+{
+  "verifier": "luna",
+  "model": "openai/gpt-6-luna",
+  "effort": "off",
+  "passes": 3,
+  "rows": [
+    {
+      "id": "ru-typo",
+      "category": "spelling",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": true,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.00011429999999999999,
+      "ms": 8588
+    },
+    {
+      "id": "en-typo",
+      "category": "spelling",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": true,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002136,
+      "ms": 8336
+    },
+    {
+      "id": "ru-agreement",
+      "category": "grammar",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.00010309999999999999,
+      "ms": 8574
+    },
+    {
+      "id": "en-agreement",
+      "category": "grammar",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000665,
+      "ms": 8044
+    },
+    {
+      "id": "ru-dialogue-dash",
+      "category": "punctuation",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "verifier": "REJECT",
+      "reason": "The dash changes from a hyphen to a dialogue dash; this is a punctuation-formatting change, not a change in meaning.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000428,
+      "ms": 1456
+    },
+    {
+      "id": "en-mixed-quotes",
+      "category": "punctuation",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000801,
+      "ms": 8350
+    },
+    {
+      "id": "en-comma-restored",
+      "category": "punctuation",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.000207,
+      "ms": 8346
+    },
+    {
+      "id": "ru-dedupe-exact",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": true,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "Удаление «снова снова» убирает повторность действия и может менять смысл: прежде подразумевалось, что он не сказал этого снова.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000379,
+      "ms": 2693
+    },
+    {
+      "id": "ru-dedupe-alternative",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": true,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "Удалено повторение «снова», изменившее формулировку и возможный оттенок повторности действия.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000339,
+      "ms": 1363
+    },
+    {
+      "id": "en-dedupe-alternative",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit removes a repeated “again,” changing the stated timing/emphasis of the Sunday meal being over.",
+      "verify_failed": false,
+      "passes_used": 2,
+      "pass_verdicts": [
+        "preserved",
+        "changed"
+      ],
+      "requests": 2,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001408,
+      "ms": 5133
+    },
+    {
+      "id": "en-dedupe-name",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "REJECT",
+      "reason": "The edit removes the repeated “Poole,” changing the original wording and potentially its emphasis or cadence.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.000027,
+      "ms": 1150
+    },
+    {
+      "id": "en-doubled-article",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000634,
+      "ms": 8784
+    },
+    {
+      "id": "ru-filler-removal",
+      "category": "prose-pattern",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "Удалено «В современном мире», изменив содержание фразы.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000358,
+      "ms": 1091
+    },
+    {
+      "id": "en-filler-removal",
+      "category": "prose-pattern",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": true,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit removes “At the end of the day,” and changes the fragment’s role in the surrounding sentence, which may alter the intended wording and meaning.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000353,
+      "ms": 1179
+    },
+    {
+      "id": "ru-adverb-reattachment",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "Удалено повторное «снова»: исходная фраза может подразумевать, что он не сказал это повторно, тогда как правка меняет порядок действий и связывает «снова» с тем, что он вышел.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000477,
+      "ms": 1693
+    },
+    {
+      "id": "ru-repetition-insertion",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit changes the repeated phrase from «снова снова» to the idiomatic «снова и снова», altering the wording and potentially the emphasis.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000379,
+      "ms": 1155
+    },
+    {
+      "id": "ru-number-change",
+      "category": "incorrect-grammar",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "Changing singular «ноги» to plural «ног» changes the meaning from around his leg to around his legs.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000377,
+      "ms": 1095
+    },
+    {
+      "id": "en-invented-attribution",
+      "category": "dialogue-format",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "REJECT",
+      "reason": "The edit adds that the lawyer said the line, which is not specified in the original.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000264,
+      "ms": 1401
+    },
+    {
+      "id": "en-dialogue-deletion",
+      "category": "dialogue-format",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "REJECT",
+      "reason": "The edit removes “Well,” and one occurrence of “Poole,” changing the wording and the repeated address.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000278,
+      "ms": 1348
+    },
+    {
+      "id": "en-speech-merge",
+      "category": "dialogue-format",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "REJECT",
+      "reason": "Combining the commands changes the emphatic, separate “Now” into part of a single command, weakening its urgency.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000301,
+      "ms": 1565
+    },
+    {
+      "id": "ru-name-to-common-noun",
+      "category": "name-corruption",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "REJECT",
+      "reason": "Lowercasing «Тётку» removes capitalization that distinguishes the character’s proper name from the common noun «тётку».",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000383,
+      "ms": 1499
+    },
+    {
+      "id": "en-name-corruption",
+      "category": "name-corruption",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "REJECT",
+      "reason": "“Hide” refers to Hyde; changing it to “Hade” alters the character’s name and the reference in Utterson’s memory.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000464,
+      "ms": 1154
+    },
+    {
+      "id": "en-name-swap",
+      "category": "factual",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "REJECT",
+      "reason": "The edit changes the person whose face grew pale from Dr. Jekyll to Mr. Utterson.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.000033,
+      "ms": 1168
+    },
+    {
+      "id": "en-action-changed",
+      "category": "factual",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "Keeping the letter is changed to burning it, reversing the action.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000239,
+      "ms": 1510
+    },
+    {
+      "id": "en-time-changed",
+      "category": "factual",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: number-date-time-change",
+      "verifier": "REJECT",
+      "reason": "The time changes from about three o’clock to about four o’clock, altering when the events occurred.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001553,
+      "ms": 1737
+    },
+    {
+      "id": "en-degree-removed",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "“Nearly fell” means he almost fell but did not; “fell” states that he did.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000269,
+      "ms": 1079
+    },
+    {
+      "id": "ru-uncertainty-removed",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "«Кажется» marks the narrator’s uncertainty; removing it states that he was definitely asleep.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.000027,
+      "ms": 1967
+    },
+    {
+      "id": "ru-aspect-changed",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "«Читал» describes the ongoing action of reading; «прочитал» implies he completed the letter.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000278,
+      "ms": 1562
+    },
+    {
+      "id": "ru-wrong-agreement",
+      "category": "incorrect-grammar",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit changes the feminine verb form «пошла» to the masculine «пошёл», altering the character’s grammatical gender.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000306,
+      "ms": 2328
+    },
+    {
+      "id": "en-wrong-whom",
+      "category": "incorrect-grammar",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "“Who was there” is grammatical; “whom was there” changes the interrogative pronoun and is ungrammatical in this context.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000317,
+      "ms": 1129
+    },
+    {
+      "id": "ru-modernization",
+      "category": "modernization",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002407,
+      "ms": 8708
+    },
+    {
+      "id": "en-modernization-hyphen",
+      "category": "modernization",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "verifier": "REJECT",
+      "reason": "“Down-right” is an emphatic intensifier meaning completely, while “downright” has the same meaning in standard spelling, but the edit changes the text’s spelling and punctuation.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000453,
+      "ms": 1501
+    },
+    {
+      "id": "en-modernization-vocative",
+      "category": "modernization",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001182,
+      "ms": 8698
+    },
+    {
+      "id": "en-stylistic-rewrite",
+      "category": "stylistic-rewrite",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "“Disgust with life” is stronger and more explicit than “distaste of life,” which suggests aversion but not necessarily disgust.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000456,
+      "ms": 1216
+    },
+    {
+      "id": "en-optional-comma",
+      "category": "stylistic-rewrite",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000935,
+      "ms": 8596
+    },
+    {
+      "id": "ru-comma-removal",
+      "category": "stylistic-rewrite",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002319,
+      "ms": 8583
+    },
+    {
+      "id": "en-dialogue-grammar",
+      "category": "ambiguous",
+      "decision": "AMBIGUOUS",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.00022119,
+      "ms": 8399
+    },
+    {
+      "id": "en-name-canon",
+      "category": "ambiguous",
+      "decision": "AMBIGUOUS",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "REJECT",
+      "reason": "Changes “Hide” to “Hyde,” altering the name and potentially correcting or changing the intended reference.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000423,
+      "ms": 1478
+    },
+    {
+      "id": "en-place-name",
+      "category": "ambiguous",
+      "decision": "AMBIGUOUS",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "REJECT",
+      "reason": "Changing “Black Mail House” to “Blackmail House” removes the wordplay separating “black mail” and “house,” which the surrounding passage explicitly explains.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000457,
+      "ms": 1313
+    }
+  ]
+}

@@ -1,0 +1,680 @@
+{
+  "model": "anthropic/claude-haiku-5.5",
+  "reasoning_effort": "medium",
+  "repeat": 1,
+  "work": "jekyll-en",
+  "mode": "copy",
+  "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+  "prompt_version": "1.6.0",
+  "elapsed_ms": 71740,
+  "stage": {
+    "name": "model",
+    "status": "ok",
+    "windows": 5,
+    "windows_by_chapter": {
+      "01-jekyll": 2,
+      "02-jekyll": 2,
+      "03-jekyll": 1
+    },
+    "sent": 5,
+    "cached": 0,
+    "no_change": 2,
+    "no_change_by_chapter": {
+      "01-jekyll": 1,
+      "03-jekyll": 1
+    },
+    "candidates": 6,
+    "discarded": [],
+    "failures": [],
+    "prompt_version": "1.6.0",
+    "model_id": "anthropic/claude-haiku-5.5",
+    "formulaic_hits": [
+      {
+        "id": "formulaic.filler-frame",
+        "language": "en",
+        "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "start": 662,
+        "end": 683,
+        "quote": "At the end of the day",
+        "reason": "A stock frame may add no information."
+      }
+    ],
+    "formulaic_catalog_version": "0.3.0"
+  },
+  "ledger": [
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 1909,
+      "tokens_out": 652,
+      "cost": 0.0005168999999999999,
+      "currency": "USD",
+      "ms": 10598,
+      "budget": 673
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost": null,
+      "currency": "USD",
+      "ms": 12006,
+      "budget": 741,
+      "error": "truncated: OpenAI-compatible output truncated at budget 741; finish_reason=length; content=string"
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 1882,
+      "tokens_out": 939,
+      "cost": 0.0006577,
+      "currency": "USD",
+      "ms": 13173,
+      "budget": 741
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 1747,
+      "tokens_out": 572,
+      "cost": 0.0004607,
+      "currency": "USD",
+      "ms": 11157,
+      "budget": 773
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 1877,
+      "tokens_out": 820,
+      "cost": 0.0005977,
+      "currency": "USD",
+      "ms": 12761,
+      "budget": 822
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "anthropic/claude-haiku-5.5",
+      "tokens_in": 1725,
+      "tokens_out": 682,
+      "cost": 0.0005135,
+      "currency": "USD",
+      "ms": 11905,
+      "budget": 770
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:ff46f536206ae63d",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:cbb4efcdbbb93820efb5d10de5f794ea824b0e99473b0e46e3ef47459c3545e8"
+        },
+        "evidence": "sha256:527c21b5f494dded1c534772dee69210ce31882d9428edbd6ad62c63ffd16bb1"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "Mr. At the end of the day, Utterson",
+        "hash": "sha256:cbb4efcdbbb93820efb5d10de5f794ea824b0e99473b0e46e3ef47459c3545e8",
+        "before": "s fell into a vein of musing.\n\nFrom this he was recalled by ",
+        "after": " asking rather suddenly: “And you don’t know if the drawer o",
+        "occurrence": 0
+      },
+      "replacement": "Mr. Utterson",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The stock frame \"At the end of the day,\" is inserted into the middle of the name \"Mr. Utterson\", breaking the sentence and adding no information. Removing it restores the intended clause.",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:f47f8b759be62808",
+      "fingerprint": {
+        "primary": {
+          "category": "typography",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:a4402cda68f7d270d9aadab07ac3a1241ac4947edfe4d1aeaaa6323a27e98e9b"
+        },
+        "evidence": "sha256:1d5e2b81a7cf9af597ffc14b26847f4de55a0ec5f05c6ac3544a1fa4a960b7b5"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "\"You are sure he used a key?”",
+        "hash": "sha256:a4402cda68f7d270d9aadab07ac3a1241ac4947edfe4d1aeaaa6323a27e98e9b",
+        "before": "y in silence and obviously under a weight of consideration. ",
+        "after": " he inquired at last.\n\n“My dear sir...” began Enfield, surpr",
+        "occurrence": 0
+      },
+      "replacement": "“You are sure he used a key?”",
+      "category": "typography",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The opening quotation mark is straight while the closing mark and the rest of the dialogue use curly quotes. Matching the opening mark to the closing one is a local typography fix.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:6aac8707015727b4",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:5372cf0be75e929395bf8f91b35199e4136dcb43899e7b64f8a166003ebebb1f"
+        },
+        "evidence": "sha256:a43027ac9fc54e66acaf8352fd1b5b1885ed59403c7e8c14d80943d1e94d8cc3"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "was again again over",
+        "hash": "sha256:5372cf0be75e929395bf8f91b35199e4136dcb43899e7b64f8a166003ebebb1f",
+        "before": "thout relish. It was his custom of a Sunday, when this meal ",
+        "after": ", to sit close by the fire, a volume of some dry divinity on",
+        "occurrence": 0
+      },
+      "replacement": "was again over",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Accidental duplication of 'again'; deleting one copy restores the intended phrasing without changing meaning.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:9c02fed616a5a9bb",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+        },
+        "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "obilgation",
+        "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+        "before": "’s shoes without further delay and free from any burthen or ",
+        "after": " beyond the payment of a few small sums to the members of th",
+        "occurrence": 0
+      },
+      "replacement": "obligation",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Misspelling of 'obligation'.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:f5098758961a4f4a",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "key": "sha256:f8fa59e10c24f2a57d7cd1d2790560f9718230cffc73cb3f99b4df0a514f7b5b"
+        },
+        "evidence": "sha256:309dc67b9df526ebaec14562d8d2fe947e638347acfd0e152ca2a35ddf63a43f"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+      },
+      "target": {
+        "text": "Well, good-night, Poole Poole.",
+        "hash": "sha256:f8fa59e10c24f2a57d7cd1d2790560f9718230cffc73cb3f99b4df0a514f7b5b",
+        "before": "f the house; he mostly comes and goes by the laboratory.”\n\n“",
+        "after": "”\n\n“Good-night, Mr. Utterson.”\n\n",
+        "occurrence": 0
+      },
+      "replacement": "Well, good-night, Poole.",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Accidental doubled name; the farewell should address Poole once.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:cd0b7022fcc48b98",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "key": "sha256:d33109fdae6fb5c1c0224ea83fb1dea8d6cf6ab65bba1031878bfd2fd61ce617"
+        },
+        "evidence": "sha256:b9be0dfc79f926b372a066dd62f33909d2b4af601fd6fa9d1d5c02161231f4a9"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+      },
+      "target": {
+        "text": "the face of Hide sat heavy on his memory",
+        "hash": "sha256:d33109fdae6fb5c1c0224ea83fb1dea8d6cf6ab65bba1031878bfd2fd61ce617",
+        "before": "om in London. But tonight there was a shudder in his blood; ",
+        "after": "; he felt (what was rare with him) a nausea and distaste of ",
+        "occurrence": 0
+      },
+      "replacement": "the face of Hyde sat heavy on his memory",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Misspelling of the character's name, which is Hyde everywhere else in the passage.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "safe_proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:ff46f536206ae63d",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:cbb4efcdbbb93820efb5d10de5f794ea824b0e99473b0e46e3ef47459c3545e8"
+        },
+        "evidence": "sha256:527c21b5f494dded1c534772dee69210ce31882d9428edbd6ad62c63ffd16bb1"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "Mr. At the end of the day, Utterson",
+        "hash": "sha256:cbb4efcdbbb93820efb5d10de5f794ea824b0e99473b0e46e3ef47459c3545e8",
+        "before": "s fell into a vein of musing.\n\nFrom this he was recalled by ",
+        "after": " asking rather suddenly: “And you don’t know if the drawer o",
+        "occurrence": 0
+      },
+      "replacement": "Mr. Utterson",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The stock frame \"At the end of the day,\" is inserted into the middle of the name \"Mr. Utterson\", breaking the sentence and adding no information. Removing it restores the intended clause.",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:6aac8707015727b4",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:5372cf0be75e929395bf8f91b35199e4136dcb43899e7b64f8a166003ebebb1f"
+        },
+        "evidence": "sha256:a43027ac9fc54e66acaf8352fd1b5b1885ed59403c7e8c14d80943d1e94d8cc3"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "was again again over",
+        "hash": "sha256:5372cf0be75e929395bf8f91b35199e4136dcb43899e7b64f8a166003ebebb1f",
+        "before": "thout relish. It was his custom of a Sunday, when this meal ",
+        "after": ", to sit close by the fire, a volume of some dry divinity on",
+        "occurrence": 0
+      },
+      "replacement": "was again over",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Accidental duplication of 'again'; deleting one copy restores the intended phrasing without changing meaning.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:9c02fed616a5a9bb",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+        },
+        "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+      },
+      "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "obilgation",
+        "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+        "before": "’s shoes without further delay and free from any burthen or ",
+        "after": " beyond the payment of a few small sums to the members of th",
+        "occurrence": 0
+      },
+      "replacement": "obligation",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Misspelling of 'obligation'.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "rejected": [
+    {
+      "id": "amendeor:f47f8b759be62808",
+      "reason": "punctuation-style-only"
+    },
+    {
+      "id": "amendeor:f5098758961a4f4a",
+      "reason": "dialogue-content-change"
+    },
+    {
+      "id": "amendeor:cd0b7022fcc48b98",
+      "reason": "proper-name-change"
+    }
+  ],
+  "raw_score": {
+    "recall": {
+      "agreement": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "dialogue-format": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "punctuation": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "doubled-word": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 3516,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "proposal_id": "amendeor:ff46f536206ae63d"
+      },
+      {
+        "mutation_id": "jekyll-en:dialogue-format:1:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "proposal_id": "amendeor:f47f8b759be62808"
+      },
+      {
+        "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:6aac8707015727b4"
+      },
+      {
+        "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:9c02fed616a5a9bb"
+      },
+      {
+        "mutation_id": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "proposal_id": "amendeor:cd0b7022fcc48b98"
+      },
+      {
+        "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "proposal_id": "amendeor:f5098758961a4f4a"
+      }
+    ]
+  },
+  "safe_score": {
+    "recall": {
+      "agreement": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "punctuation": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "doubled-word": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 3516,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "proposal_id": "amendeor:ff46f536206ae63d"
+      },
+      {
+        "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:6aac8707015727b4"
+      },
+      {
+        "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:9c02fed616a5a9bb"
+      }
+    ]
+  }
+}

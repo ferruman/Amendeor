@@ -1,0 +1,813 @@
+{
+  "verifier": "haiku",
+  "model": "anthropic/claude-haiku-5.5",
+  "effort": "off",
+  "passes": 3,
+  "rows": [
+    {
+      "id": "ru-typo",
+      "category": "spelling",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002129,
+      "ms": 8527
+    },
+    {
+      "id": "en-typo",
+      "category": "spelling",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "verify failed: Unexpected non-whitespace character after JSON at position 420 (line 3 column 1)",
+      "verify_failed": true,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "json-error"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002078,
+      "ms": 2249
+    },
+    {
+      "id": "ru-agreement",
+      "category": "grammar",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit corrects the grammatical gender agreement of the verb (\"пошёл\" to \"пошла\") to match the feminine subject \"тётка\". The meaning, action, and implications are unchanged, so the semantic content is preserved; however, the before text is a grammatical error in agreement, and the after fixes it, which is a change in form rather than meaning, so the meaning is preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000952,
+      "ms": 1719
+    },
+    {
+      "id": "en-agreement",
+      "category": "grammar",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001617,
+      "ms": 8464
+    },
+    {
+      "id": "ru-dialogue-dash",
+      "category": "punctuation",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": true,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002158,
+      "ms": 8526
+    },
+    {
+      "id": "en-mixed-quotes",
+      "category": "punctuation",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "verifier": "REJECT",
+      "reason": "The BEFORE and AFTER lines differ only in the opening quotation mark: BEFORE uses a straight-style opening quote paired with a closing quote, while AFTER uses a curly opening quote. The words, question, meaning, and implication are identical, so the semantic content is preserved, but the edit is purely typographic. Under the strict criterion, the edit is essentially a no-op semantically; marking it as preserved is appropriate since no information, action, certainty, or character state changes.",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "changed"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002254,
+      "ms": 8670
+    },
+    {
+      "id": "en-comma-restored",
+      "category": "punctuation",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "verifier": "REJECT",
+      "reason": "verify failed: Unexpected non-whitespace character after JSON at position 428 (line 3 column 1)",
+      "verify_failed": true,
+      "passes_used": 2,
+      "pass_verdicts": [
+        "preserved",
+        "json-error"
+      ],
+      "requests": 2,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002966,
+      "ms": 5614
+    },
+    {
+      "id": "ru-dedupe-exact",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit removes the word «снова» (repeated), which, though seemingly a duplication, is part of the 'снова снова' phrasing; the original text contains the repetition 'снова снова' which the after-version removes entirely, altering the rhythm and emphasis of the character's hesitation (he again did not say it, repeatedly). This changes the stylistic meaning of repeated attempts, so meaning is not fully preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001013,
+      "ms": 2058
+    },
+    {
+      "id": "ru-dedupe-alternative",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit removes one repetition of \"снова\" (\"again\"), changing the text from 'не сказал снова снова' to 'не сказал снова'. The repeated word likely conveys emphasis, hesitation or stammering in the character's speech, which is a stylistic and characterizing detail; deleting it alters the meaning and implication of the passage.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000892,
+      "ms": 1590
+    },
+    {
+      "id": "en-dedupe-alternative",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": true,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit removes the repeated word 'again' from 'again again over,' which changes the original text's wording and its stylistic emphasis; while the typo fix may be intended, it is an alteration to the source text rather than a meaning-preserving edit under strict verification, and the 'again again' phrasing appears to be an intentional or original reading that the edit silently changes.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.000144,
+      "ms": 1779
+    },
+    {
+      "id": "en-dedupe-name",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001937,
+      "ms": 8589
+    },
+    {
+      "id": "en-doubled-article",
+      "category": "repetition",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001553,
+      "ms": 8449
+    },
+    {
+      "id": "ru-filler-removal",
+      "category": "prose-pattern",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": true,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The deleted phrase «В современном мире» is an anachronistic, editorial insertion in the surrounding text, but removing it changes the sentence's meaning: it removes a temporal/contextual framing phrase that was part of the text as given, altering the stated context of the narrative, so the edit does not strictly preserve all information and meaning.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000938,
+      "ms": 1682
+    },
+    {
+      "id": "en-filler-removal",
+      "category": "prose-pattern",
+      "decision": "ACCEPT",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit removes the phrase \"At the end of the day,\" which is an inserted, nonsensical fragment in the source text. Removing it restores the name and does not alter action, implication, or meaning in the surrounding sentence, so the core meaning is preserved, but the edit is a deletion of text that changes the literal content. Under the strict standard of preserving all information, this is not preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000906,
+      "ms": 1829
+    },
+    {
+      "id": "ru-adverb-reattachment",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit removes the word «снова» from «не сказал снова снова» in a way that changes the repetition: the BEFORE has «снова снова» (doubled, emphatic repetition, though the first «снова» is ambiguous), while AFTER moves one «снова» to «и снова вышел», altering the sentence's rhythm and meaning. The phrase now reads as «не сказал и снова вышел», so the original emphasis on repeated hesitation/silence is lost and the structure of the action changed.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001142,
+      "ms": 1898
+    },
+    {
+      "id": "ru-repetition-insertion",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002103,
+      "ms": 8671
+    },
+    {
+      "id": "ru-number-change",
+      "category": "incorrect-grammar",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": true,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit changes 'ноги' (singular, one leg/foot) to 'ног' (plural, legs). The surrounding paragraph describes the aunt walking around 'его ноги' and Fyodor Timofeich rubbing around 'его ног'; the change alters the grammatical number of the body part and the implied detail of the scene, so it is not semantically identical.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000977,
+      "ms": 2435
+    },
+    {
+      "id": "en-invented-attribution",
+      "category": "dialogue-format",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "REJECT",
+      "reason": "The edit removes the duplicated 'Poole Poole' (a typo-like repetition that may be intentional characterization) and adds an attribution 'said the lawyer' that was not in the original, changing the text's content rather than only correcting copy.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000651,
+      "ms": 1617
+    },
+    {
+      "id": "en-dialogue-deletion",
+      "category": "dialogue-format",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "REJECT",
+      "reason": "The edit drops the interjection 'Well,' which carries tone and characterization (a hesitant or resigned leave-taking), and it also removes the duplicated 'Poole Poole,' which may be a deliberate stylistic or speech-pattern marker. Those changes alter meaning and character state, so the edit is not semantically preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000791,
+      "ms": 1670
+    },
+    {
+      "id": "en-speech-merge",
+      "category": "dialogue-format",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "REJECT",
+      "reason": "The edit merges two separate imperatives delivered as distinct beats ('Go.' then 'Now.') into a single phrase 'Go now,', losing the pause and emphasis of the staccato delivery, which carries character state (urgency/command rhythm) in the surrounding paragraph where Poole's non-movement contrasts with it.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000807,
+      "ms": 1632
+    },
+    {
+      "id": "ru-name-to-common-noun",
+      "category": "name-corruption",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.000282,
+      "ms": 8703
+    },
+    {
+      "id": "en-name-corruption",
+      "category": "name-corruption",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "REJECT",
+      "reason": "The edit changes the name 'Hide' to 'Hade', altering the character's identity. In the source text, 'Hide' is the name of Mr. Hyde, the character central to the story; 'Hade' is a different word and a different name, so the referent, meaning, and implication are changed.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000927,
+      "ms": 1560
+    },
+    {
+      "id": "en-name-swap",
+      "category": "factual",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "REJECT",
+      "reason": "The edit changes the subject from Dr. Jekyll to Mr. Utterson. This alters who is reacting, changes the character state being described, and breaks the dialogue attribution, since the following speech ('I do not care to hear more') is spoken by Jekyll's reaction context. The meaning is not preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000825,
+      "ms": 1721
+    },
+    {
+      "id": "en-action-changed",
+      "category": "factual",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit changes the action from keeping the letter to burning it, which reverses the meaning and alters the character's state and the implications for the following events.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000471,
+      "ms": 1597
+    },
+    {
+      "id": "en-time-changed",
+      "category": "factual",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: number-date-time-change",
+      "verifier": "REJECT",
+      "reason": "The edit changes the time from about three o'clock to about four o'clock. This alters a stated detail of the narrative, and the surrounding text later refers to the man walking into the cellar door at four in the morning, so the change creates an internal inconsistency with the original meaning.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002017,
+      "ms": 1658
+    },
+    {
+      "id": "en-degree-removed",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit changes the meaning: 'He nearly fell' means he did not fall, but 'He fell' asserts that he did fall. This contradicts the surrounding paragraph, where he catches the rail and goes on.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.00006,
+      "ms": 1401
+    },
+    {
+      "id": "ru-uncertainty-removed",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The hedge «кажется» (seems) is removed, turning a tentative inference about his state into a certain assertion. This changes the certainty level of the statement, so meaning is not preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000554,
+      "ms": 1467
+    },
+    {
+      "id": "ru-aspect-changed",
+      "category": "semantic-drift",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The aspect changes from imperfective (читал, ongoing/process or habitual reading) to perfective (прочитал, completed action). This alters the implication: the original describes him engaged in reading during a dull evening, while the edit implies he finished the letter, which is new information not present in the original.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000712,
+      "ms": 1729
+    },
+    {
+      "id": "ru-wrong-agreement",
+      "category": "incorrect-grammar",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit changes the grammatical gender of the subject from feminine «она пошла» to masculine «она пошёл», which is ungrammatical for the pronoun «она» and alters the meaning of the sentence, since the subject «тётка» (aunt) is female and the action is clearly hers.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000715,
+      "ms": 1421
+    },
+    {
+      "id": "en-wrong-whom",
+      "category": "incorrect-grammar",
+      "decision": "REJECT",
+      "severity": "harmful",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit changes 'who' to 'whom', which is grammatically incorrect here since 'who' is the subject of 'was there'; the change also alters the meaning from a natural question to an ungrammatical one, so the original meaning is not preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0000638,
+      "ms": 1547
+    },
+    {
+      "id": "ru-modernization",
+      "category": "modernization",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "REJECT",
+      "reason": "The edit changes 'румяны' (blush, the cosmetic, which is a plural noun in Russian used for makeup) to 'румяна', which is an altered form. The change looks like a typo or case change, and the two versions are not identical; the BEFORE and AFTER texts differ in the final letter, so the edit is not confirmed as meaning-preserving and the verifier cannot treat it as a faithful copy edit.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001615,
+      "ms": 1680
+    },
+    {
+      "id": "en-modernization-hyphen",
+      "category": "modernization",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002381,
+      "ms": 8582
+    },
+    {
+      "id": "en-modernization-vocative",
+      "category": "modernization",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.00021989999999999998,
+      "ms": 8338
+    },
+    {
+      "id": "en-stylistic-rewrite",
+      "category": "stylistic-rewrite",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0002947,
+      "ms": 8615
+    },
+    {
+      "id": "en-optional-comma",
+      "category": "stylistic-rewrite",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "verifier": "ACCEPT",
+      "reason": "preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "pass_verdicts": [
+        "preserved",
+        "preserved",
+        "preserved"
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001762,
+      "ms": 9016
+    },
+    {
+      "id": "ru-comma-removal",
+      "category": "stylistic-rewrite",
+      "decision": "REJECT",
+      "severity": "unnecessary",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "verifier": "REJECT",
+      "reason": "verify failed: Unterminated string in JSON at position 224 (line 1 column 225)",
+      "verify_failed": true,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "json-error"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.000128,
+      "ms": 2029
+    },
+    {
+      "id": "en-dialogue-grammar",
+      "category": "ambiguous",
+      "decision": "AMBIGUOUS",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "verifier": "REJECT",
+      "reason": "The edit changes 'as hard as she were able' to 'as hard as she was able', altering the subjunctive mood. 'Were' expresses a hypothetical/counterfactual sense (as if she could, implying uncertainty about her actual capacity), while 'was' states it as an indicative fact, shifting the implied certainty and meaning.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.000213,
+      "ms": 1699
+    },
+    {
+      "id": "en-name-canon",
+      "category": "ambiguous",
+      "decision": "AMBIGUOUS",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "REJECT",
+      "reason": "The edit changes 'Hide' to 'Hyde', which corrects a typo but alters the name of the character referenced (the story's Mr. Hyde, not a 'hide'). Given the instruction to answer strictly on preservation of meaning and to return false when unsure, this change to a character's name is treated as a change in meaning rather than a neutral copy fix, so it is not preserved as written.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001103,
+      "ms": 1874
+    },
+    {
+      "id": "en-place-name",
+      "category": "ambiguous",
+      "decision": "AMBIGUOUS",
+      "severity": null,
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "verifier": "REJECT",
+      "reason": "The edit changes 'Black Mail' to 'Blackmail', which alters the meaning: in the original, 'Black Mail House' is a name Mr. Enfield coins for the house, a pun on the blackmail he suspects, and the two-word spelling carries the wordplay. Merging the words changes the wording and the implied connection to the blackmail reference, so the edit does not preserve all meaning.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "pass_verdicts": [
+        "changed"
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "http_errors": 0,
+      "cost": 0.0001067,
+      "ms": 1761
+    }
+  ]
+}

@@ -1,0 +1,631 @@
+{
+  "model": "openai/gpt-6-luna",
+  "repeat": 0,
+  "work": "jekyll-en",
+  "mode": "copy",
+  "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+  "prompt_version": "1.6.0",
+  "elapsed_ms": 18972,
+  "stage": {
+    "name": "model",
+    "status": "ok",
+    "windows": 5,
+    "windows_by_chapter": {
+      "01-jekyll": 2,
+      "02-jekyll": 2,
+      "03-jekyll": 1
+    },
+    "sent": 6,
+    "cached": 0,
+    "no_change": 1,
+    "no_change_by_chapter": {
+      "03-jekyll": 1
+    },
+    "candidates": 5,
+    "discarded": [
+      {
+        "node_id": "02-jekyll/b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "reason": "target-not-verbatim-in-window"
+      }
+    ],
+    "failures": [],
+    "prompt_version": "1.6.0",
+    "model_id": "openai/gpt-6-luna",
+    "formulaic_hits": [
+      {
+        "id": "formulaic.filler-frame",
+        "language": "en",
+        "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "start": 662,
+        "end": 683,
+        "quote": "At the end of the day",
+        "reason": "A stock frame may add no information."
+      }
+    ],
+    "formulaic_catalog_version": "0.3.0"
+  },
+  "ledger": [
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-6-luna",
+      "tokens_in": 1311,
+      "tokens_out": 46,
+      "cost": 0.0001541,
+      "currency": "USD",
+      "ms": 2536,
+      "budget": 673
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-6-luna",
+      "tokens_in": 1239,
+      "tokens_out": 70,
+      "cost": 0.00015889999999999999,
+      "currency": "USD",
+      "ms": 1393,
+      "budget": 509
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-6-luna",
+      "tokens_in": 1117,
+      "tokens_out": 61,
+      "cost": 0.0001422,
+      "currency": "USD",
+      "ms": 1238,
+      "budget": 509
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-6-luna",
+      "tokens_in": 1199,
+      "tokens_out": 44,
+      "cost": 0.00014189999999999998,
+      "currency": "USD",
+      "ms": 1928,
+      "budget": 526
+    },
+    {
+      "stage": "edit-parse-retry",
+      "provider": "experiment",
+      "model": "openai/gpt-6-luna",
+      "tokens_in": 1223,
+      "tokens_out": 40,
+      "cost": 0.0001423,
+      "currency": "USD",
+      "ms": 1839,
+      "budget": 540
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-6-luna",
+      "tokens_in": 1119,
+      "tokens_out": 9,
+      "cost": 0.0001164,
+      "currency": "USD",
+      "ms": 1432,
+      "budget": 491
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:be3e760ef0c045c5",
+      "fingerprint": {
+        "primary": {
+          "category": "grammar",
+          "chapter": "01-jekyll",
+          "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "key": "sha256:bd041ddef9d784dd2f0b3b23407570299ccac30e6b88a76184714ad5353325ca"
+        },
+        "evidence": "sha256:2c6bcba2f0d82bf63fb48338ec0c4bd22cda3305eef758dbc365611da3165b1b"
+      },
+      "run_id": "openai-gpt-6-luna-jekyll-en-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+        "content_hash": "sha256:9d0331d7e44a80a02533a06a7a5ea06fe708030c414f33a49824ef1b2bcdd9d8"
+      },
+      "target": {
+        "text": "as hard as she were able",
+        "hash": "sha256:bd041ddef9d784dd2f0b3b23407570299ccac30e6b88a76184714ad5353325ca",
+        "before": " and the other a girl of maybe eight or ten who was running ",
+        "after": " down a cross street. Well, sir, the two ran into one anothe",
+        "occurrence": 0
+      },
+      "replacement": "as hard as she was able",
+      "category": "grammar",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The comparison requires “as hard as she was able.”",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:c24727d9e4f8cb1e",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:5c61aff30f6b9b8f587a6214cc72ab486c9c6e904332c7e20f7de1f8f35af59b"
+        },
+        "evidence": "sha256:1d101ec6c2dbc19835764dbf7fe37d7d60632a4dc49e4967abcbf2493c6bffa5"
+      },
+      "run_id": "openai-gpt-6-luna-jekyll-en-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "by Mr. At the end of the day, Utterson",
+        "hash": "sha256:5c61aff30f6b9b8f587a6214cc72ab486c9c6e904332c7e20f7de1f8f35af59b",
+        "before": "ords fell into a vein of musing.\n\nFrom this he was recalled ",
+        "after": " asking rather suddenly: “And you don’t know if the drawer o",
+        "occurrence": 0
+      },
+      "replacement": "by Mr. Utterson",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The phrase “At the end of the day” is an accidental stock insertion that disrupts the sentence and separates the speaker’s name.",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:5cf1ae6e4e8064e0",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14"
+        },
+        "evidence": "sha256:b4c9e14061c2fd453b36700e3b0da008db2189c711ac629f0f583089164e267d"
+      },
+      "run_id": "openai-gpt-6-luna-jekyll-en-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "again again",
+        "hash": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14",
+        "before": "t relish. It was his custom of a Sunday, when this meal was ",
+        "after": " over, to sit close by the fire, a volume of some dry divini",
+        "occurrence": 0
+      },
+      "replacement": "again",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The duplicated word is an objective typo.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:9c02fed616a5a9bb",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+        },
+        "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+      },
+      "run_id": "openai-gpt-6-luna-jekyll-en-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "obilgation",
+        "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+        "before": "’s shoes without further delay and free from any burthen or ",
+        "after": " beyond the payment of a few small sums to the members of th",
+        "occurrence": 0
+      },
+      "replacement": "obligation",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The word is misspelled.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:557fd278f70d8533",
+      "fingerprint": {
+        "primary": {
+          "category": "punctuation",
+          "chapter": "02-jekyll",
+          "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "key": "sha256:eb85b3c9912a7b60507fa821099fa7b93e608741162d82f61c1efd7b69c376ec"
+        },
+        "evidence": "sha256:919a2016542a297d6c2f8c4a58e669d1e1012725325fd30742bad99ff90b1f01"
+      },
+      "run_id": "openai-gpt-6-luna-jekyll-en-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+      },
+      "target": {
+        "text": "Poole Poole",
+        "hash": "sha256:eb85b3c9912a7b60507fa821099fa7b93e608741162d82f61c1efd7b69c376ec",
+        "before": "stly comes and goes by the laboratory.”\n\n“Well, good-night, ",
+        "after": ".”\n\n“Good-night, Mr. Utterson.”\n\n",
+        "occurrence": 0
+      },
+      "replacement": "Poole",
+      "category": "punctuation",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The repeated surname is an apparent accidental duplication.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "safe_proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:c24727d9e4f8cb1e",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:5c61aff30f6b9b8f587a6214cc72ab486c9c6e904332c7e20f7de1f8f35af59b"
+        },
+        "evidence": "sha256:1d101ec6c2dbc19835764dbf7fe37d7d60632a4dc49e4967abcbf2493c6bffa5"
+      },
+      "run_id": "openai-gpt-6-luna-jekyll-en-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "by Mr. At the end of the day, Utterson",
+        "hash": "sha256:5c61aff30f6b9b8f587a6214cc72ab486c9c6e904332c7e20f7de1f8f35af59b",
+        "before": "ords fell into a vein of musing.\n\nFrom this he was recalled ",
+        "after": " asking rather suddenly: “And you don’t know if the drawer o",
+        "occurrence": 0
+      },
+      "replacement": "by Mr. Utterson",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The phrase “At the end of the day” is an accidental stock insertion that disrupts the sentence and separates the speaker’s name.",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:5cf1ae6e4e8064e0",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14"
+        },
+        "evidence": "sha256:b4c9e14061c2fd453b36700e3b0da008db2189c711ac629f0f583089164e267d"
+      },
+      "run_id": "openai-gpt-6-luna-jekyll-en-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "again again",
+        "hash": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14",
+        "before": "t relish. It was his custom of a Sunday, when this meal was ",
+        "after": " over, to sit close by the fire, a volume of some dry divini",
+        "occurrence": 0
+      },
+      "replacement": "again",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The duplicated word is an objective typo.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:9c02fed616a5a9bb",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+        },
+        "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+      },
+      "run_id": "openai-gpt-6-luna-jekyll-en-0",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "obilgation",
+        "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+        "before": "’s shoes without further delay and free from any burthen or ",
+        "after": " beyond the payment of a few small sums to the members of th",
+        "occurrence": 0
+      },
+      "replacement": "obligation",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The word is misspelled.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "rejected": [
+    {
+      "id": "amendeor:be3e760ef0c045c5",
+      "reason": "dialogue-content-change"
+    },
+    {
+      "id": "amendeor:557fd278f70d8533",
+      "reason": "dialogue-content-change"
+    }
+  ],
+  "raw_score": {
+    "recall": {
+      "agreement": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "punctuation": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "doubled-word": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 3516,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+        "proposal_id": "amendeor:be3e760ef0c045c5"
+      },
+      {
+        "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "proposal_id": "amendeor:c24727d9e4f8cb1e"
+      },
+      {
+        "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:5cf1ae6e4e8064e0"
+      },
+      {
+        "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:9c02fed616a5a9bb"
+      },
+      {
+        "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "proposal_id": "amendeor:557fd278f70d8533"
+      }
+    ]
+  },
+  "safe_score": {
+    "recall": {
+      "agreement": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "punctuation": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "doubled-word": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 3516,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "proposal_id": "amendeor:c24727d9e4f8cb1e"
+      },
+      {
+        "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:5cf1ae6e4e8064e0"
+      },
+      {
+        "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:9c02fed616a5a9bb"
+      }
+    ]
+  }
+}

@@ -1,0 +1,474 @@
+{
+  "model": "meta-llama/llama-4-maverick",
+  "repeat": 1,
+  "work": "jekyll-en",
+  "mode": "copy",
+  "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+  "prompt_version": "1.6.0",
+  "elapsed_ms": 47038,
+  "stage": {
+    "name": "model",
+    "status": "partial",
+    "windows": 5,
+    "windows_by_chapter": {
+      "01-jekyll": 2,
+      "02-jekyll": 2,
+      "03-jekyll": 1
+    },
+    "sent": 6,
+    "cached": 0,
+    "no_change": 0,
+    "no_change_by_chapter": {},
+    "candidates": 4,
+    "discarded": [],
+    "failures": [
+      {
+        "node_id": "01-jekyll/68b8cde7-afbb-4a50-83ab-87e1088928dc/0",
+        "reason": "invalid edit JSON: Unexpected token '`', \"```json\n{\"\"... is not valid JSON"
+      }
+    ],
+    "prompt_version": "1.6.0",
+    "model_id": "meta-llama/llama-4-maverick",
+    "formulaic_hits": [
+      {
+        "id": "formulaic.filler-frame",
+        "language": "en",
+        "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "start": 662,
+        "end": 683,
+        "quote": "At the end of the day",
+        "reason": "A stock frame may add no information."
+      }
+    ],
+    "formulaic_catalog_version": "0.3.0"
+  },
+  "ledger": [
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1325,
+      "tokens_out": 30,
+      "cost": 0.0002680125,
+      "currency": "USD",
+      "ms": 4449,
+      "budget": 673
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1299,
+      "tokens_out": 68,
+      "cost": 0.00028793250000000003,
+      "currency": "USD",
+      "ms": 6555,
+      "budget": 515
+    },
+    {
+      "stage": "edit-parse-retry",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1334,
+      "tokens_out": 51,
+      "cost": 0.0002834025,
+      "currency": "USD",
+      "ms": 3587,
+      "budget": 547
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1121,
+      "tokens_out": 34,
+      "cost": 0.0002323725,
+      "currency": "USD",
+      "ms": 5737,
+      "budget": 534
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1204,
+      "tokens_out": 44,
+      "cost": 0.00025446,
+      "currency": "USD",
+      "ms": 14396,
+      "budget": 528
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "meta-llama/llama-4-maverick",
+      "tokens_in": 1128,
+      "tokens_out": 48,
+      "cost": 0.00024281999999999998,
+      "currency": "USD",
+      "ms": 12270,
+      "budget": 494
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:119df02d89194cde",
+      "fingerprint": {
+        "primary": {
+          "category": "grammar",
+          "chapter": "01-jekyll",
+          "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "key": "sha256:ed808d50b85b89f94fea04e18bfc73a538684c15fc38feac06113f9e40e5d877"
+        },
+        "evidence": "sha256:a03e9a80e02364d95a8729d958634a89d7b6e007acb173663004843b84382c46"
+      },
+      "run_id": "meta-llama-llama-4-maverick-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+        "content_hash": "sha256:9d0331d7e44a80a02533a06a7a5ea06fe708030c414f33a49824ef1b2bcdd9d8"
+      },
+      "target": {
+        "text": "she were able",
+        "hash": "sha256:ed808d50b85b89f94fea04e18bfc73a538684c15fc38feac06113f9e40e5d877",
+        "before": "her a girl of maybe eight or ten who was running as hard as ",
+        "after": " down a cross street. Well, sir, the two ran into one anothe",
+        "occurrence": 0
+      },
+      "replacement": "she was able",
+      "category": "grammar",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "subject-verb agreement",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:b47cf198ccd911c1",
+      "fingerprint": {
+        "primary": {
+          "category": "redundancy",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14"
+        },
+        "evidence": "sha256:b4c9e14061c2fd453b36700e3b0da008db2189c711ac629f0f583089164e267d"
+      },
+      "run_id": "meta-llama-llama-4-maverick-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "again again",
+        "hash": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14",
+        "before": "t relish. It was his custom of a Sunday, when this meal was ",
+        "after": " over, to sit close by the fire, a volume of some dry divini",
+        "occurrence": 0
+      },
+      "replacement": "again",
+      "category": "redundancy",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "repeating 'again' is unnecessary and awkward",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:0cdac54a0953f726",
+      "fingerprint": {
+        "primary": {
+          "category": "redundancy",
+          "chapter": "02-jekyll",
+          "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "key": "sha256:7d76cf1ecd659e22d85046f8aefed3d5118858cdeda42b5218ae8468e3beea52"
+        },
+        "evidence": "sha256:47370eb007b6df6190a1ec5cf084d269b58a55f6cf6eeb036084d617616b1b81"
+      },
+      "run_id": "meta-llama-llama-4-maverick-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+      },
+      "target": {
+        "text": "Well, good-night, Poole Poole",
+        "hash": "sha256:7d76cf1ecd659e22d85046f8aefed3d5118858cdeda42b5218ae8468e3beea52",
+        "before": "f the house; he mostly comes and goes by the laboratory.”\n\n“",
+        "after": ".”\n\n“Good-night, Mr. Utterson.”\n\n",
+        "occurrence": 0
+      },
+      "replacement": "Good-night, Poole",
+      "category": "redundancy",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Unnecessary repetition of 'Poole'",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:fb2895656619adbe",
+      "fingerprint": {
+        "primary": {
+          "category": "punctuation",
+          "chapter": "03-jekyll",
+          "scene": "bdd00fbc-5c8f-4612-8e04-3268af4f0486",
+          "key": "sha256:763834525283ec68ff4c6acb2ee21eab2406d7ccd2bba7676537753aac44ec3d"
+        },
+        "evidence": "sha256:4da29acd465ff0065f256cef4867b0f8bbcf3337e0f1fb86c97a4c6ad3cc2e0e"
+      },
+      "run_id": "meta-llama-llama-4-maverick-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "03-jekyll",
+        "scene": "bdd00fbc-5c8f-4612-8e04-3268af4f0486",
+        "content_hash": "sha256:4b917f25e7703e3c26b15b981c156dd6768ec168a9c8f9a3ec79fa64911b354b"
+      },
+      "target": {
+        "text": "a trifle sharply.",
+        "hash": "sha256:763834525283ec68ff4c6acb2ee21eab2406d7ccd2bba7676537753aac44ec3d",
+        "before": ".\n\n“My will? Yes, certainly, I know that,” said the doctor, ",
+        "after": " “You have told me so.”\n\n“Well, I tell you so again,” contin",
+        "occurrence": 0
+      },
+      "replacement": "a trifle sharply;",
+      "category": "punctuation",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "The sentence is a quotation and should end with a semicolon to match the original punctuation.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "safe_proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:b47cf198ccd911c1",
+      "fingerprint": {
+        "primary": {
+          "category": "redundancy",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14"
+        },
+        "evidence": "sha256:b4c9e14061c2fd453b36700e3b0da008db2189c711ac629f0f583089164e267d"
+      },
+      "run_id": "meta-llama-llama-4-maverick-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "again again",
+        "hash": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14",
+        "before": "t relish. It was his custom of a Sunday, when this meal was ",
+        "after": " over, to sit close by the fire, a volume of some dry divini",
+        "occurrence": 0
+      },
+      "replacement": "again",
+      "category": "redundancy",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "repeating 'again' is unnecessary and awkward",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "rejected": [
+    {
+      "id": "amendeor:119df02d89194cde",
+      "reason": "dialogue-content-change"
+    },
+    {
+      "id": "amendeor:0cdac54a0953f726",
+      "reason": "proper-name-change"
+    },
+    {
+      "id": "amendeor:fb2895656619adbe",
+      "reason": "punctuation-style-only"
+    }
+  ],
+  "raw_score": {
+    "recall": {
+      "agreement": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "formulaic.filler-frame": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "punctuation": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "doubled-word": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 2,
+      "scanned_words": 3516,
+      "rate": 0.0005688282138794084,
+      "control_proposals": 1,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {},
+    "matched": [
+      {
+        "mutation_id": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+        "proposal_id": "amendeor:119df02d89194cde"
+      },
+      {
+        "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:b47cf198ccd911c1"
+      }
+    ]
+  },
+  "safe_score": {
+    "recall": {
+      "agreement": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "formulaic.filler-frame": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "punctuation": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "doubled-word": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 3516,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {},
+    "matched": [
+      {
+        "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:b47cf198ccd911c1"
+      }
+    ]
+  }
+}

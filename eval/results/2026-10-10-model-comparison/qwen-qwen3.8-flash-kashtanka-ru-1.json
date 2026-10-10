@@ -1,0 +1,588 @@
+{
+  "model": "qwen/qwen3.8-flash",
+  "repeat": 1,
+  "work": "kashtanka-ru",
+  "mode": "copy",
+  "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+  "prompt_version": "1.6.0",
+  "elapsed_ms": 25003,
+  "stage": {
+    "name": "model",
+    "status": "ok",
+    "windows": 5,
+    "windows_by_chapter": {
+      "01-kashtanka": 1,
+      "02-kashtanka": 1,
+      "03-kashtanka": 1,
+      "06-kashtanka": 1,
+      "07-kashtanka": 1
+    },
+    "sent": 5,
+    "cached": 0,
+    "no_change": 1,
+    "no_change_by_chapter": {
+      "03-kashtanka": 1
+    },
+    "candidates": 4,
+    "discarded": [],
+    "failures": [],
+    "prompt_version": "1.6.0",
+    "model_id": "qwen/qwen3.8-flash",
+    "formulaic_hits": [
+      {
+        "id": "formulaic.filler-frame",
+        "language": "ru",
+        "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+        "chapter": "01-kashtanka",
+        "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "start": 1494,
+        "end": 1512,
+        "quote": "В современном мире",
+        "reason": "Шаблонная рамка может не добавлять информации."
+      }
+    ],
+    "formulaic_catalog_version": "0.3.0"
+  },
+  "ledger": [
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "qwen/qwen3.8-flash",
+      "tokens_in": 1758,
+      "tokens_out": 87,
+      "cost": 0.00030459,
+      "currency": "USD",
+      "ms": 4749,
+      "budget": 976
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "qwen/qwen3.8-flash",
+      "tokens_in": 1627,
+      "tokens_out": 35,
+      "cost": 0.0002605,
+      "currency": "USD",
+      "ms": 10173,
+      "budget": 720
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "qwen/qwen3.8-flash",
+      "tokens_in": 1504,
+      "tokens_out": 5,
+      "cost": 0.00022794999999999998,
+      "currency": "USD",
+      "ms": 3895,
+      "budget": 631
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "qwen/qwen3.8-flash",
+      "tokens_in": 1302,
+      "tokens_out": 86,
+      "cost": 0.00023571999999999997,
+      "currency": "USD",
+      "ms": 3269,
+      "budget": 554
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "qwen/qwen3.8-flash",
+      "tokens_in": 1585,
+      "tokens_out": 56,
+      "cost": 0.00026407,
+      "currency": "USD",
+      "ms": 2645,
+      "budget": 705
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:68681d7d30133ebd",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-kashtanka",
+          "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "key": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b"
+        },
+        "evidence": "sha256:55a4aaf3921537b1e3ef036eff4004a97fed21bf7479d42cd3181760595e3cdf"
+      },
+      "run_id": "qwen-qwen3.8-flash-kashtanka-ru-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-kashtanka",
+        "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "content_hash": "sha256:3b28206073cc3f6c14e2a01e3c090ebef7965e04d078d50a6d4161b84bdfc91e"
+      },
+      "target": {
+        "text": "В современном мире Одним словом,",
+        "hash": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b",
+        "before": "чику, от переплётчика в трактир, из трактира к куму и т. д. ",
+        "after": " когда Каштанка попала на незнакомый тротуар, то уже вечерел",
+        "occurrence": 0
+      },
+      "replacement": "Одним словом,",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Фраза «В современном мире» является шаблонной рамкой, не несущей смысловой нагрузки и нарушающей стилистику повествования от лица собаки; она избыточна в сочетании с вводным «Одним словом».",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:3230eb318001d61f",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-kashtanka",
+          "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "key": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06"
+        },
+        "evidence": "sha256:74f27c59371b4b8cf735fb18e4781d2f64bbb69577c03983bce5a94c1bd8364f"
+      },
+      "run_id": "qwen-qwen3.8-flash-kashtanka-ru-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-kashtanka",
+        "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+        "content_hash": "sha256:2c7369e210740d6e6bf2d6849e4ede2712bfb19d11a65927233ad8c19c8257d8"
+      },
+      "target": {
+        "text": "глдяела",
+        "hash": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06",
+        "before": "мнате и, склонив голову набок, с умилением и с любопытством ",
+        "after": " на незнакомца, который сидел за столом и обедал. Он ел и бр",
+        "occurrence": 0
+      },
+      "replacement": "глядела",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Опечатка в слове «глядела».",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:131bf6d52de752c8",
+      "fingerprint": {
+        "primary": {
+          "category": "grammar",
+          "chapter": "06-kashtanka",
+          "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "key": "sha256:77211a303e85b4411acb243b62054f92ebe5d397b6eb725b4c4bf204966460f3"
+        },
+        "evidence": "sha256:253a38410277139e5d197f1c8cf2f711a8bac44bac7bc2fbf308f81c3f8b9e22"
+      },
+      "run_id": "qwen-qwen3.8-flash-kashtanka-ru-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "06-kashtanka",
+        "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+        "content_hash": "sha256:e84c81dc58b8109a75a426c148cecdd1f850ef558650130f28e41fbc5cb51936"
+      },
+      "target": {
+        "text": "она пошёл за ним",
+        "hash": "sha256:77211a303e85b4411acb243b62054f92ebe5d397b6eb725b4c4bf204966460f3",
+        "before": "к себе в спальню. Тётке жутко было оставаться в потёмках, и ",
+        "after": ". Он сел на кровать и несколько раз повторил:\n\n— Боже мой, ч",
+        "occurrence": 0
+      },
+      "replacement": "она пошла за ним",
+      "category": "grammar",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Согласование сказуемого с подлежащим в роде: Тётка (женский род) требует формы 'пошла'.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:998ccfb5ffd5e21d",
+      "fingerprint": {
+        "primary": {
+          "category": "grammar",
+          "chapter": "07-kashtanka",
+          "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "key": "sha256:e216302385ff14ee6faf8c45fb18d55aa7270837eb1a506b4c0ed9956e88563e"
+        },
+        "evidence": "sha256:6675c48d637a8547cd0c35b7a494106c514c2da59fe6d80a34922c682e8d669a"
+      },
+      "run_id": "qwen-qwen3.8-flash-kashtanka-ru-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "07-kashtanka",
+        "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+        "content_hash": "sha256:74200ad2bd132caedb73b1914ec4650445dc298e319d8e52b6a3a7fa07ec7adb"
+      },
+      "target": {
+        "text": "сказал снова снова и вышел",
+        "hash": "sha256:e216302385ff14ee6faf8c45fb18d55aa7270837eb1a506b4c0ed9956e88563e",
+        "before": " руки, сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, но не ",
+        "after": ". Тётка, отлично изучившая во время уроков его лицо и интона",
+        "occurrence": 0
+      },
+      "replacement": "сказал снова и снова и вышел",
+      "category": "grammar",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Нарушение устойчивого выражения «снова и снова»; повтор слова без союза является опечаткой.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "safe_proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:68681d7d30133ebd",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-kashtanka",
+          "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "key": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b"
+        },
+        "evidence": "sha256:55a4aaf3921537b1e3ef036eff4004a97fed21bf7479d42cd3181760595e3cdf"
+      },
+      "run_id": "qwen-qwen3.8-flash-kashtanka-ru-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-kashtanka",
+        "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "content_hash": "sha256:3b28206073cc3f6c14e2a01e3c090ebef7965e04d078d50a6d4161b84bdfc91e"
+      },
+      "target": {
+        "text": "В современном мире Одним словом,",
+        "hash": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b",
+        "before": "чику, от переплётчика в трактир, из трактира к куму и т. д. ",
+        "after": " когда Каштанка попала на незнакомый тротуар, то уже вечерел",
+        "occurrence": 0
+      },
+      "replacement": "Одним словом,",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Фраза «В современном мире» является шаблонной рамкой, не несущей смысловой нагрузки и нарушающей стилистику повествования от лица собаки; она избыточна в сочетании с вводным «Одним словом».",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:3230eb318001d61f",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-kashtanka",
+          "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "key": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06"
+        },
+        "evidence": "sha256:74f27c59371b4b8cf735fb18e4781d2f64bbb69577c03983bce5a94c1bd8364f"
+      },
+      "run_id": "qwen-qwen3.8-flash-kashtanka-ru-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-kashtanka",
+        "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+        "content_hash": "sha256:2c7369e210740d6e6bf2d6849e4ede2712bfb19d11a65927233ad8c19c8257d8"
+      },
+      "target": {
+        "text": "глдяела",
+        "hash": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06",
+        "before": "мнате и, склонив голову набок, с умилением и с любопытством ",
+        "after": " на незнакомца, который сидел за столом и обедал. Он ел и бр",
+        "occurrence": 0
+      },
+      "replacement": "глядела",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Опечатка в слове «глядела».",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:131bf6d52de752c8",
+      "fingerprint": {
+        "primary": {
+          "category": "grammar",
+          "chapter": "06-kashtanka",
+          "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "key": "sha256:77211a303e85b4411acb243b62054f92ebe5d397b6eb725b4c4bf204966460f3"
+        },
+        "evidence": "sha256:253a38410277139e5d197f1c8cf2f711a8bac44bac7bc2fbf308f81c3f8b9e22"
+      },
+      "run_id": "qwen-qwen3.8-flash-kashtanka-ru-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "06-kashtanka",
+        "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+        "content_hash": "sha256:e84c81dc58b8109a75a426c148cecdd1f850ef558650130f28e41fbc5cb51936"
+      },
+      "target": {
+        "text": "она пошёл за ним",
+        "hash": "sha256:77211a303e85b4411acb243b62054f92ebe5d397b6eb725b4c4bf204966460f3",
+        "before": "к себе в спальню. Тётке жутко было оставаться в потёмках, и ",
+        "after": ". Он сел на кровать и несколько раз повторил:\n\n— Боже мой, ч",
+        "occurrence": 0
+      },
+      "replacement": "она пошла за ним",
+      "category": "grammar",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Согласование сказуемого с подлежащим в роде: Тётка (женский род) требует формы 'пошла'.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:998ccfb5ffd5e21d",
+      "fingerprint": {
+        "primary": {
+          "category": "grammar",
+          "chapter": "07-kashtanka",
+          "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+          "key": "sha256:e216302385ff14ee6faf8c45fb18d55aa7270837eb1a506b4c0ed9956e88563e"
+        },
+        "evidence": "sha256:6675c48d637a8547cd0c35b7a494106c514c2da59fe6d80a34922c682e8d669a"
+      },
+      "run_id": "qwen-qwen3.8-flash-kashtanka-ru-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "07-kashtanka",
+        "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+        "content_hash": "sha256:74200ad2bd132caedb73b1914ec4650445dc298e319d8e52b6a3a7fa07ec7adb"
+      },
+      "target": {
+        "text": "сказал снова снова и вышел",
+        "hash": "sha256:e216302385ff14ee6faf8c45fb18d55aa7270837eb1a506b4c0ed9956e88563e",
+        "before": " руки, сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, но не ",
+        "after": ". Тётка, отлично изучившая во время уроков его лицо и интона",
+        "occurrence": 0
+      },
+      "replacement": "сказал снова и снова и вышел",
+      "category": "grammar",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Нарушение устойчивого выражения «снова и снова»; повтор слова без союза является опечаткой.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "rejected": [],
+  "raw_score": {
+    "recall": {
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "agreement": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 2963,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "proposal_id": "amendeor:68681d7d30133ebd"
+      },
+      {
+        "mutation_id": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+        "proposal_id": "amendeor:3230eb318001d61f"
+      },
+      {
+        "mutation_id": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+        "proposal_id": "amendeor:131bf6d52de752c8"
+      },
+      {
+        "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+        "proposal_id": "amendeor:998ccfb5ffd5e21d"
+      }
+    ]
+  },
+  "safe_score": {
+    "recall": {
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "agreement": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 2963,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+        "proposal_id": "amendeor:68681d7d30133ebd"
+      },
+      {
+        "mutation_id": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+        "proposal_id": "amendeor:3230eb318001d61f"
+      },
+      {
+        "mutation_id": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+        "proposal_id": "amendeor:131bf6d52de752c8"
+      },
+      {
+        "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+        "proposal_id": "amendeor:998ccfb5ffd5e21d"
+      }
+    ]
+  }
+}

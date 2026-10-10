@@ -1,0 +1,2125 @@
+{
+  "fetched_at": "2026-10-10T10:50:33.176Z",
+  "source": "https://openrouter.ai/api/v1/models",
+  "models": {
+    "openai/gpt-6-luna": {
+      "available": true,
+      "name": "OpenAI: GPT-6 Luna",
+      "context_length": 1050000,
+      "pricing": {
+        "prompt": "0.0000001",
+        "completion": "0.0000005",
+        "web_search": "0.01",
+        "input_cache_read": "0.00000001",
+        "input_cache_write": "0.000000125",
+        "overrides": [
+          {
+            "min_prompt_tokens": 272000,
+            "prompt": "0.0000002",
+            "completion": "0.00000075",
+            "input_cache_read": "0.00000002",
+            "input_cache_write": "0.00000025"
+          }
+        ]
+      },
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "seed",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "reasoning": {
+        "mandatory": false,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low",
+          "none"
+        ],
+        "default_effort": "medium"
+      },
+      "top_provider": {
+        "context_length": 1050000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "endpoints": [
+        {
+          "provider": "OpenAI",
+          "context": 1050000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000005",
+            "completion": "0.00000025",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000005",
+            "input_cache_write": "0.0000000625",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.0000001",
+                "completion": "0.000000375",
+                "input_cache_read": "0.00000001",
+                "input_cache_write": "0.000000125"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "seed",
+            "max_tokens",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "OpenAI",
+          "context": 1050000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000001",
+            "input_cache_write": "0.000000125",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.0000002",
+                "completion": "0.00000075",
+                "input_cache_read": "0.00000002",
+                "input_cache_write": "0.00000025"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "seed",
+            "max_tokens",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Azure",
+          "context": 1050000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000001",
+            "input_cache_write": "0.000000125",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.0000002",
+                "completion": "0.00000075",
+                "input_cache_read": "0.00000002",
+                "input_cache_write": "0.00000025"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_completion_tokens",
+            "tools",
+            "tool_choice",
+            "seed",
+            "response_format",
+            "structured_outputs",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Azure",
+          "context": 1050000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000055",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000011",
+            "input_cache_write": "0.0000001375",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.00000022",
+                "completion": "0.000000825",
+                "input_cache_read": "0.000000022",
+                "input_cache_write": "0.000000275"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_completion_tokens",
+            "tools",
+            "tool_choice",
+            "seed",
+            "response_format",
+            "structured_outputs",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Azure",
+          "context": 1050000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000055",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000011",
+            "input_cache_write": "0.0000001375",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.00000022",
+                "completion": "0.000000825",
+                "input_cache_read": "0.000000022",
+                "input_cache_write": "0.000000275"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_completion_tokens",
+            "tools",
+            "tool_choice",
+            "seed",
+            "response_format",
+            "structured_outputs",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Amazon Bedrock",
+          "context": 1050000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000055",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000011",
+            "input_cache_write": "0.0000001375",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.00000022",
+                "completion": "0.000000825",
+                "input_cache_read": "0.000000022",
+                "input_cache_write": "0.000000275"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "tools",
+            "tool_choice",
+            "response_format",
+            "structured_outputs",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "OpenAI",
+          "context": 1050000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000002",
+            "completion": "0.000001",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000002",
+            "input_cache_write": "0.00000025",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 272000,
+                "prompt": "0.0000004",
+                "completion": "0.0000015",
+                "input_cache_read": "0.00000004",
+                "input_cache_write": "0.0000005"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "seed",
+            "max_tokens",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        }
+      ]
+    },
+    "deepseek/deepseek-v4-pro-0813": {
+      "available": true,
+      "name": "DeepSeek: DeepSeek V4 Pro 0813",
+      "context_length": 1048576,
+      "pricing": {
+        "prompt": "0.00000066",
+        "completion": "0.00000198",
+        "input_cache_read": "0.000000022",
+        "overrides": [
+          {
+            "utc_days": [
+              "saturday",
+              "sunday"
+            ],
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 0,
+            "utc_end": 100,
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 100,
+            "utc_end": 400,
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 400,
+            "utc_end": 600,
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 600,
+            "utc_end": 1000,
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 1000,
+            "utc_end": 0,
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
+          }
+        ]
+      },
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "reasoning": {
+        "mandatory": false,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "high"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 393216,
+        "is_moderated": false
+      },
+      "endpoints": [
+        {
+          "provider": "Wafer",
+          "context": 1048576,
+          "max_completion": 943718,
+          "pricing": {
+            "prompt": "0.0000003",
+            "completion": "0.000005",
+            "input_cache_read": "0.000000219",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "temperature",
+            "top_p",
+            "top_k",
+            "min_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "repetition_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "logit_bias",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "logprobs",
+            "top_logprobs",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Ionstream",
+          "context": 1048576,
+          "max_completion": 943718,
+          "pricing": {
+            "prompt": "0.00000037",
+            "completion": "0.00000293",
+            "input_cache_read": "0.000000088",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "response_format",
+            "tools",
+            "tool_choice",
+            "structured_outputs",
+            "logprobs",
+            "top_logprobs",
+            "top_p",
+            "top_k",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "logit_bias",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Sail Research",
+          "context": 1048576,
+          "max_completion": 384000,
+          "pricing": {
+            "prompt": "0.0000004",
+            "completion": "0.000003",
+            "input_cache_read": "0.000000033",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "temperature",
+            "top_p",
+            "top_k",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "logprobs",
+            "top_logprobs",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp4"
+        },
+        {
+          "provider": "Sail Research",
+          "context": 1048576,
+          "max_completion": 384000,
+          "pricing": {
+            "prompt": "0.0000004",
+            "completion": "0.000003",
+            "input_cache_read": "0.000000033",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "temperature",
+            "top_p",
+            "top_k",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "max_tokens",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "logprobs",
+            "top_logprobs",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp4"
+        },
+        {
+          "provider": "StreamLake",
+          "context": 1024000,
+          "max_completion": 384000,
+          "pricing": {
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022",
+            "discount": 0.5
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "stop",
+            "response_format",
+            "tools",
+            "tool_choice",
+            "logprobs",
+            "top_logprobs",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "DeepSeek",
+          "context": 1048576,
+          "max_completion": 393216,
+          "pricing": {
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022",
+            "discount": 0,
+            "overrides": [
+              {
+                "utc_days": [
+                  "saturday",
+                  "sunday"
+                ],
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              },
+              {
+                "utc_start": 0,
+                "utc_end": 100,
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              },
+              {
+                "utc_start": 100,
+                "utc_end": 400,
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "prompt": "0.00000132",
+                "completion": "0.00000396",
+                "input_cache_read": "0.000000044"
+              },
+              {
+                "utc_start": 400,
+                "utc_end": 600,
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              },
+              {
+                "utc_start": 600,
+                "utc_end": 1000,
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "prompt": "0.00000132",
+                "completion": "0.00000396",
+                "input_cache_read": "0.000000044"
+              },
+              {
+                "utc_start": 1000,
+                "utc_end": 0,
+                "utc_days": [
+                  "monday",
+                  "tuesday",
+                  "wednesday",
+                  "thursday",
+                  "friday"
+                ],
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000022"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "stop",
+            "frequency_penalty",
+            "presence_penalty",
+            "logprobs",
+            "top_logprobs",
+            "tools",
+            "tool_choice",
+            "response_format",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Phala",
+          "context": 1048576,
+          "max_completion": 393216,
+          "pricing": {
+            "prompt": "0.000000957",
+            "completion": "0.0000028776",
+            "input_cache_read": "0.000000099",
+            "discount": 0.34
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "stop",
+            "frequency_penalty",
+            "presence_penalty",
+            "seed",
+            "top_k",
+            "min_p",
+            "repetition_penalty",
+            "response_format",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Novita",
+          "context": 1048576,
+          "max_completion": 393216,
+          "pricing": {
+            "prompt": "0.00000099",
+            "completion": "0.00000297",
+            "input_cache_read": "0.000000033",
+            "discount": 0.25
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "stop",
+            "frequency_penalty",
+            "presence_penalty",
+            "seed",
+            "top_k",
+            "repetition_penalty",
+            "response_format",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp8"
+        },
+        {
+          "provider": "GMICloud",
+          "context": 1048575,
+          "max_completion": 943717,
+          "pricing": {
+            "prompt": "0.000001056",
+            "completion": "0.000003168",
+            "input_cache_read": "0.0000000352",
+            "discount": 0.2
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "seed",
+            "response_format",
+            "tools",
+            "tool_choice",
+            "logprobs",
+            "top_logprobs",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp8"
+        },
+        {
+          "provider": "Alibaba",
+          "context": 1000000,
+          "max_completion": 393216,
+          "pricing": {
+            "prompt": "0.000001122",
+            "completion": "0.000003366",
+            "input_cache_read": "0.0000001122",
+            "discount": 0,
+            "overrides": [
+              {
+                "utc_start": 0,
+                "utc_end": 1400,
+                "prompt": "0.000001122",
+                "completion": "0.000003366",
+                "input_cache_read": "0.0000001122"
+              },
+              {
+                "utc_start": 1400,
+                "utc_end": 0,
+                "prompt": "0.0000005808",
+                "completion": "0.0000017424",
+                "input_cache_read": "0.00000005808"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "seed",
+            "presence_penalty",
+            "response_format",
+            "top_k",
+            "frequency_penalty",
+            "stop",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "DeepInfra",
+          "context": 1048576,
+          "max_completion": 16384,
+          "pricing": {
+            "prompt": "0.0000013",
+            "completion": "0.0000026",
+            "input_cache_read": "0.0000001",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "stop",
+            "frequency_penalty",
+            "presence_penalty",
+            "repetition_penalty",
+            "top_k",
+            "seed",
+            "min_p",
+            "logit_bias",
+            "tools",
+            "tool_choice",
+            "structured_outputs",
+            "response_format",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp8"
+        },
+        {
+          "provider": "CoreWeave",
+          "context": 1048576,
+          "max_completion": 943718,
+          "pricing": {
+            "prompt": "0.00000131",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "top_k",
+            "repetition_penalty",
+            "frequency_penalty",
+            "presence_penalty",
+            "stop",
+            "seed",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "logprobs",
+            "top_logprobs",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp8"
+        },
+        {
+          "provider": "Alibaba",
+          "context": 1000000,
+          "max_completion": 393216,
+          "pricing": {
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000132",
+            "discount": 0,
+            "overrides": [
+              {
+                "utc_start": 0,
+                "utc_end": 1400,
+                "prompt": "0.00000132",
+                "completion": "0.00000396",
+                "input_cache_read": "0.000000132"
+              },
+              {
+                "utc_start": 1400,
+                "utc_end": 0,
+                "prompt": "0.00000066",
+                "completion": "0.00000198",
+                "input_cache_read": "0.000000066"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "seed",
+            "presence_penalty",
+            "response_format",
+            "top_k",
+            "frequency_penalty",
+            "stop",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "AtlasCloud",
+          "context": 1048576,
+          "max_completion": 393216,
+          "pricing": {
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000132",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "top_k",
+            "min_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "repetition_penalty",
+            "stop",
+            "seed",
+            "logit_bias",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp8"
+        },
+        {
+          "provider": "Baidu",
+          "context": 1048576,
+          "max_completion": 393216,
+          "pricing": {
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000042",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "temperature",
+            "top_p",
+            "max_tokens",
+            "stop",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp8"
+        },
+        {
+          "provider": "Parasail",
+          "context": 1048576,
+          "max_completion": 943718,
+          "pricing": {
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "frequency_penalty",
+            "presence_penalty",
+            "repetition_penalty",
+            "seed",
+            "stop",
+            "top_k",
+            "logit_bias",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "logprobs",
+            "top_logprobs",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp8"
+        },
+        {
+          "provider": "Together",
+          "context": 1048576,
+          "max_completion": 943718,
+          "pricing": {
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.00000013",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "stop",
+            "frequency_penalty",
+            "presence_penalty",
+            "top_k",
+            "repetition_penalty",
+            "logit_bias",
+            "min_p",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "DigitalOcean",
+          "context": 1048576,
+          "max_completion": 943718,
+          "pricing": {
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "temperature",
+            "top_p",
+            "max_tokens",
+            "response_format",
+            "tools",
+            "tool_choice",
+            "logprobs",
+            "top_logprobs",
+            "structured_outputs",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "SiliconFlow",
+          "context": 1048576,
+          "max_completion": 393216,
+          "pricing": {
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "temperature",
+            "top_p",
+            "top_k",
+            "frequency_penalty",
+            "max_tokens",
+            "response_format",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "fp8"
+        },
+        {
+          "provider": "Cloudflare",
+          "context": 1048576,
+          "max_completion": 943718,
+          "pricing": {
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "top_k",
+            "seed",
+            "repetition_penalty",
+            "frequency_penalty",
+            "presence_penalty",
+            "min_p",
+            "stop",
+            "logit_bias",
+            "response_format",
+            "structured_outputs",
+            "logprobs",
+            "top_logprobs",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Venice",
+          "context": 1000000,
+          "max_completion": 32768,
+          "pricing": {
+            "prompt": "0.00000165",
+            "completion": "0.00000495",
+            "input_cache_read": "0.000000165",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "temperature",
+            "top_p",
+            "stop",
+            "frequency_penalty",
+            "presence_penalty",
+            "top_k",
+            "response_format",
+            "structured_outputs",
+            "tools",
+            "tool_choice",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        }
+      ]
+    },
+    "anthropic/claude-haiku-5.5": {
+      "available": true,
+      "name": "Anthropic: Claude Haiku 5.5",
+      "context_length": 1000000,
+      "pricing": {
+        "prompt": "0.0000001",
+        "completion": "0.0000005",
+        "web_search": "0.01",
+        "input_cache_read": "0.00000001",
+        "input_cache_write": "0.000000125",
+        "input_cache_write_1h": "0.0000002",
+        "overrides": [
+          {
+            "min_prompt_tokens": 100000,
+            "prompt": "0.0000005",
+            "completion": "0.0000025",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.000000625",
+            "input_cache_write_1h": "0.000001"
+          }
+        ]
+      },
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "reasoning": {
+        "mandatory": false,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "medium"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "endpoints": [
+        {
+          "provider": "Google",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000001",
+            "input_cache_write": "0.000000125",
+            "input_cache_write_1h": "0.0000002",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.0000005",
+                "completion": "0.0000025",
+                "input_cache_read": "0.00000005",
+                "input_cache_write": "0.000000625",
+                "input_cache_write_1h": "0.000001"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "response_format",
+            "tool_choice",
+            "tools",
+            "verbosity",
+            "structured_outputs",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Claude Platform on AWS",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000001",
+            "input_cache_write": "0.000000125",
+            "input_cache_write_1h": "0.0000002",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.0000005",
+                "completion": "0.0000025",
+                "input_cache_read": "0.00000005",
+                "input_cache_write": "0.000000625",
+                "input_cache_write_1h": "0.000001"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tool_choice",
+            "tools",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Azure",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000001",
+            "input_cache_write": "0.000000125",
+            "input_cache_write_1h": "0.0000002",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.0000005",
+                "completion": "0.0000025",
+                "input_cache_read": "0.00000005",
+                "input_cache_write": "0.000000625",
+                "input_cache_write_1h": "0.000001"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "structured_outputs",
+            "max_tokens",
+            "max_completion_tokens",
+            "tools",
+            "tool_choice",
+            "response_format",
+            "verbosity",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Anthropic",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000001",
+            "input_cache_write": "0.000000125",
+            "input_cache_write_1h": "0.0000002",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.0000005",
+                "completion": "0.0000025",
+                "input_cache_read": "0.00000005",
+                "input_cache_write": "0.000000625",
+                "input_cache_write_1h": "0.000001"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tools",
+            "tool_choice",
+            "structured_outputs",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Amazon Bedrock",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000001",
+            "input_cache_write": "0.000000125",
+            "input_cache_write_1h": "0.0000002",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.0000005",
+                "completion": "0.0000025",
+                "input_cache_read": "0.00000005",
+                "input_cache_write": "0.000000625",
+                "input_cache_write_1h": "0.000001"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tool_choice",
+            "tools",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Google",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000055",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000011",
+            "input_cache_write": "0.0000001375",
+            "input_cache_write_1h": "0.00000022",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.00000055",
+                "completion": "0.00000275",
+                "input_cache_read": "0.000000055",
+                "input_cache_write": "0.0000006875",
+                "input_cache_write_1h": "0.0000011"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "response_format",
+            "tool_choice",
+            "tools",
+            "verbosity",
+            "structured_outputs",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Google",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000055",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000011",
+            "input_cache_write": "0.0000001375",
+            "input_cache_write_1h": "0.00000022",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.00000055",
+                "completion": "0.00000275",
+                "input_cache_read": "0.000000055",
+                "input_cache_write": "0.0000006875",
+                "input_cache_write_1h": "0.0000011"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "response_format",
+            "tool_choice",
+            "tools",
+            "verbosity",
+            "structured_outputs",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Azure",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000055",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000011",
+            "input_cache_write": "0.0000001375",
+            "input_cache_write_1h": "0.00000022",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.00000055",
+                "completion": "0.00000275",
+                "input_cache_read": "0.000000055",
+                "input_cache_write": "0.0000006875",
+                "input_cache_write_1h": "0.0000011"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "structured_outputs",
+            "max_tokens",
+            "max_completion_tokens",
+            "tools",
+            "tool_choice",
+            "response_format",
+            "verbosity",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Amazon Bedrock",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000055",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000011",
+            "input_cache_write": "0.0000001375",
+            "input_cache_write_1h": "0.00000022",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.00000055",
+                "completion": "0.00000275",
+                "input_cache_read": "0.000000055",
+                "input_cache_write": "0.0000006875",
+                "input_cache_write_1h": "0.0000011"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tool_choice",
+            "tools",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Amazon Bedrock",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000011",
+            "completion": "0.00000055",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000011",
+            "input_cache_write": "0.0000001375",
+            "input_cache_write_1h": "0.00000022",
+            "discount": 0,
+            "overrides": [
+              {
+                "min_prompt_tokens": 100000,
+                "prompt": "0.00000055",
+                "completion": "0.00000275",
+                "input_cache_read": "0.000000055",
+                "input_cache_write": "0.0000006875",
+                "input_cache_write_1h": "0.0000011"
+              }
+            ]
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tool_choice",
+            "tools",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        }
+      ]
+    },
+    "anthropic/claude-sonnet-5": {
+      "available": true,
+      "name": "Anthropic: Claude Sonnet 5",
+      "context_length": 1000000,
+      "pricing": {
+        "prompt": "0.000002",
+        "completion": "0.00001",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.0000025",
+        "input_cache_write_1h": "0.000004"
+      },
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "reasoning": {
+        "mandatory": false,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "high"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "endpoints": [
+        {
+          "provider": "Claude Platform on AWS",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
+            "input_cache_write_1h": "0.000004",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tool_choice",
+            "tools",
+            "structured_outputs",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Azure",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
+            "input_cache_write_1h": "0.000004",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "structured_outputs",
+            "max_tokens",
+            "max_completion_tokens",
+            "tools",
+            "tool_choice",
+            "response_format",
+            "verbosity",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Google",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
+            "input_cache_write_1h": "0.000004",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "response_format",
+            "tools",
+            "tool_choice",
+            "verbosity",
+            "structured_outputs",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Amazon Bedrock",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
+            "input_cache_write_1h": "0.000004",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tools",
+            "tool_choice",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Anthropic",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.000002",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000002",
+            "input_cache_write": "0.0000025",
+            "input_cache_write_1h": "0.000004",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tools",
+            "tool_choice",
+            "structured_outputs",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Amazon Bedrock",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000022",
+            "completion": "0.000011",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000022",
+            "input_cache_write": "0.00000275",
+            "input_cache_write_1h": "0.0000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tools",
+            "tool_choice",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Azure",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000022",
+            "completion": "0.000011",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000022",
+            "input_cache_write": "0.00000275",
+            "input_cache_write_1h": "0.0000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "structured_outputs",
+            "max_tokens",
+            "max_completion_tokens",
+            "tools",
+            "tool_choice",
+            "response_format",
+            "verbosity",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Google",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000022",
+            "completion": "0.000011",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000022",
+            "input_cache_write": "0.00000275",
+            "input_cache_write_1h": "0.0000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "response_format",
+            "tool_choice",
+            "tools",
+            "verbosity",
+            "structured_outputs",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Google",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000022",
+            "completion": "0.000011",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000022",
+            "input_cache_write": "0.00000275",
+            "input_cache_write_1h": "0.0000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "response_format",
+            "tool_choice",
+            "tools",
+            "verbosity",
+            "structured_outputs",
+            "stop",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Amazon Bedrock",
+          "context": 1000000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000022",
+            "completion": "0.000011",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000022",
+            "input_cache_write": "0.00000275",
+            "input_cache_write_1h": "0.0000044",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "max_tokens",
+            "stop",
+            "tools",
+            "tool_choice",
+            "response_format",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        }
+      ]
+    },
+    "openai/gpt-5.1": {
+      "available": true,
+      "name": "OpenAI: GPT-5.1",
+      "context_length": 400000,
+      "pricing": {
+        "prompt": "0.00000125",
+        "completion": "0.00001",
+        "web_search": "0.01",
+        "input_cache_read": "0.000000125"
+      },
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "seed",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "reasoning": {
+        "mandatory": false,
+        "default_enabled": true,
+        "supported_efforts": [
+          "high",
+          "medium",
+          "low",
+          "none"
+        ],
+        "default_effort": "none"
+      },
+      "top_provider": {
+        "context_length": 400000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "endpoints": [
+        {
+          "provider": "OpenAI",
+          "context": 400000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.000000625",
+            "completion": "0.000005",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000000625",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "structured_outputs",
+            "response_format",
+            "seed",
+            "max_tokens",
+            "tools",
+            "tool_choice",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Azure",
+          "context": 400000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000125",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000013",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "structured_outputs",
+            "response_format",
+            "max_completion_tokens",
+            "tools",
+            "tool_choice",
+            "seed",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "OpenAI",
+          "context": 400000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.00000125",
+            "completion": "0.00001",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000125",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "structured_outputs",
+            "response_format",
+            "seed",
+            "max_tokens",
+            "tools",
+            "tool_choice",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "Azure",
+          "context": 400000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.000001375",
+            "completion": "0.000011",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000143",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "structured_outputs",
+            "response_format",
+            "max_completion_tokens",
+            "tools",
+            "tool_choice",
+            "seed",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        },
+        {
+          "provider": "OpenAI",
+          "context": 400000,
+          "max_completion": 128000,
+          "pricing": {
+            "prompt": "0.0000025",
+            "completion": "0.00002",
+            "web_search": "0.01",
+            "input_cache_read": "0.00000025",
+            "discount": 0
+          },
+          "supported_parameters": [
+            "reasoning",
+            "include_reasoning",
+            "structured_outputs",
+            "response_format",
+            "seed",
+            "max_tokens",
+            "tools",
+            "tool_choice",
+            "verbosity",
+            "reasoning_effort"
+          ],
+          "status": 0,
+          "quantization": "unknown"
+        }
+      ]
+    }
+  }
+}

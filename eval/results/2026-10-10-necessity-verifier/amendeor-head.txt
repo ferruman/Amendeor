@@ -1,0 +1,2 @@
+fd9e1f532f0e574317280c4bb7697f3b26e9fd4f
+working tree (uncommitted) includes: necessity verifier (src/guard/verify.ts, src/prompts/verify.ts, src/config.ts, src/guard/index.ts), capitalization rule v4, name-trap fix (src/guard/traps.ts) — the name-trap fix was made AFTER the Stage 2 runs

@@ -1,0 +1,10 @@
+fd9e1f532f0e574317280c4bb7697f3b26e9fd4f
+working-tree:  M src/edit/mechanical.ts
+working-tree:  M src/edit/pass.ts
+working-tree:  M src/guard/index.ts
+working-tree:  M src/guard/traps.ts
+working-tree:  M src/guard/voice.ts
+working-tree:  M src/rules/index.ts
+working-tree:  M src/text/dialogue.ts
+working-tree:  M src/text/segment.ts
+working-tree: ?? src/rules/mixed-quotes.ts

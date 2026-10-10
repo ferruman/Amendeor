@@ -1,0 +1,24 @@
+schema_version: 1
+language: ru
+chapters:
+  - slug: 01-kashtanka
+    title: "Глава первая. Дурное поведение"
+    eval_control: false
+  - slug: 02-kashtanka
+    title: "Глава вторая. Таинственный незнакомец"
+    eval_control: false
+  - slug: 03-kashtanka
+    title: "Глава третья. Новое, очень приятное знакомство"
+    eval_control: true
+  - slug: 04-kashtanka
+    title: "Глава четвёртая. Чудеса в решете"
+    eval_control: false
+  - slug: 05-kashtanka
+    title: "Глава пятая. Талант! Талант!"
+    eval_control: false
+  - slug: 06-kashtanka
+    title: "Глава шестая. Беспокойная ночь"
+    eval_control: false
+  - slug: 07-kashtanka
+    title: "Глава седьмая. Неудачный дебют"
+    eval_control: false

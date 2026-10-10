@@ -1,0 +1,805 @@
+{
+  "model": "openai/gpt-5.1",
+  "repeat": 1,
+  "work": "jekyll-en",
+  "mode": "copy",
+  "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+  "prompt_version": "1.6.0",
+  "elapsed_ms": 19079,
+  "stage": {
+    "name": "model",
+    "status": "ok",
+    "windows": 5,
+    "windows_by_chapter": {
+      "01-jekyll": 2,
+      "02-jekyll": 2,
+      "03-jekyll": 1
+    },
+    "sent": 5,
+    "cached": 0,
+    "no_change": 0,
+    "no_change_by_chapter": {},
+    "candidates": 9,
+    "discarded": [],
+    "failures": [],
+    "prompt_version": "1.6.0",
+    "model_id": "openai/gpt-5.1",
+    "formulaic_hits": [
+      {
+        "id": "formulaic.filler-frame",
+        "language": "en",
+        "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "start": 662,
+        "end": 683,
+        "quote": "At the end of the day",
+        "reason": "A stock frame may add no information."
+      }
+    ],
+    "formulaic_catalog_version": "0.3.0"
+  },
+  "ledger": [
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-5.1",
+      "tokens_in": 1311,
+      "tokens_out": 66,
+      "cost": 0.00229875,
+      "currency": "USD",
+      "ms": 3872,
+      "budget": 673
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-5.1",
+      "tokens_in": 1239,
+      "tokens_out": 145,
+      "cost": 0.00299875,
+      "currency": "USD",
+      "ms": 3953,
+      "budget": 509
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-5.1",
+      "tokens_in": 1117,
+      "tokens_out": 75,
+      "cost": 0.00214625,
+      "currency": "USD",
+      "ms": 4019,
+      "budget": 509
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-5.1",
+      "tokens_in": 1199,
+      "tokens_out": 167,
+      "cost": 0.00316875,
+      "currency": "USD",
+      "ms": 4154,
+      "budget": 526
+    },
+    {
+      "stage": "edit",
+      "provider": "experiment",
+      "model": "openai/gpt-5.1",
+      "tokens_in": 1119,
+      "tokens_out": 102,
+      "cost": 0.00241875,
+      "currency": "USD",
+      "ms": 3031,
+      "budget": 492
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:be3e760ef0c045c5",
+      "fingerprint": {
+        "primary": {
+          "category": "grammar",
+          "chapter": "01-jekyll",
+          "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+          "key": "sha256:bd041ddef9d784dd2f0b3b23407570299ccac30e6b88a76184714ad5353325ca"
+        },
+        "evidence": "sha256:2c6bcba2f0d82bf63fb48338ec0c4bd22cda3305eef758dbc365611da3165b1b"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+        "content_hash": "sha256:9d0331d7e44a80a02533a06a7a5ea06fe708030c414f33a49824ef1b2bcdd9d8"
+      },
+      "target": {
+        "text": "as hard as she were able",
+        "hash": "sha256:bd041ddef9d784dd2f0b3b23407570299ccac30e6b88a76184714ad5353325ca",
+        "before": " and the other a girl of maybe eight or ten who was running ",
+        "after": " down a cross street. Well, sir, the two ran into one anothe",
+        "occurrence": 0
+      },
+      "replacement": "as hard as she was able",
+      "category": "grammar",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Use of past indicative \"was\" agrees with the narrative past; \"were\" here is not a subjunctive construction.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:5facb0fcc12a7f0f",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:954293dbc1602ecf969eb030211e1bd63611d0c0d269996f8afcdb8890731189"
+        },
+        "evidence": "sha256:b49d2503950760414e6eadd0deaab793eed3b26e9bdf2c251eaa86115630beea"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "Black Mail House",
+        "hash": "sha256:954293dbc1602ecf969eb030211e1bd63611d0c0d269996f8afcdb8890731189",
+        "before": "aying through the nose for some of the capers of his youth. ",
+        "after": " is what I call the place with the door, in consequence. Tho",
+        "occurrence": 0
+      },
+      "replacement": "Blackmail House",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Standard compound noun is written as one word in this context.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:ada67dee57f30b2e",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:1ca99f89a060a98c0db7fb7a3c47c22797625eeaafe8bc2a9d14ed05b2ee99c5"
+        },
+        "evidence": "sha256:25e7f1feb7e09524922ee40bd3957de37a3ff98db0cc59b1890b3a8c0f02d456"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "From this he was recalled by Mr. At the end of the day, Utterson asking rather suddenly:",
+        "hash": "sha256:1ca99f89a060a98c0db7fb7a3c47c22797625eeaafe8bc2a9d14ed05b2ee99c5",
+        "before": "” he added, and with the words fell into a vein of musing.\n\n",
+        "after": " “And you don’t know if the drawer of the cheque lives there",
+        "occurrence": 0
+      },
+      "replacement": "From this he was recalled by Mr. Utterson asking rather suddenly:",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Removes intrusive filler phrase that breaks the sentence and introduces an unintended fragment.",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:291b4df1fb52326d",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:a1a51efc6efabed601c6fd74315165b855aebcfdb1a77bbfc9eb57f0b40b4ac2"
+        },
+        "evidence": "sha256:c5ef0b09c53a731c1a72c4640adc78318e64e24ee5e3d199e84f46d53be4e789"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "down-right",
+        "hash": "sha256:a1a51efc6efabed601c6fd74315165b855aebcfdb1a77bbfc9eb57f0b40b4ac2",
+        "before": "wrong with his appearance; something displeasing, something ",
+        "after": " detestable. I never saw a man I so disliked, and yet I scar",
+        "occurrence": 0
+      },
+      "replacement": "downright",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Standard form of the compound adjective is written as one word.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:ca8cde7333674caa",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:6415266ebd67d3d38a74757c1ae55b5c2373abff7befc825bf108acbd43d7c77"
+        },
+        "evidence": "sha256:3b303a5ed53837693067ec42232700368a3413fbb5b88ce7f08e9780b89fc42b"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "when this meal was again again over",
+        "hash": "sha256:6415266ebd67d3d38a74757c1ae55b5c2373abff7befc825bf108acbd43d7c77",
+        "before": "wn to dinner without relish. It was his custom of a Sunday, ",
+        "after": ", to sit close by the fire, a volume of some dry divinity on",
+        "occurrence": 0
+      },
+      "replacement": "when this meal was again over",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Removes inadvertent duplicated word.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:9c02fed616a5a9bb",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+        },
+        "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "obilgation",
+        "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+        "before": "’s shoes without further delay and free from any burthen or ",
+        "after": " beyond the payment of a few small sums to the members of th",
+        "occurrence": 0
+      },
+      "replacement": "obligation",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Corrects misspelling.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:807b899eafa257df",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "key": "sha256:b5c2b34a01295d74f40f5f3e48e963a8636c083fc5dd64a05e1b8fdd223bcd4f"
+        },
+        "evidence": "sha256:fc800871ad0a802ddd7e259e3e843de94b96969d80f911b678e6872cacaf6e3b"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+      },
+      "target": {
+        "text": "But tonight there was a shudder in his blood; the face of Hide sat heavy on his memory; he felt (what was rare with him) a nausea and distaste of life;",
+        "hash": "sha256:b5c2b34a01295d74f40f5f3e48e963a8636c083fc5dd64a05e1b8fdd223bcd4f",
+        "before": " was wont to speak of it as the pleasantest room in London. ",
+        "after": " and in the gloom of his spirits, he seemed to read a menace",
+        "occurrence": 0
+      },
+      "replacement": "But tonight there was a shudder in his blood; the face of Hyde sat heavy on his memory; he felt (what was rare with him) a nausea and distaste of life;",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Corrects a clear misspelling of the established character name Mr. Hyde.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:4a3773f7c0078553",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "key": "sha256:30a80a29ecb9dd08b52d86ef2e8443f4f1e7332c6fdee5046c4a40251482998e"
+        },
+        "evidence": "sha256:2c77d9efc84238863040d02cd73f5357a7e888c732fb077eae8c27e76f80119e"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+      },
+      "target": {
+        "text": "“Well, good-night, Poole Poole.”",
+        "hash": "sha256:30a80a29ecb9dd08b52d86ef2e8443f4f1e7332c6fdee5046c4a40251482998e",
+        "before": "of the house; he mostly comes and goes by the laboratory.”\n\n",
+        "after": "\n\n“Good-night, Mr. Utterson.”\n\n",
+        "occurrence": 0
+      },
+      "replacement": "“Well, good-night, Poole.”",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Removes inadvertent duplicated name while preserving dialogue tone.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:470dfbbf94ce2492",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "03-jekyll",
+          "scene": "bdd00fbc-5c8f-4612-8e04-3268af4f0486",
+          "key": "sha256:7cb4b655b2328c80720bdfc1fcf4b8a217a876a0fbc96895735bc72e69f99651"
+        },
+        "evidence": "sha256:baf37d5bd1845cd77afcd1e43670c6bdb361625b13483ee8a8c524d1a9aae77b"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "03-jekyll",
+        "scene": "bdd00fbc-5c8f-4612-8e04-3268af4f0486",
+        "content_hash": "sha256:4b917f25e7703e3c26b15b981c156dd6768ec168a9c8f9a3ec79fa64911b354b"
+      },
+      "target": {
+        "text": "O, I know he’s a good fellow—you needn’t frown—an excellent fellow, and I always mean to see more of him;",
+        "hash": "sha256:7cb4b655b2328c80720bdfc1fcf4b8a217a876a0fbc96895735bc72e69f99651",
+        "before": "d pedant, Lanyon, at what he called my scientific heresies. ",
+        "after": " but a hide-bound pedant for all that; an ignorant, blatant ",
+        "occurrence": 0
+      },
+      "replacement": "Oh, I know he’s a good fellow—you needn’t frown—an excellent fellow, and I always mean to see more of him;",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Standardise interjection to conventional spelling in formal narrative prose.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "safe_proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:ada67dee57f30b2e",
+      "fingerprint": {
+        "primary": {
+          "category": "prose-pattern",
+          "chapter": "01-jekyll",
+          "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "key": "sha256:1ca99f89a060a98c0db7fb7a3c47c22797625eeaafe8bc2a9d14ed05b2ee99c5"
+        },
+        "evidence": "sha256:25e7f1feb7e09524922ee40bd3957de37a3ff98db0cc59b1890b3a8c0f02d456"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-jekyll",
+        "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+      },
+      "target": {
+        "text": "From this he was recalled by Mr. At the end of the day, Utterson asking rather suddenly:",
+        "hash": "sha256:1ca99f89a060a98c0db7fb7a3c47c22797625eeaafe8bc2a9d14ed05b2ee99c5",
+        "before": "” he added, and with the words fell into a vein of musing.\n\n",
+        "after": " “And you don’t know if the drawer of the cheque lives there",
+        "occurrence": 0
+      },
+      "replacement": "From this he was recalled by Mr. Utterson asking rather suddenly:",
+      "category": "prose-pattern",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Removes intrusive filler phrase that breaks the sentence and introduces an unintended fragment.",
+      "source_findings": [
+        "formulaic.filler-frame"
+      ],
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:ca8cde7333674caa",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:6415266ebd67d3d38a74757c1ae55b5c2373abff7befc825bf108acbd43d7c77"
+        },
+        "evidence": "sha256:3b303a5ed53837693067ec42232700368a3413fbb5b88ce7f08e9780b89fc42b"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "when this meal was again again over",
+        "hash": "sha256:6415266ebd67d3d38a74757c1ae55b5c2373abff7befc825bf108acbd43d7c77",
+        "before": "wn to dinner without relish. It was his custom of a Sunday, ",
+        "after": ", to sit close by the fire, a volume of some dry divinity on",
+        "occurrence": 0
+      },
+      "replacement": "when this meal was again over",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Removes inadvertent duplicated word.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:9c02fed616a5a9bb",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "02-jekyll",
+          "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+        },
+        "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+      },
+      "run_id": "openai-gpt-5.1-jekyll-en-1",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "02-jekyll",
+        "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+      },
+      "target": {
+        "text": "obilgation",
+        "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+        "before": "’s shoes without further delay and free from any burthen or ",
+        "after": " beyond the payment of a few small sums to the members of th",
+        "occurrence": 0
+      },
+      "replacement": "obligation",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Corrects misspelling.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true
+    }
+  ],
+  "rejected": [
+    {
+      "id": "amendeor:be3e760ef0c045c5",
+      "reason": "dialogue-content-change"
+    },
+    {
+      "id": "amendeor:5facb0fcc12a7f0f",
+      "reason": "proper-name-change"
+    },
+    {
+      "id": "amendeor:291b4df1fb52326d",
+      "reason": "punctuation-style-only"
+    },
+    {
+      "id": "amendeor:807b899eafa257df",
+      "reason": "proper-name-change"
+    },
+    {
+      "id": "amendeor:4a3773f7c0078553",
+      "reason": "dialogue-content-change"
+    },
+    {
+      "id": "amendeor:470dfbbf94ce2492",
+      "reason": "proper-name-change"
+    }
+  ],
+  "raw_score": {
+    "recall": {
+      "agreement": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "punctuation": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "doubled-word": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      }
+    },
+    "unnecessary": {
+      "count": 3,
+      "scanned_words": 3516,
+      "rate": 0.0008532423208191126,
+      "control_proposals": 1,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "jekyll-en:agreement:0:01-jekyll:e0895f55-ded4-4e7f-8ddf-e19126f66f8f",
+        "proposal_id": "amendeor:be3e760ef0c045c5"
+      },
+      {
+        "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "proposal_id": "amendeor:ada67dee57f30b2e"
+      },
+      {
+        "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:ca8cde7333674caa"
+      },
+      {
+        "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:9c02fed616a5a9bb"
+      },
+      {
+        "mutation_id": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "proposal_id": "amendeor:807b899eafa257df"
+      },
+      {
+        "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+        "proposal_id": "amendeor:4a3773f7c0078553"
+      }
+    ]
+  },
+  "safe_score": {
+    "recall": {
+      "agreement": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "formulaic.filler-frame": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "dialogue-format": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "redundancy": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "punctuation": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "typo": {
+        "recalled": 1,
+        "total": 1,
+        "rate": 1
+      },
+      "terminology": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      },
+      "doubled-word": {
+        "recalled": 0,
+        "total": 1,
+        "rate": 0
+      }
+    },
+    "unnecessary": {
+      "count": 0,
+      "scanned_words": 3516,
+      "rate": 0,
+      "control_proposals": 0,
+      "preserve_proposals": 0
+    },
+    "guard_recall": "n/a",
+    "semantic_regression": "n/a",
+    "precision": "n/a",
+    "precision_by_pattern": {
+      "formulaic.filler-frame": "n/a"
+    },
+    "matched": [
+      {
+        "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+        "proposal_id": "amendeor:ada67dee57f30b2e"
+      },
+      {
+        "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:ca8cde7333674caa"
+      },
+      {
+        "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+        "proposal_id": "amendeor:9c02fed616a5a9bb"
+      }
+    ]
+  }
+}

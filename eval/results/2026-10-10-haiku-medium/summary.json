@@ -1,0 +1,253 @@
+{
+  "scope": "editor + deterministic guards; no model verifier",
+  "rows": [
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "work": "jekyll-en",
+      "repeat": 0,
+      "total": 8,
+      "detected": 5,
+      "exact": 4,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 5,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:dialogue-format:1:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "dialogue-format",
+          "proposal": "amendeor:631297868f90049b"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:f5098758961a4f4a"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ada67dee57f30b2e"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "work": "jekyll-en",
+      "repeat": 1,
+      "total": 8,
+      "detected": 6,
+      "exact": 5,
+      "exact_safe": 2,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 6,
+      "safe": 3,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ff46f536206ae63d"
+        },
+        {
+          "mutation": "jekyll-en:dialogue-format:1:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "dialogue-format",
+          "proposal": "amendeor:f47f8b759be62808"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        },
+        {
+          "mutation": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "terminology",
+          "proposal": "amendeor:cd0b7022fcc48b98"
+        },
+        {
+          "mutation": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+          "type": "doubled-word",
+          "proposal": "amendeor:f5098758961a4f4a"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+          "type": "formulaic",
+          "proposal": "amendeor:ff46f536206ae63d"
+        },
+        {
+          "mutation": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+          "type": "typo",
+          "proposal": "amendeor:9c02fed616a5a9bb"
+        }
+      ]
+    },
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "work": "kashtanka-ru",
+      "repeat": 0,
+      "total": 6,
+      "detected": 5,
+      "exact": 3,
+      "exact_safe": 3,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 5,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:68681d7d30133ebd"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ]
+    },
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "work": "kashtanka-ru",
+      "repeat": 1,
+      "total": 6,
+      "detected": 5,
+      "exact": 3,
+      "exact_safe": 3,
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "proposals": 5,
+      "safe": 4,
+      "failures": 0,
+      "windows": 5,
+      "exact_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:a88bd667fee39260"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ],
+      "safe_matches": [
+        {
+          "mutation": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+          "type": "formulaic",
+          "proposal": "amendeor:a88bd667fee39260"
+        },
+        {
+          "mutation": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+          "type": "typo",
+          "proposal": "amendeor:3230eb318001d61f"
+        },
+        {
+          "mutation": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+          "type": "agreement",
+          "proposal": "amendeor:4d45bcf35f330e0c"
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "ru": [
+        {
+          "exact": 3,
+          "detected": 5,
+          "total": 6,
+          "safe": 3
+        },
+        {
+          "exact": 3,
+          "detected": 5,
+          "total": 6,
+          "safe": 3
+        }
+      ],
+      "en": [
+        {
+          "exact": 4,
+          "detected": 5,
+          "total": 8,
+          "safe": 2
+        },
+        {
+          "exact": 5,
+          "detected": 6,
+          "total": 8,
+          "safe": 2
+        }
+      ],
+      "control": 0,
+      "protected": 0,
+      "unlabelled": 0,
+      "failed_windows": 0,
+      "windows": 20,
+      "requests": 26,
+      "cost_usd": 0.0148227,
+      "median_request_ms": 11808,
+      "truncated_attempts": 6,
+      "reasoning_tokens": 16890
+    }
+  ]
+}

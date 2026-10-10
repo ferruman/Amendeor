@@ -1,0 +1,131 @@
+{
+  "provenance": "Held-out clean fixture: no injected errors, so every edit to it changes the author's text. Each edit seen in the final output or rejected by the verifier is labelled against the source; none corrects an error.",
+  "judgements": [
+    {
+      "target": "The fifth night he had in Guest to dine with him;",
+      "replacement": "The fifth night he had Guest to dine with him;",
+      "label": "invalid",
+      "note": "«have in» (invite in) is Stevenson's idiom; removing «in» rewrites the author"
+    },
+    {
+      "target": "The fifth night he had in Guest to dine with him;",
+      "replacement": "The fifth he had in Guest to dine with him;",
+      "label": "invalid",
+      "note": "deletes a word"
+    },
+    {
+      "target": "золоченный орех",
+      "replacement": "золочёный орех",
+      "label": "invalid",
+      "note": "period spelling in Chekhov's text"
+    },
+    {
+      "target": "И видал которые лавки",
+      "replacement": "И видал я лавки",
+      "label": "invalid",
+      "note": "Ванька's dialect"
+    },
+    {
+      "target": "очень стоющие",
+      "replacement": "очень стоящие",
+      "label": "invalid",
+      "note": "period/colloquial form"
+    },
+    {
+      "target": "сказали ему, что письма опускаются в почтовые ящики, а из ящиков развозятся по всей земле",
+      "replacement": "сказали ему, что письма опускаются в почтовые ящики, а из ящиков письма развозятся по всей земле",
+      "label": "invalid",
+      "note": "inserts a word"
+    },
+    {
+      "target": "поморщилось, глаза подкатились, дыхание остановилось… он отвел",
+      "replacement": "поморщилось, глаза подкатились, дыхание остановилось… Он отвел",
+      "label": "invalid",
+      "note": "ellipsis inside a sentence; lowercase is authorial"
+    },
+    {
+      "target": "статского генерала Бризжалова, служащего по ведомству путей сообщения",
+      "replacement": "статского генерала Бризжалова, служившего по ведомству путей сообщения",
+      "label": "invalid",
+      "note": "changes the participle's tense"
+    },
+    {
+      "target": "The fifth night he had in Guest to dine with him;",
+      "replacement": "The fifth night he had Guest in to dine with him;",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "“PRIVATE: for the hands of G. J. Utterson ALONE, and in case of his predecease _to be destroyed unread_,” so it was emphatically superscribed;",
+      "replacement": "“PRIVATE: for the hands of G. J. Utterson ALONE, and in case of his predecease _to be destroyed unread_,” it was emphatically superscribed;",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "a cheerful and an honoured age",
+      "replacement": "a cheerful and honoured age",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "мужичонко в пестрядинной рубахе",
+      "replacement": "мужичонка в пестрядинной рубахе",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "а если что, то секи меня",
+      "replacement": "а если что, так секи меня",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "кажное",
+      "replacement": "каждое",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "мужичонко",
+      "replacement": "мужичонка",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "Не без ума делаем… понимаем…",
+      "replacement": "Не без ума делаем… Понимаем…",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "умокнул перо",
+      "replacement": "умокнул перо в чернила",
+      "label": "harmful",
+      "note": "adds content not in the text"
+    },
+    {
+      "target": "to grow more at quiet with himself",
+      "replacement": "to grow more at peace with himself",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "умокнул перо",
+      "replacement": "макнул перо",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "Бризжалов «чужой»",
+      "replacement": "Бризжалова «чужой»",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "невежестве",
+      "replacement": "невежливости",
+      "label": "harmful",
+      "note": "changes the meaning (ignorance → impoliteness)"
+    }
+  ]
+}

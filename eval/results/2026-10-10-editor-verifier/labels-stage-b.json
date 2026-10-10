@@ -1,0 +1,47 @@
+{
+  "provenance": "Stage B edits outside every injected mutation, labelled by the benchmark author against the source text (the author's original wording is the reference). Reviewed in eval/results/2026-10-10-editor-verifier/metrics.json → unlabelled_final_edits.",
+  "judgements": [
+    {
+      "target": "возможно удобнее",
+      "replacement": "возможно удобней",
+      "label": "invalid",
+      "note": "«удобнее» is the normative comparative; «удобней» is a colloquial variant. The editor's stated rule is wrong; the edit is unnecessary."
+    },
+    {
+      "target": "Из спальни вела куда-то ещё одна дверь, тоже затворённая.",
+      "replacement": "Из спальни вела ещё куда-то одна дверь, тоже затворённая.",
+      "label": "invalid",
+      "note": "word-order change of Chekhov's sentence; not a correction"
+    },
+    {
+      "target": "погорячился и вступил в драку",
+      "replacement": "погорячился, вступил в драку",
+      "label": "invalid",
+      "note": "removes the author's conjunction; the stated comma rule does not apply"
+    },
+    {
+      "target": "за шкап:",
+      "replacement": "за шкаф:",
+      "label": "invalid",
+      "note": "historical spelling modernized (Chekhov writes «шкап»)"
+    },
+    {
+      "target": "Опачкавши лицо и шею, он стал облачаться",
+      "replacement": "Опачкавши лицо и шею, он начал облачаться",
+      "label": "invalid",
+      "note": "stylistic synonym swap, no error"
+    },
+    {
+      "target": "в страхе попятилась назад",
+      "replacement": "в страхе попятилась",
+      "label": "invalid",
+      "note": "authorial pleonasm removed; not an objective error"
+    },
+    {
+      "target": "и с двумя вихрами, похожими на рога, потом густо намазал лицо чем-то белым и сверх белой краски нарисовал ещё брови, усы и румяны.",
+      "replacement": "и с двумя вихрами, похожими на рога, потом густо намазал лицо чем-то белым и сверх белой краски нарисовал ещё брови, усы и румяна.",
+      "label": "invalid",
+      "note": "period form modernized"
+    }
+  ]
+}

@@ -1,0 +1,2647 @@
+{
+  "generated_at": "2026-10-10T09:28:23.183Z",
+  "cap_usd": 2.9039885197,
+  "actual_cost_usd": 0.0148227,
+  "calls": 26,
+  "results": [
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "reasoning_effort": "medium",
+      "repeat": 0,
+      "work": "kashtanka-ru",
+      "mode": "copy",
+      "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+      "prompt_version": "1.6.0",
+      "elapsed_ms": 66381,
+      "stage": {
+        "name": "model",
+        "status": "ok",
+        "windows": 5,
+        "windows_by_chapter": {
+          "01-kashtanka": 1,
+          "02-kashtanka": 1,
+          "03-kashtanka": 1,
+          "06-kashtanka": 1,
+          "07-kashtanka": 1
+        },
+        "sent": 5,
+        "cached": 0,
+        "no_change": 1,
+        "no_change_by_chapter": {
+          "03-kashtanka": 1
+        },
+        "candidates": 5,
+        "discarded": [],
+        "failures": [],
+        "prompt_version": "1.6.0",
+        "model_id": "anthropic/claude-haiku-5.5",
+        "formulaic_hits": [
+          {
+            "id": "formulaic.filler-frame",
+            "language": "ru",
+            "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "start": 1494,
+            "end": 1512,
+            "quote": "В современном мире",
+            "reason": "Шаблонная рамка может не добавлять информации."
+          }
+        ],
+        "formulaic_catalog_version": "0.3.0"
+      },
+      "ledger": [
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 2533,
+          "tokens_out": 662,
+          "cost": 0.0005842999999999999,
+          "currency": "USD",
+          "ms": 6039,
+          "budget": 976
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 2376,
+          "tokens_out": 446,
+          "cost": 0.00046060000000000003,
+          "currency": "USD",
+          "ms": 10009,
+          "budget": 1037
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 2142,
+          "tokens_out": 786,
+          "cost": 0.0006072,
+          "currency": "USD",
+          "ms": 12799,
+          "budget": 921
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 13298,
+          "budget": 789,
+          "error": "truncated: OpenAI-compatible output truncated at budget 789; finish_reason=length; content=null"
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1954,
+          "tokens_out": 1019,
+          "cost": 0.0007049,
+          "currency": "USD",
+          "ms": 13825,
+          "budget": 789
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 2308,
+          "tokens_out": 845,
+          "cost": 0.0006533,
+          "currency": "USD",
+          "ms": 10187,
+          "budget": 1058
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:68681d7d30133ebd",
+          "fingerprint": {
+            "primary": {
+              "category": "prose-pattern",
+              "chapter": "01-kashtanka",
+              "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "key": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b"
+            },
+            "evidence": "sha256:55a4aaf3921537b1e3ef036eff4004a97fed21bf7479d42cd3181760595e3cdf"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "content_hash": "sha256:3b28206073cc3f6c14e2a01e3c090ebef7965e04d078d50a6d4161b84bdfc91e"
+          },
+          "target": {
+            "text": "В современном мире Одним словом,",
+            "hash": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b",
+            "before": "чику, от переплётчика в трактир, из трактира к куму и т. д. ",
+            "after": " когда Каштанка попала на незнакомый тротуар, то уже вечерел",
+            "occurrence": 0
+          },
+          "replacement": "Одним словом,",
+          "category": "prose-pattern",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Вставка «В современном мире» – шаблонная рамка, не относящаяся к тексту и не несущая информации; после её удаления фраза «Одним словом» звучит естественно и сохраняет смысл фрагмента.",
+          "source_findings": [
+            "formulaic.filler-frame"
+          ],
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:3230eb318001d61f",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-kashtanka",
+              "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+              "key": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06"
+            },
+            "evidence": "sha256:74f27c59371b4b8cf735fb18e4781d2f64bbb69577c03983bce5a94c1bd8364f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-kashtanka",
+            "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+            "content_hash": "sha256:2c7369e210740d6e6bf2d6849e4ede2712bfb19d11a65927233ad8c19c8257d8"
+          },
+          "target": {
+            "text": "глдяела",
+            "hash": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06",
+            "before": "мнате и, склонив голову набок, с умилением и с любопытством ",
+            "after": " на незнакомца, который сидел за столом и обедал. Он ел и бр",
+            "occurrence": 0
+          },
+          "replacement": "глядела",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Опечатка: перестановка букв в глаголе «глядела».",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:4d45bcf35f330e0c",
+          "fingerprint": {
+            "primary": {
+              "category": "grammar",
+              "chapter": "06-kashtanka",
+              "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+              "key": "sha256:8fb8056ce0354dd79c14f165b98e69c3a72883d51f39b281030bf7f2911f7e62"
+            },
+            "evidence": "sha256:121c03d02a2f21aefa0361608def0591ec0785e468b69a06ac91d51dc87b633f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "content_hash": "sha256:e84c81dc58b8109a75a426c148cecdd1f850ef558650130f28e41fbc5cb51936"
+          },
+          "target": {
+            "text": "и она пошёл за ним",
+            "hash": "sha256:8fb8056ce0354dd79c14f165b98e69c3a72883d51f39b281030bf7f2911f7e62",
+            "before": "я к себе в спальню. Тётке жутко было оставаться в потёмках, ",
+            "after": ". Он сел на кровать и несколько раз повторил:\n\n— Боже мой, ч",
+            "occurrence": 0
+          },
+          "replacement": "и она пошла за ним",
+          "category": "grammar",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Согласование глагола с подлежащим: «Тётка» (она) требует женского рода, «пошла».",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:60b05f6b306b2a23",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:0a94f27ca614959d9431e4524743488a7f3fd476957e3c8159c58699a4a6ff02"
+            },
+            "evidence": "sha256:9bcc0363500457b588533a6ac0106f9fcc283050091e65bdc754abb9a89a0afc"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:74200ad2bd132caedb73b1914ec4650445dc298e319d8e52b6a3a7fa07ec7adb"
+          },
+          "target": {
+            "text": "но не сказал снова снова и вышел",
+            "hash": "sha256:0a94f27ca614959d9431e4524743488a7f3fd476957e3c8159c58699a4a6ff02",
+            "before": "отирая руки, сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, ",
+            "after": ". Тётка, отлично изучившая во время уроков его лицо и интона",
+            "occurrence": 0
+          },
+          "replacement": "но не сказал снова и вышел",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Опечатка: слово «снова» повторено дважды подряд без стилистического основания.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ec1913395613c62b",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:030098749cc481852dc5f1092e3a8c35ad64b82897492e0c270b03133270f42b"
+            },
+            "evidence": "sha256:6bc4bfdfee96c8c740730899659d3ec624544038b1a11d2485e12ab58579be68"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:74200ad2bd132caedb73b1914ec4650445dc298e319d8e52b6a3a7fa07ec7adb"
+          },
+          "target": {
+            "text": "- Тётка, пойдём, — сказал хозяин.",
+            "hash": "sha256:030098749cc481852dc5f1092e3a8c35ad64b82897492e0c270b03133270f42b",
+            "before": " ли на матрасике, или покоиться на груди хозяина под шубой…\n",
+            "after": "\n\nНичего не понимая и виляя хвостом, Тётка пошла за ним. Чер",
+            "occurrence": 0
+          },
+          "replacement": "— Тётка, пойдём, — сказал хозяин.",
+          "category": "typography",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "В начале реплики стоит дефис вместо тире; в остальных репликах текста используется тире (—).",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        }
+      ],
+      "safe_proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:68681d7d30133ebd",
+          "fingerprint": {
+            "primary": {
+              "category": "prose-pattern",
+              "chapter": "01-kashtanka",
+              "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "key": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b"
+            },
+            "evidence": "sha256:55a4aaf3921537b1e3ef036eff4004a97fed21bf7479d42cd3181760595e3cdf"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "content_hash": "sha256:3b28206073cc3f6c14e2a01e3c090ebef7965e04d078d50a6d4161b84bdfc91e"
+          },
+          "target": {
+            "text": "В современном мире Одним словом,",
+            "hash": "sha256:c3ad2f6fcb8c968e5283a92d6104dd1d59ce1d1a944e237de052c4e7face312b",
+            "before": "чику, от переплётчика в трактир, из трактира к куму и т. д. ",
+            "after": " когда Каштанка попала на незнакомый тротуар, то уже вечерел",
+            "occurrence": 0
+          },
+          "replacement": "Одним словом,",
+          "category": "prose-pattern",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Вставка «В современном мире» – шаблонная рамка, не относящаяся к тексту и не несущая информации; после её удаления фраза «Одним словом» звучит естественно и сохраняет смысл фрагмента.",
+          "source_findings": [
+            "formulaic.filler-frame"
+          ],
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:3230eb318001d61f",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-kashtanka",
+              "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+              "key": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06"
+            },
+            "evidence": "sha256:74f27c59371b4b8cf735fb18e4781d2f64bbb69577c03983bce5a94c1bd8364f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-kashtanka",
+            "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+            "content_hash": "sha256:2c7369e210740d6e6bf2d6849e4ede2712bfb19d11a65927233ad8c19c8257d8"
+          },
+          "target": {
+            "text": "глдяела",
+            "hash": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06",
+            "before": "мнате и, склонив голову набок, с умилением и с любопытством ",
+            "after": " на незнакомца, который сидел за столом и обедал. Он ел и бр",
+            "occurrence": 0
+          },
+          "replacement": "глядела",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Опечатка: перестановка букв в глаголе «глядела».",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:4d45bcf35f330e0c",
+          "fingerprint": {
+            "primary": {
+              "category": "grammar",
+              "chapter": "06-kashtanka",
+              "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+              "key": "sha256:8fb8056ce0354dd79c14f165b98e69c3a72883d51f39b281030bf7f2911f7e62"
+            },
+            "evidence": "sha256:121c03d02a2f21aefa0361608def0591ec0785e468b69a06ac91d51dc87b633f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "content_hash": "sha256:e84c81dc58b8109a75a426c148cecdd1f850ef558650130f28e41fbc5cb51936"
+          },
+          "target": {
+            "text": "и она пошёл за ним",
+            "hash": "sha256:8fb8056ce0354dd79c14f165b98e69c3a72883d51f39b281030bf7f2911f7e62",
+            "before": "я к себе в спальню. Тётке жутко было оставаться в потёмках, ",
+            "after": ". Он сел на кровать и несколько раз повторил:\n\n— Боже мой, ч",
+            "occurrence": 0
+          },
+          "replacement": "и она пошла за ним",
+          "category": "grammar",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Согласование глагола с подлежащим: «Тётка» (она) требует женского рода, «пошла».",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:60b05f6b306b2a23",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:0a94f27ca614959d9431e4524743488a7f3fd476957e3c8159c58699a4a6ff02"
+            },
+            "evidence": "sha256:9bcc0363500457b588533a6ac0106f9fcc283050091e65bdc754abb9a89a0afc"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:74200ad2bd132caedb73b1914ec4650445dc298e319d8e52b6a3a7fa07ec7adb"
+          },
+          "target": {
+            "text": "но не сказал снова снова и вышел",
+            "hash": "sha256:0a94f27ca614959d9431e4524743488a7f3fd476957e3c8159c58699a4a6ff02",
+            "before": "отирая руки, сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, ",
+            "after": ". Тётка, отлично изучившая во время уроков его лицо и интона",
+            "occurrence": 0
+          },
+          "replacement": "но не сказал снова и вышел",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Опечатка: слово «снова» повторено дважды подряд без стилистического основания.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        }
+      ],
+      "rejected": [
+        {
+          "id": "amendeor:ec1913395613c62b",
+          "reason": "punctuation-style-only"
+        }
+      ],
+      "raw_score": {
+        "recall": {
+          "formulaic.filler-frame": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "terminology": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "typo": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "agreement": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "redundancy": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "dialogue-format": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          }
+        },
+        "unnecessary": {
+          "count": 0,
+          "scanned_words": 2963,
+          "rate": 0,
+          "control_proposals": 0,
+          "preserve_proposals": 0
+        },
+        "guard_recall": "n/a",
+        "semantic_regression": "n/a",
+        "precision": "n/a",
+        "precision_by_pattern": {
+          "formulaic.filler-frame": "n/a"
+        },
+        "matched": [
+          {
+            "mutation_id": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "proposal_id": "amendeor:68681d7d30133ebd"
+          },
+          {
+            "mutation_id": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+            "proposal_id": "amendeor:3230eb318001d61f"
+          },
+          {
+            "mutation_id": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "proposal_id": "amendeor:4d45bcf35f330e0c"
+          },
+          {
+            "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "proposal_id": "amendeor:60b05f6b306b2a23"
+          },
+          {
+            "mutation_id": "kashtanka-ru:dialogue-format:1:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "proposal_id": "amendeor:ec1913395613c62b"
+          }
+        ]
+      },
+      "safe_score": {
+        "recall": {
+          "formulaic.filler-frame": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "terminology": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "typo": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "agreement": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "redundancy": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "dialogue-format": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          }
+        },
+        "unnecessary": {
+          "count": 0,
+          "scanned_words": 2963,
+          "rate": 0,
+          "control_proposals": 0,
+          "preserve_proposals": 0
+        },
+        "guard_recall": "n/a",
+        "semantic_regression": "n/a",
+        "precision": "n/a",
+        "precision_by_pattern": {
+          "formulaic.filler-frame": "n/a"
+        },
+        "matched": [
+          {
+            "mutation_id": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "proposal_id": "amendeor:68681d7d30133ebd"
+          },
+          {
+            "mutation_id": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+            "proposal_id": "amendeor:3230eb318001d61f"
+          },
+          {
+            "mutation_id": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "proposal_id": "amendeor:4d45bcf35f330e0c"
+          },
+          {
+            "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "proposal_id": "amendeor:60b05f6b306b2a23"
+          }
+        ]
+      }
+    },
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "reasoning_effort": "medium",
+      "repeat": 0,
+      "work": "jekyll-en",
+      "mode": "copy",
+      "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+      "prompt_version": "1.6.0",
+      "elapsed_ms": 78909,
+      "stage": {
+        "name": "model",
+        "status": "ok",
+        "windows": 5,
+        "windows_by_chapter": {
+          "01-jekyll": 2,
+          "02-jekyll": 2,
+          "03-jekyll": 1
+        },
+        "sent": 5,
+        "cached": 0,
+        "no_change": 2,
+        "no_change_by_chapter": {
+          "01-jekyll": 1,
+          "03-jekyll": 1
+        },
+        "candidates": 5,
+        "discarded": [],
+        "failures": [],
+        "prompt_version": "1.6.0",
+        "model_id": "anthropic/claude-haiku-5.5",
+        "formulaic_hits": [
+          {
+            "id": "formulaic.filler-frame",
+            "language": "en",
+            "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+            "chapter": "01-jekyll",
+            "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "start": 662,
+            "end": 683,
+            "quote": "At the end of the day",
+            "reason": "A stock frame may add no information."
+          }
+        ],
+        "formulaic_catalog_version": "0.3.0"
+      },
+      "ledger": [
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1909,
+          "tokens_out": 574,
+          "cost": 0.00047789999999999996,
+          "currency": "USD",
+          "ms": 11811,
+          "budget": 673
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 10960,
+          "budget": 741,
+          "error": "truncated: OpenAI-compatible output truncated at budget 741; finish_reason=length; content=string"
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1882,
+          "tokens_out": 806,
+          "cost": 0.0005912000000000001,
+          "currency": "USD",
+          "ms": 11789,
+          "budget": 741
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 14502,
+          "budget": 773,
+          "error": "truncated: OpenAI-compatible output truncated at budget 773; finish_reason=length; content=string"
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1747,
+          "tokens_out": 528,
+          "cost": 0.0004387,
+          "currency": "USD",
+          "ms": 11329,
+          "budget": 773
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1877,
+          "tokens_out": 369,
+          "cost": 0.0003722,
+          "currency": "USD",
+          "ms": 9808,
+          "budget": 822
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1725,
+          "tokens_out": 508,
+          "cost": 0.0004265,
+          "currency": "USD",
+          "ms": 8443,
+          "budget": 770
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ada67dee57f30b2e",
+          "fingerprint": {
+            "primary": {
+              "category": "prose-pattern",
+              "chapter": "01-jekyll",
+              "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+              "key": "sha256:1ca99f89a060a98c0db7fb7a3c47c22797625eeaafe8bc2a9d14ed05b2ee99c5"
+            },
+            "evidence": "sha256:25e7f1feb7e09524922ee40bd3957de37a3ff98db0cc59b1890b3a8c0f02d456"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+          },
+          "target": {
+            "text": "From this he was recalled by Mr. At the end of the day, Utterson asking rather suddenly:",
+            "hash": "sha256:1ca99f89a060a98c0db7fb7a3c47c22797625eeaafe8bc2a9d14ed05b2ee99c5",
+            "before": "” he added, and with the words fell into a vein of musing.\n\n",
+            "after": " “And you don’t know if the drawer of the cheque lives there",
+            "occurrence": 0
+          },
+          "replacement": "From this he was recalled by Mr. Utterson asking rather suddenly:",
+          "category": "prose-pattern",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "The inserted filler frame \"At the end of the day,\" splits the name from its participial phrase and leaves the sentence garbled; removing it restores the intended sentence and adds no information.",
+          "source_findings": [
+            "formulaic.filler-frame"
+          ],
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:631297868f90049b",
+          "fingerprint": {
+            "primary": {
+              "category": "dialogue-mechanics",
+              "chapter": "01-jekyll",
+              "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+              "key": "sha256:a4402cda68f7d270d9aadab07ac3a1241ac4947edfe4d1aeaaa6323a27e98e9b"
+            },
+            "evidence": "sha256:1d5e2b81a7cf9af597ffc14b26847f4de55a0ec5f05c6ac3544a1fa4a960b7b5"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+          },
+          "target": {
+            "text": "\"You are sure he used a key?”",
+            "hash": "sha256:a4402cda68f7d270d9aadab07ac3a1241ac4947edfe4d1aeaaa6323a27e98e9b",
+            "before": "y in silence and obviously under a weight of consideration. ",
+            "after": " he inquired at last.\n\n“My dear sir...” began Enfield, surpr",
+            "occurrence": 0
+          },
+          "replacement": "“You are sure he used a key?”",
+          "category": "dialogue-mechanics",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "The opening quotation mark is straight while the closing one is curly; the opening should match the curly closing style used elsewhere in the passage.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ca8cde7333674caa",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+              "key": "sha256:6415266ebd67d3d38a74757c1ae55b5c2373abff7befc825bf108acbd43d7c77"
+            },
+            "evidence": "sha256:3b303a5ed53837693067ec42232700368a3413fbb5b88ce7f08e9780b89fc42b"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+          },
+          "target": {
+            "text": "when this meal was again again over",
+            "hash": "sha256:6415266ebd67d3d38a74757c1ae55b5c2373abff7befc825bf108acbd43d7c77",
+            "before": "wn to dinner without relish. It was his custom of a Sunday, ",
+            "after": ", to sit close by the fire, a volume of some dry divinity on",
+            "occurrence": 0
+          },
+          "replacement": "when this meal was again over",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Accidental duplication of 'again'; removing one copy fixes the stutter without changing the sentence's meaning.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:9c02fed616a5a9bb",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-jekyll",
+              "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+              "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+            },
+            "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+          },
+          "target": {
+            "text": "obilgation",
+            "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+            "before": "’s shoes without further delay and free from any burthen or ",
+            "after": " beyond the payment of a few small sums to the members of th",
+            "occurrence": 0
+          },
+          "replacement": "obligation",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Misspelling of 'obligation'.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:f5098758961a4f4a",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+              "key": "sha256:f8fa59e10c24f2a57d7cd1d2790560f9718230cffc73cb3f99b4df0a514f7b5b"
+            },
+            "evidence": "sha256:309dc67b9df526ebaec14562d8d2fe947e638347acfd0e152ca2a35ddf63a43f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+          },
+          "target": {
+            "text": "Well, good-night, Poole Poole.",
+            "hash": "sha256:f8fa59e10c24f2a57d7cd1d2790560f9718230cffc73cb3f99b4df0a514f7b5b",
+            "before": "f the house; he mostly comes and goes by the laboratory.”\n\n“",
+            "after": "”\n\n“Good-night, Mr. Utterson.”\n\n",
+            "occurrence": 0
+          },
+          "replacement": "Well, good-night, Poole.",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "The name 'Poole' is doubled by accident. The closing line should read as a single address, matching the reply 'Good-night, Mr. Utterson.'",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        }
+      ],
+      "safe_proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ada67dee57f30b2e",
+          "fingerprint": {
+            "primary": {
+              "category": "prose-pattern",
+              "chapter": "01-jekyll",
+              "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+              "key": "sha256:1ca99f89a060a98c0db7fb7a3c47c22797625eeaafe8bc2a9d14ed05b2ee99c5"
+            },
+            "evidence": "sha256:25e7f1feb7e09524922ee40bd3957de37a3ff98db0cc59b1890b3a8c0f02d456"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+          },
+          "target": {
+            "text": "From this he was recalled by Mr. At the end of the day, Utterson asking rather suddenly:",
+            "hash": "sha256:1ca99f89a060a98c0db7fb7a3c47c22797625eeaafe8bc2a9d14ed05b2ee99c5",
+            "before": "” he added, and with the words fell into a vein of musing.\n\n",
+            "after": " “And you don’t know if the drawer of the cheque lives there",
+            "occurrence": 0
+          },
+          "replacement": "From this he was recalled by Mr. Utterson asking rather suddenly:",
+          "category": "prose-pattern",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "The inserted filler frame \"At the end of the day,\" splits the name from its participial phrase and leaves the sentence garbled; removing it restores the intended sentence and adds no information.",
+          "source_findings": [
+            "formulaic.filler-frame"
+          ],
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ca8cde7333674caa",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+              "key": "sha256:6415266ebd67d3d38a74757c1ae55b5c2373abff7befc825bf108acbd43d7c77"
+            },
+            "evidence": "sha256:3b303a5ed53837693067ec42232700368a3413fbb5b88ce7f08e9780b89fc42b"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+          },
+          "target": {
+            "text": "when this meal was again again over",
+            "hash": "sha256:6415266ebd67d3d38a74757c1ae55b5c2373abff7befc825bf108acbd43d7c77",
+            "before": "wn to dinner without relish. It was his custom of a Sunday, ",
+            "after": ", to sit close by the fire, a volume of some dry divinity on",
+            "occurrence": 0
+          },
+          "replacement": "when this meal was again over",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Accidental duplication of 'again'; removing one copy fixes the stutter without changing the sentence's meaning.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:9c02fed616a5a9bb",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-jekyll",
+              "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+              "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+            },
+            "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-0",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+          },
+          "target": {
+            "text": "obilgation",
+            "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+            "before": "’s shoes without further delay and free from any burthen or ",
+            "after": " beyond the payment of a few small sums to the members of th",
+            "occurrence": 0
+          },
+          "replacement": "obligation",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Misspelling of 'obligation'.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        }
+      ],
+      "rejected": [
+        {
+          "id": "amendeor:631297868f90049b",
+          "reason": "punctuation-style-only"
+        },
+        {
+          "id": "amendeor:f5098758961a4f4a",
+          "reason": "dialogue-content-change"
+        }
+      ],
+      "raw_score": {
+        "recall": {
+          "agreement": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "formulaic.filler-frame": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "dialogue-format": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "redundancy": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "punctuation": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "typo": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "terminology": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "doubled-word": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          }
+        },
+        "unnecessary": {
+          "count": 0,
+          "scanned_words": 3516,
+          "rate": 0,
+          "control_proposals": 0,
+          "preserve_proposals": 0
+        },
+        "guard_recall": "n/a",
+        "semantic_regression": "n/a",
+        "precision": "n/a",
+        "precision_by_pattern": {
+          "formulaic.filler-frame": "n/a"
+        },
+        "matched": [
+          {
+            "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "proposal_id": "amendeor:ada67dee57f30b2e"
+          },
+          {
+            "mutation_id": "jekyll-en:dialogue-format:1:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "proposal_id": "amendeor:631297868f90049b"
+          },
+          {
+            "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "proposal_id": "amendeor:ca8cde7333674caa"
+          },
+          {
+            "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "proposal_id": "amendeor:9c02fed616a5a9bb"
+          },
+          {
+            "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "proposal_id": "amendeor:f5098758961a4f4a"
+          }
+        ]
+      },
+      "safe_score": {
+        "recall": {
+          "agreement": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "formulaic.filler-frame": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "dialogue-format": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "redundancy": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "punctuation": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "typo": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "terminology": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "doubled-word": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          }
+        },
+        "unnecessary": {
+          "count": 0,
+          "scanned_words": 3516,
+          "rate": 0,
+          "control_proposals": 0,
+          "preserve_proposals": 0
+        },
+        "guard_recall": "n/a",
+        "semantic_regression": "n/a",
+        "precision": "n/a",
+        "precision_by_pattern": {
+          "formulaic.filler-frame": "n/a"
+        },
+        "matched": [
+          {
+            "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "proposal_id": "amendeor:ada67dee57f30b2e"
+          },
+          {
+            "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "proposal_id": "amendeor:ca8cde7333674caa"
+          },
+          {
+            "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "proposal_id": "amendeor:9c02fed616a5a9bb"
+          }
+        ]
+      }
+    },
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "reasoning_effort": "medium",
+      "repeat": 1,
+      "work": "kashtanka-ru",
+      "mode": "copy",
+      "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+      "prompt_version": "1.6.0",
+      "elapsed_ms": 79085,
+      "stage": {
+        "name": "model",
+        "status": "ok",
+        "windows": 5,
+        "windows_by_chapter": {
+          "01-kashtanka": 1,
+          "02-kashtanka": 1,
+          "03-kashtanka": 1,
+          "06-kashtanka": 1,
+          "07-kashtanka": 1
+        },
+        "sent": 5,
+        "cached": 0,
+        "no_change": 1,
+        "no_change_by_chapter": {
+          "03-kashtanka": 1
+        },
+        "candidates": 5,
+        "discarded": [],
+        "failures": [],
+        "prompt_version": "1.6.0",
+        "model_id": "anthropic/claude-haiku-5.5",
+        "formulaic_hits": [
+          {
+            "id": "formulaic.filler-frame",
+            "language": "ru",
+            "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "start": 1494,
+            "end": 1512,
+            "quote": "В современном мире",
+            "reason": "Шаблонная рамка может не добавлять информации."
+          }
+        ],
+        "formulaic_catalog_version": "0.3.0"
+      },
+      "ledger": [
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 2533,
+          "tokens_out": 693,
+          "cost": 0.0005997999999999999,
+          "currency": "USD",
+          "ms": 8436,
+          "budget": 976
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 2376,
+          "tokens_out": 555,
+          "cost": 0.0005151,
+          "currency": "USD",
+          "ms": 9292,
+          "budget": 1037
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 11400,
+          "budget": 921,
+          "error": "truncated: OpenAI-compatible output truncated at budget 921; finish_reason=length; content=null"
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 2142,
+          "tokens_out": 1038,
+          "cost": 0.0007332,
+          "currency": "USD",
+          "ms": 11902,
+          "budget": 921
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 13556,
+          "budget": 789,
+          "error": "truncated: OpenAI-compatible output truncated at budget 789; finish_reason=length; content=null"
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1954,
+          "tokens_out": 856,
+          "cost": 0.0006234,
+          "currency": "USD",
+          "ms": 12061,
+          "budget": 789
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 2308,
+          "tokens_out": 1048,
+          "cost": 0.0007547999999999999,
+          "currency": "USD",
+          "ms": 12170,
+          "budget": 1058
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:a88bd667fee39260",
+          "fingerprint": {
+            "primary": {
+              "category": "prose-pattern",
+              "chapter": "01-kashtanka",
+              "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "key": "sha256:34221fc1efeb39638af6ae069b13e36e9619f4e610141b3632b62deea581b3d1"
+            },
+            "evidence": "sha256:18889bc13627b62912dc9ac3bb34b03a4f4f712f7cf83110985aed273830d494"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "content_hash": "sha256:3b28206073cc3f6c14e2a01e3c090ebef7965e04d078d50a6d4161b84bdfc91e"
+          },
+          "target": {
+            "text": "т. д. В современном мире Одним словом,",
+            "hash": "sha256:34221fc1efeb39638af6ae069b13e36e9619f4e610141b3632b62deea581b3d1",
+            "before": "реплётчику, от переплётчика в трактир, из трактира к куму и ",
+            "after": " когда Каштанка попала на незнакомый тротуар, то уже вечерел",
+            "occurrence": 0
+          },
+          "replacement": "т. д. Одним словом,",
+          "category": "prose-pattern",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Фраза «В современном мире» не относится к тексту Чехова и мешает синтаксису: после неё заглавная «О» оказывается внутри предложения. Удаление вставки возвращает исходную конструкцию без изменения остального текста.",
+          "source_findings": [
+            "formulaic.filler-frame"
+          ],
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:3230eb318001d61f",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-kashtanka",
+              "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+              "key": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06"
+            },
+            "evidence": "sha256:74f27c59371b4b8cf735fb18e4781d2f64bbb69577c03983bce5a94c1bd8364f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-kashtanka",
+            "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+            "content_hash": "sha256:2c7369e210740d6e6bf2d6849e4ede2712bfb19d11a65927233ad8c19c8257d8"
+          },
+          "target": {
+            "text": "глдяела",
+            "hash": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06",
+            "before": "мнате и, склонив голову набок, с умилением и с любопытством ",
+            "after": " на незнакомца, который сидел за столом и обедал. Он ел и бр",
+            "occurrence": 0
+          },
+          "replacement": "глядела",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Опечатка: переставлены буквы в слове «глядела».",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:4d45bcf35f330e0c",
+          "fingerprint": {
+            "primary": {
+              "category": "grammar",
+              "chapter": "06-kashtanka",
+              "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+              "key": "sha256:8fb8056ce0354dd79c14f165b98e69c3a72883d51f39b281030bf7f2911f7e62"
+            },
+            "evidence": "sha256:121c03d02a2f21aefa0361608def0591ec0785e468b69a06ac91d51dc87b633f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "content_hash": "sha256:e84c81dc58b8109a75a426c148cecdd1f850ef558650130f28e41fbc5cb51936"
+          },
+          "target": {
+            "text": "и она пошёл за ним",
+            "hash": "sha256:8fb8056ce0354dd79c14f165b98e69c3a72883d51f39b281030bf7f2911f7e62",
+            "before": "я к себе в спальню. Тётке жутко было оставаться в потёмках, ",
+            "after": ". Он сел на кровать и несколько раз повторил:\n\n— Боже мой, ч",
+            "occurrence": 0
+          },
+          "replacement": "и она пошла за ним",
+          "category": "grammar",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Согласование с femininным подлежащим «она» (Тётка): глагол в прошедшем времени должен быть в женском роде.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:72c786c946737848",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:b7002d09ac434448eaa98b5945b3c19c3855e22046d553170770675bced17ff7"
+            },
+            "evidence": "sha256:3fc64f98c614773c641a1207c3f2bf8899db5bbf8e9fe0494b45dc8848870957"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:74200ad2bd132caedb73b1914ec4650445dc298e319d8e52b6a3a7fa07ec7adb"
+          },
+          "target": {
+            "text": "не сказал снова снова и вышел",
+            "hash": "sha256:b7002d09ac434448eaa98b5945b3c19c3855e22046d553170770675bced17ff7",
+            "before": "рая руки, сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, но ",
+            "after": ". Тётка, отлично изучившая во время уроков его лицо и интона",
+            "occurrence": 0
+          },
+          "replacement": "не сказал снова и вышел",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Случайное дублирование слова «снова»; достаточно убрать одно повторение.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:d9c64b62e20d814c",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:4f4f96664166c7703ec943d98850d9b121c46ed7425f9726cbb6e668a10e681d"
+            },
+            "evidence": "sha256:7f79e079f0320241a2f8b5460b33abd32843ae6e693d44767f411e220ece889e"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:74200ad2bd132caedb73b1914ec4650445dc298e319d8e52b6a3a7fa07ec7adb"
+          },
+          "target": {
+            "text": "- Тётка, пойдём,",
+            "hash": "sha256:4f4f96664166c7703ec943d98850d9b121c46ed7425f9726cbb6e668a10e681d",
+            "before": " ли на матрасике, или покоиться на груди хозяина под шубой…\n",
+            "after": " — сказал хозяин.\n\nНичего не понимая и виляя хвостом, Тётка ",
+            "occurrence": 0
+          },
+          "replacement": "— Тётка, пойдём,",
+          "category": "typography",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Реплика открывается дефисом вместо тире, как во всех остальных репликах текста.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        }
+      ],
+      "safe_proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:a88bd667fee39260",
+          "fingerprint": {
+            "primary": {
+              "category": "prose-pattern",
+              "chapter": "01-kashtanka",
+              "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+              "key": "sha256:34221fc1efeb39638af6ae069b13e36e9619f4e610141b3632b62deea581b3d1"
+            },
+            "evidence": "sha256:18889bc13627b62912dc9ac3bb34b03a4f4f712f7cf83110985aed273830d494"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-kashtanka",
+            "scene": "369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "content_hash": "sha256:3b28206073cc3f6c14e2a01e3c090ebef7965e04d078d50a6d4161b84bdfc91e"
+          },
+          "target": {
+            "text": "т. д. В современном мире Одним словом,",
+            "hash": "sha256:34221fc1efeb39638af6ae069b13e36e9619f4e610141b3632b62deea581b3d1",
+            "before": "реплётчику, от переплётчика в трактир, из трактира к куму и ",
+            "after": " когда Каштанка попала на незнакомый тротуар, то уже вечерел",
+            "occurrence": 0
+          },
+          "replacement": "т. д. Одним словом,",
+          "category": "prose-pattern",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Фраза «В современном мире» не относится к тексту Чехова и мешает синтаксису: после неё заглавная «О» оказывается внутри предложения. Удаление вставки возвращает исходную конструкцию без изменения остального текста.",
+          "source_findings": [
+            "formulaic.filler-frame"
+          ],
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:3230eb318001d61f",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-kashtanka",
+              "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+              "key": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06"
+            },
+            "evidence": "sha256:74f27c59371b4b8cf735fb18e4781d2f64bbb69577c03983bce5a94c1bd8364f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-kashtanka",
+            "scene": "8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+            "content_hash": "sha256:2c7369e210740d6e6bf2d6849e4ede2712bfb19d11a65927233ad8c19c8257d8"
+          },
+          "target": {
+            "text": "глдяела",
+            "hash": "sha256:7fab45e30b0a951b3b8930ce614b3a5b6f643d32306ec47946fd1b6be38d1b06",
+            "before": "мнате и, склонив голову набок, с умилением и с любопытством ",
+            "after": " на незнакомца, который сидел за столом и обедал. Он ел и бр",
+            "occurrence": 0
+          },
+          "replacement": "глядела",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Опечатка: переставлены буквы в слове «глядела».",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:4d45bcf35f330e0c",
+          "fingerprint": {
+            "primary": {
+              "category": "grammar",
+              "chapter": "06-kashtanka",
+              "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+              "key": "sha256:8fb8056ce0354dd79c14f165b98e69c3a72883d51f39b281030bf7f2911f7e62"
+            },
+            "evidence": "sha256:121c03d02a2f21aefa0361608def0591ec0785e468b69a06ac91d51dc87b633f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "06-kashtanka",
+            "scene": "7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "content_hash": "sha256:e84c81dc58b8109a75a426c148cecdd1f850ef558650130f28e41fbc5cb51936"
+          },
+          "target": {
+            "text": "и она пошёл за ним",
+            "hash": "sha256:8fb8056ce0354dd79c14f165b98e69c3a72883d51f39b281030bf7f2911f7e62",
+            "before": "я к себе в спальню. Тётке жутко было оставаться в потёмках, ",
+            "after": ". Он сел на кровать и несколько раз повторил:\n\n— Боже мой, ч",
+            "occurrence": 0
+          },
+          "replacement": "и она пошла за ним",
+          "category": "grammar",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Согласование с femininным подлежащим «она» (Тётка): глагол в прошедшем времени должен быть в женском роде.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:72c786c946737848",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "07-kashtanka",
+              "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+              "key": "sha256:b7002d09ac434448eaa98b5945b3c19c3855e22046d553170770675bced17ff7"
+            },
+            "evidence": "sha256:3fc64f98c614773c641a1207c3f2bf8899db5bbf8e9fe0494b45dc8848870957"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-kashtanka-ru-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "07-kashtanka",
+            "scene": "3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "content_hash": "sha256:74200ad2bd132caedb73b1914ec4650445dc298e319d8e52b6a3a7fa07ec7adb"
+          },
+          "target": {
+            "text": "не сказал снова снова и вышел",
+            "hash": "sha256:b7002d09ac434448eaa98b5945b3c19c3855e22046d553170770675bced17ff7",
+            "before": "рая руки, сказал:\n\n— Ну-с…\n\nЧто-то он хотел ещё сказать, но ",
+            "after": ". Тётка, отлично изучившая во время уроков его лицо и интона",
+            "occurrence": 0
+          },
+          "replacement": "не сказал снова и вышел",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Случайное дублирование слова «снова»; достаточно убрать одно повторение.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        }
+      ],
+      "rejected": [
+        {
+          "id": "amendeor:d9c64b62e20d814c",
+          "reason": "punctuation-style-only"
+        }
+      ],
+      "raw_score": {
+        "recall": {
+          "formulaic.filler-frame": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "terminology": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "typo": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "agreement": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "redundancy": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "dialogue-format": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          }
+        },
+        "unnecessary": {
+          "count": 0,
+          "scanned_words": 2963,
+          "rate": 0,
+          "control_proposals": 0,
+          "preserve_proposals": 0
+        },
+        "guard_recall": "n/a",
+        "semantic_regression": "n/a",
+        "precision": "n/a",
+        "precision_by_pattern": {
+          "formulaic.filler-frame": "n/a"
+        },
+        "matched": [
+          {
+            "mutation_id": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "proposal_id": "amendeor:a88bd667fee39260"
+          },
+          {
+            "mutation_id": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+            "proposal_id": "amendeor:3230eb318001d61f"
+          },
+          {
+            "mutation_id": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "proposal_id": "amendeor:4d45bcf35f330e0c"
+          },
+          {
+            "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "proposal_id": "amendeor:72c786c946737848"
+          },
+          {
+            "mutation_id": "kashtanka-ru:dialogue-format:1:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "proposal_id": "amendeor:d9c64b62e20d814c"
+          }
+        ]
+      },
+      "safe_score": {
+        "recall": {
+          "formulaic.filler-frame": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "terminology": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "typo": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "agreement": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "redundancy": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "dialogue-format": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          }
+        },
+        "unnecessary": {
+          "count": 0,
+          "scanned_words": 2963,
+          "rate": 0,
+          "control_proposals": 0,
+          "preserve_proposals": 0
+        },
+        "guard_recall": "n/a",
+        "semantic_regression": "n/a",
+        "precision": "n/a",
+        "precision_by_pattern": {
+          "formulaic.filler-frame": "n/a"
+        },
+        "matched": [
+          {
+            "mutation_id": "kashtanka-ru:formulaic:0:01-kashtanka:369de60f-5e2d-4172-8e91-7a3df8c62150",
+            "proposal_id": "amendeor:a88bd667fee39260"
+          },
+          {
+            "mutation_id": "kashtanka-ru:typo:0:02-kashtanka:8664ef28-76b4-4529-8d9c-aa0a96c2c3cc",
+            "proposal_id": "amendeor:3230eb318001d61f"
+          },
+          {
+            "mutation_id": "kashtanka-ru:agreement:0:06-kashtanka:7114c90d-6b2a-48f2-8c3b-163c74963764",
+            "proposal_id": "amendeor:4d45bcf35f330e0c"
+          },
+          {
+            "mutation_id": "kashtanka-ru:redundancy:0:07-kashtanka:3ed8d542-fe7b-46e9-839f-bab0350c7c37",
+            "proposal_id": "amendeor:72c786c946737848"
+          }
+        ]
+      }
+    },
+    {
+      "model": "anthropic/claude-haiku-5.5",
+      "reasoning_effort": "medium",
+      "repeat": 1,
+      "work": "jekyll-en",
+      "mode": "copy",
+      "scope": "production editor pass plus deterministic guards; independent model verifier NOT run",
+      "prompt_version": "1.6.0",
+      "elapsed_ms": 71740,
+      "stage": {
+        "name": "model",
+        "status": "ok",
+        "windows": 5,
+        "windows_by_chapter": {
+          "01-jekyll": 2,
+          "02-jekyll": 2,
+          "03-jekyll": 1
+        },
+        "sent": 5,
+        "cached": 0,
+        "no_change": 2,
+        "no_change_by_chapter": {
+          "01-jekyll": 1,
+          "03-jekyll": 1
+        },
+        "candidates": 6,
+        "discarded": [],
+        "failures": [],
+        "prompt_version": "1.6.0",
+        "model_id": "anthropic/claude-haiku-5.5",
+        "formulaic_hits": [
+          {
+            "id": "formulaic.filler-frame",
+            "language": "en",
+            "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+            "chapter": "01-jekyll",
+            "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "start": 662,
+            "end": 683,
+            "quote": "At the end of the day",
+            "reason": "A stock frame may add no information."
+          }
+        ],
+        "formulaic_catalog_version": "0.3.0"
+      },
+      "ledger": [
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1909,
+          "tokens_out": 652,
+          "cost": 0.0005168999999999999,
+          "currency": "USD",
+          "ms": 10598,
+          "budget": 673
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost": null,
+          "currency": "USD",
+          "ms": 12006,
+          "budget": 741,
+          "error": "truncated: OpenAI-compatible output truncated at budget 741; finish_reason=length; content=string"
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1882,
+          "tokens_out": 939,
+          "cost": 0.0006577,
+          "currency": "USD",
+          "ms": 13173,
+          "budget": 741
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1747,
+          "tokens_out": 572,
+          "cost": 0.0004607,
+          "currency": "USD",
+          "ms": 11157,
+          "budget": 773
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1877,
+          "tokens_out": 820,
+          "cost": 0.0005977,
+          "currency": "USD",
+          "ms": 12761,
+          "budget": 822
+        },
+        {
+          "stage": "edit",
+          "provider": "experiment",
+          "model": "anthropic/claude-haiku-5.5",
+          "tokens_in": 1725,
+          "tokens_out": 682,
+          "cost": 0.0005135,
+          "currency": "USD",
+          "ms": 11905,
+          "budget": 770
+        }
+      ],
+      "proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ff46f536206ae63d",
+          "fingerprint": {
+            "primary": {
+              "category": "prose-pattern",
+              "chapter": "01-jekyll",
+              "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+              "key": "sha256:cbb4efcdbbb93820efb5d10de5f794ea824b0e99473b0e46e3ef47459c3545e8"
+            },
+            "evidence": "sha256:527c21b5f494dded1c534772dee69210ce31882d9428edbd6ad62c63ffd16bb1"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+          },
+          "target": {
+            "text": "Mr. At the end of the day, Utterson",
+            "hash": "sha256:cbb4efcdbbb93820efb5d10de5f794ea824b0e99473b0e46e3ef47459c3545e8",
+            "before": "s fell into a vein of musing.\n\nFrom this he was recalled by ",
+            "after": " asking rather suddenly: “And you don’t know if the drawer o",
+            "occurrence": 0
+          },
+          "replacement": "Mr. Utterson",
+          "category": "prose-pattern",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "The stock frame \"At the end of the day,\" is inserted into the middle of the name \"Mr. Utterson\", breaking the sentence and adding no information. Removing it restores the intended clause.",
+          "source_findings": [
+            "formulaic.filler-frame"
+          ],
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:f47f8b759be62808",
+          "fingerprint": {
+            "primary": {
+              "category": "typography",
+              "chapter": "01-jekyll",
+              "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+              "key": "sha256:a4402cda68f7d270d9aadab07ac3a1241ac4947edfe4d1aeaaa6323a27e98e9b"
+            },
+            "evidence": "sha256:1d5e2b81a7cf9af597ffc14b26847f4de55a0ec5f05c6ac3544a1fa4a960b7b5"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+          },
+          "target": {
+            "text": "\"You are sure he used a key?”",
+            "hash": "sha256:a4402cda68f7d270d9aadab07ac3a1241ac4947edfe4d1aeaaa6323a27e98e9b",
+            "before": "y in silence and obviously under a weight of consideration. ",
+            "after": " he inquired at last.\n\n“My dear sir...” began Enfield, surpr",
+            "occurrence": 0
+          },
+          "replacement": "“You are sure he used a key?”",
+          "category": "typography",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "The opening quotation mark is straight while the closing mark and the rest of the dialogue use curly quotes. Matching the opening mark to the closing one is a local typography fix.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:6aac8707015727b4",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+              "key": "sha256:5372cf0be75e929395bf8f91b35199e4136dcb43899e7b64f8a166003ebebb1f"
+            },
+            "evidence": "sha256:a43027ac9fc54e66acaf8352fd1b5b1885ed59403c7e8c14d80943d1e94d8cc3"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+          },
+          "target": {
+            "text": "was again again over",
+            "hash": "sha256:5372cf0be75e929395bf8f91b35199e4136dcb43899e7b64f8a166003ebebb1f",
+            "before": "thout relish. It was his custom of a Sunday, when this meal ",
+            "after": ", to sit close by the fire, a volume of some dry divinity on",
+            "occurrence": 0
+          },
+          "replacement": "was again over",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Accidental duplication of 'again'; deleting one copy restores the intended phrasing without changing meaning.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:9c02fed616a5a9bb",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-jekyll",
+              "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+              "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+            },
+            "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+          },
+          "target": {
+            "text": "obilgation",
+            "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+            "before": "’s shoes without further delay and free from any burthen or ",
+            "after": " beyond the payment of a few small sums to the members of th",
+            "occurrence": 0
+          },
+          "replacement": "obligation",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Misspelling of 'obligation'.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:f5098758961a4f4a",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+              "key": "sha256:f8fa59e10c24f2a57d7cd1d2790560f9718230cffc73cb3f99b4df0a514f7b5b"
+            },
+            "evidence": "sha256:309dc67b9df526ebaec14562d8d2fe947e638347acfd0e152ca2a35ddf63a43f"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+          },
+          "target": {
+            "text": "Well, good-night, Poole Poole.",
+            "hash": "sha256:f8fa59e10c24f2a57d7cd1d2790560f9718230cffc73cb3f99b4df0a514f7b5b",
+            "before": "f the house; he mostly comes and goes by the laboratory.”\n\n“",
+            "after": "”\n\n“Good-night, Mr. Utterson.”\n\n",
+            "occurrence": 0
+          },
+          "replacement": "Well, good-night, Poole.",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Accidental doubled name; the farewell should address Poole once.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:cd0b7022fcc48b98",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-jekyll",
+              "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+              "key": "sha256:d33109fdae6fb5c1c0224ea83fb1dea8d6cf6ab65bba1031878bfd2fd61ce617"
+            },
+            "evidence": "sha256:b9be0dfc79f926b372a066dd62f33909d2b4af601fd6fa9d1d5c02161231f4a9"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "content_hash": "sha256:1fee92f54aa8e505d76b2d4668d2abd58e54af39a1d4cb39446c2d4bd25d49fc"
+          },
+          "target": {
+            "text": "the face of Hide sat heavy on his memory",
+            "hash": "sha256:d33109fdae6fb5c1c0224ea83fb1dea8d6cf6ab65bba1031878bfd2fd61ce617",
+            "before": "om in London. But tonight there was a shudder in his blood; ",
+            "after": "; he felt (what was rare with him) a nausea and distaste of ",
+            "occurrence": 0
+          },
+          "replacement": "the face of Hyde sat heavy on his memory",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Misspelling of the character's name, which is Hyde everywhere else in the passage.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        }
+      ],
+      "safe_proposals": [
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:ff46f536206ae63d",
+          "fingerprint": {
+            "primary": {
+              "category": "prose-pattern",
+              "chapter": "01-jekyll",
+              "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+              "key": "sha256:cbb4efcdbbb93820efb5d10de5f794ea824b0e99473b0e46e3ef47459c3545e8"
+            },
+            "evidence": "sha256:527c21b5f494dded1c534772dee69210ce31882d9428edbd6ad62c63ffd16bb1"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "01-jekyll",
+            "scene": "68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "content_hash": "sha256:7d4a8dcb39bfbe03142369e694f7d987dcbe5a251f2821ed3819dc8a5e777a8c"
+          },
+          "target": {
+            "text": "Mr. At the end of the day, Utterson",
+            "hash": "sha256:cbb4efcdbbb93820efb5d10de5f794ea824b0e99473b0e46e3ef47459c3545e8",
+            "before": "s fell into a vein of musing.\n\nFrom this he was recalled by ",
+            "after": " asking rather suddenly: “And you don’t know if the drawer o",
+            "occurrence": 0
+          },
+          "replacement": "Mr. Utterson",
+          "category": "prose-pattern",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "The stock frame \"At the end of the day,\" is inserted into the middle of the name \"Mr. Utterson\", breaking the sentence and adding no information. Removing it restores the intended clause.",
+          "source_findings": [
+            "formulaic.filler-frame"
+          ],
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:6aac8707015727b4",
+          "fingerprint": {
+            "primary": {
+              "category": "repetition",
+              "chapter": "02-jekyll",
+              "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+              "key": "sha256:5372cf0be75e929395bf8f91b35199e4136dcb43899e7b64f8a166003ebebb1f"
+            },
+            "evidence": "sha256:a43027ac9fc54e66acaf8352fd1b5b1885ed59403c7e8c14d80943d1e94d8cc3"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+          },
+          "target": {
+            "text": "was again again over",
+            "hash": "sha256:5372cf0be75e929395bf8f91b35199e4136dcb43899e7b64f8a166003ebebb1f",
+            "before": "thout relish. It was his custom of a Sunday, when this meal ",
+            "after": ", to sit close by the fire, a volume of some dry divinity on",
+            "occurrence": 0
+          },
+          "replacement": "was again over",
+          "category": "repetition",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Accidental duplication of 'again'; deleting one copy restores the intended phrasing without changing meaning.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        },
+        {
+          "schema": "amendeor.proposal/0.1",
+          "id": "amendeor:9c02fed616a5a9bb",
+          "fingerprint": {
+            "primary": {
+              "category": "spelling",
+              "chapter": "02-jekyll",
+              "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+              "key": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3"
+            },
+            "evidence": "sha256:df9a29a9b49e45d59d5336b3cf8b01e1412c09bfa935e6d8217165c280135776"
+          },
+          "run_id": "anthropic-claude-haiku-5.5-jekyll-en-1",
+          "tool": {
+            "name": "amendeor",
+            "version": "0.1.0"
+          },
+          "location": {
+            "chapter": "02-jekyll",
+            "scene": "baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "content_hash": "sha256:328abc8c7e1919f304c903b3e26c15e46f047521938dcacb2bde35a9a518c6e1"
+          },
+          "target": {
+            "text": "obilgation",
+            "hash": "sha256:a1556cf6b56c074285953416ec186a9aad7d83c0298ed387f1652a63dce1a3c3",
+            "before": "’s shoes without further delay and free from any burthen or ",
+            "after": " beyond the payment of a few small sums to the members of th",
+            "occurrence": 0
+          },
+          "replacement": "obligation",
+          "category": "spelling",
+          "impact": "prose",
+          "source": "model",
+          "confidence": 1,
+          "reason": "Misspelling of 'obligation'.",
+          "verification": {
+            "passes": 0,
+            "agreed": 0,
+            "semantic_risk": "unknown",
+            "voice": "unknown"
+          },
+          "unverified": true
+        }
+      ],
+      "rejected": [
+        {
+          "id": "amendeor:f47f8b759be62808",
+          "reason": "punctuation-style-only"
+        },
+        {
+          "id": "amendeor:f5098758961a4f4a",
+          "reason": "dialogue-content-change"
+        },
+        {
+          "id": "amendeor:cd0b7022fcc48b98",
+          "reason": "proper-name-change"
+        }
+      ],
+      "raw_score": {
+        "recall": {
+          "agreement": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "formulaic.filler-frame": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "dialogue-format": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "redundancy": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "punctuation": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "typo": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "terminology": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "doubled-word": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          }
+        },
+        "unnecessary": {
+          "count": 0,
+          "scanned_words": 3516,
+          "rate": 0,
+          "control_proposals": 0,
+          "preserve_proposals": 0
+        },
+        "guard_recall": "n/a",
+        "semantic_regression": "n/a",
+        "precision": "n/a",
+        "precision_by_pattern": {
+          "formulaic.filler-frame": "n/a"
+        },
+        "matched": [
+          {
+            "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "proposal_id": "amendeor:ff46f536206ae63d"
+          },
+          {
+            "mutation_id": "jekyll-en:dialogue-format:1:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "proposal_id": "amendeor:f47f8b759be62808"
+          },
+          {
+            "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "proposal_id": "amendeor:6aac8707015727b4"
+          },
+          {
+            "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "proposal_id": "amendeor:9c02fed616a5a9bb"
+          },
+          {
+            "mutation_id": "jekyll-en:terminology:0:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "proposal_id": "amendeor:cd0b7022fcc48b98"
+          },
+          {
+            "mutation_id": "jekyll-en:doubled-word:1:02-jekyll:b09e8ce4-447d-4c4d-8531-505f38fc6e1d",
+            "proposal_id": "amendeor:f5098758961a4f4a"
+          }
+        ]
+      },
+      "safe_score": {
+        "recall": {
+          "agreement": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "formulaic.filler-frame": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "dialogue-format": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "redundancy": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "punctuation": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "typo": {
+            "recalled": 1,
+            "total": 1,
+            "rate": 1
+          },
+          "terminology": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          },
+          "doubled-word": {
+            "recalled": 0,
+            "total": 1,
+            "rate": 0
+          }
+        },
+        "unnecessary": {
+          "count": 0,
+          "scanned_words": 3516,
+          "rate": 0,
+          "control_proposals": 0,
+          "preserve_proposals": 0
+        },
+        "guard_recall": "n/a",
+        "semantic_regression": "n/a",
+        "precision": "n/a",
+        "precision_by_pattern": {
+          "formulaic.filler-frame": "n/a"
+        },
+        "matched": [
+          {
+            "mutation_id": "jekyll-en:formulaic:0:01-jekyll:68b8cde7-afbb-4a50-83ab-87e1088928dc",
+            "proposal_id": "amendeor:ff46f536206ae63d"
+          },
+          {
+            "mutation_id": "jekyll-en:redundancy:0:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "proposal_id": "amendeor:6aac8707015727b4"
+          },
+          {
+            "mutation_id": "jekyll-en:typo:2:02-jekyll:baa94383-d12f-4e7c-8aea-c0c461a65480",
+            "proposal_id": "amendeor:9c02fed616a5a9bb"
+          }
+        ]
+      }
+    }
+  ]
+}

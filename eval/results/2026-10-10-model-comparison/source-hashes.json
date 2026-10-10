@@ -1,0 +1,8 @@
+{
+  "src/edit/pass.ts": "c0659091e68633d1fe5d03621432657884fd1aa950a5c9e7e5b80e508546c9f3",
+  "src/prompts/copy-edit.ts": "655f30e0bc68333768d32df9b915f3899262e58291b493c5550483b8b747cda2",
+  "src/edit/parse.ts": "506e13c42d6579d1a1c68a0ea982bb21e427463e3c0b10e2771169414db97563",
+  "src/edit/windows.ts": "28dfa9e3dad42cbf2447900691e0eec858f9165960931527ee3d0dbdb3ba983c",
+  "src/guard/traps.ts": "b6c0ec6cc86d388f0f4c6c7b60e4ef7a9666ecd306e8dd1af3c792c6f009f485",
+  "src/guard/voice.ts": "fa4f8bf41d89e83b7736d3ace570e410b244954fe13cc6221d4ea7ba1f8f361c"
+}

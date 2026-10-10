@@ -1,0 +1,5 @@
+{
+  "source": "eval/fixtures/clean-ru/mutations-original.json",
+  "control_chapter": "01-chekhov",
+  "mutations": []
+}

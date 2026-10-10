@@ -1,0 +1,7 @@
+{
+  "id": "clean-en",
+  "language": "en",
+  "control_chapter": "01-jekyll",
+  "clean": true,
+  "version": "1.0.0"
+}

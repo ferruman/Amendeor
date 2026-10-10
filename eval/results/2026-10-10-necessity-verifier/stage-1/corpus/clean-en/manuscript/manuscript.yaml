@@ -1,0 +1,9 @@
+schema_version: 1
+language: en
+chapters:
+  - slug: 01-jekyll
+    title: "INCIDENT OF DR. LANYON"
+    eval_control: true
+  - slug: 02-jekyll
+    title: "INCIDENT AT THE WINDOW"
+    eval_control: true
