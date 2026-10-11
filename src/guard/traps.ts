@@ -65,7 +65,34 @@ export function commaOnlyChange(before: string, after: string): boolean {
   return (before.match(/,/gu) ?? []).length !== (after.match(/,/gu) ?? []).length && before.replace(/,/gu, '') === after.replace(/,/gu, '');
 }
 
-export function semanticTrap(before: string, after: string, pack: LanguagePack, options: { category?: Proposal['category']; inDialogue?: boolean; modelGenerated?: boolean; allowCommaCorrection?: boolean; dialogueTypoAuthorized?: boolean; nameContext?: { prefix: string; bookNames: Map<string, number> } } = {}): string | null {
+type TrapOptions = { category?: Proposal['category']; inDialogue?: boolean; modelGenerated?: boolean; allowCommaCorrection?: boolean; dialogueTypoAuthorized?: boolean; nameContext?: { prefix: string; bookNames: Map<string, number> }; typoReview?: boolean };
+const letters = (text: string) => words(text).map((word) => word.lower).join('');
+// Правка формы опечатки (AUDIT F2): те же слова с мелкими описками (typoOnly), только пробел между словами («В кратце» → «Вкратце»)
+// или одна лишняя либо пропущенная буква («с Степом» → «со Степом», «С один борт» → «Один борт»); знаки препинания те же.
+export function typoShaped(before: string, after: string): boolean {
+  if (before === after || before.replace(/[\p{L}\p{N}\s]/gu, '') !== after.replace(/[\p{L}\p{N}\s]/gu, '')) return false;
+  if (typoOnly(before, after)) return true;
+  const a = letters(before), b = letters(after);
+  return a === b || Math.abs(a.length - b.length) === 1 && distance(a, b) === 1;
+}
+// Ловушки, которые срабатывают и на опечатке. Такая правка не принимается и не отклоняется молча: она становится находкой
+// на проверку (только поштучно, с явным согласием), если остальные ловушки её пропускают. Отрицание можно лишь слить
+// или разделить («не плохо» → «неплохо»); «имя» может отличаться только регистром («— до» → «— До»), но не буквами (Hyde → Hide).
+export const typoReviewTraps = ['dialogue-content-change', 'negation-change', 'proper-name-change'];
+export function typoReviewable(trap: string, before: string, after: string, pack: LanguagePack, options: TrapOptions = {}): boolean {
+  if (!typoReviewTraps.includes(trap) || !typoShaped(before, after)) return false;
+  if (trap === 'negation-change' && letters(before) !== letters(after)) return false;
+  if (trap === 'proper-name-change') {
+    const namesBefore = names(before, options.nameContext), namesAfter = names(after, options.nameContext);
+    const lower = (text: string) => new Set(words(text).map((word) => word.lower));
+    const lowerBefore = lower(before), lowerAfter = lower(after);
+    if (!namesBefore.filter((name) => !namesAfter.includes(name)).every((name) => lowerAfter.has(name.toLocaleLowerCase(pack.language)))
+      || !namesAfter.filter((name) => !namesBefore.includes(name)).every((name) => lowerBefore.has(name.toLocaleLowerCase(pack.language)))) return false;
+  }
+  return semanticTrap(before, after, pack, { ...options, typoReview: true }) === null;
+}
+
+export function semanticTrap(before: string, after: string, pack: LanguagePack, options: TrapOptions = {}): string | null {
   const lang = pack.language.split('-')[0]!;
   const ellipses = (text: string) => (text.match(/…|(?<!\.)\.{3}(?!\.)/gu) ?? []).length;
   const verifiedCommaCandidate = options.allowCommaCorrection && options.category === 'punctuation' && commaOnlyChange(before, after);
@@ -78,12 +105,15 @@ export function semanticTrap(before: string, after: string, pack: LanguagePack, 
   if (options.modelGenerated && !verifiedCommaCandidate && before.replace(/[^\p{L}\p{N}]/gu, '') === after.replace(/[^\p{L}\p{N}]/gu, '')
     && (before.match(/[.,;:!?…—–'’"“”‘-]/gu) ?? []).join('') !== (after.match(/[.,;:!?…—–'’"“”‘-]/gu) ?? []).join('')) return 'punctuation-style-only';
   if (changed(numberTokens(before), numberTokens(after))) return 'number-date-time-change';
-  if ((before.match(/\b\p{L}+n['’]t\b/giu) ?? []).length !== (after.match(/\b\p{L}+n['’]t\b/giu) ?? []).length) return 'negation-change';
-  if (changed(selected(before, pack.negation), selected(after, pack.negation))) return 'negation-change';
+  // typoReview: правку формы опечатки уже признали такой; остальные ловушки проверяют её как обычно.
+  const review = Boolean(options.typoReview);
+  if (!review && (before.match(/\b\p{L}+n['’]t\b/giu) ?? []).length !== (after.match(/\b\p{L}+n['’]t\b/giu) ?? []).length) return 'negation-change';
+  if (!review && changed(selected(before, pack.negation), selected(after, pack.negation))) return 'negation-change';
   // Имена сравниваются с учётом числа вхождений: если имя встречается в цели дважды, пропажа одного вхождения — тоже смена
   // имени («…; Тётка» → «…; тётка»). Исключение — удвоенное подряд имя («Иваныч Иваныч» → «Иваныч»): это опечатка-повтор.
   const namesBefore = names(before, options.nameContext), namesAfter = names(after, options.nameContext);
-  if (changed([...new Set(namesBefore)], [...new Set(namesAfter)], lang !== 'en') || droppedName(before, namesBefore, namesAfter, lang !== 'en')) return 'proper-name-change';
+  // Пропажа вхождения имени отклоняется и для правки формы опечатки: «Тётка» → «тётка» — это смена имени, а не регистра.
+  if ((!review && changed([...new Set(namesBefore)], [...new Set(namesAfter)], lang !== 'en')) || droppedName(before, namesBefore, namesAfter, lang !== 'en')) return 'proper-name-change';
   if (changed(selected(before, pack.modal), selected(after, pack.modal))) return 'certainty-change';
   if (changed(selected(before, lexicons[lang]?.certainty ?? []), selected(after, lexicons[lang]?.certainty ?? []))) return 'certainty-change';
   for (const type of ['location', 'ownership', 'intention', 'chronology']) {
@@ -91,10 +121,10 @@ export function semanticTrap(before: string, after: string, pack: LanguagePack, 
     if (changed(selected(before, list), selected(after, list))) return type + '-change';
   }
   if (options.inDialogue && dialogueWords(before) !== dialogueWords(after)) {
-    if (options.category !== 'dialogue-mechanics') return 'dialogue-content-change';
+    if (options.category !== 'dialogue-mechanics') { if (!review) return 'dialogue-content-change'; }
     // Категорию выбирает сама модель, поэтому она не разрешает менять слова реплики: только опечатка
     // (те же слова по числу, каждое близко по написанию) и только при явной нормализации автора.
-    if (options.modelGenerated && !(options.dialogueTypoAuthorized && typoOnly(before, after))) return 'dialogue-mechanics-content-change';
+    else if (options.modelGenerated && !(options.dialogueTypoAuthorized && typoOnly(before, after))) return 'dialogue-mechanics-content-change';
   }
   return null;
 }

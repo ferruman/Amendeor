@@ -2,6 +2,22 @@
 
 ## Unreleased
 
+- Guard recovery (audit 2026-10-11 F2/F3).
+  - A typo-shaped model correction that would otherwise be dropped becomes a **review-only** proposal (`unverified`, impact `prose`, `review.evidence`). It is never bulk-, auto- or delegation-accepted. The rejections that qualify:
+    - by `dialogue-content-change`, `negation-change` or `proper-name-change`;
+    - by the necessity verifier, unless the verifier answered `necessary: false, preserved: false`;
+    - left unchecked by a verifier failure.
+  - Recovery is narrow:
+    - a negation may only be fused or split;
+    - a "name" may differ only in letter case;
+    - all other traps and the non-dialogue voice checks still apply.
+  - A malformed verifier answer is retried once. A second one is a `verifier` failure, not a rejection; unreachable calls are `provider` failures.
+  - The guard stage is `partial` only on failures.
+  - `edit` prints and returns the counts: offered, review-only, rejected, unchecked.
+- Fail fast on refused spend (audit F5).
+  - The budget is reserved before the OpenRouter pacing wait.
+  - The first `SpendRefused` stops the edit and check window loops. The run records the rules output and a `refused` model stage, exits 2 and releases the lock.
+  - A 9-window refused run went from 28 s to 0.3 s.
 - Added English editorial guides `en-fiction-editing`, `en-clarity` and `en-prose-style`: principle catalogs in our own words (64 principles with keep-when exceptions and severity); eight narrow narration signals; English scan and verify prompts with the preservation rules; findings carry the principle's severity. Guides now declare their language and refuse a book in another one (the Russian guides used to return nothing on an English book). Overlapping findings for the same principle are deduplicated. Evaluation fixture and runner in `eval/en-guides.ts`.
 - Formulaic catalog 0.3.0 from the suite's `PROSE-TELLS.md`: participle glosses, copula dodges, narrow negative parallels, chat leaks, clustered model vocabulary, and book-level gestures (pause beats, “the way a…” similes) that fire only above a per-book rate. Signal reasons now reach the copy-edit prompt (1.6.0).
 - Added Codicora workspace and standalone manuscript readers, proposal contracts, acceptance history, edited-copy builds, and CLI reports.

@@ -5,6 +5,7 @@ import type { Proposal } from '../proposal/schema.ts';
 import { makeProposal } from '../proposal/identity.ts';
 import { Cache } from '../cache.ts';
 import { Gateway } from '../provider/gateway.ts';
+import { SpendRefused } from '../provider/meter.ts';
 import { copyEditPrompt, copyEditPromptVersion, diagnosticEditPrompt, diagnosticPromptVersion } from '../prompts/copy-edit.ts';
 import { mergePasses, type MergeConflict, type MergeRecord, type Pass, type Placed } from './merge.ts';
 import { editWindows } from './windows.ts';
@@ -66,14 +67,23 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
       await cache.write(pass === 'diagnostic' ? 'model-diagnostic' : 'model', key, edits);
       return edits;
     } catch (error) {
+      // Отказ в тратах не сбой окна: следующие окна получат тот же отказ, поэтому проход останавливается (AUDIT F5).
+      if (error instanceof SpendRefused) throw error;
       failures.push({ node_id: window.chapter + '/' + window.scene + '/' + window.start, reason: error instanceof Error ? error.message : String(error), ...(diagnostic ? { pass } : {}) });
       return null;
     }
   };
-  for (const window of windows) {
+  let refused: { reason: string; window: number } | undefined;
+  for (const [windowIndex, window] of windows.entries()) {
     windowsByChapter[window.chapter] = (windowsByChapter[window.chapter] ?? 0) + 1;
-    const standard = await request(window, 'standard');
-    const second = diagnostic ? await request(window, 'diagnostic') : null;
+    let standard: ParsedEdit[] | null, second: ParsedEdit[] | null;
+    try {
+      standard = await request(window, 'standard');
+      second = diagnostic ? await request(window, 'diagnostic') : null;
+    } catch (error) {
+      if (!(error instanceof SpendRefused)) throw error;
+      refused = { reason: error.message, window: windowIndex }; break;
+    }
     // Окно без правок — только если ни один проход не упал; упавший проход уже записан в failures.
     if (!standard?.length && !second?.length) {
       if (standard !== null && (!diagnostic || second !== null)) { noChange++; noChangeByChapter[window.chapter] = (noChangeByChapter[window.chapter] ?? 0) + 1; }
@@ -116,5 +126,5 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
     const result = mergePasses(scene.text, placed);
     proposals.push(...result.proposals); conflicts.push(...result.conflicts); merges.push(...result.merges); merged += result.merged;
   }
-  return { proposals, conflicts, stage: { name: 'model', status: failures.length ? 'partial' : 'ok', windows: windows.length, ...(diagnostic ? { passes: ['standard', 'diagnostic'], pass_candidates: passCandidates, merged_identical: merged, merge_conflicts: conflicts.length, conflicts, merges, diagnostic_prompt_version: diagnosticPromptVersion } : {}), windows_by_chapter: windowsByChapter, sent, cached, no_change: noChange, no_change_by_chapter: noChangeByChapter, candidates: proposals.length, discarded, failures, prompt_version: copyEditPromptVersion, model_id: profile.model, formulaic_hits: formulaic, formulaic_catalog_version: formulaicCatalogVersion }, ledger: gateway.ledger };
+  return { proposals, conflicts, stage: { name: 'model', status: refused ? 'refused' : failures.length ? 'partial' : 'ok', windows: windows.length, ...(refused ? { refused: { reason: refused.reason, windows_done: refused.window, windows_skipped: windows.length - refused.window } } : {}), ...(diagnostic ? { passes: ['standard', 'diagnostic'], pass_candidates: passCandidates, merged_identical: merged, merge_conflicts: conflicts.length, conflicts, merges, diagnostic_prompt_version: diagnosticPromptVersion } : {}), windows_by_chapter: windowsByChapter, sent, cached, no_change: noChange, no_change_by_chapter: noChangeByChapter, candidates: proposals.length, discarded, failures, prompt_version: copyEditPromptVersion, model_id: profile.model, formulaic_hits: formulaic, formulaic_catalog_version: formulaicCatalogVersion }, ledger: gateway.ledger };
 }

@@ -1,0 +1,395 @@
+{
+  "book": "books/larfenon-2",
+  "run_id": "(replay)",
+  "seconds": 16.55,
+  "model": {
+    "windows": 111,
+    "cached": 108,
+    "sent": 3,
+    "candidates": 52,
+    "failures": 0,
+    "status": "ok"
+  },
+  "guard": {
+    "status": "partial",
+    "candidates": 52,
+    "offered": 13,
+    "rejected": 39,
+    "failures": 0,
+    "semantic_rejected": 39,
+    "voice_rejected": 0,
+    "rule_preferred": 0
+  },
+  "proposals": {
+    "total": 15,
+    "mechanical": 1,
+    "model_offered": 13,
+    "review_only": 0
+  },
+  "network": {
+    "requests": 6,
+    "by_kind": {
+      "edit-from-cache": 2,
+      "edit-unrecorded": 1,
+      "verify-from-run": 1,
+      "verify-malformed": 2
+    }
+  },
+  "book2_errors": {
+    "review_only": 0,
+    "offered": 0,
+    "lost": 16,
+    "acceptable_without_consent": 0,
+    "items": [
+      {
+        "target": "ваши подвигы",
+        "replacement": "ваши подвиги",
+        "outcome": "rejected by semantic-trap: dialogue-content-change",
+        "accept_without_consent": false
+      },
+      {
+        "target": "В кратце не значится.",
+        "replacement": "Вкратце не значится.",
+        "outcome": "rejected by semantic-trap: dialogue-content-change",
+        "accept_without_consent": false
+      },
+      {
+        "target": "Кто-то платит Коула, и платит не из Лакрана.",
+        "replacement": "Кто-то платит Коулу, и платит не из Лакрана.",
+        "outcome": "rejected by semantic-trap: dialogue-content-change",
+        "accept_without_consent": false
+      },
+      {
+        "target": "на секунную остановку",
+        "replacement": "на секундную остановку",
+        "outcome": "rejected by semantic-trap: dialogue-content-change",
+        "accept_without_consent": false
+      },
+      {
+        "target": "Мы обменлись новостями.",
+        "replacement": "Мы обменялись новостями.",
+        "outcome": "rejected by semantic-trap: dialogue-content-change",
+        "accept_without_consent": false
+      },
+      {
+        "target": "что у учителя не описуемое не только лицо",
+        "replacement": "что у учителя неописуемое не только лицо",
+        "outcome": "rejected by semantic-trap: negation-change",
+        "accept_without_consent": false
+      },
+      {
+        "target": "я и с мечом хожу не плохо",
+        "replacement": "я и с мечом хожу неплохо",
+        "outcome": "rejected by semantic-trap: negation-change",
+        "accept_without_consent": false
+      },
+      {
+        "target": "С один борт от телеги",
+        "replacement": "Один борт от телеги",
+        "outcome": "rejected by semantic-trap: proper-name-change",
+        "accept_without_consent": false
+      },
+      {
+        "target": "— Не получится, — сказал я. — до рассвета у меня коронация",
+        "replacement": "— Не получится, — сказал я. — До рассвета у меня коронация",
+        "outcome": "rejected by semantic-trap: proper-name-change",
+        "accept_without_consent": false
+      },
+      {
+        "target": "на этом бумаге заканчивалась",
+        "replacement": "на этом бумага заканчивалась",
+        "outcome": "rejected by semantic-verifier: not preserved: BEFORE has a case/agreement error: «на этом» is masculine/neuter, but «бумаге» is feminine prepositional, so the phrase is ungrammatical. AFTER removes the error by making «бумага» the nominative subject, which is grammatical. But the author's intended sense is likely «на этой бумаге» ('the writing ended on this sheet'). AFTER shifts it to 'at this point the paper ran out', a different implication about the sheet itself.",
+        "accept_without_consent": false
+      },
+      {
+        "target": "поедет я",
+        "replacement": "поеду я",
+        "outcome": "rejected by semantic-verifier: unnecessary: Standard Russian requires 'поеду я' (first-person verb form), so 'поедет я' looks like an agreement error. But it sits in an idiosyncratic literary narration with deliberate stylization, so it may be an intended quirk; given that uncertainty, the edit is not clearly necessary. The change itself keeps the meaning, action and voice.",
+        "accept_without_consent": false
+      },
+      {
+        "target": "я обходил его вчера с Степом дважды.",
+        "replacement": "я обходил его вчера со Степом дважды.",
+        "outcome": "rejected by semantic-verifier: unnecessary: The change from «с Степом» to «со Степом» follows the euphonic «со» rule for a following «Ст» cluster, but «с» before such clusters is common in practice and reads as an acceptable variant rather than an objective grammar or typo error. Since the error is uncertain, the edit is not clearly necessary. The meaning, facts and voice are unchanged, so it is preserved.",
+        "accept_without_consent": false
+      },
+      {
+        "target": "подняла кувшин со камня",
+        "replacement": "подняла кувшин с камня",
+        "outcome": "rejected by semantic-verifier: unnecessary: BEFORE uses the older euphonic form «со» before «камня», which starts with «к». The author repeats «со камня» in the surrounding paragraph, so it reads as a deliberate period or stylized form rather than an unambiguous error. Changing it to «с» is a normalization, not a required fix, so the edit is unnecessary. AFTER keeps all facts and the author's voice.",
+        "accept_without_consent": false
+      },
+      {
+        "target": "в чом",
+        "replacement": "в чём",
+        "outcome": "rejected by semantic-verifier: unnecessary: «чом» for «чём» reads as a misspelling, but in this playful first-person narration the 'о' for 'ё' may be a deliberate colloquial or stylized spelling in the narrator's voice, and the text repeats «в том, в чом» on purpose. Since it is unclear whether this is an error, the edit is not clearly necessary. The change itself keeps the meaning intact.",
+        "accept_without_consent": false
+      },
+      {
+        "target": "сединая прядь",
+        "replacement": "седая прядь",
+        "outcome": "rejected by semantic-verifier: unnecessary: «сединая» is an unusual adjective form, but it may be a real (if rare or poetic) variant of «седой» with correct feminine agreement with «прядь». Since I can't confirm it is an objective error, the edit is not clearly necessary. The change to «седая» keeps the same meaning, certainty and voice, so it is preserved.",
+        "accept_without_consent": false
+      },
+      {
+        "target": "С этой осади у меня остались",
+        "replacement": "С этой осады у меня остались",
+        "outcome": "rejected by semantic-verifier: verify failed: [",
+        "accept_without_consent": false
+      }
+    ]
+  },
+  "offered_ids": [
+    "amendeor:07bc66fd7938a739",
+    "amendeor:179fec36f97704d2",
+    "amendeor:6d31acde54bb8801",
+    "amendeor:6e08a467e6dd5e44",
+    "amendeor:75688d046c8c0739",
+    "amendeor:91ea6145975180f0",
+    "amendeor:a0a719b5612b1621",
+    "amendeor:c3bb93884101305b",
+    "amendeor:cf3233164e81bb87",
+    "amendeor:ddb02c6b4e0aca28",
+    "amendeor:ecd376641ea38530",
+    "amendeor:f25e5b6795a04203",
+    "amendeor:f653583025d0bb87"
+  ],
+  "review_only_items": [],
+  "rejections": [
+    {
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "ваши подвигы",
+      "replacement": "ваши подвиги"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "negation-change",
+      "target": "что у учителя не описуемое не только лицо",
+      "replacement": "что у учителя неописуемое не только лицо"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: «чом» for «чём» reads as a misspelling, but in this playful first-person narration the ",
+      "target": "в чом",
+      "replacement": "в чём"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE is not an objective error. «галофанийские» is an invented adjective for a fict",
+      "target": "галофанийские",
+      "replacement": "галафанийские"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "Ему отвечали, что ты полегли в гору.",
+      "replacement": "Ему отвечали, что ты полёг в гору."
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: «сединая» is an unusual adjective form, but it may be a real (if rare or poetic) varian",
+      "target": "сединая прядь",
+      "replacement": "седая прядь"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "yo-normalization",
+      "target": "при моем росте",
+      "replacement": "при моём росте"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE is grammatical: «идти их пришлось» is a standard construction (infinitive of m",
+      "target": "и идти их пришлось через ворота",
+      "replacement": "и пройти их пришлось через ворота"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE's «руок» is a nonstandard genitive plural (the standard form is «рук»), so it ",
+      "target": "руок на нём",
+      "replacement": "рун на нём"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "proper-name-change",
+      "target": "С один борт от телеги",
+      "replacement": "Один борт от телеги"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "not preserved: «бот» is a real Russian word (a boat, or an archaic/dialect term for a club or staff)",
+      "target": "с ботом на плече",
+      "replacement": "с бортом на плече"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE is correct: «счла» is the regular feminine past form of «счесть» ('to consider",
+      "target": "не счла",
+      "replacement": "не сочла"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE is not an objective error. «как трут трут же» reads as a deliberate, stylized ",
+      "target": "как трут трут же",
+      "replacement": "как трут трутёж"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE has a case/agreement error: «на этом» is masculine/neuter, but «бумаге» is fem",
+      "target": "на этом бумаге заканчивалась",
+      "replacement": "на этом бумага заканчивалась"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "punctuation-style-only",
+      "target": "Огонь, что в чужой руке горит, — твой.",
+      "replacement": "Огонь, что в чужой руке горит, — твой"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE «разошлся» is a standard past-tense form with no grammatical error. The change i",
+      "target": "разошлся",
+      "replacement": "разошёлся"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE is not objectively wrong. «где» with «не мог посмотреть» reads as a locative of ",
+      "target": "а остальные три — куда-то за край, где Дурр не мог посмотреть",
+      "replacement": "а остальные три — куда-то за край, куда Дурр не мог посмотреть"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE is grammatically correct: «стоял … как стоял до прыжка» is a valid comparative c",
+      "target": "Дурр стоял на своих костях, как стоял до прыжка",
+      "replacement": "Дурр стоял на своих костях, как и до прыжка"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "В кратце не значится.",
+      "replacement": "Вкратце не значится."
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "punctuation-style-only",
+      "target": "Полгода полгода, а теперь меры.",
+      "replacement": "Полгода-полгода, а теперь меры."
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE is grammatical: «от Комано слов попусту не ходило» is an idiomatic-style constru",
+      "target": "а от Комано слов попусту не ходило",
+      "replacement": "а у Комано слов попусту не ходило"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: Standard Russian requires 'поеду я' (first-person verb form), so 'поедет я' looks like ",
+      "target": "поедет я",
+      "replacement": "поеду я"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "yo-normalization",
+      "target": "как ячмень лег костью",
+      "replacement": "как ячмень лёг костью"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "unsupported-comma-change",
+      "target": "Сто сражён взявший города,",
+      "replacement": "Сто сражён, взявший города,"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE uses the impersonal neuter «было видно» with «герб» as a topic, a construction c",
+      "target": "Герб Серебряного коня было видно плохо",
+      "replacement": "Герб Серебряного коня был виден плохо"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "Кто-то платит Коула, и платит не из Лакрана.",
+      "replacement": "Кто-то платит Коулу, и платит не из Лакрана."
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE is not an objective error. «сухое» is a substantivized neuter adjective ('dry gr",
+      "target": "Степ посмотрел туда же, сплюнул на сухое",
+      "replacement": "Степ посмотрел туда же, сплюнул на сухую землю"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "not preserved: replay: recorded in run.json",
+      "target": "он на поясе врук,",
+      "replacement": "он на поясе в рук,"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: The change from «с Степом» to «со Степом» follows the euphonic «со» rule for a followin",
+      "target": "я обходил его вчера с Степом дважды.",
+      "replacement": "я обходил его вчера со Степом дважды."
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "negation-change",
+      "target": "я и с мечом хожу не плохо",
+      "replacement": "я и с мечом хожу неплохо"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE is grammatical: «который развязывают» is an impersonal construction meaning 'tha",
+      "target": "узлом, который развязывают, кажется, только его дед",
+      "replacement": "узлом, который, кажется, развязывает только его дед"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "на секунную остановку",
+      "replacement": "на секундную остановку"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE is grammatical: «в морге» is a correct locative, and the phrase reads as a del",
+      "target": "в морге его я увидел",
+      "replacement": "в моргании его я увидел"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "verify failed: [",
+      "target": "С этой осади у меня остались",
+      "replacement": "С этой осады у меня остались"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE uses the older euphonic form «со» before «камня», which starts with «к». The aut",
+      "target": "подняла кувшин со камня",
+      "replacement": "подняла кувшин с камня"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "proper-name-change",
+      "target": "— Не получится, — сказал я. — до рассвета у меня коронация",
+      "replacement": "— Не получится, — сказал я. — До рассвета у меня коронация"
+    },
+    {
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "Мы обменлись новостями.",
+      "replacement": "Мы обменялись новостями."
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "verify failed: [",
+      "target": "который знает этой лестнице цену больше всех нас",
+      "replacement": "который знает цену этой лестнице лучше всех нас"
+    },
+    {
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE is grammatical: «поднял на стенах» uses a locative phrase that reads as 'raised ",
+      "target": "Фарлок поднял на стенах в первый же год",
+      "replacement": "Фарлок поднял на стены в первый же год"
+    }
+  ],
+  "failures": []
+}

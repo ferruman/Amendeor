@@ -22,13 +22,14 @@ export function renderReport(run: Record<string, any>): string {
   const stages = Array.isArray(run.stages) ? run.stages : [];
   const rules = stages.find((stage: { name: string }) => stage.name === 'rules');
   const model = stages.find((stage: { name: string }) => stage.name === 'model');
-  const degraded = stages.flatMap((stage: { failures?: Array<{ node_id: string; reason: string }> }) => stage.failures ?? []);
+  const degraded = stages.flatMap((stage: { failures?: Array<{ node_id: string; reason: string; kind?: string }> }) => (stage.failures ?? []).map((item) => item.kind ? { ...item, reason: `${item.kind}: ${item.reason.split('\n')[0]}` } : item));
   const lines = [
     `# Amendeor report — ${run.run_id ?? '?'}`,
     '', `${summary.chapters ?? 0} chapters · ${summary.scenes ?? 0} scenes · ${summary.words ?? 0} words · ${summary.language ?? '?'}`,
     '', `Rules: ${rules?.hits ?? 0} hits → ${rules?.proposals ?? 0} proposals (${rules?.units?.cached ?? 0} cached, ${rules?.units?.computed ?? 0} computed)`,
     `Model: ${model && model.status !== 'skipped' ? `${model.windows ?? 0} windows · ${model.no_change ?? 0} NO_CHANGE · ${model.candidates ?? 0} candidates` : 'rules only'}`,
     `Semantic guard: ${run.guard?.semantic_rejected ?? 0} rejected · Objective guard: ${run.guard?.objective_rejected ?? 0} rejected · Punctuation guard: ${run.guard?.punctuation_rejected ?? 0} rejected · Voice guard: ${run.guard?.voice_rejected ?? 0} rejected`,
+    `Guard outcomes: ${run.guard?.offered ?? 0} offered · ${run.guard?.review_only ?? 0} review-only · ${run.guard?.rejected ?? run.guard?.rejections?.length ?? 0} rejected · unchecked: ${run.guard?.verifier_failures ?? 0} verifier, ${run.guard?.provider_failures ?? 0} provider, ${run.guard?.spend_refused ?? 0} spend refused`,
     `Proposals: mechanical ${run.counts?.by_impact?.mechanical ?? 0} · prose ${run.counts?.by_impact?.prose ?? 0} (accepted ${run.decisions?.accepted ?? 0}, stale ${run.decisions?.stale ?? 0})`,
     `Findings: ${run.findings?.read ?? 0} read · ${run.findings?.applicable ?? 0} applicable`,
     `Usage: ${run.ledger?.tokens_in ?? 0}/${run.ledger?.tokens_out ?? 0} tokens · ${run.ledger?.cost === null ? 'unpriced' : run.ledger?.cost ?? 0} ${run.ledger?.currency ?? ''}`,

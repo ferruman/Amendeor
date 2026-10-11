@@ -7,6 +7,7 @@ import type { LanguagePack } from '../lang/pack.ts';
 import { Cache } from '../cache.ts';
 import { editWindows } from '../edit/windows.ts';
 import { Gateway } from '../provider/gateway.ts';
+import { SpendRefused } from '../provider/meter.ts';
 import { sha256 } from '../hash.ts';
 import { dialogueSpans } from '../text/dialogue.ts';
 import type { Guide, GuideId, GuideSeverity } from './guide.ts';
@@ -30,7 +31,7 @@ export interface ContextualFinding {
   verification: { agreed: number; passes: number };
 }
 export interface ContextualResult {
-  status: 'ok' | 'partial';
+  status: 'ok' | 'partial' | 'refused';
   windows: number;
   cached: number;
   checked: number;
@@ -302,15 +303,18 @@ export async function checkGuideContextual(guide: Guide, book: Book, pack: Langu
           ...(principle.severity ? { severity: principle.severity } : {}), verification: { agreed: item.agreed, passes } });
       }
     } catch (error) {
+      // Отказ в тратах повторится на каждом окне: проверка останавливается (AUDIT F5).
+      if (error instanceof SpendRefused) { refused = true; return; }
       failures.push({ chapter: window.chapter, scene: window.scene, start: window.start, reason: error instanceof Error ? error.message : String(error) });
     }
   };
-  for (let index = 0; index < windows.length; index += 2) await Promise.all(windows.slice(index, index + 2).map(processWindow));
+  let refused = false;
+  for (let index = 0; index < windows.length && !refused; index += 2) await Promise.all(windows.slice(index, index + 2).map(processWindow));
   const order = new Map(windows.map((window, index) => [`${window.chapter}/${window.scene}/${window.start}`, index]));
   findings.sort((left, right) => {
     const leftWindow = windows.find((window) => window.chapter === left.chapter && window.scene === left.scene && left.start >= window.start && left.end <= window.end);
     const rightWindow = windows.find((window) => window.chapter === right.chapter && window.scene === right.scene && right.start >= window.start && right.end <= window.end);
     return (order.get(`${leftWindow?.chapter}/${leftWindow?.scene}/${leftWindow?.start}`) ?? 0) - (order.get(`${rightWindow?.chapter}/${rightWindow?.scene}/${rightWindow?.start}`) ?? 0) || left.start - right.start;
   });
-  return { status: failures.length ? 'partial' : 'ok', windows: windows.length, cached, checked, failures, discarded, ledger: gateway.ledger, findings };
+  return { status: refused ? 'refused' : failures.length ? 'partial' : 'ok', windows: windows.length, cached, checked, failures, discarded, ledger: gateway.ledger, findings };
 }

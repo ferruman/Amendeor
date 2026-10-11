@@ -26,6 +26,9 @@ export class Gateway {
     const request: CompletionRequest = { system, prompt, model: profile.model, maxTokens: budget, temperature: profile.temperature ?? 0, endpoint: providerConfig.endpoint, apiKey, thinking: profile.thinking, reasoning: profile.reasoning, reasoningEffort: profile.reasoning ? profile.reasoning_effort : undefined };
     let last: unknown;
     for (let attempt = 0; attempt < 3; attempt++) {
+      // Резерв — до ожидания слота OpenRouter: отказ в тратах приходит сразу, а не после 3,5 с тишины на каждое окно (AUDIT F5).
+      const m = meter.getStore();
+      const reservation: Reservation | null = m ? await reserve(m, providerConfig.price, system.length + prompt.length, request.maxTokens) : null;
       if (providerConfig.transport !== 'local' && providerConfig.endpoint && new URL(providerConfig.endpoint).hostname === 'openrouter.ai') {
         const slot = Math.max(Date.now(), this.nextOpenRouterRequestAt);
         this.nextOpenRouterRequestAt = slot + 3500;
@@ -33,8 +36,6 @@ export class Gateway {
         if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
       }
       const started = performance.now();
-      const m = meter.getStore();
-      const reservation: Reservation | null = m ? await reserve(m, providerConfig.price, system.length + prompt.length, request.maxTokens) : null;
       try {
         const result = await provider.complete(request);
         const inputChars = system.length + prompt.length;

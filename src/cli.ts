@@ -90,7 +90,7 @@ async function main(): Promise<void> {
         if (!source.findingsDir || !source.workspaceDir) throw new Error('--findings needs a Codicora workspace (codicora.yaml)');
         const written = await writeFindingsRun(source.findingsDir, source.workspaceDir, source.book, findings, { guide: guide.id, startedAt, stages: [
           { name: 'patterns', status: 'ok' },
-          contextual ? { name: 'contextual', status: contextual.status, failures: contextual.failures.map((f) => ({ node_id: `${f.chapter}/${f.scene}`, reason: f.reason })) } : { name: 'contextual', status: 'skipped' }] });
+          contextual ? { name: 'contextual', status: contextual.status === 'refused' ? 'partial' : contextual.status, failures: contextual.failures.map((f) => ({ node_id: `${f.chapter}/${f.scene}`, reason: f.reason })) } : { name: 'contextual', status: 'skipped' }] });
         process.stderr.write(`findings/amendeor/runs/${written.runId}: ${written.count} finding(s)\n`);
       }
       print({ command: 'check', guide: guide.id, version: guide.version, count: findings.length, findings,
@@ -108,7 +108,7 @@ async function main(): Promise<void> {
     const release = await acquireLock(source.stateDir);
     try {
       const result = await underDelegation(source, args.delegation, `edit --mode ${args.mode}`, () => editMechanical(source, loadedConfig, pack, { noCache: args.noCache, runId: args.resume, mode: args.mode, acceptAs: () => authorizeAcceptance(source.workspaceDir, cliActor(process.env, Boolean(args.delegation)), args.delegation) }));
-      print({ command: 'edit', mode: args.mode, run_id: result.run_id, proposals: result.proposals.length, summary: result.run.summary, stages: result.run.stages, message: loadedConfig.config.profiles.edit ? 'rules + model' : 'rules only' }, args.json);
+      print({ command: 'edit', mode: args.mode, run_id: result.run_id, proposals: result.proposals.length, outcomes: editOutcomes(result.run), summary: result.run.summary, stages: result.run.stages, message: loadedConfig.config.profiles.edit ? 'rules + model' : 'rules only' }, args.json);
     } finally { await release(); }
     return;
   }
@@ -189,15 +189,31 @@ async function underDelegation<T>(source: { workspaceDir?: string }, id: string 
   }
 }
 
+// Исходы правок прогона (AUDIT A-3d): предложено, на проверку (review-only, только поштучно), отклонено фильтром,
+// не проверено (сбой verifier, провайдера или отказ в тратах). Отказ фильтра — не сбой.
+function editOutcomes(run: Record<string, unknown>): { offered: number; review_only: number; rejected: number; failed: { verifier: number; provider: number; spend_refused: number }; model_refused?: { windows_done: number; windows_skipped: number } } {
+  const guard = (run.guard ?? {}) as Record<string, number>;
+  const model = (run.stages as Array<{ name: string; refused?: { windows_done: number; windows_skipped: number } }>).find((stage) => stage.name === 'model');
+  return { offered: guard.offered ?? 0, review_only: guard.review_only ?? 0, rejected: guard.rejected ?? 0, failed: { verifier: guard.verifier_failures ?? 0, provider: guard.provider_failures ?? 0, spend_refused: guard.spend_refused ?? 0 },
+    ...(model?.refused ? { model_refused: { windows_done: model.refused.windows_done, windows_skipped: model.refused.windows_skipped } } : {}) };
+}
+
 function print(value: unknown, asJson: boolean): void {
   if (asJson) { process.stdout.write(`${JSON.stringify(value, null, 2)}\n`); return; }
-  const result = value as { command: string; guide?: string; accepted?: string[]; rejected?: string[]; results?: Array<{ id: string; status: string; detail?: string }>; warnings?: string[]; chapters?: number; scenes?: number; words?: number; language?: string; hotspots?: unknown[]; formulaic?: Array<{ id: string; chapter: string; scene: string; quote: string }>; findings?: Array<{ id: string; kind?: string; principle?: string; chapter: string; scene: string; quote: string; reason: string }>; contextual?: { status: string; windows?: number; cached?: number; failures?: Array<{ chapter: string; scene: string; reason: string }>; discarded?: Array<{ chapter: string; scene: string; reason: string }> }; count?: number; run_id?: string; proposals?: number; message?: string; changes?: Array<{ id: string; state: string }> };
+  const result = value as { command: string; guide?: string; accepted?: string[]; rejected?: string[]; results?: Array<{ id: string; status: string; detail?: string }>; warnings?: string[]; chapters?: number; scenes?: number; words?: number; language?: string; hotspots?: unknown[]; formulaic?: Array<{ id: string; chapter: string; scene: string; quote: string }>; findings?: Array<{ id: string; kind?: string; principle?: string; chapter: string; scene: string; quote: string; reason: string }>; contextual?: { status: string; windows?: number; cached?: number; failures?: Array<{ chapter: string; scene: string; reason: string }>; discarded?: Array<{ chapter: string; scene: string; reason: string }> }; count?: number; run_id?: string; proposals?: number; message?: string; outcomes?: ReturnType<typeof editOutcomes>; changes?: Array<{ id: string; state: string }> };
   if (result.command === 'inspect') {
     process.stdout.write(`inspect: ${result.chapters} chapters, ${result.scenes} scenes, ${result.words} words, ${result.language}; ${result.hotspots?.length ?? 0} hotspots; ${result.formulaic?.length ?? 0} formulaic passages\n`);
     for (const hit of result.formulaic ?? []) process.stdout.write(`  ${hit.chapter}/${hit.scene} ${hit.id}: ${hit.quote}\n`);
     return;
   }
-  if (result.command === 'edit') { process.stdout.write(`edit: ${result.proposals} proposals, run ${result.run_id} (${result.message})\n`); return; }
+  if (result.command === 'edit') {
+    const o = result.outcomes!; const failed = o.failed.verifier + o.failed.provider + o.failed.spend_refused;
+    process.stdout.write(`edit: ${result.proposals} proposals (${o.offered} model offered, ${o.review_only} review-only), ${o.rejected} rejected, ${failed} unchecked, run ${result.run_id} (${result.message})\n`);
+    if (o.review_only) process.stdout.write(`  ${o.review_only} review-only: typo-shaped corrections a guard stopped; accept only one by one: amendeor accept <target> <id> --unverified\n`);
+    if (failed) process.stdout.write(`  unchecked: ${o.failed.verifier} verifier, ${o.failed.provider} provider, ${o.failed.spend_refused} spend refused — see amendeor report\n`);
+    if (o.model_refused) process.stdout.write(`  model pass stopped at the first refused call: ${o.model_refused.windows_done} window(s) done, ${o.model_refused.windows_skipped} not sent; rules proposals are recorded\n`);
+    return;
+  }
   if (result.command === 'check') {
     process.stdout.write(`check: ${result.count} ${result.guide} finding(s); contextual ${result.contextual?.status ?? 'unknown'}${result.contextual?.windows === undefined ? '' : ` (${result.contextual.windows} windows, ${result.contextual.cached ?? 0} cached)`}\n`);
     for (const hit of result.findings ?? []) process.stdout.write(`  ${hit.chapter}/${hit.scene} ${hit.kind === 'contextual' ? hit.principle : hit.id}: ${hit.quote} — ${hit.reason}\n`);
