@@ -1,0 +1,258 @@
+{
+  "generated_at": "2026-10-11T11:08:04.438Z",
+  "spent_usd": 0.002268,
+  "requests": 39,
+  "corpus": {
+    "furnace2-clean": {
+      "words": 3454,
+      "scenes": 4,
+      "mutations": 0,
+      "policy": []
+    }
+  },
+  "stage_a": {},
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "c1-production",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {},
+      "model_proposals_offered": 0,
+      "review_findings": [],
+      "proven_equivalent_merges": 0,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0.000901,
+        "editor_usd": 0.000901,
+        "verifier_usd": 0,
+        "retries_usd": 0.000019,
+        "per_1000_words_usd": 0.000087,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0.000075,
+        "per_repeat_usd": 0.0003,
+        "sources": [
+          "provider-usage",
+          "error-no-usage"
+        ]
+      },
+      "requests": {
+        "total": 13,
+        "editor": 13,
+        "verifier": 0,
+        "truncated": 0,
+        "http_errors": 1,
+        "retries": 2,
+        "tokens_in": 17490,
+        "tokens_out": 108,
+        "cached_tokens": 11636
+      },
+      "latency": {
+        "median_request_ms": 586,
+        "mean_request_ms": 615,
+        "median_job_ms": 11954,
+        "mean_job_ms": 16511
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c4-dual-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 1,
+          "diagnostic": 7
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 8
+      },
+      "model_proposals_offered": 0,
+      "review_findings": [],
+      "proven_equivalent_merges": 0,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0.001366,
+        "editor_usd": 0.001366,
+        "verifier_usd": 0,
+        "retries_usd": 0.000039,
+        "per_1000_words_usd": 0.000132,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0.000114,
+        "per_repeat_usd": 0.000455,
+        "sources": [
+          "provider-usage",
+          "error-no-usage"
+        ]
+      },
+      "requests": {
+        "total": 26,
+        "editor": 26,
+        "verifier": 0,
+        "truncated": 0,
+        "http_errors": 2,
+        "retries": 4,
+        "tokens_in": 36180,
+        "tokens_out": 566,
+        "cached_tokens": 29890
+      },
+      "latency": {
+        "median_request_ms": 588,
+        "mean_request_ms": 569,
+        "median_job_ms": 43695,
+        "mean_job_ms": 40954
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": false
+    }
+  ],
+  "unlabelled_final_edits": []
+}

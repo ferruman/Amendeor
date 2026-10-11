@@ -1,0 +1,6 @@
+schema_version: 1
+language: en
+chapters:
+  - slug: ch-fd275ad0
+    title: "Monday"
+    eval_control: false

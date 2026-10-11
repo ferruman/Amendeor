@@ -1,0 +1,9 @@
+{
+  "provenance": "Nonstandard but correct prose (Chekhov «Егерь», «Унтер Пришибеев»; Twain, Huckleberry Finn ch. I); every edit changes the author's text. Labelled 2026-10-11.",
+  "judgements": [
+    { "target": "Mark", "replacement": "Mary", "label": "harmful", "note": "rule terminology.name-variant renames «Mr. Mark Twain» because «Mary» is more frequent; production defect, identical in every configuration" },
+    { "target": "I couldn’t stood it much longer.", "replacement": "I couldn’t stand it much longer.", "label": "harmful", "note": "Huck's first-person dialect narration" },
+    { "target": "I couldn’t stood it", "replacement": "I couldn’t stand it", "label": "harmful", "note": "Huck's first-person dialect narration" },
+    { "target": "couldn’t stood it", "replacement": "couldn’t stand it", "label": "harmful", "note": "Huck's first-person dialect narration" }
+  ]
+}

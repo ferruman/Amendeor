@@ -1,0 +1,512 @@
+{
+  "generated_at": "2026-10-11T09:50:11.407Z",
+  "spent_usd": 0,
+  "requests": 94,
+  "corpus": {
+    "ru-new-clean": {
+      "words": 2646,
+      "scenes": 5,
+      "mutations": 0,
+      "policy": []
+    }
+  },
+  "stage_a": {},
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "c1-production",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 3,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 3,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 10
+      },
+      "model_proposals_offered": 0,
+      "review_findings": [],
+      "proven_equivalent_merges": 0,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0,
+        "editor_usd": 0,
+        "verifier_usd": 0,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0,
+        "per_repeat_usd": 0,
+        "sources": [
+          "replay"
+        ]
+      },
+      "requests": {
+        "total": 15,
+        "editor": 15,
+        "verifier": 0,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "mean_request_ms": 0,
+        "median_job_ms": 14075,
+        "mean_job_ms": 14098
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c2-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 3,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 3,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 1
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 8
+      },
+      "model_proposals_offered": 0,
+      "review_findings": [],
+      "proven_equivalent_merges": 0,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0,
+        "editor_usd": 0,
+        "verifier_usd": 0,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0,
+        "per_repeat_usd": 0,
+        "sources": [
+          "replay"
+        ]
+      },
+      "requests": {
+        "total": 16,
+        "editor": 16,
+        "verifier": 0,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "mean_request_ms": 0,
+        "median_job_ms": 14086,
+        "mean_job_ms": 15253
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c3-dual",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 3,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 3,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 2,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [
+            "ru-new-clean-0: Анюта вернулась от художника такая утомлённая, изнеможённая. → Анюта вернулась от художника такая утомлённая, измождённая.",
+            "ru-new-clean-1: Спустя часа полтора, Иона сидит → Спустя час-полтора Иона сидит"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 1,
+        "target-not-verbatim-in-window": 1
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 3,
+        "conflicts": 4,
+        "candidates": {
+          "standard": 10,
+          "diagnostic": 17
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 14,
+        "semantic-verifier": 2
+      },
+      "model_proposals_offered": 0,
+      "review_findings": [],
+      "proven_equivalent_merges": 3,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0,
+        "editor_usd": 0,
+        "verifier_usd": 0,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0,
+        "per_repeat_usd": 0,
+        "sources": [
+          "replay"
+        ]
+      },
+      "requests": {
+        "total": 32,
+        "editor": 30,
+        "verifier": 2,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "mean_request_ms": 0,
+        "median_job_ms": 31588,
+        "mean_job_ms": 31579
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "ru-new-clean-1: Спустя часа полтора, Иона сидит → Спустя час-полтора Иона сидит"
+          ],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c4-dual-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 3,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 3,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 1,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [
+            "ru-new-clean-0: лет 25-ти → лет 25"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "target-not-verbatim-in-window": 3
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 7,
+        "conflicts": 1,
+        "candidates": {
+          "standard": 11,
+          "diagnostic": 14
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 15,
+        "semantic-verifier": 1
+      },
+      "model_proposals_offered": 0,
+      "review_findings": [],
+      "proven_equivalent_merges": 7,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0,
+        "editor_usd": 0,
+        "verifier_usd": 0,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0,
+        "per_repeat_usd": 0,
+        "sources": [
+          "replay"
+        ]
+      },
+      "requests": {
+        "total": 31,
+        "editor": 30,
+        "verifier": 1,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "mean_request_ms": 0,
+        "median_job_ms": 31575,
+        "mean_job_ms": 31576
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "ru-new-clean-0: лет 25-ти → лет 25"
+          ],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": true
+    }
+  ],
+  "unlabelled_final_edits": []
+}

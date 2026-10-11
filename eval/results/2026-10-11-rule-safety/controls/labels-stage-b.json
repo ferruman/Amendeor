@@ -1,0 +1,14 @@
+{
+  "provenance": "Clean controls from Wikisource and Project Gutenberg, labelled against the source on 2026-10-11. The Wikisource transcriptions contain a few real typos (по вебу, по сквозь, тотчс, В какие местах); fixing them is valid.",
+  "judgements": [
+    { "target": "по вебу", "replacement": "по небу", "label": "valid", "note": "transcription typo; Chekhov: «по небу»" },
+    { "target": "по сквозь полусон", "replacement": "но сквозь полусон", "label": "valid", "note": "transcription typo; Chekhov: «но сквозь полусон»" },
+    { "target": "тотчс увидел", "replacement": "тотчас увидел", "label": "valid", "note": "transcription typo" },
+    { "target": "тотчс", "replacement": "тотчас", "label": "valid", "note": "transcription typo" },
+    { "target": "Дед тотчс увидел", "replacement": "Дед тотчас увидел", "label": "valid", "note": "transcription typo" },
+    { "target": "В какие местах", "replacement": "В каких местах", "label": "valid", "note": "transcription typo; agreement" },
+    { "target": "Дед держаться:", "replacement": "Дед держался:", "label": "harmful", "note": "Gogol's infinitive of attempt («Дед держаться: не тут-то было»); the edit rewrites the skaz syntax" },
+    { "target": "та та", "replacement": "та", "label": "harmful", "note": "onomatopoeia «тара та та, та та та» in the narrator's mimicry of the listeners; doubled-word rule (contextual: needs per-item acceptance)" },
+    { "target": "Смотри же! близко шинка будет поворот направо в лес.", "replacement": "Смотри же! Близко шинка будет поворот направо в лес.", "label": "invalid", "note": "period punctuation inside speech: lowercase after «!» is the source style" }
+  ]
+}

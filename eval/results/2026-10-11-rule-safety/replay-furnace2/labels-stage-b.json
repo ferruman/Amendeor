@@ -1,0 +1,10 @@
+{
+  "provenance": "Edits to Furnace Road ch. 2 (locked book) that do not correct an injected error, labelled against the source on 2026-10-11.",
+  "judgements": [
+    { "target": "the way his first sergeant used to say it", "replacement": "the way his first sergeant used to put it", "label": "invalid", "note": "word choice" },
+    { "target": "folding the tops over twice the way a man folds a letter", "replacement": "folding the tops over twice, like a letter", "label": "invalid", "note": "stylistic rewrite" },
+    { "target": "the way a kid looks when the county police have been at his girl's funeral and his own street", "replacement": "as a kid looks when the county police have been at his girl's funeral and his own street", "label": "invalid", "note": "stylistic rewrite" },
+    { "target": "his first sergeant used to say it: outdoors is a liar.", "replacement": "his first sergeant used to say it: outdoors was a liar.", "label": "harmful", "note": "a quoted maxim keeps the present tense" },
+    { "target": "cluster of orange vest", "replacement": "cluster of orange vests", "label": "ambiguous", "note": "ambiguous: «a cluster of orange vest and state-police gray» reads as a collective colour noun; not an objective error" }
+  ]
+}

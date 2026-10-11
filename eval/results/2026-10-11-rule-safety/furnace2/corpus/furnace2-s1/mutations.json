@@ -1,0 +1,138 @@
+{
+  "provenance": {
+    "source": "books/bradshaw-01/manuscript/chapters/ch-fd275ad0.md",
+    "sha256": "sha256:0bdbcbcb02aee89813ab7e102cabc4a3f0a7415b9637adc6219b8c348a00e4fc",
+    "note": "locked book, read only"
+  },
+  "seed": "opt-s1",
+  "generator": 2,
+  "mode": "copy",
+  "types_used": [
+    "typo",
+    "doubled-word",
+    "agreement",
+    "redundancy",
+    "sentence-frame",
+    "formulaic"
+  ],
+  "types_skipped": [
+    "qualifier",
+    "dialogue-format"
+  ],
+  "control_chapter": null,
+  "mutations": [
+    {
+      "id": "furnace2-opt-s1:redundancy:0:ch-fd275ad0:bc935c09-7bb2-46c1-84fe-2195687d3423",
+      "type": "redundancy",
+      "chapter": "ch-fd275ad0",
+      "scene": "bc935c09-7bb2-46c1-84fe-2195687d3423",
+      "span": {
+        "start": 901,
+        "end": 916
+      },
+      "original": "was",
+      "mutated": "was again again",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": [
+        "was again"
+      ]
+    },
+    {
+      "id": "furnace2-opt-s1:formulaic:1:ch-fd275ad0:bc935c09-7bb2-46c1-84fe-2195687d3423",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "ch-fd275ad0",
+      "scene": "bc935c09-7bb2-46c1-84fe-2195687d3423",
+      "span": {
+        "start": 2653,
+        "end": 2684
+      },
+      "original": "That was",
+      "mutated": "At the end of the day, That was",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace2-opt-s1:agreement:2:ch-fd275ad0:bc935c09-7bb2-46c1-84fe-2195687d3423",
+      "type": "agreement",
+      "chapter": "ch-fd275ad0",
+      "scene": "bc935c09-7bb2-46c1-84fe-2195687d3423",
+      "span": {
+        "start": 3764,
+        "end": 3768
+      },
+      "original": "was",
+      "mutated": "were",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace2-opt-s1:sentence-frame:0:ch-fd275ad0:8635b8a9-0740-43ce-ab1b-6e27f52661df",
+      "type": "sentence-frame",
+      "chapter": "ch-fd275ad0",
+      "scene": "8635b8a9-0740-43ce-ab1b-6e27f52661df",
+      "span": {
+        "start": 4209,
+        "end": 4227
+      },
+      "original": "He wrote",
+      "mutated": "He wrote. He wrote",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace2-opt-s1:doubled-word:0:ch-fd275ad0:ecaaf0f4-111d-4a50-afa3-d9448213d873",
+      "type": "doubled-word",
+      "chapter": "ch-fd275ad0",
+      "scene": "ecaaf0f4-111d-4a50-afa3-d9448213d873",
+      "span": {
+        "start": 3907,
+        "end": 3916
+      },
+      "original": "card",
+      "mutated": "card card",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace2-opt-s1:typo:0:ch-fd275ad0:e0d57870-d982-4f63-add5-bdffb9f75b72",
+      "type": "typo",
+      "chapter": "ch-fd275ad0",
+      "scene": "e0d57870-d982-4f63-add5-bdffb9f75b72",
+      "span": {
+        "start": 136,
+        "end": 144
+      },
+      "original": "remember",
+      "mutated": "reemmber",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    }
+  ]
+}

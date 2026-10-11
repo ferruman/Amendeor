@@ -1,0 +1,1220 @@
+{
+  "job": "c4-dual-context/gramota-ru-0",
+  "config": {
+    "id": "c4-dual-context",
+    "editor": "luna",
+    "verifier": "haiku-medium",
+    "check": "necessity",
+    "edit_diagnostic": true,
+    "verify_context": true,
+    "tier": 1
+  },
+  "work": "gramota-ru",
+  "repeat": 0,
+  "elapsed_ms": 110298,
+  "scope": "real editMechanical (rules + editor + deterministic guards + verifier, copy mode, no cache); final = offered proposals; build = all offered proposals accepted except review-only findings",
+  "stages": [
+    {
+      "name": "rules",
+      "status": "ok",
+      "hits": 2,
+      "proposals": 2,
+      "protected_form_skipped": 0,
+      "units": {
+        "cached": 0,
+        "computed": 6,
+        "failed": 0
+      },
+      "failures": [],
+      "diagnostics": []
+    },
+    {
+      "name": "model",
+      "status": "ok",
+      "windows": 5,
+      "passes": [
+        "standard",
+        "diagnostic"
+      ],
+      "pass_candidates": {
+        "standard": 13,
+        "diagnostic": 16
+      },
+      "merged_identical": 4,
+      "merge_conflicts": 1,
+      "conflicts": [
+        {
+          "proposal_ids": [
+            "amendeor:ff438747c3a66c9f",
+            "amendeor:ff438747c3a66c9f"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "edits": [
+            {
+              "target": "крошеной с капустой лук",
+              "replacement": "крошеный с капустой лук",
+              "pass": [
+                "standard"
+              ]
+            },
+            {
+              "target": "крошеной с капустой лук",
+              "replacement": "крошеного с капустой лука",
+              "pass": [
+                "diagnostic"
+              ]
+            }
+          ],
+          "reason": "overlapping edits from different passes produce different scene text"
+        }
+      ],
+      "merges": [
+        {
+          "proposal_id": "amendeor:06202ccb01620ffb",
+          "merged_ids": [
+            "amendeor:06202ccb01620ffb"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "как говориться, на прах"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        },
+        {
+          "proposal_id": "amendeor:4aad33fffede7b6b",
+          "merged_ids": [
+            "amendeor:4aad33fffede7b6b",
+            "amendeor:b7ebdfca7ab8a857"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "Дед тотчс увидел",
+            "тотчс"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        },
+        {
+          "proposal_id": "amendeor:3c53d904107c282b",
+          "merged_ids": [
+            "amendeor:3c53d904107c282b"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "В какие местах"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        },
+        {
+          "proposal_id": "amendeor:e2df30024ca75ec7",
+          "merged_ids": [
+            "amendeor:e2df30024ca75ec7"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "Дед держаться:"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        }
+      ],
+      "diagnostic_prompt_version": "copy-edit-diagnostic-1.0.0",
+      "windows_by_chapter": {
+        "01-gramota": 5
+      },
+      "sent": 11,
+      "cached": 0,
+      "no_change": 0,
+      "no_change_by_chapter": {},
+      "candidates": 23,
+      "discarded": [
+        {
+          "node_id": "01-gramota/a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc",
+          "reason": "no-op",
+          "pass": "standard"
+        },
+        {
+          "node_id": "01-gramota/1a82e98e-e32b-4032-85c4-76864d50c641",
+          "reason": "no-op",
+          "pass": "standard"
+        },
+        {
+          "node_id": "01-gramota/1a82e98e-e32b-4032-85c4-76864d50c641",
+          "reason": "target-not-verbatim-in-window",
+          "pass": "standard"
+        },
+        {
+          "node_id": "01-gramota/1a82e98e-e32b-4032-85c4-76864d50c641",
+          "reason": "target-not-verbatim-in-window",
+          "pass": "standard"
+        },
+        {
+          "node_id": "01-gramota/bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+          "reason": "no-op",
+          "pass": "diagnostic"
+        }
+      ],
+      "failures": [],
+      "prompt_version": "1.6.0",
+      "model_id": "openai/gpt-6-luna",
+      "formulaic_hits": [],
+      "formulaic_catalog_version": "0.3.0"
+    },
+    {
+      "name": "guard",
+      "status": "partial",
+      "candidates": 23,
+      "semantic_rejected": 21,
+      "rule_preferred": 0,
+      "objective_rejected": 0,
+      "punctuation_rejected": 0,
+      "voice_rejected": 0,
+      "offered": 2,
+      "same_family_warning": false,
+      "rejections": [
+        {
+          "proposal_id": "amendeor:1829fef1d4471572",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: «словотитлу» is not a clear typo or grammar error here. The paragraph is a stylized, colloquial narration full of period and dialect forms («козаков», «молодицы», «в постеле»), so the nonstandard form reads as the author's deliberate idiom. The edit to «словотитло» changes the author's wording and voice without fixing a real error.",
+          "target": "словотитлу",
+          "replacement": "словотитло",
+          "category": "spelling",
+          "chapter": "01-gramota",
+          "scene": "a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:0aa298007affec14",
+          "guard": "semantic-trap",
+          "reason": "unsupported-comma-change",
+          "target": "что, вот, наряжает",
+          "replacement": "что вот наряжает",
+          "category": "punctuation",
+          "chapter": "01-gramota",
+          "scene": "76864d97-7bb3-4c1c-8988-19bebecbd17e",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:c0d2c51e460b074e",
+          "guard": "semantic-trap",
+          "reason": "yo-normalization",
+          "target": "в четвертый раз",
+          "replacement": "в четвёртый раз",
+          "category": "spelling",
+          "chapter": "01-gramota",
+          "scene": "76864d97-7bb3-4c1c-8988-19bebecbd17e",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:4e0fd184ecf21c4b",
+          "guard": "semantic-trap",
+          "reason": "punctuation-style-only",
+          "target": "при боку сабля",
+          "replacement": "при боку — сабля",
+          "category": "punctuation",
+          "chapter": "01-gramota",
+          "scene": "76864d97-7bb3-4c1c-8988-19bebecbd17e",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:06202ccb01620ffb",
+          "guard": "semantic-trap",
+          "reason": "dialogue-content-change",
+          "target": "как говориться, на прах",
+          "replacement": "как говорится, на прах",
+          "category": "spelling",
+          "chapter": "01-gramota",
+          "scene": "76864d97-7bb3-4c1c-8988-19bebecbd17e",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:a5864c04c499402c",
+          "guard": "semantic-trap",
+          "reason": "punctuation-style-only",
+          "target": "в голову заберется хмель и ноги начнут писать покой-он — по.",
+          "replacement": "в голову заберется хмель и ноги начнут писать покой-он-по.",
+          "category": "typography",
+          "chapter": "01-gramota",
+          "scene": "8365c521-2812-4b0f-8b8f-531b77385060",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:065fe93dffa6314d",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: BEFORE is not a grammatical error. «чесать затылка» with the genitive is an accepted colloquial construction in Russian, the same usage as «чесать затылок» in its standard form, and this folk-style narration has the idiomatic voice of the rest of the passage. AFTER changes the case to nominative «затылок», which does not fit the verb «чесал» and makes the phrase ungrammatical, altering the author's wording and voice.",
+          "target": "а затылка сколько ни чесал дед",
+          "replacement": "а затылок сколько ни чесал дед",
+          "category": "grammar",
+          "chapter": "01-gramota",
+          "scene": "8365c521-2812-4b0f-8b8f-531b77385060",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:bc0867ac3cdde8e3",
+          "guard": "semantic-verifier",
+          "reason": "unnecessary: BEFORE is grammatical: «застучало таким стуком, что…» is a correct construction with the instrumental «стуком» agreeing with «таким». The edit only removes a word that the editor flagged as redundant, which is not a necessary correction. The meaning is essentially kept, since the sound is still implied by «застучало», but the noun is lost, so the edit is an optional stylistic change.",
+          "target": "и вдруг словно сто молотов застучало по лесу таким стуком, что у него зазвенело в голове.",
+          "replacement": "и вдруг словно сто молотов застучало по лесу так, что у него зазвенело в голове.",
+          "category": "redundancy",
+          "chapter": "01-gramota",
+          "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:12d18a8272d45f84",
+          "guard": "semantic-trap",
+          "reason": "punctuation-style-only",
+          "target": "зажечь ее, ».",
+          "replacement": "зажечь ее».",
+          "category": "punctuation",
+          "chapter": "01-gramota",
+          "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:a1fa68da50dfccdf",
+          "guard": "semantic-trap",
+          "reason": "punctuation-style-only",
+          "target": "как случается иногда на Рождество выпадет снегу",
+          "replacement": "как случается иногда: на Рождество выпадет снегу",
+          "category": "punctuation",
+          "chapter": "01-gramota",
+          "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:2f8a677bc6f0ee21",
+          "guard": "semantic-trap",
+          "reason": "punctuation-style-only",
+          "target": "не прогневайся, не только шапки, может, и света более не увидишь!",
+          "replacement": "не прогневайся: не только шапки, может, и света более не увидишь!",
+          "category": "punctuation",
+          "chapter": "01-gramota",
+          "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:a14e25c86381b8cb",
+          "guard": "semantic-trap",
+          "reason": "proper-name-change",
+          "target": "«Сдавай, сдавай, хрычовка! что будет, то будет».",
+          "replacement": "«Сдавай, сдавай, хрычовка! Что будет, то будет».",
+          "category": "capitalization",
+          "chapter": "01-gramota",
+          "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:832361799d633805",
+          "guard": "semantic-trap",
+          "reason": "dialogue-content-change",
+          "target": "сей час",
+          "replacement": "сейчас",
+          "category": "spelling",
+          "chapter": "01-gramota",
+          "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:f380cdd891ec4633",
+          "guard": "semantic-trap",
+          "reason": "dialogue-content-change",
+          "target": "не станет передо мною молодецкой конь мой",
+          "replacement": "не станет передо мною молодецкий конь мой",
+          "category": "grammar",
+          "chapter": "01-gramota",
+          "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:3c53d904107c282b",
+          "guard": "semantic-verifier",
+          "reason": "unnecessary: BEFORE has a case error: after «в» the locative plural of «какой» should be «каких», so «в какие местах» breaks agreement. But the paragraph is a folksy, skaz-like narration with other colloquial or nonstandard forms («Дед держаться» with its dropped verb, «кажись», «деялось», «пуще»). That makes the form plausibly the narrator's own colloquial idiom rather than a clear accidental error, and the guidance says to answer false when the case is genuinely unclear. AFTER would keep the meaning and the voice, so it is not harmful, just not clearly required.",
+          "target": "В какие местах",
+          "replacement": "В каких местах",
+          "category": "grammar",
+          "chapter": "01-gramota",
+          "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:e2df30024ca75ec7",
+          "guard": "semantic-verifier",
+          "reason": "unnecessary: Taken alone, «держаться» with the subject «Дед» is a broken finite verb form (it should be the past «держался»). But the paragraph's narrator uses other nonstandard or colloquial forms, such as «В какие местах» (case agreement), «кажись», «деялось» and «нужды нет». That makes the nonstandard verb form look like part of a storyteller's idiom rather than a plain error, and the case is unclear, so the edit should not be treated as necessary. The AFTER wording keeps the same action and narrative content, so it is not harmful.",
+          "target": "Дед держаться:",
+          "replacement": "Дед держался:",
+          "category": "grammar",
+          "chapter": "01-gramota",
+          "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:ced396de1aef7808",
+          "guard": "semantic-verifier",
+          "reason": "unnecessary: «выпучивши» is a grammatically valid past gerund of the perfective «выпучить», so BEFORE breaks no rule. The same -вши gerund pattern recurs throughout the paragraph («заснувши», «взявши», «сказавши», «отдохнувши»), marking it as the narrator's folksy idiom. The edit only swaps one acceptable gerund form for another and does not fix an error.",
+          "target": "выпучивши глаза",
+          "replacement": "выпучив глаза",
+          "category": "grammar",
+          "chapter": "01-gramota",
+          "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:3b25ca30624927a2",
+          "guard": "semantic-trap",
+          "reason": "dialogue-content-change",
+          "target": "на яву",
+          "replacement": "наяву",
+          "category": "spelling",
+          "chapter": "01-gramota",
+          "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:eaf6e8fdadd6e95d",
+          "guard": "semantic-verifier",
+          "reason": "unnecessary: Before a consonant the standard preposition is «о», so «Об» is arguably a variant rather than a clear error. The form «об» before «в» is a euphonic variant with some currency, and the rule is not unambiguous here. Since the error is not certain, the edit is not necessary. The change to «О» keeps every fact, name and the narrator's voice, so it is not harmful.",
+          "target": "Об возне своей",
+          "replacement": "О возне своей",
+          "category": "grammar",
+          "chapter": "01-gramota",
+          "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:32d94b124cbe8986",
+          "guard": "semantic-trap",
+          "reason": "unsupported-comma-change",
+          "target": "тотчас после того, освятить хату",
+          "replacement": "тотчас после того освятить хату",
+          "category": "punctuation",
+          "chapter": "01-gramota",
+          "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:c35a86423ed2b92c",
+          "guard": "semantic-trap",
+          "reason": "unsupported-comma-change",
+          "target": "бабе ровно через каждый год, и именно в то самое время, делалось такое диво",
+          "replacement": "бабе ровно через каждый год, и именно в то самое время делалось такое диво",
+          "category": "punctuation",
+          "chapter": "01-gramota",
+          "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+          "occurrence": 0,
+          "source": "model"
+        }
+      ],
+      "verifications": [
+        {
+          "proposal_id": "amendeor:1829fef1d4471572",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: «словотитлу» is not a clear typo or grammar error here. The paragraph is a stylized, colloquial narration full of period and dialect forms («козаков», «молодицы», «в постеле»), so the nonstandard form reads as the author's deliberate idiom. The edit to «словотитло» changes the author's wording and voice without fixing a real error.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:065fe93dffa6314d",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: BEFORE is not a grammatical error. «чесать затылка» with the genitive is an accepted colloquial construction in Russian, the same usage as «чесать затылок» in its standard form, and this folk-style narration has the idiomatic voice of the rest of the passage. AFTER changes the case to nominative «затылок», which does not fit the verb «чесал» and makes the phrase ungrammatical, altering the author's wording and voice.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:789ea69b40c3fbcf",
+          "passed": true,
+          "passes": 3,
+          "agreed": 3,
+          "reason": "necessary and preserved",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": true,
+              "preserved": true
+            },
+            {
+              "necessary": true,
+              "preserved": true
+            },
+            {
+              "necessary": true,
+              "preserved": true
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:bc0867ac3cdde8e3",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "unnecessary: BEFORE is grammatical: «застучало таким стуком, что…» is a correct construction with the instrumental «стуком» agreeing with «таким». The edit only removes a word that the editor flagged as redundant, which is not a necessary correction. The meaning is essentially kept, since the sound is still implied by «застучало», but the noun is lost, so the edit is an optional stylistic change.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": true
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:4aad33fffede7b6b",
+          "passed": true,
+          "passes": 3,
+          "agreed": 3,
+          "reason": "necessary and preserved",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": true,
+              "preserved": true
+            },
+            {
+              "necessary": true,
+              "preserved": true
+            },
+            {
+              "necessary": true,
+              "preserved": true
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:3c53d904107c282b",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "unnecessary: BEFORE has a case error: after «в» the locative plural of «какой» should be «каких», so «в какие местах» breaks agreement. But the paragraph is a folksy, skaz-like narration with other colloquial or nonstandard forms («Дед держаться» with its dropped verb, «кажись», «деялось», «пуще»). That makes the form plausibly the narrator's own colloquial idiom rather than a clear accidental error, and the guidance says to answer false when the case is genuinely unclear. AFTER would keep the meaning and the voice, so it is not harmful, just not clearly required.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": true
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:e2df30024ca75ec7",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "unnecessary: Taken alone, «держаться» with the subject «Дед» is a broken finite verb form (it should be the past «держался»). But the paragraph's narrator uses other nonstandard or colloquial forms, such as «В какие местах» (case agreement), «кажись», «деялось» and «нужды нет». That makes the nonstandard verb form look like part of a storyteller's idiom rather than a plain error, and the case is unclear, so the edit should not be treated as necessary. The AFTER wording keeps the same action and narrative content, so it is not harmful.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": true
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:ced396de1aef7808",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "unnecessary: «выпучивши» is a grammatically valid past gerund of the perfective «выпучить», so BEFORE breaks no rule. The same -вши gerund pattern recurs throughout the paragraph («заснувши», «взявши», «сказавши», «отдохнувши»), marking it as the narrator's folksy idiom. The edit only swaps one acceptable gerund form for another and does not fix an error.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": true
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:eaf6e8fdadd6e95d",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "unnecessary: Before a consonant the standard preposition is «о», so «Об» is arguably a variant rather than a clear error. The form «об» before «в» is a euphonic variant with some currency, and the rule is not unambiguous here. Since the error is not certain, the edit is not necessary. The change to «О» keeps every fact, name and the narrator's voice, so it is not harmful.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:38d5c2e9344eb897",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "01-gramota",
+          "scene": "a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc",
+          "key": "sha256:1156574c70f16de58c893e93f7dd45e3b133d57a5fa08e240b1987ecfb8e1f84"
+        },
+        "evidence": "sha256:9a5e1719011675a2d71f79747a9a618f415bdccc02234f2007c3870b0338c403"
+      },
+      "run_id": "2026-10-11T10-01-02Z-8ba3",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-gramota",
+        "scene": "a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc",
+        "content_hash": "sha256:a5b1fd8a9ba168581f8972f2f9b30953fa56c6c93ae6ca0f634a247d211267ef"
+      },
+      "target": {
+        "text": "та та",
+        "hash": "sha256:1156574c70f16de58c893e93f7dd45e3b133d57a5fa08e240b1987ecfb8e1f84",
+        "before": "о на глаза им: «Фома Григорьевич, Фома Григорьевич! …» тара ",
+        "after": ", та та та, и пойдут, и пойдут… Рассказать-то, конечно, не ж",
+        "occurrence": 0
+      },
+      "replacement": "та",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "rule:repetition.doubled-word",
+      "confidence": 1,
+      "reason": "The same word appears twice in succession.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "none",
+        "voice": "ok"
+      },
+      "rule_authority": "contextual"
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:21537dfc178c4d27",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "01-gramota",
+          "scene": "a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc",
+          "key": "sha256:1156574c70f16de58c893e93f7dd45e3b133d57a5fa08e240b1987ecfb8e1f84",
+          "occurrence": 1
+        },
+        "evidence": "sha256:9a5e1719011675a2d71f79747a9a618f415bdccc02234f2007c3870b0338c403"
+      },
+      "run_id": "2026-10-11T10-01-02Z-8ba3",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-gramota",
+        "scene": "a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc",
+        "content_hash": "sha256:a5b1fd8a9ba168581f8972f2f9b30953fa56c6c93ae6ca0f634a247d211267ef"
+      },
+      "target": {
+        "text": "та та",
+        "hash": "sha256:1156574c70f16de58c893e93f7dd45e3b133d57a5fa08e240b1987ecfb8e1f84",
+        "before": "аза им: «Фома Григорьевич, Фома Григорьевич! …» тара та та, ",
+        "after": " та, и пойдут, и пойдут… Рассказать-то, конечно, не жаль, да",
+        "occurrence": 1
+      },
+      "replacement": "та",
+      "category": "repetition",
+      "impact": "prose",
+      "source": "rule:repetition.doubled-word",
+      "confidence": 1,
+      "reason": "The same word appears twice in succession.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "none",
+        "voice": "ok"
+      },
+      "rule_authority": "contextual"
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:789ea69b40c3fbcf",
+      "fingerprint": {
+        "primary": {
+          "category": "capitalization",
+          "chapter": "01-gramota",
+          "scene": "8365c521-2812-4b0f-8b8f-531b77385060",
+          "key": "sha256:3e5f85567e609da4ff93bc5cbdf29250f34ef9f924b0877057c6f6a1dbdc624d"
+        },
+        "evidence": "sha256:51b85f3b8efc499e3ff0943c4bb36ee59111be2e45b2ff547cc927d1caf160c7"
+      },
+      "run_id": "2026-10-11T10-01-02Z-8ba3",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-gramota",
+        "scene": "8365c521-2812-4b0f-8b8f-531b77385060",
+        "content_hash": "sha256:881c76a28a15bc739e05b78661c18e223219a557e005c0e2b5b7a0ce4307baba"
+      },
+      "target": {
+        "text": "Смотри же! близко шинка будет поворот направо в лес.",
+        "hash": "sha256:3e5f85567e609da4ff93bc5cbdf29250f34ef9f924b0877057c6f6a1dbdc624d",
+        "before": "це отлегло. — Я вижу уже по глазам, что ты козак — не баба. ",
+        "after": " Только станет в поле примеркать, чтобы ты был уже наготове.",
+        "occurrence": 0
+      },
+      "replacement": "Смотри же! Близко шинка будет поворот направо в лес.",
+      "category": "capitalization",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "После восклицательного знака начинается новое предложение, поэтому первое слово пишется с прописной буквы.",
+      "passes": [
+        "diagnostic"
+      ],
+      "verification": {
+        "passes": 3,
+        "agreed": 3,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:4aad33fffede7b6b",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "01-gramota",
+          "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+          "key": "sha256:a7f8711e6cffea0bda49da2ac498faa072c3a03d2db7ee48cc4df6d5d96144fb"
+        },
+        "evidence": "sha256:1d228632c452856e99f7c27e4bcf6247815d10333db21bbf2906f766536f37fe"
+      },
+      "run_id": "2026-10-11T10-01-02Z-8ba3",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-gramota",
+        "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+        "content_hash": "sha256:cf367f633726b80bb1b52cccaf5c7b9141c8902f5cca254a1d68bba3961e80ac"
+      },
+      "target": {
+        "text": "тотчс",
+        "hash": "sha256:a7f8711e6cffea0bda49da2ac498faa072c3a03d2db7ee48cc4df6d5d96144fb",
+        "before": " голове. И будто зарницею, осветило на минуту весь лес. Дед ",
+        "after": " увидел дорожку, пробиравшуюся промеж мелким кустарником. Во",
+        "occurrence": 0
+      },
+      "replacement": "тотчас",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Опечатка: нормативное написание — «тотчас».",
+      "passes": [
+        "standard",
+        "diagnostic"
+      ],
+      "verification": {
+        "passes": 3,
+        "agreed": 3,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "proposal_id": "amendeor:1829fef1d4471572",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: «словотитлу» is not a clear typo or grammar error here. The paragraph is a stylized, colloquial narration full of period and dialect forms («козаков», «молодицы», «в постеле»), so the nonstandard form reads as the author's deliberate idiom. The edit to «словотитло» changes the author's wording and voice without fixing a real error.",
+      "target": "словотитлу",
+      "replacement": "словотитло",
+      "category": "spelling",
+      "chapter": "01-gramota",
+      "scene": "a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:0aa298007affec14",
+      "guard": "semantic-trap",
+      "reason": "unsupported-comma-change",
+      "target": "что, вот, наряжает",
+      "replacement": "что вот наряжает",
+      "category": "punctuation",
+      "chapter": "01-gramota",
+      "scene": "76864d97-7bb3-4c1c-8988-19bebecbd17e",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:c0d2c51e460b074e",
+      "guard": "semantic-trap",
+      "reason": "yo-normalization",
+      "target": "в четвертый раз",
+      "replacement": "в четвёртый раз",
+      "category": "spelling",
+      "chapter": "01-gramota",
+      "scene": "76864d97-7bb3-4c1c-8988-19bebecbd17e",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:4e0fd184ecf21c4b",
+      "guard": "semantic-trap",
+      "reason": "punctuation-style-only",
+      "target": "при боку сабля",
+      "replacement": "при боку — сабля",
+      "category": "punctuation",
+      "chapter": "01-gramota",
+      "scene": "76864d97-7bb3-4c1c-8988-19bebecbd17e",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:06202ccb01620ffb",
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "как говориться, на прах",
+      "replacement": "как говорится, на прах",
+      "category": "spelling",
+      "chapter": "01-gramota",
+      "scene": "76864d97-7bb3-4c1c-8988-19bebecbd17e",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:a5864c04c499402c",
+      "guard": "semantic-trap",
+      "reason": "punctuation-style-only",
+      "target": "в голову заберется хмель и ноги начнут писать покой-он — по.",
+      "replacement": "в голову заберется хмель и ноги начнут писать покой-он-по.",
+      "category": "typography",
+      "chapter": "01-gramota",
+      "scene": "8365c521-2812-4b0f-8b8f-531b77385060",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:065fe93dffa6314d",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE is not a grammatical error. «чесать затылка» with the genitive is an accepted colloquial construction in Russian, the same usage as «чесать затылок» in its standard form, and this folk-style narration has the idiomatic voice of the rest of the passage. AFTER changes the case to nominative «затылок», which does not fit the verb «чесал» and makes the phrase ungrammatical, altering the author's wording and voice.",
+      "target": "а затылка сколько ни чесал дед",
+      "replacement": "а затылок сколько ни чесал дед",
+      "category": "grammar",
+      "chapter": "01-gramota",
+      "scene": "8365c521-2812-4b0f-8b8f-531b77385060",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:bc0867ac3cdde8e3",
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE is grammatical: «застучало таким стуком, что…» is a correct construction with the instrumental «стуком» agreeing with «таким». The edit only removes a word that the editor flagged as redundant, which is not a necessary correction. The meaning is essentially kept, since the sound is still implied by «застучало», but the noun is lost, so the edit is an optional stylistic change.",
+      "target": "и вдруг словно сто молотов застучало по лесу таким стуком, что у него зазвенело в голове.",
+      "replacement": "и вдруг словно сто молотов застучало по лесу так, что у него зазвенело в голове.",
+      "category": "redundancy",
+      "chapter": "01-gramota",
+      "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:12d18a8272d45f84",
+      "guard": "semantic-trap",
+      "reason": "punctuation-style-only",
+      "target": "зажечь ее, ».",
+      "replacement": "зажечь ее».",
+      "category": "punctuation",
+      "chapter": "01-gramota",
+      "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:a1fa68da50dfccdf",
+      "guard": "semantic-trap",
+      "reason": "punctuation-style-only",
+      "target": "как случается иногда на Рождество выпадет снегу",
+      "replacement": "как случается иногда: на Рождество выпадет снегу",
+      "category": "punctuation",
+      "chapter": "01-gramota",
+      "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:2f8a677bc6f0ee21",
+      "guard": "semantic-trap",
+      "reason": "punctuation-style-only",
+      "target": "не прогневайся, не только шапки, может, и света более не увидишь!",
+      "replacement": "не прогневайся: не только шапки, может, и света более не увидишь!",
+      "category": "punctuation",
+      "chapter": "01-gramota",
+      "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:a14e25c86381b8cb",
+      "guard": "semantic-trap",
+      "reason": "proper-name-change",
+      "target": "«Сдавай, сдавай, хрычовка! что будет, то будет».",
+      "replacement": "«Сдавай, сдавай, хрычовка! Что будет, то будет».",
+      "category": "capitalization",
+      "chapter": "01-gramota",
+      "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:832361799d633805",
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "сей час",
+      "replacement": "сейчас",
+      "category": "spelling",
+      "chapter": "01-gramota",
+      "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:f380cdd891ec4633",
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "не станет передо мною молодецкой конь мой",
+      "replacement": "не станет передо мною молодецкий конь мой",
+      "category": "grammar",
+      "chapter": "01-gramota",
+      "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:3c53d904107c282b",
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: BEFORE has a case error: after «в» the locative plural of «какой» should be «каких», so «в какие местах» breaks agreement. But the paragraph is a folksy, skaz-like narration with other colloquial or nonstandard forms («Дед держаться» with its dropped verb, «кажись», «деялось», «пуще»). That makes the form plausibly the narrator's own colloquial idiom rather than a clear accidental error, and the guidance says to answer false when the case is genuinely unclear. AFTER would keep the meaning and the voice, so it is not harmful, just not clearly required.",
+      "target": "В какие местах",
+      "replacement": "В каких местах",
+      "category": "grammar",
+      "chapter": "01-gramota",
+      "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:e2df30024ca75ec7",
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: Taken alone, «держаться» with the subject «Дед» is a broken finite verb form (it should be the past «держался»). But the paragraph's narrator uses other nonstandard or colloquial forms, such as «В какие местах» (case agreement), «кажись», «деялось» and «нужды нет». That makes the nonstandard verb form look like part of a storyteller's idiom rather than a plain error, and the case is unclear, so the edit should not be treated as necessary. The AFTER wording keeps the same action and narrative content, so it is not harmful.",
+      "target": "Дед держаться:",
+      "replacement": "Дед держался:",
+      "category": "grammar",
+      "chapter": "01-gramota",
+      "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:ced396de1aef7808",
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: «выпучивши» is a grammatically valid past gerund of the perfective «выпучить», so BEFORE breaks no rule. The same -вши gerund pattern recurs throughout the paragraph («заснувши», «взявши», «сказавши», «отдохнувши»), marking it as the narrator's folksy idiom. The edit only swaps one acceptable gerund form for another and does not fix an error.",
+      "target": "выпучивши глаза",
+      "replacement": "выпучив глаза",
+      "category": "grammar",
+      "chapter": "01-gramota",
+      "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:3b25ca30624927a2",
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "на яву",
+      "replacement": "наяву",
+      "category": "spelling",
+      "chapter": "01-gramota",
+      "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:eaf6e8fdadd6e95d",
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: Before a consonant the standard preposition is «о», so «Об» is arguably a variant rather than a clear error. The form «об» before «в» is a euphonic variant with some currency, and the rule is not unambiguous here. Since the error is not certain, the edit is not necessary. The change to «О» keeps every fact, name and the narrator's voice, so it is not harmful.",
+      "target": "Об возне своей",
+      "replacement": "О возне своей",
+      "category": "grammar",
+      "chapter": "01-gramota",
+      "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:32d94b124cbe8986",
+      "guard": "semantic-trap",
+      "reason": "unsupported-comma-change",
+      "target": "тотчас после того, освятить хату",
+      "replacement": "тотчас после того освятить хату",
+      "category": "punctuation",
+      "chapter": "01-gramota",
+      "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:c35a86423ed2b92c",
+      "guard": "semantic-trap",
+      "reason": "unsupported-comma-change",
+      "target": "бабе ровно через каждый год, и именно в то самое время, делалось такое диво",
+      "replacement": "бабе ровно через каждый год, и именно в то самое время делалось такое диво",
+      "category": "punctuation",
+      "chapter": "01-gramota",
+      "scene": "bcff1fe4-6ae0-4347-8a2d-0208482df69c",
+      "occurrence": 0,
+      "source": "model"
+    }
+  ],
+  "build": [
+    {
+      "id": "amendeor:38d5c2e9344eb897",
+      "chapter": "01-gramota",
+      "scene": "a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc",
+      "status": "applied"
+    },
+    {
+      "id": "amendeor:21537dfc178c4d27",
+      "chapter": "01-gramota",
+      "scene": "a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc",
+      "status": "applied"
+    },
+    {
+      "id": "amendeor:789ea69b40c3fbcf",
+      "chapter": "01-gramota",
+      "scene": "8365c521-2812-4b0f-8b8f-531b77385060",
+      "status": "applied"
+    },
+    {
+      "id": "amendeor:4aad33fffede7b6b",
+      "chapter": "01-gramota",
+      "scene": "1a82e98e-e32b-4032-85c4-76864d50c641",
+      "status": "applied"
+    }
+  ],
+  "edited": {
+    "01-gramota": "<!-- scene: a062f8c8-bc5b-4a4d-82d9-685b0fe24ddc -->\nТак вы хотите, чтобы я вам еще рассказал про деда? — Пожалуй, почему же не потешить прибауткой? Эх, старина, старина! Что за радость, что за разгулье падет на сердце, когда услышишь про то, что давно-давно, и года ему и месяца нет, деялось на свете! А как еще впутается какой-нибудь родич, дед или прадед — ну, тогда и рукой махни: чтоб мне поперхнулось за акафистом великомученице Варваре, если не чудится, что вот-вот сам все это делаешь, как будто залез в прадедовскую душу или прадедовская душа шалит в тебе… Нет, мне пуще всего наши девчата и молодицы; покажись только на глаза им: «Фома Григорьевич, Фома Григорьевич! …» тара та, та та, и пойдут, и пойдут… Рассказать-то, конечно, не жаль, да загляните-ка, что делается с ними в постеле. Ведь я знаю, что каждая дрожит под одеялом, как будто бьет ее лихорадка, и рада бы с головою влезть в тулуп свой. Царапни горшком крыса, сама как-нибудь задень ногою кочергу, и Боже упаси! и душа в пятках. А на другой день ничего не бывало; навязывается сызнова: расскажи ей страшную сказку да и только. Что ж бы такое рассказать вам? Вдруг не взбредет на ум… Да, расскажу я вам, как ведьмы играли с покойным дедом в дурни. Только заране прошу вас, господа, не сбивайте с толку, а то такой кисель выйдет, что совестно будет и в рот взять. Покойный дед, надобно вам сказать, был не из простых в свое время козаков. Знал и твердо — он-то, и словотитлу поставить. В праздник отхватает Апостола, бывало, так, что теперь и попович иной спрячется. Ну, сами знаете, что в тогдашние времена, если собрать со всего Батурина грамотеев, то нечего и шапки подставлять, в одну горсть можно было всех уложить. Стало быть и дивиться нечего, когда всякий встречной кланялся ему мало не в пояс.\n\n<!-- scene: 76864d97-7bb3-4c1c-8988-19bebecbd17e -->\nОдин раз, задумалось вельможному гетьману послать за чем-то к Царице грамоту. Тогдашний полковой писарь, вот нелегкая его возьми, и прозвища не вспомню… Вискряк не Вискряк, Мотузочка не Мотузочка, Голопуцек не Голопуцек… знаю только, что как-то чудно начинается мудреное прозвище, — позвал к себе деда и сказал ему, что, вот, наряжает его сам гетьман гонцом с грамотою к царице. Дед не любил долго собираться: грамоту зашил в шапку; вывел коня; чмокнул жену и двух своих, как сам он называл, поросенков, из которых один был родной отец хоть бы и нашего брата; и поднял такую за собою пыль, как будто бы пятнадцать хлопцев задумали посереди улицы играть в кашу. На другой день, еще петух не кричал в четвертый раз, дед уже был в Конотопе. На ту пору была там ярмарка: народу высыпало по улицам столько, что в глазах рябело. Но так как было рано, то все еще дремало, протянувшись на земле. Возле коровы лежал гуляка-парубок с покрасневшим, как снегирь, носом; подале храпела, сидя, перекупка с кремнями, синькою, дробью и бубликами; под телегою лежал цыган; на возу с рыбой чумак; на самой дороге раскинул ноги бородач-москаль с поясами и рукавицами… ну, всякого сброду, как водится по ярмаркам. Дед приостановился, чтобы разглядеть хорошенько. Между тем в ятках начало мало-помалу шевелиться: жидовки стали побрякивать фляжками; дым покатило то там, то сям кольцами, и запах горячих сластен понесся по всему табору. Деду вспало на ум, что у него нет ни огнива, ни табаку наготове: вот и пошел таскаться по ярмарке. Не успел пройти двадцати шагов — навстречу запорожец. Гуляка, и по лицу видно! Красные, как жар, шаровары, синий жупан, яркий цветной пояс, при боку сабля и люлька с медною цепочкою по самые пяты — запорожец да и только! Эх народец! станет, вытянется, поведет рукою молодецкие усы, брякнет подковами и — пустится! да ведь как пустится: ноги отплясывают, словно веретено в бабьих руках; что вихорь, дернет рукою по всем струнам бандуры, и тут же, подпершися в боки, несется вприсядку; зальется песней — душа гуляет!.. Нет, прошло времечко: не увидать больше запорожцев! Да: так встретились; слово за слово, долго ли до знакомства? Пошли калякать, калякать, так, что дед совсем уже было позабыл про путь свой. Попойка завелась, как на свадьбе перед постом великим. Только, видно, наконец прискучило бить горшки и швырять в народ деньгами, да и ярмарке не век же стоять! Вот сговорились новые приятели, чтоб не разлучаться и путь держать вместе. Было давно под вечер, когда выехали они в поле. Солнце убралось на отдых; где-где горели вместо него красноватые полосы; по полю пестрели нивы, что праздничные плахты чернобровых молодиц. Нашего запорожца раздобар взял страшной. Дед и еще другой, приплевшийся к ним гуляка, подумали уже, не бес ли засел в него, откуда что набиралось. Истории и присказки такие диковинные, что дед несколько раз хватался за бока и чуть не надсадил своего живота со смеху. Но в поле становилось чем далее, сумрачнее; и вместе с тем становилась несвязнее и молодецкая молвь. Наконец рассказчик наш притих совсем и вздрагивал при малейшем шорохе. «Ге, ге, земляк! да ты не на шутку принялся считать сов. Уж думаешь, как бы домой, да на печь!» — «Перед вами нечего таиться, — сказал он, вдруг оборотившись и неподвижно уставив на них глаза свои. — Знаете ли, что душа моя давно продана нечистому». — «Экая невидальщина! Кто на веку своем не знался с нечистыми? Тут-то и нужно гулять, как говориться, на прах». — «Эх, хлопцы! гулял бы, да в ночь эту срок молодцу! Эй, братцы! — сказал он, хлопнув по рукам их, — эй, не выдайте! не поспите одной ночи! Век не забуду вашей дружбы!» Почему ж не пособить человеку в таком горе? Дед объявил напрямик, что скорее даст он отрезать оселедец с собственной головы, чем допустит черта понюхать собачьей мордой своей христианской души.\n\n<!-- scene: 8365c521-2812-4b0f-8b8f-531b77385060 -->\nКозаки наши ехали бы, может, и далее, если бы не обволокло всего неба ночью, словно черным рядном, и в поле не стало так же темно, как под овчинным тулупом. Издали только мерещился огонек, и кони, чуя близкое стойло, торопились, насторожа уши и вковавши очи в мрак. Огонек, казалось, несся навстречу, и перед козаками показался шинок, повалившийся на одну сторону, словно баба на пути с веселых крестин. В те поры шинки были не то, что теперь. Доброму человеку не только развернуться, приударить горлицы или гопака, прилечь даже негде было, когда в голову заберется хмель и ноги начнут писать покой-он — по. Двор был уставлен весь чумацкими возами; под поветками, в яслях, в сенях, иной свернувшись, другой развернувшись, храпели, как коты. Шинкарь один перед каганцем нарезывал рубцами на палочке, сколько кварт и осьмух высушили чумацкие головы. Дед, спросивши треть ведра на троих, отправился в сарай. Все трое легли рядом. Только не успел он повернуться, как видит, что его земляки спят уже мертвецким сном. Разбудивши приставшего к ним третьего козака, дед напомнил ему про данное товарищу обещание. Тот привстал, протер глаза и снова уснул. Нечего делать, пришлось одному караулить. Чтобы чем-нибудь разогнать сон, обсмотрел он возы все, проведал коней, закурил люльку, пришел назад и сел опять около своих. Все было тихо, так что, кажись, ни одна муха не пролетела. Вот и чудится ему, что из-за соседнего воза что-то серое выказывает роги… Тут глаза его начали смыкаться так, что принужден он был ежеминутно протирать кулаком и промывать оставшеюся водкой. Но как скоро немного прояснились они, все пропадало. Наконец, мало погодя, опять показывается из-под воза чудовище… Дед вытаращил глаза сколько мог; но проклятая дремота все туманила перед ним; руки его окостенели; голова скатилась, и крепкий сон схватил его так, что он повалился словно убитый. Долго спал дед, и как припекло порядочно уже солнце его выбритую макушу, тогда только схватился он на ноги. Потянувшись раза два и почесав спину, заметил он, что возов стояло уже не так много, как с вечера. Чумаки, видно, потянулись еще до света. К своим — козак спит; а запорожца нет. Выспрашивать — никто знать не знает; одна только верхняя свитка лежала на том месте. Страх и раздумье взяло деда. Пошел посмотреть коней — ни своего, ни запорожского! Что бы это значило? Положим, запорожца взяла нечистая сила; кто же коней? Сообразя все, дед заключил, что, верно, черт приходил пешком, а как до пекла не близко, то и стянул его коня. Больно ему было крепко, что не сдержал козацкого слова. «Ну, — думает, — нечего делать, пойду пешком: авось попадется на дороге какой-нибудь барышник, едущий с ярмарки, как-нибудь уже куплю коня». Только хватился за шапку — и шапки нет. Всплеснул руками покойный дед, как вспомнил, что вчера еще поменялись они на время с запорожцем. Кому больше утащить, как не нечистому. Вот тебе и гетьманский гонец! Вот тебе и привез грамоту к царице! Тут дед принялся угощать черта такими прозвищами, что, думаю, ему не один раз чихалось тогда в пекле. Но бранью мало пособишь; а затылка сколько ни чесал дед, никак не мог ничего придумать. Что делать? Кинулся достать чужого ума: собрал всех бывших тогда в шинке добрых людей, чумаков и просто заезжих, и рассказал, что так и так, такое-то приключилось горе. Чумаки долго думали, подперши батогами подбородки свои; крутили головами и сказали, что не слышали такого дива на крещеном свете, чтобы гетьманскую грамоту утащил черт. Другие же прибавили, что когда черт да москаль украдут что-нибудь — то поминай, как и звали. Один только шинкарь сидел молча в углу. Дед и подступил к нему. Уж когда молчит человек, то, верно, зашиб много умом. Только шинкарь не так-то был щедр на слова; и если бы дед не полез в карман за пятью злотыми, то простоял бы перед ним даром. «Я научу тебя, как найти грамоту, — сказал он, отводя его в сторону. У деда и на сердце отлегло. — Я вижу уже по глазам, что ты козак — не баба. Смотри же! Близко шинка будет поворот направо в лес. Только станет в поле примеркать, чтобы ты был уже наготове. В лесу живут цыганы и выходят из нор своих, ковать железо, в такую ночь, в какую одни ведьмы ездят на кочергах своих. Чем они промышляют на самом деле, знать тебе нечего. Много будет стуку по лесу, только ты не иди в те стороны, откуда заслышишь стук; а будет перед тобою малая дорожка, мимо обожженного дерева, дорожкою этою иди, иди, иди… Станет тебя терновник царапать, густой орешник заслонять дорогу — ты все иди; и как придешь к небольшой речке, тогда только можешь остановиться. Там и увидишь кого нужно; да не позабудь набрать в карманы того, для чего и карманы сделаны… Ты понимаешь, это добро и дьяволы, и люди любят». — Сказавши это, шинкарь ушел в свою конуру и не хотел больше говорить ни слова.\n\n<!-- scene: 1a82e98e-e32b-4032-85c4-76864d50c641 -->\nПокойный дед был человек не то чтобы из трусливого десятка; бывало, встретит волка, так и хватает прямо за хвост; пройдет с кулаками промеж козаками, все, как груши, повалятся на землю. Однако ж, что-то подирало его по коже, когда вступил он в такую глухую ночь в лес. Хоть бы звездочка на небе. Темно и глухо, как в винном подвале; только слышно было, что далеко, далеко вверху, над головою, холодный ветер гулял по верхушкам дерев, и деревья, что охмелевшие козацкие головы, разгульно покачивались, шопоча листьями пьяную молвь. Как вот завеяло таким холодом, что дед вспомнил и про овчинный тулуп свой, и вдруг словно сто молотов застучало по лесу таким стуком, что у него зазвенело в голове. И будто зарницею, осветило на минуту весь лес. Дед тотчас увидел дорожку, пробиравшуюся промеж мелким кустарником. Вот и обожженное дерево и кусты терновника! Так, все так, как было ему говорено; нет, не обманул шинкарь. Однако ж не совсем весело было продираться через колючие кусты; еще отроду не видывал он, чтобы проклятые шипы и сучья так больно царапались: почти на каждом шагу забирало его вскрикнуть. Мало-помалу, выбрался он на просторное место, и сколько мог заметить, деревья редели и становились, чем далее, такие широкие, каких дед не видывал и по ту сторону Польши. Глядь, между деревьями мелькнула и речка, черная, словно вороненая сталь. Долго стоял дед у берега, посматривая на все стороны. На другом берегу горит огонь и, кажется, вот-вот готовится погаснуть, и снова отсвечивается в речке, вздрагивавшей, как польский шляхтич в козачьих лапах. Вот и мостик! Ну, тут одна только чертовская таратайка разве проедет. Дед, однако ж, ступил смело, и скорее, чем бы иной успел достать рожок, понюхать табаку, был уже на другом берегу. Теперь только разглядел он, что возле огня сидели люди, и такие смазливые рожи, что в другое время, Бог знает, чего бы не дал, лишь бы ускользнуть от этого знакомства. Но теперь, нечего делать, нужно было завязаться. Вот дед и отвесил им поклон, мало не в пояс: «Помогай Бог вам, добрые люди!» Хоть бы один кивнул головой; сидят да молчат, да что-то сыплют в огонь. Видя одно место не занятым, дед без всяких околичностей сел и сам. Смазливые рожи ничего; ничего и дед. Долго сидели молча. Деду уже и прискучило; давай шарить в кармане, вынул люльку, посмотрел вокруг — ни один не глядит на него. «Уже, добродейство, будьте ласковы: как бы так, чтобы, примерно сказать, того… (Дед живал в свете не мало, знал уже, как подпускать турусы и при случае, пожалуй, и пред царем не ударил бы лицом в грязь) чтобы, примерно сказать, и себя не забыть, да и вас не обидеть, — люлька-то у меня есть, да того, чем бы зажечь ее, ». И на эту речь хоть бы слово; только одна рожа сунула горячую головню прямехонько деду в лоб, так что если бы он немного не посторонился, то, статься может, распрощался бы навеки с одним глазом. Видя, наконец, что время даром проходит, решился — будет ли слушать нечистое племя, или нет — рассказать дело. Рожи и уши наставили, и лапы протянули. Дед догадался; забрал в горсть все бывшие с ним деньги и кинул словно собакам им в средину. Как только кинул он деньги, все перед ним перемешалось, земля задрожала, и как уже, он и сам рассказать не умел, попал чуть ли не в самое пекло. Батюшки мои! ахнул дед, разглядевши хорошенько: что за чудища! рожи на роже, как говорится, не видно. Ведьм такая гибель, как случается иногда на Рождество выпадет снегу: разряжены, размазаны, словно панночки на ярмарке. И все, сколько ни было их там, как хмельные, отплясывали какого-то чертовского тропака. Пыль подняли, Боже упаси, какую! Дрожь бы проняла крещеного человека при одном виде, как высоко скакало бесовское племя. Деда, несмотря на страх весь, смех напал, когда увидел, как черти с собачьими мордами, на немецких ножках, вертя хвостами, увивались около ведьм, будто парни около красных девушек; а музыканты тузили себя в щеки кулаками, словно в бубны, и свистали носами, как в волторны. Только завидели деда — и турнули к нему ордою. Свиные, собачьи, козлиные, дрофиные, лошадиные рыла, все повытягивались, и вот, так и лезут целоваться. Плюнул дед, такая мерзость напала! Наконец схватили его и посадили за стол, длиною, может, с дорогу от Конотопа до Батурина. «Ну, это еще не совсем худо, — подумал дед, завидевши на столе свинину, колбасы, крошеной с капустой лук и много всяких сластей, — видно, дьявольская сволочь не держит постов». Дед-таки, не мешает вам знать, не упускал при случае перехватить того-сего на зубы. Едал покойник аппетитно; и потому, не распускаясь на рассказы, придвинул к себе миску с нарезанным салом и окорок ветчины; взял вилку, мало чем поменьше тех вил, которыми мужик берет сено, захватил ею самый увесистый кусок, подставил корку хлеба и — глядь, и отправил в чужой рот. Вот-вот возле самых ушей, и слышно даже, как чья-то морда жует и щелкает зубами на весь стол. Дед ничего; схватил другой кусок и вот, кажись, и по губам зацепил, только опять не в свое горло. В третий раз — снова мимо. Взбеленился дед: позабыл и страх, и в чьих лапах находится он. Прискочил к ведьмам: «Что вы, Иродово племя, задумали смеяться, что ли, надо мною? Если не отдадите, сей же час, моей козацкой шапки, то будь я католик, когда не переворочу свиных рыл ваших на затылок!» Не успел он докончить последних слов, как все чудища выскалили зубы и подняли такой смех, что у деда на душе захолонуло. «Ладно! — провизжала одна из ведьм, которую дед почел за старшую над всеми потому, что личина у ней была чуть ли не красивее всех, — шапку отдадим тебе, только не прежде, пока сыграешь с нами три раза в дурня!» Что прикажешь делать? Козаку сесть с бабами в дурня! Дед отпираться, отпираться, наконец, сел. Принесли карты, замасленные, какими только у нас поповны гадают про женихов. «Слушай же! — залаяла ведьма в другой раз, — если хоть раз выиграешь — твоя шапка; когда же все три раза останешься дурнем, то не прогневайся, не только шапки, может, и света более не увидишь!» — «Сдавай, сдавай, хрычовка! что будет, то будет». Вот и карты розданы. Взял дед свои в руки — смотреть не хочется, такая дрянь: хоть бы на смех один козырь. Из масти десятка самая старшая, пар даже нет; а ведьма все подваливает пятериками. Пришлось остаться дурнем! Только что дед успел остаться дурнем, как со всех сторон заржали, залаяли, захрюкали морды: «дурень! дурень! дурень!» — «Чтоб вы перелопались, дьявольское племя!» — закричал дед, затыкая пальцами себе уши. «Ну, — думает, — ведьма подтасовала; теперь я сам буду сдавать». Сдал. Засветил козыря. Поглядел на карты: масть хоть куда, козыри есть. И сначала дело шло, как нельзя лучше; только ведьма пятерик с королями! У деда на руках одни козыри; не думая, не гадая долго, хвать королей по усам всех козырями. «Ге, ге! да это не по-козацки! А чем ты кроешь, земляк?» — «Как чем? козырями!» — «Может быть, по-вашему это и козыри, только по-нашему нет!» Глядь — в самом деле простая масть. Что за дьявольщина! Пришлось в другой раз быть дурнем, и чертанье пошло снова драть горло: «дурень, дурень!» — так, что стол дрожал и карты прыгали по столу. Дед разгорячился; сдал в последний раз. Опять идет ладно. Ведьма опять пятерик; дед покрыл и набрал из колоды полную руку козырей. «Козырь!» — вскричал он, ударив по столу картою, так, что ее свернуло коробом; та, не говоря ни слова, покрыла восьмеркою масти. «А чем ты, старый дьявол, бьешь!» Ведьма подняла карту: под нею была простая шестерка. «Вишь, бесовское обморачиванье!» — сказал дед и с досады хватил кулаком, что силы, по столу. К счастью еще, что у ведьмы была плохая масть; у деда, как нарочно, на ту пору пары. Стал набирать карты из колоды, только мочи нет: дрянь такая лезет, что дед и руки опустил. В колоде ни одной карты. Пошел, уже так, не глядя, простою шестеркою; ведьма приняла. «Вот тебе на! это что? э, э, верно, что-нибудь да не так!» Вот, дед карты потихоньку под стол — и перекрестил; глядь — у него на руках туз, король, валет козырей; а он вместо шестерки спустил кралю. «Ну, дурень же я был! дурень же я был! Король козырей! Что! приняла? а? Кошечье отродье!.. А туза не хочешь? Туз! валет!..» Гром пошел по пеклу; ведьму напали корчи, и, откуда ни возьмись — шапка бух деду прямехонько в лицо. «Нет, этого мало! — закричал дед, прихрабрившись и надев шапку. — Если, сей час, не станет передо мною молодецкой конь мой, то вот, убей меня гром на этом самом нечистом месте, когда я не перекрещу святым крестом всех вас!» — и уже было и руку поднял, как вдруг загремели перед ним конские кости. «Вот тебе конь твой!» Заплакал бедняга, глядя на них, как дитя неразумное. Жаль старого товарища! «Дайте ж мне какого-нибудь коня, выбраться из гнезда вашего!» Черт хлопнул арапником — конь, как огонь, взвился под ним, и дед, что птица, вынесся на верх.\n\n<!-- scene: bcff1fe4-6ae0-4347-8a2d-0208482df69c -->\nСтрах, однако ж, напал на него посереди дороги, когда конь, не слушаясь ни крику, ни поводов, скакал через провалы и болота. В какие местах он не был, так дрожь забирала при одних рассказах. Глянул как-то себе под ноги — и пуще перепугался: пропасть! крутизна страшная! А сатанинскому животному и нужды нет; прямо через нее. Дед держаться: не тут-то было. Через пни, через кочки полетел стремглав в провал и так хватился на дне его о землю, что, кажись, и дух вышибло. По крайней мере, что деялось с ним в то время, ничего не помнил; и как очнулся немного и осмотрелся, то уже рассвело совсем; перед ним мелькали знакомые места, и он лежал на крыше своей же хаты.\n\nПерекрестился дед, когда слез долой. Экая чертовщина! что за пропасть, какие с человеком чудеса делаются! Глядь на руки — все в крови; посмотрел в стоявшую сторчмя бочку с водою — и лицо также. Обмывшись хорошенько, чтобы не испугать детей, входит он потихоньку в хату; смотрит: дети пятятся к нему задом и в испуге указывают ему пальцами, говоря: «!» И в самом деле, баба сидит, заснувши перед гребнем, держит в руках веретено и сонная подпрыгивает на лавке. Дед, взявши за руку потихоньку, разбудил ее: «Здравствуй, жена! здорова ли ты?» Та долго смотрела, выпучивши глаза, и наконец уже узнала деда и рассказала, как ей снилось, что печь ездила по хате, выгоняя вон лопатою горшки, лоханки и черт знает, что еще такое. «Ну, — говорит дед, — тебе во сне, мне на яву. Нужно, вижу, будет освятить нашу хату; мне же, теперь, мешкать нечего». — Сказавши это и отдохнувши немного, дед достал коня и уже не останавливался ни днем, ни ночью, пока не доехал до места и не отдал грамоты самой Царице. Там навиделся дед таких див, что стало ему надолго после того рассказывать. Как повели его в палаты, такие высокие, что если бы хат десять поставить одну на другую, и тогда, может быть, не достало бы. Как заглянул он в одну комнату — нет; в другую — нет; в третью — еще нет; в четвертой даже нет; да в пятой уже, глядь, сидит сама, в золотой короне, в серой новехонькой свитке, в красных сапогах и золотые галушки ест. Как велела ему насыпать целую шапку синицами, как… — всего и вспомнить нельзя. Об возне своей с чертями дед и думать позабыл, и если случалось, что кто-нибудь и напоминал об этом, то дед молчал, как будто не до него и дело шло, и великого стоило труда упросить его пересказать все, как было. И, видно, уже в наказание, что не спохватился, тотчас после того, освятить хату, бабе ровно через каждый год, и именно в то самое время, делалось такое диво, что танцуется, бывало, да и только. За что ни примется, ноги затевают свое, и вот, так и дергает пуститься вприсядку.\n"
+  },
+  "calls": [
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0001142,
+      "ms": 561
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0000937,
+      "ms": 1117
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0001217,
+      "ms": 567
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00004187,
+      "ms": 534
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.000296925,
+      "ms": 674
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00006503,
+      "ms": 695
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.000307175,
+      "ms": 535
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0002439,
+      "ms": 557
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00057605,
+      "ms": 557
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00015432,
+      "ms": 589
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0003038,
+      "ms": 588
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0004979,
+      "ms": 997
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0005771,
+      "ms": 978
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0009074,
+      "ms": 969
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0006164,
+      "ms": 1380
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0006619,
+      "ms": 1042
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0007175,
+      "ms": 1359
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0006373,
+      "ms": 1035
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0006548,
+      "ms": 970
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0006443,
+      "ms": 1366
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0005465,
+      "ms": 977
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0006033,
+      "ms": 1191
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0004053,
+      "ms": 994
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0006314,
+      "ms": 963
+    }
+  ]
+}

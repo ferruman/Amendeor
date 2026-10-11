@@ -1,0 +1,445 @@
+{
+  "generated_at": "2026-10-11T11:08:04.090Z",
+  "spent_usd": 0.076474,
+  "requests": 318,
+  "corpus": {
+    "eveline-en": {
+      "words": 1859,
+      "scenes": 3,
+      "mutations": 0,
+      "policy": []
+    },
+    "gramota-ru": {
+      "words": 3620,
+      "scenes": 5,
+      "mutations": 0,
+      "policy": []
+    },
+    "hameleon-ru": {
+      "words": 920,
+      "scenes": 2,
+      "mutations": 0,
+      "policy": []
+    },
+    "huck2-en": {
+      "words": 2515,
+      "scenes": 4,
+      "mutations": 0,
+      "policy": []
+    },
+    "spat-ru": {
+      "words": 1620,
+      "scenes": 3,
+      "mutations": 0,
+      "policy": []
+    }
+  },
+  "stage_a": {},
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "c1-production",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 15,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 10,
+        "rule": 6,
+        "control_edits": 0,
+        "judged_harmful": 7,
+        "judged_invalid": 0,
+        "judged_valid": 9
+      },
+      "harmful_final": [
+        "gramota-ru-0: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-0: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-0: Дед держаться: → Дед держался: [model]",
+        "gramota-ru-1: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-1: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-2: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-2: та та → та [rule:repetition.doubled-word]"
+      ],
+      "verifier_rejections": {
+        "valid": 1,
+        "harmful_or_incorrect": 0,
+        "unknown": 31,
+        "verify_failed": 2,
+        "lists": {
+          "valid": [
+            "gramota-ru-2: Дед тотчс увидел → Дед тотчас увидел"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [
+            "eveline-en-0: brown baggages → brown baggage",
+            "eveline-en-1: brown baggages → brown baggage",
+            "gramota-ru-0: Обмывшись хорошенько, чтобы не испугать детей, входит он потихоньку в хату; → Обмывшись хорошенько, чтобы не испугать детей, вошел он потихоньку в хату;",
+            "gramota-ru-0: смотрит: дети пятятся к нему задом → смотрит: дети пятятся от него задом",
+            "gramota-ru-2: только одна рожа сунула горячую головню прямехонько деду в лоб, так что если бы он немного не посторонился → только одна рожа сунула горячую головню прямехонько деду в лоб так, что если бы он немного не посторонился",
+            "gramota-ru-2: В какие местах он не был → В каких местах он не был",
+            "hameleon-ru-0: заливается улыбкой умиления.— → заливается улыбкой умиления. —",
+            "hameleon-ru-2: улыбкой умиления.— Ишь → улыбкой умиления. — Ишь",
+            "huck2-en-0: so as the branches → so that the branches",
+            "huck2-en-0: When we was passing → When we were passing",
+            "huck2-en-0: We scrouched down and laid still. → We crouched down and lay still.",
+            "huck2-en-0: was setting in the kitchen door → was sitting in the kitchen door",
+            "huck2-en-0: he come tiptoeing down → he came tiptoeing down",
+            "huck2-en-0: he had wrote the oath → he had written the oath",
+            "huck2-en-0: if anybody done anything to any boy → if anybody did anything to any boy",
+            "huck2-en-0: if he done it again → if he did it again",
+            "huck2-en-1: so as the branches wouldn’t scrape → so the branches wouldn’t scrape",
+            "huck2-en-1: When we was passing by the kitchen → When we were passing by the kitchen",
+            "huck2-en-1: We scrouched down and laid still. → We crouched down and lay still.",
+            "huck2-en-1: was setting in the kitchen door → was sitting in the kitchen door",
+            "huck2-en-1: he come tiptoeing down → he came tiptoeing down",
+            "huck2-en-1: When we was ten foot off → When we was ten feet off",
+            "huck2-en-1: he had wrote → he had written",
+            "huck2-en-1: if anybody done anything → if anybody did anything",
+            "huck2-en-1: if he done it again → if he did it again",
+            "huck2-en-2: stooping down so as the branches wouldn’t scrape our heads → stooping down so that the branches wouldn’t scrape our heads",
+            "huck2-en-2: We scrouched down and laid still. → We scrouched down and lay still.",
+            "huck2-en-2: he had wrote the oath → he had written the oath",
+            "spat-ru-0: чтобы предметы не росли а не двигались → чтобы предметы не росли и не двигались",
+            "spat-ru-1: чтобы предметы не росли а не двигались → чтобы предметы не росли и не двигались",
+            "spat-ru-2: чтобы предметы не росли а не двигались → чтобы предметы не росли и не двигались"
+          ],
+          "verify_failed": 2
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 3,
+        "target-not-verbatim-in-window": 3
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 10,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 19,
+        "semantic-verifier": 32
+      },
+      "model_proposals_offered": 10,
+      "review_findings": [
+        "huck2-en-0: rule:terminology.name-variant Sundays → Sunday",
+        "huck2-en-1: rule:terminology.name-variant Sundays → Sunday",
+        "huck2-en-2: rule:terminology.name-variant Sundays → Sunday"
+      ],
+      "proven_equivalent_merges": 0,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0.024697,
+        "editor_usd": 0.00597,
+        "verifier_usd": 0.018727,
+        "retries_usd": 0.000303,
+        "per_1000_words_usd": 0.000782,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0.000484,
+        "per_repeat_usd": 0.008232,
+        "sources": [
+          "provider-usage",
+          "error-no-usage"
+        ]
+      },
+      "requests": {
+        "total": 117,
+        "editor": 53,
+        "verifier": 64,
+        "truncated": 0,
+        "http_errors": 2,
+        "retries": 4,
+        "tokens_in": 135755,
+        "tokens_out": 27622,
+        "cached_tokens": 34698
+      },
+      "latency": {
+        "median_request_ms": 864,
+        "mean_request_ms": 798,
+        "median_job_ms": 29976,
+        "mean_job_ms": 30885
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.012916,
+          "k2": 0.015748,
+          "k3": 0.018727
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "gramota-ru-2: Дед тотчс увидел → Дед тотчас увидел"
+          ],
+          "unknown_more_accepted": [
+            "eveline-en-0: brown baggages → brown baggage",
+            "gramota-ru-2: только одна рожа сунула горячую головню прямехонько деду в лоб, так что если бы он немного не посторонился → только одна рожа сунула горячую головню прямехонько деду в лоб так, что если бы он немного не посторонился",
+            "gramota-ru-2: В какие местах он не был → В каких местах он не был",
+            "hameleon-ru-0: заливается улыбкой умиления.— → заливается улыбкой умиления. —",
+            "hameleon-ru-2: улыбкой умиления.— Ишь → улыбкой умиления. — Ишь",
+            "huck2-en-1: was setting in the kitchen door → was sitting in the kitchen door",
+            "spat-ru-2: чтобы предметы не росли а не двигались → чтобы предметы не росли и не двигались"
+          ],
+          "cost": 0.012916399999999996
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "gramota-ru-2: В какие местах он не был → В каких местах он не был"
+          ],
+          "cost": 0.015748099999999998
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c4-dual-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 15,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 10,
+        "rule": 6,
+        "control_edits": 0,
+        "judged_harmful": 6,
+        "judged_invalid": 1,
+        "judged_valid": 9
+      },
+      "harmful_final": [
+        "gramota-ru-0: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-0: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-1: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-1: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-2: та та → та [rule:repetition.doubled-word]",
+        "gramota-ru-2: та та → та [rule:repetition.doubled-word]"
+      ],
+      "verifier_rejections": {
+        "valid": 3,
+        "harmful_or_incorrect": 3,
+        "unknown": 51,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "gramota-ru-0: В какие местах → В каких местах",
+            "gramota-ru-1: В какие местах → В каких местах",
+            "gramota-ru-2: В какие местах → В каких местах"
+          ],
+          "harmful_or_incorrect": [
+            "gramota-ru-0: Дед держаться: → Дед держался:",
+            "gramota-ru-1: Дед держаться: → Дед держался:",
+            "gramota-ru-2: Дед держаться: → Дед держался:"
+          ],
+          "unknown": [
+            "eveline-en-0: brown baggages → brown baggage",
+            "eveline-en-1: baggages → baggage",
+            "gramota-ru-0: словотитлу → словотитло",
+            "gramota-ru-0: а затылка сколько ни чесал дед → а затылок сколько ни чесал дед",
+            "gramota-ru-0: и вдруг словно сто молотов застучало по лесу таким стуком, что у него зазвенело в голове. → и вдруг словно сто молотов застучало по лесу так, что у него зазвенело в голове.",
+            "gramota-ru-0: выпучивши глаза → выпучив глаза",
+            "gramota-ru-0: Об возне своей → О возне своей",
+            "gramota-ru-1: как под овчинным тулупом → как в овчинном тулупе",
+            "gramota-ru-1: и вдруг словно сто молотов застучало по лесу таким стуком → и вдруг словно сто молотов застучало по лесу",
+            "gramota-ru-1: и так хватился на дне его о землю → и так хватился на дне его об землю",
+            "gramota-ru-1: Об возне → О возне",
+            "gramota-ru-2: долго думали, подперши батогами подбородки свои → долго думали, подперев батогами подбородки свои",
+            "gramota-ru-2: Об возне → О возне",
+            "hameleon-ru-0: улыбкой умиления.— → улыбкой умиления. —",
+            "hameleon-ru-1: умиления.— Ишь → умиления. — Ишь",
+            "hameleon-ru-2: умиления.— Ишь → умиления. — Ишь",
+            "huck2-en-0: so as the branches → so the branches",
+            "huck2-en-0: When we was passing → When we were passing",
+            "huck2-en-0: We scrouched down and laid still. → We crouched down and lay still.",
+            "huck2-en-0: was setting in the kitchen door → was sitting in the kitchen door",
+            "huck2-en-0: Then he says: → Then he said:",
+            "huck2-en-0: he come tiptoeing → he came tiptoeing",
+            "huck2-en-0: that there warn’t a sound, and we all there so close together. → that there warn’t a sound, and we were all there so close together.",
+            "huck2-en-0: Jim begun to breathe heavy → Jim begun to breathe heavily",
+            "huck2-en-0: When we was ten foot off → When we were ten foot off",
+            "huck2-en-0: he had wrote → he had written",
+            "huck2-en-0: if anybody done anything → if anybody did anything",
+            "huck2-en-0: if he done it again → if he did it again",
+            "huck2-en-1: so as the branches → so that the branches",
+            "huck2-en-1: When we was passing → When we were passing",
+            "huck2-en-1: We scrouched down → We crouched down",
+            "huck2-en-1: was setting in the kitchen door → was sitting in the kitchen door",
+            "huck2-en-1: he come tiptoeing down → he came tiptoeing down",
+            "huck2-en-1: When we was ten foot off → When we was ten feet off",
+            "huck2-en-1: wouldn’t a noticed → wouldn’t have noticed",
+            "huck2-en-1: he had wrote the oath → he had written the oath",
+            "huck2-en-1: if anybody done anything → if anybody did anything",
+            "huck2-en-1: if he done it again → if he did it again",
+            "huck2-en-2: so as the branches → so that the branches",
+            "huck2-en-2: When we was passing → When we were passing",
+            "huck2-en-2: We scrouched down → We crouched down",
+            "huck2-en-2: and laid still → and lay still",
+            "huck2-en-2: was setting in the kitchen door → was sitting in the kitchen door",
+            "huck2-en-2: When we was ten foot off → When we were ten foot off",
+            "huck2-en-2: he had wrote the oath → he had written the oath",
+            "huck2-en-2: if anybody done anything → if anybody did anything",
+            "huck2-en-2: he must be sued → he must be killed",
+            "huck2-en-2: if he done it again → if he did it again",
+            "spat-ru-0: чтобы предметы не росли а не двигались → чтобы предметы не росли и не двигались",
+            "spat-ru-1: не росли а не двигались → не росли и не двигались",
+            "spat-ru-2: чтобы предметы не росли а не двигались → чтобы предметы не росли и не двигались"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 9,
+        "target-not-verbatim-in-window": 13
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 42,
+        "conflicts": 1,
+        "candidates": {
+          "standard": 76,
+          "diagnostic": 84
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 2,
+          "standard+diagnostic": 8
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 49,
+        "semantic-verifier": 57
+      },
+      "model_proposals_offered": 10,
+      "review_findings": [
+        "huck2-en-0: rule:terminology.name-variant Sundays → Sunday",
+        "huck2-en-1: rule:terminology.name-variant Sundays → Sunday",
+        "huck2-en-2: rule:terminology.name-variant Sundays → Sunday"
+      ],
+      "proven_equivalent_merges": 42,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0.051777,
+        "editor_usd": 0.01255,
+        "verifier_usd": 0.039226,
+        "retries_usd": 0.000792,
+        "per_1000_words_usd": 0.001638,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0.001015,
+        "per_repeat_usd": 0.017259,
+        "sources": [
+          "provider-usage",
+          "error-no-usage"
+        ]
+      },
+      "requests": {
+        "total": 201,
+        "editor": 110,
+        "verifier": 91,
+        "truncated": 1,
+        "http_errors": 1,
+        "retries": 5,
+        "tokens_in": 318382,
+        "tokens_out": 55638,
+        "cached_tokens": 94515
+      },
+      "latency": {
+        "median_request_ms": 691,
+        "mean_request_ms": 776,
+        "median_job_ms": 48152,
+        "mean_job_ms": 53511
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.027817,
+          "k2": 0.034119,
+          "k3": 0.039226
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "gramota-ru-0: Дед держаться: → Дед держался:",
+            "gramota-ru-1: Дед держаться: → Дед держался:"
+          ],
+          "valid_more_accepted": [
+            "gramota-ru-0: В какие местах → В каких местах",
+            "gramota-ru-1: В какие местах → В каких местах",
+            "gramota-ru-2: В какие местах → В каких местах"
+          ],
+          "unknown_more_accepted": [
+            "gramota-ru-0: и вдруг словно сто молотов застучало по лесу таким стуком, что у него зазвенело в голове. → и вдруг словно сто молотов застучало по лесу так, что у него зазвенело в голове.",
+            "gramota-ru-0: выпучивши глаза → выпучив глаза",
+            "gramota-ru-0: Об возне своей → О возне своей",
+            "gramota-ru-1: и вдруг словно сто молотов застучало по лесу таким стуком → и вдруг словно сто молотов застучало по лесу",
+            "gramota-ru-1: и так хватился на дне его о землю → и так хватился на дне его об землю",
+            "gramota-ru-1: Об возне → О возне",
+            "gramota-ru-2: долго думали, подперши батогами подбородки свои → долго думали, подперев батогами подбородки свои",
+            "gramota-ru-2: Об возне → О возне",
+            "hameleon-ru-0: улыбкой умиления.— → улыбкой умиления. —",
+            "hameleon-ru-1: умиления.— Ишь → умиления. — Ишь",
+            "hameleon-ru-2: умиления.— Ишь → умиления. — Ишь",
+            "huck2-en-2: if anybody done anything → if anybody did anything"
+          ],
+          "cost": 0.0278171
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [
+            "gramota-ru-1: Дед держаться: → Дед держался:"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "hameleon-ru-1: умиления.— Ишь → умиления. — Ишь"
+          ],
+          "cost": 0.0341193
+        }
+      },
+      "pareto": true
+    }
+  ],
+  "unlabelled_final_edits": []
+}

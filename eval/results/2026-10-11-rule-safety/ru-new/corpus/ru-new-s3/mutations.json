@@ -1,0 +1,175 @@
+{
+  "provenance": {
+    "note": "Wikisource templates removed, including the epigraph of «Тоска»",
+    "sources": {
+      "eval/sources/toska.wiki.txt": "sha256:9f3db9830fdd96692da853fc4e92f65b65321bb8824436a87059823b731a5da6",
+      "eval/sources/anyuta.wiki.txt": "sha256:87466f50d3a1334c34727d80fde3b0b4351f37322bdcdd14f72e36bbf88b8999"
+    },
+    "rights": "Chekhov (d. 1904), PD"
+  },
+  "seed": "opt-s3",
+  "generator": 2,
+  "mode": "copy",
+  "types_used": [
+    "typo",
+    "doubled-word",
+    "agreement",
+    "redundancy",
+    "qualifier",
+    "sentence-frame",
+    "formulaic",
+    "dialogue-format"
+  ],
+  "types_skipped": [],
+  "control_chapter": null,
+  "mutations": [
+    {
+      "id": "ru-new-opt-s3:qualifier:0:01-toska:ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "type": "qualifier",
+      "chapter": "01-toska",
+      "scene": "ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "span": {
+        "start": 240,
+        "end": 268
+      },
+      "original": "возможно",
+      "mutated": "в некоторой степени возможно",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s3:sentence-frame:1:01-toska:ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "type": "sentence-frame",
+      "chapter": "01-toska",
+      "scene": "ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "span": {
+        "start": 530,
+        "end": 548
+      },
+      "original": "она даже",
+      "mutated": "она даже. она даже",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s3:formulaic:0:01-toska:fd68bfbe-fd70-4b4e-8c62-cf38b2429e68",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "01-toska",
+      "scene": "fd68bfbe-fd70-4b4e-8c62-cf38b2429e68",
+      "span": {
+        "start": 2653,
+        "end": 2683
+      },
+      "original": "Спустя часа",
+      "mutated": "В современном мире Спустя часа",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s3:dialogue-format:0:02-anyuta:d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "type": "dialogue-format",
+      "chapter": "02-anyuta",
+      "scene": "d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "span": {
+        "start": 1478,
+        "end": 1479
+      },
+      "original": "—",
+      "mutated": "-",
+      "mode": "copy",
+      "in_dialogue": true,
+      "policy": [
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s3:typo:1:02-anyuta:d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "type": "typo",
+      "chapter": "02-anyuta",
+      "scene": "d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "span": {
+        "start": 2729,
+        "end": 2736
+      },
+      "original": "шатания",
+      "mutated": "шаатния",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s3:doubled-word:2:02-anyuta:d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "type": "doubled-word",
+      "chapter": "02-anyuta",
+      "scene": "d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "span": {
+        "start": 4291,
+        "end": 4308
+      },
+      "original": "зубрячки",
+      "mutated": "зубрячки зубрячки",
+      "mode": "copy",
+      "in_dialogue": true,
+      "policy": [
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s3:agreement:0:02-anyuta:6925a93c-1463-400e-8e29-fc0d04accac0",
+      "type": "agreement",
+      "chapter": "02-anyuta",
+      "scene": "6925a93c-1463-400e-8e29-fc0d04accac0",
+      "span": {
+        "start": 1570,
+        "end": 1576
+      },
+      "original": "сказала",
+      "mutated": "сказал",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s3:redundancy:1:02-anyuta:6925a93c-1463-400e-8e29-fc0d04accac0",
+      "type": "redundancy",
+      "chapter": "02-anyuta",
+      "scene": "6925a93c-1463-400e-8e29-fc0d04accac0",
+      "span": {
+        "start": 2075,
+        "end": 2093
+      },
+      "original": "сказал",
+      "mutated": "сказал снова снова",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": [
+        "сказал снова"
+      ]
+    }
+  ]
+}

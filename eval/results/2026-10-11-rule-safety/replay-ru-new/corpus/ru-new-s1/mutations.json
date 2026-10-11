@@ -1,0 +1,175 @@
+{
+  "provenance": {
+    "note": "Wikisource templates removed, including the epigraph of «Тоска»",
+    "sources": {
+      "eval/sources/toska.wiki.txt": "sha256:9f3db9830fdd96692da853fc4e92f65b65321bb8824436a87059823b731a5da6",
+      "eval/sources/anyuta.wiki.txt": "sha256:87466f50d3a1334c34727d80fde3b0b4351f37322bdcdd14f72e36bbf88b8999"
+    },
+    "rights": "Chekhov (d. 1904), PD"
+  },
+  "seed": "opt-s1",
+  "generator": 2,
+  "mode": "copy",
+  "types_used": [
+    "typo",
+    "doubled-word",
+    "agreement",
+    "redundancy",
+    "qualifier",
+    "sentence-frame",
+    "formulaic",
+    "dialogue-format"
+  ],
+  "types_skipped": [],
+  "control_chapter": null,
+  "mutations": [
+    {
+      "id": "ru-new-opt-s1:qualifier:0:01-toska:ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "type": "qualifier",
+      "chapter": "01-toska",
+      "scene": "ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "span": {
+        "start": 240,
+        "end": 268
+      },
+      "original": "возможно",
+      "mutated": "в некоторой степени возможно",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s1:sentence-frame:1:01-toska:ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "type": "sentence-frame",
+      "chapter": "01-toska",
+      "scene": "ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "span": {
+        "start": 530,
+        "end": 548
+      },
+      "original": "она даже",
+      "mutated": "она даже. она даже",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s1:dialogue-format:2:01-toska:ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "type": "dialogue-format",
+      "chapter": "01-toska",
+      "scene": "ee3e11a6-88bb-4ecf-8ec9-b6fd3f91c341",
+      "span": {
+        "start": 1758,
+        "end": 1759
+      },
+      "original": "—",
+      "mutated": "-",
+      "mode": "copy",
+      "in_dialogue": true,
+      "policy": [
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s1:formulaic:0:01-toska:fd68bfbe-fd70-4b4e-8c62-cf38b2429e68",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "01-toska",
+      "scene": "fd68bfbe-fd70-4b4e-8c62-cf38b2429e68",
+      "span": {
+        "start": 3360,
+        "end": 3394
+      },
+      "original": "Старик вздыхает",
+      "mutated": "В современном мире Старик вздыхает",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s1:redundancy:0:02-anyuta:d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "type": "redundancy",
+      "chapter": "02-anyuta",
+      "scene": "d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "span": {
+        "start": 485,
+        "end": 501
+      },
+      "original": "была",
+      "mutated": "была снова снова",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": [
+        "была снова"
+      ]
+    },
+    {
+      "id": "ru-new-opt-s1:doubled-word:1:02-anyuta:d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "type": "doubled-word",
+      "chapter": "02-anyuta",
+      "scene": "d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "span": {
+        "start": 1191,
+        "end": 1206
+      },
+      "original": "клавиши",
+      "mutated": "клавиши клавиши",
+      "mode": "copy",
+      "in_dialogue": true,
+      "policy": [
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s1:typo:2:02-anyuta:d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "type": "typo",
+      "chapter": "02-anyuta",
+      "scene": "d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "span": {
+        "start": 2352,
+        "end": 2359
+      },
+      "original": "стучать",
+      "mutated": "стчуать",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "ru-new-opt-s1:agreement:3:02-anyuta:d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "type": "agreement",
+      "chapter": "02-anyuta",
+      "scene": "d6289c32-0b05-4041-8c78-ca0e0c30d337",
+      "span": {
+        "start": 2646,
+        "end": 2651
+      },
+      "original": "думала",
+      "mutated": "думал",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    }
+  ]
+}

@@ -1,0 +1,559 @@
+{
+  "generated_at": "2026-10-11T09:50:11.629Z",
+  "spent_usd": 0,
+  "requests": 176,
+  "corpus": {
+    "nonstd-en-clean": {
+      "words": 1488,
+      "scenes": 3,
+      "mutations": 0,
+      "policy": []
+    },
+    "nonstd-ru-clean": {
+      "words": 2498,
+      "scenes": 5,
+      "mutations": 0,
+      "policy": []
+    }
+  },
+  "stage_a": {},
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "c1-production",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 3,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 3,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [
+        "nonstd-en-clean-0: I couldn’t stood it much longer. → I couldn’t stand it much longer. [model]",
+        "nonstd-en-clean-1: I couldn’t stood it → I couldn’t stand it [model]",
+        "nonstd-en-clean-2: I couldn’t stood it → I couldn’t stand it [model]"
+      ],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 3,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 1
+      },
+      "model_proposals_offered": 3,
+      "review_findings": [
+        "nonstd-en-clean-0: rule:terminology.name-variant Mark → Mary",
+        "nonstd-en-clean-1: rule:terminology.name-variant Mark → Mary",
+        "nonstd-en-clean-2: rule:terminology.name-variant Mark → Mary"
+      ],
+      "proven_equivalent_merges": 0,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0,
+        "editor_usd": 0,
+        "verifier_usd": 0,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0,
+        "per_repeat_usd": 0,
+        "sources": [
+          "replay"
+        ]
+      },
+      "requests": {
+        "total": 33,
+        "editor": 24,
+        "verifier": 9,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "mean_request_ms": 0,
+        "median_job_ms": 14062,
+        "mean_job_ms": 14069
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "c2-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 2,
+        "unknown": 2,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "nonstd-en-clean-0: I couldn’t stood it → I couldn’t stand it",
+            "nonstd-en-clean-1: I couldn’t stood it → I couldn’t stand it"
+          ],
+          "unknown": [
+            "nonstd-en-clean-2: couldn’t stood → couldn’t stand",
+            "nonstd-ru-clean-0: шаги не видимы → шаги не видны"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "semantic-verifier": 4
+      },
+      "model_proposals_offered": 0,
+      "review_findings": [
+        "nonstd-en-clean-0: rule:terminology.name-variant Mark → Mary",
+        "nonstd-en-clean-1: rule:terminology.name-variant Mark → Mary",
+        "nonstd-en-clean-2: rule:terminology.name-variant Mark → Mary"
+      ],
+      "proven_equivalent_merges": 0,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0,
+        "editor_usd": 0,
+        "verifier_usd": 0,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0,
+        "per_repeat_usd": 0,
+        "sources": [
+          "replay"
+        ]
+      },
+      "requests": {
+        "total": 28,
+        "editor": 24,
+        "verifier": 4,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "mean_request_ms": 0,
+        "median_job_ms": 7051,
+        "mean_job_ms": 10554
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "nonstd-en-clean-0: I couldn’t stood it → I couldn’t stand it",
+            "nonstd-en-clean-1: I couldn’t stood it → I couldn’t stand it"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "nonstd-en-clean-2: couldn’t stood → couldn’t stand",
+            "nonstd-ru-clean-0: шаги не видимы → шаги не видны"
+          ],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c3-dual",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 3,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 3,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [
+        "nonstd-en-clean-0: I couldn’t stood it much longer. → I couldn’t stand it much longer. [model]",
+        "nonstd-en-clean-1: I couldn’t stood it → I couldn’t stand it [model]",
+        "nonstd-en-clean-2: couldn’t stood it → couldn’t stand it [model]"
+      ],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 1,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [
+            "nonstd-ru-clean-1: и, чмокнув собаке, продолжает свой путь → и, чмокнув собаку, продолжает свой путь"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "target-not-verbatim-in-window": 1,
+        "multi-paragraph-replacement": 1
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 3,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 5,
+          "diagnostic": 6
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 0,
+          "standard+diagnostic": 3
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 4,
+        "semantic-verifier": 1
+      },
+      "model_proposals_offered": 3,
+      "review_findings": [
+        "nonstd-en-clean-0: rule:terminology.name-variant Mark → Mary",
+        "nonstd-en-clean-1: rule:terminology.name-variant Mark → Mary",
+        "nonstd-en-clean-2: rule:terminology.name-variant Mark → Mary"
+      ],
+      "proven_equivalent_merges": 3,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0,
+        "editor_usd": 0,
+        "verifier_usd": 0,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0,
+        "per_repeat_usd": 0,
+        "sources": [
+          "replay"
+        ]
+      },
+      "requests": {
+        "total": 60,
+        "editor": 50,
+        "verifier": 10,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "mean_request_ms": 0,
+        "median_job_ms": 24568,
+        "mean_job_ms": 29237
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "c4-dual-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 6,
+      "repeats": 3,
+      "mutations": 0,
+      "reachable": 0,
+      "final": {
+        "exact": 0,
+        "alternative": 0,
+        "partial": 0,
+        "incorrect": 0,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 0,
+        "remaining_injected_errors": 0,
+        "remaining_reachable": 0
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 3,
+        "unknown": 1,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "nonstd-en-clean-0: I couldn’t stood it → I couldn’t stand it",
+            "nonstd-en-clean-1: I couldn’t stood it → I couldn’t stand it",
+            "nonstd-en-clean-2: I couldn’t stood it → I couldn’t stand it"
+          ],
+          "unknown": [
+            "nonstd-ru-clean-1: чмокнув собаке → чмокнув собаку"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 3
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 0,
+        "final_policy_compliant": 0,
+        "reachable": 0
+      },
+      "merge": {
+        "merged_identical": 3,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 3,
+          "diagnostic": 9
+        },
+        "final_provenance": {
+          "standard": 0,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "semantic-trap": 5,
+        "semantic-verifier": 4
+      },
+      "model_proposals_offered": 0,
+      "review_findings": [
+        "nonstd-en-clean-0: rule:terminology.name-variant Mark → Mary",
+        "nonstd-en-clean-1: rule:terminology.name-variant Mark → Mary",
+        "nonstd-en-clean-2: rule:terminology.name-variant Mark → Mary"
+      ],
+      "proven_equivalent_merges": 3,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0,
+        "editor_usd": 0,
+        "verifier_usd": 0,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0,
+        "per_correct_final_edit_usd": null,
+        "per_scene_usd": 0,
+        "per_repeat_usd": 0,
+        "sources": [
+          "replay"
+        ]
+      },
+      "requests": {
+        "total": 55,
+        "editor": 50,
+        "verifier": 5,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "mean_request_ms": 0,
+        "median_job_ms": 21056,
+        "mean_job_ms": 26307
+      },
+      "by_mutation": {},
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0,
+          "k2": 0,
+          "k3": 0
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "nonstd-en-clean-0: I couldn’t stood it → I couldn’t stand it",
+            "nonstd-en-clean-1: I couldn’t stood it → I couldn’t stand it",
+            "nonstd-en-clean-2: I couldn’t stood it → I couldn’t stand it"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "nonstd-ru-clean-1: чмокнув собаке → чмокнув собаку"
+          ],
+          "cost": 0
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [
+            "nonstd-en-clean-1: I couldn’t stood it → I couldn’t stand it"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0
+        }
+      },
+      "pareto": true
+    }
+  ],
+  "unlabelled_final_edits": []
+}

@@ -1,0 +1,10 @@
+{
+  "provenance": "Edits to Chekhov's text (Wikisource) that do not correct an injected error, labelled against the source on 2026-10-11.",
+  "judgements": [
+    { "target": ". что", "replacement": ". Что", "label": "invalid", "note": "source defect: Wikisource has «Что рубль. что пятак», Chekhov has a comma; the capitalization rule fixes the case but not the error. Deterministic rule, identical in every configuration" },
+    { "target": "два докторами", "replacement": "два доктора", "label": "harmful", "note": "Chekhov's ellipsis «два [стали] докторами»; the edit changes the meaning" },
+    { "target": "два докторами", "replacement": "два — докторами", "label": "valid", "note": "a dash marks the ellipsis; optional, does not change the meaning" },
+    { "target": "ко́злах", "replacement": "козлах", "label": "invalid", "note": "removes the source's stress mark" },
+    { "target": "и потом купить на полученный четвертак и чаю и табаку", "replacement": "и потом купить на полученный четвертак чаю и табаку", "label": "invalid", "note": "Chekhov's polysyndeton" }
+  ]
+}

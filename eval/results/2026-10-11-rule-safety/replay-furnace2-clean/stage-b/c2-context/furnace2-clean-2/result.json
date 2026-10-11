@@ -1,0 +1,162 @@
+{
+  "job": "c2-context/furnace2-clean-2",
+  "config": {
+    "id": "c2-context",
+    "editor": "luna",
+    "verifier": "haiku-medium",
+    "check": "necessity",
+    "verify_context": true,
+    "tier": 1
+  },
+  "work": "furnace2-clean",
+  "repeat": 2,
+  "elapsed_ms": 10556,
+  "scope": "real editMechanical (rules + editor + deterministic guards + verifier, copy mode, no cache); final = offered proposals; build = all offered proposals accepted except review-only findings",
+  "replay": {
+    "from": "2026-10-11-recall-optimization/furnace2-clean",
+    "unrecorded": 0
+  },
+  "stages": [
+    {
+      "name": "rules",
+      "status": "ok",
+      "hits": 0,
+      "proposals": 0,
+      "protected_form_skipped": 0,
+      "units": {
+        "cached": 0,
+        "computed": 5,
+        "failed": 0
+      },
+      "failures": [],
+      "diagnostics": []
+    },
+    {
+      "name": "model",
+      "status": "ok",
+      "windows": 4,
+      "windows_by_chapter": {
+        "ch-fd275ad0": 4
+      },
+      "sent": 4,
+      "cached": 0,
+      "no_change": 4,
+      "no_change_by_chapter": {
+        "ch-fd275ad0": 4
+      },
+      "candidates": 0,
+      "discarded": [],
+      "failures": [],
+      "prompt_version": "1.6.0",
+      "model_id": "openai/gpt-6-luna",
+      "formulaic_hits": [
+        {
+          "id": "formulaic.the-way-simile",
+          "language": "en",
+          "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+          "chapter": "ch-fd275ad0",
+          "scene": "bc935c09-7bb2-46c1-84fe-2195687d3423",
+          "start": 3974,
+          "end": 3988,
+          "quote": "the way a case",
+          "reason": "One move under different words: an observation explained by a small generic comparison. 5 times in this book (14.5 per 10k words); keep the ones that carry the scene."
+        },
+        {
+          "id": "formulaic.the-way-simile",
+          "language": "en",
+          "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+          "chapter": "ch-fd275ad0",
+          "scene": "8635b8a9-0740-43ce-ab1b-6e27f52661df",
+          "start": 4015,
+          "end": 4028,
+          "quote": "the way a man",
+          "reason": "One move under different words: an observation explained by a small generic comparison. 5 times in this book (14.5 per 10k words); keep the ones that carry the scene."
+        },
+        {
+          "id": "formulaic.the-way-simile",
+          "language": "en",
+          "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+          "chapter": "ch-fd275ad0",
+          "scene": "ecaaf0f4-111d-4a50-afa3-d9448213d873",
+          "start": 702,
+          "end": 715,
+          "quote": "the way a kid",
+          "reason": "One move under different words: an observation explained by a small generic comparison. 5 times in this book (14.5 per 10k words); keep the ones that carry the scene."
+        },
+        {
+          "id": "formulaic.the-way-simile",
+          "language": "en",
+          "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+          "chapter": "ch-fd275ad0",
+          "scene": "e0d57870-d982-4f63-add5-bdffb9f75b72",
+          "start": 171,
+          "end": 184,
+          "quote": "the way a man",
+          "reason": "One move under different words: an observation explained by a small generic comparison. 5 times in this book (14.5 per 10k words); keep the ones that carry the scene."
+        },
+        {
+          "id": "formulaic.the-way-simile",
+          "language": "en",
+          "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+          "chapter": "ch-fd275ad0",
+          "scene": "e0d57870-d982-4f63-add5-bdffb9f75b72",
+          "start": 2895,
+          "end": 2913,
+          "quote": "the way you notice",
+          "reason": "One move under different words: an observation explained by a small generic comparison. 5 times in this book (14.5 per 10k words); keep the ones that carry the scene."
+        }
+      ],
+      "formulaic_catalog_version": "0.3.0"
+    },
+    {
+      "name": "guard",
+      "status": "ok",
+      "candidates": 0,
+      "semantic_rejected": 0,
+      "rule_preferred": 0,
+      "objective_rejected": 0,
+      "punctuation_rejected": 0,
+      "voice_rejected": 0,
+      "offered": 0,
+      "same_family_warning": false,
+      "rejections": [],
+      "verifications": []
+    }
+  ],
+  "proposals": [],
+  "rejections": [],
+  "build": [],
+  "edited": {
+    "ch-fd275ad0": "<!-- scene: bc935c09-7bb2-46c1-84fe-2195687d3423 -->\nThe call came over the Harrisburg frequency at 6:52, and by the time Kimmel reached the Dry Run culvert the rain had settled in for the day, the fine cold kind that got under a collar and stayed. He parked the cruiser on the shoulder of the branch-line road, where the embankment rose on one side and the field fell away on the other, and walked up the track ballast toward the cluster of orange vest and state-police gray that marked the spot.\n\nLeon Fretz stood a little apart from everybody, up on the shoulder of the embankment, a plaid hunting cap dark with rain and an unlit pipe in one fist. His other hand shook, and that was how Kimmel knew it was bad before he saw anything — Fretz had walked this branch for years and Kimmel had met him at crossing accidents, and the man's hands had never shaken. A smoked-down Winston butt lay in the cinders at his boot, freshly dropped, and a second one was going between his fingers, unlit too, just something to hold.\n\n\"She's down in the mouth of it,\" Fretz said. \"In the box. The stone box, under the roadbed.\" He had to stop and start over. \"I seen the coat first. The sleeve.\"\n\nKimmel put a hand on the man's shoulder and went past him.\n\nThe culvert was a stone box, four feet square, carrying Dry Run under the embankment, and the light did not so much enter it as give up at the lip. The rain had raised the run a couple of inches overnight; the water ran thin and clear over gravel and silt. What he could see from the top he saw once, all at once, and then made himself look again, slowly, because looking once and fast was how a man got a case wrong from the first hour. A tan corduroy coat with a sheepskin collar, one sleeve showing past the culvert mouth. She was small. Nineteen, the radio traffic had said. Nineteen and five foot four, and she had been three days in a stone box under a railroad.\n\nHe came back up the grade. \"Who's been down there?\"\n\n\"Me, far enough to see it was her,\" Fretz said. \"The one that went missing from Carrick. Then I got on the radio. My truck's got the radio.\" He pointed down the road as if it needed pointing. \"I didn't touch nothing. I know better than to touch.\"\n\n\"All right. You did right. Sit in your truck, Leon. Warm up. I'll want what you know in a while, but there's no hurry on it.\"\n\nFretz didn't move. He stood in the rain with his pipe and his dead cigarette, and after a minute he said, \"She'd have come down off the road, up here. Top of the bank. You can see where.\" Kimmel could see where: a flattened path through the wet weeds on the field side, trampled and washed, nothing you could read anything into after a weekend of rain. That was the whole trouble with the outdoors, and he said so to himself the way his first sergeant used to say it: outdoors is a liar. Give him indoors, a barroom, a kitchen with a linoleum floor. Outdoors, the weather was on the other side.\n\nThe Polaroid man was Trooper Doak from Wyeth Station, and he worked the top of the bank and the culvert mouth with the camera while a young trooper ran the measuring tape and called the numbers out — distance from the roadbed, distance from the culvert lip, the numbers written on the back of each print in pencil because Doak was a believer in doing it right. Kimmel stood above the box and made the pictures be taken before anybody went down into the water. Then he went down himself, into the run, the cold over his shoe tops at once, and crouched at the culvert mouth and looked at what the light allowed.\n\nTan coat. Corduroy. He would not look at the rest of it longer than the job required; Doak would do the photography and the coroner's doctor would do the rest this afternoon, and neither of them needed him staring. What he looked for was the coat itself, and he found what he half-expected on the right cuff: a dark stain, stiffened, the corduroy matted with it. Blood. He called it up to Doak.\n\nComing back out of the run, boot-deep in the water, it arranged itself in his head the way a case wanted to arrange itself, and he let it. She was a girl who walked home from work. Every working night for a year and more, same route, same time, alone, and everybody in Carrick knew it the same way they knew where the bars were. Whoever did this hadn't come down from the moon and picked a stone box in Haskett Township on the first try. Whoever did this knew she was walking alone.\n\nThe rain kept on. Up on the roadbed, Fretz had finally gone to sit in his truck. Kimmel took out his notebook, worked it one-handed under the overhang of his hat, and started the page: date, time, weather, who found her and when. It was going to be a long Monday.\n\n<!-- scene: 8635b8a9-0740-43ce-ab1b-6e27f52661df -->\nThe sifting took the rest of the morning. Two troopers worked the run downstream from the culvert with a screen Doak had brought, kneeling in the cold water in their socks and shoes, and Kimmel stood on the bank and watched everything that came up out of Dry Run. Most of it was what a railroad gives back when you ask it: cinders, bottle caps, a rusted loop of wire, a hubcap older than the girl. Doak photographed the slope and the culvert mouth again as the light shifted, and the young trooper with the tape wrote his numbers in the now-rain-slick notebook and had to keep drying the page with his sleeve.\n\nThe key came up just before noon, out of the silt maybe six feet below the culvert mouth, in the screen's second pass. A young trooper — Bartles, his name was — held it up between two fingers, and it caught what light there was.\n\n\"Brass,\" Bartles said. \"Some kind of key.\"\n\nKimmel took it and turned it over. Old brass, worn smooth at the bow, the stamp on it rubbed down to a suggestion of letters. A flat key with a hollow barrel, nothing like anything a house or a car took. It had lain in silt that the water moved through with every rain, and there was no saying when it had gone in — last night or last decade. He held it up for Doak, who was close enough to be done with it in one Polaroid, and then looked up and down the embankment without any idea in particular, because that was the honest condition of the thing.\n\n\"Railroad's full of keys,\" Bartles said. He was a local boy, Haskett Township, twenty-three. \"Switch keys, they call the brass ones. Every carman and track man in the yard's got one on his belt. They lose them like pencils. Conrail'd charge a man two dollars for a new one and the men figured two dollars was cheaper than looking.\"\n\n\"That so.\"\n\n\"There's probably ten of them in that run if you sifted the whole thing.\"\n\nThat was the trouble with the outdoors, again. A key meant to be lost — lost by a class of men who lost them like pencils, in a township with a freight yard in it, in a run that carried the whole yard's leavings downstream. It went into the evidence bag, and onto the bag, in Kimmel's hand and then in Doak's careful block print: *Item 9 — misc. metal key, from culvert silt.* Bartles was probably right, and being probably right made it useless. Kimmel handed it over and went back to the slope and stopped thinking about it before lunch.\n\nThe Winston butt went in the same bag run, a little later, a hundred feet up the embankment where somebody had stood and smoked on some day nobody could name. *Item 11 — cig. butt, embankment above culvert.* If the coroner's doctor wanted the coat and what was on it, the coat was his to take; everything else went into the bags and the bags went into the trunk of the cruiser, and Doak signed the inventory sheet against the rain-damp fender and Kimmel countersigned it, and that was Monday accounted for.\n\nThe autopsy was the same afternoon, in the basement room at the Port Allen hospital, and Kimmel had been in that room enough times to be glad when Feld was the doctor on the sheet. Feld was old, deliberate, and did not talk while he worked except to dictate, which made him the best company in the county for this particular hour. The room smelled of soap and something colder under the soap. Kimmel stood where Feld told him to stand and wrote what Feld told him to write and did not bring anything of the culvert into his face.\n\nManual strangulation, Feld dictated, and said it twice, once for the machine and once for Kimmel. Defensive injuries to the hands and forearms. Skin under the right-hand nails — she had given as good as she got for as long as it lasted, and Kimmel wrote that down too, under a note he'd keep to himself. No evidence of sexual assault. Death late Friday night into early Saturday, taking the weather and the water into account.\n\nFeld worked a wooden probe under each nail in turn, right hand first, and sealed each scraping into its own paper bindle, folding the tops over twice the way a man folds a letter. \"These are mine to keep,\" he said, not looking up. \"They go in my file with the coroner. If your lab wants them, your lab knows where the coroner keeps his boxes.\" He wrote his label — *Kessler, R.A., rt. hand, 15 X 79* — and Kimmel, who had a case of his own to carry and a suspect list that had one name on it by suppertime, wrote nothing in his own notebook about the bindles at all. It was Feld's paper, Feld's envelope, Feld's file. He'd have been surprised to learn anybody would want it forty-five years later, and Kimmel would have been surprised harder.\n\n<!-- scene: ecaaf0f4-111d-4a50-afa3-d9448213d873 -->\nDanny Mercer came in on the Thursday, brought down by his father's lawyer's advice and his own inability to sit still, and Kimmel put him in the small interview room with the window that looked at the parking lot and let him wait forty minutes. Not to soften him up. Kimmel didn't hold with that. He waited forty minutes because the Mercer boy's story needed checking while he sat, and because the lab had called that morning.\n\nThe boy — twenty, long dark hair, a denim jacket he didn't take off — sat with his arms folded and his chair pushed back from the table, far enough back that it said something. He'd worked all day at Haskett Lumber and he looked it. He looked scared, too, under the sullen, the way a kid looks when the county police have been at his girl's funeral and his own street.\n\n\"You know why you're here.\"\n\n\"Everybody knows why I'm here.\" He picked at the table edge. \"I didn't have nothing to do with it.\"\n\n\"Tell me Friday night.\"\n\n\"I told the other trooper. I was home.\"\n\n\"All of it.\"\n\nMercer told it the same way the other trooper had written it, close enough that Kimmel could put the two accounts side by side in his head and watch them match, and that meant nothing by itself, because a story repeated gets smoother, not truer. Beer at the Legion after work, two of them, left around ten, ten-thirty. Home. Television until he fell asleep. Mother at her sister's in Hollins, the house empty, nobody to say whether the television was even on.\n\n\"Two beers.\"\n\n\"Two. Maybe three. I wasn't counting for the police.\"\n\n\"You count for anybody?\"\n\nThe boy's jaw worked. \"Ruth and me was done,\" he said. \"You people keep — everybody keeps saying I was mad about it. I wasn't glad about it. I wasn't mad enough to do anything.\"\n\n\"You weren't mad, or you weren't glad?\"\n\nThat landed somewhere Kimmel watched it land. Mercer looked at the window instead of answering. Kimmel let him look.\n\n\"Hart — the waitress at the Signal, Beverly Hart. She says the Wednesday before, you and Ruth had words at the counter. Loud enough the counter heard them.\"\n\n\"That wasn't words. That was her giving my ring back.\"\n\n\"She gave it back Wednesday.\"\n\n\"At the diner, yeah. In front of everybody.\" His voice went up half a step. \"You want to know how that feels? You know how that feels?\"\n\n\"I want to know if you went to the diner after that.\"\n\n\"To the diner? No.\" Then, slower, \"Not that night. Not since. What's the sense?\"\n\n\"You didn't see her Friday.\"\n\n\"I haven't seen her since that Wednesday. You can ask anybody.\"\n\nThat was the trouble, and they both sat in it: he had an answer for everything and a witness for nothing. No car in the lot at the Signal, nobody on his street, a father asleep by ten, an empty house with the blue light of the set going. Kimmel had been doing this work for fourteen years and he knew what an empty evening sounded like, and he knew what a lie sounded like too, and the boy's answers fell in between, in the place where a man can be both innocent and useless. He didn't write *innocent*. He wrote: *M. — no corr. after 10:30. Story consistent. Attitude — hostile.*\n\n\"Your car,\" Kimmel said. \"The Nova.\"\n\n\"What about it.\"\n\n\"You mind we look at it?\"\n\n\"You looked at it already. Trooper was in my yard Monday when I was at work. My father about called the sheriff.\"\n\n\"I don't mind that he didn't,\" Kimmel said, and stood, and that was nearly the end of it, except he stopped at the door and gave the boy the courtesy of the plain question. \"Anything you want to change, now's when it's cheap.\"\n\nMercer looked at him a long time, scared and angry and twenty. \"I'm done changing,\" he said. \"I didn't do it.\"\n\nIn the outer office Kimmel got coffee he didn't want and stood at the window. Down in the lot a trooper was backing a cruiser out of its space, taking three tries at it.\n\nThe coat had gone to the lab for blood typing, and he had asked the hospital to pull Mercer's blood card from its files and send it over. He'd said hurry on both counts and known it wouldn't help. The serology wouldn't be back until the twentieth. He had a fair idea what the waiting would bring, and he wrote nothing in his notebook, because writing it down was how a man argued with himself on paper.\n\nHe'd have liked the boy better if he'd cried.\n\n<!-- scene: e0d57870-d982-4f63-add5-bdffb9f75b72 -->\nThe carman came in that Tuesday afternoon, October 16, 1979, around two o'clock, on his own two feet, cap in his hand, and Kimmel would remember afterward that he came in the way a man comes in who has decided overnight to be a good citizen and is shy about it. Young, twenty-three or so, lanky, dark curly hair under the cap when he took it off, a mustache he was still growing into. He stood at the desk in the outer office and turned the cap in his red, work-scarred hands and asked if he could talk to whoever was on the Kessler girl.\n\n\"You saw something?\" Kimmel asked.\n\n\"I might of. I don't want to waste your time if it's nothing.\"\n\n\"Sit down.\"\n\nHe sat across from Kimmel's desk — Kimmel took him there instead of the interview room; the room was for men he had arguments with — and he said his name was Gary Shellenberger, carman out of the Carrick yard, and he lived on the south side. He had a way of looking at the desk and then up, earnest, like a boy reciting in school who knows the lesson and isn't sure it's the right lesson.\n\n\"Friday night,\" he said. \"The twelfth. I seen her. At the crossing. The Depot Street crossing.\"\n\n\"Her.\"\n\n\"The Kessler girl. I knew her from the Signal — I eat there, I'm in there most nights, my shift lets out at eleven. I knew who she was the minute I seen her coat.\" He stopped and started over. \"I was driving home. I come up Depot Street, going home, and it was around a quarter after. Eleven, eleven-fifteen. She was at the crossing, standing there, and there was a fellow with her.\"\n\n\"What'd he look like?\"\n\n\"Young. My size, maybe. Dark hair. That's all I can swear to. It was dark and raining and I was driving.\" He turned the cap another half turn. \"But the car I seen plain. Light-colored Chevy — a Nova, I'd say, '74, '75. I know cars some. My buddy had one.\"\n\nKimmel wrote the times down. Quarter after eleven. A girl in a tan coat at the Depot Street crossing, a young man, a light Nova — and Danny Mercer drove a pale blue 1974 Nova, and Danny Mercer had no witness past ten-thirty, and there was a place in Kimmel's chest where the whole week had been holding a shape with a hole in it, and the shape just now got its hole filled.\n\n\"You didn't stop.\"\n\n\"No, sir. I had no call to. I didn't know anything was wrong — how would I? Two people talking at a crossing, that's nothing on a Friday night.\" He looked, briefly, like he might cry, and Kimmel gave him a minute and then took the statement the slow way, a sentence at a time, reading each one back. *At approx. 2315 hrs, 10/12/79, while driving home by Depot Street, observed a young female in a tan coat at the Lewistown Branch crossing, in the company of a young white male standing beside a light-colored Chevrolet Nova.* Shellenberger nodded at every sentence like it was being sworn.\n\nThe young man's right hand was bandaged across the palm, and partway through Kimmel noticed it the way you notice a man's tie, and asked because the report would say he'd asked.\n\n\"Cut it at work,\" Shellenberger said. \"Knuckle pin come back on me, Friday, at the yard. It's nothing.\" He held it up as proof, a clean gauze wrap with a spot of dried blood at the heel of the palm, sheepish about it.\n\nThere was a scratch on his neck, too, under the jaw on the left side, thin and scabbed. Kimmel had shaved for twenty-two years and knew the geography of a razor nick, and that one was in shaving country. *Shellenberger — R hand bandaged, says knuckle pin at work. Scratch on neck (shaving?)* the notebook said, and that was all the notebook said, because a man who had driven past a crossing at a quarter past eleven and come in on his own to say so was a man at the far end of the case from suspicion, and his hands and neck were his own business.\n\nKimmel typed the statement himself that afternoon, two fingers, and Shellenberger read it through and signed it in a careful hand, and thanked Kimmel for his time, and was grateful, actually grateful, on his way out the door with the cap back on his head.\n\nWhen he was gone Kimmel sat with the carbon copies a minute. Eleven-fifteen at the crossing. The Mercer boy had the argument, the empty house, and now a witness with no reason on God's earth to lie.\n\n\"That's that, then,\" he said to the empty office, and believed it, and went home.\n"
+  },
+  "calls": [
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": null,
+      "cost": 0,
+      "ms": 0
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": null,
+      "cost": 0,
+      "ms": 0
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": null,
+      "cost": 0,
+      "ms": 0
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": null,
+      "cost": 0,
+      "ms": 0
+    }
+  ]
+}

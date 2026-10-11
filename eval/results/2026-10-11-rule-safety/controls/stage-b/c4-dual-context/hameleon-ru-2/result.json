@@ -1,0 +1,194 @@
+{
+  "job": "c4-dual-context/hameleon-ru-2",
+  "config": {
+    "id": "c4-dual-context",
+    "editor": "luna",
+    "verifier": "haiku-medium",
+    "check": "necessity",
+    "edit_diagnostic": true,
+    "verify_context": true,
+    "tier": 1
+  },
+  "work": "hameleon-ru",
+  "repeat": 2,
+  "elapsed_ms": 22102,
+  "scope": "real editMechanical (rules + editor + deterministic guards + verifier, copy mode, no cache); final = offered proposals; build = all offered proposals accepted except review-only findings",
+  "stages": [
+    {
+      "name": "rules",
+      "status": "ok",
+      "hits": 0,
+      "proposals": 0,
+      "protected_form_skipped": 0,
+      "units": {
+        "cached": 0,
+        "computed": 3,
+        "failed": 0
+      },
+      "failures": [],
+      "diagnostics": []
+    },
+    {
+      "name": "model",
+      "status": "ok",
+      "windows": 2,
+      "passes": [
+        "standard",
+        "diagnostic"
+      ],
+      "pass_candidates": {
+        "standard": 1,
+        "diagnostic": 1
+      },
+      "merged_identical": 1,
+      "merge_conflicts": 0,
+      "conflicts": [],
+      "merges": [
+        {
+          "proposal_id": "amendeor:a278ddd63567cead",
+          "merged_ids": [
+            "amendeor:38d22c4edcb8dc08",
+            "amendeor:a278ddd63567cead"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "умиления.— Ишь",
+            "умиления.— Ишь ты"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        }
+      ],
+      "diagnostic_prompt_version": "copy-edit-diagnostic-1.0.0",
+      "windows_by_chapter": {
+        "01-hameleon": 2
+      },
+      "sent": 5,
+      "cached": 0,
+      "no_change": 1,
+      "no_change_by_chapter": {
+        "01-hameleon": 1
+      },
+      "candidates": 1,
+      "discarded": [
+        {
+          "node_id": "01-hameleon/65212a34-5716-4183-830a-69e0606ee0f8",
+          "reason": "no-op",
+          "pass": "diagnostic"
+        }
+      ],
+      "failures": [],
+      "prompt_version": "1.6.0",
+      "model_id": "openai/gpt-6-luna",
+      "formulaic_hits": [],
+      "formulaic_catalog_version": "0.3.0"
+    },
+    {
+      "name": "guard",
+      "status": "partial",
+      "candidates": 1,
+      "semantic_rejected": 1,
+      "rule_preferred": 0,
+      "objective_rejected": 0,
+      "punctuation_rejected": 0,
+      "voice_rejected": 0,
+      "offered": 0,
+      "same_family_warning": false,
+      "rejections": [
+        {
+          "proposal_id": "amendeor:a278ddd63567cead",
+          "guard": "semantic-verifier",
+          "reason": "unnecessary: The only change is a space before the dash that opens the speech after a period. Missing space before a dialogue dash is a typesetting convention that varies across editions and was common in older printings, so BEFORE is not clearly an objective error. Under the rule to answer false when unsure, the edit is not necessary. AFTER keeps all words and meaning unchanged, so it is preserved.",
+          "target": "умиления.— Ишь",
+          "replacement": "умиления. — Ишь",
+          "category": "typography",
+          "chapter": "01-hameleon",
+          "scene": "65212a34-5716-4183-830a-69e0606ee0f8",
+          "occurrence": 0,
+          "source": "model"
+        }
+      ],
+      "verifications": [
+        {
+          "proposal_id": "amendeor:a278ddd63567cead",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "unnecessary: The only change is a space before the dash that opens the speech after a period. Missing space before a dialogue dash is a typesetting convention that varies across editions and was common in older printings, so BEFORE is not clearly an objective error. Under the rule to answer false when unsure, the edit is not necessary. AFTER keeps all words and meaning unchanged, so it is preserved.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "proposals": [],
+  "rejections": [
+    {
+      "proposal_id": "amendeor:a278ddd63567cead",
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: The only change is a space before the dash that opens the speech after a period. Missing space before a dialogue dash is a typesetting convention that varies across editions and was common in older printings, so BEFORE is not clearly an objective error. Under the rule to answer false when unsure, the edit is not necessary. AFTER keeps all words and meaning unchanged, so it is preserved.",
+      "target": "умиления.— Ишь",
+      "replacement": "умиления. — Ишь",
+      "category": "typography",
+      "chapter": "01-hameleon",
+      "scene": "65212a34-5716-4183-830a-69e0606ee0f8",
+      "occurrence": 0,
+      "source": "model"
+    }
+  ],
+  "build": [],
+  "edited": {
+    "01-hameleon": "<!-- scene: 8cfe8035-5514-412e-8694-1827b540b97c -->\nЧерез базарную площадь идёт полицейский надзиратель Очумелов в новой шинели и с узелком в руке. За ним шагает рыжий городовой с решетом, доверху наполненным конфискованным крыжовником. Кругом тишина… На площади ни души… Открытые двери лавок и кабаков глядят на свет божий уныло, как голодные пасти; около них нет даже нищих.\n\n— Так ты кусаться, окаянная? — слышит вдруг Очумелов. — Ребята, не пущай её! Нынче не велено кусаться! Держи! А… а!\n\nСлышен собачий визг. Очумелов глядит в сторону и видит: из дровяного склада купца Пичугина, прыгая на трёх ногах и оглядываясь, бежит собака. За ней гонится человек в ситцевой крахмальной рубахе и расстёгнутой жилетке. Он бежит за ней и, подавшись туловищем вперёд, падает на землю и хватает собаку за задние лапы. Слышен вторично собачий визг и крик: «Не пущай!» Из лавок высовываются сонные физиономии, и скоро около дровяного склада, словно из земли выросши, собирается толпа.\n\n— Никак беспорядок, ваше благородие!.. — говорит городовой.\n\nОчумелов делает полуоборот налево и шагает к сборищу. Около самых ворот склада, видит он, стоит вышеписанный человек в расстёгнутой жилетке и, подняв вверх правую руку, показывает толпе окровавленный палец. На полупьяном лице его как бы написано: «Ужо я сорву с тебя, шельма!» да и самый палец имеет вид знамения победы. В этом человеке Очумелов узнаёт золотых дел мастера Хрюкина. В центре толпы, растопырив передние ноги и дрожа всем телом, сидит на земле сам виновник скандала — белый борзой щенок с острой мордой и жёлтым пятном на спине. В слезящихся глазах его выражение тоски и ужаса.\n\n— По какому это случаю тут? — спрашивает Очумелов, врезываясь в толпу. — Почему тут? Это ты зачем палец?.. Кто кричал?\n\n— Иду я, ваше благородие, никого не трогаю… — начинает Хрюкин, кашляя в кулак. — Насчёт дров с Митрий Митричем, — и вдруг эта подлая ни с того, ни с сего за палец… Вы меня извините, я человек, который работающий… Работа у меня мелкая. Пущай мне заплатят, потому — я этим пальцем, может, неделю не пошевельну… Этого, ваше благородие, и в законе нет, чтоб от твари терпеть… Ежели каждый будет кусаться, то лучше и не жить на свете…\n\n— Гм!.. Хорошо… — говорит Очумелов строго, кашляя и шевеля бровями. — Хорошо… Чья собака? Я этого так не оставлю. Я покажу вам, как собак распускать! Пора обратить внимание на подобных господ, не желающих подчиняться постановлениям! Как оштрафуют его, мерзавца, так он узнает у меня, что значит собака и прочий бродячий скот! Я ему покажу Кузькину мать!.. Елдырин, — обращается надзиратель к городовому, — узнай, чья это собака, и составляй протокол! А собаку истребить надо. Немедля! Она наверное бешеная… Чья это собака, спрашиваю?\n\n— Это, кажись, генерала Жигалова! — кричит кто-то из толпы.\n\n— Генерала Жигалова? Гм!.. Сними-ка, Елдырин, с меня пальто… Ужас как жарко! Должно полагать, перед дождём… Одного только я не понимаю: как она могла тебя укусить? — обращается Очумелов к Хрюкину. — Нешто она достанет до пальца? Она маленькая, а ты ведь вон какой здоровила! Ты, должно быть, расковырял палец гвоздиком, а потом и пришла в твою голову идея, чтоб сорвать. Ты ведь… известный народ! Знаю вас, чертей!\n\n— Он, ваше благородие, цыгаркой ей в харю для смеха, а она — не будь дура и тяпни… Вздорный человек, ваше благородие!\n\n— Врёшь кривой! Не видал, так, стало быть, зачем врать? Их благородие умный господин и понимают, ежели кто врёт, а кто по совести, как перед богом… А ежели я вру, так пущай мировой рассудит. У него в законе сказано… Нынче все равны… У меня у самого брат в жандармах… ежели хотите знать…\n\n— Не рассуждать!\n\n— Нет, это не генеральская… — глубокомысленно замечает городовой. — У генерала таких нет. У него всё больше легавые…\n\n— Ты это верно знаешь?\n\n— Верно, ваше благородие…\n\n— Я и сам знаю. У генерала собаки дорогие, породистые, а эта — чёрт знает что! Ни шерсти, ни вида… подлость одна только… И этакую собаку держать?!.. Где же у вас ум? Попадись этакая собака в Петербурге или Москве, то знаете, что было бы? Там не посмотрели бы в закон, а моментально — не дыши! Ты, Хрюкин, пострадал и дела этого так не оставляй… Нужно проучить! Пора…\n\n— А может быть, и генеральская… — думает вслух городовой. — На морде у ней не написано… Намедни во дворе у него такую видел.\n\n— Вестимо, генеральская! — говорит голос из толпы.\n\n<!-- scene: 65212a34-5716-4183-830a-69e0606ee0f8 -->\n— Гм!.. Надень-ка, брат Елдырин, на меня пальто… Что-то ветром подуло… Знобит… Ты отведёшь её к генералу и спросишь там. Скажешь, что я нашёл и прислал… И скажи, чтобы её не выпускали на улицу… Она, может быть, дорогая, а ежели каждый свинья будет ей в нос сигаркой тыкать, то долго ли испортить. Собака — нежная тварь… А ты, болван, опусти руку! Нечего свой дурацкий палец выставлять! Сам виноват!..\n\n— Повар генеральский идёт, его спросим… Эй, Прохор! Поди-ка, милый, сюда! Погляди на собаку… Ваша?\n\n— Выдумал! Этаких у нас отродясь не бывало!\n\n— И спрашивать тут долго нечего, — говорит Очумелов. — Она бродячая! Нечего тут долго разговаривать… Ежели сказал, что бродячая, стало быть и бродячая… Истребить, вот и всё.\n\n— Это не наша, — продолжает Прохор. — Это генералова брата, что намеднись приехал. Наш не охотник до борзых. Брат ихний охоч…\n\n— Да разве братец ихний приехали? Владимир Иваныч? — спрашивает Очумелов, и всё лицо его заливается улыбкой умиления.— Ишь ты, господи! А я и не знал! Погостить приехали?\n\n— В гости…\n\n— Ишь ты, господи… Соскучились по братце… А я ведь и не знал! Так это ихняя собачка? Очень рад… Возьми её… Собачонка ничего себе… Шустрая такая… Цап этого за палец! Ха-ха-ха… Ну, чего дрожишь? Ррр… Рр… Сердится, шельма… цуцык этакий…\n\nПрохор зовёт собаку и идёт с ней от дровяного склада… Толпа хохочет над Хрюкиным.\n\n— Я ещё доберусь до тебя! — грозит ему Очумелов и, запахиваясь в шинель, продолжает свой путь по базарной площади.\n"
+  },
+  "calls": [
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00002214,
+      "ms": 559
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00002314,
+      "ms": 761
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0001079,
+      "ms": 644
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0001414,
+      "ms": 582
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0001209,
+      "ms": 641
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0005344,
+      "ms": 900
+    }
+  ]
+}

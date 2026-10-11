@@ -1,0 +1,700 @@
+{
+  "generated_at": "2026-10-11T11:08:07.952Z",
+  "spent_usd": 0.070846,
+  "requests": 345,
+  "corpus": {
+    "ru-new-s1": {
+      "words": 2657,
+      "scenes": 5,
+      "mutations": 8,
+      "policy": [
+        "qualifier: model-fixable",
+        "sentence-frame: model-fixable",
+        "dialogue-format: rule-fixable",
+        "formulaic: model-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "doubled-word: rule-fixable",
+        "typo: model-fixable",
+        "agreement: model-fixable"
+      ]
+    },
+    "ru-new-s2": {
+      "words": 2657,
+      "scenes": 5,
+      "mutations": 8,
+      "policy": [
+        "formulaic: model-fixable",
+        "qualifier: model-fixable",
+        "sentence-frame: model-fixable",
+        "doubled-word: rule-fixable",
+        "typo: model-fixable",
+        "dialogue-format: rule-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "agreement: model-fixable"
+      ]
+    },
+    "ru-new-s3": {
+      "words": 2657,
+      "scenes": 5,
+      "mutations": 8,
+      "policy": [
+        "qualifier: model-fixable",
+        "sentence-frame: model-fixable",
+        "formulaic: model-fixable",
+        "dialogue-format: rule-fixable",
+        "typo: model-fixable",
+        "doubled-word: rule-fixable",
+        "agreement: model-fixable",
+        "redundancy: model-fixable+rule-fixable"
+      ]
+    }
+  },
+  "stage_a": {},
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "c1-production",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 9,
+      "repeats": 3,
+      "mutations": 72,
+      "reachable": 72,
+      "final": {
+        "exact": 48,
+        "alternative": 9,
+        "partial": 1,
+        "incorrect": 3,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 57,
+        "remaining_injected_errors": 15,
+        "remaining_reachable": 15
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 9,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 9,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 1,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [
+            "ru-new-s2-2: Спустя часа полтора → Спустя час-полтора"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 2,
+        "target-not-verbatim-in-window": 1
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 57,
+        "final_policy_compliant": 57,
+        "reachable": 72
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 31,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 15,
+        "semantic-trap": 31,
+        "semantic-verifier": 1
+      },
+      "model_proposals_offered": 31,
+      "review_findings": [],
+      "proven_equivalent_merges": 0,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0.027064,
+        "editor_usd": 0.005527,
+        "verifier_usd": 0.021537,
+        "retries_usd": 0.000116,
+        "per_1000_words_usd": 0.001132,
+        "per_correct_final_edit_usd": 0.000475,
+        "per_scene_usd": 0.000601,
+        "per_repeat_usd": 0.009021,
+        "sources": [
+          "provider-usage",
+          "error-no-usage"
+        ]
+      },
+      "requests": {
+        "total": 141,
+        "editor": 47,
+        "verifier": 94,
+        "truncated": 0,
+        "http_errors": 2,
+        "retries": 4,
+        "tokens_in": 135032,
+        "tokens_out": 33599,
+        "cached_tokens": 41184
+      },
+      "latency": {
+        "median_request_ms": 997,
+        "mean_request_ms": 1083,
+        "median_job_ms": 62132,
+        "mean_job_ms": 62766
+      },
+      "by_mutation": {
+        "ru-new-s1:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "ru-new-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "ru-new-s2:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "ru-new-s3:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.007297,
+          "k2": 0.014477,
+          "k3": 0.021537
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "ru-new-s2-2: Спустя часа полтора → Спустя час-полтора"
+          ],
+          "cost": 0.007296700000000001
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.014477
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c4-dual-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 9,
+      "repeats": 3,
+      "mutations": 72,
+      "reachable": 72,
+      "final": {
+        "exact": 46,
+        "alternative": 9,
+        "partial": 1,
+        "incorrect": 5,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 55,
+        "remaining_injected_errors": 17,
+        "remaining_reachable": 17
+      },
+      "unnecessary": {
+        "model": 1,
+        "rule": 9,
+        "control_edits": 0,
+        "judged_harmful": 1,
+        "judged_invalid": 9,
+        "judged_valid": 0
+      },
+      "harmful_final": [
+        "ru-new-s3-0: два докторами → два доктора [model]"
+      ],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 3,
+        "unknown": 4,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "ru-new-s2-0: он оглядывается. он оглядывается ещё раз → он оглядывается. Он оглядывается ещё раз",
+            "ru-new-s2-1: он оглядывается. он оглядывается ещё раз → он оглядывается. Он оглядывается ещё раз",
+            "ru-new-s2-2: он оглядывается. он оглядывается ещё раз → он оглядывается. Он оглядывается ещё раз"
+          ],
+          "unknown": [
+            "ru-new-s1-0: лет 25-ти → лет 25",
+            "ru-new-s1-1: Спустя часа полтора, Иона сидит → Спустя час-полтора, Иона сидит",
+            "ru-new-s1-2: Анюта вернулась от художника такая утомлённая, изнеможённая. → Анюта вернулась от художника такой утомлённой, изнеможённой.",
+            "ru-new-s2-0: лет 25-ти → лет 25"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "target-not-verbatim-in-window": 10,
+        "no-op": 2
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 55,
+        "final_policy_compliant": 55,
+        "reachable": 72
+      },
+      "merge": {
+        "merged_identical": 48,
+        "conflicts": 14,
+        "candidates": {
+          "standard": 71,
+          "diagnostic": 85
+        },
+        "final_provenance": {
+          "standard": 1,
+          "diagnostic": 5,
+          "standard+diagnostic": 24
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 15,
+        "semantic-trap": 29,
+        "semantic-verifier": 7
+      },
+      "model_proposals_offered": 30,
+      "review_findings": [],
+      "proven_equivalent_merges": 48,
+      "replay_unrecorded_requests": 0,
+      "cost": {
+        "total_usd": 0.043782,
+        "editor_usd": 0.009683,
+        "verifier_usd": 0.034098,
+        "retries_usd": 0.001118,
+        "per_1000_words_usd": 0.001831,
+        "per_correct_final_edit_usd": 0.000796,
+        "per_scene_usd": 0.000973,
+        "per_repeat_usd": 0.014594,
+        "sources": [
+          "error-no-usage",
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 204,
+        "editor": 102,
+        "verifier": 102,
+        "truncated": 0,
+        "http_errors": 10,
+        "retries": 21,
+        "tokens_in": 265037,
+        "tokens_out": 52046,
+        "cached_tokens": 103594
+      },
+      "latency": {
+        "median_request_ms": 860,
+        "mean_request_ms": 804,
+        "median_job_ms": 118514,
+        "mean_job_ms": 113225
+      },
+      "by_mutation": {
+        "ru-new-s1:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "ru-new-s1:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 2,
+          "offered_by": {
+            "model": 2
+          },
+          "candidate_fixed": 2
+        },
+        "ru-new-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "model": 3
+          },
+          "candidate_fixed": 3
+        },
+        "ru-new-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 3,
+          "offered_by": {
+            "rule:repetition.doubled-word": 3
+          },
+          "candidate_fixed": 3
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.012569,
+          "k2": 0.023431,
+          "k3": 0.034098
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "ru-new-s2-0: он оглядывается. он оглядывается ещё раз → он оглядывается. Он оглядывается ещё раз"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "ru-new-s1-0: лет 25-ти → лет 25",
+            "ru-new-s1-2: Анюта вернулась от художника такая утомлённая, изнеможённая. → Анюта вернулась от художника такой утомлённой, изнеможённой.",
+            "ru-new-s2-0: лет 25-ти → лет 25"
+          ],
+          "cost": 0.012569499999999999
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [
+            "ru-new-s2-0: он оглядывается. он оглядывается ещё раз → он оглядывается. Он оглядывается ещё раз"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.023431399999999988
+        }
+      },
+      "pareto": false
+    }
+  ],
+  "unlabelled_final_edits": []
+}

@@ -1,0 +1,754 @@
+{
+  "job": "c4-dual-context/huck2-en-1",
+  "config": {
+    "id": "c4-dual-context",
+    "editor": "luna",
+    "verifier": "haiku-medium",
+    "check": "necessity",
+    "edit_diagnostic": true,
+    "verify_context": true,
+    "tier": 1
+  },
+  "work": "huck2-en",
+  "repeat": 1,
+  "elapsed_ms": 72294,
+  "scope": "real editMechanical (rules + editor + deterministic guards + verifier, copy mode, no cache); final = offered proposals; build = all offered proposals accepted except review-only findings",
+  "stages": [
+    {
+      "name": "rules",
+      "status": "ok",
+      "hits": 1,
+      "proposals": 1,
+      "protected_form_skipped": 0,
+      "units": {
+        "cached": 0,
+        "computed": 5,
+        "failed": 0
+      },
+      "failures": [],
+      "diagnostics": []
+    },
+    {
+      "name": "model",
+      "status": "ok",
+      "windows": 4,
+      "passes": [
+        "standard",
+        "diagnostic"
+      ],
+      "pass_candidates": {
+        "standard": 10,
+        "diagnostic": 6
+      },
+      "merged_identical": 5,
+      "merge_conflicts": 0,
+      "conflicts": [],
+      "merges": [
+        {
+          "proposal_id": "amendeor:42fc8166edc3a070",
+          "merged_ids": [
+            "amendeor:42fc8166edc3a070"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "When we was passing"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        },
+        {
+          "proposal_id": "amendeor:eb45adccbf106b6b",
+          "merged_ids": [
+            "amendeor:ae14c1354109ee45",
+            "amendeor:eb45adccbf106b6b"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "he had wrote the oath",
+            "that he had wrote the oath on"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        },
+        {
+          "proposal_id": "amendeor:5bceaa97717a63a0",
+          "merged_ids": [
+            "amendeor:5bceaa97717a63a0",
+            "amendeor:a5a1e3868ba9bca1"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "if anybody done anything",
+            "if anybody done anything to any boy in the band"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        },
+        {
+          "proposal_id": "amendeor:4f01cb458ab11923",
+          "merged_ids": [
+            "amendeor:4f01cb458ab11923"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "if he done it again"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        },
+        {
+          "proposal_id": "amendeor:3e4c4d72c9a03a37",
+          "merged_ids": [
+            "amendeor:3e4c4d72c9a03a37"
+          ],
+          "passes": [
+            "standard",
+            "diagnostic"
+          ],
+          "targets": [
+            "Why couldn’t you said that before?"
+          ],
+          "reason": "applied independently to the same scene, the edits produce byte-identical text"
+        }
+      ],
+      "diagnostic_prompt_version": "copy-edit-diagnostic-1.0.0",
+      "windows_by_chapter": {
+        "01-huck2": 4
+      },
+      "sent": 8,
+      "cached": 0,
+      "no_change": 0,
+      "no_change_by_chapter": {},
+      "candidates": 11,
+      "discarded": [
+        {
+          "node_id": "01-huck2/21acbed2-6535-4f9b-864b-5a5d93e3271d",
+          "reason": "target-not-verbatim-in-window",
+          "pass": "standard"
+        }
+      ],
+      "failures": [],
+      "prompt_version": "1.6.0",
+      "model_id": "openai/gpt-6-luna",
+      "formulaic_hits": [],
+      "formulaic_catalog_version": "0.3.0"
+    },
+    {
+      "name": "guard",
+      "status": "partial",
+      "candidates": 11,
+      "semantic_rejected": 11,
+      "rule_preferred": 0,
+      "objective_rejected": 0,
+      "punctuation_rejected": 0,
+      "voice_rejected": 0,
+      "offered": 0,
+      "same_family_warning": false,
+      "rejections": [
+        {
+          "proposal_id": "amendeor:550bfe96da11c798",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: 'so as' followed by a clause is a colloquial idiom, and the paragraph is written in Huck's dialect narration ('we was', 'scrouched', 'setting', 'nigger'). The nonstandard form is part of the narrator's voice, not an objective error, so the edit is not necessary. Changing it to 'so that' also normalizes the narrator's idiom, which alters the author's voice.",
+          "target": "so as the branches",
+          "replacement": "so that the branches",
+          "category": "grammar",
+          "chapter": "01-huck2",
+          "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:42fc8166edc3a070",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: The 'we was' is Huck's deliberate vernacular narration, not an accidental error. The surrounding paragraph carries the same dialect (\"setting in the kitchen door\", \"we scrouched down\", \"he says\" without a dialogue frame), so the nonstandard form is the narrator's idiom. Changing it to 'were' normalizes the narrator's voice, which the author intended.",
+          "target": "When we was passing",
+          "replacement": "When we were passing",
+          "category": "grammar",
+          "chapter": "01-huck2",
+          "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:5efaaac3831d4707",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: \"Scrouched\" is a dialect variant of \"crouched\" (\"scrouch\" is attested in regional English), not a misspelling. The paragraph is narrated in Huck's vernacular (\"we was passing,\" \"setting in the kitchen door\"), so the nonstandard form is the narrator's deliberate idiom. Changing it to \"crouched\" standardizes the author's voice, so the edit is neither necessary nor preserving.",
+          "target": "We scrouched down",
+          "replacement": "We crouched down",
+          "category": "spelling",
+          "chapter": "01-huck2",
+          "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:88697ee6e9fdd2a1",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: BEFORE uses 'setting' for 'sitting', a dialect form. The paragraph is narrated in Huck's uneducated voice, with the same idiom elsewhere ('we was passing', 'scrouched', 'laid still'), so the form is the narrator's deliberate dialect rather than a typo. Changing it to the standard 'sitting' alters the narrator's voice.",
+          "target": "was setting in the kitchen door",
+          "replacement": "was sitting in the kitchen door",
+          "category": "word-choice",
+          "chapter": "01-huck2",
+          "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:038cbb62f783c9f1",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: BEFORE uses the nonstandard past tense \"come\" for \"came\", but this is Huck's deliberate narrative dialect, not an accidental error. The same idiom recurs in the paragraph (\"we could a touched him\", \"there warn't a sound\", \"I dasn't scratch\", \"my ear begun to itch\"), so the form is a narrator's idiom. Changing it to standard \"came\" alters the author's voice.",
+          "target": "he come tiptoeing down",
+          "replacement": "he came tiptoeing down",
+          "category": "grammar",
+          "chapter": "01-huck2",
+          "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:205e34344cac6f9c",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: BEFORE is not an objective error. \"ten foot off\" is Huck's dialect plural, and the same idiom recurs in the narrator's voice (\"we was\", \"warn't\", \"resk\", \"hadn't got\"), so the form is deliberate. Changing it to \"feet\" also normalizes the narrator's dialect, which alters the author's voice.",
+          "target": "When we was ten foot off",
+          "replacement": "When we was ten feet off",
+          "category": "grammar",
+          "chapter": "01-huck2",
+          "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:f39cdb554c8b44df",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: 'wouldn't a noticed' is the narrator's colloquial dialect for 'wouldn't have noticed', a deliberate vernacular form in Huck's voice rather than a grammatical error. The same reduced 'a' idiom appears elsewhere in this narration, so the edit is not required. Changing it to the standard form alters the author's voice.",
+          "target": "wouldn’t a noticed",
+          "replacement": "wouldn’t have noticed",
+          "category": "grammar",
+          "chapter": "01-huck2",
+          "scene": "5ce24e75-5944-4e0e-8c99-fec1045fdce0",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:eb45adccbf106b6b",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: BEFORE uses a nonstandard past participle ('had wrote' for 'had written'), but the same idiom recurs in this paragraph ('done anything', 'if he done it again'), which marks it as the narrator's consistent vernacular voice rather than an accidental error. Changing it to 'written' alters the author's established idiom and wording, so the edit is not needed and departs from the reference text.",
+          "target": "he had wrote the oath",
+          "replacement": "he had written the oath",
+          "category": "grammar",
+          "chapter": "01-huck2",
+          "scene": "6921e4af-92eb-410a-883f-7235804ab819",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:5bceaa97717a63a0",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: BEFORE uses the nonstandard past form 'done' ('if anybody done anything'), but the same idiom recurs in this paragraph ('he had wrote', 'if he done it again'). It reads as the deliberate vernacular of the oath text, not a slip, so the edit is not a necessary correction. AFTER also alters that voice, since 'did' standardizes the oath's dialect wording.",
+          "target": "if anybody done anything",
+          "replacement": "if anybody did anything",
+          "category": "grammar",
+          "chapter": "01-huck2",
+          "scene": "6921e4af-92eb-410a-883f-7235804ab819",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:4f01cb458ab11923",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: BEFORE uses nonstandard 'done' as a past-tense form, but this is deliberate dialect in Huck's narration of the oath, not a copy error. The same pattern recurs in the paragraph ('anybody done anything', 'he had wrote the oath'), so it is the narrator's idiom. Changing it to 'did' alters the author's voice and does not fix a real error.",
+          "target": "if he done it again",
+          "replacement": "if he did it again",
+          "category": "grammar",
+          "chapter": "01-huck2",
+          "scene": "6921e4af-92eb-410a-883f-7235804ab819",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:3e4c4d72c9a03a37",
+          "guard": "semantic-trap",
+          "reason": "dialogue-content-change",
+          "target": "Why couldn’t you said that before?",
+          "replacement": "Why couldn’t you have said that before?",
+          "category": "grammar",
+          "chapter": "01-huck2",
+          "scene": "1ab992f8-d832-49de-8b95-32b22985da2c",
+          "occurrence": 0,
+          "source": "model"
+        }
+      ],
+      "verifications": [
+        {
+          "proposal_id": "amendeor:550bfe96da11c798",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: 'so as' followed by a clause is a colloquial idiom, and the paragraph is written in Huck's dialect narration ('we was', 'scrouched', 'setting', 'nigger'). The nonstandard form is part of the narrator's voice, not an objective error, so the edit is not necessary. Changing it to 'so that' also normalizes the narrator's idiom, which alters the author's voice.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:42fc8166edc3a070",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: The 'we was' is Huck's deliberate vernacular narration, not an accidental error. The surrounding paragraph carries the same dialect (\"setting in the kitchen door\", \"we scrouched down\", \"he says\" without a dialogue frame), so the nonstandard form is the narrator's idiom. Changing it to 'were' normalizes the narrator's voice, which the author intended.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:5efaaac3831d4707",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: \"Scrouched\" is a dialect variant of \"crouched\" (\"scrouch\" is attested in regional English), not a misspelling. The paragraph is narrated in Huck's vernacular (\"we was passing,\" \"setting in the kitchen door\"), so the nonstandard form is the narrator's deliberate idiom. Changing it to \"crouched\" standardizes the author's voice, so the edit is neither necessary nor preserving.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:88697ee6e9fdd2a1",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: BEFORE uses 'setting' for 'sitting', a dialect form. The paragraph is narrated in Huck's uneducated voice, with the same idiom elsewhere ('we was passing', 'scrouched', 'laid still'), so the form is the narrator's deliberate dialect rather than a typo. Changing it to the standard 'sitting' alters the narrator's voice.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:038cbb62f783c9f1",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: BEFORE uses the nonstandard past tense \"come\" for \"came\", but this is Huck's deliberate narrative dialect, not an accidental error. The same idiom recurs in the paragraph (\"we could a touched him\", \"there warn't a sound\", \"I dasn't scratch\", \"my ear begun to itch\"), so the form is a narrator's idiom. Changing it to standard \"came\" alters the author's voice.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:205e34344cac6f9c",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: BEFORE is not an objective error. \"ten foot off\" is Huck's dialect plural, and the same idiom recurs in the narrator's voice (\"we was\", \"warn't\", \"resk\", \"hadn't got\"), so the form is deliberate. Changing it to \"feet\" also normalizes the narrator's dialect, which alters the author's voice.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:f39cdb554c8b44df",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: 'wouldn't a noticed' is the narrator's colloquial dialect for 'wouldn't have noticed', a deliberate vernacular form in Huck's voice rather than a grammatical error. The same reduced 'a' idiom appears elsewhere in this narration, so the edit is not required. Changing it to the standard form alters the author's voice.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:eb45adccbf106b6b",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: BEFORE uses a nonstandard past participle ('had wrote' for 'had written'), but the same idiom recurs in this paragraph ('done anything', 'if he done it again'), which marks it as the narrator's consistent vernacular voice rather than an accidental error. Changing it to 'written' alters the author's established idiom and wording, so the edit is not needed and departs from the reference text.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:5bceaa97717a63a0",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: BEFORE uses the nonstandard past form 'done' ('if anybody done anything'), but the same idiom recurs in this paragraph ('he had wrote', 'if he done it again'). It reads as the deliberate vernacular of the oath text, not a slip, so the edit is not a necessary correction. AFTER also alters that voice, since 'did' standardizes the oath's dialect wording.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:4f01cb458ab11923",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: BEFORE uses nonstandard 'done' as a past-tense form, but this is deliberate dialect in Huck's narration of the oath, not a copy error. The same pattern recurs in the paragraph ('anybody done anything', 'he had wrote the oath'), so it is the narrator's idiom. Changing it to 'did' alters the author's voice and does not fix a real error.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:3ad3b3bc602fc033",
+      "fingerprint": {
+        "primary": {
+          "category": "terminology",
+          "chapter": "01-huck2",
+          "scene": "1ab992f8-d832-49de-8b95-32b22985da2c",
+          "key": "sha256:77cccf5ac826c2fd1fdf15cb40836b153fc8aa843c58ad7ec94e0bc7957fdbb0"
+        },
+        "evidence": "sha256:873fef760e5d001ba0a843bf1846713fd92538699f323ef00d51f97a2ad2756c"
+      },
+      "run_id": "2026-10-11T10-03-08Z-6764",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "01-huck2",
+        "scene": "1ab992f8-d832-49de-8b95-32b22985da2c",
+        "content_hash": "sha256:527a29fd4d9b0eaef8db7ce477ce5cc578f995378b57e1a8c62d60071c76d2ea"
+      },
+      "target": {
+        "text": "Sundays",
+        "hash": "sha256:77cccf5ac826c2fd1fdf15cb40836b153fc8aa843c58ad7ec94e0bc7957fdbb0",
+        "before": "ome people.\n\nBen Rogers said he couldn’t get out much, only ",
+        "after": ", and so he wanted to begin next Sunday; but all the boys sa",
+        "occurrence": 0
+      },
+      "replacement": "Sunday",
+      "category": "terminology",
+      "impact": "prose",
+      "source": "rule:terminology.name-variant",
+      "confidence": 1,
+      "reason": "Review: \"Sundays\" differs by one letter from the more frequent name \"Sunday\". They may be two different people; the text is not changed unless you decide so.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "unknown",
+        "voice": "unknown"
+      },
+      "unverified": true,
+      "rule_authority": "semantic",
+      "review": {
+        "evidence": {
+          "basis": "one-letter difference and book frequency",
+          "spelling": "Sundays",
+          "spelling_count": 1,
+          "candidate": "Sunday",
+          "candidate_count": 2
+        }
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "proposal_id": "amendeor:550bfe96da11c798",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: 'so as' followed by a clause is a colloquial idiom, and the paragraph is written in Huck's dialect narration ('we was', 'scrouched', 'setting', 'nigger'). The nonstandard form is part of the narrator's voice, not an objective error, so the edit is not necessary. Changing it to 'so that' also normalizes the narrator's idiom, which alters the author's voice.",
+      "target": "so as the branches",
+      "replacement": "so that the branches",
+      "category": "grammar",
+      "chapter": "01-huck2",
+      "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:42fc8166edc3a070",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: The 'we was' is Huck's deliberate vernacular narration, not an accidental error. The surrounding paragraph carries the same dialect (\"setting in the kitchen door\", \"we scrouched down\", \"he says\" without a dialogue frame), so the nonstandard form is the narrator's idiom. Changing it to 'were' normalizes the narrator's voice, which the author intended.",
+      "target": "When we was passing",
+      "replacement": "When we were passing",
+      "category": "grammar",
+      "chapter": "01-huck2",
+      "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:5efaaac3831d4707",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: \"Scrouched\" is a dialect variant of \"crouched\" (\"scrouch\" is attested in regional English), not a misspelling. The paragraph is narrated in Huck's vernacular (\"we was passing,\" \"setting in the kitchen door\"), so the nonstandard form is the narrator's deliberate idiom. Changing it to \"crouched\" standardizes the author's voice, so the edit is neither necessary nor preserving.",
+      "target": "We scrouched down",
+      "replacement": "We crouched down",
+      "category": "spelling",
+      "chapter": "01-huck2",
+      "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:88697ee6e9fdd2a1",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE uses 'setting' for 'sitting', a dialect form. The paragraph is narrated in Huck's uneducated voice, with the same idiom elsewhere ('we was passing', 'scrouched', 'laid still'), so the form is the narrator's deliberate dialect rather than a typo. Changing it to the standard 'sitting' alters the narrator's voice.",
+      "target": "was setting in the kitchen door",
+      "replacement": "was sitting in the kitchen door",
+      "category": "word-choice",
+      "chapter": "01-huck2",
+      "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:038cbb62f783c9f1",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE uses the nonstandard past tense \"come\" for \"came\", but this is Huck's deliberate narrative dialect, not an accidental error. The same idiom recurs in the paragraph (\"we could a touched him\", \"there warn't a sound\", \"I dasn't scratch\", \"my ear begun to itch\"), so the form is a narrator's idiom. Changing it to standard \"came\" alters the author's voice.",
+      "target": "he come tiptoeing down",
+      "replacement": "he came tiptoeing down",
+      "category": "grammar",
+      "chapter": "01-huck2",
+      "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:205e34344cac6f9c",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE is not an objective error. \"ten foot off\" is Huck's dialect plural, and the same idiom recurs in the narrator's voice (\"we was\", \"warn't\", \"resk\", \"hadn't got\"), so the form is deliberate. Changing it to \"feet\" also normalizes the narrator's dialect, which alters the author's voice.",
+      "target": "When we was ten foot off",
+      "replacement": "When we was ten feet off",
+      "category": "grammar",
+      "chapter": "01-huck2",
+      "scene": "21acbed2-6535-4f9b-864b-5a5d93e3271d",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:f39cdb554c8b44df",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: 'wouldn't a noticed' is the narrator's colloquial dialect for 'wouldn't have noticed', a deliberate vernacular form in Huck's voice rather than a grammatical error. The same reduced 'a' idiom appears elsewhere in this narration, so the edit is not required. Changing it to the standard form alters the author's voice.",
+      "target": "wouldn’t a noticed",
+      "replacement": "wouldn’t have noticed",
+      "category": "grammar",
+      "chapter": "01-huck2",
+      "scene": "5ce24e75-5944-4e0e-8c99-fec1045fdce0",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:eb45adccbf106b6b",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE uses a nonstandard past participle ('had wrote' for 'had written'), but the same idiom recurs in this paragraph ('done anything', 'if he done it again'), which marks it as the narrator's consistent vernacular voice rather than an accidental error. Changing it to 'written' alters the author's established idiom and wording, so the edit is not needed and departs from the reference text.",
+      "target": "he had wrote the oath",
+      "replacement": "he had written the oath",
+      "category": "grammar",
+      "chapter": "01-huck2",
+      "scene": "6921e4af-92eb-410a-883f-7235804ab819",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:5bceaa97717a63a0",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE uses the nonstandard past form 'done' ('if anybody done anything'), but the same idiom recurs in this paragraph ('he had wrote', 'if he done it again'). It reads as the deliberate vernacular of the oath text, not a slip, so the edit is not a necessary correction. AFTER also alters that voice, since 'did' standardizes the oath's dialect wording.",
+      "target": "if anybody done anything",
+      "replacement": "if anybody did anything",
+      "category": "grammar",
+      "chapter": "01-huck2",
+      "scene": "6921e4af-92eb-410a-883f-7235804ab819",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:4f01cb458ab11923",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: BEFORE uses nonstandard 'done' as a past-tense form, but this is deliberate dialect in Huck's narration of the oath, not a copy error. The same pattern recurs in the paragraph ('anybody done anything', 'he had wrote the oath'), so it is the narrator's idiom. Changing it to 'did' alters the author's voice and does not fix a real error.",
+      "target": "if he done it again",
+      "replacement": "if he did it again",
+      "category": "grammar",
+      "chapter": "01-huck2",
+      "scene": "6921e4af-92eb-410a-883f-7235804ab819",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:3e4c4d72c9a03a37",
+      "guard": "semantic-trap",
+      "reason": "dialogue-content-change",
+      "target": "Why couldn’t you said that before?",
+      "replacement": "Why couldn’t you have said that before?",
+      "category": "grammar",
+      "chapter": "01-huck2",
+      "scene": "1ab992f8-d832-49de-8b95-32b22985da2c",
+      "occurrence": 0,
+      "source": "model"
+    }
+  ],
+  "build": [],
+  "edited": {
+    "01-huck2": "<!-- scene: 21acbed2-6535-4f9b-864b-5a5d93e3271d -->\nWe went tiptoeing along a path amongst the trees back towards the end of the widow’s garden, stooping down so as the branches wouldn’t scrape our heads. When we was passing by the kitchen I fell over a root and made a noise. We scrouched down and laid still. Miss Watson’s big nigger, named Jim, was setting in the kitchen door; we could see him pretty clear, because there was a light behind him. He got up and stretched his neck out about a minute, listening. Then he says:\n\n“Who dah?”\n\nHe listened some more; then he come tiptoeing down and stood right between us; we could a touched him, nearly. Well, likely it was minutes and minutes that there warn’t a sound, and we all there so close together. There was a place on my ankle that got to itching, but I dasn’t scratch it; and then my ear begun to itch; and next my back, right between my shoulders. Seemed like I’d die if I couldn’t scratch. Well, I’ve noticed that thing plenty times since. If you are with the quality, or at a funeral, or trying to go to sleep when you ain’t sleepy—if you are anywheres where it won’t do for you to scratch, why you will itch all over in upwards of a thousand places. Pretty soon Jim says:\n\n“Say, who is you? Whar is you? Dog my cats ef I didn’ hear sumf’n. Well, I know what I’s gwyne to do: I’s gwyne to set down here and listen tell I hears it agin.”\n\nSo he set down on the ground betwixt me and Tom. He leaned his back up against a tree, and stretched his legs out till one of them most touched one of mine. My nose begun to itch. It itched till the tears come into my eyes. But I dasn’t scratch. Then it begun to itch on the inside. Next I got to itching underneath. I didn’t know how I was going to set still. This miserableness went on as much as six or seven minutes; but it seemed a sight longer than that. I was itching in eleven different places now. I reckoned I couldn’t stand it more’n a minute longer, but I set my teeth hard and got ready to try. Just then Jim begun to breathe heavy; next he begun to snore—and then I was pretty soon comfortable again.\n\nTom he made a sign to me—kind of a little noise with his mouth—and we went creeping away on our hands and knees. When we was ten foot off Tom whispered to me, and wanted to tie Jim to the tree for fun. But I said no; he might wake and make a disturbance, and then they’d find out I warn’t in. Then Tom said he hadn’t got candles enough, and he would slip in the kitchen and get some more. I didn’t want him to try. I said Jim might wake up and come. But Tom wanted to resk it; so we slid in there and got three candles, and Tom laid five cents on the table for pay. Then we got out, and I was in a sweat to get away; but nothing would do Tom but he must crawl to where Jim was, on his hands and knees, and play something on him. I waited, and it seemed a good while, everything was so still and lonesome.\n\n<!-- scene: 5ce24e75-5944-4e0e-8c99-fec1045fdce0 -->\nAs soon as Tom was back we cut along the path, around the garden fence, and by-and-by fetched up on the steep top of the hill the other side of the house. Tom said he slipped Jim’s hat off of his head and hung it on a limb right over him, and Jim stirred a little, but he didn’t wake. Afterwards Jim said the witches bewitched him and put him in a trance, and rode him all over the State, and then set him under the trees again, and hung his hat on a limb to show who done it. And next time Jim told it he said they rode him down to New Orleans; and, after that, every time he told it he spread it more and more, till by-and-by he said they rode him all over the world, and tired him most to death, and his back was all over saddle-boils. Jim was monstrous proud about it, and he got so he wouldn’t hardly notice the other niggers. Niggers would come miles to hear Jim tell about it, and he was more looked up to than any nigger in that country. Strange niggers would stand with their mouths open and look him all over, same as if he was a wonder. Niggers is always talking about witches in the dark by the kitchen fire; but whenever one was talking and letting on to know all about such things, Jim would happen in and say, “Hm! What you know ’bout witches?” and that nigger was corked up and had to take a back seat. Jim always kept that five-center piece round his neck with a string, and said it was a charm the devil give to him with his own hands, and told him he could cure anybody with it and fetch witches whenever he wanted to just by saying something to it; but he never told what it was he said to it. Niggers would come from all around there and give Jim anything they had, just for a sight of that five-center piece; but they wouldn’t touch it, because the devil had had his hands on it. Jim was most ruined for a servant, because he got stuck up on account of having seen the devil and been rode by witches.\n\nWell, when Tom and me got to the edge of the hilltop we looked away down into the village and could see three or four lights twinkling, where there was sick folks, maybe; and the stars over us was sparkling ever so fine; and down by the village was the river, a whole mile broad, and awful still and grand. We went down the hill and found Jo Harper and Ben Rogers, and two or three more of the boys, hid in the old tanyard. So we unhitched a skiff and pulled down the river two mile and a half, to the big scar on the hillside, and went ashore.\n\nWe went to a clump of bushes, and Tom made everybody swear to keep the secret, and then showed them a hole in the hill, right in the thickest part of the bushes. Then we lit the candles, and crawled in on our hands and knees. We went about two hundred yards, and then the cave opened up. Tom poked about amongst the passages, and pretty soon ducked under a wall where you wouldn’t a noticed that there was a hole. We went along a narrow place and got into a kind of room, all damp and sweaty and cold, and there we stopped. Tom says:\n\n“Now, we’ll start this band of robbers and call it Tom Sawyer’s Gang. Everybody that wants to join has got to take an oath, and write his name in blood.”\n\n<!-- scene: 6921e4af-92eb-410a-883f-7235804ab819 -->\nEverybody was willing. So Tom got out a sheet of paper that he had wrote the oath on, and read it. It swore every boy to stick to the band, and never tell any of the secrets; and if anybody done anything to any boy in the band, whichever boy was ordered to kill that person and his family must do it, and he mustn’t eat and he mustn’t sleep till he had killed them and hacked a cross in their breasts, which was the sign of the band. And nobody that didn’t belong to the band could use that mark, and if he did he must be sued; and if he done it again he must be killed. And if anybody that belonged to the band told the secrets, he must have his throat cut, and then have his carcass burnt up and the ashes scattered all around, and his name blotted off of the list with blood and never mentioned again by the gang, but have a curse put on it and be forgot forever.\n\nEverybody said it was a real beautiful oath, and asked Tom if he got it out of his own head. He said, some of it, but the rest was out of pirate-books and robber-books, and every gang that was high-toned had it.\n\nSome thought it would be good to kill the _families_ of boys that told the secrets. Tom said it was a good idea, so he took a pencil and wrote it in. Then Ben Rogers says:\n\n“Here’s Huck Finn, he hain’t got no family; what you going to do ’bout him?”\n\n“Well, hain’t he got a father?” says Tom Sawyer.\n\n“Yes, he’s got a father, but you can’t never find him these days. He used to lay drunk with the hogs in the tanyard, but he hain’t been seen in these parts for a year or more.”\n\nThey talked it over, and they was going to rule me out, because they said every boy must have a family or somebody to kill, or else it wouldn’t be fair and square for the others. Well, nobody could think of anything to do—everybody was stumped, and set still. I was most ready to cry; but all at once I thought of a way, and so I offered them Miss Watson—they could kill her. Everybody said:\n\n“Oh, she’ll do. That’s all right. Huck can come in.”\n\nThen they all stuck a pin in their fingers to get blood to sign with, and I made my mark on the paper.\n\n“Now,” says Ben Rogers, “what’s the line of business of this Gang?”\n\n“Nothing only robbery and murder,” Tom said.\n\n“But who are we going to rob?—houses, or cattle, or—”\n\n“Stuff! stealing cattle and such things ain’t robbery; it’s burglary,” says Tom Sawyer. “We ain’t burglars. That ain’t no sort of style. We are highwaymen. We stop stages and carriages on the road, with masks on, and kill the people and take their watches and money.”\n\n“Must we always kill the people?”\n\n“Oh, certainly. It’s best. Some authorities think different, but mostly it’s considered best to kill them—except some that you bring to the cave here, and keep them till they’re ransomed.”\n\n“Ransomed? What’s that?”\n\n“I don’t know. But that’s what they do. I’ve seen it in books; and so of course that’s what we’ve got to do.”\n\n“But how can we do it if we don’t know what it is?”\n\n“Why, blame it all, we’ve _got_ to do it. Don’t I tell you it’s in the books? Do you want to go to doing different from what’s in the books, and get things all muddled up?”\n\n“Oh, that’s all very fine to _say_, Tom Sawyer, but how in the nation are these fellows going to be ransomed if we don’t know how to do it to them?—that’s the thing _I_ want to get at. Now, what do you _reckon_ it is?”\n\n<!-- scene: 1ab992f8-d832-49de-8b95-32b22985da2c -->\n“Well, I don’t know. But per’aps if we keep them till they’re ransomed, it means that we keep them till they’re dead.”\n\n“Now, that’s something _like_. That’ll answer. Why couldn’t you said that before? We’ll keep them till they’re ransomed to death; and a bothersome lot they’ll be, too—eating up everything, and always trying to get loose.”\n\n“How you talk, Ben Rogers. How can they get loose when there’s a guard over them, ready to shoot them down if they move a peg?”\n\n“A guard! Well, that _is_ good. So somebody’s got to set up all night and never get any sleep, just so as to watch them. I think that’s foolishness. Why can’t a body take a club and ransom them as soon as they get here?”\n\n“Because it ain’t in the books so—that’s why. Now, Ben Rogers, do you want to do things regular, or don’t you?—that’s the idea. Don’t you reckon that the people that made the books knows what’s the correct thing to do? Do you reckon _you_ can learn ’em anything? Not by a good deal. No, sir, we’ll just go on and ransom them in the regular way.”\n\n“All right. I don’t mind; but I say it’s a fool way, anyhow. Say, do we kill the women, too?”\n\n“Well, Ben Rogers, if I was as ignorant as you I wouldn’t let on. Kill the women? No; nobody ever saw anything in the books like that. You fetch them to the cave, and you’re always as polite as pie to them; and by-and-by they fall in love with you, and never want to go home any more.”\n\n“Well, if that’s the way I’m agreed, but I don’t take no stock in it. Mighty soon we’ll have the cave so cluttered up with women, and fellows waiting to be ransomed, that there won’t be no place for the robbers. But go ahead, I ain’t got nothing to say.”\n\nLittle Tommy Barnes was asleep now, and when they waked him up he was scared, and cried, and said he wanted to go home to his ma, and didn’t want to be a robber any more.\n\nSo they all made fun of him, and called him cry-baby, and that made him mad, and he said he would go straight and tell all the secrets. But Tom give him five cents to keep quiet, and said we would all go home and meet next week, and rob somebody and kill some people.\n\nBen Rogers said he couldn’t get out much, only Sundays, and so he wanted to begin next Sunday; but all the boys said it would be wicked to do it on Sunday, and that settled the thing. They agreed to get together and fix a day as soon as they could, and then we elected Tom Sawyer first captain and Jo Harper second captain of the Gang, and so started home.\n\nI clumb up the shed and crept into my window just before day was breaking. My new clothes was all greased up and clayey, and I was dog-tired.\n"
+  },
+  "calls": [
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0002384,
+      "ms": 551
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00003281,
+      "ms": 582
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00001516,
+      "ms": 540
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00004716,
+      "ms": 555
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00008569,
+      "ms": 555
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00007719,
+      "ms": 525
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0001251,
+      "ms": 560
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00004038,
+      "ms": 509
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0003239,
+      "ms": 1009
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0003255,
+      "ms": 1071
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.000341,
+      "ms": 940
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0002961,
+      "ms": 1153
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0002863,
+      "ms": 1022
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.000315,
+      "ms": 1207
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0003084,
+      "ms": 1018
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.000361,
+      "ms": 1323
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0003295,
+      "ms": 858
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0002846,
+      "ms": 913
+    }
+  ]
+}
