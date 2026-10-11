@@ -47,6 +47,11 @@ async function spentSoFar(): Promise<number> {
   return total;
 }
 const works = () => flag('--works')?.split(',') ?? bench.works;
+// --replay <прежний стенд>: офлайн-повтор. Ответы моделей берутся из записанного requests.jsonl того же задания по точному
+// телу запроса (каждая запись — один раз); запроса, которого не было, сеть не получает: ему отвечает 503, и конвейер
+// обрабатывает это как сбой (окно редактора — пропуск, проверка — отказ). Ничего не оплачивается.
+const replayFrom = flag('--replay');
+const replay = new Map<string, Array<{ body: string; status: number; response: unknown; cost: number; used?: boolean }>>();
 
 // Пилотный корпус 2026-10-10: те же 10 сцен и 14 мутаций, собранные в рабочую область, которую открывает настоящий openSource.
 async function buildCorpus(): Promise<void> {
@@ -130,6 +135,14 @@ function installMeter(): void {
     const inputChars = JSON.stringify(body.messages ?? []).length + String(body.system ?? '').length;
     const worst = inputChars * price.prompt + Number(body.max_tokens ?? 4096) * price.completion;
     if (spent + reserved + worst > budget) { ctx.capHit = true; throw new Error(`benchmark budget cap $${budget} reached (spent ${spent.toFixed(4)}, reserved ${reserved.toFixed(4)})`); }
+    if (replayFrom) {
+      const recorded = (replay.get(ctx.job) ?? []).find((item) => !item.used && item.body === JSON.stringify(body));
+      if (recorded) recorded.used = true;
+      const status = recorded ? recorded.status : 503;
+      ctx.calls.push({ role: role.role, text: recorded ? responseText(recorded.response) : null, status, finish: null, cost: 0, ms: 0 });
+      await appendFile(requestsFile(), JSON.stringify({ at: new Date().toISOString(), stage: ctx.stage, job: ctx.job, role: role.role, model: body.model, status, cost: 0, cost_source: recorded ? 'replay' : 'replay-unrecorded', recorded_cost: recorded?.cost ?? null, request: body, response: recorded?.response ?? null }) + '\n');
+      return new Response(recorded ? JSON.stringify(recorded.response) : JSON.stringify({ error: { message: 'unrecorded request in offline replay' } }), { status });
+    }
     reserved += worst;
     const started = Date.now();
     try {
@@ -163,6 +176,13 @@ function installMeter(): void {
 }
 
 async function prepare(): Promise<void> {
+  if (replayFrom) {
+    for (const row of await readJsonl(path.join(amendeor, 'eval/results', replayFrom, 'requests.jsonl'))) if (row.request && row.job) {
+      const list = replay.get(row.job) ?? []; list.push({ body: JSON.stringify(row.request), status: row.status, response: row.response, cost: row.cost }); replay.set(row.job, list);
+    }
+    if (!replay.size) throw new Error(`no recorded requests in ${replayFrom}`);
+    process.env[keyEnv] ??= 'replay-offline';
+  }
   if (!process.env[keyEnv]) throw new Error(`${keyEnv} is not set`);
   if (!await exists(path.join(root, 'corpus'))) throw new Error('run the corpus command first');
   spent = await spentSoFar();
@@ -330,12 +350,13 @@ async function stageB(): Promise<void> {
       const failuresRecorded = (result.run.stages as Array<{ name: string; failures?: unknown[] }>).some((stage) => (stage.failures ?? []).length > 0)
         || ((result.run.guard as { rejections: Array<{ reason: string }> }).rejections).some((item) => String(item.reason).startsWith('verify failed'));
       const refused = ctx.calls.filter((call) => call.status !== 200 && !(call.status === 429 && !failuresRecorded));
-      if (refused.length) { await writeFile(path.join(dir, 'incomplete.json'), JSON.stringify({ job, reason: `provider returned HTTP ${[...new Set(refused.map((call) => call.status))].join(',')}; results are not valid` }, null, 2)); throw new Error(`provider errors in ${job} (HTTP ${refused.map((call) => call.status).join(',')}); stopping`); }
-      const accepted = await acceptProposals(source.editedDir, result.proposals, { acceptedBy: 'bench:accept-all' });
+      if (refused.length && !replayFrom) { await writeFile(path.join(dir, 'incomplete.json'), JSON.stringify({ job, reason: `provider returned HTTP ${[...new Set(refused.map((call) => call.status))].join(',')}; results are not valid` }, null, 2)); throw new Error(`provider errors in ${job} (HTTP ${refused.map((call) => call.status).join(',')}); stopping`); }
+      // «Принять всё» — как человек кнопкой: находки на проверку (unverified) без явного согласия не принимаются.
+      const accepted = await acceptProposals(source.editedDir, result.proposals.filter((proposal) => !proposal.unverified), { acceptedBy: 'bench:accept-all' });
       const build = await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
       const edited: Record<string, string> = {};
       for (const chapter of source.book.chapters) edited[chapter.slug] = await readFile(path.join(source.editedDir, 'chapters', path.basename(chapter.file)), 'utf8').catch(() => chapter.text);
-      await writeFile(path.join(dir, 'result.json'), `${JSON.stringify({ job, config, work, repeat, elapsed_ms: elapsed, scope: 'real editMechanical (rules + editor + deterministic guards + verifier, copy mode, no cache); final = offered proposals; build = all offered proposals accepted',
+      await writeFile(path.join(dir, 'result.json'), `${JSON.stringify({ job, config, work, repeat, elapsed_ms: elapsed, scope: 'real editMechanical (rules + editor + deterministic guards + verifier, copy mode, no cache); final = offered proposals; build = all offered proposals accepted except review-only findings', ...(replayFrom ? { replay: { from: replayFrom, unrecorded: ctx.calls.filter((call) => call.status === 503).length } } : {}),
         stages: result.run.stages, proposals: result.proposals, rejections: (result.run.guard as { rejections: unknown[] }).rejections, build, edited, calls: ctx.calls.map(({ role, status, finish, cost, ms }) => ({ role, status, finish, cost, ms })) }, null, 2)}\n`);
       await rm(workspace, { recursive: true, force: true });
       console.log(JSON.stringify({ job, offered: result.proposals.length, rejected: ((result.run.guard as { rejections: unknown[] }).rejections).length, requests: ctx.calls.length, cost: Number(ctx.calls.reduce((sum, call) => sum + call.cost, 0).toFixed(5)), spent: Number(spent.toFixed(4)), seconds: Math.round(elapsed / 1000) }));

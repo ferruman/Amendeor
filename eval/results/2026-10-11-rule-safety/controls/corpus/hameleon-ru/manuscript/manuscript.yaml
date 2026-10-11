@@ -1,0 +1,6 @@
+schema_version: 1
+language: ru
+chapters:
+  - slug: 01-hameleon
+    title: "Хамелеон"
+    eval_control: false

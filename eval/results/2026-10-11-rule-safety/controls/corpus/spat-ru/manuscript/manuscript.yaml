@@ -1,0 +1,6 @@
+schema_version: 1
+language: ru
+chapters:
+  - slug: 01-spat
+    title: "Спать хочется"
+    eval_control: false

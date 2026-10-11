@@ -1,0 +1,92 @@
+{
+  "controls/huck2-en": {
+    "provenance": {
+      "source": "eval/sources/huckleberry-finn-pg76.txt (Project Gutenberg #76), chapter II",
+      "kind": "first-person dialect narration",
+      "rights": "public domain"
+    },
+    "chapters": [
+      {
+        "slug": "01-huck2",
+        "title": "Chapter II",
+        "words": 2491,
+        "sha256": "sha256:27ad55d52aaa7377a24ff90f56ec7d35bd4b0a5b64d59a798c7d74ba30beac9e"
+      }
+    ]
+  },
+  "controls/eveline-en": {
+    "provenance": {
+      "source": "eval/sources/dubliners-pg2814.txt (Project Gutenberg #2814), «Eveline»",
+      "kind": "free indirect discourse",
+      "rights": "public domain"
+    },
+    "chapters": [
+      {
+        "slug": "01-eveline",
+        "title": "Eveline",
+        "words": 1841,
+        "sha256": "sha256:c1856f2e513c3f9ae3d93a578bbfb5ae4f74036ea9192116b35a8062ba9e7124"
+      }
+    ]
+  },
+  "controls/spat-ru": {
+    "provenance": {
+      "source": "eval/sources/spat-hochetsya.wiki.txt (Wikisource)",
+      "kind": "free indirect discourse",
+      "rights": "Chekhov (d. 1904), PD"
+    },
+    "chapters": [
+      {
+        "slug": "01-spat",
+        "title": "Спать хочется",
+        "words": 1602,
+        "sha256": "sha256:e7cbc781f503f734881f838afdd04dbc2350506a8cd6a6225d108d4e035aaf74"
+      }
+    ]
+  },
+  "controls/gramota-ru": {
+    "provenance": {
+      "source": "eval/sources/propavshaya-gramota.wiki.txt (Wikisource)",
+      "kind": "first-person skaz with dialect and period forms",
+      "rights": "Gogol (d. 1852), PD"
+    },
+    "chapters": [
+      {
+        "slug": "01-gramota",
+        "title": "Пропавшая грамота",
+        "words": 3590,
+        "sha256": "sha256:889a287bf7ceda36bff89e5fc8cd9071e00b034ccee75268692e5410afaf6e21"
+      }
+    ]
+  },
+  "controls/hameleon-ru": {
+    "provenance": {
+      "source": "eval/sources/hameleon.wiki.txt (Wikisource, ПСС 1974—1982)",
+      "kind": "proper names, ranks and dialogue",
+      "rights": "Chekhov (d. 1904), PD"
+    },
+    "chapters": [
+      {
+        "slug": "01-hameleon",
+        "title": "Хамелеон",
+        "words": 908,
+        "sha256": "sha256:a3ab999f43f30350a42a926be5e87ebc8a6f95b46f85e5a2faf5276333cc4c38"
+      }
+    ]
+  },
+  "furnace2": {
+    "copied_from": "eval/results/2026-10-11-recall-optimization/furnace2/corpus"
+  },
+  "ru-new": {
+    "copied_from": "eval/results/2026-10-11-recall-optimization/ru-new/corpus"
+  },
+  "furnace2-clean": {
+    "copied_from": "eval/results/2026-10-11-recall-optimization/furnace2-clean/corpus"
+  },
+  "ru-new-clean": {
+    "copied_from": "eval/results/2026-10-11-recall-optimization/ru-new-clean/corpus"
+  },
+  "nonstd-clean": {
+    "copied_from": "eval/results/2026-10-11-recall-optimization/nonstd-clean/corpus"
+  }
+}

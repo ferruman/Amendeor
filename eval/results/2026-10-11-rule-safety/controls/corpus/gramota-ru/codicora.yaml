@@ -1,0 +1,10 @@
+spec: codicora/v1
+type: project
+project:
+  id: gramota-ru
+  title: "gramota-ru"
+  source_language: ru
+manuscript:
+  path: manuscript
+edited:
+  path: edited

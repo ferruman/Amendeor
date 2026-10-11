@@ -1,0 +1,6 @@
+schema_version: 1
+language: ru
+chapters:
+  - slug: 01-gramota
+    title: "Пропавшая грамота"
+    eval_control: false

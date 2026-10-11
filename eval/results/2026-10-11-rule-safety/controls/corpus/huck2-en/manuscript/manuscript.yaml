@@ -1,0 +1,6 @@
+schema_version: 1
+language: en
+chapters:
+  - slug: 01-huck2
+    title: "Chapter II"
+    eval_control: false

@@ -138,7 +138,8 @@ for (const config of bench.stage_b) {
   for (const job of jobs) {
     const set = books[job.work]!;
     const sceneText = (chapter: string, scene: string) => set.book.chapters.find((item: any) => item.slug === chapter).scenes.find((item: any) => item.id === scene).text;
-    const final: Proposal[] = job.proposals;
+    // Находки на проверку (semantic, unverified) текст не меняют: это не итоговые правки, они считаются отдельно.
+    const final: Proposal[] = job.proposals.filter((proposal: Proposal) => !proposal.unverified);
     const rejected = job.rejections.filter((item: any) => item.chapter && item.scene !== '@title').map((item: any) => ({ ...makeProposal({ chapter: item.chapter, scene: item.scene, category: item.category, target: item.target, replacement: item.replacement, occurrence: item.occurrence, sceneText: sceneText(item.chapter, item.scene), source: item.source }), id: item.proposal_id }));
     const score = scoreByPolicy(set.book, set.mutations, [...final, ...rejected], final, job.rejections, allJudgements);
     for (const [name, value] of Object.entries(score.counts)) add(name, value);
@@ -148,7 +149,7 @@ for (const config of bench.stage_b) {
     for (const proposal of final) {
       const key = `${proposal.target.text} → ${proposal.replacement}`;
       const judged = allJudgements.find((item) => item.target === proposal.target.text && item.replacement === proposal.replacement)?.label;
-      if (judged === 'harmful') harmfulFinal.push(`${job.work}-${job.repeat}: ${key}`);
+      if (judged === 'harmful') harmfulFinal.push(`${job.work}-${job.repeat}: ${key} [${proposal.source}]`);
       if (!touches(proposal)) {
         add(proposal.source === 'model' ? 'unnecessary_model' : 'unnecessary_rule', 1);
         if (proposal.location.chapter === set.control) add('control_edits', 1);
@@ -214,6 +215,9 @@ for (const config of bench.stage_b) {
       final_provenance: Object.fromEntries(['standard', 'diagnostic', 'standard+diagnostic'].map((key) => [key, sum(jobs.map((job) => job.proposals.filter((proposal: any) => proposal.source === 'model' && (proposal.passes ?? ['standard']).join('+') === key).length))])) },
     guard_rejections: Object.fromEntries([...new Set(jobs.flatMap((job) => job.rejections.map((item: any) => item.guard)))].sort().map((guard) => [guard, sum(jobs.map((job) => job.rejections.filter((item: any) => item.guard === guard).length))])),
     model_proposals_offered: sum(jobs.map((job) => job.proposals.filter((proposal: any) => proposal.source === 'model').length)),
+    review_findings: jobs.flatMap((job) => job.proposals.filter((proposal: any) => proposal.unverified).map((proposal: any) => `${job.work}-${job.repeat}: ${proposal.source} ${proposal.target.text} → ${proposal.replacement}`)),
+    proven_equivalent_merges: sum(jobs.map((job) => (job.stages.find((stage: any) => stage.name === 'model')?.merges ?? []).length)),
+    replay_unrecorded_requests: sum(jobs.map((job) => job.replay?.unrecorded ?? 0)),
     cost: { total_usd: round(cost), editor_usd: round(sum(role('editor').map((call) => call.cost))), verifier_usd: round(sum(role('verifier').map((call) => call.cost))), retries_usd: round(sum(retryCalls.map((call) => call.cost))), per_1000_words_usd: round(cost / words * 1000), per_correct_final_edit_usd: correct ? round(cost / correct) : null, per_scene_usd: round(cost / scenes), per_repeat_usd: round(cost / repeats),
       sources: [...new Set(calls.map((call) => call.cost_source))] },
     requests: { total: calls.length, editor: role('editor').length, verifier: role('verifier').length, truncated: calls.filter(truncated).length, http_errors: calls.filter((call) => call.status !== 200).length, retries: retryCalls.length,
