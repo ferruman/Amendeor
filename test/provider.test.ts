@@ -79,3 +79,11 @@ test('Anthropic disables thinking and reports block types', async () => {
     assert.equal(result.diagnostics, 'blocks=thinking,text');
   } finally { globalThis.fetch = original; }
 });
+
+test('A2: a model answer wrapped in ```json is parsed; plain JSON and broken JSON behave as before', async () => {
+  const { parseModelJson } = await import('../src/provider/json.ts');
+  assert.deepEqual(parseModelJson('```json\n{"findings":[]}\n```'), { findings: [] });
+  assert.deepEqual(parseModelJson('  ```\n{"a":1}```  '), { a: 1 });
+  assert.deepEqual(parseModelJson('{"a":1}'), { a: 1 });
+  assert.throws(() => parseModelJson('```json\n{"a":\n```'), SyntaxError);
+});

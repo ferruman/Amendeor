@@ -1,3 +1,4 @@
+import { parseModelJson } from '../provider/json.ts';
 import { readFile } from 'node:fs/promises';
 import { z } from 'zod';
 import type { Book } from '../book.ts';
@@ -84,7 +85,7 @@ const speculative = {
 };
 
 function parseCandidates(output: string, text: string, allowed: Set<string>, language: Guide['language']): { candidates: Candidate[]; discarded: string[] } {
-  const parsed = candidatesSchema.parse(JSON.parse(output));
+  const parsed = candidatesSchema.parse(parseModelJson(output));
   const candidates: Candidate[] = [], discarded: string[] = [];
   for (const item of parsed.findings) {
     if (!allowed.has(item.principle)) { discarded.push(`unsupported principle: ${item.principle}`); continue; }
@@ -100,7 +101,7 @@ function parseCandidates(output: string, text: string, allowed: Set<string>, lan
 }
 
 function parseVerdict(output: string, count: number): Set<number> {
-  const parsed = verdictSchema.parse(JSON.parse(output));
+  const parsed = verdictSchema.parse(parseModelJson(output));
   if (parsed.accepted.some((index) => index >= count)) throw new Error('verifier returned out-of-range finding index');
   return new Set(parsed.accepted);
 }
