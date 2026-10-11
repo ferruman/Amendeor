@@ -1,0 +1,436 @@
+{
+  "job": "r1-luna__haiku-necessity/furnace-s2-0",
+  "config": {
+    "id": "r1-luna__haiku-necessity",
+    "editor": "luna",
+    "verifier": "haiku-medium",
+    "check": "necessity",
+    "tier": 1
+  },
+  "work": "furnace-s2",
+  "repeat": 0,
+  "elapsed_ms": 41330,
+  "scope": "real editMechanical (rules + editor + deterministic guards + verifier, copy mode, no cache); final = offered proposals; build = all offered proposals accepted",
+  "stages": [
+    {
+      "name": "rules",
+      "status": "ok",
+      "hits": 2,
+      "proposals": 2,
+      "units": {
+        "cached": 0,
+        "computed": 6,
+        "failed": 0
+      },
+      "failures": [],
+      "diagnostics": []
+    },
+    {
+      "name": "model",
+      "status": "ok",
+      "windows": 5,
+      "windows_by_chapter": {
+        "ch-f182cce3": 5
+      },
+      "sent": 5,
+      "cached": 0,
+      "no_change": 2,
+      "no_change_by_chapter": {
+        "ch-f182cce3": 2
+      },
+      "candidates": 4,
+      "discarded": [],
+      "failures": [],
+      "prompt_version": "1.6.0",
+      "model_id": "openai/gpt-6-luna",
+      "formulaic_hits": [
+        {
+          "id": "formulaic.filler-frame",
+          "language": "en",
+          "provenance": "docs/prose-patterns.md (local adaptation; see source and MIT license links); ../PROSE-TELLS.md (Wikipedia: Signs of AI writing, CC BY-SA 4.0)",
+          "chapter": "ch-f182cce3",
+          "scene": "b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+          "start": 0,
+          "end": 21,
+          "quote": "At the end of the day",
+          "reason": "A stock frame may add no information."
+        }
+      ],
+      "formulaic_catalog_version": "0.3.0"
+    },
+    {
+      "name": "guard",
+      "status": "partial",
+      "candidates": 4,
+      "semantic_rejected": 2,
+      "rule_preferred": 1,
+      "objective_rejected": 0,
+      "punctuation_rejected": 0,
+      "voice_rejected": 0,
+      "offered": 1,
+      "same_family_warning": false,
+      "rejections": [
+        {
+          "proposal_id": "amendeor:5ee93752a0e5b263",
+          "guard": "semantic-verifier",
+          "reason": "unnecessary: \"it were\" with a singular subject is nonstandard agreement, but it sits in free indirect narration filtered through Hannah's perspective, and the surrounding prose is deliberately colloquial (\"where such files begin,\" \"the names in the margins became one name\"). That reads as the author's voice rather than an accidental error, so the guidance to answer false when unsure applies. The AFTER wording keeps the same meaning and facts.",
+          "target": "from there it were State Police paper",
+          "replacement": "from there it was State Police paper",
+          "category": "grammar",
+          "chapter": "ch-f182cce3",
+          "scene": "be5f4f7d-b4e5-49d3-baab-7119ba11e183",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:a801c54d3eb9372a",
+          "guard": "rule-preferred",
+          "reason": "rule:repetition.doubled-word amendeor:b19a36b0d6966661",
+          "target": "He was again again stocky, gray-flecked in his beard, a county-detective badge on his belt under a tweed sport coat, and he walked bow-legged",
+          "replacement": "He was stocky, gray-flecked in his beard, a county-detective badge on his belt under a tweed sport coat, and he walked bow-legged",
+          "category": "repetition",
+          "chapter": "ch-f182cce3",
+          "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+          "occurrence": 0,
+          "source": "model"
+        },
+        {
+          "proposal_id": "amendeor:ed8017fec58125b4",
+          "guard": "semantic-verifier",
+          "reason": "not preserved: The repeated \"He stood. He stood,\" reads as a deliberate stylistic beat (a short declarative followed by a clause that restarts with the same verb), not an accidental duplication or grammatical error, so BEFORE is not objectively wrong. The edit deletes the first sentence, which removes the author's emphatic rhythm and alters the voice.",
+          "target": "He stood. He stood, took his jacket off the back of the chair, and patted the folders",
+          "replacement": "He stood, took his jacket off the back of the chair, and patted the folders",
+          "category": "repetition",
+          "chapter": "ch-f182cce3",
+          "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+          "occurrence": 0,
+          "source": "model"
+        }
+      ],
+      "verifications": [
+        {
+          "proposal_id": "amendeor:5ee93752a0e5b263",
+          "passed": false,
+          "passes": 2,
+          "agreed": 1,
+          "reason": "unnecessary: \"it were\" with a singular subject is nonstandard agreement, but it sits in free indirect narration filtered through Hannah's perspective, and the surrounding prose is deliberately colloquial (\"where such files begin,\" \"the names in the margins became one name\"). That reads as the author's voice rather than an accidental error, so the guidance to answer false when unsure applies. The AFTER wording keeps the same meaning and facts.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": true,
+              "preserved": true
+            },
+            {
+              "necessary": false,
+              "preserved": true
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:ed8017fec58125b4",
+          "passed": false,
+          "passes": 1,
+          "agreed": 0,
+          "reason": "not preserved: The repeated \"He stood. He stood,\" reads as a deliberate stylistic beat (a short declarative followed by a clause that restarts with the same verb), not an accidental duplication or grammatical error, so BEFORE is not objectively wrong. The edit deletes the first sentence, which removes the author's emphatic rhythm and alters the voice.",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": false,
+              "preserved": false
+            }
+          ]
+        },
+        {
+          "proposal_id": "amendeor:d3f0b023eddf64b9",
+          "passed": true,
+          "passes": 3,
+          "agreed": 3,
+          "reason": "necessary and preserved",
+          "sameFamily": false,
+          "answers": [
+            {
+              "necessary": true,
+              "preserved": true
+            },
+            {
+              "necessary": true,
+              "preserved": true
+            },
+            {
+              "necessary": true,
+              "preserved": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:74d6c8edaa8ba559",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "ch-f182cce3",
+          "scene": "c7ea65b4-1059-42e0-ab34-1485586adf7c",
+          "key": "sha256:d78cc14785e92a8da2b8b1f6d4aa1d4bb80e93f3645f775d29dd146aa4aed683"
+        },
+        "evidence": "sha256:cb054539897108e73918f5246b2ddb905248ea15d90defeffd36daf9b3362d47"
+      },
+      "run_id": "2026-10-10T21-25-11Z-2edf",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "ch-f182cce3",
+        "scene": "c7ea65b4-1059-42e0-ab34-1485586adf7c",
+        "content_hash": "sha256:c0675176717c8bd45ea5bb909248e987e089be76d3bdaedec9b74183bd9c3d63"
+      },
+      "target": {
+        "text": "KIMMEL KIMMEL",
+        "hash": "sha256:d78cc14785e92a8da2b8b1f6d4aa1d4bb80e93f3645f775d29dd146aa4aed683",
+        "before": " and then sat back, because her impulse was to put it under ",
+        "after": ", and it didn't belong there. The lab had said exactly what ",
+        "occurrence": 0
+      },
+      "replacement": "KIMMEL",
+      "category": "repetition",
+      "impact": "mechanical",
+      "source": "rule:repetition.doubled-word",
+      "confidence": 1,
+      "reason": "The same word appears twice in succession.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:b19a36b0d6966661",
+      "fingerprint": {
+        "primary": {
+          "category": "repetition",
+          "chapter": "ch-f182cce3",
+          "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+          "key": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14"
+        },
+        "evidence": "sha256:b4c9e14061c2fd453b36700e3b0da008db2189c711ac629f0f583089164e267d"
+      },
+      "run_id": "2026-10-10T21-25-11Z-2edf",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "ch-f182cce3",
+        "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+        "content_hash": "sha256:086bd445f2a9c7a33f434c62283ba9e302d638147d3aabe9db0f5dbee420118c"
+      },
+      "target": {
+        "text": "again again",
+        "hash": "sha256:efa94c5efbded74589e21d8b0b5db34c305371c73ae3d9f4e38c1c2ff1e36a14",
+        "before": "w, I called your lieutenant twice, he mentioned it.\" He was ",
+        "after": " stocky, gray-flecked in his beard, a county-detective badge",
+        "occurrence": 0
+      },
+      "replacement": "again",
+      "category": "repetition",
+      "impact": "mechanical",
+      "source": "rule:repetition.doubled-word",
+      "confidence": 1,
+      "reason": "The same word appears twice in succession.",
+      "verification": {
+        "passes": 0,
+        "agreed": 0,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    },
+    {
+      "schema": "amendeor.proposal/0.1",
+      "id": "amendeor:d3f0b023eddf64b9",
+      "fingerprint": {
+        "primary": {
+          "category": "spelling",
+          "chapter": "ch-f182cce3",
+          "scene": "b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+          "key": "sha256:01d18d1d2cfafbcc92c4fc6565f6fe7fbefee4a3565f16feafd3d7aa21b48146"
+        },
+        "evidence": "sha256:57fc4c6babfd0817334952e96d4b6ccb22f7d1f8ae2cf14acf665028e15318f9"
+      },
+      "run_id": "2026-10-10T21-25-11Z-2edf",
+      "tool": {
+        "name": "amendeor",
+        "version": "0.1.0"
+      },
+      "location": {
+        "chapter": "ch-f182cce3",
+        "scene": "b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+        "content_hash": "sha256:7ab983f8f93dd4941ac3a3e4c75b963af976ab22f10eafa8b88b9c31b4e01ac9"
+      },
+      "target": {
+        "text": "bakring",
+        "hash": "sha256:01d18d1d2cfafbcc92c4fc6565f6fe7fbefee4a3565f16feafd3d7aa21b48146",
+        "before": " working line between trains — no cars, no walkers, one dog ",
+        "after": " somewhere behind the houses.\n\nHannah stood on the crossing ",
+        "occurrence": 0
+      },
+      "replacement": "barking",
+      "category": "spelling",
+      "impact": "prose",
+      "source": "model",
+      "confidence": 1,
+      "reason": "Corrects a typographical error.",
+      "verification": {
+        "passes": 3,
+        "agreed": 3,
+        "semantic_risk": "none",
+        "voice": "ok"
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "proposal_id": "amendeor:5ee93752a0e5b263",
+      "guard": "semantic-verifier",
+      "reason": "unnecessary: \"it were\" with a singular subject is nonstandard agreement, but it sits in free indirect narration filtered through Hannah's perspective, and the surrounding prose is deliberately colloquial (\"where such files begin,\" \"the names in the margins became one name\"). That reads as the author's voice rather than an accidental error, so the guidance to answer false when unsure applies. The AFTER wording keeps the same meaning and facts.",
+      "target": "from there it were State Police paper",
+      "replacement": "from there it was State Police paper",
+      "category": "grammar",
+      "chapter": "ch-f182cce3",
+      "scene": "be5f4f7d-b4e5-49d3-baab-7119ba11e183",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:a801c54d3eb9372a",
+      "guard": "rule-preferred",
+      "reason": "rule:repetition.doubled-word amendeor:b19a36b0d6966661",
+      "target": "He was again again stocky, gray-flecked in his beard, a county-detective badge on his belt under a tweed sport coat, and he walked bow-legged",
+      "replacement": "He was stocky, gray-flecked in his beard, a county-detective badge on his belt under a tweed sport coat, and he walked bow-legged",
+      "category": "repetition",
+      "chapter": "ch-f182cce3",
+      "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+      "occurrence": 0,
+      "source": "model"
+    },
+    {
+      "proposal_id": "amendeor:ed8017fec58125b4",
+      "guard": "semantic-verifier",
+      "reason": "not preserved: The repeated \"He stood. He stood,\" reads as a deliberate stylistic beat (a short declarative followed by a clause that restarts with the same verb), not an accidental duplication or grammatical error, so BEFORE is not objectively wrong. The edit deletes the first sentence, which removes the author's emphatic rhythm and alters the voice.",
+      "target": "He stood. He stood, took his jacket off the back of the chair, and patted the folders",
+      "replacement": "He stood, took his jacket off the back of the chair, and patted the folders",
+      "category": "repetition",
+      "chapter": "ch-f182cce3",
+      "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+      "occurrence": 0,
+      "source": "model"
+    }
+  ],
+  "build": [
+    {
+      "id": "amendeor:74d6c8edaa8ba559",
+      "chapter": "ch-f182cce3",
+      "scene": "c7ea65b4-1059-42e0-ab34-1485586adf7c",
+      "status": "applied"
+    },
+    {
+      "id": "amendeor:b19a36b0d6966661",
+      "chapter": "ch-f182cce3",
+      "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+      "status": "applied"
+    },
+    {
+      "id": "amendeor:d3f0b023eddf64b9",
+      "chapter": "ch-f182cce3",
+      "scene": "b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+      "status": "applied"
+    }
+  ],
+  "edited": {
+    "ch-f182cce3": "<!-- scene: a25b1dd3-a8e1-4754-be48-9b4cebe394e9 -->\nLieutenant Albright had the box on the conference table before Hannah was fully through the door, which told her the meeting had been moved up once already.\n\n\"Sit down, Brecht.\" He was standing, which meant it was short. \"You heard about the cold-case grant?\"\n\nShe had. A federal thing, passed down through the Commonwealth with a memo that had circulated Wyeth Station since November. Money for lab work, mostly. She sat.\n\n\"Kessler homicide. 1979.\" He put his hand flat on the box lid. Cardboard, evidence-room stamp faded to brown, the case number in someone's careful fountain hand. \"Nineteen-year-old girl out of Carrick Junction. Taken on her walk home from the diner where she worked, found three days later in a culvert out in Haskett Township. You know Carrick?\"\n\n\"No, sir. I'm from Port Allen.\"\n\n\"That's what I mean. You don't know Carrick.\" He took his reading glasses off his head and didn't put them on. \"The file's been worked twice. Once in '79, once in '09 when the lab got something off the coat. Nobody's touched it since. The grant pays for laboratory work where biological evidence was preserved — that's the language — and there's a committee in Harrisburg that decides who gets it. We got a slot. I put your name in.\"\n\nHannah looked at the box. \"May I ask why me?\"\n\n\"Because you'll write it down.\" He said it without a compliment in it. \"Here's what I need you to understand before you carry this out of the room. The grant is not a promise. It pays for testing. It does not pay for travel, it does not pay for overtime, and it does not pay for a trial. If testing gets us a name, the name costs this department everything that comes after, and I will be standing in front of the fiscal office explaining why. So what I expect from you is a report. Not a miracle.\"\n\n\"Report on what, exactly?\"\n\n\"On whether there's anything left in this case that can still be tested, and what it proves or doesn't prove when it is. If it's nothing, it's nothing, and I'll tell the committee that and they'll give the slot to somebody else's case. That's a fine outcome. Are we clear?\"\n\n\"Clear, sir.\"\n\n\"The girl's mother is dead. The brother's still local — Tommy Kessler, lives on Mulberry Street in the same house. The original investigator is Walt Kimmel, retired '99, he's up at Elk Creek Manor. Altamont County has a county detective over there named Okafor who's already called me twice about this, so expect that. And there's a man named Danny Mercer who was never charged and never cleared, and if you so much as park in front of his shop, somebody in Carrick will have it on the phone tree by supper. You've been warned.\"\n\nHe pushed the box across the table. It was heavier than it looked.\n\n\"Three binders inside,\" he said. \"The '79 file, the '09 supplement, and the lab paper. Read the '79 file first and read all of it before you talk to a living soul about this. I mean that. If you go into Carrick carrying half the file, you'll get the other half from somebody's memory, and memory is worse than paper.\"\n\n\"Who has the evidence itself?\"\n\n\"Sealed locker here at the station, coat included. There may be things at the coroner's office in Port Allen — that's Wyeth County, the body was found on their side of the line, and in 1979 they did their own keeping. Check. Don't assume a forty-five-year-old inventory.\" He glanced at the wall clock, a habit, overtime hours in his bones. \"One more thing. The '09 result kept that Mercer man under a cloud it never named him under. I read it. 'Cannot be excluded.' You say that phrase to yourself the way the lab says it, not the way a barroom says it. If your report ends with him cleared, he's owed that. If it doesn't, he's owed the truth. Either way it's not yours to shade.\"\n\n\"No, sir.\"\n\n\"Then take it home and read it. The squad room's empty after four.\" He put his glasses back on his head, which was how he signed off. \"Grant money runs out in June. Don't spend the first month deciding how you feel about it.\"\n\nShe stood and got her arms under the box. Through the conference-room glass she could see the squad room beyond, two desks, the January light already going gray at three in the afternoon.\n\n\"Corporal.\" She turned. Albright was looking at the empty table where the box had been. \"A girl walked home from work on a Friday night and didn't come back. Forty-five years ago, and it still shouldn't have happened. Read it like it happened last week.\"\n\nShe carried the binders out past the duty desk, and the trooper on the counter looked up, looked at the box, and looked back down at whatever he was writing.\n\n<!-- scene: be5f4f7d-b4e5-49d3-baab-7119ba11e183 -->\nThe squad room emptied by five. Hannah carried the box to the far desk, the one by the window, and set it down where the lamp would reach. She got her reading glasses out of her shirt pocket, laid them on the blotter, and went to the break room for the coffee that had been sitting since mid-afternoon. When she came back she did not turn on the radio.\n\nThree binders, as promised. She took out the first one — the 1979 file — and opened it flat, spine cracking a little, the way an old binder does when nobody has asked it to bend in years. Carbon copies. Typed pages with corrections inked in by hand. The photographs were in an envelope taped to the inside front cover, and she took the envelope out and held it a moment before she opened it.\n\nShe looked at each photograph once, carefully, and set them face down in a stack, in order, so she could put them back the way they came. A girl in a tan corduroy coat with a sheepskin collar. A stone culvert under an embankment. She did not linger on any of them. Forty-five years of other people had lingered enough.\n\nThe file began where such files begin: the missing-person referral, October 13, 1979, logged at 1:30 in the morning by Carrick Borough Police, one Patrolman W. Brandt. *Probable runaway*, the borough had written, and Hannah paused on that, because the file held the mother's call beneath it, and the mother's call did not sound like a runaway report. Irene Kessler, 214 Mulberry Street, on the phone saying her daughter had never missed coming home. The borough had logged it as a runaway after a breakup. Hannah wrote on the margin of her legal pad: *Who is Brandt. Why runaway.* Then the file changed hands — October 15, a track inspector named Leon Fretz finding the body at the Dry Run culvert at 6:40 in the morning — and from there it were State Police paper, and the names in the margins became one name: Tpr. W. Kimmel.\n\nShe read the autopsy summary. Manual strangulation. Defensive injuries to the hands and forearms. Skin under the right-hand nails. Death placed late on the twelfth or early on the thirteenth. She read it twice, the second time slower, and made herself copy the salient lines onto the pad instead of trusting her memory of them.\n\nIt was past seven when she found the time cards. Nick Pappas, the diner owner, had turned over his punch cards and a statement about his time clock, and there was Ruth Kessler's card for the week, in among the others, a soft pencil check beside Friday. *Out 10:56 pm.* Not eleven. 10:56. Forty-five years old and it still carried the exactness of a man who trusted his clock. She set the card under the lamp and looked at it for a long moment, then logged it in her notes with the date, the time, and where the original now lived — an evidence sleeve in a binder, handled by who knows how many hands since.\n\nShe drew a line down the middle of a fresh page of the legal pad. On the left she wrote WHAT THE RECORD SAYS. On the right she wrote WHAT KIMMEL CONCLUDED. It was a thing a training sergeant had taught her years ago, and she had never once regretted the habit: the record and the inference are two documents, even when they travel in the same folder, and the day you can't separate them is the day you start believing the file instead of the world.\n\nUnder WHAT THE RECORD SAYS she wrote: *Out 10:56 pm, Fri Oct 12, 1979. Last seen leaving Signal Diner, Yard Road. Body found Oct 15, Dry Run culvert, Haskett Twp, Wyeth Co. Manual strangulation. Skin under right-hand nails.*\n\nThe right-hand column she left blank for now. Kimmel's conclusions were all through the file like salt, but she wanted them assembled honestly, in his order, with his reasoning intact — not skimmed and guessed at.\n\nShe got up once, to stretch, and stood at the window with her hands behind her back, looking at the parking lot lights and the dark past them where the ridge would be. Then she sat back down, squared the legal pad under the lamp, and picked up the first carbon copy of Kimmel's initial narrative, dated October 15, 1979, and began to read it from the beginning.\n\n<!-- scene: c7ea65b4-1059-42e0-ab34-1485586adf7c -->\nThe theory was not hard to find. It was on the first page of Kimmel's narrative and it never left: *Mercer, Daniel, 20, Haskett Lumber. Ex-boyfriend. Vehicle: 1974 Nova, light blue.*\n\nHannah built it in the right-hand column as she went, in his order. The argument at the Signal Diner on Wednesday, October 10 — Ruth returning his class ring in front of customers, a waitress named Beverly Hart corroborating it in her own statement, dated and signed. Then the night itself: Mercer admitting a beer at the Legion, then home alone, television, nobody who could put him there after ten-thirty. Then the serology report of October 20 — the stain on the right cuff of the tan coat typed as A, secretor — and Danny Mercer's blood card in the file, type A. Then the polygraph of November 8, reported inconclusive in a paragraph that took longer to say nothing than most reports took to say something.\n\nAnd then the sighting. A witness statement dated October 16, four days after the girl and three days before the Nova was searched. She read it straight through, one of a dozen statements in that week's paper — diner customers, a neighbor on Mulberry Street, the borough patrolman, a track inspector. The witness had come in on his own, walked into the Wyeth barracks unasked, and given a statement that a young man beside a light-colored Chevy Nova had been talking to a girl in a tan coat at the Depot Street crossing at about 11:15 on the night of the twelfth. Name: Shellenberger, Gary, 23, a carman out of the yard. Hannah logged it with the others — *Shellenberger — carman — sees Nova at crossing, ~11:15* — and moved on, because the file did. It was the statement that closed the ring: girl at the crossing, Mercer's kind of car, Mercer's blood type, Mercer's broken alibi. In the margin of his summary report Kimmel had written *Mercer* and underlined it twice, the ink pressed hard enough to tear the carbon.\n\nThe January 22, 1980 letter from the Wyeth County DA declined charges — insufficient evidence — and after that the paper thinned fast. A few follow-ups in the spring. Then nothing, then the second binder: the 2009 supplement.\n\nThat was shorter. A lab request form, a chain-of-custody sheet for the coat, and the result itself, which she read three times. A partial mixture, nine loci, off the cuff stain. Mercer's 2009 buccal swab was in a sleeve behind it — volunteered, the form said, at his own request, when the State Police reopened the case and asked for reference samples. She knew the rest from Albright, but the paper was colder than the briefing. *Cannot be excluded.* A sentence that had held a man under a cloud for sixteen years and never once said his name. She wrote it on the left side of the pad, under RECORD, and then sat back, because her impulse was to put it under KIMMEL, and it didn't belong there. The lab had said exactly what the lab had said. What Carrick had heard was something else, and Carrick wasn't in the file.\n\nIt was after nine. The coffee was cold enough that she drank it as a fact rather than a pleasure. She turned to a clean page and titled it, simply, WHAT THE FILE NEVER SAYS.\n\nShe worked it like an inventory, not a theory. The mother's 1:30 a.m. call beneath a runaway log — the file held the log and never questioned the delay. A coat with the girl's blood and another man's, and in forty-five years nobody had written down how long her walk home was, or which route it took, or what else a nineteen-year-old passes on a Friday night between a diner and a culvert four miles out. Nobody had asked what the girl herself said about anybody, after the argument — the waitress statements covered Wednesday and stopped. The witness statements were a list of people who saw her leave and people who saw the car, and the file leapt the distance between them in one sentence.\n\nShe wrote the last item and then looked at the list, and at the two columns above it, and at the binders squared on the desk, and understood that she had read the file the way its last reader probably had — to the end of its own reasoning. Somewhere under three binders and a sealed locker and a coroner's basement in Port Allen was whatever the file had never thought to ask for.\n\nShe put the photographs back in their envelope in the original order, capped her pen, and left the legal pad on the desk under the lamp, where she would find it at seven the next morning with the drive to Hollins ahead of it.\n\n<!-- scene: dc16bace-e542-4b47-bddf-431a7f1a69cf -->\nHollins was forty minutes down 22, the Altamont County seat, brick courthouse with a veterans' monument on the lawn and a county annex across the street. The detective's office was on the second floor, at the end of a corridor that smelled of floor wax and old file folders. A secretary with a space heater pointed Hannah to a door with a paper sign taped over the name of the previous occupant: DET. OKAFOR.\n\nHe was on the phone when she came in, and he held up one finger, finished the call in about eight words, and stood to shake her hand across a desk of manila folders.\n\n\"Brecht. I know, I called your lieutenant twice, he mentioned it.\" He was again stocky, gray-flecked in his beard, a county-detective badge on his belt under a tweed sport coat, and he walked bow-legged when he went to shut the door, which he did before he said anything else. \"Sit. You want coffee? It's terrible here, I drink tea, I'm not going to offer you tea because it's a bag in hot water, you deserve better.\"\n\n\"No, thank you, sir.\"\n\n\"Sam. Everybody's Sam.\" He sat back down and looked at her the way people in small counties look at troopers, measuring what the uniform was going to cost them. \"So. You got the Kessler file.\"\n\n\"I've read it.\"\n\n\"All of it?\"\n\n\"That's what I'm told to do.\"\n\n\"Then you're the first one in years. The DA here — Lorraine Feeney — she's wanted this case since before I worked for her. It was a Carrick girl, that's her phrase. Carrick's ours. The DA over there in Port Allen has got the body and the venue, and those two have been circling each other since Feeney took office, believe me. She had me call your station twice to make sure Wyeth County knew Altamont County was standing here holding its hat.\" He said it dry, but he said it, which told Hannah the county politics were going to be part of the work whether she wanted them or not. \"I'll be straight with you, Corporal. Feeney wants in. What I want is for the thing to be done right, and if it's done right, I don't care whose name's on it. But you should know that every piece of paper you generate over there is going to be read in Hollins too.\"\n\n\"The seam is the first thing I've got to write down,\" Hannah said. \"Taken in Carrick — that's Altamont. Found in Haskett Township — that's Wyeth. The original investigators were State Police out of my station because the body was on our side.\"\n\n\"That's the seam, and nobody's ever sewn it up. The borough police took the missing-person report, the borough dissolved in '94, their paper went to our records center — the old shoe factory on the east end of town, four floors of it. Kimmel's file is yours, the coroner's file is yours, whatever the borough kept is ours. If it turns out the girl was killed where she was taken, your DA loses venue and mine gains it, and Dunleavy over there knows that, which is why he'll be careful. If it turns out she was killed at the culvert, it's Wyeth's case and always was.\" He shrugged. \"Nobody's proved where the killing happened in forty-five years. You want my guess, that question never gets answered either, but you're going to ask it of every piece of paper, so you might as well hear it now.\"\n\nHannah wrote: *Seam — taken Carrick (Altamont), found Haskett (Wyeth). Borough records → Altamont records center, Hollins. DA Feeney wants the case. Dunleavy has venue unless otherwise shown.* She looked up. \"You're from Carrick.\"\n\n\"Born there. My father ran the clinic, thirty years, half the town owes him their tonsils. I was thirteen in the fall of '79.\" He didn't say the next part right away, and she let the silence sit, because she was learning already that Okafor used silence like a tool. \"Ruth Kessler walked home past the clinic some nights. October of '79 I was thirteen and my mother walked me to school for a month like I was eight. There were posters on the poles at both ends of Depot Street. And I'll tell you what everybody in town said, because you'll hear it inside ten minutes of driving in, so you might as well get it from somebody who was there. Everybody knew it was the Mercer boy.\"\n\n\"Knew,\" Hannah said.\n\n\"Knew. The argument, the car, the blood type — the talk had it tried and hung by Thanksgiving, and he was never charged, and it didn't matter. I believed it myself until I was grown, probably. So when you come to Carrick with me, understand what you're walking into. Nobody there has been waiting for this case to be solved. They think it was solved in 1979 and the law just failed to finish the paperwork.\"\n\nHe stood. He stood, took his jacket off the back of the chair, and patted the folders on his desk into a stack without looking at them.\n\n\"Come on. You've read the file, now you should walk the route. It's the only part of 1979 that's still standing.\"\n\n<!-- scene: b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1 -->\nAt the end of the day, Okafor drove them out in his county car, and Hannah let him, because it was his town and he knew where to put a vehicle without announcing it. They parked on Yard Road opposite the yard gate, in front of a low cinderblock building with a steel-sided addition and a sign she could read twice and still place: SIGNAL DINER, open twenty-four hours since before either of them was born, though the owners had changed.\n\n\"Same building,\" Okafor said, not getting out yet. \"Nick Pappas ran it then. Greek family, gone by '85. The counter's still the counter, I'd swear to it.\" He looked across the road at the yard gate, where a Norfolk Southern engine sat dark on a storage track. \"So she punched out at 10:56 and came out that door, and this is what she saw. The gate, the cab of whatever power was in that night, the lights. And then she walked.\"\n\nThey got out. January wind came down Yard Road off the ridge, and Hannah put her hands in her pockets and stood where the diner's door would have put a person. The yard ran long in both directions, strings of hoppers under the gray. She started the timer on her watch out of habit, and Okafor saw her do it and raised an eyebrow but said nothing.\n\nDepot Street left Yard Road at the corner past the diner and ran straight, a block and a half of narrow brick houses with their backs to the tracks, then the crossing. The rails crossed it flat and level with the road, no gates, a crossbuck and a bell housing that had to be older than the file. Nothing on the branch today. The silence at the crossing was total in the way of a working line between trains — no cars, no walkers, one dog barking somewhere behind the houses.\n\nHannah stood on the crossing and turned a slow half-circle. From here she could see the diner's roofline, the yard gate, the fire hall two doors up on the left, the freight station beyond it with the historical society's sign bolted to the brick. Everything Ruth Kessler would have walked past at eleven o'clock at night, minus the trees that had grown and the porch that had fallen in.\n\n\"Fifteen minutes,\" Okafor said, \"door to her mother's door, and that's if the train lets you. You want to time it?\"\n\nThey walked it. Mulberry Street was two blocks of frame houses, and 214 was the third on the left, porch posts replaced with PT lumber sometime in the eighties, a snow shovel leaning by the door where it had leaned for decades. Hannah did not go up the walk. Tommy Kessler was on her list, and the list said the file first, and the file was read, and she still wasn't ready to knock on this door for a reason she couldn't have written down. She noted the house, the porch light burning at midday, and turned back.\n\nFourteen minutes, her watch said, and they had not hurried.\n\n\"Half the town knows that walk,\" Okafor said on the way back. \"Other half knew it. There's the long way, if you care.\" He stopped at the corner of Depot and pointed east, down the tracks, the way the road bent along the yard's far side. \"Furnace Road. Around the east end of the yard, under the branch, comes back into town past the garage — the old Brandt garage, different subject. Nobody walks it at night if they can help it. No lights for half its length, even now.\"\n\nHannah wrote it down: *Route A — Depot St, ~15 min. Route B — Furnace Rd, long way, unlit.* Then, because she was trained to, she stood in the middle of Depot Street and looked at Furnace Road again, a quarter mile of nothing with the embankment of the branch line running parallel to it, and put the notebook away.\n\n\"You'll want the historical society,\" Okafor said, nodding toward the freight station. \"Railroad people keep railroad paper. But that's another trip. Today was the walk.\"\n\nThey parted at the diner, her car behind his. Before he shut his door he leaned on the roof of it.\n\n\"One thing, Brecht. When you come back to Carrick, come with me the first few times. I'm known there, for better or worse, and it opens doors. It also means whatever I hear, my DA hears. You decide what that's worth.\"\n\n\"I'll decide it on paper,\" she said, and he laughed and got in.\n\nShe drove back toward Port Allen by way of Furnace Road, because it was on her notebook now and she wanted it in her eyes too — the underpass, the east gate with the carmen's shanty beside it, the unlit half mile — before the light went.\n"
+  },
+  "calls": [
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0000187,
+      "ms": 472
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.000182175,
+      "ms": 494
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.00016855,
+      "ms": 449
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.000261425,
+      "ms": 452
+    },
+    {
+      "role": "editor",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.000189675,
+      "ms": 702
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0002794,
+      "ms": 1188
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0004304,
+      "ms": 1108
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.000407,
+      "ms": 970
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0001369,
+      "ms": 1033
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0001379,
+      "ms": 1089
+    },
+    {
+      "role": "verifier",
+      "status": 200,
+      "finish": "stop",
+      "cost": 0.0001784,
+      "ms": 1872
+    }
+  ]
+}

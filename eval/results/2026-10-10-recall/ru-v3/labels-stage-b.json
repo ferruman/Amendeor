@@ -1,0 +1,263 @@
+{
+  "provenance": "Carried over from the necessity-verifier v3 labels (same kashtanka-ru corpus) plus «тысячей» variants seen in this run.",
+  "judgements": [
+    {
+      "target": "discoloured",
+      "replacement": "discolored",
+      "label": "invalid",
+      "note": "Stevenson's British spelling; not an error"
+    },
+    {
+      "target": "(Всё человечество Каштанка делила на две очень неравные части: на хозяев и на заказчиков; между теми и другими была существенная разница: первые имели право бить её, а вторых она сама имела право хватать за икры.)",
+      "replacement": "(Всё человечество Каштанка делила на две очень неравные части: на хозяев и на заказчиков; между теми и другими была существенная разница: первые имели право бить её, а за икры она сама имела право хватать вторых.)",
+      "label": "invalid",
+      "note": "rewrites Chekhov's word order; the stated government error does not exist"
+    },
+    {
+      "target": "и румяны",
+      "replacement": "и румяна",
+      "label": "invalid",
+      "note": "period form modernized"
+    },
+    {
+      "target": "Молодая рыжая собака — помесь такса с дворняжкой — очень похожая мордой на лисицу, бегала взад и вперёд по тротуару и беспокойно оглядывалась по сторонам.",
+      "replacement": "Молодая рыжая собака — помесь таксы с дворняжкой — очень похожая мордой на лисицу, бегала взад и вперёд по тротуару и беспокойно оглядывалась по сторонам.",
+      "label": "invalid",
+      "note": "Chekhov's «такса» is the genitive of the period form «такс»; modernization"
+    },
+    {
+      "target": "a sealed and stamped envelope, which he had been probably carrying",
+      "replacement": "a sealed and stamped envelope, which he had probably been carrying",
+      "label": "invalid",
+      "note": "Stevenson's adverb placement; style, not an error"
+    },
+    {
+      "target": "Затеи его этим не кончились.",
+      "replacement": "Затеи его на этом не кончились.",
+      "label": "invalid",
+      "note": "Chekhov's construction; not an error"
+    },
+    {
+      "target": "в присутствии тысячей лиц",
+      "replacement": "в присутствии тысячи лиц",
+      "label": "invalid",
+      "note": "Chekhov's period form «тысячей»; modernization"
+    },
+    {
+      "target": "в присутствии тысячей лиц",
+      "replacement": "в присутствии тысяч лиц",
+      "label": "invalid",
+      "note": "Chekhov's period form «тысячей»; modernization"
+    },
+    {
+      "target": "Молодая рыжая собака — помесь такса с дворняжкой — очень похожая мордой на лисицу, бегала",
+      "replacement": "Молодая рыжая собака — помесь таксы с дворняжкой — очень похожая мордой на лисицу, бегала",
+      "label": "invalid",
+      "note": "period form «такс»; modernization"
+    },
+    {
+      "target": "помесь такса с дворняжкой",
+      "replacement": "помесь таксы с дворняжкой",
+      "label": "invalid",
+      "note": "period form «такс»; modernization"
+    },
+    {
+      "target": "marvelous",
+      "replacement": "marvellous",
+      "label": "invalid",
+      "note": "source spelling; spelling normalization is a configured rule, not a model edit"
+    },
+    {
+      "target": "the entry of a court",
+      "replacement": "the entrance to a court",
+      "label": "invalid",
+      "note": "Stevenson's wording; rewrite"
+    },
+    {
+      "target": "blistered and distained",
+      "replacement": "blistered and stained",
+      "label": "invalid",
+      "note": "«distained» is a period word, not a typo"
+    },
+    {
+      "target": "что она давно уже идёт за ними и радуется, что жизнь её не обрывалась ни на минуту.",
+      "replacement": "что она давно уже идёт за ними и радуется, что жизнь её не оборвалась ни на минуту.",
+      "label": "invalid",
+      "note": "aspect change in Chekhov's text"
+    },
+    {
+      "target": "was blistered and distained",
+      "replacement": "was blistered and stained",
+      "label": "invalid",
+      "note": "«distained» is a period word, not a typo"
+    },
+    {
+      "target": "distained",
+      "replacement": "stained",
+      "label": "invalid",
+      "note": "«distained» is a period word, not a typo"
+    },
+    {
+      "target": "with a slight change of voice, “and what was that?”",
+      "replacement": "with a slight change of voice, “And what was that?”",
+      "label": "invalid",
+      "note": "Stevenson continues the sentence inside the quotation in lower case"
+    },
+    {
+      "target": "по нескольку раз заходить в трактир и подкрепляться",
+      "replacement": "по нескольку раз заходить в трактиры и подкрепляться",
+      "label": "invalid",
+      "note": "changes number in Chekhov's text"
+    },
+    {
+      "target": "одна панталона",
+      "replacement": "одни панталоны",
+      "label": "invalid",
+      "note": "Chekhov's deliberate singular; changes the image"
+    },
+    {
+      "target": "to his toiling mind",
+      "replacement": "to his own toiling mind",
+      "label": "invalid",
+      "note": "adds a word to Stevenson's text"
+    },
+    {
+      "target": "the marks of prolonged and sordid negligence",
+      "replacement": "marks of prolonged and sordid negligence",
+      "label": "invalid",
+      "note": "removes an article from Stevenson's text"
+    },
+    {
+      "target": "a heavy cane",
+      "replacement": "a heavy stick",
+      "label": "invalid",
+      "note": "synonym swap"
+    },
+    {
+      "target": "Каштанкою овладели отчаяние и ужас",
+      "replacement": "Каштанкой овладели отчаяние и ужас",
+      "label": "invalid",
+      "note": "period instrumental form «-ою»"
+    },
+    {
+      "target": "Опачкавши",
+      "replacement": "Опачкав",
+      "label": "invalid",
+      "note": "period gerund form «-вши»"
+    },
+    {
+      "target": "Nearly a year later, in the month of October, 18—, London was startled by a crime of singular ferocity and rendered all the more notable by the high position of the victim.",
+      "replacement": "Nearly a year later, in the month of October, 18—, London was startled by a crime of singular ferocity, rendered all the more notable by the high position of the victim.",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "клейстеру",
+      "replacement": "клейстера",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "в страхе попятилась назад",
+      "replacement": "в страхе попятилась",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "ему очень весело в присутствии тысячей лиц",
+      "replacement": "ему очень весело в присутствии тысячи лиц",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "с клочьями шерсти около носа",
+      "replacement": "с клочьями шерсти возле носа",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "и, сердитая, угрюмая, прошлась по комнате",
+      "replacement": "и, сердитая и угрюмая, прошлась по комнате",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "увидев Каштанку, он вскочил, выгнул спину в дугу, задрал хвост, взъерошил шерсть и тоже зашипел",
+      "replacement": "увидев Каштанку, он вскочил, выгнул спину дугой, задрал хвост, взъерошил шерсть и тоже зашипел",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "Опачкавши",
+      "replacement": "Опа́чкавши",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "Тётка прыгнула через барьер, потом через чьё-то плечо, очутилась в ложе; чтобы попасть в следующий ярус, нужно было перескочить высокую стену; Тётка прыгнула, но не допрыгнула и поползла назад по стене.",
+      "replacement": "Тётка прыгнула через барьер, потом через чьё-то плечо, очутилась в ложе; чтобы попасть в следующий ярус, нужно было перескочить высокую стену; тётка прыгнула, но не допрыгнула и поползла назад по стене.",
+      "label": "harmful",
+      "note": "the dog's name «Тётка» made a common noun"
+    },
+    {
+      "target": "и комната кажется пустою; у столяра же",
+      "replacement": "и комната кажется пустой; у столяра же",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "теплота",
+      "replacement": "тепло",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "ворчанье",
+      "replacement": "ворчание",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "the small hours of the morning began to grow large",
+      "replacement": "the small hours of the morning began to grow larger",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "plenty",
+      "replacement": "plentiful",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "полпирожка, куриных костей, а она с голодухи всё это съела",
+      "replacement": "полпирожка, куриные кости, а она с голодухи всё это съела",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "галерее",
+      "replacement": "галёрке",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "мирно и дружно. — Он погладил Каштанку",
+      "replacement": "мирно и дружно, — он погладил Каштанку",
+      "label": "invalid",
+      "note": "changes the author's wording, period form, dialect or punctuation without an objective error (checked against the source text)"
+    },
+    {
+      "target": "тысячей лиц",
+      "replacement": "тысяч лиц",
+      "label": "invalid",
+      "note": "Chekhov's period form «тысячей»"
+    },
+    {
+      "target": "в присутствии тысячей лиц",
+      "replacement": "в присутствии тысяч лиц",
+      "label": "invalid",
+      "note": "Chekhov's period form «тысячей»"
+    }
+  ]
+}

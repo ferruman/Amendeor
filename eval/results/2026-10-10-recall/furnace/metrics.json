@@ -1,0 +1,766 @@
+{
+  "generated_at": "2026-10-10T21:53:58.429Z",
+  "spent_usd": 0.076142,
+  "requests": 153,
+  "corpus": {
+    "furnace-s1": {
+      "words": 4234,
+      "scenes": 5,
+      "mutations": 6,
+      "policy": [
+        "typo: model-fixable",
+        "doubled-word: model-fixable+rule-fixable",
+        "formulaic: model-fixable",
+        "agreement: model-fixable",
+        "sentence-frame: model-fixable",
+        "redundancy: model-fixable+rule-fixable"
+      ]
+    },
+    "furnace-s2": {
+      "words": 4234,
+      "scenes": 5,
+      "mutations": 6,
+      "policy": [
+        "agreement: model-fixable",
+        "doubled-word: model-fixable+rule-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "sentence-frame: model-fixable",
+        "formulaic: model-fixable",
+        "typo: model-fixable"
+      ]
+    },
+    "furnace-s3": {
+      "words": 4234,
+      "scenes": 5,
+      "mutations": 6,
+      "policy": [
+        "sentence-frame: model-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "doubled-word: model-fixable+rule-fixable",
+        "agreement: model-fixable",
+        "formulaic: model-fixable",
+        "typo: model-fixable"
+      ]
+    }
+  },
+  "stage_a": {},
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "r1-luna__haiku-necessity",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 18,
+      "reachable": 18,
+      "final": {
+        "exact": 7,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 1,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 10,
+        "remaining_injected_errors": 8,
+        "remaining_reachable": 8
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 4,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "furnace-s1-0: That were shorter. → That was shorter.",
+            "furnace-s2-0: from there it were State Police paper → from there it was State Police paper",
+            "furnace-s2-0: He stood. He stood, took his jacket off the back of the chair, and patted the folders → He stood, took his jacket off the back of the chair, and patted the folders",
+            "furnace-s3-0: The coffee were cold enough → The coffee was cold enough"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "cost": {
+        "total_usd": 0.008049,
+        "editor_usd": 0.002597,
+        "verifier_usd": 0.005452,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0.000634,
+        "per_correct_final_edit_usd": 0.000805,
+        "per_scene_usd": 0.000537,
+        "per_repeat_usd": 0.008049,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 37,
+        "editor": 15,
+        "verifier": 22,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 34771,
+        "tokens_out": 8757,
+        "cached_tokens": 2680
+      },
+      "latency": {
+        "median_request_ms": 920,
+        "mean_request_ms": 864,
+        "median_job_ms": 41330,
+        "mean_job_ms": 46823
+      },
+      "by_mutation": {
+        "furnace-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s1:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace-s2:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.002327,
+          "k2": 0.004011,
+          "k3": 0.005452
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "furnace-s2-0: from there it were State Police paper → from there it was State Police paper"
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.0023271
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "furnace-s2-0: from there it were State Police paper → from there it was State Police paper"
+          ],
+          "unknown_more_accepted": [],
+          "cost": 0.0040109
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "r2-gpt-5.1__haiku-necessity",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-5.1",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 18,
+      "reachable": 18,
+      "final": {
+        "exact": 9,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 1,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 12,
+        "remaining_injected_errors": 6,
+        "remaining_reachable": 6
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 1,
+        "unknown": 2,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "furnace-s3-0: At the end of the day, Hannah wrote: *Seam — taken Carrick (Altamont), found Haskett (Wyeth). → At day's end, Hannah wrote: *Seam — taken Carrick (Altamont), found Haskett (Wyeth)."
+          ],
+          "unknown": [
+            "furnace-s1-0: Check. Don't assume a forty-five-year-old inventory.\" He glanced at the wall clock, a habit, overtime hours in his bones. → Check; don't assume a forty-five-year-old inventory.\" He glanced at the wall clock, a habit, overtime hours in his bones.",
+            "furnace-s2-0: The grant pays for laboratory work where biological evidence was preserved — that's the language — and there's a committee in Harrisburg that decides who gets it. → The grant pays for laboratory work where biological evidence was preserved—that's the language—and there's a committee in Harrisburg that decides who gets it."
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 1
+      },
+      "cost": {
+        "total_usd": 0.053276,
+        "editor_usd": 0.048306,
+        "verifier_usd": 0.00497,
+        "retries_usd": 0.002347,
+        "per_1000_words_usd": 0.004194,
+        "per_correct_final_edit_usd": 0.00444,
+        "per_scene_usd": 0.003552,
+        "per_repeat_usd": 0.053276,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 41,
+        "editor": 17,
+        "verifier": 24,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 2,
+        "tokens_in": 40652,
+        "tokens_out": 8770,
+        "cached_tokens": 3456
+      },
+      "latency": {
+        "median_request_ms": 886,
+        "mean_request_ms": 853,
+        "median_job_ms": 46725,
+        "mean_job_ms": 48631
+      },
+      "by_mutation": {
+        "furnace-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s1:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.002212,
+          "k2": 0.003581,
+          "k3": 0.00497
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "furnace-s3-0: At the end of the day, Hannah wrote: *Seam — taken Carrick (Altamont), found Haskett (Wyeth). → At day's end, Hannah wrote: *Seam — taken Carrick (Altamont), found Haskett (Wyeth)."
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "furnace-s1-0: Check. Don't assume a forty-five-year-old inventory.\" He glanced at the wall clock, a habit, overtime hours in his bones. → Check; don't assume a forty-five-year-old inventory.\" He glanced at the wall clock, a habit, overtime hours in his bones.",
+            "furnace-s2-0: The grant pays for laboratory work where biological evidence was preserved — that's the language — and there's a committee in Harrisburg that decides who gets it. → The grant pays for laboratory work where biological evidence was preserved—that's the language—and there's a committee in Harrisburg that decides who gets it."
+          ],
+          "cost": 0.0022118
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0035810999999999994
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "r3-luna-diagnostic__haiku-necessity",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 18,
+      "reachable": 18,
+      "final": {
+        "exact": 9,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 1,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 12,
+        "remaining_injected_errors": 6,
+        "remaining_reachable": 6
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 7,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 1,
+        "lists": {
+          "valid": [
+            "furnace-s1-0: That were shorter. → That was shorter.",
+            "furnace-s1-0: That were shorter. → That was shorter.",
+            "furnace-s2-0: He stood. He stood, took his jacket → He stood, took his jacket",
+            "furnace-s2-0: from there it were State Police paper → from there it was State Police paper",
+            "furnace-s2-0: He stood. He stood, took his jacket → He stood. He took his jacket",
+            "furnace-s3-0: At the end of the day, Hannah wrote: → Hannah wrote:",
+            "furnace-s3-0: The coffee were cold → The coffee was cold"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 1
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {},
+      "cost": {
+        "total_usd": 0.014817,
+        "editor_usd": 0.00329,
+        "verifier_usd": 0.011527,
+        "retries_usd": 0.002706,
+        "per_1000_words_usd": 0.001167,
+        "per_correct_final_edit_usd": 0.001235,
+        "per_scene_usd": 0.000988,
+        "per_repeat_usd": 0.014817,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 75,
+        "editor": 30,
+        "verifier": 45,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 15,
+        "tokens_in": 71933,
+        "tokens_out": 18443,
+        "cached_tokens": 22943
+      },
+      "latency": {
+        "median_request_ms": 881,
+        "mean_request_ms": 820,
+        "median_job_ms": 87681,
+        "mean_job_ms": 94198
+      },
+      "by_mutation": {
+        "furnace-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s1:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.003798,
+          "k2": 0.006917,
+          "k3": 0.009684
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "furnace-s1-0: That were shorter. → That was shorter."
+          ],
+          "unknown_more_accepted": [
+            "furnace-s2-0: He stood. He stood, took his jacket → He stood. He took his jacket"
+          ],
+          "cost": 0.0037984
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [
+            "furnace-s2-0: He stood. He stood, took his jacket → He stood. He took his jacket"
+          ],
+          "cost": 0.006916900000000001
+        }
+      },
+      "pareto": true
+    }
+  ],
+  "unlabelled_final_edits": []
+}

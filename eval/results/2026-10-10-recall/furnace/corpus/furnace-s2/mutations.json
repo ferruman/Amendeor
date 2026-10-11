@@ -1,0 +1,135 @@
+{
+  "source": "books/bradshaw-01/manuscript/chapters/ch-f182cce3.md",
+  "sha256": "sha256:65d3b473c511187576aac1315275b59e928158afe8d7090077bb8e2e4c271ed5",
+  "seed": "recall-s2",
+  "generator": 2,
+  "mode": "copy",
+  "types_used": [
+    "typo",
+    "doubled-word",
+    "agreement",
+    "redundancy",
+    "sentence-frame",
+    "formulaic"
+  ],
+  "types_skipped": [
+    "qualifier",
+    "dialogue-format"
+  ],
+  "control_chapter": null,
+  "mutations": [
+    {
+      "id": "furnace-recall-s2:agreement:0:ch-f182cce3:be5f4f7d-b4e5-49d3-baab-7119ba11e183",
+      "type": "agreement",
+      "chapter": "ch-f182cce3",
+      "scene": "be5f4f7d-b4e5-49d3-baab-7119ba11e183",
+      "span": {
+        "start": 1808,
+        "end": 1812
+      },
+      "original": "was",
+      "mutated": "were",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace-recall-s2:doubled-word:0:ch-f182cce3:c7ea65b4-1059-42e0-ab34-1485586adf7c",
+      "type": "doubled-word",
+      "chapter": "ch-f182cce3",
+      "scene": "c7ea65b4-1059-42e0-ab34-1485586adf7c",
+      "span": {
+        "start": 2802,
+        "end": 2815
+      },
+      "original": "KIMMEL",
+      "mutated": "KIMMEL KIMMEL",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace-recall-s2:redundancy:0:ch-f182cce3:dc16bace-e542-4b47-bddf-431a7f1a69cf",
+      "type": "redundancy",
+      "chapter": "ch-f182cce3",
+      "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+      "span": {
+        "start": 647,
+        "end": 662
+      },
+      "original": "was",
+      "mutated": "was again again",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": [
+        "was again"
+      ]
+    },
+    {
+      "id": "furnace-recall-s2:sentence-frame:1:ch-f182cce3:dc16bace-e542-4b47-bddf-431a7f1a69cf",
+      "type": "sentence-frame",
+      "chapter": "ch-f182cce3",
+      "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+      "span": {
+        "start": 4511,
+        "end": 4529
+      },
+      "original": "He stood",
+      "mutated": "He stood. He stood",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace-recall-s2:formulaic:0:ch-f182cce3:b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "ch-f182cce3",
+      "scene": "b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+      "span": {
+        "start": 0,
+        "end": 35
+      },
+      "original": "Okafor drove",
+      "mutated": "At the end of the day, Okafor drove",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace-recall-s2:typo:1:ch-f182cce3:b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+      "type": "typo",
+      "chapter": "ch-f182cce3",
+      "scene": "b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+      "span": {
+        "start": 1653,
+        "end": 1660
+      },
+      "original": "barking",
+      "mutated": "bakring",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    }
+  ]
+}

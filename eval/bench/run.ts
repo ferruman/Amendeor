@@ -23,7 +23,7 @@ import type { Mutation } from '../mutate.ts';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const amendeor = path.resolve(here, '../..');
 type ModelSpec = { id: string; transport: 'openai' | 'anthropic'; endpoint?: string; reasoning_effort?: string };
-type StageBConfig = { id: string; editor: string; verifier: string; tier: number; check?: 'meaning' | 'necessity' };
+type StageBConfig = { id: string; editor: string; verifier: string; tier: number; check?: 'meaning' | 'necessity'; diagnostic?: boolean };
 const argv0 = process.argv.slice(2); const flag0 = (name: string) => { const index = argv0.indexOf(name); return index > 0 ? argv0[index + 1] : undefined; };
 const bench = JSON.parse(await readFile(path.join(here, flag0('--configs') ?? 'configs.json'), 'utf8')) as { stage_a_variants?: Array<{ name: string; verifier: string; check: 'meaning' | 'necessity' }>; cases?: string; models: Record<string, ModelSpec>; stage_b: StageBConfig[]; stage_a_verifiers: string[]; edit: { temperature: number; context_budget: number; mode: string }; verify: { passes: number }; works: string[]; corpus: string; repeats: number; budget_usd: number };
 const argv = process.argv.slice(2);
@@ -85,7 +85,7 @@ async function fixtureCorpus(name: string): Promise<void> {
 }
 
 // Учёт: один requests.jsonl на весь стенд, фактический usage.cost провайдера (или generation API), резерв худшего случая до вызова.
-interface Context { stage: string; job: string; roles: Map<string, { role: string; effort?: string }>; capHit?: boolean; calls: Array<{ role: string; text: string | null; status: number; finish: string | null; cost: number; ms: number }> }
+interface Context { diagnostic?: boolean; stage: string; job: string; roles: Map<string, { role: string; effort?: string }>; capHit?: boolean; calls: Array<{ role: string; text: string | null; status: number; finish: string | null; cost: number; ms: number }> }
 const context = new AsyncLocalStorage<Context>();
 const catalog = new Map<string, { prompt: number; completion: number }>();
 let spent = 0, reserved = 0;
@@ -102,6 +102,16 @@ async function generationCost(nativeFetch: typeof fetch, id: string, key: string
   }
   return null;
 }
+// Диагностический проход (только стенд): две строки продакшен-промпта copy-edit заменяются просьбой методично найти объективные
+// ошибки; остальные строки — защита имён и стиля, формат JSON, дословная цель — остаются. Изменился промпт — подмена не делается.
+const productionLines = ['Most windows need no changes. Return {"edits":[]} for NO_CHANGE.', 'Suggest copy edits only when the gain is clear.'];
+function diagnosticSystem(system: string): string {
+  if (!productionLines.every((line) => system.includes(line))) throw new Error('copy-edit prompt changed; diagnostic substitution refused');
+  return system
+    .replace(productionLines[0]!, 'Diagnostic pass: read EDITABLE TEXT slowly, sentence by sentence and word by word, and report every OBJECTIVE error you find. Return {"edits":[]} only if there is none.')
+    .replace(productionLines[1]!, 'Objective errors: misspelled or transposed letters; broken agreement (subject–verb, gender, number); a wrong word form or case; an accidentally doubled or missing word; a phrase or sentence fragment repeated by mistake; a stock phrase that is plainly out of place and breaks the sentence; an unambiguous punctuation slip. Do not report style, rhythm, word choice, period or regional spelling, dialect or a character\'s speech.');
+}
+
 function installMeter(): void {
   const nativeFetch = globalThis.fetch;
   globalThis.fetch = async (input: string | URL | Request, init?: RequestInit) => {
@@ -113,6 +123,7 @@ function installMeter(): void {
     const role = ctx.roles.get(body.model);
     if (!role) throw new Error(`model ${body.model} is not part of job ${ctx.job}`);
     if (role.effort && url.includes('/chat/completions')) body.reasoning = { enabled: true, effort: role.effort };
+    if (ctx.diagnostic && role.role === 'editor') body.messages[0].content = diagnosticSystem(String(body.messages[0].content));
     if (url.includes('/chat/completions')) body.usage = { include: true };
     const price = catalog.get(body.model)!;
     const inputChars = JSON.stringify(body.messages ?? []).length + String(body.system ?? '').length;
@@ -154,8 +165,14 @@ async function prepare(): Promise<void> {
   if (!process.env[keyEnv]) throw new Error(`${keyEnv} is not set`);
   if (!await exists(path.join(root, 'corpus'))) throw new Error('run the corpus command first');
   spent = await spentSoFar();
-  const parent = out.includes('/') ? path.dirname(root) : null;
-  for (const file of parent ? (await readdir(parent).catch(() => [] as string[])).map((name) => path.join(parent, name, 'requests.jsonl')) : [requestsFile()])
+  // Средняя фактическая цена запроса модели — по всем журналам стендов в eval/results (только для оценки батча, не для лимита).
+  const ledgers: string[] = [];
+  const base = path.join(amendeor, 'eval/results');
+  for (const name of await readdir(base).catch(() => [] as string[])) {
+    ledgers.push(path.join(base, name, 'requests.jsonl'));
+    for (const sub of await readdir(path.join(base, name)).catch(() => [] as string[])) ledgers.push(path.join(base, name, sub, 'requests.jsonl'));
+  }
+  for (const file of ledgers)
     for (const row of await readJsonl(file)) if (row.status === 200 && row.model) { const item = measured.get(row.model) ?? { n: 0, total: 0 }; item.n++; item.total += row.cost; measured.set(row.model, item); }
   const data = (await (await fetch('https://openrouter.ai/api/v1/models')).json()).data as Array<{ id: string; pricing: { prompt: string; completion: string } }>;
   for (const id of new Set(Object.values(bench.models).map((model) => model.id))) { const entry = data.find((item) => item.id === id); if (!entry) throw new Error(`model absent from the OpenRouter catalog: ${id}`); catalog.set(id, { prompt: Number(entry.pricing.prompt), completion: Number(entry.pricing.completion) }); }
@@ -171,7 +188,7 @@ function configFor(editor: ModelSpec | null, verifier: ModelSpec, passes = bench
   return configSchema.parse({ preserve: [],
     providers: { ...(editor ? { editor: provider(editor) } : {}), verifier: provider(verifier) },
     profiles: { ...(editor ? { edit: { provider: 'editor', model: editor.id, temperature: bench.edit.temperature, reasoning: Boolean(editor.reasoning_effort), context_budget: bench.edit.context_budget } } : {}),
-      verify: { provider: 'verifier', model: verifier.id, passes, reasoning: Boolean(verifier.reasoning_effort), ...(check ? { check } : {}) } } });
+      verify: { provider: 'verifier', model: verifier.id, passes, reasoning: Boolean(verifier.reasoning_effort), ...(verifier.reasoning_effort ? { reasoning_effort: verifier.reasoning_effort } : {}), ...(check ? { check } : {}) } } });
 }
 // Оценка перед батчем: заведомо завышенная (символы как токены), чтобы не начать то, что может не уместиться.
 // Если в журнале стенда уже есть ≥ 10 успешных запросов к модели, оценка — их средняя фактическая цена × 2 (запас);
@@ -288,7 +305,22 @@ async function stageB(): Promise<void> {
       const pack = await loadPack(source.book.lang);
       const ctx: Context = { stage: 'stage-b', job, roles: new Map([[editor.id, { role: 'editor', effort: editor.reasoning_effort }], [verifier.id, { role: 'verifier', effort: verifier.reasoning_effort }]]), calls: [] };
       const started = Date.now();
-      const result = await context.run(ctx, () => editMechanical(source, { config: configFor(editor, verifier, bench.verify.passes, config.check), winningLayer: {}, warnings: [] }, pack, { mode: bench.edit.mode, noCache: true }));
+      const loaded = { config: configFor(editor, verifier, bench.verify.passes, config.check), winningLayer: {}, warnings: [] };
+      let result = await context.run(ctx, () => editMechanical(source, loaded, pack, { mode: bench.edit.mode, noCache: true }));
+      // Диагностическая ветка: второй проход того же редактора на свежей копии, предложения объединяются (по id; первое побеждает).
+      if (config.diagnostic) {
+        const second = path.join(dir, 'workspace-diagnostic');
+        await cp(path.join(root, 'corpus', work), second, { recursive: true });
+        ctx.diagnostic = true;
+        const extra = await context.run(ctx, async () => editMechanical(await openSource(second), loaded, pack, { mode: bench.edit.mode, noCache: true }));
+        ctx.diagnostic = false;
+        const ids = new Set(result.proposals.map((proposal) => proposal.id));
+        const guard = (run: typeof result, pass: string) => (run.run.guard as { rejections: Array<Record<string, unknown>> }).rejections.map((item) => ({ ...item, pass }));
+        const rejections = [...guard(result, 'production'), ...guard(extra, 'diagnostic')];
+        result = { ...result, proposals: [...result.proposals, ...extra.proposals.filter((proposal) => !ids.has(proposal.id))],
+          run: { ...result.run, guard: { ...(result.run.guard as object), rejections }, stages: [...(result.run.stages as unknown[]), ...(extra.run.stages as Array<Record<string, unknown>>).map((stage) => ({ ...stage, pass: 'diagnostic' }))] } };
+        await rm(second, { recursive: true, force: true });
+      }
       const elapsed = Date.now() - started;
       if (ctx.capHit) { await writeFile(path.join(dir, 'incomplete.json'), JSON.stringify({ job, reason: 'budget cap reached during the job; its results are not valid' }, null, 2)); throw new Error(`budget cap reached in ${job}; stopping`); }
       // Пайплайн записывает отказ провайдера как сбой окна и продолжает; для стенда такое задание недействительно.

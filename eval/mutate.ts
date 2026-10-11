@@ -71,10 +71,11 @@ function alternativesFor(type: MutationType, original: string, lang: string): st
 }
 
 export interface Plan { mutations: Mutation[]; chapters: Map<string, string> }
-export function planMutations(source: OpenedSource, fixture: { language: string; control_chapter: string }, preserve: { spans: PreserveSpan[] }, pack: LanguagePack, work: string, seed: string, includeFormulaic: boolean, options: { generator?: 1 | 2; mode?: EditMode } = {}): Plan {
+export function planMutations(source: OpenedSource, fixture: { language: string; control_chapter: string }, preserve: { spans: PreserveSpan[] }, pack: LanguagePack, work: string, seed: string, includeFormulaic: boolean, options: { generator?: 1 | 2; mode?: EditMode; types?: MutationType[] } = {}): Plan {
   const generator = options.generator ?? 1;
   const picks = new Map<string, Array<{ type: MutationType; candidate: Candidate; chapter: string; scene: string; dialogue: boolean }>>();
-  for (const type of includeFormulaic ? [...kinds, 'formulaic' as const] : kinds) {
+  // types — подмножество видов мутаций для текста, где часть видов неприменима (нет «Hyde» / «Каштанки»).
+  for (const type of options.types ?? (includeFormulaic ? [...kinds, 'formulaic' as const] : kinds)) {
     const eligible: Array<{ type: MutationType; candidate: Candidate; chapter: string; scene: string; dialogue: boolean }> = [];
     for (const chapter of source.book.chapters) {
       if (chapter.slug === fixture.control_chapter) continue;

@@ -1,0 +1,135 @@
+{
+  "source": "books/bradshaw-01/manuscript/chapters/ch-f182cce3.md",
+  "sha256": "sha256:65d3b473c511187576aac1315275b59e928158afe8d7090077bb8e2e4c271ed5",
+  "seed": "recall-s1",
+  "generator": 2,
+  "mode": "copy",
+  "types_used": [
+    "typo",
+    "doubled-word",
+    "agreement",
+    "redundancy",
+    "sentence-frame",
+    "formulaic"
+  ],
+  "types_skipped": [
+    "qualifier",
+    "dialogue-format"
+  ],
+  "control_chapter": null,
+  "mutations": [
+    {
+      "id": "furnace-recall-s1:typo:0:ch-f182cce3:be5f4f7d-b4e5-49d3-baab-7119ba11e183",
+      "type": "typo",
+      "chapter": "ch-f182cce3",
+      "scene": "be5f4f7d-b4e5-49d3-baab-7119ba11e183",
+      "span": {
+        "start": 1291,
+        "end": 1297
+      },
+      "original": "paused",
+      "mutated": "pasued",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace-recall-s1:doubled-word:1:ch-f182cce3:be5f4f7d-b4e5-49d3-baab-7119ba11e183",
+      "type": "doubled-word",
+      "chapter": "ch-f182cce3",
+      "scene": "be5f4f7d-b4e5-49d3-baab-7119ba11e183",
+      "span": {
+        "start": 1461,
+        "end": 1472
+      },
+      "original": "phone",
+      "mutated": "phone phone",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace-recall-s1:formulaic:0:ch-f182cce3:c7ea65b4-1059-42e0-ab34-1485586adf7c",
+      "type": "formulaic",
+      "pattern_id": "formulaic.filler-frame",
+      "chapter": "ch-f182cce3",
+      "scene": "c7ea65b4-1059-42e0-ab34-1485586adf7c",
+      "span": {
+        "start": 2082,
+        "end": 2117
+      },
+      "original": "Then nothing",
+      "mutated": "At the end of the day, Then nothing",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace-recall-s1:agreement:1:ch-f182cce3:c7ea65b4-1059-42e0-ab34-1485586adf7c",
+      "type": "agreement",
+      "chapter": "ch-f182cce3",
+      "scene": "c7ea65b4-1059-42e0-ab34-1485586adf7c",
+      "span": {
+        "start": 2170,
+        "end": 2174
+      },
+      "original": "was",
+      "mutated": "were",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace-recall-s1:sentence-frame:0:ch-f182cce3:dc16bace-e542-4b47-bddf-431a7f1a69cf",
+      "type": "sentence-frame",
+      "chapter": "ch-f182cce3",
+      "scene": "dc16bace-e542-4b47-bddf-431a7f1a69cf",
+      "span": {
+        "start": 779,
+        "end": 795
+      },
+      "original": "he went",
+      "mutated": "he went. he went",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "furnace-recall-s1:redundancy:0:ch-f182cce3:b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+      "type": "redundancy",
+      "chapter": "ch-f182cce3",
+      "scene": "b52e5392-b2f8-4ae0-94b8-98aa4d8a22f1",
+      "span": {
+        "start": 4163,
+        "end": 4178
+      },
+      "original": "was",
+      "mutated": "was again again",
+      "mode": "copy",
+      "in_dialogue": false,
+      "policy": [
+        "model-fixable",
+        "rule-fixable"
+      ],
+      "alternatives": [
+        "was again"
+      ]
+    }
+  ]
+}
