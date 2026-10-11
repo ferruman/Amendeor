@@ -9,10 +9,14 @@ const root = path.join(amendeor, 'eval/results', process.argv[process.argv.index
 const requests = (await readFile(path.join(root, 'requests.jsonl'), 'utf8')).trim().split('\n').filter(Boolean).map((line) => JSON.parse(line));
 const sum = (values: number[]) => values.reduce((a, b) => a + b, 0);
 const median = (values: number[]) => { const sorted = [...values].sort((a, b) => a - b); return sorted.length ? sorted[Math.floor((sorted.length - 1) / 2)]! : null; };
-type Row = { id: string; label: string; category: string; language: string; self_pairing: boolean; deterministic: string; decision: string; verify_failed: boolean; answers: Array<{ necessary?: boolean; preserved: boolean }>; cost: number; ms: number };
+type Row = { subset?: string; id: string; label: string; category: string; language: string; self_pairing: boolean; deterministic: string; decision: string; verify_failed: boolean; answers: Array<{ necessary?: boolean; preserved: boolean }>; cost: number; ms: number };
 const variants: Array<{ variant: string; verifier: string; model: string; check: string; rows: Row[] }> = [];
 for (const file of (await readdir(root)).filter((name) => name.endsWith('.json') && !name.startsWith('metrics') && !name.startsWith('deterministic'))) variants.push(JSON.parse(await readFile(path.join(root, file), 'utf8')));
 variants.sort((a, b) => a.variant.localeCompare(b.variant));
+// Часть набора (necessity / dev / holdout) — из файла случаев, если он передан.
+const casesFile = process.argv.includes('--cases') ? process.argv[process.argv.indexOf('--cases') + 1]! : null;
+const subsets = new Map<string, string>(casesFile ? (JSON.parse(await readFile(path.join(amendeor, 'eval/bench', casesFile), 'utf8')).cases as Array<{ id: string; subset?: string }>).map((item) => [item.id, item.subset ?? 'all']) : []);
+for (const variant of variants) for (const row of variant.rows) row.subset = subsets.get(row.id) ?? 'all';
 
 // Проход = цепочка попыток шлюза до полного ответа; решение после k проходов — все k ответов «принять».
 const ok = (answer: { necessary?: boolean; preserved: boolean }) => answer.preserved && answer.necessary !== false;
@@ -48,11 +52,13 @@ for (const variant of variants) {
   const rows = variant.rows.filter((row) => !excluded.has(`${variant.verifier}:${row.id}`));
   // Путь производства: детерминированный слой вместе с предложениями правил (deterministic-with-rules.json), иначе — без них.
   const production = rows.filter((row) => withRules ? withRules[row.id]?.with_rules === 'passes' : row.deterministic === 'passes');
-  const group = (key: 'language' | 'category' | 'label') => Object.fromEntries([...new Set(rows.map((row) => row[key]))].sort().map((value) => [value, { pass1: metrics(variant, rows.filter((row) => row[key] === value), 1), pass3: metrics(variant, rows.filter((row) => row[key] === value), 3) }]));
+  const group = (key: 'language' | 'category' | 'label' | 'subset') => Object.fromEntries([...new Set(rows.map((row) => row[key]))].sort().map((value) => [value, { pass1: metrics(variant, rows.filter((row) => row[key] === value), 1), pass3: metrics(variant, rows.filter((row) => row[key] === value), 3) }]));
   const calls = requests.filter((call) => call.job.startsWith(`${variant.variant}/`));
   result[variant.variant] = { model: variant.model, check: variant.check, excluded_self_pairing: variant.rows.length - rows.length,
     all: { pass1: metrics(variant, rows, 1), pass3: metrics(variant, rows, 3) }, reaching_verifier: { cases: production.length, pass1: metrics(variant, production, 1), pass3: metrics(variant, production, 3) },
-    by_language: group('language'), by_category: group('category'),
+    by_language: group('language'), by_category: group('category'), by_subset: group('subset'),
+    // Расхождение проходов: в одной правке есть и «принять», и «отклонить» (только среди дошедших до второго прохода).
+    pass_disagreement: rows.filter((row) => row.answers.length > 1 && new Set(row.answers.map((answer) => ok(answer))).size > 1).map((row) => row.id),
     requests: calls.length, truncated: calls.filter((call) => call.finish === 'length' || call.finish === 'max_tokens').length, provider_failures: calls.filter((call) => call.status !== 200).length,
     tokens_in: sum(calls.map((call) => call.usage?.prompt_tokens ?? call.usage?.input_tokens ?? 0)), tokens_out: sum(calls.map((call) => call.usage?.completion_tokens ?? call.usage?.output_tokens ?? 0)),
     reasoning_tokens: sum(calls.map((call) => call.usage?.completion_tokens_details?.reasoning_tokens ?? 0)), cached_tokens: sum(calls.map((call) => call.usage?.prompt_tokens_details?.cached_tokens ?? call.usage?.cache_read_input_tokens ?? 0)),

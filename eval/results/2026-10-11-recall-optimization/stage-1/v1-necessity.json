@@ -1,0 +1,2664 @@
+{
+  "variant": "v1-necessity",
+  "verifier": "haiku-medium",
+  "model": "anthropic/claude-haiku-5.5",
+  "effort": "medium",
+  "check": "necessity",
+  "context": false,
+  "passes": 3,
+  "rows": [
+    {
+      "id": "ru-typo",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0003549,
+      "ms": 8901
+    },
+    {
+      "id": "en-typo",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0006249000000000001,
+      "ms": 9882
+    },
+    {
+      "id": "ru-agreement",
+      "label": "ACCEPT",
+      "category": "grammar",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0005751,
+      "ms": 11132
+    },
+    {
+      "id": "en-agreement",
+      "label": "ACCEPT",
+      "category": "grammar",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0006282,
+      "ms": 12347
+    },
+    {
+      "id": "ru-dialogue-dash",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "ru",
+      "self_pairing": true,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0009223,
+      "ms": 12757
+    },
+    {
+      "id": "en-mixed-quotes",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0010049,
+      "ms": 13966
+    },
+    {
+      "id": "en-comma-restored",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is not objectively wrong. Adding a comma after 'however' is an optional punctuation choice, which the rules do not count as a necessary fix. AFTER keeps all facts, wording and voice unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002243,
+      "ms": 3170
+    },
+    {
+      "id": "ru-dedupe-exact",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE contains an accidental repeated word ('снова снова'), which is a real copy error, so the edit is necessary. But AFTER deletes both instances of 'снова' instead of removing only the duplicate. That drops the single 'снова' ('again'), which carries meaning, so the fix goes beyond the error and changes the sentence's content.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0004778,
+      "ms": 6693
+    },
+    {
+      "id": "ru-dedupe-alternative",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0008621,
+      "ms": 12490
+    },
+    {
+      "id": "en-dedupe-alternative",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "en",
+      "self_pairing": true,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE contains an accidentally repeated word ('again again'), which is an objective error, and AFTER removes the duplicate. However, AFTER keeps the stray 'again', which is not in the author's wording ('when this meal was over'). That leftover word adds a sense of recurrence ('was over again'), so the edit changes the meaning rather than preserving it.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0005725,
+      "ms": 6468
+    },
+    {
+      "id": "en-dedupe-name",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0005977,
+      "ms": 10975
+    },
+    {
+      "id": "en-doubled-article",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0002828,
+      "ms": 8357
+    },
+    {
+      "id": "ru-filler-removal",
+      "label": "ACCEPT",
+      "category": "prose-pattern",
+      "language": "ru",
+      "self_pairing": true,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0008124,
+      "ms": 12824
+    },
+    {
+      "id": "en-filler-removal",
+      "label": "ACCEPT",
+      "category": "prose-pattern",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0006573,
+      "ms": 11129
+    },
+    {
+      "id": "ru-adverb-reattachment",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE contains an accidentally repeated word, «снова снова», which is a real error, so the edit is necessary. But AFTER does more than remove the duplicate. It moves «снова» from modifying «сказал» (he did not say again) to modifying «вышел» (he left again). That shifts the meaning and implies an earlier departure that the text does not establish, so the edit is not meaning-preserving.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0004342,
+      "ms": 5679
+    },
+    {
+      "id": "ru-repetition-insertion",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE contains an accidental duplicated word, «снова снова», which is a real error. AFTER removes the duplication but does not do it minimally: it turns the phrase into «снова и снова» (\"again and again\"), which adds an intensifying, repeated-action meaning the original does not have. Deleting one «снова» would fix the error while preserving the meaning.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0004631,
+      "ms": 6602
+    },
+    {
+      "id": "ru-number-change",
+      "label": "REJECT_HARMFUL",
+      "category": "incorrect-grammar",
+      "language": "ru",
+      "self_pairing": true,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct: «около» takes the genitive, and «ноги» is the genitive singular of «нога», so «около его ноги» means 'near his leg'. AFTER changes the number to the plural «ног» ('near his legs'), which alters the described action without fixing an error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0003792,
+      "ms": 5232
+    },
+    {
+      "id": "en-invented-attribution",
+      "label": "REJECT_HARMFUL",
+      "category": "dialogue-format",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE contains an accidentally repeated word (\"Poole Poole\"), which is a real typo. AFTER correctly removes the duplicate. However, AFTER also adds a speaker attribution (\"said the lawyer\") that does not appear in BEFORE. This is a new fact about who speaks, beyond the typo fix, so the edit alters the text rather than only correcting the error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0004821,
+      "ms": 6389
+    },
+    {
+      "id": "en-dialogue-deletion",
+      "label": "REJECT_HARMFUL",
+      "category": "dialogue-format",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE contains an accidentally repeated word, 'Poole Poole', which is an objective error that AFTER correctly fixes. However, AFTER also silently deletes the opening 'Well,', which is not an error. That removes the speaker's hesitant, conversational tone, so the edit changes the character's voice beyond what the fix required.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0003511,
+      "ms": 5275
+    },
+    {
+      "id": "en-speech-merge",
+      "label": "REJECT_HARMFUL",
+      "category": "dialogue-format",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not objectively wrong: the two short dialogue beats, \"Go,\" and \"Now.\", are a deliberate stylistic fragment with no grammar, spelling, or punctuation error. AFTER merges them into \"Go now,\" which is a rhythm and style change rather than a fix. It also drops the separate, emphatic beat that the author's staccato cadence creates, so the author's voice is altered.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0003082,
+      "ms": 4578
+    },
+    {
+      "id": "ru-name-to-common-noun",
+      "label": "REJECT_HARMFUL",
+      "category": "name-corruption",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not an error. «Тётка» is used as a nickname that functions as a proper name (\"ты, Тётка\" in the next sentence), so the capital is consistent. AFTER lowercases it, which introduces an inconsistency with the capitalized «Тётка» below and turns a name into a common noun.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.000327,
+      "ms": 4792
+    },
+    {
+      "id": "en-name-corruption",
+      "label": "REJECT_HARMFUL",
+      "category": "name-corruption",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE misspells the character's name as 'Hide' (the author's wording is 'Hyde'), so it is an objective typo. AFTER does not correct it. It substitutes a different wrong spelling, 'Hade', so the error is not fixed. The edit also alters the character's name, which changes a fact of the text.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002862,
+      "ms": 4883
+    },
+    {
+      "id": "en-name-swap",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE contains no error. 'Dr. Jekyll' is the correct subject, since the paragraph's speaker ('said he') is Jekyll, who says 'I do not care to hear more.' AFTER swaps in 'Mr. Utterson', which changes whose face grows pale and breaks the attribution to the speaker, altering the scene's facts and implications.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002115,
+      "ms": 3990
+    },
+    {
+      "id": "en-action-changed",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE ('He kept the letter.') is grammatically correct and contains no typo or error. AFTER changes the action from keeping the letter to burning it, which alters the plot fact and the character's state, so the edit is an unnecessary and harmful change.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001441,
+      "ms": 2904
+    },
+    {
+      "id": "en-time-changed",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: number-date-time-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is the author's wording and contains no objective error: 'about three o'clock of a black winter morning' is idiomatic and grammatical. The later reference to 'four in the morning' is a separate event, not a contradiction. AFTER changes the author's stated time of the incident from three to four o'clock, altering a fact in the narrative.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0003337,
+      "ms": 4133
+    },
+    {
+      "id": "en-degree-removed",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatical and meaningful; nothing in it is an objective error. AFTER reverses the meaning: 'He fell' contradicts the following sentence, where he catches the rail and goes on, and it removes the author's implication that he came close to falling but did not.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001485,
+      "ms": 2851
+    },
+    {
+      "id": "ru-uncertainty-removed",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatical and natural: «кажется» is a correctly punctuated parenthetical that expresses the narrator's uncertainty. Nothing in the sentence is a typo, agreement error, or stray filler. AFTER deletes the hedge, which turns a tentative statement into a flat assertion and changes the author's stated certainty.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001699,
+      "ms": 3011
+    },
+    {
+      "id": "ru-aspect-changed",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct: «читал» is a well-formed imperfective past form, and in this context (an boring evening, with the aunt watching the fire) it correctly presents reading as an ongoing activity. AFTER switches to the perfective «прочитал», which changes the aspect and implies the letter was finished. That alters the described action and is not a fix for any error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001977,
+      "ms": 3926
+    },
+    {
+      "id": "ru-wrong-agreement",
+      "label": "REJECT_HARMFUL",
+      "category": "incorrect-grammar",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct: «она» is feminine and «пошла» agrees with it (the context, «Тётке... она пошла за ним», confirms the subject is the aunt). AFTER changes the verb to masculine «пошёл», creating a subject-verb gender disagreement and altering the character's gender in the sentence.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001815,
+      "ms": 3146
+    },
+    {
+      "id": "en-wrong-whom",
+      "label": "REJECT_HARMFUL",
+      "category": "incorrect-grammar",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatically correct: 'who' is the subject of 'was there', so the nominative is required. AFTER wrongly changes it to the objective 'whom', introducing an error. The edit is unnecessary and harmful, though it does not change facts, action, or voice.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002908,
+      "ms": 3800
+    },
+    {
+      "id": "ru-modernization",
+      "label": "REJECT_UNNECESSARY",
+      "category": "modernization",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: «румяны» is a nonstandard form of «румяна» (a plural-only noun), but it is a plausible 19th-century variant that appears in older Russian texts, so BEFORE is not clearly an objective error. The change is therefore not a required fix. The meaning and the rest of the sentence are unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0005795,
+      "ms": 7037
+    },
+    {
+      "id": "en-modernization-hyphen",
+      "label": "REJECT_UNNECESSARY",
+      "category": "modernization",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "decision": "REJECT",
+      "reason": "verify failed: [\n  {\n    \"expected\": \"boolean\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"preserved\"\n    ],\n    \"message\": \"Invalid input: expected boolean, received undefined\"\n  }\n]",
+      "verify_failed": true,
+      "passes_used": 1,
+      "answers": [],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002587,
+      "ms": 4606
+    },
+    {
+      "id": "en-modernization-vocative",
+      "label": "REJECT_UNNECESSARY",
+      "category": "modernization",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE uses \"O,\" an archaic but correct interjection in this Victorian-style prose, so it is not an objective error. Changing it to \"Oh\" is a modernizing spelling preference, not a fix. The meaning, speaker, and tone are unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002093,
+      "ms": 3618
+    },
+    {
+      "id": "en-stylistic-rewrite",
+      "label": "REJECT_UNNECESSARY",
+      "category": "stylistic-rewrite",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct and idiomatic for Stevenson's period voice; 'a nausea and distaste of life' has no typo, agreement error or other objective fault. AFTER is a stylistic rewrite (adding 'a feeling of', swapping 'distaste' for 'disgust', and changing 'of life' to 'with life'), which alters the author's wording and voice without fixing any error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0003029,
+      "ms": 4522
+    },
+    {
+      "id": "en-optional-comma",
+      "label": "REJECT_UNNECESSARY",
+      "category": "stylistic-rewrite",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: The edit only adds a comma between the coordinate adjectives 'large' and 'handsome'. Such a comma is optional, not required, so BEFORE is not an objective error. The wording, meaning and voice are unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001454,
+      "ms": 2702
+    },
+    {
+      "id": "ru-comma-removal",
+      "label": "REJECT_UNNECESSARY",
+      "category": "stylistic-rewrite",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "decision": "REJECT",
+      "reason": "verify failed: [\n  {\n    \"expected\": \"boolean\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"preserved\"\n    ],\n    \"message\": \"Invalid input: expected boolean, received undefined\"\n  }\n]",
+      "verify_failed": true,
+      "passes_used": 1,
+      "answers": [],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.000427,
+      "ms": 3880
+    },
+    {
+      "id": "en-dialogue-grammar",
+      "label": "AMBIGUOUS",
+      "category": "ambiguous",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not an error. \"as hard as she were able\" is a standard subjunctive comparison (\"as hard as she could\"), part of the author's period voice, so the change is unnecessary. AFTER also shifts the mood from hypothetical to indicative, altering the author's wording and nuance.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.000438,
+      "ms": 4060
+    },
+    {
+      "id": "en-name-canon",
+      "label": "AMBIGUOUS",
+      "category": "ambiguous",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0004883999999999999,
+      "ms": 9226
+    },
+    {
+      "id": "en-place-name",
+      "label": "AMBIGUOUS",
+      "category": "ambiguous",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE uses the two-word spelling \"Black Mail House,\" which is an older or variant spelling of \"blackmail\" and not an objective error. The original text uses the same form, so changing it to \"Blackmail House\" is a spelling preference, not a required fix. The meaning and voice are unchanged, but the edit is unnecessary.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002752,
+      "ms": 4127
+    },
+    {
+      "id": "ru-case-form",
+      "label": "ACCEPT",
+      "category": "case-form",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0004519,
+      "ms": 10163
+    },
+    {
+      "id": "ru-spelling-2",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0003026,
+      "ms": 8755
+    },
+    {
+      "id": "en-spelling-2",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0002992,
+      "ms": 8635
+    },
+    {
+      "id": "en-agreement-2",
+      "label": "ACCEPT",
+      "category": "grammar",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0003117,
+      "ms": 8507
+    },
+    {
+      "id": "en-agreement-mutation",
+      "label": "ACCEPT",
+      "category": "grammar",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0008632,
+      "ms": 13993
+    },
+    {
+      "id": "en-double-comma",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: unsupported-comma-change",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0002909,
+      "ms": 8501
+    },
+    {
+      "id": "ru-space-comma",
+      "label": "ACCEPT",
+      "category": "punctuation",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.00039190000000000004,
+      "ms": 9623
+    },
+    {
+      "id": "en-and-and",
+      "label": "ACCEPT",
+      "category": "repetition",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0003108,
+      "ms": 8595
+    },
+    {
+      "id": "en-filler-mutation-v3",
+      "label": "ACCEPT",
+      "category": "prose-pattern",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0010566,
+      "ms": 12987
+    },
+    {
+      "id": "ru-period-form-taksa",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0005941,
+      "ms": 10973
+    },
+    {
+      "id": "ru-period-form-tysyachey",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE has a real case error: «тысячей» is instrumental, but «в присутствии» requires the genitive. AFTER «тысячи» is genitive, but singular, and it still doesn't agree with «лиц». The grammatical form should be «тысяч лиц», so AFTER does not fully correct the error. Meaning and voice are otherwise unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0005894,
+      "ms": 7253
+    },
+    {
+      "id": "ru-period-spelling-shkap",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: «шкап» is an older accepted spelling of «шкаф» (cupboard), a period form rather than a typo or grammatical error, so BEFORE is not objectively wrong. The AFTER edit only modernizes the spelling and does not change the facts, actions, or meaning of the sentence.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.000327,
+      "ms": 4166
+    },
+    {
+      "id": "en-regional-discoloured",
+      "label": "REJECT_UNNECESSARY",
+      "category": "regional-spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is not an error. 'discoloured' is a standard British spelling, and the passage uses British spelling throughout ('storeys', 'mouldings'), so this is a regional spelling variant (colour/color type), not a typo or grammatical mistake. AFTER changes only the spelling and keeps the meaning, facts and tone intact.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002929,
+      "ms": 4418
+    },
+    {
+      "id": "en-regional-marvelous",
+      "label": "REJECT_UNNECESSARY",
+      "category": "regional-spelling",
+      "language": "en",
+      "self_pairing": true,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: \"marvelous\" is a valid American spelling variant of \"marvellous\", not a misspelling or typo. The surrounding British spellings (\"coloured\", \"lustre\"-style forms) make the British form consistent with the text, but a regional spelling difference does not make BEFORE objectively wrong. The edit changes spelling only, so no content is altered.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002665,
+      "ms": 3745
+    },
+    {
+      "id": "ru-dialect-neshto",
+      "label": "REJECT_UNNECESSARY",
+      "category": "dialect",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "not preserved: «Нешто» is a colloquial/dialect particle (meaning «разве», «неужели») used here in the peasant's own voice, and the sentence is grammatical. It is not an objective error, so replacing it is an unnecessary change of register. The edit also erases the character's dialectal speech, which is part of the author's voice, so it is not preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001829,
+      "ms": 3311
+    },
+    {
+      "id": "en-dialect-aint",
+      "label": "REJECT_UNNECESSARY",
+      "category": "dialect",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "verify failed: Unterminated string in JSON at position 424 (line 1 column 425)",
+      "verify_failed": true,
+      "passes_used": 1,
+      "answers": [],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001283,
+      "ms": 1661
+    },
+    {
+      "id": "ru-speech-er",
+      "label": "REJECT_UNNECESSARY",
+      "category": "character-speech",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not an error. «-с» is a colloquial particle of respectful, servile speech, and it suits the watchman («Сторож вытянулся… ваше благородие»). It is a character's voice, which the rules say not to correct. AFTER removes this marker, altering the characterization and the author's voice without fixing a real mistake.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001765,
+      "ms": 3122
+    },
+    {
+      "id": "ru-synonym-stal",
+      "label": "REJECT_UNNECESSARY",
+      "category": "synonym",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatically correct: «стать» followed by an infinitive («стал облачаться») is standard Russian for beginning an action. Replacing it with «начал» is a synonym swap for style, not a fix for an objective error. The meaning is essentially unchanged, so the edit is harmless but unnecessary.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002475,
+      "ms": 3372
+    },
+    {
+      "id": "en-synonym-entry",
+      "label": "REJECT_UNNECESSARY",
+      "category": "synonym",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is not an error. In this period usage, 'entry' means a passage or alley leading into a court, as in Stevenson's original text. AFTER is a synonym swap ('entrance') made for style, which the rules do not treat as necessary. The meaning is essentially preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002035,
+      "ms": 3598
+    },
+    {
+      "id": "ru-word-order-ikry",
+      "label": "REJECT_UNNECESSARY",
+      "category": "word-order",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatically correct and matches Chekhov's original wording; the AFTER only reorders the clause ('за икры ... хватать вторых'), which is a stylistic change, not a fix of any objective error. The meaning is essentially unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002361,
+      "ms": 4714
+    },
+    {
+      "id": "en-adverb-placement",
+      "label": "REJECT_UNNECESSARY",
+      "category": "word-order",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is not an error. \"had been probably carrying\" is a grammatical split of the auxiliary by an adverb, and it matches Stevenson's original wording. AFTER is only a rephrasing for rhythm, which is not a necessary fix. The meaning is unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002155,
+      "ms": 4413
+    },
+    {
+      "id": "ru-pleonasm",
+      "label": "REJECT_UNNECESSARY",
+      "category": "stylistic-rewrite",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is not an objective error. «попятиться назад» is a redundant pleonasm, since «пятиться» already means moving backward, but redundancy is not a necessary fix. The phrase matches Chekhov's original wording in «Каштанка», so the author's text stands. AFTER would keep the meaning, but the edit is unnecessary.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002684,
+      "ms": 4384
+    },
+    {
+      "id": "ru-colloquial-udobney",
+      "label": "REJECT_UNNECESSARY",
+      "category": "clean-control",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatically correct: «удобнее» is a valid comparative form. «удобней» is an accepted variant of the same comparative, so the edit is a stylistic or spelling-variant change, not a fix of an error. The meaning is unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001955,
+      "ms": 3348
+    },
+    {
+      "id": "ru-zatei",
+      "label": "REJECT_UNNECESSARY",
+      "category": "clean-control",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatically correct: «кончиться этим» (\"end with this\") is a standard construction, so no typo, agreement, case, or other objective error is present. AFTER («на этом не кончились») is only a stylistic rephrasing of the same meaning, and the facts, actions, and narrative voice are unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002801,
+      "ms": 4214
+    },
+    {
+      "id": "ru-aspect-obryvalas",
+      "label": "REJECT_UNNECESSARY",
+      "category": "clean-control",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatical: «обрывалась» is the imperfective past of «обрываться», which fits the durative sense 'her life did not break off for a moment'. No agreement, case, spelling or other objective error exists, so the edit is unnecessary. The switch to the perfective «оборвалась» also shifts the aspect from an ongoing process to a completed event, which subtly alters the author's meaning.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0003278,
+      "ms": 4512
+    },
+    {
+      "id": "en-distained",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: 'Distained' is a genuine (archaic) English word meaning discoloured or stained, and it is the author's deliberate Victorian wording in Stevenson's text. BEFORE is not an error, so the edit to 'stained' is an unnecessary synonym swap that also alters the author's period voice.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002529,
+      "ms": 4272
+    },
+    {
+      "id": "en-only-attachment",
+      "label": "REJECT_HARMFUL",
+      "category": "adverb-attachment",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatical and not objectively wrong. 'Only' modifies the verb, meaning he merely told her the truth, which fits the surrounding context. AFTER moves 'only' to modify 'her', changing the meaning to he told the truth to her alone and no one else. That alters the implication of the sentence.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002073,
+      "ms": 4414
+    },
+    {
+      "id": "en-name-typo-intro",
+      "label": "REJECT_HARMFUL",
+      "category": "name-corruption",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: proper-name-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE spells the character's name correctly as 'Mr. Utterson', so it contains no error. AFTER introduces a misspelling, 'Mr. Uterson', which changes the character's name.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001502,
+      "ms": 2741
+    },
+    {
+      "id": "ru-invented-action",
+      "label": "REJECT_HARMFUL",
+      "category": "invented-attribution",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically and typographically correct; the edit adds a new action ('и улыбнулся') that is not in the author's text, changing the narration and implying a character state the author did not state. This is an unnecessary and harmful insertion, not a fix of an objective error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001114,
+      "ms": 1500
+    },
+    {
+      "id": "ru-number-years",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: number-date-time-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct: «два года» is the proper genitive singular after «два». No typo, agreement, or case error exists. AFTER changes the stated duration from two years to three, which alters a fact in the author's text and is not a necessary correction.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001438,
+      "ms": 3936
+    },
+    {
+      "id": "furnace-agreement-1",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0011954,
+      "ms": 15666
+    },
+    {
+      "id": "furnace-agreement-2",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0009237,
+      "ms": 13109
+    },
+    {
+      "id": "furnace-agreement-3",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0011142,
+      "ms": 14488
+    },
+    {
+      "id": "ru-v3-agreement",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: target stale",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE «думал» is grammatically correct for a masculine subject, and the paragraph's most recent male subject is Фёдор Тимофеич, so nothing shows an agreement error. AFTER «думала» changes the thinker to the female «тётка», which alters who holds the thought and is not a fix for any real error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0003373,
+      "ms": 3984
+    },
+    {
+      "id": "furnace-clean-that",
+      "label": "REJECT_UNNECESSARY",
+      "category": "clean-prose",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatically correct. The complementizer 'that' after 'told her' is optional, so adding it is a stylistic choice, not the fix of an objective error. The meaning and voice are unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001323,
+      "ms": 2509
+    },
+    {
+      "id": "furnace-clean-leapt",
+      "label": "REJECT_UNNECESSARY",
+      "category": "clean-prose",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "verify failed: [\n  {\n    \"expected\": \"boolean\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"preserved\"\n    ],\n    \"message\": \"Invalid input: expected boolean, received undefined\"\n  }\n]",
+      "verify_failed": true,
+      "passes_used": 1,
+      "answers": [],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001526,
+      "ms": 3041
+    },
+    {
+      "id": "furnace-clean-diner",
+      "label": "REJECT_UNNECESSARY",
+      "category": "clean-prose",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatical. \"the diner's door\" is a correct possessive, and AFTER's \"the diner door\" is a compound noun modifier. Nothing is misspelled or broken, so this is a stylistic choice rather than a required fix. The meaning is unchanged in both versions.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002049,
+      "ms": 3662
+    },
+    {
+      "id": "furnace-clean-death",
+      "label": "REJECT_HARMFUL",
+      "category": "clean-prose",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not clearly ungrammatical. 'four days after the girl' is a terse but intelligible temporal phrase, and the author may have left the event unnamed on purpose. AFTER supplies 'death', which is a new fact and specifies what the author left open, so the edit is both unnecessary and changes the content.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0004721,
+      "ms": 5158
+    },
+    {
+      "id": "furnace-clean-tense",
+      "label": "REJECT_HARMFUL",
+      "category": "clean-prose",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct. The narration is in past tense ('He sat back down and looked'), so 'was going to' is the proper form in the free indirect perspective of the sentence. AFTER shifts the tense to present 'is going to' without any error to fix, which breaks the narrative's tense consistency and changes the voice.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.000201,
+      "ms": 3373
+    },
+    {
+      "id": "vanka-kazhnoe",
+      "label": "REJECT_UNNECESSARY",
+      "category": "dialect",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: «кажное» is a phonetic, dialect-style rendering of «каждое» (the same pronunciation-based spelling as «пущают» and «нету» in this peasant narrator's voice), not an objective spelling error. Changing it to the standard form is a register or voice change, not a required correction. The meaning is unchanged either way.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002991,
+      "ms": 3922
+    },
+    {
+      "id": "vanka-to-seki",
+      "label": "REJECT_UNNECESSARY",
+      "category": "dialect",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not an objective error. «а если что, то секи меня» is grammatical colloquial speech in the child narrator's voice, and the «то» construction is idiomatic. The edit to «так» is a stylistic swap that changes the wording of the author's text, so it is neither required nor faithful to the original.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002098,
+      "ms": 3413
+    },
+    {
+      "id": "kashtanka-kashtankoyu",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-grammar",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE uses the instrumental form «Каштанкою» (with the -ою ending), which is a valid literary variant of «Каштанкой» and matches Chekhov's original wording. It is not a grammatical or typographic error, so the edit is an unnecessary change to an older word form. The meaning is unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0003444,
+      "ms": 4908
+    },
+    {
+      "id": "kashtanka-opachkavshi",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-grammar",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is not an error: «опачкавши» is a valid perfective adverbial participle (деепричастие на -вши) of «опачкать», so the change to «опачкав» is a stylistic variant, not a fix. The meaning is unchanged, but the edit is unnecessary.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002771,
+      "ms": 7524
+    },
+    {
+      "id": "fid-dev",
+      "label": "AMBIGUOUS",
+      "category": "free-indirect",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE uses nonstandard 'Them papers was' (demonstrative 'them' and subject-verb disagreement), but this reads as dialect in the character's own free indirect voice, which the author appears to intend. Standardizing it to 'Those papers were' is a voice change, not a fix of an objective error, and it removes the character's colloquial register.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002481,
+      "ms": 5306
+    },
+    {
+      "id": "h-en-agr-1",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0005344,
+      "ms": 10560
+    },
+    {
+      "id": "h-en-agr-2",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0006486,
+      "ms": 11762
+    },
+    {
+      "id": "h-en-agr-3",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0005092,
+      "ms": 10448
+    },
+    {
+      "id": "h-en-agr-4",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0005537,
+      "ms": 10431
+    },
+    {
+      "id": "h-en-typo",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0002827,
+      "ms": 8407
+    },
+    {
+      "id": "h-ru-agr-1",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0007659,
+      "ms": 13691
+    },
+    {
+      "id": "h-ru-agr-2",
+      "label": "ACCEPT",
+      "category": "narrative-agreement",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0005327999999999999,
+      "ms": 11063
+    },
+    {
+      "id": "h-ru-case-1",
+      "label": "ACCEPT",
+      "category": "case-form",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: location-change",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0003388,
+      "ms": 8468
+    },
+    {
+      "id": "h-ru-case-2",
+      "label": "ACCEPT",
+      "category": "case-form",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0005409999999999999,
+      "ms": 10699
+    },
+    {
+      "id": "h-ru-typo",
+      "label": "ACCEPT",
+      "category": "spelling",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "ACCEPT",
+      "reason": "necessary and preserved",
+      "verify_failed": false,
+      "passes_used": 3,
+      "answers": [
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        },
+        {
+          "necessary": true,
+          "preserved": true
+        }
+      ],
+      "requests": 3,
+      "truncated": 0,
+      "cost": 0.0002844,
+      "ms": 8493
+    },
+    {
+      "id": "h-en-dialect-speech",
+      "label": "REJECT_UNNECESSARY",
+      "category": "dialect",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: negation-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not an objective error. \"I ain't never seen it\" is a double negation typical of colloquial dialect, and it is the old man's own voice, which the rules say not to correct. AFTER also changes the character's voice and register (\"ain't\" to \"have\", dropping the vernacular), so it is not preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001952,
+      "ms": 3281
+    },
+    {
+      "id": "h-ru-dialect-speech",
+      "label": "REJECT_UNNECESSARY",
+      "category": "dialect",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: dialogue-content-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not an error: «невдомёк» is a correct, idiomatic word meaning «not occurring to us / beyond our understanding». AFTER is a synonym swap that fixes nothing. It also flattens the peasant's folksy voice in «Мы, барин, люди тёмные», which the author chose deliberately.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002003,
+      "ms": 3333
+    },
+    {
+      "id": "h-en-fid-recurring",
+      "label": "REJECT_UNNECESSARY",
+      "category": "free-indirect",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE uses nonstandard 'were' with a singular subject, but the author uses this consistently in the same paragraph ('the creek were always up'), and it reads as deliberate dialect in a character's voice, which the rules exclude. AFTER standardizes the agreement, which removes the author's voice even though the propositional content is unchanged.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.000347,
+      "ms": 6036
+    },
+    {
+      "id": "h-en-fid-ambiguous",
+      "label": "AMBIGUOUS",
+      "category": "free-indirect",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: 'He weren't' is a dialect form (singular 'were' with a singular subject, common in many regional English varieties) used in a close-third narrative voice, and the guidelines treat dialect and a character's voice as not necessary to correct. Since it is unsure whether this counts as an objective error, it should not be changed. The edit also removes the dialect marker, which alters the author's voice.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002985,
+      "ms": 4079
+    },
+    {
+      "id": "h-en-historical",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: 'connexion' is an older, period spelling of 'connection' (a variant the rules explicitly exempt), not a misspelling or grammatical error in this context. Changing it to the modern spelling is a spelling-modernization edit, so it is not necessary; the meaning is unchanged, so it is preserved.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001122,
+      "ms": 1588
+    },
+    {
+      "id": "h-en-historical-2",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-spelling",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: punctuation-style-only",
+      "decision": "REJECT",
+      "reason": "unnecessary: \"to-day\" is an older hyphenated spelling of \"today\", which the rules treat as a period spelling variant rather than an objective error. The sentence is grammatically and orthographically sound in BEFORE, and AFTER keeps the same meaning and voice.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001505,
+      "ms": 2642
+    },
+    {
+      "id": "h-ru-historical-partitive",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-grammar",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatical. «подали чаю» uses the partitive genitive, which is standard and idiomatic after «подать» (compare «подать чаю/кофе»). AFTER «подали чай» is also correct, so the change is a stylistic choice, not a fix of an error. The meaning, the scene and the narrative voice stay the same.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.000215,
+      "ms": 3756
+    },
+    {
+      "id": "h-ru-historical-podle",
+      "label": "REJECT_UNNECESSARY",
+      "category": "historical-grammar",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "semantic-trap: location-change",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct: «подле» governs the genitive, and «окошка» is the genitive singular of «окошко». The edit is a synonym swap («возле» for «подле», «окна» for «окошка»), not a fix for an error. It also drops the diminutive «окошко», which softens the tone of the sentence, so the author's voice is altered.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002028,
+      "ms": 3301
+    },
+    {
+      "id": "h-en-style",
+      "label": "REJECT_UNNECESSARY",
+      "category": "stylistic-rewrite",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE is grammatically correct and idiomatic; 'walked slowly to the door' has no error. Moving 'slowly' to the end is a stylistic rephrasing, not a fix of an objective mistake, so the edit is unnecessary (though it preserves the meaning and voice).",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001116,
+      "ms": 1469
+    },
+    {
+      "id": "h-ru-style",
+      "label": "REJECT_UNNECESSARY",
+      "category": "synonym",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "unnecessary: BEFORE contains no objective error: «тихо сказала» is grammatically correct and idiomatic. Replacing «тихо» with the synonym «негромко» is a stylistic swap, not a fix of a mistake.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": true
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001001,
+      "ms": 1682
+    },
+    {
+      "id": "h-en-fact",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is not an error: \"under the mat\" is correct English and fits the sentence. The change to \"rug\" is a synonym swap, not a fix. It also alters a concrete detail: a doormat by the entrance is not the same object as a floor rug, so the edit changes the scene.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002383,
+      "ms": 3955
+    },
+    {
+      "id": "h-en-degree",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically and factually correct; 'almost certain' is a valid hedged state. AFTER changes his certainty from almost certain to certain, altering a character state. The following 'Still, he called the lab' also fits the hedged wording, so the edit is an unnecessary change that harms meaning.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001739,
+      "ms": 3174
+    },
+    {
+      "id": "h-ru-fact",
+      "label": "REJECT_HARMFUL",
+      "category": "factual",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct: «через неделю» uses the accusative required by «через» with time spans. AFTER changes the time span from a week to a month, which alters a factual detail of the narrative (he returns after a week, not a month). This is a content change, not a fix of an error.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001589,
+      "ms": 2889
+    },
+    {
+      "id": "h-ru-degree",
+      "label": "REJECT_HARMFUL",
+      "category": "semantic-drift",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct and idiomatic ('почти не спала' = 'hardly slept'); there is no typo, agreement error, or broken construction. The edit is a stylistic removal of a qualifier, and it changes the meaning: 'почти не спала' (barely slept, some sleep) becomes 'не спала' (did not sleep at all), altering the factual extent of the character's sleeplessness.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0001325,
+      "ms": 1525
+    },
+    {
+      "id": "h-en-wrong-grammar",
+      "label": "REJECT_HARMFUL",
+      "category": "incorrect-grammar",
+      "language": "en",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "not preserved: BEFORE is grammatically correct ('They were' agrees with the plural subject), so no objective error exists. AFTER introduces a subject-verb agreement error ('They was') into standard narration, altering the author's voice without fixing anything.",
+      "verify_failed": false,
+      "passes_used": 1,
+      "answers": [
+        {
+          "necessary": false,
+          "preserved": false
+        }
+      ],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.0002378,
+      "ms": 4096
+    },
+    {
+      "id": "h-ru-ambiguous-count",
+      "label": "AMBIGUOUS",
+      "category": "ambiguous",
+      "language": "ru",
+      "self_pairing": false,
+      "deterministic": "passes",
+      "decision": "REJECT",
+      "reason": "verify failed: [\n  {\n    \"expected\": \"boolean\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"preserved\"\n    ],\n    \"message\": \"Invalid input: expected boolean, received undefined\"\n  }\n]",
+      "verify_failed": true,
+      "passes_used": 1,
+      "answers": [],
+      "requests": 1,
+      "truncated": 0,
+      "cost": 0.000221,
+      "ms": 4290
+    }
+  ]
+}

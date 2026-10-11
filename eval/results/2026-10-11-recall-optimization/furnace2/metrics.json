@@ -1,0 +1,1085 @@
+{
+  "generated_at": "2026-10-11T07:32:14.654Z",
+  "spent_usd": 0.029845,
+  "requests": 162,
+  "corpus": {
+    "furnace2-s1": {
+      "words": 3465,
+      "scenes": 4,
+      "mutations": 6,
+      "policy": [
+        "redundancy: model-fixable+rule-fixable",
+        "formulaic: model-fixable",
+        "agreement: model-fixable",
+        "sentence-frame: model-fixable",
+        "doubled-word: model-fixable+rule-fixable",
+        "typo: model-fixable"
+      ]
+    },
+    "furnace2-s2": {
+      "words": 3465,
+      "scenes": 4,
+      "mutations": 6,
+      "policy": [
+        "typo: model-fixable",
+        "doubled-word: model-fixable+rule-fixable",
+        "agreement: model-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "formulaic: model-fixable",
+        "sentence-frame: model-fixable"
+      ]
+    },
+    "furnace2-s3": {
+      "words": 3465,
+      "scenes": 4,
+      "mutations": 6,
+      "policy": [
+        "formulaic: model-fixable",
+        "agreement: model-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "doubled-word: model-fixable",
+        "sentence-frame: model-fixable",
+        "typo: model-fixable"
+      ]
+    }
+  },
+  "stage_a": {},
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "c1-production",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 18,
+      "reachable": 18,
+      "final": {
+        "exact": 8,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 1,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 11,
+        "remaining_injected_errors": 7,
+        "remaining_reachable": 7
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 2,
+        "harmful_or_incorrect": 1,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "furnace2-s2-0: At the end of the day,  → ",
+            "furnace2-s3-0: At the end of the day, Kimmel put a hand on the man's shoulder and went past him. → Kimmel put a hand on the man's shoulder and went past him."
+          ],
+          "harmful_or_incorrect": [
+            "furnace2-s3-0: he wrote. he wrote nothing → he wrote. He wrote nothing"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 1,
+      "discarded": {
+        "target-not-verbatim-in-window": 2
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 13,
+        "final_policy_compliant": 11,
+        "reachable": 18
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 6,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 5,
+        "semantic-trap": 1,
+        "semantic-verifier": 3
+      },
+      "model_proposals_offered": 6,
+      "cost": {
+        "total_usd": 0.008341,
+        "editor_usd": 0.002768,
+        "verifier_usd": 0.005573,
+        "retries_usd": 0.000206,
+        "per_1000_words_usd": 0.000802,
+        "per_correct_final_edit_usd": 0.000758,
+        "per_scene_usd": 0.000695,
+        "per_repeat_usd": 0.008341,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 35,
+        "editor": 13,
+        "verifier": 22,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 33791,
+        "tokens_out": 8970,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "median_request_ms": 1040,
+        "mean_request_ms": 961,
+        "median_job_ms": 42045,
+        "mean_job_ms": 43940
+      },
+      "by_mutation": {
+        "furnace2-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:doubled-word": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.002341,
+          "k2": 0.004031,
+          "k3": 0.005573
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "furnace2-s3-0: he wrote. he wrote nothing → he wrote. He wrote nothing"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.002341
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [
+            "furnace2-s3-0: he wrote. he wrote nothing → he wrote. He wrote nothing"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.004030799999999999
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c2-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 18,
+      "reachable": 18,
+      "final": {
+        "exact": 6,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 2,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 9,
+        "remaining_injected_errors": 9,
+        "remaining_reachable": 9
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 2,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 1,
+        "lists": {
+          "valid": [
+            "furnace2-s2-0: At the end of the day, Mercer told it the same way the other trooper had written it, close enough that Kimmel could put the two accounts side by side in his head and watch them match, and that meant nothing by itself, because a story repeated gets smoother, not truer. → Mercer told it the same way the other trooper had written it, close enough that Kimmel could put the two accounts side by side in his head and watch them match, and that meant nothing by itself, because a story repeated gets smoother, not truer.",
+            "furnace2-s3-0: a run that that carried → a run that carried"
+          ],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 1
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "target-not-verbatim-in-window": 1
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 11,
+        "final_policy_compliant": 9,
+        "reachable": 18
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 6,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 5,
+        "semantic-trap": 5,
+        "semantic-verifier": 2
+      },
+      "model_proposals_offered": 6,
+      "cost": {
+        "total_usd": 0.00615,
+        "editor_usd": 0.000615,
+        "verifier_usd": 0.005534,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0.000592,
+        "per_correct_final_edit_usd": 0.000683,
+        "per_scene_usd": 0.000512,
+        "per_repeat_usd": 0.00615,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 32,
+        "editor": 12,
+        "verifier": 20,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 41353,
+        "tokens_out": 7191,
+        "cached_tokens": 17568
+      },
+      "latency": {
+        "median_request_ms": 1018,
+        "mean_request_ms": 990,
+        "median_job_ms": 39827,
+        "mean_job_ms": 38942
+      },
+      "by_mutation": {
+        "furnace2-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:doubled-word": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.002296,
+          "k2": 0.00398,
+          "k3": 0.005534
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0022957999999999998
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0039800999999999994
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c3-dual",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 18,
+      "reachable": 18,
+      "final": {
+        "exact": 7,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 2,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 10,
+        "remaining_injected_errors": 8,
+        "remaining_reachable": 8
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 2,
+        "harmful_or_incorrect": 3,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "furnace2-s2-0: At the end of the day,  → ",
+            "furnace2-s2-0: He stood. He stood at the desk → He stood at the desk"
+          ],
+          "harmful_or_incorrect": [
+            "furnace2-s2-0: the way his first sergeant used to say it → the way his first sergeant used to put it",
+            "furnace2-s3-0: folding the tops over twice the way a man folds a letter → folding the tops over twice, like a letter",
+            "furnace2-s3-0: the way a kid looks when the county police have been at his girl's funeral and his own street → as a kid looks when the county police have been at his girl's funeral and his own street"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 1,
+      "discarded": {
+        "target-not-verbatim-in-window": 5
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 12,
+        "final_policy_compliant": 10,
+        "reachable": 18
+      },
+      "merge": {
+        "merged_identical": 9,
+        "conflicts": 2,
+        "candidates": {
+          "standard": 15,
+          "diagnostic": 16
+        },
+        "final_provenance": {
+          "standard": 1,
+          "diagnostic": 1,
+          "standard+diagnostic": 5
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 4,
+        "semantic-trap": 2,
+        "semantic-verifier": 5
+      },
+      "model_proposals_offered": 7,
+      "cost": {
+        "total_usd": 0.009106,
+        "editor_usd": 0.003356,
+        "verifier_usd": 0.00575,
+        "retries_usd": 0.000033,
+        "per_1000_words_usd": 0.000876,
+        "per_correct_final_edit_usd": 0.000911,
+        "per_scene_usd": 0.000759,
+        "per_repeat_usd": 0.009106,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 51,
+        "editor": 25,
+        "verifier": 26,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 55540,
+        "tokens_out": 9599,
+        "cached_tokens": 19074
+      },
+      "latency": {
+        "median_request_ms": 969,
+        "mean_request_ms": 919,
+        "median_job_ms": 63879,
+        "mean_job_ms": 61396
+      },
+      "by_mutation": {
+        "furnace2-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:doubled-word": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.002772,
+          "k2": 0.004231,
+          "k3": 0.00575
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "furnace2-s2-0: the way his first sergeant used to say it → the way his first sergeant used to put it",
+            "furnace2-s3-0: the way a kid looks when the county police have been at his girl's funeral and his own street → as a kid looks when the county police have been at his girl's funeral and his own street"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0027723
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0042313
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "c4-dual-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 18,
+      "reachable": 18,
+      "final": {
+        "exact": 7,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 1,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 10,
+        "remaining_injected_errors": 8,
+        "remaining_reachable": 8
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 0,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 0,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 2,
+        "harmful_or_incorrect": 1,
+        "unknown": 1,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "furnace2-s2-0: At the end of the day, Mercer told it the same way the other trooper had written it, → Mercer told it the same way the other trooper had written it,",
+            "furnace2-s3-0: At the end of the day, Kimmel put a hand on the man's shoulder and went past him. → Kimmel put a hand on the man's shoulder and went past him."
+          ],
+          "harmful_or_incorrect": [
+            "furnace2-s2-0: his first sergeant used to say it: outdoors is a liar. → his first sergeant used to say it: outdoors was a liar."
+          ],
+          "unknown": [
+            "furnace2-s3-0: cluster of orange vest → cluster of orange vests"
+          ],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 1,
+      "discarded": {
+        "target-not-verbatim-in-window": 4,
+        "no-op": 1
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 12,
+        "final_policy_compliant": 10,
+        "reachable": 18
+      },
+      "merge": {
+        "merged_identical": 9,
+        "conflicts": 3,
+        "candidates": {
+          "standard": 14,
+          "diagnostic": 16
+        },
+        "final_provenance": {
+          "standard": 1,
+          "diagnostic": 0,
+          "standard+diagnostic": 4
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 4,
+        "semantic-trap": 2,
+        "semantic-verifier": 4
+      },
+      "model_proposals_offered": 5,
+      "cost": {
+        "total_usd": 0.006248,
+        "editor_usd": 0.001228,
+        "verifier_usd": 0.00502,
+        "retries_usd": 0.000033,
+        "per_1000_words_usd": 0.000601,
+        "per_correct_final_edit_usd": 0.000625,
+        "per_scene_usd": 0.000521,
+        "per_repeat_usd": 0.006248,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 44,
+        "editor": 25,
+        "verifier": 19,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 60321,
+        "tokens_out": 7244,
+        "cached_tokens": 37842
+      },
+      "latency": {
+        "median_request_ms": 649,
+        "mean_request_ms": 871,
+        "median_job_ms": 58117,
+        "mean_job_ms": 52039
+      },
+      "by_mutation": {
+        "furnace2-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s1:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:doubled-word": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace2-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:doubled-word": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "furnace2-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "furnace2-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.002672,
+          "k2": 0.003858,
+          "k3": 0.00502
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [
+            "furnace2-s2-0: At the end of the day, Mercer told it the same way the other trooper had written it, → Mercer told it the same way the other trooper had written it,"
+          ],
+          "unknown_more_accepted": [
+            "furnace2-s3-0: cluster of orange vest → cluster of orange vests"
+          ],
+          "cost": 0.0026723
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0038580999999999997
+        }
+      },
+      "pareto": true
+    }
+  ],
+  "unlabelled_final_edits": []
+}

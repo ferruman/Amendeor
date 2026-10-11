@@ -1,0 +1,1282 @@
+{
+  "generated_at": "2026-10-11T07:32:16.279Z",
+  "spent_usd": 0.048574,
+  "requests": 219,
+  "corpus": {
+    "ru-new-s1": {
+      "words": 2657,
+      "scenes": 5,
+      "mutations": 8,
+      "policy": [
+        "qualifier: model-fixable",
+        "sentence-frame: model-fixable",
+        "dialogue-format: rule-fixable",
+        "formulaic: model-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "doubled-word: rule-fixable",
+        "typo: model-fixable",
+        "agreement: model-fixable"
+      ]
+    },
+    "ru-new-s2": {
+      "words": 2657,
+      "scenes": 5,
+      "mutations": 8,
+      "policy": [
+        "formulaic: model-fixable",
+        "qualifier: model-fixable",
+        "sentence-frame: model-fixable",
+        "doubled-word: rule-fixable",
+        "typo: model-fixable",
+        "dialogue-format: rule-fixable",
+        "redundancy: model-fixable+rule-fixable",
+        "agreement: model-fixable"
+      ]
+    },
+    "ru-new-s3": {
+      "words": 2657,
+      "scenes": 5,
+      "mutations": 8,
+      "policy": [
+        "qualifier: model-fixable",
+        "sentence-frame: model-fixable",
+        "formulaic: model-fixable",
+        "dialogue-format: rule-fixable",
+        "typo: model-fixable",
+        "doubled-word: rule-fixable",
+        "agreement: model-fixable",
+        "redundancy: model-fixable+rule-fixable"
+      ]
+    }
+  },
+  "stage_a": {},
+  "escalation": {},
+  "stage_b": [
+    {
+      "config": "c1-production",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 24,
+      "reachable": 24,
+      "final": {
+        "exact": 15,
+        "alternative": 3,
+        "partial": 1,
+        "incorrect": 1,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 18,
+        "remaining_injected_errors": 6,
+        "remaining_reachable": 6
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 3,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 3,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 1,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "ru-new-s2-0: он оглядывается. он оглядывается ещё раз → он оглядывается. Он оглядывается ещё раз"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "target-not-verbatim-in-window": 1
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 18,
+        "final_policy_compliant": 18,
+        "reachable": 24
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 10,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 5,
+        "semantic-trap": 13,
+        "semantic-verifier": 1
+      },
+      "model_proposals_offered": 10,
+      "cost": {
+        "total_usd": 0.011296,
+        "editor_usd": 0.003465,
+        "verifier_usd": 0.007832,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0.001417,
+        "per_correct_final_edit_usd": 0.000628,
+        "per_scene_usd": 0.000753,
+        "per_repeat_usd": 0.011296,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 46,
+        "editor": 15,
+        "verifier": 31,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 45057,
+        "tokens_out": 12583,
+        "cached_tokens": 0
+      },
+      "latency": {
+        "median_request_ms": 1053,
+        "mean_request_ms": 999,
+        "median_job_ms": 62735,
+        "mean_job_ms": 60274
+      },
+      "by_mutation": {
+        "ru-new-s1:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.003128,
+          "k2": 0.005501,
+          "k3": 0.007832
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "ru-new-s2-0: он оглядывается. он оглядывается ещё раз → он оглядывается. Он оглядывается ещё раз"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0031276999999999998
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0055008
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c2-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 24,
+      "reachable": 24,
+      "final": {
+        "exact": 16,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 2,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 19,
+        "remaining_injected_errors": 5,
+        "remaining_reachable": 5
+      },
+      "unnecessary": {
+        "model": 1,
+        "rule": 3,
+        "control_edits": 0,
+        "judged_harmful": 1,
+        "judged_invalid": 3,
+        "judged_valid": 0
+      },
+      "harmful_final": [
+        "ru-new-s3-0: два докторами → два доктора"
+      ],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 0,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "target-not-verbatim-in-window": 3
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 19,
+        "final_policy_compliant": 19,
+        "reachable": 24
+      },
+      "merge": {
+        "merged_identical": 0,
+        "conflicts": 0,
+        "candidates": {
+          "standard": 0,
+          "diagnostic": 0
+        },
+        "final_provenance": {
+          "standard": 12,
+          "diagnostic": 0,
+          "standard+diagnostic": 0
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 4,
+        "semantic-trap": 8
+      },
+      "model_proposals_offered": 12,
+      "cost": {
+        "total_usd": 0.012789,
+        "editor_usd": 0.001253,
+        "verifier_usd": 0.011536,
+        "retries_usd": 0.00023,
+        "per_1000_words_usd": 0.001604,
+        "per_correct_final_edit_usd": 0.000673,
+        "per_scene_usd": 0.000853,
+        "per_repeat_usd": 0.012789,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 52,
+        "editor": 16,
+        "verifier": 36,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 1,
+        "tokens_in": 68005,
+        "tokens_out": 15482,
+        "cached_tokens": 19970
+      },
+      "latency": {
+        "median_request_ms": 1063,
+        "mean_request_ms": 1006,
+        "median_job_ms": 69902,
+        "mean_job_ms": 69896
+      },
+      "by_mutation": {
+        "ru-new-s1:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.00402,
+          "k2": 0.00799,
+          "k3": 0.011536
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.004020299999999999
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.007989600000000001
+        }
+      },
+      "pareto": true
+    },
+    {
+      "config": "c3-dual",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 24,
+      "reachable": 24,
+      "final": {
+        "exact": 15,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 2,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 18,
+        "remaining_injected_errors": 6,
+        "remaining_reachable": 6
+      },
+      "unnecessary": {
+        "model": 1,
+        "rule": 3,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 4,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 0,
+        "harmful_or_incorrect": 1,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [],
+          "harmful_or_incorrect": [
+            "ru-new-s2-0: он оглядывается. он оглядывается ещё раз → он оглядывается. Он оглядывается ещё раз"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "target-not-verbatim-in-window": 3,
+        "no-op": 1
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 18,
+        "final_policy_compliant": 18,
+        "reachable": 24
+      },
+      "merge": {
+        "merged_identical": 18,
+        "conflicts": 7,
+        "candidates": {
+          "standard": 28,
+          "diagnostic": 28
+        },
+        "final_provenance": {
+          "standard": 3,
+          "diagnostic": 0,
+          "standard+diagnostic": 7
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 5,
+        "semantic-trap": 9,
+        "semantic-verifier": 1
+      },
+      "model_proposals_offered": 10,
+      "cost": {
+        "total_usd": 0.012659,
+        "editor_usd": 0.004787,
+        "verifier_usd": 0.007872,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0.001588,
+        "per_correct_final_edit_usd": 0.000703,
+        "per_scene_usd": 0.000844,
+        "per_repeat_usd": 0.012659,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 61,
+        "editor": 30,
+        "verifier": 31,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 67937,
+        "tokens_out": 14266,
+        "cached_tokens": 19970
+      },
+      "latency": {
+        "median_request_ms": 1021,
+        "mean_request_ms": 947,
+        "median_job_ms": 90597,
+        "mean_job_ms": 82215
+      },
+      "by_mutation": {
+        "ru-new-s1:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.002979,
+          "k2": 0.005331,
+          "k3": 0.007872
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "ru-new-s2-0: он оглядывается. он оглядывается ещё раз → он оглядывается. Он оглядывается ещё раз"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0029791
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0053306000000000004
+        }
+      },
+      "pareto": false
+    },
+    {
+      "config": "c4-dual-context",
+      "tier": 1,
+      "tested": true,
+      "editor": "openai/gpt-6-luna",
+      "verifier": "anthropic/claude-haiku-5.5 (medium)",
+      "jobs": 3,
+      "repeats": 1,
+      "mutations": 24,
+      "reachable": 24,
+      "final": {
+        "exact": 14,
+        "alternative": 3,
+        "partial": 0,
+        "incorrect": 2,
+        "harmful_on_mutations": 0,
+        "policy_compliant": 17,
+        "remaining_injected_errors": 7,
+        "remaining_reachable": 7
+      },
+      "unnecessary": {
+        "model": 0,
+        "rule": 3,
+        "control_edits": 0,
+        "judged_harmful": 0,
+        "judged_invalid": 3,
+        "judged_valid": 0
+      },
+      "harmful_final": [],
+      "verifier_rejections": {
+        "valid": 1,
+        "harmful_or_incorrect": 1,
+        "unknown": 0,
+        "verify_failed": 0,
+        "lists": {
+          "valid": [
+            "ru-new-s1-0: она даже. она даже вблизи похожа → она даже вблизи похожа"
+          ],
+          "harmful_or_incorrect": [
+            "ru-new-s2-0: и потом купить на полученный четвертак и чаю и табаку → и потом купить на полученный четвертак чаю и табаку"
+          ],
+          "unknown": [],
+          "verify_failed": 0
+        }
+      },
+      "parser_failures": 0,
+      "discarded": {
+        "no-op": 1,
+        "target-not-verbatim-in-window": 1
+      },
+      "detection_recall": {
+        "policy_compliant_candidates": 18,
+        "final_policy_compliant": 17,
+        "reachable": 24
+      },
+      "merge": {
+        "merged_identical": 18,
+        "conflicts": 5,
+        "candidates": {
+          "standard": 28,
+          "diagnostic": 28
+        },
+        "final_provenance": {
+          "standard": 1,
+          "diagnostic": 0,
+          "standard+diagnostic": 8
+        }
+      },
+      "guard_rejections": {
+        "rule-preferred": 4,
+        "semantic-trap": 13,
+        "semantic-verifier": 2
+      },
+      "model_proposals_offered": 9,
+      "cost": {
+        "total_usd": 0.01183,
+        "editor_usd": 0.002451,
+        "verifier_usd": 0.009379,
+        "retries_usd": 0,
+        "per_1000_words_usd": 0.001484,
+        "per_correct_final_edit_usd": 0.000696,
+        "per_scene_usd": 0.000789,
+        "per_repeat_usd": 0.01183,
+        "sources": [
+          "provider-usage"
+        ]
+      },
+      "requests": {
+        "total": 60,
+        "editor": 31,
+        "verifier": 29,
+        "truncated": 0,
+        "http_errors": 0,
+        "retries": 0,
+        "tokens_in": 82137,
+        "tokens_out": 14574,
+        "cached_tokens": 41140
+      },
+      "latency": {
+        "median_request_ms": 972,
+        "mean_request_ms": 915,
+        "median_job_ms": 79580,
+        "mean_job_ms": 78556
+      },
+      "by_mutation": {
+        "ru-new-s1:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s1:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s1:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s2:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s2:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:qualifier": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:sentence-frame": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:formulaic": {
+          "policy": "model-fixable",
+          "fixed": 0,
+          "offered_by": {},
+          "candidate_fixed": 0
+        },
+        "ru-new-s3:dialogue-format": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:typography.dashes-ellipsis": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:typo": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:doubled-word": {
+          "policy": "rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:agreement": {
+          "policy": "model-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "model": 1
+          },
+          "candidate_fixed": 1
+        },
+        "ru-new-s3:redundancy": {
+          "policy": "model-fixable+rule-fixable",
+          "fixed": 1,
+          "offered_by": {
+            "rule:repetition.doubled-word": 1
+          },
+          "candidate_fixed": 1
+        }
+      },
+      "passes": {
+        "verifier_cost_usd": {
+          "k1": 0.003691,
+          "k2": 0.006561,
+          "k3": 0.009379
+        },
+        "accepted_with_1_but_not_3": {
+          "harmful_more_accepted": [
+            "ru-new-s2-0: и потом купить на полученный четвертак и чаю и табаку → и потом купить на полученный четвертак чаю и табаку"
+          ],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0036910999999999997
+        },
+        "accepted_with_2_but_not_3": {
+          "harmful_more_accepted": [],
+          "valid_more_accepted": [],
+          "unknown_more_accepted": [],
+          "cost": 0.0065613
+        }
+      },
+      "pareto": false
+    }
+  ],
+  "unlabelled_final_edits": []
+}
