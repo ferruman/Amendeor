@@ -1,0 +1,12 @@
+{
+  "provenance": {
+    "note": "Wikisource templates removed, including the epigraph of «Тоска»",
+    "sources": {
+      "eval/sources/toska.wiki.txt": "sha256:9f3db9830fdd96692da853fc4e92f65b65321bb8824436a87059823b731a5da6",
+      "eval/sources/anyuta.wiki.txt": "sha256:87466f50d3a1334c34727d80fde3b0b4351f37322bdcdd14f72e36bbf88b8999"
+    },
+    "rights": "Chekhov (d. 1904), PD"
+  },
+  "control_chapter": null,
+  "mutations": []
+}

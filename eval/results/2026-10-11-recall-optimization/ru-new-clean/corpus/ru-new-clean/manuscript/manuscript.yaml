@@ -1,0 +1,9 @@
+schema_version: 1
+language: ru
+chapters:
+  - slug: 01-toska
+    title: "Тоска"
+    eval_control: false
+  - slug: 02-anyuta
+    title: "Анюта"
+    eval_control: false

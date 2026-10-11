@@ -1,0 +1,151 @@
+{
+  "furnace2-clean/furnace2-clean": {
+    "provenance": {
+      "source": "books/bradshaw-01/manuscript/chapters/ch-fd275ad0.md",
+      "sha256": "sha256:0bdbcbcb02aee89813ab7e102cabc4a3f0a7415b9637adc6219b8c348a00e4fc",
+      "note": "locked book, read only"
+    },
+    "chapters": [
+      {
+        "slug": "ch-fd275ad0",
+        "title": "Monday",
+        "words": 3454,
+        "sha256": "sha256:0bdbcbcb02aee89813ab7e102cabc4a3f0a7415b9637adc6219b8c348a00e4fc"
+      }
+    ]
+  },
+  "furnace2/furnace2-s1": {
+    "seed": "opt-s1",
+    "mutations": [
+      "redundancy [model-fixable+rule-fixable]: \"was\" → \"was again again\"",
+      "formulaic [model-fixable]: \"That was\" → \"At the end of the day, That was\"",
+      "agreement [model-fixable]: \"was\" → \"were\"",
+      "sentence-frame [model-fixable]: \"He wrote\" → \"He wrote. He wrote\"",
+      "doubled-word [model-fixable+rule-fixable]: \"card\" → \"card card\"",
+      "typo [model-fixable]: \"remember\" → \"reemmber\""
+    ]
+  },
+  "furnace2/furnace2-s2": {
+    "seed": "opt-s2",
+    "mutations": [
+      "typo [model-fixable]: \"himself\" → \"hismelf\"",
+      "doubled-word [model-fixable+rule-fixable]: \"rusted\" → \"rusted rusted\"",
+      "agreement [model-fixable]: \"was\" → \"were\"",
+      "redundancy [model-fixable+rule-fixable]: \"said\" → \"said again again\"",
+      "formulaic [model-fixable]: \"Mercer told\" → \"At the end of the day, Mercer told\"",
+      "sentence-frame [model-fixable]: \"He stood\" → \"He stood. He stood\""
+    ]
+  },
+  "furnace2/furnace2-s3": {
+    "seed": "opt-s3",
+    "mutations": [
+      "formulaic [model-fixable]: \"Kimmel put\" → \"At the end of the day, Kimmel put\"",
+      "agreement [model-fixable]: \"was\" → \"were\"",
+      "redundancy [model-fixable+rule-fixable]: \"looked\" → \"looked again again\"",
+      "doubled-word [model-fixable]: \"that\" → \"that that\"",
+      "sentence-frame [model-fixable]: \"he wrote\" → \"he wrote. he wrote\"",
+      "typo [model-fixable]: \"crossing\" → \"crsosing\""
+    ]
+  },
+  "ru-new-clean/ru-new-clean": {
+    "provenance": {
+      "note": "Wikisource templates removed, including the epigraph of «Тоска»",
+      "sources": {
+        "eval/sources/toska.wiki.txt": "sha256:9f3db9830fdd96692da853fc4e92f65b65321bb8824436a87059823b731a5da6",
+        "eval/sources/anyuta.wiki.txt": "sha256:87466f50d3a1334c34727d80fde3b0b4351f37322bdcdd14f72e36bbf88b8999"
+      },
+      "rights": "Chekhov (d. 1904), PD"
+    },
+    "chapters": [
+      {
+        "slug": "01-toska",
+        "title": "Тоска",
+        "words": 1460,
+        "sha256": "sha256:261d928c8dd002530f846f278e2d815438193ea89ae3993a720d63663f8effc5"
+      },
+      {
+        "slug": "02-anyuta",
+        "title": "Анюта",
+        "words": 1156,
+        "sha256": "sha256:31d26b73a3e09c6891bbf105d51fcf6f3bb25b9efdf88f2732472c893e22d1c4"
+      }
+    ]
+  },
+  "ru-new/ru-new-s1": {
+    "seed": "opt-s1",
+    "mutations": [
+      "qualifier [model-fixable]: \"возможно\" → \"в некоторой степени возможно\"",
+      "sentence-frame [model-fixable]: \"она даже\" → \"она даже. она даже\"",
+      "dialogue-format [rule-fixable]: \"—\" → \"-\"",
+      "formulaic [model-fixable]: \"Старик вздыхает\" → \"В современном мире Старик вздыхает\"",
+      "redundancy [model-fixable+rule-fixable]: \"была\" → \"была снова снова\"",
+      "doubled-word [rule-fixable]: \"клавиши\" → \"клавиши клавиши\"",
+      "typo [model-fixable]: \"стучать\" → \"стчуать\"",
+      "agreement [model-fixable]: \"думала\" → \"думал\""
+    ]
+  },
+  "ru-new/ru-new-s2": {
+    "seed": "opt-s2",
+    "mutations": [
+      "formulaic [model-fixable]: \"Крупный мокрый\" → \"В современном мире Крупный мокрый\"",
+      "qualifier [model-fixable]: \"возможно\" → \"в некоторой степени возможно\"",
+      "sentence-frame [model-fixable]: \"он оглядывается\" → \"он оглядывается. он оглядывается\"",
+      "doubled-word [rule-fixable]: \"Змей\" → \"Змей Змей\"",
+      "typo [model-fixable]: \"ничтожную\" → \"нитчожную\"",
+      "dialogue-format [rule-fixable]: \"—\" → \"-\"",
+      "redundancy [model-fixable+rule-fixable]: \"стал\" → \"стал снова снова\"",
+      "agreement [model-fixable]: \"сказала\" → \"сказал\""
+    ]
+  },
+  "ru-new/ru-new-s3": {
+    "seed": "opt-s3",
+    "mutations": [
+      "qualifier [model-fixable]: \"возможно\" → \"в некоторой степени возможно\"",
+      "sentence-frame [model-fixable]: \"она даже\" → \"она даже. она даже\"",
+      "formulaic [model-fixable]: \"Спустя часа\" → \"В современном мире Спустя часа\"",
+      "dialogue-format [rule-fixable]: \"—\" → \"-\"",
+      "typo [model-fixable]: \"шатания\" → \"шаатния\"",
+      "doubled-word [rule-fixable]: \"зубрячки\" → \"зубрячки зубрячки\"",
+      "agreement [model-fixable]: \"сказала\" → \"сказал\"",
+      "redundancy [model-fixable+rule-fixable]: \"сказал\" → \"сказал снова снова\""
+    ]
+  },
+  "nonstd-clean/nonstd-ru-clean": {
+    "provenance": {
+      "sources": [
+        "eval/sources/eger.wiki.txt",
+        "eval/sources/prishibeev.wiki.txt"
+      ],
+      "rights": "Chekhov (d. 1904), PD"
+    },
+    "chapters": [
+      {
+        "slug": "01-eger",
+        "title": "Егерь",
+        "words": 1261,
+        "sha256": "sha256:1ccd8a9492498ec380c38cce65a7f2b3911b91f85a2ca1605c41718a7867a240"
+      },
+      {
+        "slug": "02-prishibeev",
+        "title": "Унтер Пришибеев",
+        "words": 1207,
+        "sha256": "sha256:7ea14d106af9e181d33ad81ca344b1a40e6fa0f846718002ec588c8c71a8112a"
+      }
+    ]
+  },
+  "nonstd-clean/nonstd-en-clean": {
+    "provenance": {
+      "source": "eval/sources/huckleberry-finn-pg76.txt (Project Gutenberg #76)",
+      "sha256": "sha256:1df933df0988f4aa9cf36c0b293c30e317d4934872de534b82235f55a209e5ef",
+      "rights": "public domain"
+    },
+    "chapters": [
+      {
+        "slug": "01-huck",
+        "title": "Chapter I",
+        "words": 1470,
+        "sha256": "sha256:c72e8e4ac15d21c5628f294103e4d2adabb32783508a14fe7a6dcbf91a319088"
+      }
+    ]
+  }
+}

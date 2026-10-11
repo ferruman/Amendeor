@@ -1,0 +1,25 @@
+{
+  "note": "Recall optimization benchmark, 2026-10-11. Production models and settings (amendeor.yaml): Luna editor, Haiku 5.5 verifier with reasoning medium, check: necessity, 3 passes. C2/C4 enable profiles.verify.context; C3/C4 enable profiles.edit.diagnostic — the production code paths, not harness prompt substitution.",
+  "models": {
+    "luna": { "id": "openai/gpt-6-luna", "transport": "openai" },
+    "haiku-medium": { "id": "anthropic/claude-haiku-5.5", "transport": "openai", "reasoning_effort": "medium" }
+  },
+  "cases": "calibration-cases.json",
+  "stage_a_variants": [
+    { "name": "v1-necessity", "verifier": "haiku-medium", "check": "necessity" },
+    { "name": "v2-necessity-context", "verifier": "haiku-medium", "check": "necessity", "context": true }
+  ],
+  "stage_a_verifiers": [],
+  "stage_b": [
+    { "id": "c1-production", "editor": "luna", "verifier": "haiku-medium", "check": "necessity", "tier": 1 },
+    { "id": "c2-context", "editor": "luna", "verifier": "haiku-medium", "check": "necessity", "verify_context": true, "tier": 1 },
+    { "id": "c3-dual", "editor": "luna", "verifier": "haiku-medium", "check": "necessity", "edit_diagnostic": true, "tier": 1 },
+    { "id": "c4-dual-context", "editor": "luna", "verifier": "haiku-medium", "check": "necessity", "edit_diagnostic": true, "verify_context": true, "tier": 1 }
+  ],
+  "edit": { "temperature": 0, "context_budget": 2048, "mode": "copy" },
+  "verify": { "passes": 3 },
+  "works": ["furnace2-s1"],
+  "corpus": "eval/results/2026-10-11-recall-optimization (independent: Furnace Road ch. 2, Chekhov Тоска/Анюта, Егерь/Унтер Пришибеев, Huckleberry Finn ch. I)",
+  "repeats": 3,
+  "budget_usd": 1.5
+}

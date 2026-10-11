@@ -1,0 +1,9 @@
+schema_version: 1
+language: ru
+chapters:
+  - slug: 01-eger
+    title: "Егерь"
+    eval_control: false
+  - slug: 02-prishibeev
+    title: "Унтер Пришибеев"
+    eval_control: false

@@ -16,16 +16,17 @@ import { makeProposal } from '../../src/proposal/identity.ts';
 import { Cache } from '../../src/cache.ts';
 import { Gateway } from '../../src/provider/gateway.ts';
 import { verifyMeaning } from '../../src/guard/verify.ts';
-import { deterministicGuard } from '../../src/guard/index.ts';
+import { deterministicGuard, editorialContext } from '../../src/guard/index.ts';
+import { dialogueSpans, editInDialogue } from '../../src/text/dialogue.ts';
 import { splitScenes, type Book } from '../../src/book.ts';
 import type { Mutation } from '../mutate.ts';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const amendeor = path.resolve(here, '../..');
 type ModelSpec = { id: string; transport: 'openai' | 'anthropic'; endpoint?: string; reasoning_effort?: string };
-type StageBConfig = { id: string; editor: string; verifier: string; tier: number; check?: 'meaning' | 'necessity'; diagnostic?: boolean };
+type StageBConfig = { id: string; editor: string; verifier: string; tier: number; check?: 'meaning' | 'necessity'; diagnostic?: boolean; edit_diagnostic?: boolean; verify_context?: boolean };
 const argv0 = process.argv.slice(2); const flag0 = (name: string) => { const index = argv0.indexOf(name); return index > 0 ? argv0[index + 1] : undefined; };
-const bench = JSON.parse(await readFile(path.join(here, flag0('--configs') ?? 'configs.json'), 'utf8')) as { stage_a_variants?: Array<{ name: string; verifier: string; check: 'meaning' | 'necessity' }>; cases?: string; models: Record<string, ModelSpec>; stage_b: StageBConfig[]; stage_a_verifiers: string[]; edit: { temperature: number; context_budget: number; mode: string }; verify: { passes: number }; works: string[]; corpus: string; repeats: number; budget_usd: number };
+const bench = JSON.parse(await readFile(path.join(here, flag0('--configs') ?? 'configs.json'), 'utf8')) as { stage_a_variants?: Array<{ name: string; verifier: string; check: 'meaning' | 'necessity'; context?: boolean }>; cases?: string; models: Record<string, ModelSpec>; stage_b: StageBConfig[]; stage_a_verifiers: string[]; edit: { temperature: number; context_budget: number; mode: string }; verify: { passes: number }; works: string[]; corpus: string; repeats: number; budget_usd: number };
 const argv = process.argv.slice(2);
 const command = argv[0];
 const flag = (name: string) => { const index = argv.indexOf(name); return index > 0 ? argv[index + 1] : undefined; };
@@ -184,11 +185,12 @@ function provider(spec: ModelSpec) {
   const price = catalog.get(spec.id)!;
   return { transport: spec.transport, endpoint: spec.endpoint ?? 'https://openrouter.ai/api/v1/chat/completions', api_key_env: keyEnv, family: spec.id.split('/')[0], price: { input_per_m: price.prompt * 1e6, output_per_m: price.completion * 1e6, currency: 'USD' } };
 }
-function configFor(editor: ModelSpec | null, verifier: ModelSpec, passes = bench.verify.passes, check?: 'meaning' | 'necessity'): Config {
+// edit_diagnostic / verify_context включают штатные profiles.edit.diagnostic и profiles.verify.context (не подмену промпта стенда).
+function configFor(editor: ModelSpec | null, verifier: ModelSpec, passes = bench.verify.passes, check?: 'meaning' | 'necessity', features: { diagnostic?: boolean; context?: boolean } = {}): Config {
   return configSchema.parse({ preserve: [],
     providers: { ...(editor ? { editor: provider(editor) } : {}), verifier: provider(verifier) },
-    profiles: { ...(editor ? { edit: { provider: 'editor', model: editor.id, temperature: bench.edit.temperature, reasoning: Boolean(editor.reasoning_effort), context_budget: bench.edit.context_budget } } : {}),
-      verify: { provider: 'verifier', model: verifier.id, passes, reasoning: Boolean(verifier.reasoning_effort), ...(verifier.reasoning_effort ? { reasoning_effort: verifier.reasoning_effort } : {}), ...(check ? { check } : {}) } } });
+    profiles: { ...(editor ? { edit: { provider: 'editor', model: editor.id, temperature: bench.edit.temperature, ...(features.diagnostic ? { diagnostic: true } : {}), reasoning: Boolean(editor.reasoning_effort), context_budget: bench.edit.context_budget } } : {}),
+      verify: { provider: 'verifier', model: verifier.id, passes, reasoning: Boolean(verifier.reasoning_effort), ...(verifier.reasoning_effort ? { reasoning_effort: verifier.reasoning_effort } : {}), ...(check ? { check } : {}), ...(features.context ? { context: true } : {}) } } });
 }
 // Оценка перед батчем: заведомо завышенная (символы как токены), чтобы не начать то, что может не уместиться.
 // Если в журнале стенда уже есть ≥ 10 успешных запросов к модели, оценка — их средняя фактическая цена × 2 (запас);
@@ -253,7 +255,7 @@ async function stageAVariants(): Promise<boolean> {
     const target = path.join(root, `${variant.name}.json`);
     if (await exists(target)) { console.log(JSON.stringify({ variant: variant.name, skipped: 'done' })); continue; }
     if (!remainingOk(batchEstimate([{ model: spec.id, inputChars: 3200, outputTokens: spec.reasoning_effort ? 1200 : 300, count: cases.length * bench.verify.passes }]), `stage-1 ${variant.name}`)) return false;
-    const config = configFor(null, spec, bench.verify.passes, variant.check);
+    const config = configFor(null, spec, bench.verify.passes, variant.check, { context: variant.context });
     const rows = [];
     for (const item of cases) {
       const pack = (await loadPack(item.language)).pack;
@@ -263,14 +265,14 @@ async function stageAVariants(): Promise<boolean> {
       const check = deterministicGuard(proposal, scene.text, book, pack, config, 'copy');
       const ctx: Context = { stage: 'stage-1', job: `${variant.name}/${item.id}`, roles: new Map([[spec.id, { role: 'verifier', effort: spec.reasoning_effort }]]), calls: [] };
       const started = Date.now();
-      const result = await context.run(ctx, () => verifyMeaning(item.before, item.after, item.context, 'prose', config, pack, new Cache(path.join(root, 'state'), true), new Gateway(config, pack), { necessity: variant.check === 'necessity' }));
+      const result = await context.run(ctx, () => verifyMeaning(item.before, item.after, item.context, 'prose', config, pack, new Cache(path.join(root, 'state'), true), new Gateway(config, pack), { necessity: variant.check === 'necessity', context: variant.context ? editorialContext(proposal, editInDialogue(dialogueSpans(scene.text, pack), scene.text, scene.text.indexOf(item.before), scene.text.indexOf(item.before) + item.before.length, item.after), dialogueSpans(scene.text, pack).length > 0, config) : undefined }));
       if (ctx.capHit) throw new Error(`budget cap reached in stage 1 at ${ctx.job}`);
       if (ctx.calls.some((call) => call.status !== 200)) throw new Error(`provider errors at ${ctx.job} (HTTP ${ctx.calls.map((call) => call.status).join(',')}); ${variant.name} not written`);
       rows.push({ id: item.id, label: item.label, category: item.category, language: item.language, self_pairing: item.origin_model === spec.id, deterministic: 'guard' in check ? `${check.guard}: ${check.reason}` : 'passes',
         decision: result.passed ? 'ACCEPT' : 'REJECT', reason: result.reason, verify_failed: result.reason.startsWith('verify failed'), passes_used: result.passes, answers: result.answers ?? [],
         requests: ctx.calls.length, truncated: ctx.calls.filter((call) => call.finish === 'length' || call.finish === 'max_tokens').length, cost: ctx.calls.reduce((sum, call) => sum + call.cost, 0), ms: Date.now() - started });
     }
-    await writeFile(target, `${JSON.stringify({ variant: variant.name, verifier: variant.verifier, model: spec.id, effort: spec.reasoning_effort ?? 'off', check: variant.check, passes: bench.verify.passes, rows }, null, 2)}\n`);
+    await writeFile(target, `${JSON.stringify({ variant: variant.name, verifier: variant.verifier, model: spec.id, effort: spec.reasoning_effort ?? 'off', check: variant.check, context: Boolean(variant.context), passes: bench.verify.passes, rows }, null, 2)}\n`);
     console.log(JSON.stringify({ variant: variant.name, cases: rows.length, cost: Number(rows.reduce((sum, row) => sum + row.cost, 0).toFixed(5)), spent: Number(spent.toFixed(4)) }));
   }
   return true;
@@ -305,7 +307,7 @@ async function stageB(): Promise<void> {
       const pack = await loadPack(source.book.lang);
       const ctx: Context = { stage: 'stage-b', job, roles: new Map([[editor.id, { role: 'editor', effort: editor.reasoning_effort }], [verifier.id, { role: 'verifier', effort: verifier.reasoning_effort }]]), calls: [] };
       const started = Date.now();
-      const loaded = { config: configFor(editor, verifier, bench.verify.passes, config.check), winningLayer: {}, warnings: [] };
+      const loaded = { config: configFor(editor, verifier, bench.verify.passes, config.check, { diagnostic: config.edit_diagnostic, context: config.verify_context }), winningLayer: {}, warnings: [] };
       let result = await context.run(ctx, () => editMechanical(source, loaded, pack, { mode: bench.edit.mode, noCache: true }));
       // Диагностическая ветка: второй проход того же редактора на свежей копии, предложения объединяются (по id; первое побеждает).
       if (config.diagnostic) {
