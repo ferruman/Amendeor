@@ -19,9 +19,15 @@ import { nameVariant } from './name-variant.ts';
 import { ruSutki } from './ru-sutki.ts';
 import { ruPronounByl } from './ru-pronoun-byl.ts';
 
-export interface ProposalDraft { target: string; replacement: string; start: number; reason: string; category?: Proposal['category']; impact?: Proposal['impact'] }
+// Полномочия правила (аудит 2026-10-11): что его правка может сделать с текстом без модели и верификатора.
+//   mechanical — правильность доказана самим условием срабатывания; правка может приниматься пакетно (impact как объявлен);
+//   contextual — обычно верно, но зависит от контекста; только поштучное решение человека (impact: prose);
+//   semantic   — может изменить смысл или сущность; только находка на проверку: текст не меняется без явного решения автора
+//                (unverified: принять можно лишь поштучно и с явным согласием, делегат принять не может).
+export type RuleAuthority = 'mechanical' | 'contextual' | 'semantic';
+export interface ProposalDraft { target: string; replacement: string; start: number; reason: string; category?: Proposal['category']; impact?: Proposal['impact']; authority?: RuleAuthority; evidence?: Record<string, string | number> }
 export interface RuleContext { book: Book; config: Config; pack: LanguagePack; names: Map<string, number>; wordCounts: Map<string, number>; dialogue: Span[] }
-export interface Rule { id: string; version: string; langs: string[]; category: Proposal['category']; impact: Proposal['impact']; detect(scene: Scene, ctx: RuleContext): ProposalDraft[] }
+export interface Rule { id: string; version: string; langs: string[]; category: Proposal['category']; impact: Proposal['impact']; authority: RuleAuthority; detect(scene: Scene, ctx: RuleContext): ProposalDraft[] }
 export const titleRules: Rule[] = [ruSutki, ruPronounByl];
 export const rules: Rule[] = [doubledWord, whitespace, balance, quotes, mixedQuotes, dashesEllipsis, capitalization, markdown, spellingVariant, nameVariant, ruSutki, ruPronounByl];
 export const ruleSetVersion = sha256(canonicalJson(rules.map(({ id, version }) => ({ id, version }))));

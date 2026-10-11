@@ -52,11 +52,11 @@ test('auto-accept skips a mechanical proposal that conflicts with the acceptance
   const dir = await mkdtemp(path.join(os.tmpdir(), 'amendeor-conflict-'));
   try {
     const manuscript = path.join(dir, 'book.md');
-    await writeFile(manuscript, 'He saw the the dog.\n');
+    await writeFile(manuscript, 'He saw the  dog.\n');
     const source = await openSource(manuscript, { lang: 'en', out: path.join(dir, 'out') });
     const loaded = await loadConfig({ env: { HOME: dir }, cli: { auto_accept: ['mechanical'] } });
     const first = await editMechanical(source, await loadConfig({ env: { HOME: dir } }), await loadPack('en'), { mode: 'mechanical' });
-    const proposal = first.proposals.find((item) => item.source === 'rule:repetition.doubled-word')!;
+    const proposal = first.proposals.find((item) => item.source === 'rule:typography.whitespace')!;
     await acceptProposals(source.editedDir, [{ ...proposal, replacement: 'the', fingerprint: { ...proposal.fingerprint, evidence: `sha256:${'0'.repeat(64)}` } }], { acceptedBy: 'human:cli' });
     const second = await editMechanical(source, loaded, await loadPack('en'), { mode: 'mechanical', acceptAs: async () => ({ acceptedBy: 'human:cli' }) });
     assert.ok((second.run.warnings as string[]).includes(`conflicting-acceptance skipped: ${proposal.id}`));

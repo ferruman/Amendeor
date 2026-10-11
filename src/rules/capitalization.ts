@@ -1,7 +1,7 @@
 import type { Rule, ProposalDraft } from './index.ts';
 
 export const capitalization: Rule = {
-  id: 'capitalization.sentence-start', version: '4', langs: ['en', 'ru'], category: 'capitalization', impact: 'mechanical',
+  id: 'capitalization.sentence-start', version: '4', langs: ['en', 'ru'], category: 'capitalization', impact: 'mechanical', authority: 'contextual',
   detect(scene, ctx): ProposalDraft[] {
     const drafts: ProposalDraft[] = [];
     const abbreviations = new Set(ctx.pack.abbreviations.map((word) => word.toLowerCase()));

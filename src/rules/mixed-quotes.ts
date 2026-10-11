@@ -15,7 +15,7 @@ function establishedStyle(ctx: Parameters<Rule['detect']>[1]): 'curly' | 'straig
 }
 
 export const mixedQuotes: Rule = {
-  id: 'typography.mixed-quotes', version: '1', langs: ['en'], category: 'typography', impact: 'mechanical',
+  id: 'typography.mixed-quotes', version: '1', langs: ['en'], category: 'typography', impact: 'mechanical', authority: 'mechanical',
   detect(scene, ctx): ProposalDraft[] {
     const style = establishedStyle(ctx);
     if (!style) return [];

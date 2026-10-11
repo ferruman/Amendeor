@@ -1,7 +1,7 @@
 import type { Rule, ProposalDraft } from './index.ts';
 
 export const quotes: Rule = {
-  id: 'typography.quotes', version: '2', langs: ['en', 'ru'], category: 'typography', impact: 'mechanical',
+  id: 'typography.quotes', version: '2', langs: ['en', 'ru'], category: 'typography', impact: 'mechanical', authority: 'mechanical',
   detect(scene, ctx): ProposalDraft[] {
     const desired = ctx.config.normalize.quotes;
     if (!desired || desired === 'keep' || desired === '""') return [];

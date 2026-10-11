@@ -16,7 +16,7 @@ export function balanceWarnings(text: string): string[] {
 }
 
 export const balance: Rule = {
-  id: 'punctuation.balance', version: '2', langs: ['en', 'ru'], category: 'punctuation', impact: 'mechanical',
+  id: 'punctuation.balance', version: '2', langs: ['en', 'ru'], category: 'punctuation', impact: 'mechanical', authority: 'contextual',
   detect(scene): ProposalDraft[] {
     const drafts: ProposalDraft[] = [];
     for (const paragraph of paragraphs(scene.text)) {

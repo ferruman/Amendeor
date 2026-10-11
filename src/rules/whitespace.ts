@@ -1,7 +1,7 @@
 import type { Rule, ProposalDraft } from './index.ts';
 
 export const whitespace: Rule = {
-  id: 'typography.whitespace', version: '1', langs: ['en', 'ru'], category: 'typography', impact: 'mechanical',
+  id: 'typography.whitespace', version: '1', langs: ['en', 'ru'], category: 'typography', impact: 'mechanical', authority: 'mechanical',
   detect(scene): ProposalDraft[] {
     const drafts: ProposalDraft[] = [];
     for (const match of scene.text.matchAll(/([\p{L}\p{N}]) {2,}([^\s])/gu)) drafts.push({ target: match[0], replacement: `${match[1]} ${match[2]}`, start: match.index!, reason: 'Collapse repeated spaces.' });

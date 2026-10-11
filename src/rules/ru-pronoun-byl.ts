@@ -5,7 +5,7 @@ const pattern = /(?<![\p{L}])(он|она|оно|они)([ \t]+)(был|была
 const expected: Record<string, string> = { он: 'был', она: 'была', оно: 'было', они: 'были' };
 
 export const ruPronounByl: Rule = {
-  id: 'grammar.ru-pronoun-byl', version: '1', langs: ['ru'], category: 'grammar', impact: 'mechanical',
+  id: 'grammar.ru-pronoun-byl', version: '2', langs: ['ru'], category: 'grammar', impact: 'mechanical', authority: 'contextual',
   detect(scene, ctx): ProposalDraft[] {
     const drafts: ProposalDraft[] = [];
     for (const match of scene.text.matchAll(pattern)) {
@@ -13,6 +13,8 @@ export const ruPronounByl: Rule = {
       if (inDialogue(ctx.dialogue, start, start + match[0]!.length)) continue;
       const correct = expected[match[1]!.toLocaleLowerCase('ru')]!;
       if (match[3]!.toLocaleLowerCase('ru') === correct) continue;
+      // «Он было начал» — частица «было» (намерение не исполнилось), а не глагол: согласовывать нечего.
+      if (match[3]!.toLocaleLowerCase('ru') === 'было') continue;
       drafts.push({ target: match[0]!, replacement: match[1]! + match[2]! + correct, start, reason: 'Форма прошедшего времени «быть» должна согласоваться с местоимением.' });
     }
     return drafts;

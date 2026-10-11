@@ -234,6 +234,35 @@
     "unverified": {
       "type": "boolean",
       "const": true
+    },
+    "rule_authority": {
+      "type": "string",
+      "enum": [
+        "mechanical",
+        "contextual",
+        "semantic"
+      ]
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "evidence": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "type": [
+              "string",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "evidence"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [

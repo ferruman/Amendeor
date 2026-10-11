@@ -2,7 +2,7 @@ import type { Rule, ProposalDraft } from './index.ts';
 import { paragraphs } from '../text/segment.ts';
 
 export const markdown: Rule = {
-  id: 'markdown.stray-marker', version: '2', langs: ['en', 'ru'], category: 'typography', impact: 'mechanical',
+  id: 'markdown.stray-marker', version: '2', langs: ['en', 'ru'], category: 'typography', impact: 'mechanical', authority: 'mechanical',
   detect(scene): ProposalDraft[] {
     const drafts: ProposalDraft[] = [];
     for (const paragraph of paragraphs(scene.text)) {

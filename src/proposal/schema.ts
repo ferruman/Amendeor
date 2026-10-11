@@ -20,6 +20,10 @@ export const proposalSchema = z.object({
   // Какие проходы редактора независимо предложили эту правку (только при диагностическом проходе).
   passes: z.array(z.enum(['standard', 'diagnostic'])).optional(),
   verification: z.object({ passes: z.number().int().nonnegative(), agreed: z.number().int().nonnegative(), semantic_risk: z.string(), voice: z.string() }),
-  unverified: z.literal(true).optional()
+  unverified: z.literal(true).optional(),
+  // Полномочия детерминированного правила (rules/index.ts): mechanical | contextual | semantic. Только у правок правил.
+  rule_authority: z.enum(['mechanical', 'contextual', 'semantic']).optional(),
+  // Находка на проверку (semantic): текст не меняется без явного решения; здесь — на чём основана находка.
+  review: z.object({ evidence: z.record(z.string(), z.union([z.string(), z.number()])) }).optional()
 });
 export type Proposal = z.infer<typeof proposalSchema>;

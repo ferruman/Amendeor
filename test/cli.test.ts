@@ -98,10 +98,10 @@ test('auto acceptance uses edited copy and diff reports a stale accepted target'
   await writeFile(path.join(root, 'amendeor.yaml'), 'auto_accept: [mechanical]\n');
   await writeFile(path.join(root, 'manuscript/manuscript.yaml'), 'schema_version: 1\nlanguage: en\nchapters: [{ slug: one, title: One }]\n');
   const sourceFile = path.join(root, 'manuscript/chapters/one.md');
-  await writeFile(sourceFile, '<!-- scene: one -->\nShe said said yes.\n');
+  await writeFile(sourceFile, '<!-- scene: one -->\nShe said  yes.\n');
   const env = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config') };
   await execFileAsync(process.execPath, [cli, 'edit', root, '--json'], { env });
-  assert.equal(await readFile(sourceFile, 'utf8'), '<!-- scene: one -->\nShe said said yes.\n');
+  assert.equal(await readFile(sourceFile, 'utf8'), '<!-- scene: one -->\nShe said  yes.\n');
   assert.equal(await readFile(path.join(root, 'edited/chapters/one.md'), 'utf8'), '<!-- scene: one -->\nShe said yes.\n');
   await writeFile(sourceFile, '<!-- scene: one -->\nShe agreed.\n');
   await execFileAsync(process.execPath, [cli, 'edit', root, '--json'], { env });

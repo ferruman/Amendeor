@@ -7,6 +7,7 @@ export type MakeProposalInput = {
   before?: string; after?: string; occurrence?: number; run_id?: string; impact?: Proposal['impact'];
   source?: string; confidence?: number; reason?: string; content_hash?: string;
   verification?: Proposal['verification']; unverified?: true; source_findings?: string[]; sceneText?: string;
+  rule_authority?: Proposal['rule_authority']; review?: Proposal['review'];
 };
 
 export function makeProposal(input: MakeProposalInput): Proposal {
@@ -31,7 +32,8 @@ export function makeProposal(input: MakeProposalInput): Proposal {
     replacement: input.replacement, category: input.category, impact: input.impact ?? 'prose', source: input.source ?? 'model',
     confidence: input.confidence ?? 1, reason: input.reason ?? '', ...(input.source_findings ? { source_findings: input.source_findings } : {}),
     verification: input.verification ?? { passes: 0, agreed: 0, semantic_risk: 'unknown', voice: 'unknown' },
-    ...(input.unverified ? { unverified: true as const } : {})
+    ...(input.unverified ? { unverified: true as const } : {}),
+    ...(input.rule_authority ? { rule_authority: input.rule_authority } : {}), ...(input.review ? { review: input.review } : {})
   };
   return proposalSchema.parse(proposal);
 }

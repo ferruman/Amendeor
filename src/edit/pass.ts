@@ -6,7 +6,7 @@ import { makeProposal } from '../proposal/identity.ts';
 import { Cache } from '../cache.ts';
 import { Gateway } from '../provider/gateway.ts';
 import { copyEditPrompt, copyEditPromptVersion, diagnosticEditPrompt, diagnosticPromptVersion } from '../prompts/copy-edit.ts';
-import { mergePasses, type MergeConflict, type Pass, type Placed } from './merge.ts';
+import { mergePasses, type MergeConflict, type MergeRecord, type Pass, type Placed } from './merge.ts';
 import { editWindows } from './windows.ts';
 import { parseEdits, type ParsedEdit } from './parse.ts';
 import { classifyEdit } from './classify.ts';
@@ -37,7 +37,7 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
   const noChangeByChapter: Record<string, number> = {};
   const windowsByChapter: Record<string, number> = {};
   const diagnostic = Boolean(profile.diagnostic);
-  const conflicts: MergeConflict[] = []; let merged = 0; const passCandidates = { standard: 0, diagnostic: 0 };
+  const conflicts: MergeConflict[] = []; const merges: MergeRecord[] = []; let merged = 0; const passCandidates = { standard: 0, diagnostic: 0 };
   // Один проход по окну: запрос, разбор, один повтор при ошибке разбора. Оба прохода видят один и тот же исходный текст.
   const request = async (window: (typeof windows)[number], pass: Pass): Promise<ParsedEdit[] | null> => {
     const key = { window, mode, config: { preserve: effectivePreserve(loaded.config), editorial_profile: loaded.config.editorial_profile ?? null, normalize: loaded.config.normalize, avoid: loaded.config.avoid }, profile, provider: loaded.config.providers[profile.provider], promptVersion: copyEditPromptVersion, formulaicCatalogVersion, ruleSetVersion, packVersion: pack.pack.version,
@@ -114,7 +114,7 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
     }
     if (!diagnostic) { proposals.push(...placed.map((item) => item.proposal)); continue; }
     const result = mergePasses(scene.text, placed);
-    proposals.push(...result.proposals); conflicts.push(...result.conflicts); merged += result.merged;
+    proposals.push(...result.proposals); conflicts.push(...result.conflicts); merges.push(...result.merges); merged += result.merged;
   }
-  return { proposals, conflicts, stage: { name: 'model', status: failures.length ? 'partial' : 'ok', windows: windows.length, ...(diagnostic ? { passes: ['standard', 'diagnostic'], pass_candidates: passCandidates, merged_identical: merged, merge_conflicts: conflicts.length, conflicts, diagnostic_prompt_version: diagnosticPromptVersion } : {}), windows_by_chapter: windowsByChapter, sent, cached, no_change: noChange, no_change_by_chapter: noChangeByChapter, candidates: proposals.length, discarded, failures, prompt_version: copyEditPromptVersion, model_id: profile.model, formulaic_hits: formulaic, formulaic_catalog_version: formulaicCatalogVersion }, ledger: gateway.ledger };
+  return { proposals, conflicts, stage: { name: 'model', status: failures.length ? 'partial' : 'ok', windows: windows.length, ...(diagnostic ? { passes: ['standard', 'diagnostic'], pass_candidates: passCandidates, merged_identical: merged, merge_conflicts: conflicts.length, conflicts, merges, diagnostic_prompt_version: diagnosticPromptVersion } : {}), windows_by_chapter: windowsByChapter, sent, cached, no_change: noChange, no_change_by_chapter: noChangeByChapter, candidates: proposals.length, discarded, failures, prompt_version: copyEditPromptVersion, model_id: profile.model, formulaic_hits: formulaic, formulaic_catalog_version: formulaicCatalogVersion }, ledger: gateway.ledger };
 }

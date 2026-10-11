@@ -9,7 +9,7 @@ import { canonicalJson, normalizeText, sha256 } from '../hash.ts';
 import { computeMetrics } from '../metrics/index.ts';
 import { inspectSummary, renderReport } from '../report.ts';
 import { properNouns } from '../text/names.ts';
-import { enabledRules, ruleContext, ruleSetVersion, bookWordCounts, type ProposalDraft } from '../rules/index.ts';
+import { enabledRules, ruleContext, ruleSetVersion, bookWordCounts, type ProposalDraft, type RuleAuthority } from '../rules/index.ts';
 import { makeProposal } from '../proposal/identity.ts';
 import type { Proposal } from '../proposal/schema.ts';
 import { newRunId, writeRun, readRun } from '../run/store.ts';
@@ -74,7 +74,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
     const failuresBeforeScene = failed;
     for (const message of balanceWarnings(scene.text)) diagnostics.push({ node_id: `${chapter.slug}/${scene.id}`, message });
     const inputs = { text: scene.text, surface: scene.id === TITLE_SCENE_ID ? 'title' : 'scene', bookHash, config: { preserve: effectivePreserve(loaded.config), editorial_profile: loaded.config.editorial_profile ?? null, normalize: loaded.config.normalize, rules: loaded.config.rules }, pack: language.pack, ruleSetVersion };
-    let drafts = await cache.read<Array<ProposalDraft & { ruleId: string; category: Proposal['category']; impact: Proposal['impact'] }>>('rules', inputs);
+    let drafts = await cache.read<Array<ProposalDraft & { ruleId: string; category: Proposal['category']; impact: Proposal['impact']; authority: RuleAuthority }>>('rules', inputs);
     const fromCache = drafts !== undefined;
     if (fromCache) cached++;
     else {
@@ -82,7 +82,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
       const context = ruleContext(source.book, loaded.config, language.pack, scene, names, wordCounts);
       for (const rule of rulesForScene) {
         try {
-          for (const draft of rule.detect(scene, context)) drafts.push({ ...draft, ruleId: rule.id, category: draft.category ?? rule.category, impact: draft.impact ?? rule.impact });
+          for (const draft of rule.detect(scene, context)) drafts.push({ ...draft, ruleId: rule.id, category: draft.category ?? rule.category, impact: draft.impact ?? rule.impact, authority: draft.authority ?? rule.authority });
         } catch (error) { failed++; failures.push({ node_id: `${chapter.slug}/${scene.id}/${rule.id}`, reason: (error as Error).message }); }
       }
       computed++;
@@ -96,12 +96,17 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
     hits += sceneDrafts.length;
     for (const draft of sceneDrafts) {
       try {
+        // Полномочия правила решают, как правка может попасть в текст: пакетно (mechanical), поштучно (contextual)
+        // или только по явному решению автора как находка (semantic: unverified, с основаниями).
+        // Черновик без полномочий (кэш старого набора правил) считается semantic: при сомнении — только находка.
+        const authority = draft.authority ?? 'semantic';
         const proposal = makeProposal({
           category: draft.category, chapter: chapter.slug, scene: scene.id, target: draft.target, replacement: draft.replacement,
           before: scene.text.slice(Math.max(0, draft.start - 60), draft.start), after: scene.text.slice(draft.start + draft.target.length, draft.start + draft.target.length + 60),
-          occurrence: occurrenceBefore(scene.text, draft.target, draft.start), run_id: runId, impact: draft.impact,
+          occurrence: occurrenceBefore(scene.text, draft.target, draft.start), run_id: runId, impact: authority === 'mechanical' ? draft.impact : 'prose',
           source: `rule:${draft.ruleId}`, confidence: 1, reason: draft.reason, content_hash: scene.contentHash,
-          verification: { passes: 0, agreed: 0, semantic_risk: 'none', voice: 'ok' }
+          verification: { passes: 0, agreed: 0, semantic_risk: authority === 'semantic' ? 'unknown' : 'none', voice: authority === 'semantic' ? 'unknown' : 'ok' },
+          rule_authority: authority, ...(authority === 'semantic' ? { unverified: true as const, review: { evidence: draft.evidence ?? {} } } : {})
         });
         if (isRejected(proposal)) continue;
         if (!proposals.has(proposal.id)) proposals.set(proposal.id, proposal);

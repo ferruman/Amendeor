@@ -3,7 +3,7 @@ import { inDialogue } from '../text/dialogue.ts';
 import { effectivePreserve } from '../config.ts';
 
 export const doubledWord: Rule = {
-  id: 'repetition.doubled-word', version: '3', langs: ['en', 'ru'], category: 'repetition', impact: 'mechanical',
+  id: 'repetition.doubled-word', version: '3', langs: ['en', 'ru'], category: 'repetition', impact: 'mechanical', authority: 'contextual',
   detect(scene, ctx): ProposalDraft[] {
     const drafts: ProposalDraft[] = [];
     for (const match of scene.text.matchAll(/(?<![\p{L}])([\p{L}]{2,})([ \t\r\n]+)\1(?![\p{L}])/giu)) {

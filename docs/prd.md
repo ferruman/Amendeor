@@ -232,6 +232,16 @@ Duplicate words, doubled whitespace, malformed or unbalanced punctuation and quo
 
 Each rule: an id, a language scope, individually switchable, tested against a clean control text that it must not fire on (§18).
 
+Rule output never passes the model guards or the verifier, so each rule declares its **authority** (`rules/index.ts`), recorded on every rule proposal as `rule_authority`:
+
+| Authority | Meaning | Rules | How it reaches `edited/` |
+|---|---|---|---|
+| `mechanical` | the trigger itself proves the fix; no word changes | whitespace, configured quotes, mixed quotes, Markdown artifacts, configured ellipsis, spaced hyphen between words, configured spelling, `ё`→`е` when configured | `impact: mechanical`: bulk `accept --impact mechanical` and `auto_accept: [mechanical]` |
+| `contextual` | usually right, but context decides | doubled word, unbalanced brackets, sentence capitalization, `..`, line-start `- `, book-frequency spelling variant, Russian `сутки`/`был` agreement, an author-mapped name variant | `impact: prose`: accepted one by one |
+| `semantic` | may change meaning or identity | name variants found by similarity and frequency, `е`→`ё` | review-only finding: `unverified: true` plus `review.evidence`; text changes only if the author accepts that id with explicit unverified consent (`--unverified`, UI confirmation); a delegation cannot |
+
+Proper-name identity is never inferred: `terminology.name-variant` reports «Mark» next to the more frequent «Mary» with both spellings and the counts, but proposes an ordinary replacement only from the author's list `editorial_profile.canonical_names: [{ name: Mara, variants: [Maro] }]`. A variant listed under two names is again review-only; a canonical name is never reported as a variant of another; protected forms win over everything.
+
 ### 9.2 Model copy edit
 
 Per scene, only on candidate regions: a rule hit, a metric hotspot (§10), a supplied finding (§13), or — in `copy`/`full` mode — the scene itself in windows. The model returns structured candidates:

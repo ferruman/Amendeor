@@ -58,17 +58,17 @@
     "src/prompts/verify.ts": "bc5515098168b6951a1de74f07f7b2f31a2803b9900deb6940bd391d5b74a2b8",
     "src/guard/verify.ts": "075ddaa40b1c48724c404cf7acd2fb19bde563f9db4d0176ab5ca44020b97c21",
     "src/guard/index.ts": "09d9649fb9e13b3260c22dabeaf7b03b00f2ea754d11d59e6bd45a8d152181bf",
-    "src/edit/pass.ts": "60003cf560b49cfbfd1b0e451321153859866530dd8feeb3ff4b922c67404c9a",
+    "src/edit/pass.ts": "5457134f3ea82b1928c7c34816b4f66268b3408d63a5ea17d99c60a751bba2d6",
     "src/provider/http.ts": "6ecc84919beb11262b6b8b634d1ce41bb38e0e537f0d08a9fedb4603f0bc43f4",
     "src/provider/gateway.ts": "c1e2c1adde114d87ecd796d86376a6b74ae59942c2529f0f6720ecba118a0f0e",
     "src/guard/traps.ts": "26714525a79a5d9b4fdd4df81bc414a7da8b94e35b4ccc9af731d27d61460a38",
     "src/guard/voice.ts": "a19072bd32a5dbef5904706e9460ce6166526d178910cacf53bf422df39e1dcd",
     "src/text/dialogue.ts": "ca6e564d95875d8036ec805c765893e67c961a7ae120fe9aac33ef3cf1df2167",
     "src/text/segment.ts": "bbf71c7084788cdd840f4de9acf831df7141233c99fe3c41595a9bb1d98126a3",
-    "src/edit/mechanical.ts": "09c089879b47151acada55abf7444dea550adbe8126c0b5e998b95930ff93f15",
-    "src/rules/index.ts": "f10a9c7bc0741ca2a15c57fdc816672b6b6624fd59d0534ecceb8038287def12",
-    "src/rules/capitalization.ts": "dfc5e449a568435d4d9ff9483f40d53c55c0e14ab09b3c72801f50239b1370b1",
-    "src/rules/mixed-quotes.ts": "a66d16e7d482ab4f55fe45d6ac714d1b6543f4a90812b88d271f5f9b646b915c"
+    "src/edit/mechanical.ts": "c12b8687292ddac5c712a1f2ca35148fd29729c7fda539ca52ebe21c98e75cc2",
+    "src/rules/index.ts": "5f008c928962f141d16d59584141b4108435a95ef20516afa375746d47a7dc2a",
+    "src/rules/capitalization.ts": "63bc2bca1892343249339198787ce1730af5183e40cf0a858ec4a087ad1102a7",
+    "src/rules/mixed-quotes.ts": "e4d6452782432fbd9429f545afcc80bbafa23e1d9e5890581602ddf9499be48c"
   },
   "source_sha256": "a5050a710efe242c2ced53dd8585ca9e9feae7f88803e81f46cf20d095b11e2b",
   "behavior_review": [
@@ -76,6 +76,18 @@
       "date": "2026-10-11",
       "change": "optional diagnostic editor pass, pass merging, editorial preservation profile, verifier context (all off by default)",
       "evidence": "HEAD vs working tree with production amendeor.yaml on the v3 fixture through a deterministic fake network: 38 HTTP request bodies (26 editor, 12 verifier), final proposals and rejected.jsonl byte-identical"
+    },
+    {
+      "date": "2026-10-11",
+      "change": "rule authority (mechanical | contextual | semantic): contextual rule output is no longer bulk/auto-acceptable (impact prose), semantic output (name-variant heuristic, е→ё) is review-only (unverified + evidence); merge equivalence by byte-identical resulting scene text",
+      "evidence": "HEAD (f46eff6) vs working tree with production amendeor.yaml on the v3 fixture through a deterministic fake network: 38 HTTP request bodies and rejected.jsonl byte-identical; every proposal keeps its id, target and replacement; only rule proposals differ, in impact (mechanical → prose for doubled-word, capitalization, line-start dash) and the new rule_authority field",
+      "files": [
+        "src/edit/pass.ts",
+        "src/edit/mechanical.ts",
+        "src/rules/index.ts",
+        "src/rules/capitalization.ts",
+        "src/rules/mixed-quotes.ts"
+      ]
     }
   ]
 }

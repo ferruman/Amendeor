@@ -25,7 +25,10 @@ export const profileSchema = z.object({
 // новое — только флаги исторического языка для промптов и verifier и защищённые формы, которые нельзя менять.
 export const editorialProfileSchema = z.object({
   preservation: z.object({ historical_orthography: z.boolean().optional(), period_grammar: z.boolean().optional(), dialect: z.boolean().optional(), authorial_repetition: z.boolean().optional() }).strict().default({}),
-  protected_forms: z.array(z.string().min(1)).default([])
+  protected_forms: z.array(z.string().min(1)).default([]),
+  // Канон имён автора: явно названные ошибочные написания имени. Только этот список даёт правилу право предложить замену имени;
+  // сходство написаний и частота в книге такого права не дают (terminology.name-variant).
+  canonical_names: z.array(z.object({ name: z.string().min(1), variants: z.array(z.string().min(1)).min(1) }).strict()).default([])
 }).strict();
 export const configSchema = z.object({
   language: z.string().optional(), preserve: z.array(z.string()).default([]), editorial_profile: editorialProfileSchema.optional(),

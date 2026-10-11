@@ -17,7 +17,7 @@ async function workspace(allow: string[], deny: string[] = []) {
   await mkdir(path.join(root, 'authority'), { recursive: true });
   await writeFile(path.join(root, 'codicora.yaml'), 'spec: codicora/v1\ntype: project\nproject: { id: book-a }\n');
   await writeFile(path.join(root, 'manuscript/manuscript.yaml'), 'schema_version: 1\nlanguage: en\nchapters: [{ slug: one, title: One }]\n');
-  await writeFile(path.join(root, 'manuscript/chapters/one.md'), '<!-- scene: one -->\nShe said said yes.\n');
+  await writeFile(path.join(root, 'manuscript/chapters/one.md'), '<!-- scene: one -->\nShe said  yes.\n');
   const script = path.join(root, 'script.json');
   await writeFile(script, JSON.stringify({ default: '{"edits":[]}' }));
   await writeFile(path.join(root, 'amendeor.yaml'), `auto_accept: [mechanical]\nproviders:\n  local:\n    transport: local\n    endpoint: ${JSON.stringify(script)}\n    price: { input_per_m: 1, output_per_m: 2, currency: USD }\nprofiles:\n  edit: { provider: local, model: fixture }\n`);
