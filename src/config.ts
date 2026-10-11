@@ -15,16 +15,38 @@ export const profileSchema = z.object({
   family: z.string().optional(), thinking: z.boolean().optional(), reasoning: z.boolean().optional(),
   // verify: что проверяет verifier в режиме copy. meaning — только смысл (по умолчанию); necessity — ещё и необходимость правки.
   reasoning_effort: z.enum(['none', 'minimal', 'low', 'medium', 'high', 'xhigh', 'max']).optional(),
-  check: z.enum(['meaning', 'necessity']).optional()
+  check: z.enum(['meaning', 'necessity']).optional(),
+  // verify + check: necessity: передать verifier структурный контекст правки (место, категория, политика сохранения).
+  context: z.boolean().optional(),
+  // edit: второй, диагностический проход редактора по тому же исходному тексту (copy-edit-diagnostic); по умолчанию выключен.
+  diagnostic: z.boolean().optional()
 }).passthrough();
+// Профиль сохранения автора. Ключевые флаги разворачиваются в прежние слова preserve (dialect, intentional-repetition);
+// новое — только флаги исторического языка для промптов и verifier и защищённые формы, которые нельзя менять.
+export const editorialProfileSchema = z.object({
+  preservation: z.object({ historical_orthography: z.boolean().optional(), period_grammar: z.boolean().optional(), dialect: z.boolean().optional(), authorial_repetition: z.boolean().optional() }).strict().default({}),
+  protected_forms: z.array(z.string().min(1)).default([])
+}).strict();
 export const configSchema = z.object({
-  language: z.string().optional(), preserve: z.array(z.string()).default([]),
+  language: z.string().optional(), preserve: z.array(z.string()).default([]), editorial_profile: editorialProfileSchema.optional(),
   normalize: z.object({ spelling: z.string().optional(), quotes: z.string().optional(), yo: z.enum(['keep', 'yo', 'e']).default('keep'), dashes: z.string().optional(), ellipsis: z.boolean().default(false) }).passthrough().default({ yo: 'keep', ellipsis: false }),
   avoid: z.array(z.string()).default([]), auto_accept: z.array(z.enum(['mechanical'])).default([]),
   rules: z.record(z.string(), z.union([z.literal('on'), z.literal('off'), z.boolean()])).default({}),
   providers: z.record(z.string(), providerSchema).default({}), profiles: z.record(z.string(), profileSchema).default({})
 }).passthrough();
 export type Config = z.infer<typeof configSchema>;
+// Слова preserve, которые означают политику, а не буквальную фразу текста.
+export const preserveKeywords = ['sentence-fragments', 'dialect', 'informal-dialogue', 'intentional-repetition', 'historical-orthography', 'period-grammar'];
+// Все потребители preserve читают его отсюда: явный preserve плюс то, что задаёт профиль сохранения.
+export function effectivePreserve(config: Config): string[] {
+  const profile = config.editorial_profile;
+  const derived = [
+    ...(profile?.preservation.dialect ? ['dialect'] : []), ...(profile?.preservation.authorial_repetition ? ['intentional-repetition'] : []),
+    ...(profile?.preservation.historical_orthography ? ['historical-orthography'] : []), ...(profile?.preservation.period_grammar ? ['period-grammar'] : []),
+    ...(profile?.protected_forms ?? [])
+  ];
+  return [...new Set([...config.preserve, ...derived])];
+}
 export type ConfigLayer = 'defaults' | 'user' | 'workspace' | 'environment' | 'cli';
 export interface LoadedConfig { config: Config; winningLayer: Record<string, ConfigLayer>; warnings: string[] }
 

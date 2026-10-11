@@ -16,6 +16,19 @@ export function spansTouch(a: { start: number; end: number }, b: { start: number
   return a.start < b.end && a.end > b.start || a.start === a.end && a.start > b.start && a.start < b.end || b.start === b.end && b.start > a.start && b.start < a.end;
 }
 
+// Вхождения защищённых форм профиля сохранения в тексте сцены.
+export function protectedFormSpans(text: string, forms: string[]): Array<{ start: number; end: number }> {
+  const spans: Array<{ start: number; end: number }> = [];
+  for (const form of forms) for (let at = text.indexOf(form); at >= 0; at = text.indexOf(form, at + form.length)) spans.push({ start: at, end: at + form.length });
+  return spans;
+}
+// Правка задевает защищённую форму, если её изменённая часть пересекает вхождение формы.
+export function touchesProtectedForm(text: string, start: number, end: number, replacement: string, forms: string[]): boolean {
+  if (!forms.length) return false;
+  const changed = changedSpan(text, start, end, replacement);
+  return protectedFormSpans(text, forms).some((span) => spansTouch(changed, span) || changed.start === changed.end && changed.start === span.start);
+}
+
 export function words(text: string): WordToken[] {
   const pattern = /\b\d{1,2}:\d{2}(?::\d{2})?\b|\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b\d+(?:[.,]\d+)+\b|[\p{L}]+(?:['’][\p{L}]+)*|\d+/gu;
   return [...text.matchAll(pattern)].map((match) => ({ text: match[0], start: match.index!, end: match.index! + match[0].length, lower: match[0].toLocaleLowerCase() }));

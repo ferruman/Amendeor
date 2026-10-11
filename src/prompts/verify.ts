@@ -26,3 +26,18 @@ export function necessityPrompt(before: string, after: string, context: string):
     prompt: ['BEFORE:', before, 'AFTER:', after, 'SURROUNDING PARAGRAPH:', context].join('\n\n')
   };
 }
+
+// Необходимость + структурный контекст (EditorialContext). Отдельная версия: прежний промпт necessity-1.0.0 не меняется.
+export const necessityContextPromptVersion = 'necessity-context-1.0.0';
+export function necessityContextPrompt(before: string, after: string, context: string, editorial: unknown): { system: string; prompt: string } {
+  const base = necessityPrompt(before, after, context);
+  return {
+    system: [
+      base.system.replace(/\nReturn JSON only:[^\n]*$/u, ''),
+      'CONTEXT is computed by software from the manuscript and the author\'s configuration; treat it as fact. location.inside_quotes_or_dialogue_line says only whether the edit lies inside quotation marks or a dash-introduced dialogue line. Outside them the text may still be free indirect discourse or stylized narration (narrative_voice is unknown), so read the paragraph. edit.editor_category is the editor\'s own label and may be wrong. preservation lists the author\'s configured policies; configured:false means none was set.',
+      'Decide NECESSARY from evidence, not from what is imaginable. If BEFORE breaks a grammatical or spelling rule and nothing in the paragraph or CONTEXT shows the form is deliberate, the edit is necessary; a merely conceivable stylistic reading is not evidence. Evidence that the form is deliberate: it is inside quoted speech or a dialogue line; the same nonstandard pattern recurs in the paragraph as a speaker\'s or narrator\'s idiom; dialect, colloquial or period forms surround it; or a preservation policy covers it. With such evidence, or if the case is genuinely unclear, answer false.',
+      'Return JSON only: {"necessary":boolean,"preserved":boolean,"reason":"the rule BEFORE breaks, or the evidence that the form is deliberate, or why the edit is harmful"}.'
+    ].join('\n'),
+    prompt: ['CONTEXT:', JSON.stringify(editorial), base.prompt].join('\n\n')
+  };
+}

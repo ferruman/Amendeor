@@ -3,7 +3,7 @@ import type { Config } from '../config.ts';
 import type { LanguagePack } from '../lang/pack.ts';
 import { Cache } from '../cache.ts';
 import { Gateway } from '../provider/gateway.ts';
-import { necessityPrompt, necessityPromptVersion, verifyPrompt, verifyPromptVersion } from '../prompts/verify.ts';
+import { necessityContextPrompt, necessityContextPromptVersion, necessityPrompt, necessityPromptVersion, verifyPrompt, verifyPromptVersion } from '../prompts/verify.ts';
 
 const answerSchema = z.object({ preserved: z.boolean(), reason: z.string() });
 // Оба поля обязательны: ответ без одного из них — сбой проверки, а не молчаливое согласие.
@@ -26,7 +26,7 @@ export async function verifyObjectiveCorrection(before: string, after: string, c
   }
   return { passed: answer.necessary, reason: answer.reason || (answer.necessary ? 'necessary' : 'not necessary') };
 }
-export async function verifyMeaning(before: string, after: string, context: string, impact: 'mechanical' | 'prose', config: Config, pack: LanguagePack, cache: Cache, gateway: Gateway, options: { necessity?: boolean } = {}): Promise<VerifyResult> {
+export async function verifyMeaning(before: string, after: string, context: string, impact: 'mechanical' | 'prose', config: Config, pack: LanguagePack, cache: Cache, gateway: Gateway, options: { necessity?: boolean; context?: unknown } = {}): Promise<VerifyResult> {
   const profile = config.profiles.verify;
   if (!profile) return { passed: false, passes: 0, agreed: 0, reason: 'verify profile missing', sameFamily: false };
   const editFamily = config.profiles.edit?.family ?? config.providers[config.profiles.edit?.provider ?? '']?.family;
@@ -37,10 +37,12 @@ export async function verifyMeaning(before: string, after: string, context: stri
   const schema = necessity ? necessitySchema : answerSchema;
   let agreed = 0; const answers: Array<{ necessary?: boolean; preserved: boolean }> = [];
   for (let index = 0; index < passes; index++) {
-    const key = { before, after, context, profile, provider: config.providers[profile.provider], promptVersion: necessity ? necessityPromptVersion : verifyPromptVersion, index };
+    // Контекст входит в ключ кэша: тот же текст с другим профилем сохранения — другой вопрос.
+    const withContext = necessity && options.context !== undefined;
+    const key = { before, after, context, profile, provider: config.providers[profile.provider], promptVersion: withContext ? necessityContextPromptVersion : necessity ? necessityPromptVersion : verifyPromptVersion, index, ...(withContext ? { editorial: options.context } : {}) };
     let answer = await cache.read<{ necessary?: boolean; preserved: boolean; reason: string }>(necessity ? 'verify-necessity' : 'verify', key);
     if (!answer) {
-      const prompt = (necessity ? necessityPrompt : verifyPrompt)(before, after, context);
+      const prompt = withContext ? necessityContextPrompt(before, after, context, options.context) : (necessity ? necessityPrompt : verifyPrompt)(before, after, context);
       try {
         const output = await gateway.complete('verify', 'verify', prompt.system, prompt.prompt, 240);
         answer = schema.parse(JSON.parse(output.text));

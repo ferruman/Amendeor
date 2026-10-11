@@ -1,5 +1,5 @@
 import type { Book } from '../book.ts';
-import type { Config } from '../config.ts';
+import { effectivePreserve, type Config } from '../config.ts';
 import type { LanguagePack } from '../lang/pack.ts';
 import type { Proposal } from '../proposal/schema.ts';
 import { locate } from '../proposal/locate.ts';
@@ -27,8 +27,8 @@ export function voiceGuard(proposal: Proposal, sceneText: string, book: Book, pa
   const dialogue = editInDialogue(dialogueSpans(sceneText, pack), sceneText, located.start, located.end, proposal.replacement);
   const normalized = normalizationConfigured(config);
   if (dialogue && !normalized && proposal.category !== 'dialogue-mechanics' && ['grammar', 'word-choice', 'clarity', 'sentence-structure', 'redundancy', 'repetition', 'prose-pattern'].includes(proposal.category)) return 'dialogue-register-preserved';
-  if (config.preserve.includes('sentence-fragments') && /[.!?…]\s+\p{L}/u.test(proposal.target.text) && !/[.!?…]\s+\p{L}/u.test(proposal.replacement)) return 'sentence-fragment-preserved';
-  if (dialogue && !normalized && (config.preserve.includes('dialect') || config.preserve.includes('informal-dialogue')) && words(proposal.target.text).map((word) => word.lower).join(' ') !== words(proposal.replacement).map((word) => word.lower).join(' ')) return 'dialogue-language-preserved';
+  if (effectivePreserve(config).includes('sentence-fragments') && /[.!?…]\s+\p{L}/u.test(proposal.target.text) && !/[.!?…]\s+\p{L}/u.test(proposal.replacement)) return 'sentence-fragment-preserved';
+  if (dialogue && !normalized && (effectivePreserve(config).includes('dialect') || effectivePreserve(config).includes('informal-dialogue')) && words(proposal.target.text).map((word) => word.lower).join(' ') !== words(proposal.replacement).map((word) => word.lower).join(' ')) return 'dialogue-language-preserved';
   const originalSentence = sentenceAt(sceneText, located.start, pack);
   const updatedScene = sceneText.slice(0, located.start) + proposal.replacement + sceneText.slice(located.end);
   const editedSentence = sentenceAt(updatedScene, located.start, pack);

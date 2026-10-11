@@ -17,6 +17,8 @@ export const proposalSchema = z.object({
   confidence: z.number().min(0).max(1),
   reason: z.string(),
   source_findings: z.array(z.string()).optional(),
+  // Какие проходы редактора независимо предложили эту правку (только при диагностическом проходе).
+  passes: z.array(z.enum(['standard', 'diagnostic'])).optional(),
   verification: z.object({ passes: z.number().int().nonnegative(), agreed: z.number().int().nonnegative(), semantic_risk: z.string(), voice: z.string() }),
   unverified: z.literal(true).optional()
 });

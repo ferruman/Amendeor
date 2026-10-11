@@ -1,5 +1,5 @@
 import type { LanguagePack } from '../lang/pack.ts';
-import type { Config } from '../config.ts';
+import { effectivePreserve, type Config } from '../config.ts';
 import type { FormulaicHit } from '../patterns/formulaic.ts';
 
 export const copyEditPromptVersion = '1.6.0';
@@ -19,7 +19,7 @@ export function copyEditPrompt(pack: LanguagePack, editable: string, before: str
     'Categories: spelling, grammar, punctuation, typography, capitalization, word-choice, clarity, sentence-structure, redundancy, repetition, dialogue-mechanics, terminology, consistency, prose-pattern.',
     `Every target must occur verbatim in ${title ? 'EDITABLE CHAPTER TITLE' : 'EDITABLE TEXT'} and each edit must stay within one paragraph.`,
     'Text before and after EDITABLE TEXT is read-only context.',
-    config?.preserve.length ? 'Preserve: ' + config.preserve.join(', ') + '.' : '',
+    config && effectivePreserve(config).length ? 'Preserve: ' + effectivePreserve(config).join(', ') + '.' : '',
     config?.avoid.length ? 'Avoid: ' + config.avoid.join(', ') + '.' : '',
     config ? 'Normalize only as configured: ' + JSON.stringify(config.normalize) + '.' : '',
     mode === 'mechanical' ? 'Only correct grammar and spelling in this pass.' : mode === 'proofread'
@@ -32,4 +32,20 @@ export function copyEditPrompt(pack: LanguagePack, editable: string, before: str
     ...(formulaic.length ? ['FORMULAIC SIGNALS (evidence, not authorship):', formulaic.map((hit) => hit.id + ': ' + JSON.stringify(hit.quote) + ' (' + hit.reason + ')').join('\n')] : []),
     ...(retryError ? ['PREVIOUS OUTPUT ERROR:', retryError, 'Return valid JSON with exact targets.'] : [])].join('\n\n');
   return { system, prompt };
+}
+
+// Диагностический проход: тот же промпт copy-edit, где две строки о сдержанности заменены просьбой методично найти
+// объективные ошибки. Все строки политики (имена, стиль, preserve, формат JSON, дословная цель) у проходов общие.
+// Текст тот же, что в эксперименте по полноте 2026-10-10 (eval/bench/run.ts).
+export const diagnosticPromptVersion = 'copy-edit-diagnostic-1.0.0';
+const restraintLines = ['Most windows need no changes. Return {"edits":[]} for NO_CHANGE.', 'Suggest copy edits only when the gain is clear.'];
+export function diagnosticEditPrompt(...args: Parameters<typeof copyEditPrompt>): { system: string; prompt: string } {
+  const base = copyEditPrompt(...args);
+  if (!restraintLines.every((line) => base.system.includes(line))) throw new Error('copy-edit prompt changed; the diagnostic prompt must be revised with it');
+  return {
+    system: base.system
+      .replace(restraintLines[0]!, 'Diagnostic pass: read EDITABLE TEXT slowly, sentence by sentence and word by word, and report every OBJECTIVE error you find. Return {"edits":[]} only if there is none.')
+      .replace(restraintLines[1]!, 'Objective errors: misspelled or transposed letters; broken agreement (subject–verb, gender, number); a wrong word form or case; an accidentally doubled or missing word; a phrase or sentence fragment repeated by mistake; a stock phrase that is plainly out of place and breaks the sentence; an unambiguous punctuation slip. Do not report style, rhythm, word choice, period or regional spelling, dialect or a character\'s speech.'),
+    prompt: base.prompt
+  };
 }

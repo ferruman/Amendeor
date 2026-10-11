@@ -1,7 +1,8 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { OpenedSource } from '../source/index.ts';
-import type { LoadedConfig, Config } from '../config.ts';
+import { effectivePreserve, type LoadedConfig, type Config } from '../config.ts';
+import { touchesProtectedForm } from '../text/segment.ts';
 import type { LoadedPack } from '../lang/pack.ts';
 import { Cache } from '../cache.ts';
 import { canonicalJson, normalizeText, sha256 } from '../hash.ts';
@@ -64,7 +65,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   const proposals = new Map<string, Proposal>();
   const failures: Array<{ node_id: string; reason: string }> = [];
   const diagnostics: Array<{ node_id: string; message: string }> = [];
-  let hits = 0; let cached = 0; let computed = 0; let failed = 0;
+  let hits = 0; let cached = 0; let computed = 0; let failed = 0; let protectedSkipped = 0;
   for (const chapter of source.book.chapters) for (const scene of [
     { id: TITLE_SCENE_ID, text: chapter.title, implicit: true, contentHash: sha256(normalizeText(chapter.title)), start: 0, end: chapter.title.length } satisfies Scene,
     ...chapter.scenes
@@ -72,7 +73,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
     const rulesForScene = scene.id === TITLE_SCENE_ID ? activeRules.filter((rule) => titleRules.includes(rule)) : activeRules;
     const failuresBeforeScene = failed;
     for (const message of balanceWarnings(scene.text)) diagnostics.push({ node_id: `${chapter.slug}/${scene.id}`, message });
-    const inputs = { text: scene.text, surface: scene.id === TITLE_SCENE_ID ? 'title' : 'scene', bookHash, config: { preserve: loaded.config.preserve, normalize: loaded.config.normalize, rules: loaded.config.rules }, pack: language.pack, ruleSetVersion };
+    const inputs = { text: scene.text, surface: scene.id === TITLE_SCENE_ID ? 'title' : 'scene', bookHash, config: { preserve: effectivePreserve(loaded.config), editorial_profile: loaded.config.editorial_profile ?? null, normalize: loaded.config.normalize, rules: loaded.config.rules }, pack: language.pack, ruleSetVersion };
     let drafts = await cache.read<Array<ProposalDraft & { ruleId: string; category: Proposal['category']; impact: Proposal['impact'] }>>('rules', inputs);
     const fromCache = drafts !== undefined;
     if (fromCache) cached++;
@@ -86,7 +87,12 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
       }
       computed++;
     }
-    const sceneDrafts = (drafts ?? []).map((draft) => wholeWords(scene.text, draft));
+    // Защищённые формы профиля сохранения не меняет и детерминированное правило.
+    const forms = loaded.config.editorial_profile?.protected_forms ?? [];
+    const sceneDrafts = (drafts ?? []).map((draft) => wholeWords(scene.text, draft)).filter((draft) => {
+      if (!touchesProtectedForm(scene.text, draft.start, draft.start + draft.target.length, draft.replacement, forms)) return true;
+      protectedSkipped++; return false;
+    });
     hits += sceneDrafts.length;
     for (const draft of sceneDrafts) {
       try {
@@ -127,14 +133,16 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   const run: Record<string, unknown> = {
     schema: 'codicora.run/0.1', run_id: runId, tool: { name: 'amendeor', version: '0.1.0' }, started_at: started, finished_at: new Date().toISOString(),
     inputs: { files: inputs }, config: redactConfig(loaded.config), config_layers: loaded.winningLayer,
-    stages: [{ name: 'rules', status: failed ? 'partial' : 'ok', hits, proposals: hits, units: { cached, computed, failed }, failures, diagnostics }, model.stage, guard.stage],
+    stages: [{ name: 'rules', status: failed ? 'partial' : 'ok', hits, proposals: hits, protected_form_skipped: protectedSkipped, units: { cached, computed, failed }, failures, diagnostics }, model.stage, guard.stage],
     guard: guard.stage,
     ledger: { entries: ledgerEntries, tokens_in: ledgerEntries.reduce((sum, entry) => sum + entry.tokens_in, 0), tokens_out: ledgerEntries.reduce((sum, entry) => sum + entry.tokens_out, 0), cost: ledgerEntries.some((entry) => entry.tokens_in + entry.tokens_out > 0 && entry.cost === null) ? null : ledgerEntries.reduce((sum, entry) => sum + (entry.cost ?? 0), 0), currency: ledgerEntries.find((entry) => entry.currency)?.currency ?? null, ms: ledgerEntries.reduce((sum, entry) => sum + entry.ms, 0) }, baseline: { previous_run_id: previousId, states: {} },
     counts: { by_impact: { mechanical: list.filter((item) => item.impact === 'mechanical').length, prose: list.filter((item) => item.impact === 'prose').length } },
     summary: { ...summary, hotspots: summary.hotspots.length }, warnings: [...summary.warnings, ...conflicting.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`), ...(acceptRefused ? [`auto-accept not performed, proposals left pending: ${acceptRefused}`] : [])], metadata: { rule_set_version: ruleSetVersion, pack_version: language.pack.version, mode, prompt_version: (model.stage as { prompt_version?: string }).prompt_version, model_id: (model.stage as { model_id?: string }).model_id }
   };
   const report = renderReport(run);
-  await writeRun(source.stateDir, runId, { 'run.json': `${JSON.stringify(run, null, 2)}\n`, 'proposals.jsonl': list.map((proposal) => JSON.stringify(proposal)).join('\n') + (list.length ? '\n' : ''), 'rejected.jsonl': guard.rejected.map((item) => JSON.stringify(item)).join('\n') + (guard.rejected.length ? '\n' : ''), 'report.md': report }, Boolean(options.runId));
+  // Отложенные конфликты двух проходов редактора — в том же журнале отказов, что и отказы фильтров.
+  const rejectedLog = [...(model.conflicts ?? []).flatMap((conflict) => conflict.edits.map((edit, index) => ({ proposal_id: conflict.proposal_ids[index]!, guard: 'merge-conflict', reason: conflict.reason, target: edit.target, replacement: edit.replacement, passes: edit.pass }))), ...guard.rejected];
+  await writeRun(source.stateDir, runId, { 'run.json': `${JSON.stringify(run, null, 2)}\n`, 'proposals.jsonl': list.map((proposal) => JSON.stringify(proposal)).join('\n') + (list.length ? '\n' : ''), 'rejected.jsonl': rejectedLog.map((item) => JSON.stringify(item)).join('\n') + (rejectedLog.length ? '\n' : ''), 'report.md': report }, Boolean(options.runId));
   if (autoAccept) {
     const accepted = await acceptAuthorized(source.editedDir, list.filter((proposal) => proposal.impact === 'mechanical' && !conflicting.includes(proposal)), acceptAuthority!);
     await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });

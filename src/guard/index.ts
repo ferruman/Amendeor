@@ -12,15 +12,17 @@ import { verifyMeaning, verifyObjectiveCorrection } from './verify.ts';
 import { normalizationConfigured, voiceGuard } from './voice.ts';
 import { TITLE_SCENE_ID, type Book } from '../book.ts';
 import { properNouns } from '../text/names.ts';
-import { changedSpan, spansTouch } from '../text/segment.ts';
+import { changedSpan, spansTouch, touchesProtectedForm } from '../text/segment.ts';
 
 // Правила, чья правка исправляет объективный дефект без перестановки слов: модельная правка тех же знаков уступает им.
 export const preferredRules = ['rule:repetition.doubled-word'];
 
 // Все бесплатные проверки в порядке исполнения; eval вызывает ту же функцию, а не копию условий.
-export function deterministicGuard(proposal: Proposal, sceneText: string, book: Book, pack: LanguagePack, config: Config, mode = 'copy', ruleProposals: Proposal[] = [], bookNames = properNouns(book, pack)): { guard: 'semantic-trap' | 'voice' | 'rule-preferred'; reason: string } | { found: { start: number; end: number }; commaCandidate: boolean } {
+export function deterministicGuard(proposal: Proposal, sceneText: string, book: Book, pack: LanguagePack, config: Config, mode = 'copy', ruleProposals: Proposal[] = [], bookNames = properNouns(book, pack)): { guard: 'semantic-trap' | 'voice' | 'rule-preferred'; reason: string } | { found: { start: number; end: number }; commaCandidate: boolean; dialogue: boolean } {
   const found = locate(sceneText, proposal.target);
   if (!('ok' in found)) return { guard: 'semantic-trap', reason: 'target stale' };
+  // Защищённая форма профиля сохранения: изменённая часть правки не может её задевать — ни у одного прохода редактора.
+  if (touchesProtectedForm(sceneText, found.start, found.end, proposal.replacement, config.editorial_profile?.protected_forms ?? [])) return { guard: 'semantic-trap', reason: 'protected-form' };
   // Модель, правящая те же знаки, что и действующее правило-дубль, может переставить слова («и снова вышел»); правило — нет.
   const changed = changedSpan(sceneText, found.start, found.end, proposal.replacement);
   const rule = proposal.source === 'model' && ruleProposals.find((item) => preferredRules.includes(item.source) && item.location.chapter === proposal.location.chapter && item.location.scene === proposal.location.scene
@@ -33,10 +35,27 @@ export function deterministicGuard(proposal: Proposal, sceneText: string, book: 
   // Голос — детерминированная проверка без побочных эффектов: она идёт до платных verifier, чтобы не платить за заведомо отклонённую правку.
   const voice = voiceGuard(proposal, sceneText, book, pack, config);
   if (voice) return { guard: 'voice', reason: voice };
-  return { found, commaCandidate };
+  return { found, commaCandidate, dialogue };
 }
 
-export interface GuardRejection { proposal_id: string; guard: 'semantic-trap' | 'semantic-verifier' | 'objective-verifier' | 'punctuation-verifier' | 'voice' | 'rule-preferred'; reason: string; target?: string; replacement?: string; category?: string; chapter?: string; scene?: string; occurrence?: number; source?: string }
+// Структурный контекст для verifier — только то, что пайплайн знает надёжно. Вне кавычек — не значит «нейтральный рассказчик»:
+// несобственно-прямая речь и стилизация бывают и там, поэтому голос повествования помечен как неизвестный.
+export interface EditorialContext {
+  location: { inside_quotes_or_dialogue_line: boolean; paragraph_contains_quotes_or_dialogue_lines: boolean; narrative_voice: 'unknown' };
+  edit: { editor_category: string; category_source: 'editor, self-reported'; editor_passes: string[] };
+  preservation: { configured: false } | { configured: true; historical_orthography: boolean; period_grammar: boolean; dialect: boolean; authorial_repetition: boolean; protected_forms: number };
+}
+export function editorialContext(proposal: Proposal, insideQuotes: boolean, paragraphHasQuotes: boolean, config: Config): EditorialContext {
+  const profile = config.editorial_profile;
+  return {
+    location: { inside_quotes_or_dialogue_line: insideQuotes, paragraph_contains_quotes_or_dialogue_lines: paragraphHasQuotes, narrative_voice: 'unknown' },
+    edit: { editor_category: proposal.category, category_source: 'editor, self-reported', editor_passes: proposal.passes ?? ['standard'] },
+    preservation: profile ? { configured: true, historical_orthography: Boolean(profile.preservation.historical_orthography), period_grammar: Boolean(profile.preservation.period_grammar),
+      dialect: Boolean(profile.preservation.dialect), authorial_repetition: Boolean(profile.preservation.authorial_repetition), protected_forms: profile.protected_forms.length } : { configured: false }
+  };
+}
+
+export interface GuardRejection { proposal_id: string; guard: 'semantic-trap' | 'semantic-verifier' | 'objective-verifier' | 'punctuation-verifier' | 'voice' | 'rule-preferred' | 'merge-conflict'; reason: string; target?: string; replacement?: string; category?: string; chapter?: string; scene?: string; occurrence?: number; source?: string }
 export async function guardProposals(source: OpenedSource, loaded: LoadedConfig, pack: LoadedPack, candidates: Proposal[], noCache = false, mode = 'copy', ruleProposals: Proposal[] = []): Promise<{ proposals: Proposal[]; rejected: GuardRejection[]; stage: Record<string, unknown>; ledger: Gateway['ledger'] }> {
   const cache = new Cache(source.stateDir, noCache); const gateway = new Gateway(loaded.config, pack.pack);
   const proposals: Proposal[] = []; const rejected: GuardRejection[] = []; let semanticRejected = 0, ruleRejected = 0, objectiveRejected = 0, punctuationRejected = 0, voiceRejected = 0; let sameFamily = false;
@@ -69,7 +88,9 @@ export async function guardProposals(source: OpenedSource, loaded: LoadedConfig,
       }
     }
     // В proofread необходимость уже проверил verifyObjectiveCorrection; в copy её проверяет verifyMeaning, если так настроено.
-    const verification = await verifyMeaning(proposal.target.text, proposal.replacement, context, proposal.impact, loaded.config, pack.pack, cache, gateway, { necessity: mode === 'copy' && loaded.config.profiles.verify?.check === 'necessity' });
+    const necessity = mode === 'copy' && loaded.config.profiles.verify?.check === 'necessity';
+    const verification = await verifyMeaning(proposal.target.text, proposal.replacement, context, proposal.impact, loaded.config, pack.pack, cache, gateway,
+      { necessity, context: necessity && loaded.config.profiles.verify?.context ? editorialContext(proposal, check.dialogue, dialogueSpans(context, pack.pack).length > 0, loaded.config) : undefined });
     verifications.push({ proposal_id: proposal.id, ...verification });
     sameFamily ||= verification.sameFamily;
     if (!verification.passed) { rejected.push({ proposal_id: proposal.id, guard: 'semantic-verifier', reason: verification.reason, ...edit }); semanticRejected++; continue; }
