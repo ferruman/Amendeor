@@ -17,6 +17,7 @@ import { conflictsWithAccepted, readAccepted, readRejected } from '../edited/dec
 import { acceptAuthorized, type AcceptAuthority } from '../edited/authority.ts';
 import { buildEdited } from '../edited/build.ts';
 import { balanceWarnings } from '../rules/balance.ts';
+import { readFindings } from '../findings/intake.ts';
 import { modelPass } from './pass.ts';
 import { guardProposals } from '../guard/index.ts';
 import { TITLE_SCENE_ID, type Scene } from '../book.ts';
@@ -115,7 +116,8 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
     if (!fromCache && failed === failuresBeforeScene) await cache.write('rules', inputs, sceneDrafts);
   }
   const mode = options.mode ?? 'mechanical';
-  const model = await modelPass(source, loaded, language, mode, runId, [...proposals.values()], options.noCache);
+  const findings = await readFindings(source);
+  const model = await modelPass(source, loaded, language, mode, runId, [...proposals.values()], options.noCache, findings);
   const guard = await guardProposals(source, loaded, language, model.proposals.filter((proposal) => !isRejected(proposal)), options.noCache, mode, [...proposals.values()]);
   for (const proposal of guard.proposals) if (!proposals.has(proposal.id)) proposals.set(proposal.id, proposal);
   const list = [...proposals.values()];
@@ -140,9 +142,10 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
     inputs: { files: inputs }, config: redactConfig(loaded.config), config_layers: loaded.winningLayer,
     stages: [{ name: 'rules', status: failed ? 'partial' : 'ok', hits, proposals: hits, protected_form_skipped: protectedSkipped, units: { cached, computed, failed }, failures, diagnostics }, model.stage, guard.stage],
     guard: guard.stage,
+    findings: { read: findings.read, applicable: findings.applicable, signals: findings.signals.length, items: findings.items },
     ledger: { entries: ledgerEntries, tokens_in: ledgerEntries.reduce((sum, entry) => sum + entry.tokens_in, 0), tokens_out: ledgerEntries.reduce((sum, entry) => sum + entry.tokens_out, 0), cost: ledgerEntries.some((entry) => entry.tokens_in + entry.tokens_out > 0 && entry.cost === null) ? null : ledgerEntries.reduce((sum, entry) => sum + (entry.cost ?? 0), 0), currency: ledgerEntries.find((entry) => entry.currency)?.currency ?? null, ms: ledgerEntries.reduce((sum, entry) => sum + entry.ms, 0) }, baseline: { previous_run_id: previousId, states: {} },
     counts: { by_impact: { mechanical: list.filter((item) => item.impact === 'mechanical').length, prose: list.filter((item) => item.impact === 'prose').length } },
-    summary: { ...summary, hotspots: summary.hotspots.length }, warnings: [...summary.warnings, ...conflicting.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`), ...(acceptRefused ? [`auto-accept not performed, proposals left pending: ${acceptRefused}`] : [])], metadata: { rule_set_version: ruleSetVersion, pack_version: language.pack.version, mode, prompt_version: (model.stage as { prompt_version?: string }).prompt_version, model_id: (model.stage as { model_id?: string }).model_id }
+    summary: { ...summary, hotspots: summary.hotspots.length }, warnings: [...summary.warnings, ...findings.warnings, ...conflicting.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`), ...(acceptRefused ? [`auto-accept not performed, proposals left pending: ${acceptRefused}`] : [])], metadata: { rule_set_version: ruleSetVersion, pack_version: language.pack.version, mode, prompt_version: (model.stage as { prompt_version?: string }).prompt_version, model_id: (model.stage as { model_id?: string }).model_id }
   };
   const report = renderReport(run);
   // Отложенные конфликты двух проходов редактора — в том же журнале отказов, что и отказы фильтров.

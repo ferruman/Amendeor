@@ -14,16 +14,19 @@ import { classifyEdit } from './classify.ts';
 import { ruleSetVersion } from '../rules/index.ts';
 import { computeMetrics } from '../metrics/index.ts';
 import { scanFormulaicProse, formulaicCatalogVersion } from '../patterns/formulaic.ts';
+import { readFindings, isExternalFinding, type FindingsIntake } from '../findings/intake.ts';
+import { changedSpan, spansTouch } from '../text/segment.ts';
 import { TITLE_SCENE_ID } from '../book.ts';
 import { sha256, normalizeText } from '../hash.ts';
 
 export interface ModelPassResult { proposals: Proposal[]; conflicts?: MergeConflict[]; stage: Record<string, unknown>; ledger: Gateway['ledger'] }
-export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack: LoadedPack, mode: string, runId: string, ruleProposals: Proposal[], noCache = false): Promise<ModelPassResult> {
+export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack: LoadedPack, mode: string, runId: string, ruleProposals: Proposal[], noCache = false, intake?: FindingsIntake): Promise<ModelPassResult> {
   const profile = loaded.config.profiles.edit;
   if (!profile) return { proposals: [], stage: { name: 'model', status: 'skipped', reason: 'edit profile absent', windows: 0 }, ledger: [] };
   const gateway = new Gateway(loaded.config, pack.pack);
   const cache = new Cache(source.stateDir, noCache);
-  const formulaic = scanFormulaicProse(source.book, pack.pack);
+  const findings = intake ?? await readFindings(source);
+  const formulaic = [...scanFormulaicProse(source.book, pack.pack), ...findings.signals];
   const protectedSpans = source.book.chapters.flatMap((chapter) => chapter.scenes.flatMap((scene) => effectivePreserve(loaded.config).flatMap((phrase) => {
     if (preserveKeywords.includes(phrase) || !scene.text.includes(phrase)) return [];
     const spans: Array<{ chapter: string; scene: string; start: number; end: number }> = [];
@@ -31,6 +34,7 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
     while ((start = scene.text.indexOf(phrase, from)) >= 0) { spans.push({ chapter: chapter.slug, scene: scene.id, start, end: start + phrase.length }); from = start + phrase.length; }
     return spans;
   })));
+  protectedSpans.push(...findings.protected);
   const windows = editWindows(source.book, mode, profile.context_budget ?? 4096, ruleProposals, computeMetrics(source.book, pack.pack).hotspots, formulaic, protectedSpans);
   const proposals: Proposal[] = []; const failures: Array<{ node_id: string; reason: string; pass?: Pass }> = [];
   const discarded: Array<{ node_id: string; reason: string; pass?: Pass }> = [];
@@ -108,10 +112,14 @@ export async function modelPass(source: OpenedSource, loaded: LoadedConfig, pack
         const same = edits.filter((other) => other.target === edit.target);
         if (found.length > 1 && !(same.length === found.length && same.every((other) => other.replacement === edit.replacement))) { discarded.push({ ...node, reason: 'ambiguous-target-in-window' }); continue; }
         const start = window.start + found[found.length > 1 ? edits.slice(0, index).filter((other) => other.target === edit.target).length : 0]!;
+        const changed = changedSpan(scene.text, start, start + edit.target.length, edit.replacement);
+        if (findings.protected.some((hit) => hit.chapter === window.chapter && hit.scene === window.scene && spansTouch(changed, hit))) { discarded.push({ ...node, reason: 'protected-finding-status' }); continue; }
         const matchingSignals = window.signals.filter((signal) => start < signal.end && start + edit.target.length > signal.start);
         if (edit.category === 'prose-pattern' && !matchingSignals.length) { discarded.push({ ...node, reason: 'prose-pattern-without-trigger-overlap' }); continue; }
         const removesSignal = matchingSignals.some((signal) => edit.target.includes(signal.quote) && !edit.replacement.includes(signal.quote));
-        const category = removesSignal ? 'prose-pattern' : edit.category;
+        const externalStyle = matchingSignals.some((signal) => isExternalFinding(signal.id)) && ['prose-pattern', 'repetition', 'redundancy', 'clarity', 'word-choice', 'sentence-structure'].includes(edit.category);
+        const category = removesSignal || externalStyle ? 'prose-pattern' : edit.category;
+        if (category === 'prose-pattern' && /\n\s*\n/u.test(edit.target)) { discarded.push({ ...node, reason: 'prose-pattern-crosses-paragraph' }); continue; }
         const occurrence = scene.text.slice(0, start).split(edit.target).length - 1;
         try {
           placed.push({ pass, start, proposal: makeProposal({ chapter: window.chapter, scene: window.scene, category, target: edit.target, replacement: edit.replacement,

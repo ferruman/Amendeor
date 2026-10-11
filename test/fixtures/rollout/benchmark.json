@@ -54,18 +54,18 @@
   "passes": 3,
   "check": "necessity",
   "behavior_sha256": {
-    "src/prompts/copy-edit.ts": "2515ee9cd6ca7a20e349558a83b0e27db52157346ab2a5a1fe079ba762982ee6",
+    "src/prompts/copy-edit.ts": "a43b4ee33b3612467a8257cd2505039615f107dba4cac9201675220d667dc3b0",
     "src/prompts/verify.ts": "bc5515098168b6951a1de74f07f7b2f31a2803b9900deb6940bd391d5b74a2b8",
-    "src/guard/verify.ts": "1d00905dbcf3b362afdea1abac98aa7ce9778848fa280f6e5e112dab04ef6837",
-    "src/guard/index.ts": "c7b535f49ebe0dbd6b2f5594b0bda3a39a89481cf5f874c10a11aef04045fc00",
-    "src/edit/pass.ts": "407db7343d8230ed44455bd0ef44f852cffc62bc46ef1bb2cc44fd91f001a7f2",
+    "src/guard/verify.ts": "c3099d066b035588967bc702ed798a8a4830f6a3cde5d6defff3fc90b357561a",
+    "src/guard/index.ts": "950f31c656efccce0e640eda3b182d2e305ca7a03885bf518f7bd2bb93db75a1",
+    "src/edit/pass.ts": "fb29f8b44e87b01eeb40a8f1a5de799502e75a3829808a14e4d029b501656e53",
     "src/provider/http.ts": "6ecc84919beb11262b6b8b634d1ce41bb38e0e537f0d08a9fedb4603f0bc43f4",
     "src/provider/gateway.ts": "556e5f8687ab817694dd472cb8d7ea5433843fc4c4467900e758a632efde9b30",
     "src/guard/traps.ts": "d41e61422400085b2cd6a0a7d21716d79f5a785f8b025e3929c7d78f716f4f47",
     "src/guard/voice.ts": "a19072bd32a5dbef5904706e9460ce6166526d178910cacf53bf422df39e1dcd",
     "src/text/dialogue.ts": "ca6e564d95875d8036ec805c765893e67c961a7ae120fe9aac33ef3cf1df2167",
     "src/text/segment.ts": "bbf71c7084788cdd840f4de9acf831df7141233c99fe3c41595a9bb1d98126a3",
-    "src/edit/mechanical.ts": "c12b8687292ddac5c712a1f2ca35148fd29729c7fda539ca52ebe21c98e75cc2",
+    "src/edit/mechanical.ts": "6aa97e66ef27a7c12e1a6b6e10ac4bd193b4731611b1da0cf34504affd8c090a",
     "src/rules/index.ts": "5f008c928962f141d16d59584141b4108435a95ef20516afa375746d47a7dc2a",
     "src/rules/capitalization.ts": "63bc2bca1892343249339198787ce1730af5183e40cf0a858ec4a087ad1102a7",
     "src/rules/mixed-quotes.ts": "e4d6452782432fbd9429f545afcc80bbafa23e1d9e5890581602ddf9499be48c"
@@ -87,6 +87,18 @@
         "src/rules/index.ts",
         "src/rules/capitalization.ts",
         "src/rules/mixed-quotes.ts"
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "change": "Phase 2 repetition.ngram intake at any scope; explicit-consent prose proposals use meaning preservation; external-signal prompt only",
+      "evidence": "60 frozen rule-safety jobs replayed against Phase 1 0e38c0d: proposals.jsonl (run_id normalized), rejected.jsonl, and HTTP bodies byte-identical with findings absent. Three unrecorded requests belong to one inherited verifier failure in both versions; no external network access or paid calls. Book 2 replay preserves all 16 audit errors as review-only. See eval/results/phase2-replay.json and phase2-book2-guard-replay.json.",
+      "files": [
+        "src/prompts/copy-edit.ts",
+        "src/guard/verify.ts",
+        "src/guard/index.ts",
+        "src/edit/pass.ts",
+        "src/edit/mechanical.ts"
       ]
     }
   ]

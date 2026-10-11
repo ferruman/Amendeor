@@ -1,0 +1,1231 @@
+{
+  "baseline_sha": "b9fdee20280d6c1fa6e214c153060dfe5e367730",
+  "cost_usd": 0,
+  "network_calls": 0,
+  "larfenon-2": {
+    "manuscript_hash": "sha256:fcb78a3de0944ea890a4a47b90c0b3c25d5c49bced0d9cab2f90b3d5dc32389c",
+    "edited_hash": "sha256:d2fa26981a039a8525e3359f2c33398ec7bd748ca84838f9de1aa58c6b3e694c",
+    "protected_files_unchanged": true,
+    "before": {
+      "findings": 493,
+      "book_scope": 310,
+      "count_two": 406
+    },
+    "after": {
+      "findings": 77,
+      "book_scope": 68,
+      "actionable_clusters": 77,
+      "editorial_targets": 364,
+      "targeted_windows": 101,
+      "total_windows": 111,
+      "stale": 0,
+      "unchanged_phrase_ids": 70,
+      "lost_above_floor": 0
+    },
+    "historical_intake": {
+      "read": 991,
+      "actionable": 492,
+      "signals": 1128,
+      "stale": 0,
+      "warnings": [
+        "collationator: findings intake disabled: [\n  {\n    \"code\": \"custom\",\n    \"path\": [\n      \"fingerprint\",\n      \"primary\",\n      \"chapter\"\n    ],\n    \"message\": \"chapter required for scene/chapter scope, null for book/project scope\"\n  }\n]"
+      ]
+    },
+    "motif_trial": {
+      "phrase": "всему своё время",
+      "targets_before": 37,
+      "targets_after": 0,
+      "protected": 37
+    },
+    "clusters": [
+      {
+        "id": "esgardeor:4174d8ff4a84659c",
+        "phrase": "всему своё время",
+        "scope": "book",
+        "occurrences": 37
+      },
+      {
+        "id": "esgardeor:c5041754ef381e5f",
+        "phrase": "ладонь под повязкой",
+        "scope": "book",
+        "occurrences": 25
+      },
+      {
+        "id": "esgardeor:d4ab08407e3a8603",
+        "phrase": "сто десять лет",
+        "scope": "book",
+        "occurrences": 24
+      },
+      {
+        "id": "esgardeor:fd32ce933fa3c52e",
+        "phrase": "хрон в голове",
+        "scope": "book",
+        "occurrences": 20
+      },
+      {
+        "id": "esgardeor:b7277ccc8bc814b9",
+        "phrase": "своё время сказал",
+        "scope": "book",
+        "occurrences": 11
+      },
+      {
+        "id": "esgardeor:34d30c0951c1459b",
+        "phrase": "как у человека который",
+        "scope": "book",
+        "occurrences": 9
+      },
+      {
+        "id": "esgardeor:7710ced4ca2ce900",
+        "phrase": "пасть в бою за добро",
+        "scope": "book",
+        "occurrences": 6
+      },
+      {
+        "id": "esgardeor:0ba3e0c15c6f6b88",
+        "phrase": "про мага средней силы",
+        "scope": "book",
+        "occurrences": 6
+      },
+      {
+        "id": "esgardeor:1d316644a36a5869",
+        "phrase": "полутора тысячам ступеней",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:e444c9650a5dbd02",
+        "phrase": "с закрытыми глазами и",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:524427f20466e10b",
+        "phrase": "сказал я вслух и",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:9cd401d9862d198d",
+        "phrase": "было лицо человека который",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:2d8b231c38346b5f",
+        "phrase": "комано посмотрел на меня",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:3bcceaad6cd277ef",
+        "phrase": "коней с белой грудью",
+        "scope": "scene",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:823caf8acd2f5ad2",
+        "phrase": "не в размере дело",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:1d100364e010d47f",
+        "phrase": "не сказал ни слова",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:b3f86f40836f40ff",
+        "phrase": "ошейник лежит там куда совет положил",
+        "scope": "scene",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:306a16550cd742bd",
+        "phrase": "сказал голос под маской",
+        "scope": "scene",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:8efe6d8d6a8c1533",
+        "phrase": "сказал хрон у меня в голове",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:c76644d8d646011b",
+        "phrase": "слышно за три шага",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:9df91a9cb34c3de1",
+        "phrase": "хрон в моей голове",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:3c86d4507587c47b",
+        "phrase": "человек в чёрном плаще",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:3124fa55a1af58f4",
+        "phrase": "человек с тёмной рукоятью",
+        "scope": "scene",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:c9b2ed2ce7f48849",
+        "phrase": "я хотел сказать что",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:71a7421f79c9b480",
+        "phrase": "а как человек который",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:5a921007471517c4",
+        "phrase": "борт телеги с клеймом",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:72f80b6895bb5cdf",
+        "phrase": "было всё равно что",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:cb62ab3977ec7c5b",
+        "phrase": "в сад полторы тысячи ступеней",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:315cab1cdedf2c3c",
+        "phrase": "в трёх шагах и не",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:77854811424d75be",
+        "phrase": "второй раз за день",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:bb7fd1b12b03a93a",
+        "phrase": "два месяца возил чужие",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:f1119163889da206",
+        "phrase": "двести лет учил а",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:2695e27e24d3fa58",
+        "phrase": "двести лет я его",
+        "scope": "scene",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:5e9643a9a956a6eb",
+        "phrase": "за осень я выучил",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:2f9e710c5b72f404",
+        "phrase": "и до сих пор",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:c2b8f5299738deae",
+        "phrase": "и комано посмотрел на",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:85fde8eae6aff5ee",
+        "phrase": "как учил маленький учитель не",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:b4a38982c0d2c3d0",
+        "phrase": "какое у него лицо",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:4e9c8799a2a0092b",
+        "phrase": "кольца на его пальцах",
+        "scope": "scene",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:5b37b04b500cd474",
+        "phrase": "которого я не знал",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:d2ee7a38b75fee5b",
+        "phrase": "которой нет на картах",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:8ab3582289d37535",
+        "phrase": "который два месяца возил",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:2111407ce986c922",
+        "phrase": "ларец с выдвижным дном",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:5c847376990f7551",
+        "phrase": "лев единорог и ястреб",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:3dfffbc2a3c9e947",
+        "phrase": "мне полагалось бы подумать",
+        "scope": "scene",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:e50b390e9a9374a1",
+        "phrase": "молчал ровно столько чтобы я",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:61dfc2243baca094",
+        "phrase": "на двадцать шагов и",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:9102f61385974185",
+        "phrase": "на север вдоль стены",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:ea5611feca24e557",
+        "phrase": "на север к нагузам",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:a7b1605f962fda6e",
+        "phrase": "не ответил он смотрел на",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:18526075c064c9a5",
+        "phrase": "не спал сказал он",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:606904d87119905c",
+        "phrase": "ну что ж будем ждать",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:7682c843d591a827",
+        "phrase": "он копит силу в",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:c5aedfa0308efbec",
+        "phrase": "почти король сказал он",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:41bd5e875ca359d8",
+        "phrase": "предплечье под старой повязкой и",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:0b536d6a45f844ce",
+        "phrase": "про человека с камнями",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:c540de535c9ddecd",
+        "phrase": "раньше чем я успел",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:0722ebb9e1cdb5d6",
+        "phrase": "сказал об этом вслух",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:a61df4fe89f36dc6",
+        "phrase": "сказал он не оборачиваясь",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:0b3f0cea0e7e0107",
+        "phrase": "сказал учитель и это",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:b2eb8a9f2c4fdc76",
+        "phrase": "сказал хрон он не",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:37212fe5bd56e8ac",
+        "phrase": "сложил руки на коленях",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:dd3dd52305969dc0",
+        "phrase": "со времён первой войны",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:4d009577ac949f32",
+        "phrase": "спят в тёплых корнях и",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:2adf673448b2c3c3",
+        "phrase": "стоял по колено в",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:d7aecdef27ec1320",
+        "phrase": "судя по тому как",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:0bc422bfda2b1b4d",
+        "phrase": "убил красного горгийского дракона",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:df2f50e90127c603",
+        "phrase": "чесалась ровно и терпеливо",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:d3cbbc78c04b3dda",
+        "phrase": "что за камень который показывает себя",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:68b4162fbb9cfe83",
+        "phrase": "шадан голос у него",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:4f202f71c2aa68e9",
+        "phrase": "я в мешках понимаю",
+        "scope": "scene",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:19045f373b832956",
+        "phrase": "я досчитал до сорока",
+        "scope": "scene",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:256835eeec6fe0a8",
+        "phrase": "я ещё не знал",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:ea3e30f2dea57d14",
+        "phrase": "я не стал спрашивать",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:fe706cbcb3e62cbe",
+        "phrase": "я стоял и смотрел как",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:8399644d18ad698c",
+        "phrase": "я стоял на южной стене",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:fe098f96c256805a",
+        "phrase": "я успел подумать что",
+        "scope": "book",
+        "occurrences": 3
+      }
+    ],
+    "examples": [
+      {
+        "phrase": "ладонь под повязкой",
+        "before": [
+          {
+            "phrase": "ладонь под повязкой была тихой",
+            "occurrences": 4
+          },
+          {
+            "phrase": "ладонь под повязкой чесалась",
+            "occurrences": 8
+          },
+          {
+            "phrase": "и ладонь под повязкой",
+            "occurrences": 4
+          },
+          {
+            "phrase": "зачесалась ладонь под повязкой",
+            "occurrences": 2
+          },
+          {
+            "phrase": "ладонь под повязкой зачесалась",
+            "occurrences": 2
+          },
+          {
+            "phrase": "ладонь под повязкой не",
+            "occurrences": 2
+          },
+          {
+            "phrase": "ладонь под повязкой чешется",
+            "occurrences": 2
+          },
+          {
+            "phrase": "моя ладонь под повязкой",
+            "occurrences": 2
+          },
+          {
+            "phrase": "что ладонь под повязкой",
+            "occurrences": 2
+          }
+        ],
+        "after": [
+          {
+            "phrase": "ладонь под повязкой",
+            "occurrences": 25
+          }
+        ]
+      },
+      {
+        "phrase": "хрон в голове",
+        "before": [
+          {
+            "phrase": "хрон в голове молчал тоже и",
+            "occurrences": 2
+          },
+          {
+            "phrase": "хрон в голове за весь",
+            "occurrences": 3
+          },
+          {
+            "phrase": "хрон в голове молчал",
+            "occurrences": 8
+          },
+          {
+            "phrase": "хрон в голове сказал",
+            "occurrences": 4
+          },
+          {
+            "phrase": "и хрон в голове",
+            "occurrences": 3
+          },
+          {
+            "phrase": "сказал хрон в голове",
+            "occurrences": 2
+          },
+          {
+            "phrase": "хрон в голове не",
+            "occurrences": 2
+          }
+        ],
+        "after": [
+          {
+            "phrase": "хрон в голове",
+            "occurrences": 20
+          }
+        ]
+      },
+      {
+        "phrase": "всему своё время",
+        "before": [
+          {
+            "phrase": "всему своё время сказал",
+            "occurrences": 10
+          },
+          {
+            "phrase": "всему своё время и",
+            "occurrences": 6
+          },
+          {
+            "phrase": "всему своё время я",
+            "occurrences": 5
+          },
+          {
+            "phrase": "всему своё время каранли",
+            "occurrences": 2
+          },
+          {
+            "phrase": "говорили всему своё время",
+            "occurrences": 2
+          },
+          {
+            "phrase": "говорит всему своё время",
+            "occurrences": 2
+          },
+          {
+            "phrase": "сказал всему своё время",
+            "occurrences": 2
+          },
+          {
+            "phrase": "что всему своё время",
+            "occurrences": 2
+          }
+        ],
+        "after": [
+          {
+            "phrase": "всему своё время",
+            "occurrences": 37
+          }
+        ]
+      },
+      {
+        "phrase": "как у человека который",
+        "before": [
+          {
+            "phrase": "как у человека который",
+            "occurrences": 9
+          }
+        ],
+        "after": [
+          {
+            "phrase": "как у человека который",
+            "occurrences": 9
+          }
+        ]
+      }
+    ]
+  },
+  "larfenon": {
+    "manuscript_hash": "sha256:44f4870d2cbcaebd6f3ab4f036d764a11df54a3951d1c3b2755e6e0051df5ce4",
+    "edited_hash": "sha256:0e268f9909a71d87813e8f4417d9137c1661ef438a8522ffc1aaac03b254fb3f",
+    "protected_files_unchanged": true,
+    "before": {
+      "findings": 437,
+      "book_scope": 327,
+      "count_two": 335
+    },
+    "after": {
+      "findings": 85,
+      "book_scope": 80,
+      "actionable_clusters": 85,
+      "editorial_targets": 392,
+      "targeted_windows": 108,
+      "total_windows": 118,
+      "stale": 0,
+      "unchanged_phrase_ids": 82,
+      "lost_above_floor": 0
+    },
+    "historical_intake": {
+      "read": 1278,
+      "actionable": 437,
+      "signals": 1053,
+      "stale": 0,
+      "warnings": [
+        "collationator: findings intake disabled: [\n  {\n    \"code\": \"custom\",\n    \"path\": [\n      \"fingerprint\",\n      \"primary\",\n      \"chapter\"\n    ],\n    \"message\": \"chapter required for scene/chapter scope, null for book/project scope\"\n  }\n]"
+      ]
+    },
+    "motif_trial": {
+      "phrase": "пять тысяч лет",
+      "targets_before": 49,
+      "targets_after": 0,
+      "protected": 49
+    },
+    "clusters": [
+      {
+        "id": "esgardeor:30d90fd7fc588486",
+        "phrase": "пять тысяч лет",
+        "scope": "book",
+        "occurrences": 49
+      },
+      {
+        "id": "esgardeor:bf89bb8dcbaca951",
+        "phrase": "печь в груди",
+        "scope": "book",
+        "occurrences": 28
+      },
+      {
+        "id": "esgardeor:696e20383db6ce8f",
+        "phrase": "печь в моей груди",
+        "scope": "book",
+        "occurrences": 16
+      },
+      {
+        "id": "esgardeor:c466b4f1b09c9e7d",
+        "phrase": "впервые за весь",
+        "scope": "book",
+        "occurrences": 10
+      },
+      {
+        "id": "esgardeor:1d0a1b09b4928aba",
+        "phrase": "не знаю ну пусть будет",
+        "scope": "book",
+        "occurrences": 7
+      },
+      {
+        "id": "esgardeor:c8cdd9bb0a964700",
+        "phrase": "восемьсот тридцать один год",
+        "scope": "book",
+        "occurrences": 6
+      },
+      {
+        "id": "esgardeor:1677d995b4686894",
+        "phrase": "за десять тысяч крон",
+        "scope": "book",
+        "occurrences": 6
+      },
+      {
+        "id": "esgardeor:34d30c0951c1459b",
+        "phrase": "как у человека который",
+        "scope": "book",
+        "occurrences": 6
+      },
+      {
+        "id": "esgardeor:b0fdb39327e089da",
+        "phrase": "синий камень на его груди",
+        "scope": "book",
+        "occurrences": 6
+      },
+      {
+        "id": "esgardeor:9cf90585d169596a",
+        "phrase": "впервые за всю дорогу",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:e49f2e95d1267580",
+        "phrase": "впервые за двести лет",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:91e5059af5f6b255",
+        "phrase": "держит вселенную в руках",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:c05c8d24b40c4b9f",
+        "phrase": "долго же ты шёл",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:f215af209fadc962",
+        "phrase": "маг средней силы не очень сильный",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:b3ae9bb1d9ae8b30",
+        "phrase": "не доверяю я технике",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:67f815f051af36d8",
+        "phrase": "только вселенную спасу и сразу",
+        "scope": "book",
+        "occurrences": 5
+      },
+      {
+        "id": "esgardeor:7197387c23a1f2b7",
+        "phrase": "белое пятно под рубахой",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:8d17506b800048ea",
+        "phrase": "в моей груди стукнула",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:77854811424d75be",
+        "phrase": "второй раз за день",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:f576895c8df7e440",
+        "phrase": "голубой камень с рынка",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:cad1bf60aa38b2ac",
+        "phrase": "до утра не доживают",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:757dd3517450e256",
+        "phrase": "ему поверил но поздно",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:305fe5ca2f43dc15",
+        "phrase": "за столом на дне",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:68c52e4448032cd0",
+        "phrase": "и я успел подумать",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:8237c87fdef2e119",
+        "phrase": "которую никто не крал",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:9a583c52a8ce7725",
+        "phrase": "между мной и кроном",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:abf5f85c9caf66cb",
+        "phrase": "ровно столько сколько нужно",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:8ed142c62a55dd25",
+        "phrase": "сказал он голос был",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:a61df4fe89f36dc6",
+        "phrase": "сказал он не оборачиваясь",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:325c422101bf817f",
+        "phrase": "спросила летсия она спрашивала",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:ad27752ca152ab90",
+        "phrase": "у нас в семье всё всегда вовремя просто",
+        "scope": "book",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:69b6920b8e893664",
+        "phrase": "шадан крон элибрия фол летсия",
+        "scope": "scene",
+        "occurrences": 4
+      },
+      {
+        "id": "esgardeor:7face51a3afeb7fc",
+        "phrase": "амулет за пятьдесят крон",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:496b6f1c1c316d7d",
+        "phrase": "белое пятно под его рубахой",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:945d95e3837b4a4d",
+        "phrase": "в дорожном плаще с",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:1bd86e06e58dac48",
+        "phrase": "в нашей семье не",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:a7fc03c2af7dfdab",
+        "phrase": "в озере кто то сидит",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:684dbda54985bdae",
+        "phrase": "впервые за восемьсот лет",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:f77b2ab6ed10b773",
+        "phrase": "все деревья всех миров",
+        "scope": "scene",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:7ebcec956ce3f80c",
+        "phrase": "все растения всех миров",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:3e8175e58f884320",
+        "phrase": "грудь туда где под",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:3244c925d5ad130e",
+        "phrase": "делал вид что не",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:2f0a5e8d450f1254",
+        "phrase": "до сих пор не",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:5286b7c46ab7e55f",
+        "phrase": "и белое пятно под",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:a3d8b8db58f7adca",
+        "phrase": "и всё равно не",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:145cc2b4bf00a8bc",
+        "phrase": "и красный камень на",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:c50be888083c309f",
+        "phrase": "и молния в нём",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:ffaa22c0edb631b2",
+        "phrase": "как говорят о погоде",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:0774f7425613b468",
+        "phrase": "колпак с сушёной рыбой",
+        "scope": "scene",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:37499b695e3deacc",
+        "phrase": "красный амулет на её",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:8f92db79af8c50a6",
+        "phrase": "мне в грудь туда где",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:bc22bb2d5f078007",
+        "phrase": "на всякий случай я",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:d6c5433af544a90a",
+        "phrase": "на длину полёта стрелы",
+        "scope": "scene",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:27e3519b664be646",
+        "phrase": "на меня долгим взглядом",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:459336a0490d671f",
+        "phrase": "на том расстоянии с которого",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:206590217e6f112a",
+        "phrase": "не знал куда деть",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:ac6753611af0363b",
+        "phrase": "ну что ж сказал я будем",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:c616bac734036137",
+        "phrase": "нужно было читать книги а не баловаться энергопулями",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:ac4ee34e7a255122",
+        "phrase": "он положил ладонь на",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:ffc2a3de4e00c166",
+        "phrase": "он просил не убивать",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:907ef5413ab2f982",
+        "phrase": "печь под моей ключицей",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:89ccfae9b15f9fd1",
+        "phrase": "по пояс по грудь",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:24b4f44dd3b6b2c5",
+        "phrase": "поднял на меня глаза",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:f07e2e77298cb5d9",
+        "phrase": "посмотрел на меня поверх",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:d349f455632cd02b",
+        "phrase": "происходит слишком много смысла",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:3a6b7bb8c15f86ec",
+        "phrase": "пять камней из одного",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:c540de535c9ddecd",
+        "phrase": "раньше чем я успел",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:ea70ab276ec7d35b",
+        "phrase": "с хлебом под мышкой",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:fc82754bbbd5bbb1",
+        "phrase": "сказал крон голос у него",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:6df6269677ff588a",
+        "phrase": "сказал шадан за меня",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:fd0a957fb7e6ab6b",
+        "phrase": "сказал я вслух потому что",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:9de80108982c33cb",
+        "phrase": "сказала эля голос у неё",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:7ace0de38f1eac31",
+        "phrase": "сто с лишним лет",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:ea6a90a0f1462832",
+        "phrase": "струсил за спинами маров",
+        "scope": "scene",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:d7aecdef27ec1320",
+        "phrase": "судя по тому как",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:0fba2ae7fbdfc358",
+        "phrase": "точь в точь как",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:3c7f70c0eb09856e",
+        "phrase": "туда где под плащом",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:1553004c6fe6b191",
+        "phrase": "четыре дня через пустыню",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:8e00f806c54b00ed",
+        "phrase": "четырежды мёртвый не мёртв перечёркнутый счёт",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:a4d53e45c4845a52",
+        "phrase": "что в нашей семье",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:a50a82d53608974e",
+        "phrase": "шадан посмотрел на меня",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:f094bdfeba7f8292",
+        "phrase": "эля она не спрашивала она",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:80a05a63fa83d0d4",
+        "phrase": "я не сразу понял",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:8d6940d8767b78df",
+        "phrase": "я почувствовал как печь",
+        "scope": "book",
+        "occurrences": 3
+      },
+      {
+        "id": "esgardeor:ff84ce5b27fcedbe",
+        "phrase": "я хотел ответить что нибудь",
+        "scope": "book",
+        "occurrences": 3
+      }
+    ],
+    "examples": [
+      {
+        "phrase": "ладонь под повязкой",
+        "before": [],
+        "after": []
+      },
+      {
+        "phrase": "хрон в голове",
+        "before": [],
+        "after": []
+      },
+      {
+        "phrase": "всему своё время",
+        "before": [],
+        "after": []
+      },
+      {
+        "phrase": "как у человека который",
+        "before": [
+          {
+            "phrase": "как у человека который",
+            "occurrences": 6
+          }
+        ],
+        "after": [
+          {
+            "phrase": "как у человека который",
+            "occurrences": 6
+          }
+        ]
+      }
+    ]
+  }
+}

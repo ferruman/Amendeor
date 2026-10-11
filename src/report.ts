@@ -39,6 +39,8 @@ export function renderReport(run: Record<string, any>): string {
   ];
   if (Array.isArray(summary.formulaic) && summary.formulaic.length) for (const hit of summary.formulaic) lines.push(`- ${hit.chapter}/${hit.scene} ${hit.id} [${hit.language}]: ${JSON.stringify(hit.quote)} (${hit.provenance})`);
   else lines.push('none');
+  lines.push('', '## Findings intake', '');
+  for (const item of run.findings?.items ?? []) lines.push(`- ${item.id} ${item.classification}${item.evidence === undefined ? '' : ' evidence ' + item.evidence}: ${item.reason}`);
   lines.push('', '## Degraded', '');
   if (degraded.length) lines.push(...degraded.map((item: { node_id: string; reason: string }) => `- ${item.node_id}: ${item.reason}`));
   else lines.push('none');

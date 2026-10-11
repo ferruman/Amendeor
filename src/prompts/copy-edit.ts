@@ -1,3 +1,4 @@
+import { isExternalFinding } from '../findings/intake.ts';
 import type { LanguagePack } from '../lang/pack.ts';
 import { effectivePreserve, type Config } from '../config.ts';
 import type { FormulaicHit } from '../patterns/formulaic.ts';
@@ -12,7 +13,9 @@ export function copyEditPrompt(pack: LanguagePack, editable: string, before: str
     'Never invent details or normalize intentionally unusual prose.',
     'Never lemmatize proper names, plurals, family names, weekdays or established phrases (Fridays, the Brandts, a Hail Mary). Terminology changes require an explicit author-supplied wrong variant; do not infer canonical terms from similar names.',
     'Most windows need no changes. Return {"edits":[]} for NO_CHANGE.',
-    'Edit only an objective error you can name; if the rule or intended meaning is uncertain, return NO_CHANGE.',
+    formulaic.some((hit) => isExternalFinding(hit.id))
+      ? 'Correct objective errors conservatively. For evidence-backed repetition, assess each occurrence in context: intentional motifs and useful echoes should remain. Propose only a minimal change with a clear literary gain; a lower count alone is insufficient. If uncertain, return NO_CHANGE.'
+      : 'Edit only an objective error you can name; if the rule or intended meaning is uncertain, return NO_CHANGE.',
     'Do not standardize ellipses, expressive punctuation, or period style.',
     pack.language === 'ru' ? 'Do not insert a comma between homogeneous predicates joined by и when they share one subject.' : '',
     'Return JSON only: {"edits":[{"target":"exact verbatim text","replacement":"replacement","category":"category","reason":"brief reason"}]}.',

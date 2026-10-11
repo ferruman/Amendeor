@@ -99,3 +99,7 @@ node eval/guard-traps.ts
 ```
 
 The [baseline](eval/BASELINE.md), [trap report](eval/results/2026-09-24-guard-traps.md), and [real-provider results](eval/RESULTS.md) record measured results. Reproduce a copy-edit run with `node --env-file=.env eval/run.ts --work jekyll-en --mode copy --runs 3` or the same command for `kashtanka-ru`; add `--formulaic` for the v0.2 mutation set. The private `seymsk` real-book model review and v0.1 tag remain pending. The full product contract is in [the PRD](docs/prd.md).
+
+## Findings intake (Phase 2)
+
+Copy editing now reads evidence-backed `repetition.ngram` findings at any scope, respects status overlays, and reports stale quotes. Findings-derived prose proposals require explicit author consent after meaning verification. See [the intake contract and offline evaluation](docs/findings-intake.md).

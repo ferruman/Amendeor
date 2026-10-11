@@ -22,5 +22,5 @@ Start with **M1/T001–T004** (package and fixtures), then **M1/T005–T012** (s
 ## Scope decisions fixed for v0.1
 
 - M2 `mechanical` is rules-only and works without a key. M4 adds optional model grammar/spelling in that mode when an edit profile exists.
-- Reading `findings/` is deferred to v0.2, as in PRD §20. The v0.1 model windows use rules, metrics, and scene text.
+- Phase 2 implements PRD §13 for evidence-backed `repetition.ngram` at any scope; other families remain deferred. See [findings intake](findings-intake.md).
 - Proposal ids follow PRD §7 and identify category + chapter + scene + normalized target. At most one effective accepted replacement for that identity is active; conflicting acceptance records are an error.

@@ -362,19 +362,24 @@ In a workspace, Amendeor may read `findings/*/latest.json` runs (`FINDINGS.md`, 
 Routing uses the real fields, not an invented taxonomy:
 
 - **`kind`**: `FINDINGS.md` allows auto-application only for `defect`. Amendeor never auto-accepts a proposal derived from a `concern` or `suggestion`; it may still propose.
-- **`scope`**: only `scene` findings with a `quote` are candidates in v0.1.
+- **`scope`**: Phase 2 accepts evidence-backed `repetition.ngram` at any scope; every quote is located in its own scene. Other categories remain not-applicable in this intake.
 - **`category`** — against the actual Esgardeor registry (`Esgardeor/docs/CATEGORIES.md`) and Collationator's:
 
 | family | Amendeor |
 |---|---|
-| `repetition.ngram`, `repetition.tic`, `repetition.phrase`, `repetition.sentence-frame` | candidate |
+| `repetition.ngram` | candidate at any scope, per quoted occurrence |
+| `repetition.tic`, `repetition.phrase`, `repetition.sentence-frame` | not-applicable in Phase 2 |
 | `prose.adverb-density`, `prose.filter-words`, `prose.em-dash-density`, `prose.tricolon`, `prose.rhetorical-qa`, `prose.cliche`, `slop.*` | candidate (metric-level: inspect quoted regions only) |
 | `exposition.redundant`, `exposition.obvious`, `clarity.confusing` | candidate only if a sentence-level edit resolves it; otherwise not-applicable |
 | `prose.sentence-monotony`, `prose.paragraph-uniformity`, `prose.rhythm`, `prose.generic`, `voice.*`, `dialogue.flat`, `dialogue.on-the-nose`, `exposition.dump` | not-applicable — resolving them is rewriting |
 | `plot.*`, `character.*`, `emotion.*`, `pacing.*`, `scene.*`, `chapter.*`, `pov.*`, `summary.*`, `canon.*`, `continuity.*`, `source.*` | not-applicable |
 | unknown category | not-applicable, counted in the report |
 
-Classification per finding: `applicable`, `not-applicable`, `ambiguous`, `already-resolved` (its quote no longer found). The report lists them; nothing is written to `findings/`.
+Phase 2 reads the last `_status.jsonl` decision and skips `wontfix`, `false-positive`, and `fixed`; evidence-bound decisions apply only to matching evidence. Suppressed quote spans also protect against overlapping model edits. Malformed input is reported and creates no signals. This is editorial intake, not a publication gate: it does not certify delegated status authority.
+
+Evidence-backed prose-pattern proposals use at least three unanimous meaning-preservation passes, retain all traps and voice guards, and remain review-only under the existing explicit author-consent mechanism. Count is evidence to inspect, never proof of necessity or literary improvement. No status overlay is written.
+
+Classification per finding/occurrence: `applicable`, `not-applicable`, `ambiguous`, `already-resolved` (its quote no longer found), plus `skipped` for suppressed statuses. Mixed live/stale findings report each occurrence. The report lists them; nothing is written to `findings/`.
 
 Amendeor does **not** write `findings/_status.jsonl` in v0.1: its edits live in `edited/`, while a finding describes `manuscript/`, which is unchanged. Whether "fixed in `edited/`" deserves a status is an ecosystem question (§21).
 

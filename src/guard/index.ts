@@ -3,6 +3,7 @@ import type { Config, LoadedConfig } from '../config.ts';
 import type { LanguagePack, LoadedPack } from '../lang/pack.ts';
 import type { Proposal } from '../proposal/schema.ts';
 import { proposalSchema } from '../proposal/schema.ts';
+import { isExternalFinding } from '../findings/intake.ts';
 import { Cache } from '../cache.ts';
 import { Gateway } from '../provider/gateway.ts';
 import { locate } from '../proposal/locate.ts';
@@ -121,11 +122,12 @@ export async function guardProposals(source: OpenedSource, loaded: LoadedConfig,
       }
     }
     // В proofread необходимость уже проверил verifyObjectiveCorrection; в copy её проверяет verifyMeaning, если так настроено.
-    const necessity = mode === 'copy' && loaded.config.profiles.verify?.check === 'necessity';
+    const evidenceBacked = proposal.category === 'prose-pattern' && Boolean(proposal.source_findings?.some(isExternalFinding));
+    const necessity = !evidenceBacked && mode === 'copy' && loaded.config.profiles.verify?.check === 'necessity';
     let verification: VerifyResult;
     try {
       verification = await verifyMeaning(proposal.target.text, proposal.replacement, context, proposal.impact, loaded.config, pack.pack, cache, gateway,
-        { necessity, context: necessity && loaded.config.profiles.verify?.context ? editorialContext(proposal, check.dialogue, dialogueSpans(context, pack.pack).length > 0, loaded.config) : undefined });
+        { necessity, minPasses: evidenceBacked ? 3 : undefined, context: necessity && loaded.config.profiles.verify?.context ? editorialContext(proposal, check.dialogue, dialogueSpans(context, pack.pack).length > 0, loaded.config) : undefined });
     } catch (error) { if (!(error instanceof SpendRefused)) throw error; refused = error.message; failures.push({ proposal_id: proposal.id, node_id, kind: 'spend-refused', reason: refused, review_only: false, ...edit }); continue; }
     verifications.push({ proposal_id: proposal.id, ...verification });
     sameFamily ||= verification.sameFamily;
@@ -140,7 +142,12 @@ export async function guardProposals(source: OpenedSource, loaded: LoadedConfig,
       rejected.push({ proposal_id: proposal.id, guard: 'semantic-verifier', reason: verification.reason, ...edit }); semanticRejected++; continue;
     }
     const verified = { ...proposal, verification: { passes: verification.passes, agreed: verification.agreed, semantic_risk: 'none', voice: 'ok' } };
-    delete (verified as Partial<Proposal>).unverified;
+    if (evidenceBacked) {
+      // Смысл проверен, но литературную пользу решает автор по каждому id через существующий явный consent.
+      verified.unverified = true;
+      Object.assign(verified, { review: { evidence: { shape: 'repetition', meaning: 'preserved', approval: 'explicit author decision required' } } });
+      review++;
+    } else delete (verified as Partial<Proposal>).unverified;
     proposals.push(proposalSchema.parse(verified));
   }
   // Отказ фильтра — нормальный исход проверки; partial — только когда проверка не состоялась.

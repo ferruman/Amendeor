@@ -45,13 +45,13 @@ export async function verifyObjectiveCorrection(before: string, after: string, c
   }
   return { passed: answer.necessary, reason: answer.reason || (answer.necessary ? 'necessary' : 'not necessary') };
 }
-export async function verifyMeaning(before: string, after: string, context: string, impact: 'mechanical' | 'prose', config: Config, pack: LanguagePack, cache: Cache, gateway: Gateway, options: { necessity?: boolean; context?: unknown } = {}): Promise<VerifyResult> {
+export async function verifyMeaning(before: string, after: string, context: string, impact: 'mechanical' | 'prose', config: Config, pack: LanguagePack, cache: Cache, gateway: Gateway, options: { necessity?: boolean; context?: unknown; minPasses?: number } = {}): Promise<VerifyResult> {
   const profile = config.profiles.verify;
   if (!profile) return { passed: false, passes: 0, agreed: 0, reason: 'verify profile missing', sameFamily: false };
   const editFamily = config.profiles.edit?.family ?? config.providers[config.profiles.edit?.provider ?? '']?.family;
   const verifyFamily = profile.family ?? config.providers[profile.provider]?.family;
   const sameFamily = Boolean(editFamily && verifyFamily && editFamily === verifyFamily);
-  const passes = profile.passes ?? (impact === 'prose' ? 3 : 1);
+  const passes = Math.max(options.minPasses ?? 0, profile.passes ?? (impact === 'prose' ? 3 : 1));
   const necessity = Boolean(options.necessity);
   const schema = necessity ? necessitySchema : answerSchema;
   let agreed = 0; const answers: Array<{ necessary?: boolean; preserved: boolean }> = [];
