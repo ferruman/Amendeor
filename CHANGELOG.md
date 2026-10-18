@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Delegated acceptance of unverified proposals: `accept <ws> <id>… --unverified --delegation <id>` under the new capability `amendeor.accept-unverified` (not implied by `amendeor.accept` or `amendeor.edit`); ids only, one journal line per proposal with target/replacement hashes and `delegation_hash`; both capabilities are checked before a mixed list is accepted.
+- Rules: `terminology.name-variant` v4 leaves plurals and possessive-style forms alone (Sundays, Fowlers); `capitalization.sentence-start` v5 skips initials in markup, unit abbreviations after numbers, and deliberately lowercase texts.
 - `check --guide habits`: book-pass habits → every use collected → one keep/replace request → `style.book.thin` findings that keep the book run's findings; deterministic checks against new habits, reused wording, wrong language and over-thinning (≤ ⅔); `edit` verifies meaning and offers them as author-only proposals. Book-pass habits now carry `patterns`.
 - `check --guide book`: a whole-book pass for slips that need the passage's sense and for book-wide verbal habits; quoted marks only, slips carry a `suggestion`, passes are unioned (`--passes`, default 2), `profiles.book`. Evaluation in `eval/book-pass/`. A slip whose fix stays inside the quoted sentence carries `metadata.replacement`; `edit` reads Amendeor's own `style.book.slip` findings and makes each an author-only proposal (`unverified`, `review.evidence`), suppressed by a closing status.
 - Guard recovery (audit 2026-10-11 F2/F3).

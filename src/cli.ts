@@ -6,7 +6,7 @@ import { readRun } from './run/store.ts';
 import { acquireLock } from './run/lock.ts';
 import { acceptProposals, conflictsWithAccepted, readAccepted, rejectProposals } from './edited/decisions.ts';
 import { buildEdited, validateEditedPaths } from './edited/build.ts';
-import { acceptAuthorized, authorizeAcceptance, cliActor, delegationHash, journal, requireDelegation } from './edited/authority.ts';
+import { acceptAuthorized, acceptUnverifiedDelegated, authorizeAcceptance, cliActor, delegationHash, journal, requireDelegation } from './edited/authority.ts';
 import { meter, type Meter } from './provider/meter.ts';
 import { loadConfig } from './config.ts';
 import { loadPack } from './lang/pack.ts';
@@ -55,7 +55,8 @@ function parseArgs(argv: string[]): Args {
   if (command === 'accept' && result.impact && result.impact !== 'mechanical') throw new Error('--impact supports only mechanical');
   if (command === 'edit' && !['mechanical', 'proofread', 'copy', 'full'].includes(result.mode)) throw new Error(`unknown edit mode: ${result.mode}`);
   if (result.delegation && !['accept', 'reject', 'edit', 'check'].includes(command)) throw new Error('--delegation is only valid with accept, reject, edit and check');
-  if (result.delegation && result.unverified) throw new Error('--unverified is the author\'s decision, not a delegation\'s');
+  // Под делегированием непроверенные правки — только поименно, без пакета (--impact): автор доверил список, а не класс.
+  if (result.delegation && result.unverified && (command !== 'accept' || result.impact || !result.values.length)) throw new Error('--delegation --unverified accepts only proposals named by id (no --impact), and needs amendeor.accept-unverified');
   if (result.guide && command !== 'check') throw new Error('--guide is only valid with check');
   if (result.rulesOnly && command !== 'check') throw new Error('--rules-only is only valid with check');
   if (result.findings && command !== 'check') throw new Error('--findings is only valid with check');
@@ -186,8 +187,18 @@ async function main(): Promise<void> {
         const chosen = selected.filter((proposal) => !skipped.includes(proposal));
         // --delegation: принимает агент от имени автора (DELEGATION.md); человек за терминалом — без него.
         // Агент в оболочке без --delegation — не автор: принять правки он не может (DELEGATION.md §1).
-        const auth = await authorizeAcceptance(source.workspaceDir, cliActor(process.env, Boolean(args.delegation)), args.delegation);
-        const accepted = await acceptAuthorized(source.editedDir, chosen, auth, args.unverified);
+        const actor = cliActor(process.env, Boolean(args.delegation));
+        let accepted;
+        if (args.delegation && args.unverified) {
+          // Проверенные и непроверенные — разные способности; каждая нужна для своей части списка.
+          // Обе способности проверяются до первого принятия: иначе половина списка прошла бы, а вторая упала.
+          const unverified = chosen.filter((proposal) => proposal.unverified), verified = chosen.filter((proposal) => !proposal.unverified);
+          const unverifiedAuth = unverified.length ? await authorizeAcceptance(source.workspaceDir, actor, args.delegation, 'amendeor.accept-unverified') : null;
+          const verifiedAuth = verified.length ? await authorizeAcceptance(source.workspaceDir, actor, args.delegation) : null;
+          if (unverifiedAuth) await acceptUnverifiedDelegated(source.editedDir, unverified, unverifiedAuth);
+          if (verifiedAuth) await acceptAuthorized(source.editedDir, verified, verifiedAuth);
+          accepted = await readAccepted(source.editedDir);
+        } else accepted = await acceptAuthorized(source.editedDir, chosen, await authorizeAcceptance(source.workspaceDir, actor, args.delegation), args.unverified);
         const results = await buildEdited({ book: source.book, editedDir: source.editedDir, accepted, manifestText: source.manifestText });
         summary = { command: 'accept', accepted: chosen.map((proposal) => proposal.id), results, warnings: skipped.map((proposal) => `conflicting-acceptance skipped: ${proposal.id}`) };
         if (results.some((item) => item.status === 'stale' || item.status === 'conflict')) process.exitCode = 2;

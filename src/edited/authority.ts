@@ -126,11 +126,24 @@ export async function journal(dir: string, record: Record<string, unknown>): Pro
 // Человек (human:cli, human:ui) принимает сам; агент — только под делегированием, покрывающим amendeor.accept.
 // Настройка auto_accept не заменяет полномочий: без них предложения остаются ожидающими.
 export interface AcceptAuthority { acceptedBy: string; grant?: { delegation: Delegation; dir: string } }
-export async function authorizeAcceptance(workspaceDir: string | undefined, actor: string, delegation?: string): Promise<AcceptAuthority> {
+export async function authorizeAcceptance(workspaceDir: string | undefined, actor: string, delegation?: string, capability = 'amendeor.accept'): Promise<AcceptAuthority> {
   if (!delegation && actor.startsWith('human:')) return { acceptedBy: actor };
-  if (!delegation) throw new Error(`not-delegated: this terminal is an agent's (${actor}); accepting copy edits is the author's decision — they run amendeor accept themselves, or grant a delegation that allows amendeor.accept and you pass --delegation <id>`);
+  if (!delegation) throw new Error(`not-delegated: this terminal is an agent's (${actor}); accepting copy edits is the author's decision — they run amendeor accept themselves, or grant a delegation that allows ${capability} and you pass --delegation <id>`);
   if (!workspaceDir) throw new Error('not-delegated: a delegation lives in a Codicora workspace; this target has none');
-  return { acceptedBy: actor, grant: await requireDelegation(workspaceDir, delegation, 'amendeor.accept') };
+  return { acceptedBy: actor, grant: await requireDelegation(workspaceDir, delegation, capability) };
+}
+
+// Непроверенную правку (ляп, прореживание, переписанный повтор, semantic-правило, восстановленная опечатка) агент
+// принимает только по отдельной способности amendeor.accept-unverified: её не подразумевает ни amendeor.accept,
+// ни amendeor.edit (DELEGATION.md §5). Каждая правка — своя строка журнала: id, хэши цели и замены, отпечаток
+// делегирования; принятие снимается обычным reject.
+export async function acceptUnverifiedDelegated(editedDir: string, proposals: Proposal[], auth: AcceptAuthority): Promise<Acceptance[]> {
+  const g = auth.grant?.delegation;
+  if (!g) throw new Error('not-delegated: acceptUnverifiedDelegated needs a delegation');
+  const accepted = await acceptProposals(editedDir, proposals, { allowUnverified: true, acceptedBy: auth.acceptedBy, provenance: { authority: 'delegated' as const, authorized_by: g.granted_by, delegation_id: g.id } });
+  for (const proposal of proposals) await journal(auth.grant!.dir, { capability: 'amendeor.accept-unverified', performed_by: auth.acceptedBy, authorized_by: g.granted_by, delegation_id: g.id, delegation_hash: delegationHash(g),
+    subject: `proposal ${proposal.id}`, proposal_id: proposal.id, target_hash: proposal.target.hash, replacement_hash: sha256(proposal.replacement), source_findings: proposal.source_findings ?? [] });
+  return accepted;
 }
 
 export async function acceptAuthorized(editedDir: string, proposals: Proposal[], auth: AcceptAuthority, allowUnverified = false): Promise<Acceptance[]> {

@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { mkdtemp, mkdir, readFile, writeFile, stat } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, writeFile, stat, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -76,4 +76,39 @@ test('an inline provider api_key in the workspace amendeor.yaml is refused with 
   await mkdir(path.join(root, 'cfg/codicora'), { recursive: true });
   await writeFile(path.join(root, 'cfg/codicora/amendeor.yaml'), 'providers: { main: { api_key: sk-live-123 } }\n');
   assert.equal((await loadConfig({ workspaceDir: root, env })).config.providers.main!.api_key, 'sk-live-123');
+});
+
+// amendeor.accept-unverified — отдельная способность: amendeor.accept её не даёт; под ней непроверенная правка
+// принимается только поимённо, а каждое принятие пишется в журнал своей строкой.
+test('delegated unverified acceptance needs amendeor.accept-unverified, names ids, and journals each proposal', async () => {
+  const { openSource } = await import('../src/source/index.ts');
+  const { writeFindingsRun } = await import('../src/checks/findings.ts');
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-unverified-'));
+  try {
+    await mkdir(path.join(root, 'manuscript/chapters'), { recursive: true }); await mkdir(path.join(root, 'authority'), { recursive: true });
+    await writeFile(path.join(root, 'codicora.yaml'), 'spec: codicora/v1\ntype: project\nproject: { id: book-a }\n');
+    await writeFile(path.join(root, 'manuscript/manuscript.yaml'), 'schema_version: 1\nlanguage: en\nchapters: [{ slug: one, title: One }]\n');
+    const sentence = 'The word sat in him, four syllables, holding its edge.';
+    await writeFile(path.join(root, 'manuscript/chapters/one.md'), `<!-- scene: one -->\n${sentence}\n`);
+    await writeFile(path.join(root, 'amendeor.yaml'), 'providers: {}\nprofiles: {}\n');
+    const at = new Date(Date.now() - 60_000).toISOString(), until = new Date(Date.now() + 3_600_000).toISOString();
+    const grant = (id: string, allow: string[]) => ({ id, workspace: 'book-a', granted_by: 'author', granted_at: at, expires_at: until, allow, limits: { max_spend: 1, currency: 'USD' } });
+    await writeFile(path.join(root, 'authority/delegations.json'), JSON.stringify({ schema: 'codicora.delegations/0.1', delegations: [grant('plain', ['amendeor.edit', 'amendeor.accept']), grant('full', ['amendeor.edit', 'amendeor.accept-unverified'])] }));
+    const source = await openSource(root, {});
+    const scene = source.book.chapters[0]!.scenes[0]!;
+    await writeFindingsRun(source.findingsDir!, root, source.book, [{ id: 's', guide: 'book', principle: 'book.slip', source_pages: '', chapter: 'one', scene: scene.id, start: scene.text.indexOf(sentence), end: scene.text.indexOf(sentence) + sentence.length, quote: sentence, reason: '"Ritual" has three syllables.', provenance: 'whole-book pass', severity: 'medium', replacement: 'The word sat in him, three syllables, holding its edge.' }], { guide: 'book', startedAt: at });
+    const env = { PATH: process.env.PATH, HOME: root, XDG_CONFIG_HOME: path.join(root, 'no-user-config'), CODICORA_AGENT: 'codex' };
+    const edit = JSON.parse((await execFileAsync(process.execPath, [cli, 'edit', root, '--mode', 'mechanical', '--delegation', 'full', '--json'], { env })).stdout);
+    const id = (await readFile(path.join(root, '.codicora/amendeor/runs', edit.run_id, 'proposals.jsonl'), 'utf8')).split('\n').filter(Boolean).map((l) => JSON.parse(l)).find((p) => p.source_findings?.length).id;
+    await assert.rejects(execFileAsync(process.execPath, [cli, 'accept', root, id, '--unverified', '--delegation', 'plain'], { env }), /does not allow amendeor\.accept-unverified/);
+    await assert.rejects(execFileAsync(process.execPath, [cli, 'accept', root, '--impact', 'mechanical', '--unverified', '--delegation', 'full'], { env }), /only proposals named by id/);
+    await assert.rejects(execFileAsync(process.execPath, [cli, 'accept', root, id, '--delegation', 'full'], { env }), /unverified-proposal|amendeor\.accept\b/);
+    await execFileAsync(process.execPath, [cli, 'accept', root, id, '--unverified', '--delegation', 'full'], { env });
+    assert.match(await readFile(path.join(root, 'edited/chapters/one.md'), 'utf8'), /three syllables/);
+    const journal = (await readFile(path.join(root, 'authority/amendeor.jsonl'), 'utf8')).split('\n').filter(Boolean).map((l) => JSON.parse(l)).filter((r) => r.capability === 'amendeor.accept-unverified');
+    assert.equal(journal.length, 1);
+    assert.equal(journal[0].proposal_id, id); assert.equal(journal[0].delegation_id, 'full'); assert.ok(journal[0].delegation_hash && journal[0].target_hash && journal[0].replacement_hash);
+    await execFileAsync(process.execPath, [cli, 'reject', root, id, '--delegation', 'plain'], { env });
+    assert.doesNotMatch(await readFile(path.join(root, 'edited/chapters/one.md'), 'utf8'), /three syllables/, 'withdrawn with reject');
+  } finally { await rm(root, { recursive: true, force: true }); }
 });
