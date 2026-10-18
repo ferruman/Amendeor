@@ -16,7 +16,7 @@ import { sha256 } from '../hash.ts';
 import type { GuideFinding } from './guide.ts';
 import { languageProfile, wrongLanguage } from '../lang/match.ts';
 
-const VERSION = 'book-pass-4';
+const VERSION = 'book-pass-5';
 
 const markSchema = z.object({
   kind: z.enum(['slip', 'habit']),
@@ -36,7 +36,7 @@ Two kinds of problem.
 1. Slips that only the sense of the passage reveals: a word that cannot mean what the sentence needs (an object that cannot do what it does, a term used wrongly for its context), a count or description of language that is wrong ("four syllables" for a three-syllable word, "twice" before three items), clock or number arithmetic inside a sentence, a line of dialogue with no clear speaker or the wrong form of address, a pronoun that gives a character the wrong gender, a sentence or paragraph that contradicts itself, a stock phrase that does not fit the character it describes.
 2. The book's verbal habits: words, phrases, similes, gestures and sentence frames repeated so often across the book that they turn mechanical ("the way…", a recurring number, a gesture every character makes). Name the habit, estimate how often it occurs, quote one occurrence, and say which uses to keep.
 
-Do not mark: dialect or nonstandard grammar in dialogue that renders speech, a refrain the book clearly builds on purpose, matters of plot, continuity across chapters or legal accuracy (other readers do that), or a preference the text does not violate.
+Do not mark: dialect or nonstandard grammar in dialogue that renders speech, a usage that is correct in the book's regional variety of the language (in American English "quarter of four" is 3:45), a refrain the book clearly builds on purpose, matters of plot, continuity across chapters or legal accuracy (other readers do that), or a preference the text does not violate.
 
 Be exhaustive: a careful copy edit of a novel marks many slips and several habits. Do not pad.
 

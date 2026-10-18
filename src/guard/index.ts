@@ -127,7 +127,7 @@ export async function guardProposals(source: OpenedSource, loaded: LoadedConfig,
     let verification: VerifyResult;
     try {
       verification = await verifyMeaning(proposal.target.text, proposal.replacement, context, proposal.impact, loaded.config, pack.pack, cache, gateway,
-        { necessity, minPasses: evidenceBacked ? 3 : undefined, context: necessity && loaded.config.profiles.verify?.context ? editorialContext(proposal, check.dialogue, dialogueSpans(context, pack.pack).length > 0, loaded.config) : undefined });
+        { necessity, minPasses: evidenceBacked ? 3 : undefined, thinning: proposal.review?.evidence.kind === 'thin', context: necessity && loaded.config.profiles.verify?.context ? editorialContext(proposal, check.dialogue, dialogueSpans(context, pack.pack).length > 0, loaded.config) : undefined });
     } catch (error) { if (!(error instanceof SpendRefused)) throw error; refused = error.message; failures.push({ proposal_id: proposal.id, node_id, kind: 'spend-refused', reason: refused, review_only: false, ...edit }); continue; }
     verifications.push({ proposal_id: proposal.id, ...verification });
     sameFamily ||= verification.sameFamily;

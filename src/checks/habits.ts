@@ -19,7 +19,7 @@ import { dialogueSpans, inDialogue } from '../text/dialogue.ts';
 import { languageProfile, wrongLanguage } from '../lang/match.ts';
 import type { GuideFinding } from './guide.ts';
 
-const VERSION = 'habits-1';
+const VERSION = 'habits-2';
 // Сколько вхождений одной привычки отдаём модели и сколько — за один запрос.
 const MAX_USES_PER_HABIT = 120, MAX_USES_PER_REQUEST = 220;
 // «Проредить, не вычистить»: заменяется не больше двух третей вхождений привычки.
@@ -78,7 +78,9 @@ export const HABITS_SYSTEM = `You are the line editor of a novel, thinning its v
 Book-wide rules:
 - Thin, do not eliminate. Keep the occurrences that work: a motif the book builds on, a character's own way of speaking, rhythm at a turn of the scene, the first and the strongest uses. Frequency alone does not justify an edit. Preserve repetitions that function as motifs.
 - In dialogue, change a line only when the habit is the author's, not the character's.
-- Keep the meaning, the facts and the point of view of the sentence exactly. Change as little as the fix needs.
+- Keep the meaning, the facts, the names and the point of view of the sentence exactly.
+- Change only the habit phrase, the one or two words just before it that grammar needs, and the rest of its clause if you cut the comparison; every other word of the sentence stays exactly as it is.
+- Thinning means a different action, a different image, or a cut — not a synonym of the same phrase or gesture ("aligned" or "made flush" for "squared" is the same habit). A comparison may simply be cut, or the thing stated directly.
 - Never use the same replacement wording twice, and never introduce another habit from this list (do not trade one tic for another).
 - Write in the language of the manuscript, in the author's register.
 
@@ -99,6 +101,20 @@ function inserted(original: string, replacement: string): string {
   return [...new Set(words(replacement).filter((w) => !before.has(w)))].sort().join(' ');
 }
 
+// Где замена вправе менять предложение: от двух слов до вхождения привычки до конца его клаузы. Переписанное
+// дальше — уже не прореживание: модель меняла фамилии и намерения вдали от привычки (их ловили ловушки guard).
+function insideHabit(sentence: string, replacement: string, patterns: string[]): boolean {
+  let a = 0; while (a < sentence.length && a < replacement.length && sentence[a] === replacement[a]) a++;
+  let b = 0; while (b < sentence.length - a && b < replacement.length - a && sentence[sentence.length - 1 - b] === replacement[replacement.length - 1 - b]) b++;
+  const end = sentence.length - b;
+  return patterns.some((p) => [...sentence.matchAll(patternRe(p))].some((m) => {
+    const before = sentence.slice(0, m.index!).match(/(?:\S+\s+){0,2}$/u)?.[0].length ?? 0;
+    const clause = sentence.slice(m.index! + m[0].length).search(/[,;:—–]|[.!?…](?:\s|$)/u);
+    const limit = clause < 0 ? sentence.length : m.index! + m[0].length + clause + 1;
+    return a >= m.index! - before && end <= limit;
+  }));
+}
+
 export function judgeDecisions(output: string, uses: Use[], habits: Habit[], book: Book, pack: LanguagePack, already: Set<string> = new Set()): { findings: ThinFinding[]; discarded: string[] } {
   const byId = new Map(uses.map((u) => [u.id, u]));
   const habitById = new Map(habits.map((h) => [h.id, h]));
@@ -117,6 +133,7 @@ export function judgeDecisions(output: string, uses: Use[], habits: Habit[], boo
     if (!replacement || replacement === use.sentence) { reject('no change'); continue; }
     if (replacement.includes('\n')) { reject('replacement spans paragraphs'); continue; }
     if (allPatterns.some((p) => occurrences(replacement, p) > occurrences(use.sentence, p))) { reject('replacement introduces a known habit'); continue; }
+    if (!insideHabit(use.sentence, replacement, habitById.get(use.habit)!.patterns)) { reject('replacement changes the sentence beyond the habit and its clause'); continue; }
     const added = inserted(use.sentence, replacement);
     if (added && already.has(added)) { reject(`replacement wording reused: "${added.slice(0, 40)}"`); continue; }
     if (wrongLanguage([replacement], language)) { reject("replacement is not in the manuscript's language"); continue; }

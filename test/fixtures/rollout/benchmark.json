@@ -55,9 +55,9 @@
   "check": "necessity",
   "behavior_sha256": {
     "src/prompts/copy-edit.ts": "a43b4ee33b3612467a8257cd2505039615f107dba4cac9201675220d667dc3b0",
-    "src/prompts/verify.ts": "bc5515098168b6951a1de74f07f7b2f31a2803b9900deb6940bd391d5b74a2b8",
-    "src/guard/verify.ts": "c3099d066b035588967bc702ed798a8a4830f6a3cde5d6defff3fc90b357561a",
-    "src/guard/index.ts": "950f31c656efccce0e640eda3b182d2e305ca7a03885bf518f7bd2bb93db75a1",
+    "src/prompts/verify.ts": "aaad85046ca4522d4dd74139ef64811efc25fd97998f0d56eeaf99b728ba0119",
+    "src/guard/verify.ts": "6978cb914b205eddb3333aafa622a307fa6a3d39154a80d44ea1943d8baa660a",
+    "src/guard/index.ts": "7c6b6e03f7fb0a6d387df69e4742e1069f8ffddbd5354666e31e23f4e4fb7c28",
     "src/edit/pass.ts": "fb29f8b44e87b01eeb40a8f1a5de799502e75a3829808a14e4d029b501656e53",
     "src/provider/http.ts": "6ecc84919beb11262b6b8b634d1ce41bb38e0e537f0d08a9fedb4603f0bc43f4",
     "src/provider/gateway.ts": "4c39ac9359bf1325b89d6334cdbb143c24825d1665371496b1ec0545c272c733",
@@ -65,7 +65,7 @@
     "src/guard/voice.ts": "a19072bd32a5dbef5904706e9460ce6166526d178910cacf53bf422df39e1dcd",
     "src/text/dialogue.ts": "ca6e564d95875d8036ec805c765893e67c961a7ae120fe9aac33ef3cf1df2167",
     "src/text/segment.ts": "bbf71c7084788cdd840f4de9acf831df7141233c99fe3c41595a9bb1d98126a3",
-    "src/edit/mechanical.ts": "99d35c15a6834a768e03a9d396cc5f8527937982538f72be860f961fdb026f4f",
+    "src/edit/mechanical.ts": "50c7ef0e16f676c1bb59bae6fe39ef6f1ce643a9d420b534aec9c47023d91aef",
     "src/rules/index.ts": "5f008c928962f141d16d59584141b4108435a95ef20516afa375746d47a7dc2a",
     "src/rules/capitalization.ts": "63bc2bca1892343249339198787ce1730af5183e40cf0a858ec4a087ad1102a7",
     "src/rules/mixed-quotes.ts": "e4d6452782432fbd9429f545afcc80bbafa23e1d9e5890581602ddf9499be48c"

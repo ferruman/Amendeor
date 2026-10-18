@@ -92,3 +92,40 @@ test('habits end to end: the slip survives the new run; thinning becomes meaning
     assert.ok(thin.verification.passes >= 1, 'meaning was checked');
   } finally { await rm(root, { recursive: true, force: true }); }
 });
+
+// Замена — только у привычки: подмена фамилии вдали от неё отклоняется, вычеркнутое сравнение до конца клаузы — нет.
+test('judge: a replacement stays at the habit and its clause', async () => {
+  const pack = (await loadPack('en')).pack;
+  const t = `${prose}I proposed Caroline and Tessa Maddox, the way a neighbour would, driving her own car. It was quiet in the way a kitchen is when the kettle has gone off.`;
+  const b: Book = { lang: 'en', chapters: [{ slug: 'ch01', title: 'One', file: 'ch01.md', text: t, scenes: splitScenes(t) }] };
+  const way: Habit = { id: 'amendeor:aaaaaaaaaaaa0003', summary: 'The "the way…" frame recurs.', patterns: ['the way'] };
+  const uses = collectUses(b, [way], pack);
+  const [far, near] = uses;
+  const out = JSON.stringify({ decisions: [
+    { id: far!.id, action: 'replace', replacement: 'I proposed Caroline Maddox and Tessa, as a neighbour would, driving her own car.', reason: 'moves the surname' },
+    { id: near!.id, action: 'replace', replacement: 'It was quiet except for the refrigerator.', reason: 'cuts the comparison' },
+  ] });
+  const judged = judgeDecisions(out, uses, [way], b, pack);
+  assert.deepEqual(judged.findings.map((f) => f.replacement), ['It was quiet except for the refrigerator.']);
+  assert.ok(judged.discarded.some((d) => /beyond the habit/.test(d)));
+});
+
+test('verifier: thinning proposals get the thinning prompt; others keep the strict one byte for byte', async () => {
+  const { verifyMeaning } = await import('../src/guard/verify.ts');
+  const { verifyPrompt } = await import('../src/prompts/verify.ts');
+  const { Gateway } = await import('../src/provider/gateway.ts');
+  const { Cache } = await import('../src/cache.ts');
+  const { LocalProvider } = await import('../src/provider/local.ts');
+  const { configSchema } = await import('../src/config.ts');
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-thin-verify-'));
+  try {
+    const systems: string[] = [];
+    const config = configSchema.parse({ providers: { p: { transport: 'local', endpoint: 'x' } }, profiles: { verify: { provider: 'p', model: 'v', passes: 1 } } });
+    const pack = (await loadPack('en')).pack;
+    const gateway = new Gateway(config, pack, {}, { local: new LocalProvider((r) => { systems.push(r.system); return JSON.stringify({ preserved: true, reason: 'ok' }); }) });
+    await verifyMeaning('a b', 'a c', 'ctx', 'prose', config, pack, new Cache(root, true), gateway, { thinning: true });
+    await verifyMeaning('a b', 'a c', 'ctx', 'prose', config, pack, new Cache(root, true), gateway, {});
+    assert.match(systems[0]!, /thin a repeated stylistic habit/);
+    assert.equal(systems[1], verifyPrompt('a b', 'a c', 'ctx').system);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});

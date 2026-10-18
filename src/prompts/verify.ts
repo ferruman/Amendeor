@@ -11,6 +11,22 @@ export function verifyPrompt(before: string, after: string, context: string): { 
   };
 }
 
+// Прореживание привычки (check --guide habits): смена сравнения, рамки или формулировки — и есть цель правки,
+// поэтому строгий вопрос «сохранено ли всё» отвергал почти каждую. Здесь проверяется то, что прореживание менять не вправе.
+export const thinningPromptVersion = 'thinning-1.0.0';
+export function thinningPrompt(before: string, after: string, context: string): { system: string; prompt: string } {
+  return {
+    system: [
+      'You are a semantic verifier for literary line edits that thin a repeated stylistic habit.',
+      'A different comparison, image, framing, aspect or wording is the purpose of this edit and is not a loss.',
+      'Answer only whether the edit preserves the facts, events, who does what to whom, names, numbers, times, what a speaker claims, the degree of certainty and the point of view.',
+      'If one of those changes, or you are unsure, return preserved false.',
+      'Return JSON only: {"preserved":boolean,"reason":"brief explanation"}.'
+    ].join('\n'),
+    prompt: ['BEFORE:', before, 'AFTER:', after, 'SURROUNDING PARAGRAPH:', context].join('\n\n')
+  };
+}
+
 // Copy mode с проверкой необходимости: два независимых поля в одном запросе. Примеры намеренно не из оценочных корпусов.
 export const necessityPromptVersion = 'necessity-1.0.0';
 export function necessityPrompt(before: string, after: string, context: string): { system: string; prompt: string } {

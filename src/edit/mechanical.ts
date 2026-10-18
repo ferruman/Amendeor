@@ -129,7 +129,7 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
       before: scene.text.slice(Math.max(0, slip.start - 60), slip.start), after: scene.text.slice(slip.start + slip.quote.length, slip.start + slip.quote.length + 60),
       occurrence: occurrenceBefore(scene.text, slip.quote, slip.start), run_id: runId, impact: 'prose', source: 'model', confidence: 0.7,
       reason: slip.reason, content_hash: scene.contentHash, source_findings: [slip.id],
-      unverified: true, review: { evidence: { finding: slip.id, problem: slip.reason } }
+      unverified: true, review: { evidence: { finding: slip.id, problem: slip.reason, kind: slip.kind } }
     });
     if (isRejected(proposal) || proposals.has(proposal.id)) continue;
     if (slip.kind === 'thin') thinned.push(proposal); else proposals.set(proposal.id, proposal);
