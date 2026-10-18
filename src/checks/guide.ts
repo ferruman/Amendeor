@@ -2,7 +2,7 @@ import type { Book } from '../book.ts';
 import type { LanguagePack } from '../lang/pack.ts';
 import { dialogueSpans } from '../text/dialogue.ts';
 
-export type GuideId = 'nora-gal' | 'infostyle' | 'en-fiction-editing' | 'en-clarity' | 'en-prose-style';
+export type GuideId = 'nora-gal' | 'infostyle' | 'en-fiction-editing' | 'en-clarity' | 'en-prose-style' | 'book';
 export type GuideSeverity = 'medium' | 'low' | 'info';
 
 export interface GuideFinding {
@@ -18,6 +18,8 @@ export interface GuideFinding {
   reason: string;
   provenance: string;
   severity?: GuideSeverity;
+  // Предложенная правка (проход по всей книге); применяет её только edit по решению автора.
+  suggestion?: string;
 }
 
 export interface Signal { id: string; principle: string; sourcePages: string; expression: RegExp; reason: string }

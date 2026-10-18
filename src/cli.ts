@@ -21,10 +21,11 @@ import { noraGal } from './checks/nora-gal.ts';
 import { infostyle } from './checks/infostyle.ts';
 import { englishGuides } from './checks/en-guides.ts';
 import { checkGuideContextual } from './checks/guide-context.ts';
+import { checkBookPass } from './checks/book-pass.ts';
 
 const guides: Record<string, Guide> = { 'nora-gal': noraGal, infostyle, ...Object.fromEntries(englishGuides.map((guide) => [guide.id, guide])) };
 
-type Args = { command: string; target: string; values: string[]; lang?: string; out?: string; json: boolean; impact?: string; unverified: boolean; mode: string; run?: string; noCache: boolean; resume?: string; guide?: string; rulesOnly: boolean; delegation?: string; findings: boolean };
+type Args = { command: string; target: string; values: string[]; lang?: string; out?: string; json: boolean; impact?: string; unverified: boolean; mode: string; run?: string; noCache: boolean; resume?: string; guide?: string; rulesOnly: boolean; delegation?: string; findings: boolean; passes?: number };
 function parseArgs(argv: string[]): Args {
   const command = argv[0] ?? ''; const target = argv[1] ?? '';
   if (!['inspect', 'check', 'edit', 'report', 'diff', 'accept', 'reject', 'build'].includes(command) || !target) throw new Error('usage: amendeor <inspect|check|edit|report|diff|accept|reject|build> <target> [options] | amendeor serve [workspace...] [--port N] [--library DIR]');
@@ -36,7 +37,7 @@ function parseArgs(argv: string[]): Args {
     else if (item === '--no-cache') result.noCache = true;
     else if (item === '--rules-only') result.rulesOnly = true;
     else if (item === '--findings') result.findings = true;
-    else if (['--lang', '--out', '--impact', '--mode', '--run', '--resume', '--guide', '--delegation'].includes(item)) {
+    else if (['--lang', '--out', '--impact', '--mode', '--run', '--resume', '--guide', '--delegation', '--passes'].includes(item)) {
       const value = argv[++index]; if (!value) throw new Error(`${item} requires a value`);
       if (item === '--lang') result.lang = value;
       if (item === '--out') result.out = value;
@@ -46,6 +47,7 @@ function parseArgs(argv: string[]): Args {
       if (item === '--resume') result.resume = value;
       if (item === '--guide') result.guide = value;
       if (item === '--delegation') result.delegation = value;
+      if (item === '--passes') { result.passes = Number(value); if (!Number.isInteger(result.passes) || result.passes < 1) throw new Error('--passes needs a whole number of at least 1'); }
     } else if (item.startsWith('-')) throw new Error(`unknown option: ${item}`);
     else result.values.push(item);
   }
@@ -56,7 +58,8 @@ function parseArgs(argv: string[]): Args {
   if (result.guide && command !== 'check') throw new Error('--guide is only valid with check');
   if (result.rulesOnly && command !== 'check') throw new Error('--rules-only is only valid with check');
   if (result.findings && command !== 'check') throw new Error('--findings is only valid with check');
-  if (command === 'check' && !(result.guide && Object.hasOwn(guides, result.guide))) throw new Error(`check requires --guide ${Object.keys(guides).join('|')}`);
+  if (result.passes && result.guide !== 'book') throw new Error('--passes is only valid with check --guide book');
+  if (command === 'check' && !(result.guide && (result.guide === 'book' || Object.hasOwn(guides, result.guide)))) throw new Error(`check requires --guide ${[...Object.keys(guides), 'book'].join('|')}`);
   return result;
 }
 
@@ -81,6 +84,22 @@ async function main(): Promise<void> {
     if (args.command === 'inspect') {
       const summary = inspectSummary(source.book, pack, computeMetrics(source.book, pack.pack), source.warnings);
       print({ command: 'inspect', ...summary }, args.json); return;
+    }
+    if (args.command === 'check' && args.guide === 'book') {
+      // Проход по всей книге: без каталога принципов и сигналов, на любом языке рукописи.
+      const startedAt = new Date().toISOString();
+      if (args.rulesOnly) throw new Error('check --guide book is a model pass; it has no rules to run alone');
+      const result = await underDelegation(source, args.delegation, 'check --guide book', () => checkBookPass(source.book, pack.pack, loadedConfig, source.stateDir, args.noCache, args.passes ?? 2));
+      if (args.findings) {
+        if (!source.findingsDir || !source.workspaceDir) throw new Error('--findings needs a Codicora workspace (codicora.yaml)');
+        const written = await writeFindingsRun(source.findingsDir, source.workspaceDir, source.book, result.findings, { guide: 'book', startedAt, stages: [
+          { name: 'book-pass', status: result.status === 'refused' ? 'partial' : result.status, failures: result.failures.map((f) => ({ node_id: 'book', reason: f.reason })) }] });
+        process.stderr.write(`findings/amendeor/runs/${written.runId}: ${written.count} finding(s)\n`);
+      }
+      print({ command: 'check', guide: 'book', version: 'book-pass-1', count: result.findings.length, findings: result.findings,
+        contextual: { status: result.status, windows: result.passes, cached: result.cached, failures: result.failures, discarded: result.discarded, ledger: result.ledger } }, args.json);
+      if (result.status !== 'ok') process.exitCode = 2;
+      return;
     }
     if (args.command === 'check') {
       const startedAt = new Date().toISOString();

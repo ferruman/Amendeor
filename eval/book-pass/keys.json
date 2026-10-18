@@ -1,0 +1,44 @@
+{
+  "eleven-days": {
+    "audited": "corpus/eleven-days.audited.json",
+    "clean": "corpus/eleven-days.clean.json",
+    "source": "Eleven-Days-independent-editorial-review.md, 2026-10-13: S5 (local English), N1 local slips, AI-patterns table",
+    "issues": [
+      { "id": "slip-ritual", "class": "slip", "weight": "minor", "summary": "'Ritual' is said to have four syllables", "anchors": ["four syllables"], "reason": "syllable|ritual" },
+      { "id": "slip-denial", "class": "slip", "weight": "minor", "summary": "'No admission, no denial' right after Voss denies a visitor", "anchors": ["no admission, no denial"], "reason": "denial|denied|deny|contradict" },
+      { "id": "slip-early", "class": "slip", "weight": "minor", "summary": "Ten to four is called twenty minutes early for four", "anchors": ["twenty minutes early"], "reason": "ten minutes|twenty|minute|arithmetic|ten to four" },
+      { "id": "slip-flown", "class": "slip", "weight": "minor", "summary": "He had never been flown anywhere; the paper had flown him once", "anchors": ["never been flown anywhere"], "reason": "flown|never|once|contradict" },
+      { "id": "slip-sergeant", "class": "slip", "weight": "minor", "summary": "A line after the judge's has no clear speaker and addresses the judge as 'Sergeant'", "anchors": ["The part that had been printed, Sergeant"], "reason": "sergeant|speaker|attribut|tag|address|who (is )?speak" },
+      { "id": "slip-depot", "class": "slip", "weight": "minor", "summary": "Leaving at 5:32 for a 6:00 bus leaves 'two minutes to get to the depot'", "anchors": ["two minutes to get to the depot"], "reason": "minute|5:32|time|arithmetic|depot" },
+      { "id": "slip-text", "class": "slip", "weight": "minor", "summary": "Which way the text goes is unclear: Vera texts Dana's mother, not Tamara", "anchors": ["a text would have come to Vera's phone first anyway"], "reason": "text|direction|unclear|whose|which phone|confus" },
+      { "id": "slip-whitlock", "class": "slip", "weight": "minor", "summary": "Whitlock, a woman throughout, is 'He' here", "anchors": ["He'll file"], "reason": "pronoun|he\\b|she\\b|whitlock|gender" },
+      { "id": "slip-del", "class": "slip", "weight": "minor", "summary": "A driver 'she didn't know' and Del, whom she knows from a union meeting", "anchors": ["It was a substitute she didn", "He was a man named Del"], "reason": "know|del|substitute|union|contradict" },
+      { "id": "tic-the-way", "class": "tic", "weight": "major", "summary": "'the way' as the book's standing simile frame (111 times)", "anchors": ["the way"], "reason": "the way" },
+      { "id": "tic-which-was", "class": "tic", "weight": "minor", "summary": "'which was' trailing clauses (49)", "anchors": ["which was"], "reason": "which was" },
+      { "id": "tic-she-wrote", "class": "tic", "weight": "minor", "summary": "'she wrote' as a recurring beat (41)", "anchors": ["she wrote"], "reason": "she wrote|wrote" },
+      { "id": "tic-eleven", "class": "tic", "weight": "major", "summary": "'eleven' pressed onto incidental counts (79)", "anchors": ["eleven"], "reason": "eleven" }
+    ],
+    "negatives": []
+  },
+  "furnace-road": {
+    "audited": "corpus/furnace-road.audited.json",
+    "clean": "corpus/furnace-road.clean.json",
+    "source": "Furnace-Road-independent-editorial-review.md, 2026-10-14: English and style, repetition table, C13, C20, C21",
+    "issues": [
+      { "id": "slip-booking", "class": "slip", "weight": "minor", "summary": "A 'booking photo' from a fire company roster, before any arrest", "anchors": ["booking photo from the fire company roster"], "reason": "booking|arrest|mugshot|roster" },
+      { "id": "slip-cups", "class": "slip", "weight": "minor", "summary": "Cups turned on the griddle with a spatula: pancakes are meant", "anchors": ["He turned three cups on the griddle"], "reason": "cup|pancake|griddle|spatula" },
+      { "id": "slip-glasses", "class": "slip", "weight": "minor", "summary": "He pulls the glasses down onto his nose twice within two paragraphs", "anchors": ["Nobody cleared that. Nobody told me"], "reason": "glasses|twice|again|repeat|duplicat" },
+      { "id": "slip-like-a-man", "class": "slip", "weight": "minor", "summary": "Hannah 'like a man who had all day': a stock male simile for her", "anchors": ["like a man who had all day"], "reason": "like a man|simile|male|gender" },
+      { "id": "tic-forty-five", "class": "tic", "weight": "major", "summary": "'forty-five years' (60 times)", "anchors": ["forty-five years"], "reason": "forty-five" },
+      { "id": "tic-squared", "class": "tic", "weight": "major", "summary": "'squared' papers and pads (19)", "anchors": ["squared"], "reason": "squar" },
+      { "id": "tic-like-a-man", "class": "tic", "weight": "minor", "summary": "'like a man' / 'the way a man' similes (20)", "anchors": ["like a man", "the way a man"], "reason": "like a man|the way a man" },
+      { "id": "tic-jaw", "class": "tic", "weight": "minor", "summary": "'rubbed his jaw' (7)", "anchors": ["rubbed his jaw"], "reason": "jaw" },
+      { "id": "tic-let-it-sit", "class": "tic", "weight": "minor", "summary": "'let it sit' (7)", "anchors": ["let it sit"], "reason": "let it sit" },
+      { "id": "tic-read-twice", "class": "tic", "weight": "minor", "summary": "'read it twice' (6)", "anchors": ["read it twice"], "reason": "read it twice|twice" },
+      { "id": "tic-quarter", "class": "tic", "weight": "minor", "summary": "'quarter turn' / 'quarter inch' precision (7)", "anchors": ["quarter turn", "quarter-turn", "quarter inch"], "reason": "quarter" }
+    ],
+    "negatives": [
+      { "id": "dialect", "summary": "Dialect in dialogue is intended", "anchors": ["I seen"] }
+    ]
+  }
+}

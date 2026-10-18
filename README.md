@@ -102,6 +102,18 @@ node eval/guard-traps.ts
 
 The [baseline](eval/BASELINE.md), [trap report](eval/results/2026-09-24-guard-traps.md), and [real-provider results](eval/RESULTS.md) record measured results. Reproduce a copy-edit run with `node --env-file=.env eval/run.ts --work jekyll-en --mode copy --runs 3` or the same command for `kashtanka-ru`; add `--formulaic` for the v0.2 mutation set. The private `seymsk` real-book model review and v0.1 tag remain pending. The full product contract is in [the PRD](docs/prd.md).
 
+## Whole-book pass
+
+`check --guide book` reads the whole book in one request, on any manuscript language, and marks what a window cannot show:
+- **slips** that only the sense of the passage reveals: "four syllables" for "ritual", cups turned on a griddle, a pronoun that changes a character's gender, a line with no clear speaker;
+- **habits** the whole book leans on: a phrase, gesture or simile frame repeated until it turns mechanical, with an estimated count and which uses to keep.
+
+```sh
+node --env-file=.env src/cli.ts check path/to/book --guide book [--passes 2] [--findings]
+```
+
+Each mark must quote the manuscript verbatim, or it is dropped. A slip carries its proposed correction in `suggestion`; nothing is edited. The passes are unioned (default 2): a single read returns about a dozen marks, almost all true, and different reads find different ones. It runs on `profiles.book` (Luna with reasoning in `amendeor.yaml`), at about $0.013 a pass for a 300k-character book, under the same delegation rules as other model passes. Measured against two independent editorial reviews in `eval/book-pass/`: one read found 1 of 13 and 1 of 4 slips, and 1 of 4 and about 5 of 7 habits, plus real slips the reviews missed.
+
 ## Findings intake (Phase 2)
 
 Copy editing now reads evidence-backed `repetition.ngram` findings at any scope, respects status overlays, and reports stale quotes. Findings-derived prose proposals require explicit author consent after meaning verification. See [the intake contract and offline evaluation](docs/findings-intake.md).

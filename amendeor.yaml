@@ -22,6 +22,12 @@ profiles:
     provider: editor
     model: openai/gpt-6-luna
     context_budget: 2048
+  # Проход по всей книге (check --guide book): книга целиком в одном запросе и рассуждение — так он измерен в eval/book-pass.
+  book:
+    provider: editor
+    model: openai/gpt-6-luna
+    reasoning: true
+    reasoning_effort: medium
   verify:
     provider: verifier
     model: anthropic/claude-haiku-5.5

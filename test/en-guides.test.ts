@@ -117,7 +117,7 @@ test('CLI registers the English guides and refuses a guide in the wrong language
     const clarity = JSON.parse((await execFileAsync(process.execPath, [cli, 'check', en, '--lang', 'en', '--guide', 'en-clarity', '--rules-only', '--json'], { env })).stdout) as { count: number };
     assert.equal(clarity.count, 2);
     await assert.rejects(execFileAsync(process.execPath, [cli, 'check', en, '--lang', 'en', '--guide', 'nora-gal', '--rules-only'], { env }), /nora-gal checks ru manuscripts; this book is en/);
-    await assert.rejects(execFileAsync(process.execPath, [cli, 'check', en, '--lang', 'en', '--guide', 'unknown'], { env }), /en-fiction-editing\|en-clarity\|en-prose-style$/m);
+    await assert.rejects(execFileAsync(process.execPath, [cli, 'check', en, '--lang', 'en', '--guide', 'unknown'], { env }), /en-fiction-editing\|en-clarity\|en-prose-style\|book$/m);
     const ru = path.join(root, 'ru.md');
     await writeFile(ru, 'Он осуществляет проверку.\n');
     await assert.rejects(execFileAsync(process.execPath, [cli, 'check', ru, '--lang', 'ru', '--guide', 'en-clarity', '--rules-only'], { env }), /en-clarity checks en manuscripts; this book is ru/);
