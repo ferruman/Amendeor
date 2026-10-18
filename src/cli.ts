@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { openSource } from './source/index.ts';
 import { readRun } from './run/store.ts';
 import { acquireLock } from './run/lock.ts';
@@ -62,7 +63,9 @@ function parseArgs(argv: string[]): Args {
 async function main(): Promise<void> {
   if (process.argv[2] === 'serve') { await (await import('./serve.ts')).serve(process.argv.slice(3)); return; }
   const args = parseArgs(process.argv.slice(2));
-  const preliminaryConfig = await loadConfig({ cli: args.lang ? { language: args.lang } : undefined });
+  const modelConfig = (args.command === 'check' && !args.rulesOnly) || (args.command === 'edit' && args.mode !== 'mechanical')
+    ? { installationConfig: fileURLToPath(new URL('../amendeor.yaml', import.meta.url)) } : {};
+  const preliminaryConfig = await loadConfig({ ...modelConfig, cli: args.lang ? { language: args.lang } : undefined });
   const source = await openSource(args.target, { lang: args.lang ?? preliminaryConfig.config.language, out: args.out });
   if (['edit', 'accept', 'reject', 'build'].includes(args.command)) {
     if (source.manuscriptDir && path.resolve(source.manuscriptDir) === path.resolve(source.editedDir)) {
@@ -70,7 +73,7 @@ async function main(): Promise<void> {
     }
     await validateEditedPaths(source.book, source.editedDir, source.manuscriptDir);
   }
-  const loadedConfig = source.workspaceDir ? await loadConfig({ workspaceDir: source.workspaceDir, cli: args.lang ? { language: args.lang } : undefined }) : preliminaryConfig;
+  const loadedConfig = source.workspaceDir ? await loadConfig({ ...modelConfig, workspaceDir: source.workspaceDir, cli: args.lang ? { language: args.lang } : undefined }) : preliminaryConfig;
   loadedConfig.config.language = source.book.lang;
   if (args.command === 'inspect' || args.command === 'check' || args.command === 'edit') {
     const pack = await loadPack(source.book.lang, source.book.chapters.map((chapter) => chapter.text).join('\n'));

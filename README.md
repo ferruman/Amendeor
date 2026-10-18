@@ -36,6 +36,8 @@ Standalone text requires `--lang en` or `--lang ru` if the language cannot be re
 
 The repository includes `amendeor.yaml` with separate editor and verifier profiles on OpenRouter. Copy `.env.example` to `.env`, put a key in `AMENDEOR_OPENROUTER_API_KEY`, and run commands from this directory with `node --env-file=.env`. The private `.env` is ignored by Git. A workspace can override settings with its own `amendeor.yaml`.
 
+For contextual `check` and model `edit` modes, the CLI falls back to the installation's `amendeor.yaml` when the user config is absent. An existing user config (even an empty one) or explicit `AMENDEOR_CONFIG` takes precedence. Credentials still need to be supplied explicitly through the environment or the configured key file; the CLI does not load `.env` automatically.
+
 The provider configuration uses environment variable names rather than embedding secrets. A key written inline (`api_key:`) is accepted only in the user config (`~/.config/codicora/amendeor.yaml`); in a workspace's `amendeor.yaml` it is refused — the book folder is portable and goes to git, the credential belongs to the machine:
 
 ```yaml

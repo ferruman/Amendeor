@@ -35,3 +35,17 @@ test('missing user configuration stays isolated from the real home directory', a
   assert.deepEqual(loaded.config.auto_accept, []);
   assert.deepEqual(loaded.config.providers, {});
 });
+
+test('installation config supplies model profiles only when user config is absent', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-installconfig-'));
+  const xdg = path.join(root, 'xdg');
+  const installationConfig = path.join(root, 'amendeor.yaml');
+  await writeFile(installationConfig, 'profiles: { edit: { provider: main, model: test }, verify: { provider: main, model: test } }\nproviders: { main: { transport: openai, api_key_env: TEST_KEY } }\n');
+  const env = { XDG_CONFIG_HOME: xdg, HOME: root };
+  assert.equal((await loadConfig({ env, installationConfig })).config.profiles.edit?.model, 'test');
+  assert.deepEqual((await loadConfig({ env })).config.profiles, {});
+  await mkdir(path.join(xdg, 'codicora'), { recursive: true });
+  await writeFile(path.join(xdg, 'codicora/amendeor.yaml'), '{}\n');
+  assert.deepEqual((await loadConfig({ env, installationConfig })).config.profiles, {});
+  assert.deepEqual((await loadConfig({ env: { ...env, AMENDEOR_CONFIG: path.join(root, 'explicit-missing') }, installationConfig })).config.profiles, {});
+});

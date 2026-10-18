@@ -98,14 +98,21 @@ function validateKey(value: string, field: string): void {
   if ([...value].some((char) => char.codePointAt(0)! > 255 || /[\x00-\x1f\x7f]/.test(char))) throw new Error(`${field}: API key contains characters an HTTP header cannot carry`);
 }
 
-export async function loadConfig(options: { workspaceDir?: string; cli?: Record<string, unknown>; env?: NodeJS.ProcessEnv } = {}): Promise<LoadedConfig> {
+export async function loadConfig(options: { workspaceDir?: string; cli?: Record<string, unknown>; env?: NodeJS.ProcessEnv; installationConfig?: string } = {}): Promise<LoadedConfig> {
   const env = options.env ?? process.env;
   const home = env.HOME ?? os.homedir();
   const userFile = env.AMENDEOR_CONFIG ?? path.join(env.XDG_CONFIG_HOME ?? path.join(home, '.config'), 'codicora', 'amendeor.yaml');
   const winners: Record<string, ConfigLayer> = {};
   const merged = structuredClone(defaults) as Record<string, unknown>;
   overlay({}, defaults, 'defaults', winners);
-  overlay(merged, await readYaml(userFile), 'user', winners);
+  let user = await readYaml(userFile);
+  // Отсутствующий пользовательский файл: CLI может предложить конфиг своей установки.
+  // Явный AMENDEOR_CONFIG всегда приоритетен; даже пустой существующий файл выключает fallback.
+  if (!env.AMENDEOR_CONFIG && options.installationConfig) {
+    try { await readFile(userFile, 'utf8'); }
+    catch (error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; user = await readYaml(options.installationConfig); }
+  }
+  overlay(merged, user, 'user', winners);
   if (options.workspaceDir) {
     const workspace = await readYaml(path.join(options.workspaceDir, 'amendeor.yaml'));
     // Ключ — машины и учётной записи, а не книги: папка книги переносима и уходит в git (WORKSPACE.md).

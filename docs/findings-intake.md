@@ -1,5 +1,7 @@
 # Phase 2 findings intake
 
+Shared editorial profile MVP: Amendeor does not yet resolve the Codicora `codicora.yaml` shared profile reference. Existing inline `amendeor.yaml` `editorial_profile`, preservation/guards and intake remain unchanged. A future adapter may map applicable shared preservation into existing configuration with explicit precedence and policy-aware cache keys. Broader literary findings intake and automatic acceptance are outside this phase. See the parent Codicora `EDITORIAL-PROFILE.md` contract.
+
 `edit --mode copy` reads existing Codicora `findings/*/latest.json` runs and `findings/_status.jsonl`. No new command, application, or orchestrator is introduced. Intake never writes to findings, status overlays, manuscript, or authority. Proposals and run reports use the existing Amendeor storage; acceptance/build continue to target `edited/` and obey content locks.
 
 Only `repetition.ngram` is actionable in Phase 2. Any scope is supported. Each validated quote becomes a `FormulaicHit` with the finding ID, then enters `EditWindow.signals`. A model proposal must overlap a trigger and stay in one paragraph. Style edits overlapping external evidence retain `source_findings`, become `prose-pattern` with `impact: prose`, and pass the existing semantic, voice, name, and protected-text guards.
