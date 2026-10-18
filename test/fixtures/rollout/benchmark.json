@@ -65,7 +65,7 @@
     "src/guard/voice.ts": "a19072bd32a5dbef5904706e9460ce6166526d178910cacf53bf422df39e1dcd",
     "src/text/dialogue.ts": "ca6e564d95875d8036ec805c765893e67c961a7ae120fe9aac33ef3cf1df2167",
     "src/text/segment.ts": "bbf71c7084788cdd840f4de9acf831df7141233c99fe3c41595a9bb1d98126a3",
-    "src/edit/mechanical.ts": "6aa97e66ef27a7c12e1a6b6e10ac4bd193b4731611b1da0cf34504affd8c090a",
+    "src/edit/mechanical.ts": "a0b342b35297e6cd3c4daf375af478415ec3616086cdead2cb16360c3b858859",
     "src/rules/index.ts": "5f008c928962f141d16d59584141b4108435a95ef20516afa375746d47a7dc2a",
     "src/rules/capitalization.ts": "63bc2bca1892343249339198787ce1730af5183e40cf0a858ec4a087ad1102a7",
     "src/rules/mixed-quotes.ts": "e4d6452782432fbd9429f545afcc80bbafa23e1d9e5890581602ddf9499be48c"
