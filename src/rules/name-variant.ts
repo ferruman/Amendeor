@@ -19,7 +19,7 @@ function editDistanceOne(a: string, b: string): boolean {
 // текст не меняется без явного решения. Заменить имя правило предлагает обычной правкой только по канону автора
 // (editorial_profile.canonical_names); вариант, приписанный канону дважды, неоднозначен — снова только находка.
 export const nameVariant: Rule = {
-  id: 'terminology.name-variant', version: '3', langs: ['en', 'ru'], category: 'terminology', impact: 'prose', authority: 'semantic',
+  id: 'terminology.name-variant', version: '4', langs: ['en', 'ru'], category: 'terminology', impact: 'prose', authority: 'semantic',
   detect(scene, ctx): ProposalDraft[] {
     const drafts: ProposalDraft[] = [];
     const canon = ctx.config.editorial_profile?.canonical_names ?? [];
@@ -40,11 +40,11 @@ export const nameVariant: Rule = {
       if (token.text.length < 4 || !/^\p{L}+$/u.test(token.text) || ctx.pack.stopwords.includes(token.lower) || !ctx.names.has(token.text)) continue;
       const candidate = names.find(([name, count]) => {
         if (name === token.text || count <= (ctx.names.get(token.text) ?? 0) || !sameStem(name, token.text) || !editDistanceOne(name.toLocaleLowerCase(), token.text.toLocaleLowerCase())) return false;
-        if (ctx.pack.language === 'ru') {
-          const a = name.toLocaleLowerCase(); const b = token.lower;
-          if (a.slice(0, -1) === b.slice(0, -1)) return false;
-          if ((a.startsWith(b) || b.startsWith(a)) && Math.abs(a.length - b.length) === 1) return false;
-        }
+        const a = name.toLocaleLowerCase(); const b = token.lower;
+        // Буква, добавленная в конце, — форма того же слова, а не опечатка: Sunday/Sundays, Fowler/Fowlers,
+        // Henderson/Hendersons; в русском — падеж (Ленора/Леноры). На The Shepherd's Silence все 36 таких пар были ложными.
+        if ((a.startsWith(b) || b.startsWith(a)) && Math.abs(a.length - b.length) === 1) return false;
+        if (ctx.pack.language === 'ru' && a.slice(0, -1) === b.slice(0, -1)) return false;
         return true;
       });
       if (candidate) drafts.push({ target: token.text, replacement: candidate[0], start: token.start,
