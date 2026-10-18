@@ -1,7 +1,7 @@
 // Одна страница без сборки: список текстов, лист с правками, карточка текущей правки.
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-const state = { docs: [], doc: null, current: null, filter: 'pending', poll: null, busy: false, error: '' };
+const state = { selected: new Set(), docs: [], doc: null, current: null, filter: 'pending', poll: null, busy: false, error: '' };
 const modeHelp = { mechanical: 'rules (no key needed)', proofread: 'spelling, grammar, punctuation', copy: 'copy edit', full: 'everything' };
 
 async function api(url, options = {}) {
@@ -92,8 +92,17 @@ function renderDoc() {
   const mechanical = doc.proposals.filter((item) => item.status === 'pending' && item.impact === 'mechanical');
   const filters = [['pending', 'To review'], ['accepted', 'Accepted'], ['rejected', 'Rejected'], ['stale', 'Outdated'], ['conflict', 'Conflicts'], ['all', 'All']]
     .map(([key, label]) => `<button class="chip" type="button" data-filter="${key}" aria-pressed="${state.filter === key}">${label} ${key === 'all' ? doc.proposals.length : count(key)}</button>`).join('');
-  const list = visible().map((item) => `<li><button type="button" data-id="${esc(item.id)}" aria-current="${item.id === state.current}">
-      <span class="what">${esc(item.category)} · ${esc(item.status)}</span><span class="snippet">${wordDiff(item.target, item.replacement)}</span></button></li>`).join('');
+  // Выбор пачкой: каждая правка отмечается явно; принимается отмеченное, а не класс правок.
+  const pendingShown = visible().filter((item) => item.status === 'pending');
+  const list = visible().map((item) => `<li class="${item.status === 'pending' ? 'selectable' : ''}">${item.status === 'pending' ? `<input type="checkbox" data-select="${esc(item.id)}" aria-label="Select this edit" ${state.selected.has(item.id) ? 'checked' : ''}>` : ''}<button type="button" data-id="${esc(item.id)}" aria-current="${item.id === state.current}">
+      <span class="what">${esc(item.category)} · ${esc(item.status)}${item.unverified ? ' · needs your decision' : ''}</span><span class="snippet">${wordDiff(item.target, item.replacement)}</span></button></li>`).join('');
+  const selected = [...state.selected].filter((id) => doc.proposals.some((item) => item.id === id && item.status === 'pending'));
+  const batch = pendingShown.length ? `<div class="batch">
+      <button class="button" type="button" id="select-shown">Select shown (${pendingShown.length})</button>
+      ${selected.length ? `<button class="button" type="button" id="clear-selection">Clear</button>
+      <button class="button primary" type="button" id="accept-selected" ${state.busy ? 'disabled' : ''}>Accept ${selected.length} selected</button>
+      <button class="button" type="button" id="reject-selected" ${state.busy ? 'disabled' : ''}>Reject ${selected.length} selected</button>` : ''}
+    </div>` : '';
   const withheld = run?.withheld?.length ? `<details><summary>${run.withheld.length} edit(s) withheld by the guards</summary><ul>${run.withheld.map((item) => `<li>${esc(item.guard)}: ${esc(item.reason)}</li>`).join('')}</ul></details>` : '';
   $('#work').innerHTML = `
     <header class="doc-header">
@@ -111,6 +120,7 @@ function renderDoc() {
         ${renderCard()}
         ${mechanical.length ? `<button class="button" type="button" id="accept-mechanical" ${state.busy ? 'disabled' : ''}>Accept all ${mechanical.length} mechanical fixes</button>` : ''}
         <div class="counters">${filters}</div>
+        ${batch}
         <ul class="list">${list || '<li class="hint">Nothing here.</li>'}</ul>
         ${withheld}
         ${doc.model ? '' : '<p class="hint">No model is configured, so only rule-based checks are available. See README → Model editing.</p>'}
@@ -145,21 +155,28 @@ async function decide(action, ids) {
   state.busy = true; state.error = '';
   try {
     const item = state.doc.proposals.find((proposal) => proposal.id === ids[0]);
-    const unverified = action === 'accept' && ids.some((id) => state.doc.proposals.find((proposal) => proposal.id === id)?.unverified);
-    if (unverified && !confirm('This edit was not checked by the verifier. Accept it anyway?')) return;
+    const unchecked = action === 'accept' ? ids.filter((id) => state.doc.proposals.find((proposal) => proposal.id === id)?.unverified).length : 0;
+    const unverified = unchecked > 0;
+    if (unverified && !confirm(ids.length === 1 ? 'This edit was not checked by the verifier. Accept it anyway?' : `${unchecked} of the ${ids.length} selected edits need your decision: they were not approved by the verifier. Accept all ${ids.length}?`)) return;
     await api(`/api/docs/${encodeURIComponent(state.doc.id)}/${action}`, { method: 'POST', body: JSON.stringify({ ids, unverified }) });
     // После решения — к следующей непросмотренной правке в порядке списка.
     const order = state.doc.proposals.filter((proposal) => proposal.status === 'pending' && !ids.includes(proposal.id));
     const after = order.find((proposal) => state.doc.proposals.indexOf(proposal) > state.doc.proposals.indexOf(item)) ?? order[0];
     state.current = after?.id ?? null;
+    for (const id of ids) state.selected.delete(id);
     await openDoc(state.doc.id, true);
   } catch (error) { state.error = error.message; renderDoc(); }
   finally { state.busy = false; if (state.doc) renderDoc(); }
 }
 
 document.addEventListener('click', async (event) => {
-  const target = event.target.closest('[data-id], [data-decide], [data-step], [data-filter], #run, #accept-mechanical, [data-new], #new-text, #theme');
+  const target = event.target.closest('[data-select], [data-id], [data-decide], [data-step], [data-filter], #run, #accept-mechanical, #select-shown, #clear-selection, #accept-selected, #reject-selected, [data-new], #new-text, #theme');
   if (!target) return;
+  const chosen = () => [...state.selected].filter((id) => state.doc.proposals.some((item) => item.id === id && item.status === 'pending'));
+  if (target.dataset.select) { if (target.checked) state.selected.add(target.dataset.select); else state.selected.delete(target.dataset.select); renderDoc(); return; }
+  if (target.id === 'select-shown') { for (const item of visible()) if (item.status === 'pending') state.selected.add(item.id); renderDoc(); return; }
+  if (target.id === 'clear-selection') { state.selected.clear(); renderDoc(); return; }
+  if (target.id === 'accept-selected' || target.id === 'reject-selected') { const ids = chosen(); if (ids.length) decide(target.id === 'accept-selected' ? 'accept' : 'reject', ids); return; }
   if (target.matches('#new-text, [data-new]')) { $('#new-error').textContent = ''; $('#new-dialog').showModal(); }
   else if (target.id === 'theme') toggleTheme();
   else if (target.dataset.decide) decide(target.dataset.decide, [state.current]);

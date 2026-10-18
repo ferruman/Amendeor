@@ -17,7 +17,7 @@ npm run ui                     # http://127.0.0.1:4178
 npm run ui -- ../books/seymsk  # also show a Codicora workspace
 ```
 
-Add a text (paste it or pick `.md`/`.txt` files, one chapter each), run a check, then accept or reject each proposal on the page; **Download edited** returns the edited copy. Pasted texts live in `~/Amendeor` (`--library DIR` to change); the original is never rewritten. Model modes appear when `.env` and `amendeor.yaml` configure them (see below).
+Add a text (paste it or pick `.md`/`.txt` files, one chapter each), run a check, then accept or reject each proposal on the page (or tick several in the list and accept or reject the selection; one confirmation names how many of them were not approved by the verifier); **Download edited** returns the edited copy. Pasted texts live in `~/Amendeor` (`--library DIR` to change); the original is never rewritten. Model modes appear when `.env` and `amendeor.yaml` configure them (see below).
 
 ## No-key quick start
 

@@ -49,3 +49,29 @@ test('ui server: a foreign Host header (DNS rebinding) is refused', async () => 
     server.close();
   }
 });
+
+// Выбор пачкой: несколько явно выбранных id одним запросом; интерфейс отдаёт кнопки выбора.
+test('ui server: several selected edits are accepted in one request; the page offers batch selection', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-serve-batch-'));
+  process.env.XDG_CONFIG_HOME = path.join(root, 'no-user-config');
+  const server = createServer({ library: path.join(root, 'library'), workspaces: [] });
+  await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
+  const call = async (url: string, body?: unknown) => {
+    const response = await fetch(base + url, body === undefined ? {} : { method: 'POST', body: JSON.stringify(body), headers: { 'content-type': 'application/json' } });
+    return { status: response.status, body: response.headers.get('content-type')!.includes('json') ? await response.json() as any : await response.text() };
+  };
+  try {
+    const id = (await call('/api/docs', { name: 'Two', lang: 'en', files: [{ name: 'one.md', text: 'She said said yes.\n\nHe ran ran home.\n' }] })).body.id as string;
+    await call(`/api/docs/${id}/run`, { mode: 'mechanical' });
+    let view = (await call(`/api/docs/${id}`)).body;
+    for (let tries = 0; view.job && tries < 100; tries++) { await new Promise((resolve) => setTimeout(resolve, 50)); view = (await call(`/api/docs/${id}`)).body; }
+    const ids = view.proposals.filter((item: { status: string }) => item.status === 'pending').map((item: { id: string }) => item.id);
+    assert.equal(ids.length, 2);
+    assert.equal((await call(`/api/docs/${id}/accept`, { ids, unverified: false })).status, 200);
+    view = (await call(`/api/docs/${id}`)).body;
+    assert.deepEqual(view.proposals.map((item: { status: string }) => item.status), ['accepted', 'accepted']);
+    const page = await call('/app.js');
+    for (const control of ['select-shown', 'accept-selected', 'reject-selected', 'data-select']) assert.match(page.body, new RegExp(control));
+  } finally { server.close(); }
+});

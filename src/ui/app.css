@@ -113,3 +113,8 @@ dialog form { display: grid; gap: 14px; }
 
 @media (max-width: 64rem) { .columns { grid-template-columns: 1fr; } .side { border-left: 0; border-top: 1px solid var(--border); } .work { overflow-y: auto; } .columns, .sheet-scroll, .side { overflow: visible; } }
 @media (max-width: 40rem) { .shell { grid-template-columns: 1fr; height: auto; } .command-rail { flex-direction: row; flex-wrap: wrap; align-items: center; } .doc-list { flex-basis: 100%; } .sheet { padding: 16px 18px; } .sheet-scroll { padding: 12px; } }
+
+.batch { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.list li.selectable { display: flex; align-items: flex-start; gap: 6px; }
+.list li.selectable input[type=checkbox] { margin-top: 10px; flex: none; }
+.list li.selectable button { flex: 1; min-width: 0; }
