@@ -20,6 +20,8 @@ export interface GuideFinding {
   severity?: GuideSeverity;
   // Предложенная правка (проход по всей книге); применяет её только edit по решению автора.
   suggestion?: string;
+  // Исправленная цитата целиком: из неё edit делает правку только на решение автора.
+  replacement?: string;
 }
 
 export interface Signal { id: string; principle: string; sourcePages: string; expression: RegExp; reason: string }

@@ -15,7 +15,7 @@ import { parseModelJson } from '../provider/json.ts';
 import { sha256 } from '../hash.ts';
 import type { GuideFinding } from './guide.ts';
 
-const VERSION = 'book-pass-1';
+const VERSION = 'book-pass-2';
 
 const markSchema = z.object({
   kind: z.enum(['slip', 'habit']),
@@ -23,6 +23,7 @@ const markSchema = z.object({
   quote: z.string().min(3),
   problem: z.string().min(1),
   fix: z.string().optional(),
+  replacement: z.string().nullable().optional(),
   count: z.number().optional(),
 });
 const answerSchema = z.object({ marks: z.array(z.unknown()).default([]) });
@@ -39,7 +40,9 @@ Be exhaustive: a careful copy edit of a novel marks many slips and several habit
 
 Write "problem" and "fix" in the language the manuscript is written in.
 
-Reply with JSON only: { "marks": [{ "kind": "slip|habit", "chapter": "<id>", "quote": "<one sentence copied character for character>", "problem": "…", "fix": "the minimal correction, or for a habit which uses to cut", "count": <estimated occurrences, habits only> }] }`;
+For a slip, "replacement" is the quoted sentence with only the error corrected and every other character unchanged, so that it can replace the quote as it stands; give null when the correction is not a change inside that sentence (moving a passage, a change elsewhere).
+
+Reply with JSON only: { "marks": [{ "kind": "slip|habit", "chapter": "<id>", "quote": "<one sentence copied character for character>", "problem": "…", "fix": "the minimal correction, or for a habit which uses to cut", "replacement": "<slips only: the corrected sentence, or null>", "count": <estimated occurrences, habits only> }] }`;
 
 export interface BookPassFinding extends GuideFinding { kind: 'contextual'; suggestion?: string; confidence: number }
 export interface BookPassResult {
@@ -69,7 +72,7 @@ export function toBookPassFindings(book: Book, output: string): { findings: Book
   for (const raw of answerSchema.parse(parseModelJson(output)).marks) {
     const mark = markSchema.safeParse(raw);
     if (!mark.success) { discarded.push('mark breaks the schema'); continue; }
-    const { kind, chapter, problem, fix, count } = mark.data;
+    const { kind, chapter, problem, fix, count, replacement } = mark.data;
     const quote = mark.data.quote.trim();
     const at = locate(book, chapter, quote);
     if (!at) { discarded.push(`quote not found once in a scene: ${quote.slice(0, 60)}`); continue; }
@@ -81,6 +84,8 @@ export function toBookPassFindings(book: Book, output: string): { findings: Book
       // Ляп — конкретная ошибка с правкой; привычка — совет на всю книгу, поэтому ниже.
       severity: kind === 'slip' ? 'medium' : 'low', confidence: 0.7,
       ...(fix ? { suggestion: fix } : {}),
+      // Замена годится в правку, только если это та же фраза с исправлением, а не пересказ правки.
+      ...(kind === 'slip' && replacement && replacement.trim() && replacement.trim() !== quote ? { replacement: replacement.trim() } : {}),
     });
   }
   return { findings, discarded };

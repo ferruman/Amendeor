@@ -48,3 +48,40 @@ test('book pass: slips carry a fix, habits a count; unquoted marks drop; passes 
     assert.equal(again.cached, 2); assert.equal(again.ledger.length, 0);
   } finally { await rm(root, { recursive: true, force: true }); }
 });
+
+// Ляп с исправленной фразой проходит через findings в edit как правка только на решение автора;
+// статус wontfix её подавляет; ляп без замены остаётся находкой.
+test('book pass → edit: a slip with a replacement becomes an author-only proposal; wontfix suppresses it', async () => {
+  const { openSource } = await import('../src/source/index.ts');
+  const { editMechanical } = await import('../src/edit/mechanical.ts');
+  const { writeFindingsRun } = await import('../src/checks/findings.ts');
+  const { readFindings } = await import('../src/findings/intake.ts');
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-book-edit-'));
+  try {
+    const file = path.join(root, 'book.md');
+    await writeFile(file, 'The word sat in him, four syllables, holding its edge.\n\nHe squared the pad on the desk.\n');
+    const source = await openSource(file, { lang: 'en', out: path.join(root, 'out') });
+    source.findingsDir = path.join(root, 'findings');
+    const scene = source.book.chapters[0]!.scenes[0]!;
+    const quote = 'The word sat in him, four syllables, holding its edge.';
+    const slip = { id: 'x', guide: 'book' as const, kind: 'contextual' as const, principle: 'book.slip', source_pages: '', chapter: source.book.chapters[0]!.slug, scene: scene.id,
+      start: scene.text.indexOf(quote), end: scene.text.indexOf(quote) + quote.length, quote, reason: '"Ritual" has three syllables.', provenance: 'whole-book pass', severity: 'medium' as const, confidence: 0.7,
+      suggestion: 'Change "four" to "three".', replacement: 'The word sat in him, three syllables, holding its edge.' };
+    const plain = { ...slip, quote: 'He squared the pad on the desk.', start: scene.text.indexOf('He squared'), end: scene.text.indexOf('He squared') + 30, replacement: undefined };
+    await writeFindingsRun(source.findingsDir, root, source.book, [slip, plain], { guide: 'book', startedAt: new Date().toISOString() });
+    const intake = await readFindings(source);
+    assert.equal(intake.slips.length, 1, 'only the slip with a replacement');
+    const loaded = await loadConfig({ env: { HOME: root }, cli: {} });
+    const result = await editMechanical(source, loaded, await loadPack('en'), { mode: 'mechanical', noCache: true });
+    const made = result.proposals.filter((p) => p.source_findings?.length);
+    assert.equal(made.length, 1);
+    assert.equal(made[0]!.target.text, quote);
+    assert.equal(made[0]!.replacement, slip.replacement);
+    assert.equal(made[0]!.unverified, true); assert.equal(made[0]!.impact, 'prose');
+    assert.ok(made[0]!.review?.evidence.finding);
+    const findingId = intake.slips[0]!.id;
+    await writeFile(path.join(source.findingsDir, '_status.jsonl'), JSON.stringify({ schema: 'codicora.status/0.1', finding_id: findingId, status: 'wontfix', by: 'author', at: '2026-10-18T00:00:00Z' }) + '\n');
+    const suppressed = await editMechanical(source, loaded, await loadPack('en'), { mode: 'mechanical', noCache: true });
+    assert.equal(suppressed.proposals.filter((p) => p.source_findings?.length).length, 0);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});

@@ -117,6 +117,20 @@ export async function editMechanical(source: OpenedSource, loaded: LoadedConfig,
   }
   const mode = options.mode ?? 'mechanical';
   const findings = await readFindings(source);
+  // Ляпы прохода по всей книге (check --guide book): правка — исправленная фраза, полномочие semantic,
+  // то есть только явное решение автора: ни пакетного принятия, ни автопринятия, ни делегирования.
+  for (const slip of findings.slips) {
+    const chapter = source.book.chapters.find((item) => item.slug === slip.chapter)!;
+    const scene = chapter.scenes.find((item) => item.id === slip.scene)!;
+    const proposal = makeProposal({
+      category: 'word-choice', chapter: chapter.slug, scene: scene.id, target: slip.quote, replacement: slip.replacement,
+      before: scene.text.slice(Math.max(0, slip.start - 60), slip.start), after: scene.text.slice(slip.start + slip.quote.length, slip.start + slip.quote.length + 60),
+      occurrence: occurrenceBefore(scene.text, slip.quote, slip.start), run_id: runId, impact: 'prose', source: 'model', confidence: 0.7,
+      reason: slip.reason, content_hash: scene.contentHash, source_findings: [slip.id],
+      unverified: true, review: { evidence: { finding: slip.id, problem: slip.reason } }
+    });
+    if (!isRejected(proposal) && !proposals.has(proposal.id)) proposals.set(proposal.id, proposal);
+  }
   const model = await modelPass(source, loaded, language, mode, runId, [...proposals.values()], options.noCache, findings);
   const guard = await guardProposals(source, loaded, language, model.proposals.filter((proposal) => !isRejected(proposal)), options.noCache, mode, [...proposals.values()]);
   for (const proposal of guard.proposals) if (!proposals.has(proposal.id)) proposals.set(proposal.id, proposal);

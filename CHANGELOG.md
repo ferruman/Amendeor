@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- `check --guide book`: a whole-book pass for slips that need the passage's sense and for book-wide verbal habits; quoted marks only, slips carry a `suggestion`, passes are unioned (`--passes`, default 2), `profiles.book`. Evaluation in `eval/book-pass/`.
+- `check --guide book`: a whole-book pass for slips that need the passage's sense and for book-wide verbal habits; quoted marks only, slips carry a `suggestion`, passes are unioned (`--passes`, default 2), `profiles.book`. Evaluation in `eval/book-pass/`. A slip whose fix stays inside the quoted sentence carries `metadata.replacement`; `edit` reads Amendeor's own `style.book.slip` findings and makes each an author-only proposal (`unverified`, `review.evidence`), suppressed by a closing status.
 - Guard recovery (audit 2026-10-11 F2/F3).
   - A typo-shaped model correction that would otherwise be dropped becomes a **review-only** proposal (`unverified`, impact `prose`, `review.evidence`). It is never bulk-, auto- or delegation-accepted. The rejections that qualify:
     - by `dialogue-content-change`, `negation-change` or `proper-name-change`;
