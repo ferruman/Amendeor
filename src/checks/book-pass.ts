@@ -16,7 +16,7 @@ import { sha256 } from '../hash.ts';
 import type { GuideFinding } from './guide.ts';
 import { languageProfile, wrongLanguage } from '../lang/match.ts';
 
-const VERSION = 'book-pass-3';
+const VERSION = 'book-pass-4';
 
 const markSchema = z.object({
   kind: z.enum(['slip', 'habit']),
@@ -25,6 +25,7 @@ const markSchema = z.object({
   problem: z.string().min(1),
   fix: z.string().optional(),
   replacement: z.string().nullable().optional(),
+  patterns: z.array(z.string()).optional(),
   count: z.number().optional(),
 });
 const answerSchema = z.object({ marks: z.array(z.unknown()).default([]) });
@@ -39,9 +40,11 @@ Do not mark: dialect or nonstandard grammar in dialogue that renders speech, a r
 
 Be exhaustive: a careful copy edit of a novel marks many slips and several habits. Do not pad.
 
+For a habit, "patterns" lists the literal word or phrase forms that identify every occurrence of it in the text ("squared", "square the", "the way a man"), so that each can be found by search.
+
 For a slip, "replacement" is the quoted sentence with only the error corrected and every other character unchanged, so that it can replace the quote as it stands; give null when the correction is not a change inside that sentence (moving a passage, a change elsewhere).
 
-Reply with JSON only: { "marks": [{ "kind": "slip|habit", "chapter": "<id>", "quote": "<one sentence copied character for character>", "problem": "…", "fix": "the minimal correction, or for a habit which uses to cut", "replacement": "<slips only: the corrected sentence, or null>", "count": <estimated occurrences, habits only> }] }`;
+Reply with JSON only: { "marks": [{ "kind": "slip|habit", "chapter": "<id>", "quote": "<one sentence copied character for character>", "problem": "…", "fix": "the minimal correction, or for a habit which uses to cut", "replacement": "<slips only: the corrected sentence, or null>", "patterns": ["<habits only: literal forms>"], "count": <estimated occurrences, habits only> }] }`;
 
 export interface BookPassFinding extends GuideFinding { kind: 'contextual'; suggestion?: string; confidence: number }
 export interface BookPassResult {
@@ -77,7 +80,7 @@ export function toBookPassFindings(book: Book, output: string): { findings: Book
   for (const raw of answerSchema.parse(parseModelJson(output)).marks) {
     const mark = markSchema.safeParse(raw);
     if (!mark.success) { discarded.push('mark breaks the schema'); continue; }
-    const { kind, chapter, problem, fix, count, replacement } = mark.data;
+    const { kind, chapter, problem, fix, count, replacement, patterns } = mark.data;
     const quote = mark.data.quote.trim();
     const at = locate(book, chapter, quote);
     if (!at) { discarded.push(`quote not found once in a scene: ${quote.slice(0, 60)}`); continue; }
@@ -90,6 +93,7 @@ export function toBookPassFindings(book: Book, output: string): { findings: Book
       severity: kind === 'slip' ? 'medium' : 'low', confidence: 0.7,
       ...(fix ? { suggestion: fix } : {}),
       // Замена годится в правку, только если это та же фраза с исправлением, а не пересказ правки.
+      ...(kind === 'habit' && patterns?.length ? { patterns: patterns.map((p) => p.trim()).filter(Boolean) } : {}),
       ...(kind === 'slip' && replacement && replacement.trim() && replacement.trim() !== quote ? { replacement: replacement.trim() } : {}),
     });
   }

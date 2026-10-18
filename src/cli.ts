@@ -22,6 +22,7 @@ import { infostyle } from './checks/infostyle.ts';
 import { englishGuides } from './checks/en-guides.ts';
 import { checkGuideContextual } from './checks/guide-context.ts';
 import { checkBookPass } from './checks/book-pass.ts';
+import { latestBookRun, thinHabits } from './checks/habits.ts';
 
 const guides: Record<string, Guide> = { 'nora-gal': noraGal, infostyle, ...Object.fromEntries(englishGuides.map((guide) => [guide.id, guide])) };
 
@@ -59,7 +60,8 @@ function parseArgs(argv: string[]): Args {
   if (result.rulesOnly && command !== 'check') throw new Error('--rules-only is only valid with check');
   if (result.findings && command !== 'check') throw new Error('--findings is only valid with check');
   if (result.passes && result.guide !== 'book') throw new Error('--passes is only valid with check --guide book');
-  if (command === 'check' && !(result.guide && (result.guide === 'book' || Object.hasOwn(guides, result.guide)))) throw new Error(`check requires --guide ${[...Object.keys(guides), 'book'].join('|')}`);
+  if (result.guide === 'habits' && result.rulesOnly) throw new Error('check --guide habits is a model pass; it has no rules to run alone');
+  if (command === 'check' && !(result.guide && (['book', 'habits'].includes(result.guide) || Object.hasOwn(guides, result.guide)))) throw new Error(`check requires --guide ${[...Object.keys(guides), 'book', 'habits'].join('|')}`);
   return result;
 }
 
@@ -84,6 +86,23 @@ async function main(): Promise<void> {
     if (args.command === 'inspect') {
       const summary = inspectSummary(source.book, pack, computeMetrics(source.book, pack.pack), source.warnings);
       print({ command: 'inspect', ...summary }, args.json); return;
+    }
+    if (args.command === 'check' && args.guide === 'habits') {
+      // Прореживание привычек из последнего прохода по книге: все вхождения → запрос → находки style.book.thin.
+      const startedAt = new Date().toISOString();
+      if (!source.findingsDir || !source.workspaceDir) throw new Error('check --guide habits reads the last check --guide book run: it needs a Codicora workspace');
+      const previous = await latestBookRun(source.findingsDir, source.book);
+      if (!previous.habits.length) throw new Error('the last amendeor findings run has no book.habit findings: run check --guide book --findings first');
+      const result = await underDelegation(source, args.delegation, 'check --guide habits', () => thinHabits(source.book, pack.pack, loadedConfig, source.stateDir, previous.habits, args.noCache));
+      if (args.findings) {
+        const written = await writeFindingsRun(source.findingsDir, source.workspaceDir, source.book, [...previous.items, ...result.findings], { guide: 'book+habits', startedAt, stages: [
+          { name: 'habits', status: result.status === 'refused' ? 'partial' : result.status, failures: result.failures.map((f) => ({ node_id: 'book', reason: f.reason })) }] });
+        process.stderr.write(`findings/amendeor/runs/${written.runId}: ${written.count} finding(s), ${result.findings.length} habit replacement(s) from ${result.uses} uses of ${result.habits} habits\n`);
+      }
+      print({ command: 'check', guide: 'habits', version: 'habits-1', count: result.findings.length, findings: result.findings,
+        contextual: { status: result.status, windows: result.requests, cached: result.cached, failures: result.failures, discarded: result.discarded, ledger: result.ledger } }, args.json);
+      if (result.status !== 'ok') process.exitCode = 2;
+      return;
     }
     if (args.command === 'check' && args.guide === 'book') {
       // Проход по всей книге: без каталога принципов и сигналов, на любом языке рукописи.

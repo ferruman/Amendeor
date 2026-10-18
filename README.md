@@ -114,6 +114,20 @@ node --env-file=.env src/cli.ts check path/to/book --guide book [--passes 2] [--
 
 Each mark must quote the manuscript verbatim, or it is dropped. A slip carries its proposed correction in `suggestion` and, when the fix is a change inside the quoted sentence, the corrected sentence as `metadata.replacement`. With `--findings`, the next `edit` turns each such slip into a proposal that only the author can accept (`accept <workspace> <id> --unverified`, or explicit consent in the UI): never in bulk, automatically or under a delegation. A `wontfix`, `false-positive` or `fixed` status suppresses it. The passes are unioned (default 2): a single read returns about a dozen marks, almost all true, and different reads find different ones. It runs on `profiles.book` (Luna with reasoning in `amendeor.yaml`, `timeout_ms: 900000`: a whole-book answer takes minutes, and the default 60 s cut a pass off), at about $0.013 a pass for a 300k-character book, under the same delegation rules as other model passes. Measured against two independent editorial reviews in `eval/book-pass/`: one read found 1 of 13 and 1 of 4 slips, and 1 of 4 and about 5 of 7 habits, plus real slips the reviews missed.
 
+### Thinning habits
+
+`check --guide habits --findings` reads the last `check --guide book` run and thins the habits it found:
+1. Every sentence that uses each habit is collected deterministically, from the habit's `patterns` (or the phrases its description quotes), with a dialogue flag.
+2. One request (split by habit beyond 220 uses) asks, for every use, keep or replace, under book-wide rules: thin, never eliminate; keep motifs, character speech and rhythm; keep the meaning; never repeat a replacement or trade one habit for another.
+3. Deterministic checks drop a replacement that introduces another known habit, reuses a replacement's wording, is not in the manuscript's language, or would replace more than two thirds of a habit's uses.
+4. The new findings run keeps the book run's findings and adds `style.book.thin` findings with `metadata.replacement`. The next `edit` checks their meaning (three unanimous verifier passes) and offers them as author-only proposals, like slips; changes inside dialogue are refused.
+
+```sh
+node --env-file=.env src/cli.ts check $W --guide book --passes 2 --findings
+node --env-file=.env src/cli.ts check $W --guide habits --findings
+node --env-file=.env src/cli.ts edit $W --mode copy
+```
+
 ## Findings intake (Phase 2)
 
 Copy editing now reads evidence-backed `repetition.ngram` findings at any scope, respects status overlays, and reports stale quotes. Findings-derived prose proposals require explicit author consent after meaning verification. See [the intake contract and offline evaluation](docs/findings-intake.md).

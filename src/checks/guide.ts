@@ -22,6 +22,8 @@ export interface GuideFinding {
   suggestion?: string;
   // Исправленная цитата целиком: из неё edit делает правку только на решение автора.
   replacement?: string;
+  // Привычка прохода по всей книге: литеральные фразы, по которым check --guide habits находит каждое вхождение.
+  patterns?: string[];
 }
 
 export interface Signal { id: string; principle: string; sourcePages: string; expression: RegExp; reason: string }

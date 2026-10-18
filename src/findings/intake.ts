@@ -9,7 +9,7 @@ import { canonicalJson, normalizeQuote, sha256 } from '../hash.ts';
 export const isExternalFinding = (id: string): boolean => /^[a-z][a-z0-9-]*:[0-9a-f]{16}$/u.test(id);
 export interface IntakeItem { id: string; classification: 'applicable' | 'not-applicable' | 'ambiguous' | 'already-resolved' | 'skipped'; reason: string; signals: number; evidence?: number }
 // Ляп прохода по всей книге с исправленной цитатой: edit делает из него правку только на решение автора.
-export interface SlipFix { id: string; chapter: string; scene: string; start: number; quote: string; replacement: string; reason: string }
+export interface SlipFix { id: string; kind: 'slip' | 'thin'; chapter: string; scene: string; start: number; quote: string; replacement: string; reason: string }
 export interface FindingsIntake { read: number; applicable: number; items: IntakeItem[]; signals: FormulaicHit[]; protected: FormulaicHit[]; warnings: string[]; slips: SlipFix[] }
 const statusSchema = z.object({ schema: z.literal('codicora.status/0.1'), finding_id: z.string(), status: z.enum(['open', 'acknowledged', 'fixed', 'wontfix', 'false-positive']), by: z.string(), at: z.string().datetime(), evidence: z.string().optional() });
 const runId = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}-[0-9]{2}-[0-9]{2}Z-[0-9a-f]{4}$/u;
@@ -71,14 +71,15 @@ export async function readFindings(source: OpenedSource): Promise<FindingsIntake
       for (const finding of findings) {
         result.read++;
         // Собственный ляп прохода по всей книге: правка готова, нужна только цитата на месте и решение автора.
-        if (entry.name === 'amendeor' && finding.category === 'style.book.slip' && typeof finding.metadata.replacement === 'string') {
+        // Так же — замена из прореживания привычек (style.book.thin): её edit ещё проверит на смысл.
+        if (entry.name === 'amendeor' && (finding.category === 'style.book.slip' || finding.category === 'style.book.thin') && typeof finding.metadata.replacement === 'string') {
           const status = statuses.get(finding.id);
           if (status && (!status.evidence || status.evidence === finding.fingerprint.evidence) && ['wontfix', 'false-positive', 'fixed'].includes(status.status)) {
             result.items.push({ id: finding.id, classification: 'skipped', reason: 'status ' + status.status, signals: 0 }); continue;
           }
           const routed = routeFinding(source, finding);
-          result.items.push(...routed.items.map((item) => item.classification === 'applicable' ? { ...item, reason: 'slip with a replacement; author consent only', signals: 0 } : item));
-          for (const hit of routed.signals) result.slips.push({ id: finding.id, chapter: hit.chapter, scene: hit.scene, start: hit.start, quote: hit.quote, replacement: finding.metadata.replacement, reason: finding.summary });
+          result.items.push(...routed.items.map((item) => item.classification === 'applicable' ? { ...item, reason: `${finding.category === 'style.book.thin' ? 'habit thinning' : 'slip'} with a replacement; author consent only`, signals: 0 } : item));
+          for (const hit of routed.signals) result.slips.push({ id: finding.id, kind: finding.category === 'style.book.thin' ? 'thin' : 'slip', chapter: hit.chapter, scene: hit.scene, start: hit.start, quote: hit.quote, replacement: finding.metadata.replacement, reason: finding.summary });
           if (routed.signals.length) result.applicable++;
           continue;
         }

@@ -45,7 +45,7 @@ export function toFindings(book: Book, items: Array<GuideFinding & Contextual>, 
       ...(item.suggestion ? { suggestion: item.suggestion } : {}),
       explanation: `${item.guide}: ${item.principle}${item.source_pages ? ` (${item.source_pages})` : ''}.`,
       status: 'open',
-      metadata: { guide: item.guide, signal: item.id, provenance: item.provenance, ...(item.replacement ? { replacement: item.replacement } : {}) },
+      metadata: { guide: item.guide, signal: item.id, provenance: item.provenance, ...(item.replacement ? { replacement: item.replacement } : {}), ...(item.patterns?.length ? { patterns: item.patterns } : {}) },
     };
   });
 }
