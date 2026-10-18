@@ -85,3 +85,19 @@ test('book pass → edit: a slip with a replacement becomes an author-only propo
     assert.equal(suppressed.proposals.filter((p) => p.source_findings?.length).length, 0);
   } finally { await rm(root, { recursive: true, force: true }); }
 });
+
+// Тайм-аут профиля доходит до запроса: вся книга с рассуждением не укладывается в 60 с по умолчанию.
+test('profile timeout_ms reaches the request; the shipped book profile waits 900 s', async () => {
+  const { Gateway } = await import('../src/provider/gateway.ts');
+  const { configSchema } = await import('../src/config.ts');
+  const { parse } = await import('yaml');
+  const { readFile } = await import('node:fs/promises');
+  const shipped = configSchema.parse(parse(await readFile(new URL('../amendeor.yaml', import.meta.url), 'utf8')));
+  assert.equal(shipped.profiles.book!.timeout_ms, 900_000);
+  const seen: Array<number | undefined> = [];
+  const transport = { complete: async (request: { timeoutMs?: number }) => { seen.push(request.timeoutMs); return { text: '{}', finishReason: 'stop', usage: { input_tokens: 1, output_tokens: 1 }, ms: 1 }; } };
+  const config = configSchema.parse({ providers: { p: { transport: 'local', endpoint: 'x' } }, profiles: { book: { provider: 'p', model: 'm', timeout_ms: 900_000 }, edit: { provider: 'p', model: 'm' } } });
+  const gateway = new Gateway(config, (await loadPack('en')).pack, {}, { local: transport as never });
+  await gateway.complete('s', 'book', 'sys', 'user', 10); await gateway.complete('s', 'edit', 'sys', 'user', 10);
+  assert.deepEqual(seen, [900_000, undefined]);
+});

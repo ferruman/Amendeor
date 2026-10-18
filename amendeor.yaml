@@ -28,6 +28,8 @@ profiles:
     model: openai/gpt-6-luna
     reasoning: true
     reasoning_effort: medium
+    # Ответ на всю книгу с рассуждением идёт минутами: за 60 с по умолчанию второй проход The Shepherd's Silence оборвался.
+    timeout_ms: 900000
   verify:
     provider: verifier
     model: anthropic/claude-haiku-5.5

@@ -60,7 +60,7 @@
     "src/guard/index.ts": "950f31c656efccce0e640eda3b182d2e305ca7a03885bf518f7bd2bb93db75a1",
     "src/edit/pass.ts": "fb29f8b44e87b01eeb40a8f1a5de799502e75a3829808a14e4d029b501656e53",
     "src/provider/http.ts": "6ecc84919beb11262b6b8b634d1ce41bb38e0e537f0d08a9fedb4603f0bc43f4",
-    "src/provider/gateway.ts": "556e5f8687ab817694dd472cb8d7ea5433843fc4c4467900e758a632efde9b30",
+    "src/provider/gateway.ts": "4c39ac9359bf1325b89d6334cdbb143c24825d1665371496b1ec0545c272c733",
     "src/guard/traps.ts": "d41e61422400085b2cd6a0a7d21716d79f5a785f8b025e3929c7d78f716f4f47",
     "src/guard/voice.ts": "a19072bd32a5dbef5904706e9460ce6166526d178910cacf53bf422df39e1dcd",
     "src/text/dialogue.ts": "ca6e564d95875d8036ec805c765893e67c961a7ae120fe9aac33ef3cf1df2167",

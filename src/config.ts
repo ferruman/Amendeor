@@ -19,7 +19,9 @@ export const profileSchema = z.object({
   // verify + check: necessity: передать verifier структурный контекст правки (место, категория, политика сохранения).
   context: z.boolean().optional(),
   // edit: второй, диагностический проход редактора по тому же исходному тексту (copy-edit-diagnostic); по умолчанию выключен.
-  diagnostic: z.boolean().optional()
+  diagnostic: z.boolean().optional(),
+  // Сколько ждать ответа, мс (по умолчанию 60 000). Вся книга с рассуждением не укладывается в минуту: book — 900 000.
+  timeout_ms: z.number().int().positive().optional()
 }).passthrough();
 // Профиль сохранения автора. Ключевые флаги разворачиваются в прежние слова preserve (dialect, intentional-repetition);
 // новое — только флаги исторического языка для промптов и verifier и защищённые формы, которые нельзя менять.

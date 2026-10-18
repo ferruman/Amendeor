@@ -23,7 +23,7 @@ export class Gateway {
     const apiKey = providerConfig.api_key ?? (providerConfig.api_key_env ? this.env[providerConfig.api_key_env] : undefined) ?? (providerConfig.api_key_file ? (await readFile(providerConfig.api_key_file, 'utf8')).trim() : undefined);
     // Рассуждение (thinking у Anthropic, reasoning через OpenRouter) расходует выходной бюджет до ответа: 256 токенов обрезали почти каждый ответ (B1).
     const budget = Math.max(profile.thinking || profile.reasoning ? 2048 : 256, Math.ceil(expectedChars / this.charsPerToken * 1.25));
-    const request: CompletionRequest = { system, prompt, model: profile.model, maxTokens: budget, temperature: profile.temperature ?? 0, endpoint: providerConfig.endpoint, apiKey, thinking: profile.thinking, reasoning: profile.reasoning, reasoningEffort: profile.reasoning ? profile.reasoning_effort : undefined };
+    const request: CompletionRequest = { system, prompt, model: profile.model, maxTokens: budget, temperature: profile.temperature ?? 0, endpoint: providerConfig.endpoint, apiKey, thinking: profile.thinking, reasoning: profile.reasoning, reasoningEffort: profile.reasoning ? profile.reasoning_effort : undefined, timeoutMs: profile.timeout_ms };
     let last: unknown;
     for (let attempt = 0; attempt < 3; attempt++) {
       // Резерв — до ожидания слота OpenRouter: отказ в тратах приходит сразу, а не после 3,5 с тишины на каждое окно (AUDIT F5).
