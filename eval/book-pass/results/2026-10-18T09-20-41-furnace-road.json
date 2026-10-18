@@ -1,0 +1,127 @@
+{
+ "model": "openai/gpt-6-luna",
+ "usage": {
+  "prompt_tokens": 70894,
+  "completion_tokens": 7836,
+  "total_tokens": 78730,
+  "cost": 0.012779675,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 70891,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.012779675,
+   "upstream_inference_prompt_cost": 0.008861675,
+   "upstream_inference_completions_cost": 0.003918
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 6507,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ },
+ "marks": 11,
+ "slips": 4,
+ "habits": 7,
+ "all": "1/1/11",
+ "weight": {
+  "minor": "0/0/9",
+  "major": "1/1/2"
+ },
+ "class": {
+  "slip": "0/0/4",
+  "tic": "1/1/7"
+ },
+ "unmatched": 10,
+ "falsePositives": 0,
+ "issues": "slip-booking:- slip-cups:- slip-glasses:- slip-like-a-man:- tic-forty-five:- tic-squared:R tic-like-a-man:- tic-jaw:- tic-let-it-sit:- tic-read-twice:- tic-quarter:-",
+ "raw": [
+  {
+   "kind": "slip",
+   "chapter": "ch01",
+   "quote": "The ’09 result kept that Mercer man under a cloud it never named him under.",
+   "problem": "The phrasing makes it sound as though the cloud named Mercer; the intended sense is that the result kept him under suspicion without naming him.",
+   "fix": "The ’09 result kept that Mercer man under a cloud without naming him."
+  },
+  {
+   "kind": "slip",
+   "chapter": "ch03",
+   "quote": "Ruth’s watch on Tommy’s wrist, forty-six years.",
+   "problem": "The elapsed time is about forty-five years: Ruth died in October 1979, and this scene is in February 2025.",
+   "fix": "Ruth’s watch on Tommy’s wrist, forty-five years."
+  },
+  {
+   "kind": "slip",
+   "chapter": "ch04",
+   "quote": "He pulled the glasses down onto his nose, as if the words needed reading.",
+   "problem": "Albright has already pulled his glasses down onto his nose earlier in this exchange; this repeats the action as though he had taken them off in between.",
+   "fix": "He leaned back, as if the words needed reading."
+  },
+  {
+   "kind": "slip",
+   "chapter": "ch10",
+   "quote": "Fourteen, fifteen minutes to the crossing at an easy walk; Tommy had walked it with her once and timed it, and Hannah had walked it herself in January with the wind off the yard.",
+   "problem": "The earlier walk and timing establish fourteen minutes from the diner to Ruth’s home, not to the crossing. The crossing is partway along that route.",
+   "fix": "Fourteen, fifteen minutes to her mother’s door at an easy walk; Tommy had walked it with her once and timed it, and Hannah had walked it herself in January with the wind off the yard."
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch01",
+   "quote": "Three binders, as promised.",
+   "problem": "The explanatory simile frame “the way…” recurs roughly 45 times, often to gloss a gesture or feeling after the scene has already conveyed it. Keep the distinctive comparisons that add character or concrete information; cut the routine explanatory ones.",
+   "fix": "Keep the specific, revealing uses; cut the generic explanatory “the way…” comparisons.",
+   "count": 45
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch01",
+   "quote": "Then she sat back down, squared the legal pad under the lamp, and picked up the first carbon copy of Kimmel’s initial narrative, dated October 15, 1979, and began to read it from the beginning.",
+   "problem": "Squaring or aligning papers and objects recurs roughly 25 times. It suits Hannah when she is handling evidence or imposing order on a case, but the repeated routine business of squaring notebooks and documents becomes mechanical.",
+   "fix": "Keep the alignments that establish evidence handling or character; cut routine squaring of notebooks, pads, and papers.",
+   "count": 25
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch03",
+   "quote": "Hannah kept her pen still and let the quiet sit, the way Sam did, and after a moment Tommy picked up the photograph of Ruth in the tan coat and stood, done with the table.",
+   "problem": "Silence or a pause repeatedly “sits” or is “let” to sit, roughly 15 times. Keep the pauses that materially change an exchange; trim the repeated stage direction when the dialogue already supplies the silence.",
+   "fix": "Keep the consequential pauses; cut routine “let it sit” and “let the quiet sit” directions.",
+   "count": 15
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch03",
+   "quote": "Sam turned his mug once on the table.",
+   "problem": "Turning a mug or another object by a quarter turn recurs roughly 10 times as a small gesture. Keep the instances that reveal a character’s particular habit or emotion; cut the interchangeable object-turning beats.",
+   "fix": "Keep the character-specific turns; cut the routine quarter-turn gestures.",
+   "count": 10
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch02",
+   "quote": "Forty-five years old and it still carried the exactness of a man who trusted his clock.",
+   "problem": "The aphoristic “a man who…” construction recurs roughly 20 times to generalize about a character or behavior. Keep the sharp, individual observations; cut the generic maxims that repeat the same narrator’s cadence.",
+   "fix": "Keep the distinctive character-revealing constructions; trim the generic “a man who…” aphorisms.",
+   "count": 20
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch05",
+   "quote": "Kimmel put both hands flat on the table, which was a thing he’d learned from a sergeant a long time ago: when you’re going to promise something, make it look like a promise and not a speech.",
+   "problem": "Putting hands flat on a table recurs roughly 8 times, often as a general marker of seriousness. Keep the uses that carry the specific meaning established here; cut the repeated gesture when it merely signals that a character is being earnest.",
+   "fix": "Keep the promise-specific instance; cut routine hands-flat gestures.",
+   "count": 8
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch07",
+   "quote": "Dunleavy rubbed his jaw again.",
+   "problem": "Jaw-rubbing recurs roughly 8 times across characters as a default sign of hesitation or thought. Keep the first or most character-specific uses; cut later repetitions that do not distinguish the speaker’s response.",
+   "fix": "Keep the distinctive instances; cut the routine jaw-rubbing beats.",
+   "count": 8
+  }
+ ]
+}

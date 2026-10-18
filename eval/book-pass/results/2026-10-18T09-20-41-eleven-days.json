@@ -1,0 +1,124 @@
+{
+ "model": "openai/gpt-6-luna",
+ "usage": {
+  "prompt_tokens": 67732,
+  "completion_tokens": 8159,
+  "total_tokens": 75891,
+  "cost": 0.012545925,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 67729,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.012545925,
+   "upstream_inference_prompt_cost": 0.008466425,
+   "upstream_inference_completions_cost": 0.0040795
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 7109,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ },
+ "marks": 11,
+ "slips": 7,
+ "habits": 4,
+ "all": "2/3/13",
+ "weight": {
+  "minor": "1/2/11",
+  "major": "1/1/2"
+ },
+ "class": {
+  "slip": "1/1/9",
+  "tic": "1/2/4"
+ },
+ "unmatched": 8,
+ "falsePositives": 0,
+ "issues": "slip-ritual:R slip-denial:- slip-early:- slip-flown:- slip-sergeant:- slip-depot:- slip-text:- slip-whitlock:- slip-del:- tic-the-way:R tic-which-was:L tic-she-wrote:- tic-eleven:-",
+ "raw": [
+  {
+   "kind": "slip",
+   "chapter": "ch01",
+   "quote": "“You take your key?”",
+   "problem": "The sentence itself is sound, but later the description puts Vera at five foot six and Tamara at five foot seven; the earlier claim that Vera is half a head taller contradicts those stated heights.",
+   "fix": "Change the later description to “the girl was nearly as tall as her anyway.”"
+  },
+  {
+   "kind": "slip",
+   "chapter": "ch04",
+   "quote": "At 11:05 a man with a clipboard came across the frost in a wool hat — sixty, a woman, Sklar saw, when she got close — and stopped at the tape and said, “I marked this square on Thursday. Thanksgiving. Number 61,” and held the clipboard out flat like a door on a hinge, and on it was a hand-ruled grid with a square inked in and 61 written in the corner and the word walked beside it in the margin.",
+   "problem": "The sentence first calls the clipboard carrier a man, then identifies her as a woman and uses “she.”",
+   "fix": "Change “a man with a clipboard” to “a woman with a clipboard.”"
+  },
+  {
+   "kind": "slip",
+   "chapter": "ch06",
+   "quote": "“Is he okay,” she said.",
+   "problem": "This is a direct question, so it needs a question mark.",
+   "fix": "“Is he okay?” she said."
+  },
+  {
+   "kind": "slip",
+   "chapter": "ch06",
+   "quote": "At 2:44 she asked him whether he wanted to keep going and he said, “Keep going with what?” and she said, that was the end of the interview, and he looked relieved in a way that was not relieved.",
+   "problem": "The comma after “said” incorrectly separates the reporting clause from its content.",
+   "fix": "Delete the comma after “said.”"
+  },
+  {
+   "kind": "slip",
+   "chapter": "ch07",
+   "quote": "The word was in him now and he could feel it sitting there, four syllables, holding its edges.",
+   "problem": "“Ritual,” the word being described, has three syllables, not four.",
+   "fix": "Change “four syllables” to “three syllables.”"
+  },
+  {
+   "kind": "slip",
+   "chapter": "ch10",
+   "quote": "He was forty minutes, and he finished at 11:20, and the last thing he said was the charge, third-degree murder, in the language of the statute, once for each defendant, and he sat down and squared his papers again.",
+   "problem": "“He was forty minutes” is missing the action that took that long.",
+   "fix": "Change “He was forty minutes” to “He spoke for forty minutes.”"
+  },
+  {
+   "kind": "slip",
+   "chapter": "ch11",
+   "quote": "The question came before Moran let her down from the stand.",
+   "problem": "The narrative has already had Corbett leave the stand and walk into the hallway before introducing this exchange, which is described as happening while she was still on the stand.",
+   "fix": "Move the question-and-answer passage beginning here to before “She came down off the stand and walked the aisle past the rail.”"
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch01",
+   "quote": "She heard her own voice arranging the details like a schedule, the way she announced stops on Route 4, and she heard the silence on the other end doing the same arithmetic she had already done twice this morning.",
+   "problem": "The “the way…” comparison frame recurs throughout the novel—roughly 70 times—and often supplies a generic explanatory simile after the image or action is already clear.",
+   "fix": "Keep the comparisons rooted in a character’s distinctive experience, especially Tamara’s route and Corbett’s investigative work; cut the more generic “the way…” explanations.",
+   "count": 70
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch04",
+   "quote": "He put it on the desk between them, squared to the edge, like a man paying what he owes.",
+   "problem": "The repeated squaring of papers and objects becomes a mechanical gesture, appearing roughly 15 times, especially in Corbett’s scenes.",
+   "fix": "Keep the instances that establish Corbett’s exactness or matter to the handling of evidence; cut routine squaring of papers, folders, and other objects.",
+   "count": 15
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch06",
+   "quote": "He nodded and put his hands flat on the table, and looked at them, and started talking, and what she noticed in the first five minutes was that she had not asked him anything yet.",
+   "problem": "“Hands flat” recurs as a default gesture of stillness or compliance across several characters, roughly 9 times.",
+   "fix": "Keep the interview and courtroom instances where the position is required or evidential; cut the incidental repetitions used only to signal stillness.",
+   "count": 9
+  },
+  {
+   "kind": "habit",
+   "chapter": "ch01",
+   "quote": "She let it ring six times.",
+   "problem": "Characters repeatedly read or check the same information twice, a verification beat that appears roughly 12 times and can become mechanical when the second reading adds nothing.",
+   "fix": "Keep double-checks that change or sharpen what the character understands; cut the incidental second readings that merely restate a check.",
+   "count": 12
+  }
+ ]
+}
