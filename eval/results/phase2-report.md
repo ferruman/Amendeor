@@ -2,7 +2,7 @@
 
 2026-10-11. Implemented in the existing repositories. No new application or orchestrator. Paid calls: **0**; implementation, corpus measurements, and replays cost **$0**. Phase 3 and paid evaluation have not run.
 
-Sources: [completed workflow audit](../../../docs/audits/2026-10-11-literary-editing/AUDIT.md), Amendeor Phase 1 `0e38c0d2b2004cd480f20d25930775c4a54ad67d`, and Esgardeor baseline `b9fdee20280d6c1fa6e214c153060dfe5e367730`. Both repositories were clean before implementation.
+Sources: [completed workflow audit](../../../codicora-docs/audits/2026-10-11-literary-editing/AUDIT.md), Amendeor Phase 1 `0e38c0d2b2004cd480f20d25930775c4a54ad67d`, and Esgardeor baseline `b9fdee20280d6c1fa6e214c153060dfe5e367730`. Both repositories were clean before implementation.
 
 ## Result and safety
 

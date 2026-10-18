@@ -14,7 +14,7 @@ import { guardProposals } from '../src/guard/index.ts';
 import { splitScenes, type Book } from '../src/book.ts';
 import { scoreProposals } from '../eval/score.ts';
 
-// Аудит фильтров 2026-10-10: ../../docs/audits/2026-10-10-amendeor/amendeor-filter-audit-2026-10-10.md.
+// Аудит фильтров 2026-10-10: ../../codicora-docs/audits/2026-10-10-amendeor/amendeor-filter-audit-2026-10-10.md.
 
 for (const [lang, text, expected] of [
   ['ru', 'Он ждал.\n\n- Тётка, пойдём, — сказал хозяин.\n\nОн пришёл - она ушла.\n', 'Он ждал.\n\n— Тётка, пойдём, — сказал хозяин.\n\nОн пришёл — она ушла.\n'],

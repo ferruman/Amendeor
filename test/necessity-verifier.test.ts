@@ -14,7 +14,7 @@ import { guardProposals } from '../src/guard/index.ts';
 import { makeProposal } from '../src/proposal/identity.ts';
 import { splitScenes, type Book } from '../src/book.ts';
 
-// Проверка необходимости в режиме copy (../../docs/runs/amendeor/amendeor-necessity-verifier-2026-10-10.md).
+// Проверка необходимости в режиме copy (../../codicora-docs/runs/amendeor/amendeor-necessity-verifier-2026-10-10.md).
 
 async function verify(answer: string, necessity: boolean, passes = 3) {
   const systems: string[] = [];

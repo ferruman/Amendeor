@@ -18,7 +18,7 @@ import { Gateway } from '../src/provider/gateway.ts';
 import { LocalProvider } from '../src/provider/local.ts';
 import { configSchema } from '../src/config.ts';
 
-// Доработки после аудита: ../../docs/audits/2026-10-10-amendeor/amendeor-post-audit-hardening-2026-10-10.md.
+// Доработки после аудита: ../../codicora-docs/audits/2026-10-10-amendeor/amendeor-post-audit-hardening-2026-10-10.md.
 
 function bookWith(text: string, lang: string): Book { return { lang, chapters: [{ slug: 'one', title: 'One', file: 'one.md', text, scenes: splitScenes(text) }] }; }
 
