@@ -14,8 +14,9 @@ import { SpendRefused } from '../provider/meter.ts';
 import { parseModelJson } from '../provider/json.ts';
 import { sha256 } from '../hash.ts';
 import type { GuideFinding } from './guide.ts';
+import { languageProfile, wrongLanguage } from '../lang/match.ts';
 
-const VERSION = 'book-pass-2';
+const VERSION = 'book-pass-3';
 
 const markSchema = z.object({
   kind: z.enum(['slip', 'habit']),
@@ -38,8 +39,6 @@ Do not mark: dialect or nonstandard grammar in dialogue that renders speech, a r
 
 Be exhaustive: a careful copy edit of a novel marks many slips and several habits. Do not pad.
 
-Write "problem" and "fix" in the language the manuscript is written in.
-
 For a slip, "replacement" is the quoted sentence with only the error corrected and every other character unchanged, so that it can replace the quote as it stands; give null when the correction is not a change inside that sentence (moving a passage, a change elsewhere).
 
 Reply with JSON only: { "marks": [{ "kind": "slip|habit", "chapter": "<id>", "quote": "<one sentence copied character for character>", "problem": "…", "fix": "the minimal correction, or for a habit which uses to cut", "replacement": "<slips only: the corrected sentence, or null>", "count": <estimated occurrences, habits only> }] }`;
@@ -54,6 +53,12 @@ export interface BookPassResult {
   ledger: Gateway['ledger'];
   findings: BookPassFinding[];
 }
+
+// Язык называем по коду рукописи стандартным Intl, без своих списков: «the language the manuscript is written in»
+// не удержало модель — пять пояснений из девяти пришли по-французски.
+const languageName = (code: string) => { try { return new Intl.DisplayNames(['en'], { type: 'language' }).of(code) ?? code; } catch { return code; } };
+export const bookPassSystem = (lang: string) => `${BOOK_PASS_SYSTEM}\n\nWrite "problem", "fix" and "replacement" in ${languageName(lang)}, the language of the manuscript, whatever language these instructions are in.`;
+const RETRY = (lang: string) => `\n\nYour previous answer wrote some marks in another language. Every "problem" and "fix" must be in ${languageName(lang)}.`;
 
 export const bookPassUser = (book: Book) => book.chapters.map((c) => `=== ${c.slug} · ${c.title} ===\n\n${c.text}`).join('\n\n');
 
@@ -91,33 +96,48 @@ export function toBookPassFindings(book: Book, output: string): { findings: Book
   return { findings, discarded };
 }
 
-export async function checkBookPass(book: Book, pack: LanguagePack, loaded: LoadedConfig, stateDir: string, noCache = false, passes = 2): Promise<BookPassResult> {
+export async function checkBookPass(book: Book, pack: LanguagePack, loaded: LoadedConfig, stateDir: string, noCache = false, passes = 2, transports: ConstructorParameters<typeof Gateway>[3] = {}): Promise<BookPassResult> {
   const profile = loaded.config.profiles.book ?? loaded.config.profiles.edit;
   if (!profile) throw new Error('book pass requires profiles.book (or profiles.edit); use --rules-only to skip it');
   const provider = loaded.config.providers[profile.provider];
   if (!provider) throw new Error(`provider ${profile.provider} missing`);
   if (provider.transport !== 'local' && provider.api_key_env && !process.env[provider.api_key_env] && !provider.api_key && !provider.api_key_file) throw new Error(`${provider.api_key_env} is missing`);
   const role = loaded.config.profiles.book ? 'book' : 'edit';
-  const gateway = new Gateway(loaded.config, pack);
+  const gateway = new Gateway(loaded.config, pack, process.env, transports);
   const cache = new Cache(stateDir, noCache);
   const user = bookPassUser(book);
+  const system = bookPassSystem(book.lang);
+  const language = languageProfile(book.chapters.map((c) => c.text).join('\n'), pack.stopwords);
+  const foreign = (fs: BookPassFinding[]) => fs.filter((f) => wrongLanguage([f.reason, f.suggestion ?? ''], language)).length;
   const failures: BookPassResult['failures'] = [], discarded: BookPassResult['discarded'] = [];
   const byPlace = new Map<string, BookPassFinding>();
   let cached = 0, refused = false;
   for (let pass = 0; pass < passes && !refused; pass++) {
-    const key = { version: VERSION, system: BOOK_PASS_SYSTEM, text: sha256(user), pass, profile, provider: { transport: provider.transport, endpoint: provider.endpoint, family: provider.family } };
+    const key = { version: VERSION, system, text: sha256(user), pass, profile, provider: { transport: provider.transport, endpoint: provider.endpoint, family: provider.family } };
     try {
-      let output = await cache.read<string>('book-pass', key);
-      if (output !== undefined && output !== null) cached++;
+      // В кэше — ответ и пометка, что он оставлен после повтора: такой ответ не переспрашивается при каждом запуске.
+      const hit = await cache.read<{ output: string; kept?: boolean }>('book-pass', key);
+      let parsed = hit ? toBookPassFindings(book, hit.output) : null;
+      if (hit && (hit.kept || !foreign(parsed!.findings))) cached++;
       else {
         // Ответ на всю книгу длинный и требует рассуждения: бюджет выхода — около тридцати тысяч символов.
-        output = (await gateway.complete(`book-pass-${pass + 1}`, role, BOOK_PASS_SYSTEM, user, 30_000)).text;
-        await cache.write('book-pass', key, output);
+        let output = (await gateway.complete(`book-pass-${pass + 1}`, role, system, user, 30_000)).text;
+        parsed = toBookPassFindings(book, output);
+        let kept = false;
+        // Пометки на чужом языке — один повтор с замечанием; остаётся ответ, где таких меньше.
+        if (foreign(parsed.findings)) {
+          const again = (await gateway.complete(`book-pass-${pass + 1}-language`, role, system + RETRY(book.lang), user, 30_000)).text;
+          const retried = toBookPassFindings(book, again);
+          if (foreign(retried.findings) <= foreign(parsed.findings)) { output = again; parsed = retried; }
+          kept = foreign(parsed.findings) > 0;
+          if (kept) discarded.push({ chapter: '', scene: '', reason: `pass ${pass + 1}: ${foreign(parsed.findings)} mark(s) still not in the manuscript's language after a retry` });
+        }
+        await cache.write('book-pass', key, { output, kept });
       }
-      const parsed = toBookPassFindings(book, output);
-      for (const reason of parsed.discarded) discarded.push({ chapter: '', scene: '', reason });
+      const result = parsed!;
+      for (const reason of result.discarded) discarded.push({ chapter: '', scene: '', reason });
       // Объединение проходов: одна пометка на место и вид — первая остаётся.
-      for (const f of parsed.findings) { const place = `${f.chapter}/${f.scene}/${f.start}/${f.principle}`; if (!byPlace.has(place)) byPlace.set(place, f); }
+      for (const f of result.findings) { const place = `${f.chapter}/${f.scene}/${f.start}/${f.principle}`; if (!byPlace.has(place)) byPlace.set(place, f); }
     } catch (error) {
       if (error instanceof SpendRefused) { refused = true; break; }
       failures.push({ chapter: '', scene: '', reason: `pass ${pass + 1}: ${error instanceof Error ? error.message : String(error)}` });

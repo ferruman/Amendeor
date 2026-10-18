@@ -101,3 +101,32 @@ test('profile timeout_ms reaches the request; the shipped book profile waits 900
   await gateway.complete('s', 'book', 'sys', 'user', 10); await gateway.complete('s', 'edit', 'sys', 'user', 10);
   assert.deepEqual(seen, [900_000, undefined]);
 });
+
+// Пометки не на языке книги: один повтор с замечанием; упорно чужой ответ остаётся, помечается в кэше
+// и не переспрашивается при следующем запуске.
+test('book pass: marks in another language are asked again once; a stubborn answer is kept and not re-asked', async () => {
+  const { LocalProvider } = await import('../src/provider/local.ts');
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-book-lang-'));
+  try {
+    const prose = 'The word sat in him for the whole of the evening, and he did not say it to anyone who came to the door. '.repeat(30);
+    const text = `${prose}\n\nThe word sat in him, four syllables, holding its edge.`;
+    const englishBook: Book = { lang: 'en', chapters: [{ slug: 'ch01', title: 'One', file: 'ch01.md', text, scenes: splitScenes(text) }] };
+    const mark = (problem: string) => JSON.stringify({ marks: [{ kind: 'slip', chapter: 'ch01', quote: 'four syllables', problem, fix: problem }] });
+    const french = mark('Le mot « ritual » ne compte que trois syllabes, et la phrase donne un nombre faux au lecteur attentif.');
+    const english = mark('The word "ritual" has three syllables, so the sentence gives the attentive reader a wrong count.');
+    const loaded = await loadConfig({ env: { HOME: root }, cli: { providers: { local: { transport: 'local', endpoint: 'none' } }, profiles: { book: { provider: 'local', model: 'reader' } } } });
+    const pack = (await loadPack('en')).pack;
+    let calls = 0;
+    const fixes = new LocalProvider((request) => { calls++; return request.system.includes('another language') ? english : french; });
+    const fixed = await checkBookPass(englishBook, pack, loaded, path.join(root, 'a'), false, 1, { local: fixes });
+    assert.equal(calls, 2); assert.match(fixed.findings[0]!.reason, /three syllables/);
+    calls = 0;
+    const stubborn = new LocalProvider(() => { calls++; return french; });
+    const kept = await checkBookPass(englishBook, pack, loaded, path.join(root, 'b'), false, 1, { local: stubborn });
+    assert.equal(calls, 2); assert.equal(kept.findings.length, 1, 'kept rather than lost');
+    assert.ok(kept.discarded.some((d) => /still not in the manuscript's language/.test(d.reason)));
+    calls = 0;
+    const warm = await checkBookPass(englishBook, pack, loaded, path.join(root, 'b'), false, 1, { local: stubborn });
+    assert.equal(calls, 0); assert.equal(warm.cached, 1);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
