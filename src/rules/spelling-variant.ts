@@ -1,5 +1,6 @@
 import type { Rule, ProposalDraft } from './index.ts';
 import { words } from '../text/segment.ts';
+import { regionOf } from '../lang/en/regional.ts';
 
 export const spellingVariant: Rule = {
   id: 'consistency.spelling-variant', version: '2', langs: ['en', 'ru'], category: 'consistency', impact: 'mechanical', authority: 'contextual',
@@ -8,7 +9,9 @@ export const spellingVariant: Rule = {
     const counts = ctx.wordCounts;
     const preferred = new Map<string, string>();
     for (const [a, b] of ctx.pack.spelling_variants) {
-      const forced = ctx.config.normalize.spelling;
+      // тег книги с регионом решает, как и настройка: американская книга с большинством «colour» не становится британской
+      const region = regionOf(ctx.book.lang);
+      const forced = ctx.config.normalize.spelling ?? (region === 'us' ? 'american' : region === 'gb' ? 'british' : undefined);
       const winner = forced === 'british' ? a : forced === 'american' ? b : (counts.get(a) ?? 0) >= (counts.get(b) ?? 0) ? a : b;
       if ((counts.get(a) ?? 0) && (counts.get(b) ?? 0) || forced) preferred.set(winner === a ? b : a, winner);
     }

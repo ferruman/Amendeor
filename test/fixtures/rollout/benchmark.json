@@ -66,7 +66,7 @@
     "src/text/dialogue.ts": "ca6e564d95875d8036ec805c765893e67c961a7ae120fe9aac33ef3cf1df2167",
     "src/text/segment.ts": "bbf71c7084788cdd840f4de9acf831df7141233c99fe3c41595a9bb1d98126a3",
     "src/edit/mechanical.ts": "50c7ef0e16f676c1bb59bae6fe39ef6f1ce643a9d420b534aec9c47023d91aef",
-    "src/rules/index.ts": "5f008c928962f141d16d59584141b4108435a95ef20516afa375746d47a7dc2a",
+    "src/rules/index.ts": "6309d136150dd08a2729fea62bd09bd28f5af3f552b08532dbe388925d4d9d48",
     "src/rules/capitalization.ts": "76d1dedcaae15ba099f0da095af9a425d677941149e284613c290ab7f2e2e8fa",
     "src/rules/mixed-quotes.ts": "e4d6452782432fbd9429f545afcc80bbafa23e1d9e5890581602ddf9499be48c"
   },

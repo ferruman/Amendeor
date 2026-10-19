@@ -12,7 +12,7 @@ import { properNouns } from '../../src/text/names.ts';
 const fixtures = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../fixtures');
 function bookWith(text: string, lang: string): Book { return { lang, chapters: [{ slug: 'one', title: 'One', file: 'one.md', text, scenes: splitScenes(text) }] }; }
 
-const positives: Record<string, { en: string; ru: string; config?: object }> = {
+const positives: Record<string, { en: string; ru: string; config?: object; tag?: string }> = {
   'repetition.doubled-word': { en: 'She said said yes.', ru: 'Он видел дом дом.' },
   'typography.whitespace': { en: 'A word  follows.', ru: 'Это слово  рядом.' },
   'punctuation.balance': { en: 'Look (here.', ru: 'Смотри (сюда.' },
@@ -22,6 +22,7 @@ const positives: Record<string, { en: string; ru: string; config?: object }> = {
   'capitalization.sentence-start': { en: 'Stop. next time.', ru: 'Стой. потом иди.' },
   'markdown.stray-marker': { en: 'This ## heading appears.', ru: 'Этот ## заголовок лишний.' },
   'consistency.spelling-variant': { en: 'colour color color', ru: 'всё все', config: { normalize: { yo: 'e' } } },
+  'consistency.region-variant': { en: 'She realised it in the car park.', ru: '', tag: 'en-US' },
   'terminology.name-variant': { en: 'He saw Mara. They called Mara. He saw Maro.', ru: 'Он видел Ковригину. Она позвала Ковригину. Он видел Ковригену.' },
   'grammar.ru-sutki-numeral': { en: '', ru: 'Прошли три утраченных суток.' },
   'grammar.ru-pronoun-byl': { en: '', ru: 'Она был дома.' }
@@ -30,7 +31,7 @@ const positives: Record<string, { en: string; ru: string; config?: object }> = {
 test('every declared rule fires on its positive sample in both advertised languages', async () => {
   for (const rule of rules) for (const lang of rule.langs) {
     const example = positives[rule.id]!;
-    const book = bookWith(example[lang as 'en' | 'ru'], lang);
+    const book = bookWith(example[lang as 'en' | 'ru'], example.tag ?? lang);
     const pack = (await loadPack(lang)).pack;
     const config = configSchema.parse(example.config ?? {});
     const scene = book.chapters[0]!.scenes[0]!;
@@ -66,4 +67,13 @@ test('Russian pronoun agreement rule skips correct forms and quoted speech', asy
   const scene = book.chapters[0]!.scenes[0]!;
   const rule = rules.find((item) => item.id === 'grammar.ru-pronoun-byl')!;
   assert.deepEqual(rule.detect(scene, ruleContext(book, configSchema.parse({}), pack, scene)), []);
+});
+
+test('region variant: an en-US book gets British forms flagged; a shared form or dialogue is a finding only; polysemous forms (chemist’s), bare en and the pack pairs are left alone', async () => {
+  const text = 'She realised the colour of the autumn sky. “I’ll queue at the chemist’s,” he said.';
+  const pack = (await loadPack('en')).pack;
+  const config = configSchema.parse({});
+  const run = (tag: string) => { const book = bookWith(text, tag); const scene = book.chapters[0]!.scenes[0]!; return rules.find((r) => r.id === 'consistency.region-variant')!.detect(scene, ruleContext(book, config, pack, scene)); };
+  assert.deepEqual(run('en-US').map((d) => [d.target, d.replacement, d.authority]), [['realised', 'realized', 'contextual'], ['autumn', 'fall', 'semantic'], ['queue', 'line', 'semantic']]);
+  assert.deepEqual(run('en'), []);
 });

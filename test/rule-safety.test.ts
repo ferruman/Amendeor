@@ -121,7 +121,7 @@ test('AUTHORITY: every rule declares its class; only mechanical rule output may 
   assert.deepEqual(classes, {
     'repetition.doubled-word': 'contextual', 'typography.whitespace': 'mechanical', 'punctuation.balance': 'contextual', 'typography.quotes': 'mechanical',
     'typography.mixed-quotes': 'mechanical', 'typography.dashes-ellipsis': 'mechanical', 'capitalization.sentence-start': 'contextual', 'markdown.stray-marker': 'mechanical',
-    'consistency.spelling-variant': 'contextual', 'terminology.name-variant': 'semantic', 'grammar.ru-sutki-numeral': 'contextual', 'grammar.ru-pronoun-byl': 'contextual'
+    'consistency.spelling-variant': 'contextual', 'consistency.region-variant': 'contextual', 'terminology.name-variant': 'semantic', 'grammar.ru-sutki-numeral': 'contextual', 'grammar.ru-pronoun-byl': 'contextual'
   });
   const result = await run('The  cat said said yes. then she left.\n', 'en');
   const by = (id: string) => result.proposals.find((proposal) => proposal.source === `rule:${id}`)!;
