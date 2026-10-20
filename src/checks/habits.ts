@@ -13,7 +13,7 @@ import { Cache } from '../cache.ts';
 import { Gateway } from '../provider/gateway.ts';
 import { SpendRefused } from '../provider/meter.ts';
 import { parseModelJson } from '../provider/json.ts';
-import { sha256 } from '../hash.ts';
+import { sha256, normalizeText } from '../hash.ts';
 import { sentences } from '../text/segment.ts';
 import { dialogueSpans, inDialogue } from '../text/dialogue.ts';
 import { languageProfile, wrongLanguage } from '../lang/match.ts';
@@ -232,4 +232,43 @@ export async function latestBookRun(findingsDir: string, book: Book): Promise<{ 
     }
   }
   return { items, habits };
+}
+
+// Повторы, которые Esgardeor насчитал кодом (findings/esgardeor/latest.json), — добавочные привычки рядом с
+// названными моделью: привычку, которую модель не назвала, иначе не проредит никто. Берутся только рамки
+// предложений (repetition.sentence-frame) на уровне medium (у Esgardeor это от восьми предложений) в трёх главах и
+// больше, и только те, чья неизменная часть идёт подряд («… and did not …» → «and did not»): рамка с пропуском
+// внутри («the … was … as») — грамматика, а не фраза, и шаблоном её не найти. Лексические всплески
+// (repetition.tic) не берутся: слово, которое всплывает в сценах, — предмет сцены («chair», «envelope»), а не
+// привычка письма. Прогон Esgardeor по другому тексту пропускается целиком — его счёт уже про другую книгу.
+const MAX_ESGARDEOR_HABITS = 4;
+const ESGARDEOR_MIN_CHAPTERS = 3;
+
+export async function esgardeorHabits(findingsDir: string, workspaceDir: string, book: Book, named: Habit[]): Promise<{ habits: Habit[]; skipped?: string }> {
+  const { readFile } = await import('node:fs/promises');
+  const path = await import('node:path');
+  const dir = path.join(findingsDir, 'esgardeor');
+  let run_id: string;
+  try { ({ run_id } = JSON.parse(await readFile(path.join(dir, 'latest.json'), 'utf8')) as { run_id: string }); } catch { return { habits: [] }; }
+  if (!/^[0-9TZ:-]+[0-9a-f]{4}$/u.test(run_id)) return { habits: [], skipped: 'invalid esgardeor latest run_id' };
+  const run = JSON.parse(await readFile(path.join(dir, 'runs', run_id, 'run.json'), 'utf8')) as { inputs?: { files?: Array<{ path: string; content_hash: string }> } };
+  const theirs = new Map((run.inputs?.files ?? []).map((f) => [f.path, f.content_hash]));
+  const stale = theirs.size !== book.chapters.length || book.chapters.some((c) => theirs.get(path.relative(workspaceDir, c.file)) !== sha256(normalizeText(c.text)));
+  if (stale) return { habits: [], skipped: `esgardeor run ${run_id} was made on another text of the manuscript` };
+  const known = named.flatMap((h) => h.patterns);
+  const overlaps = (a: string, b: string) => patternRe(a).test(b) || patternRe(b).test(a);
+  const habits: Habit[] = [];
+  const lines = (await readFile(path.join(dir, 'runs', run_id, 'findings.jsonl'), 'utf8')).split('\n').filter((l) => l.trim());
+  const frames = lines.map((l) => JSON.parse(l) as { id: string; category: string; severity: string; summary: string; fingerprint: { primary: { key: string } }; location: { primary: { chapter: string }; related: Array<{ chapter: string }> }; evidence: Array<{ type: string; value?: number }> })
+    .filter((f) => f.category === 'repetition.sentence-frame' && f.severity === 'medium' && new Set([f.location.primary.chapter, ...f.location.related.map((r) => r.chapter)]).size >= ESGARDEOR_MIN_CHAPTERS)
+    .sort((a, b) => (b.evidence[0]?.value ?? 0) - (a.evidence[0]?.value ?? 0));
+  for (const f of frames) {
+    if (habits.length >= MAX_ESGARDEOR_HABITS) break;
+    const core = f.fingerprint.primary.key.replace(/^[\s…]+|[\s…]+$/gu, '').toLowerCase();
+    if (!core || core.includes('…')) continue;
+    // Одна и та же фраза уже есть у модели или у взятой раньше рамки: «which was how» — это «which was».
+    if ([...known, ...habits.flatMap((h) => h.patterns)].some((p) => overlaps(p.toLowerCase(), core))) continue;
+    habits.push({ id: f.id, summary: f.summary, patterns: [core] });
+  }
+  return { habits };
 }

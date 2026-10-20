@@ -22,7 +22,7 @@ import { infostyle } from './checks/infostyle.ts';
 import { englishGuides } from './checks/en-guides.ts';
 import { checkGuideContextual } from './checks/guide-context.ts';
 import { checkBookPass } from './checks/book-pass.ts';
-import { latestBookRun, thinHabits } from './checks/habits.ts';
+import { esgardeorHabits, latestBookRun, thinHabits } from './checks/habits.ts';
 
 const guides: Record<string, Guide> = { 'nora-gal': noraGal, infostyle, ...Object.fromEntries(englishGuides.map((guide) => [guide.id, guide])) };
 
@@ -93,8 +93,11 @@ async function main(): Promise<void> {
       const startedAt = new Date().toISOString();
       if (!source.findingsDir || !source.workspaceDir) throw new Error('check --guide habits reads the last check --guide book run: it needs a Codicora workspace');
       const previous = await latestBookRun(source.findingsDir, source.book);
-      if (!previous.habits.length) throw new Error('the last amendeor findings run has no book.habit findings: run check --guide book --findings first');
-      const result = await underDelegation(source, args.delegation, 'check --guide habits', () => thinHabits(source.book, pack.pack, loadedConfig, source.stateDir, previous.habits, args.noCache));
+      const counted = await esgardeorHabits(source.findingsDir, source.workspaceDir, source.book, previous.habits);
+      if (counted.skipped) process.stderr.write(`habits: Esgardeor's repetitions skipped: ${counted.skipped}\n`);
+      const habits = [...previous.habits, ...counted.habits];
+      if (!habits.length) throw new Error('the last amendeor findings run has no book.habit findings: run check --guide book --findings first (Esgardeor counted no usable repetition either)');
+      const result = await underDelegation(source, args.delegation, 'check --guide habits', () => thinHabits(source.book, pack.pack, loadedConfig, source.stateDir, habits, args.noCache));
       if (args.findings) {
         const written = await writeFindingsRun(source.findingsDir, source.workspaceDir, source.book, [...previous.items, ...result.findings], { guide: 'book+habits', startedAt, stages: [
           { name: 'habits', status: result.status === 'refused' ? 'partial' : result.status, failures: result.failures.map((f) => ({ node_id: 'book', reason: f.reason })) }] });

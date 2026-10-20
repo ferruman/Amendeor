@@ -6,7 +6,9 @@ import path from 'node:path';
 import { splitScenes, type Book } from '../src/book.ts';
 import { loadPack } from '../src/lang/pack.ts';
 import { loadConfig } from '../src/config.ts';
-import { habitPatterns, collectUses, judgeDecisions, thinHabits, latestBookRun, type Habit } from '../src/checks/habits.ts';
+import { habitPatterns, collectUses, judgeDecisions, thinHabits, latestBookRun, esgardeorHabits, type Habit } from '../src/checks/habits.ts';
+import { mkdir } from 'node:fs/promises';
+import { sha256, normalizeText } from '../src/hash.ts';
 
 const prose = 'She came in from the yard and set the basket on the table, and nobody in the kitchen asked her where she had been. ';
 const text = [
@@ -128,4 +130,36 @@ test('verifier: thinning proposals get the thinning prompt; others keep the stri
     assert.match(systems[0]!, /thin a repeated stylistic habit/);
     assert.equal(systems[1], verifyPrompt('a b', 'a c', 'ctx').system);
   } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+// Повторы Esgardeor: только свежий прогон, только рамки medium в трёх главах с неизменной частью подряд, без того,
+// что модель уже назвала.
+test('esgardeor habits: fresh medium frames over three chapters, contiguous, not already named; stale runs skipped', async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), 'amendeor-esg-'));
+  try {
+    const file = path.join(dir, 'manuscript', 'chapters', 'ch01.md');
+    const local: Book = { lang: 'en', chapters: [{ ...book.chapters[0]!, file }] };
+    const runDir = path.join(dir, 'findings', 'esgardeor', 'runs', '2026-10-20T00-00-00Z-abcd');
+    await mkdir(runDir, { recursive: true });
+    await writeFile(path.join(dir, 'findings', 'esgardeor', 'latest.json'), JSON.stringify({ run_id: '2026-10-20T00-00-00Z-abcd' }));
+    const run = (hash: string) => writeFile(path.join(runDir, 'run.json'), JSON.stringify({ inputs: { files: [{ path: 'manuscript/chapters/ch01.md', content_hash: hash }] } }));
+    const frame = (id: string, key: string, severity: string, chapters: number, category = 'repetition.sentence-frame') => JSON.stringify({ id, category, severity, summary: `The frame “${key}”`, fingerprint: { primary: { key } },
+      location: { primary: { chapter: 'c1' }, related: Array.from({ length: chapters - 1 }, (_, i) => ({ chapter: `c${i + 2}` })) }, evidence: [{ type: 'metric', value: 9 }] });
+    await writeFile(path.join(runDir, 'findings.jsonl'), [
+      frame('esg:1', '… and did not …', 'medium', 3),
+      frame('esg:2', 'and … not … to', 'medium', 5),
+      frame('esg:3', 'she had not …', 'low', 6),
+      frame('esg:4', 'she could not …', 'medium', 2),
+      frame('esg:5', '… which was how', 'medium', 5),
+      frame('esg:6', 'chair', 'medium', 6, 'repetition.tic'),
+    ].join('\n'));
+    const named: Habit = { id: 'amendeor:w', summary: 'which was', patterns: ['which was'] };
+    await run(sha256(normalizeText(text)));
+    assert.deepEqual(await esgardeorHabits(path.join(dir, 'findings'), dir, local, [named]), { habits: [{ id: 'esg:1', summary: 'The frame “… and did not …”', patterns: ['and did not'] }] });
+    await run(sha256('another text'));
+    const stale = await esgardeorHabits(path.join(dir, 'findings'), dir, local, [named]);
+    assert.deepEqual(stale.habits, []);
+    assert.match(stale.skipped!, /another text/);
+    assert.deepEqual(await esgardeorHabits(path.join(dir, 'nowhere'), dir, local, []), { habits: [] }, 'no Esgardeor: as before');
+  } finally { await rm(dir, { recursive: true, force: true }); }
 });
