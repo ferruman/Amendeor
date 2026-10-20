@@ -155,11 +155,30 @@ test('esgardeor habits: fresh medium frames over three chapters, contiguous, not
     ].join('\n'));
     const named: Habit = { id: 'amendeor:w', summary: 'which was', patterns: ['which was'] };
     await run(sha256(normalizeText(text)));
-    assert.deepEqual(await esgardeorHabits(path.join(dir, 'findings'), dir, local, [named]), { habits: [{ id: 'esg:1', summary: 'The frame “… and did not …”', patterns: ['and did not'] }] });
+    assert.deepEqual(await esgardeorHabits(path.join(dir, 'findings'), dir, local, [named]), { habits: [{ id: 'esg:1', summary: 'The frame “… and did not …”', patterns: ['and did not'], counted: true }] });
     await run(sha256('another text'));
     const stale = await esgardeorHabits(path.join(dir, 'findings'), dir, local, [named]);
     assert.deepEqual(stale.habits, []);
     assert.match(stale.skipped!, /another text/);
     assert.deepEqual(await esgardeorHabits(path.join(dir, 'nowhere'), dir, local, []), { habits: [] }, 'no Esgardeor: as before');
+    await writeFile(path.join(dir, 'findings', 'esgardeor', 'latest.json'), JSON.stringify({ run_id: '2026-10-21T00-00-00Z-dead' }));
+    assert.match((await esgardeorHabits(path.join(dir, 'findings'), dir, local, [])).skipped!, /unreadable/, 'a missing run is skipped, not fatal');
   } finally { await rm(dir, { recursive: true, force: true }); }
+});
+
+// Кандидат из подсчёта помечен в запросе (привычки редактора — нет), а отчёт говорит, сколько из него заменено.
+test('counted candidates: marked in the request only, reported as thinned or not a habit', async () => {
+  const { LocalProvider } = await import('../src/provider/local.ts');
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-counted-'));
+  try {
+    const pack = (await loadPack('en')).pack;
+    const loaded = await loadConfig({ env: { HOME: root }, cli: { providers: { local: { transport: 'local', endpoint: path.join(root, 'x.json') } }, profiles: { book: { provider: 'local', model: 'reader' } } } });
+    const candidate: Habit = { ...plain, counted: true };
+    let user = '';
+    const reader = new LocalProvider((request) => { user = JSON.stringify(request); return JSON.stringify({ decisions: [] }); });
+    const result = await thinHabits(book, pack, loaded, path.join(root, 'state'), [squared, candidate], true, { local: reader });
+    assert.equal((user.match(/CANDIDATE/g) ?? []).length, 1);
+    assert.match(user, /Habit amendeor:aaaaaaaaaaaa0002 \(CANDIDATE/);
+    assert.deepEqual(result.counted, [{ habit: plain.id, pattern: 'plain', uses: 1, replaced: 0 }]);
+  } finally { await rm(root, { recursive: true, force: true }); }
 });

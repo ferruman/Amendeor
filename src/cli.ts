@@ -103,7 +103,7 @@ async function main(): Promise<void> {
           { name: 'habits', status: result.status === 'refused' ? 'partial' : result.status, failures: result.failures.map((f) => ({ node_id: 'book', reason: f.reason })) }] });
         process.stderr.write(`findings/amendeor/runs/${written.runId}: ${written.count} finding(s), ${result.findings.length} habit replacement(s) from ${result.uses} uses of ${result.habits} habits\n`);
       }
-      print({ command: 'check', guide: 'habits', version: 'habits-1', count: result.findings.length, findings: result.findings,
+      print({ command: 'check', guide: 'habits', version: 'habits-1', count: result.findings.length, findings: result.findings, counted: result.counted,
         contextual: { status: result.status, windows: result.requests, cached: result.cached, failures: result.failures, discarded: result.discarded, ledger: result.ledger } }, args.json);
       if (result.status !== 'ok') process.exitCode = 2;
       return;

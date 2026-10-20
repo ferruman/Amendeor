@@ -25,12 +25,15 @@ const MAX_USES_PER_HABIT = 120, MAX_USES_PER_REQUEST = 220;
 // «Проредить, не вычистить»: заменяется не больше двух третей вхождений привычки.
 const MAX_REPLACED_SHARE = 2 / 3;
 
-export interface Habit { id: string; summary: string; patterns: string[] }
+// counted: привычку нашёл подсчёт (Esgardeor), а не редактор — это кандидат, он может оказаться обычной грамматикой.
+export interface Habit { id: string; summary: string; patterns: string[]; counted?: boolean }
 export interface Use { id: string; habit: string; chapter: string; scene: string; start: number; end: number; sentence: string; dialogue: boolean }
 export interface ThinFinding extends GuideFinding { kind: 'contextual'; confidence: number; habit: string }
 export interface HabitsResult {
   status: 'ok' | 'partial' | 'refused';
   habits: number; uses: number; requests: number; cached: number;
+  // По каждому кандидату из подсчёта: сколько вхождений заменено; 0 — модель сочла фразу не привычкой.
+  counted: Array<{ habit: string; pattern: string; uses: number; replaced: number }>;
   failures: Array<{ chapter: string; scene: string; reason: string }>;
   discarded: Array<{ chapter: string; scene: string; reason: string }>;
   ledger: Gateway['ledger'];
@@ -182,7 +185,9 @@ export async function thinHabits(book: Book, pack: LanguagePack, loaded: LoadedC
   for (const group of batches(habits.filter((h) => uses.some((u) => u.habit === h.id)), uses)) {
     if (refused) break;
     const mine = uses.filter((u) => group.some((h) => h.id === u.habit));
-    const user = group.map((h) => `## Habit ${h.id}: ${h.summary}\nPatterns: ${h.patterns.join(' | ')}\n\n${mine.filter((u) => u.habit === h.id).map((u) => `[${u.id}] (${u.chapter}${u.dialogue ? ', dialogue' : ''}) ${u.sentence}`).join('\n')}`).join('\n\n');
+    // Кандидат из подсчёта помечен в самом запросе, а не в системном промпте: запросы с одними привычками редактора
+    // остаются байт в байт прежними и берутся из кэша.
+    const user = group.map((h) => `## Habit ${h.id}${h.counted ? ' (CANDIDATE: found by counting only, not by an editor. First decide whether it is a habit of this author at all. If it is ordinary grammar of the language, keep every use)' : ''}: ${h.summary}\nPatterns: ${h.patterns.join(' | ')}\n\n${mine.filter((u) => u.habit === h.id).map((u) => `[${u.id}] (${u.chapter}${u.dialogue ? ', dialogue' : ''}) ${u.sentence}`).join('\n')}`).join('\n\n');
     const key = { version: VERSION, system, user: sha256(user), profile, provider: { transport: provider.transport, endpoint: provider.endpoint, family: provider.family } };
     try {
       let output = await cache.read<string>('habits', key);
@@ -201,7 +206,8 @@ export async function thinHabits(book: Book, pack: LanguagePack, loaded: LoadedC
       failures.push({ chapter: '', scene: '', reason: error instanceof Error ? error.message : String(error) });
     }
   }
-  return { status: refused ? 'refused' : failures.length ? 'partial' : 'ok', habits: habits.length, uses: uses.length, requests, cached, failures, discarded, ledger: gateway.ledger, findings };
+  const counted = habits.filter((h) => h.counted).map((h) => ({ habit: h.id, pattern: h.patterns.join(' | '), uses: uses.filter((u) => u.habit === h.id).length, replaced: findings.filter((f) => f.habit === h.id).length }));
+  return { status: refused ? 'refused' : failures.length ? 'partial' : 'ok', habits: habits.length, uses: uses.length, requests, cached, counted, failures, discarded, ledger: gateway.ledger, findings };
 }
 
 // Последний прогон Amendeor (findings/amendeor/latest.json): привычки для прореживания и все его находки как были —
@@ -241,6 +247,8 @@ export async function latestBookRun(findingsDir: string, book: Book): Promise<{ 
 // внутри («the … was … as») — грамматика, а не фраза, и шаблоном её не найти. Лексические всплески
 // (repetition.tic) не берутся: слово, которое всплывает в сценах, — предмет сцены («chair», «envelope»), а не
 // привычка письма. Прогон Esgardeor по другому тексту пропускается целиком — его счёт уже про другую книгу.
+// Неизменная часть рамки — по построению одни служебные слова (frames.ts оставляет только стоп-слова), поэтому
+// отличить привычку от обычной грамматики («she had not») код не может: рамка идёт модели кандидатом (counted).
 const MAX_ESGARDEOR_HABITS = 4;
 const ESGARDEOR_MIN_CHAPTERS = 3;
 
@@ -251,16 +259,19 @@ export async function esgardeorHabits(findingsDir: string, workspaceDir: string,
   let run_id: string;
   try { ({ run_id } = JSON.parse(await readFile(path.join(dir, 'latest.json'), 'utf8')) as { run_id: string }); } catch { return { habits: [] }; }
   if (!/^[0-9TZ:-]+[0-9a-f]{4}$/u.test(run_id)) return { habits: [], skipped: 'invalid esgardeor latest run_id' };
-  const run = JSON.parse(await readFile(path.join(dir, 'runs', run_id, 'run.json'), 'utf8')) as { inputs?: { files?: Array<{ path: string; content_hash: string }> } };
+  let run: { inputs?: { files?: Array<{ path: string; content_hash: string }> } }, lines: string[];
+  try {
+    run = JSON.parse(await readFile(path.join(dir, 'runs', run_id, 'run.json'), 'utf8'));
+    lines = (await readFile(path.join(dir, 'runs', run_id, 'findings.jsonl'), 'utf8')).split('\n').filter((l) => l.trim());
+  } catch (error) { return { habits: [], skipped: `esgardeor run ${run_id} unreadable: ${error instanceof Error ? error.message : String(error)}` }; }
   const theirs = new Map((run.inputs?.files ?? []).map((f) => [f.path, f.content_hash]));
   const stale = theirs.size !== book.chapters.length || book.chapters.some((c) => theirs.get(path.relative(workspaceDir, c.file)) !== sha256(normalizeText(c.text)));
   if (stale) return { habits: [], skipped: `esgardeor run ${run_id} was made on another text of the manuscript` };
   const known = named.flatMap((h) => h.patterns);
   const overlaps = (a: string, b: string) => patternRe(a).test(b) || patternRe(b).test(a);
   const habits: Habit[] = [];
-  const lines = (await readFile(path.join(dir, 'runs', run_id, 'findings.jsonl'), 'utf8')).split('\n').filter((l) => l.trim());
-  const frames = lines.map((l) => JSON.parse(l) as { id: string; category: string; severity: string; summary: string; fingerprint: { primary: { key: string } }; location: { primary: { chapter: string }; related: Array<{ chapter: string }> }; evidence: Array<{ type: string; value?: number }> })
-    .filter((f) => f.category === 'repetition.sentence-frame' && f.severity === 'medium' && new Set([f.location.primary.chapter, ...f.location.related.map((r) => r.chapter)]).size >= ESGARDEOR_MIN_CHAPTERS)
+  const frames = lines.map((l) => { try { return JSON.parse(l); } catch { return {}; } }).map((f) => f as { id: string; category: string; severity: string; summary: string; fingerprint: { primary: { key: string } }; location: { primary: { chapter: string }; related: Array<{ chapter: string }> }; evidence: Array<{ type: string; value?: number }> })
+    .filter((f) => f.category === 'repetition.sentence-frame' && f.severity === 'medium' && new Set([f.location?.primary.chapter, ...(f.location?.related ?? []).map((r) => r.chapter)]).size >= ESGARDEOR_MIN_CHAPTERS)
     .sort((a, b) => (b.evidence[0]?.value ?? 0) - (a.evidence[0]?.value ?? 0));
   for (const f of frames) {
     if (habits.length >= MAX_ESGARDEOR_HABITS) break;
@@ -268,7 +279,7 @@ export async function esgardeorHabits(findingsDir: string, workspaceDir: string,
     if (!core || core.includes('…')) continue;
     // Одна и та же фраза уже есть у модели или у взятой раньше рамки: «which was how» — это «which was».
     if ([...known, ...habits.flatMap((h) => h.patterns)].some((p) => overlaps(p.toLowerCase(), core))) continue;
-    habits.push({ id: f.id, summary: f.summary, patterns: [core] });
+    habits.push({ id: f.id, summary: f.summary, patterns: [core], counted: true });
   }
   return { habits };
 }
