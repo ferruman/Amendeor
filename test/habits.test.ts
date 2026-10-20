@@ -180,5 +180,7 @@ test('counted candidates: marked in the request only, reported as thinned or not
     assert.equal((user.match(/CANDIDATE/g) ?? []).length, 1);
     assert.match(user, /Habit amendeor:aaaaaaaaaaaa0002 \(CANDIDATE/);
     assert.deepEqual(result.counted, [{ habit: plain.id, pattern: 'plain', uses: 1, replaced: 0 }]);
+    const failed = await thinHabits(book, pack, loaded, path.join(root, 'state'), [candidate], true, { local: new LocalProvider(() => { throw new Error('down'); }) });
+    assert.deepEqual(failed.counted.map((c) => c.replaced), [null], 'no answer is not "not a habit"');
   } finally { await rm(root, { recursive: true, force: true }); }
 });

@@ -32,8 +32,8 @@ export interface ThinFinding extends GuideFinding { kind: 'contextual'; confiden
 export interface HabitsResult {
   status: 'ok' | 'partial' | 'refused';
   habits: number; uses: number; requests: number; cached: number;
-  // По каждому кандидату из подсчёта: сколько вхождений заменено; 0 — модель сочла фразу не привычкой.
-  counted: Array<{ habit: string; pattern: string; uses: number; replaced: number }>;
+  // По каждому кандидату из подсчёта: сколько вхождений заменено; 0 — модель сочла фразу не привычкой, null — ответа не было.
+  counted: Array<{ habit: string; pattern: string; uses: number; replaced: number | null }>;
   failures: Array<{ chapter: string; scene: string; reason: string }>;
   discarded: Array<{ chapter: string; scene: string; reason: string }>;
   ledger: Gateway['ledger'];
@@ -180,7 +180,7 @@ export async function thinHabits(book: Book, pack: LanguagePack, loaded: LoadedC
   const uses = collectUses(book, habits, pack);
   const system = `${HABITS_SYSTEM}\n\nThe manuscript is in ${languageName(book.lang)}.`;
   const failures: HabitsResult['failures'] = [], discarded: HabitsResult['discarded'] = [], findings: ThinFinding[] = [];
-  const reused = new Set<string>();
+  const reused = new Set<string>(), answered = new Set<string>();
   let cached = 0, requests = 0, refused = false;
   for (const group of batches(habits.filter((h) => uses.some((u) => u.habit === h.id)), uses)) {
     if (refused) break;
@@ -199,6 +199,7 @@ export async function thinHabits(book: Book, pack: LanguagePack, loaded: LoadedC
         await cache.write('habits', key, output);
       }
       const judged = judgeDecisions(output, mine, group, book, pack, reused);
+      for (const h of group) answered.add(h.id);
       findings.push(...judged.findings);
       for (const reason of judged.discarded) discarded.push({ chapter: '', scene: '', reason });
     } catch (error) {
@@ -206,7 +207,7 @@ export async function thinHabits(book: Book, pack: LanguagePack, loaded: LoadedC
       failures.push({ chapter: '', scene: '', reason: error instanceof Error ? error.message : String(error) });
     }
   }
-  const counted = habits.filter((h) => h.counted).map((h) => ({ habit: h.id, pattern: h.patterns.join(' | '), uses: uses.filter((u) => u.habit === h.id).length, replaced: findings.filter((f) => f.habit === h.id).length }));
+  const counted = habits.filter((h) => h.counted).map((h) => ({ habit: h.id, pattern: h.patterns.join(' | '), uses: uses.filter((u) => u.habit === h.id).length, replaced: answered.has(h.id) ? findings.filter((f) => f.habit === h.id).length : null }));
   return { status: refused ? 'refused' : failures.length ? 'partial' : 'ok', habits: habits.length, uses: uses.length, requests, cached, counted, failures, discarded, ledger: gateway.ledger, findings };
 }
 
