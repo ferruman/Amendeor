@@ -77,3 +77,11 @@ test('region variant: an en-US book gets British forms flagged; a shared form or
   assert.deepEqual(run('en-US').map((d) => [d.target, d.replacement, d.authority]), [['realised', 'realized', 'contextual'], ['autumn', 'fall', 'semantic'], ['queue', 'line', 'semantic']]);
   assert.deepEqual(run('en'), []);
 });
+
+test('typography.whitespace: a caliber or decimal after a space is not a space before punctuation', async () => {
+  const { whitespace } = await import('../../src/rules/whitespace.ts');
+  const targets = (text: string) => whitespace.detect({ text } as never, {} as never).map((d) => d.target);
+  assert.deepEqual(targets('A .38 was in the drawer, and the .45 too.'), []);
+  assert.deepEqual(targets('She paid .5 percent.'), []);
+  assert.deepEqual(targets('It was open . Then shut , and gone .'), ['n .', 't ,', 'e .']);
+});

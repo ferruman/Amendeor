@@ -75,9 +75,11 @@ test('habits end to end: the slip survives the new run; thinning becomes meaning
     await writeFindingsRun(source.findingsDir, root, source.book, [
       { ...base, id: 's', principle: 'book.slip', quote: slipQuote, ...at(slipQuote), reason: 'A slip.', replacement: 'She came in from the yard and set the basket on the table, and no one in the kitchen asked her where she had been.' },
       { ...base, id: 'h', principle: 'book.habit', quote: 'He squared the pad on the desk.', ...at('He squared the pad on the desk.'), reason: 'Squaring recurs.', patterns: ['squared'] },
+      // the second book pass names the same habit again: merged, not a second entry over the same sentences
+      { ...base, id: 'h2', principle: 'book.habit', quote: 'She squared the folder and left.', ...at('She squared the folder and left.'), reason: 'Squared again.', patterns: ['squared the'] },
     ], { guide: 'book', startedAt: new Date().toISOString() });
     const previous = await latestBookRun(source.findingsDir, source.book);
-    assert.equal(previous.items.length, 2); assert.deepEqual(previous.habits.map((h) => h.patterns), [['squared']]);
+    assert.equal(previous.items.length, 3); assert.deepEqual(previous.habits.map((h) => h.patterns), [['squared', 'squared the']]);
     const loaded = await loadConfig({ env: { HOME: root }, cli: { providers: { local: { transport: 'local', endpoint: path.join(root, 'script.json') } }, profiles: { book: { provider: 'local', model: 'reader' }, verify: { provider: 'local', model: 'verifier', passes: 1 } } } });
     const uses = collectUses(source.book, previous.habits, pack);
     const reader = new LocalProvider(() => JSON.stringify({ decisions: [{ id: uses[0]!.id, action: 'replace', replacement: 'He set the pad straight on the desk.', reason: 'thin' }] }));

@@ -50,6 +50,7 @@ export function habitPatterns(summary: string, suggestion: string | undefined, p
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
 const patternRe = (p: string) => new RegExp(`(?<![\\p{L}\\p{N}])${escape(p).replace(/\s+/gu, '\\s+')}(?![\\p{L}\\p{N}])`, 'giu');
 const occurrences = (text: string, p: string) => text.match(patternRe(p))?.length ?? 0;
+const overlaps = (a: string, b: string) => patternRe(a).test(b) || patternRe(b).test(a);
 
 export function collectUses(book: Book, habits: Habit[], pack: LanguagePack): Use[] {
   const uses: Use[] = [];
@@ -235,7 +236,11 @@ export async function latestBookRun(findingsDir: string, book: Book): Promise<{ 
       ...(Array.isArray(f.metadata.patterns) ? { patterns: f.metadata.patterns as string[] } : {}) });
     if (principle === 'book.habit') {
       const patterns = habitPatterns(f.summary, f.suggestion, f.metadata.patterns);
-      if (patterns.length) habits.push({ id: f.id, summary: f.summary, patterns });
+      // Two book passes are unioned, so one habit can arrive twice (The Arrangement: `the way` both times).
+      // Two entries would collect the same sentences twice and let each thin up to two thirds of them.
+      const same = habits.find((h) => h.patterns.some((p) => patterns.some((q) => overlaps(p, q))));
+      if (same) same.patterns = [...new Set([...same.patterns, ...patterns])];
+      else if (patterns.length) habits.push({ id: f.id, summary: f.summary, patterns });
     }
   }
   return { items, habits };
@@ -269,7 +274,6 @@ export async function esgardeorHabits(findingsDir: string, workspaceDir: string,
   const stale = theirs.size !== book.chapters.length || book.chapters.some((c) => theirs.get(path.relative(workspaceDir, c.file)) !== sha256(normalizeText(c.text)));
   if (stale) return { habits: [], skipped: `esgardeor run ${run_id} was made on another text of the manuscript` };
   const known = named.flatMap((h) => h.patterns);
-  const overlaps = (a: string, b: string) => patternRe(a).test(b) || patternRe(b).test(a);
   const habits: Habit[] = [];
   const frames = lines.map((l) => { try { return JSON.parse(l); } catch { return {}; } }).map((f) => f as { id: string; category: string; severity: string; summary: string; fingerprint: { primary: { key: string } }; location: { primary: { chapter: string }; related: Array<{ chapter: string }> }; evidence: Array<{ type: string; value?: number }> })
     .filter((f) => f.category === 'repetition.sentence-frame' && f.severity === 'medium' && new Set([f.location?.primary.chapter, ...(f.location?.related ?? []).map((r) => r.chapter)]).size >= ESGARDEOR_MIN_CHAPTERS)
