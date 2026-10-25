@@ -65,6 +65,8 @@ const RETRY = (lang: string) => `\n\nYour previous answer wrote some marks in an
 
 export const bookPassUser = (book: Book) => book.chapters.map((c) => `=== ${c.slug} · ${c.title} ===\n\n${c.text}`).join('\n\n');
 
+const stripOuterMarks = (text: string) => text.replace(/^["'“”‘’«»„\s]+|["'“”‘’«»„\s]+$/gu, '');
+
 // Цитата ищется в названной главе, иначе во всей книге; засчитывается, только если в сцене она одна.
 function locate(book: Book, chapterSlug: string, quote: string) {
   const ordered = [...book.chapters.filter((c) => c.slug === chapterSlug), ...book.chapters.filter((c) => c.slug !== chapterSlug)];
@@ -81,8 +83,13 @@ export function toBookPassFindings(book: Book, output: string): { findings: Book
     const mark = markSchema.safeParse(raw);
     if (!mark.success) { discarded.push('mark breaks the schema'); continue; }
     const { kind, chapter, problem, fix, count, replacement, patterns } = mark.data;
-    const quote = mark.data.quote.trim();
-    const at = locate(book, chapter, quote);
+    // Модель часто оборачивает цитату в кавычки, которых в тексте нет (Esgardeor видел это у четверти цитат):
+    // если цитата как есть не нашлась, ищем её без внешних кавычек, и так же чистим замену.
+    const asGiven = mark.data.quote.trim(), bare = stripOuterMarks(asGiven);
+    const exact = locate(book, chapter, asGiven);
+    const at = exact ?? (bare ? locate(book, chapter, bare) : null);
+    const quote = exact ? asGiven : bare;
+    const fixed = replacement && (exact ? replacement.trim() : stripOuterMarks(replacement.trim()));
     if (!at) { discarded.push(`quote not found once in a scene: ${quote.slice(0, 60)}`); continue; }
     const reason = kind === 'habit' && count ? `${problem} (≈${count}×)` : problem;
     findings.push({
@@ -94,7 +101,7 @@ export function toBookPassFindings(book: Book, output: string): { findings: Book
       ...(fix ? { suggestion: fix } : {}),
       // Замена годится в правку, только если это та же фраза с исправлением, а не пересказ правки.
       ...(kind === 'habit' && patterns?.length ? { patterns: patterns.map((p) => p.trim()).filter(Boolean) } : {}),
-      ...(kind === 'slip' && replacement && replacement.trim() && replacement.trim() !== quote ? { replacement: replacement.trim() } : {}),
+      ...(kind === 'slip' && fixed && fixed !== quote ? { replacement: fixed } : {}),
     });
   }
   return { findings, discarded };

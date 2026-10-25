@@ -6,7 +6,7 @@ import path from 'node:path';
 import { splitScenes, type Book } from '../src/book.ts';
 import { loadPack } from '../src/lang/pack.ts';
 import { loadConfig } from '../src/config.ts';
-import { checkBookPass } from '../src/checks/book-pass.ts';
+import { checkBookPass, toBookPassFindings } from '../src/checks/book-pass.ts';
 import { toFindings } from '../src/checks/findings.ts';
 
 const one = 'The word sat in him, four syllables, holding its edge.\n\nHe squared the pad on the desk.';
@@ -129,4 +129,17 @@ test('book pass: marks in another language are asked again once; a stubborn answ
     const warm = await checkBookPass(englishBook, pack, loaded, path.join(root, 'b'), false, 1, { local: stubborn });
     assert.equal(calls, 0); assert.equal(warm.cached, 1);
   } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+// Цитата в кавычках, которых в тексте нет, всё равно находится; находка и замена несут текст без кавычек.
+test('book pass: a quote wrapped in outer quotation marks is still located', () => {
+  const { findings, discarded } = toBookPassFindings(book, JSON.stringify({ marks: [
+    { kind: 'slip', chapter: 'ch02', quote: '“He turned three cups on the griddle with a spatula.”', problem: 'Pancakes are meant.', replacement: '"He turned three pancakes on the griddle with a spatula."' },
+    { kind: 'slip', chapter: 'ch01', quote: '"""', problem: 'Nothing.' },
+  ] }));
+  assert.equal(discarded.length, 1);
+  const [f] = findings;
+  assert.equal(f.quote, 'He turned three cups on the griddle with a spatula.');
+  assert.equal(two.slice(f.start, f.end), f.quote);
+  assert.equal(f.replacement, 'He turned three pancakes on the griddle with a spatula.');
 });
