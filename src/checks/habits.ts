@@ -50,6 +50,17 @@ export function habitPatterns(summary: string, suggestion: string | undefined, p
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
 const patternRe = (p: string) => new RegExp(`(?<![\\p{L}\\p{N}])${escape(p).replace(/\s+/gu, '\\s+')}(?![\\p{L}\\p{N}])`, 'giu');
 const occurrences = (text: string, p: string) => text.match(patternRe(p))?.length ?? 0;
+// Буквальный счёт привычки по её шаблонам: перекрывающиеся совпадения («squared», «squared the») — одно вхождение.
+// На The Arrangement модель оценила «the way» в ≈80 и ≈120, в тексте было 106.
+export function literalCount(book: Book, patterns: string[]): number {
+  let n = 0;
+  for (const chapter of book.chapters) for (const scene of chapter.scenes) {
+    const spans = patterns.flatMap((p) => [...scene.text.matchAll(patternRe(p))].map((m) => [m.index!, m.index! + m[0].length] as const)).sort((a, b) => a[0] - b[0]);
+    let end = -1;
+    for (const [s, e] of spans) { if (s >= end) n++; end = Math.max(end, e); }
+  }
+  return n;
+}
 const overlaps = (a: string, b: string) => patternRe(a).test(b) || patternRe(b).test(a);
 
 export function collectUses(book: Book, habits: Habit[], pack: LanguagePack): Use[] {

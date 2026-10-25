@@ -143,3 +143,13 @@ test('book pass: a quote wrapped in outer quotation marks is still located', () 
   assert.equal(two.slice(f.start, f.end), f.quote);
   assert.equal(f.replacement, 'He turned three pancakes on the griddle with a spatula.');
 });
+
+// Число привычки — буквальный счёт по шаблонам, перекрытия — одно вхождение; без шаблонов остаётся оценка модели.
+test('book pass: a habit with patterns carries its literal count, not the model estimate', () => {
+  const { findings } = toBookPassFindings(book, JSON.stringify({ marks: [
+    { kind: 'habit', chapter: 'ch01', quote: 'He squared the pad on the desk.', problem: 'Squaring recurs.', count: 19, patterns: ['squared', 'squared the'] },
+    { kind: 'habit', chapter: 'ch02', quote: 'She squared the folder and left.', problem: 'Squaring recurs.', count: 7 },
+  ] }));
+  assert.equal(findings[0]!.reason, 'Squaring recurs. (2× by its patterns)');
+  assert.equal(findings[1]!.reason, 'Squaring recurs. (≈7×)');
+});

@@ -15,6 +15,7 @@ import { parseModelJson } from '../provider/json.ts';
 import { sha256 } from '../hash.ts';
 import type { GuideFinding } from './guide.ts';
 import { languageProfile, wrongLanguage } from '../lang/match.ts';
+import { literalCount } from './habits.ts';
 
 const VERSION = 'book-pass-5';
 
@@ -91,7 +92,10 @@ export function toBookPassFindings(book: Book, output: string): { findings: Book
     const quote = exact ? asGiven : bare;
     const fixed = replacement && (exact ? replacement.trim() : stripOuterMarks(replacement.trim()));
     if (!at) { discarded.push(`quote not found once in a scene: ${quote.slice(0, 60)}`); continue; }
-    const reason = kind === 'habit' && count ? `${problem} (≈${count}×)` : problem;
+    // Число привычки — буквальный счёт по её шаблонам; оценка модели только когда шаблонов нет.
+    const listed = kind === 'habit' ? (patterns ?? []).map((p) => p.trim()).filter(Boolean) : [];
+    const counted = listed.length ? literalCount(book, listed) : 0;
+    const reason = counted ? `${problem} (${counted}× by its patterns)` : kind === 'habit' && count ? `${problem} (≈${count}×)` : problem;
     findings.push({
       id: sha256(`${at.chapter.slug}\n${at.scene.id}\n${at.start}\nbook.${kind}\n${quote}`), guide: 'book', kind: 'contextual',
       principle: `book.${kind}`, source_pages: '', chapter: at.chapter.slug, scene: at.scene.id,
@@ -100,7 +104,7 @@ export function toBookPassFindings(book: Book, output: string): { findings: Book
       severity: kind === 'slip' ? 'medium' : 'low', confidence: 0.7,
       ...(fix ? { suggestion: fix } : {}),
       // Замена годится в правку, только если это та же фраза с исправлением, а не пересказ правки.
-      ...(kind === 'habit' && patterns?.length ? { patterns: patterns.map((p) => p.trim()).filter(Boolean) } : {}),
+      ...(listed.length ? { patterns: listed } : {}),
       ...(kind === 'slip' && fixed && fixed !== quote ? { replacement: fixed } : {}),
     });
   }
