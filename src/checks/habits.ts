@@ -203,14 +203,16 @@ export async function thinHabits(book: Book, pack: LanguagePack, loaded: LoadedC
     const key = { version: VERSION, system, user: sha256(user), profile, provider: { transport: provider.transport, endpoint: provider.endpoint, family: provider.family } };
     try {
       let output = await cache.read<string>('habits', key);
-      if (output !== undefined && output !== null) cached++;
+      const fresh = output === undefined || output === null;
+      if (!fresh) cached++;
       else {
         requests++;
         // Ответ — решение по каждому id и целые предложения на замену: около трёхсот символов на вхождение.
         output = (await gateway.complete('habits', role, system, user, Math.max(4000, mine.length * 300))).text;
-        await cache.write('habits', key, output);
       }
-      const judged = judgeDecisions(output, mine, group, book, pack, reused);
+      const judged = judgeDecisions(output!, mine, group, book, pack, reused);
+      // В кэш — только разобранный ответ: битый иначе отдавался бы при каждом повторе.
+      if (fresh) await cache.write('habits', key, output);
       for (const h of group) answered.add(h.id);
       findings.push(...judged.findings);
       for (const reason of judged.discarded) discarded.push({ chapter: '', scene: '', reason });

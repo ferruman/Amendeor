@@ -186,3 +186,20 @@ test('counted candidates: marked in the request only, reported as thinned or not
     assert.deepEqual(failed.counted.map((c) => c.replaced), [null], 'no answer is not "not a habit"');
   } finally { await rm(root, { recursive: true, force: true }); }
 });
+
+// Битый ответ модели не кэшируется: повтор спрашивает заново, а не отдаёт тот же мусор (ретроспектива 2026-10-19 §5).
+test('thin: a malformed answer is not cached, the retry asks again', async () => {
+  const { LocalProvider } = await import('../src/provider/local.ts');
+  const root = await mkdtemp(path.join(os.tmpdir(), 'amendeor-malformed-'));
+  try {
+    const pack = (await loadPack('en')).pack;
+    const loaded = await loadConfig({ env: { HOME: root }, cli: { providers: { local: { transport: 'local', endpoint: path.join(root, 'x.json') } }, profiles: { book: { provider: 'local', model: 'reader' } } } });
+    const state = path.join(root, 'state');
+    const bad = await thinHabits(book, pack, loaded, state, [squared], false, { local: new LocalProvider(() => 'not json at all') });
+    assert.equal(bad.status, 'partial');
+    const good = await thinHabits(book, pack, loaded, state, [squared], false, { local: new LocalProvider(() => JSON.stringify({ decisions: [] })) });
+    assert.equal(good.status, 'ok'); assert.equal(good.requests, 1); assert.equal(good.cached, 0);
+    const again = await thinHabits(book, pack, loaded, state, [squared], false, { local: new LocalProvider(() => { throw new Error('should be cached'); }) });
+    assert.equal(again.status, 'ok'); assert.equal(again.cached, 1, 'a parsed answer is cached');
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
