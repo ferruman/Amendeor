@@ -29,6 +29,8 @@ export class Gateway {
       // Резерв — до ожидания слота OpenRouter: отказ в тратах приходит сразу, а не после 3,5 с тишины на каждое окно (AUDIT F5).
       const m = meter.getStore();
       const reservation: Reservation | null = m ? await reserve(m, providerConfig.price, system.length + prompt.length, request.maxTokens) : null;
+      // Под делегацией — там, где деньги считаются: ключ без остатка не получает вызова, резерв закрывается нулём.
+      if (m && reservation) await assertKeyBalance(providerConfig, request, system.length + prompt.length).catch(async (e) => { await settle(m, reservation, 0); throw e; });
       if (providerConfig.transport !== 'local' && providerConfig.endpoint && new URL(providerConfig.endpoint).hostname === 'openrouter.ai') {
         const slot = Math.max(Date.now(), this.nextOpenRouterRequestAt);
         this.nextOpenRouterRequestAt = slot + 3500;
@@ -60,4 +62,30 @@ export class Gateway {
     }
     throw last;
   }
+}
+
+// Остаток собственного лимита ключа OpenRouter (GET /api/v1/key → data.limit_remaining, USD; null — без лимита), не
+// чаще раза в минуту. У делегации могут быть деньги, когда у ключа их нет (The Perfect Dose: лимит $100, Codicora B22).
+// Вызов, чей худший случай больше остатка, не отправляется; сбой проверки ничего не решает.
+let balance: { at: number; key: string; remaining: number | null } | null = null;
+export const resetKeyBalance = (): void => { balance = null; };
+export async function assertKeyBalance(providerConfig: { transport?: string; endpoint?: string; price?: { input_per_m: number; output_per_m: number } | null }, request: CompletionRequest, chars: number, fetcher: typeof fetch = fetch): Promise<void> {
+  if (providerConfig.transport === 'local' || !providerConfig.endpoint || !request.apiKey) return;
+  let host = '';
+  try { host = new URL(providerConfig.endpoint).hostname; } catch { return; }
+  if (host !== 'openrouter.ai') return;
+  const now = Date.now();
+  if (!balance || balance.key !== request.apiKey || now - balance.at >= 60_000) {
+    let remaining: number | null = null;
+    try {
+      const res = await fetcher('https://openrouter.ai/api/v1/key', { headers: { authorization: `Bearer ${request.apiKey}` }, signal: AbortSignal.timeout(5000) });
+      const v = res.ok ? ((await res.json()) as { data?: { limit_remaining?: unknown } })?.data?.limit_remaining : null;
+      remaining = typeof v === 'number' ? v : null;
+    } catch { /* молчание: решает сам вызов */ }
+    balance = { at: now, key: request.apiKey, remaining };
+  }
+  if (balance.remaining === null) return;
+  const p = providerConfig.price;
+  const worst = p ? (Math.ceil(chars / 2) * p.input_per_m + request.maxTokens * p.output_per_m) / 1_000_000 : 0;
+  if (balance.remaining <= worst) throw new ProviderError('http', false, `the OpenRouter key has $${balance.remaining.toFixed(2)} left of its own limit, not enough for this call (worst case $${worst.toFixed(2)}); raising the key's limit is the author's decision`);
 }

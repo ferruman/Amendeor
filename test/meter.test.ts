@@ -92,3 +92,17 @@ test('meter: a 4xx refusal settles at 0; spend stays at 0', async () => {
   await assert.rejects(meter.run(m, () => new Gateway(priced, pack, {}, { local: refusing }).complete('edit', 'edit', 'sys', 'prompt', 100)), /Key limit exceeded/);
   assert.equal(await spentUnder(path.join(m.ctx!.workspaceDir, 'authority'), 'r', 'USD'), 0);
 });
+
+// Codicora B22: an OpenRouter key below the call's worst case is refused before anything is sent.
+test('assertKeyBalance: only for OpenRouter; refuses when the key has less left than the worst case; silent on a failed probe', async () => {
+  const { assertKeyBalance, resetKeyBalance } = await import('../src/provider/gateway.ts');
+  const req = { system: 's', prompt: 'p', model: 'm', maxTokens: 1000, apiKey: 'k' };
+  const cfg = { transport: 'openai', endpoint: 'https://openrouter.ai/api/v1', price: { input_per_m: 1, output_per_m: 2 } };
+  const empty = (async () => ({ ok: true, json: async () => ({ data: { limit_remaining: 0 } }) })) as unknown as typeof fetch;
+  resetKeyBalance();
+  await assert.rejects(assertKeyBalance(cfg, req, 100, empty), /\$0\.00 left/);
+  resetKeyBalance();
+  await assertKeyBalance(cfg, req, 100, (async () => { throw new Error('offline'); }) as unknown as typeof fetch);
+  await assertKeyBalance({ ...cfg, endpoint: 'https://api.example.com/v1' }, req, 100, empty);
+  resetKeyBalance();
+});
