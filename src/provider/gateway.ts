@@ -48,7 +48,10 @@ export class Gateway {
         return result;
       } catch (error) {
         last = error;
-        // Неудачный ответ мог быть оплачен: резервация остаётся открытой и считается целиком.
+        // Неудачный ответ мог быть оплачен: резервация остаётся открытой и считается целиком. Исключение — отказ
+        // провайдера с кодом 4xx (кроме 408): запрос отвергнут, а не выполнен, и закрывается нулём (Codicora B14).
+        const status = error instanceof ProviderError && error.kind === 'http' ? Number(/^HTTP (\d{3})/.exec(error.diagnosis)?.[1]) : NaN;
+        if (m && reservation && status >= 400 && status < 500 && status !== 408) await settle(m, reservation, 0);
         this.ledger.push({ stage, provider: profile.provider, model: profile.model, tokens_in: 0, tokens_out: 0, cost: null, currency: providerConfig.price?.currency ?? null, ms: Math.round(performance.now() - started), budget: request.maxTokens, error: error instanceof ProviderError ? error.kind + ': ' + error.diagnosis : String(error) });
         if (!(error instanceof ProviderError) || !error.retryable || attempt === 2) break;
         if (error.kind === 'truncated') request.maxTokens *= 2;

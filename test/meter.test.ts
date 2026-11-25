@@ -83,3 +83,12 @@ test('a grant edited between dispatches stops this command before another reserv
     assert.equal(await spentUnder(path.dirname(file), 'r', 'USD'), 1);
   } finally { await rm(m.ctx!.workspaceDir, { recursive: true, force: true }); }
 });
+
+// Codicora B14: a provider refusal (403 key limit) was answered, not run — its reservation settles at 0.
+test('meter: a 4xx refusal settles at 0; spend stays at 0', async () => {
+  const { ProviderError } = await import('../src/provider/types.ts');
+  const refusing: Provider = { async complete() { throw new ProviderError('http', false, 'HTTP 403: error: Key limit exceeded'); } };
+  const m = await delegated(1);
+  await assert.rejects(meter.run(m, () => new Gateway(priced, pack, {}, { local: refusing }).complete('edit', 'edit', 'sys', 'prompt', 100)), /Key limit exceeded/);
+  assert.equal(await spentUnder(path.join(m.ctx!.workspaceDir, 'authority'), 'r', 'USD'), 0);
+});
